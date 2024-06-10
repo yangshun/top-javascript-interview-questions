@@ -81,11 +81,14 @@ async function processQuestionList(qns: string[]) {
 function formatQuestion(qn: QuestionItem) {
   return `## ${qn.title}
 
-<!-- Source: /questions/${qn.slug}/${qn.locale}.mdx -->
+<!-- Update here: /questions/${qn.slug}/${qn.locale}.mdx -->
 
 ${qn.content}
 
-<!-- Source: /questions/${qn.slug}/${qn.locale}.mdx -->
+<!-- Update here: /questions/${qn.slug}/${qn.locale}.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/${qn.slug}) which contains more code samples and useful resources._
+
 `;
 }
 

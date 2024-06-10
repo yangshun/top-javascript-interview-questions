@@ -9,27 +9,33 @@ Top JavaScript interview questions for acing your front end interviews.
 
 ## Describe event bubbling
 
-<!-- Source: /questions/describe-event-bubbling/en-US.mdx -->
+<!-- Update here: /questions/describe-event-bubbling/en-US.mdx -->
 
 Event bubbling is a DOM event propagation mechanism where an event (e.g. a click), starts at the target element and bubbles up to the root of the document. This allows ancestor elements to also respond to the event.
 
 Event bubbling is essential for event delegation, where a single event handler manages events for multiple child elements, enhancing performance and code simplicity. While convenient, failing to manage event propagation properly can lead to unintended behavior, such as multiple handlers firing for a single event.
 
-<!-- Source: /questions/describe-event-bubbling/en-US.mdx -->
+<!-- Update here: /questions/describe-event-bubbling/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/describe-event-bubbling) which contains more code samples and useful resources._
+
 
 ## Describe event capturing
 
-<!-- Source: /questions/describe-event-capturing/en-US.mdx -->
+<!-- Update here: /questions/describe-event-capturing/en-US.mdx -->
 
 Event capturing is a lesser-used counterpart to [event bubbling](/questions/quiz/describe-event-bubbling) in the DOM event propagation mechanism. It follows the opposite order, where an event triggers first on the ancestor element and then travels down to the target element.
 
 Event capturing is rarely used as compared to event bubbling, but it can be used in specific scenarios where you need to intercept events at a higher level before they reach the target element. It is disabled by default but can be enabled through an option on `addEventListener()`.
 
-<!-- Source: /questions/describe-event-capturing/en-US.mdx -->
+<!-- Update here: /questions/describe-event-capturing/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/describe-event-capturing) which contains more code samples and useful resources._
+
 
 ## Describe the difference between a cookie, `sessionStorage` and `localStorage`.
 
-<!-- Source: /questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/en-US.mdx -->
+<!-- Update here: /questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/en-US.mdx -->
 
 All of the following are mechanisms of storing data on the client, the user's browser in this case. `localStorage` and `sessionStorage` both implement the [Web Storage API interface](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API).
 
@@ -49,11 +55,14 @@ Here's a table summarizing the 3 client storage mechanisms.
 | Access | Across windows/tabs | Across windows/tabs | Same tab |
 | Security | JavaScript cannot access `HttpOnly` cookies | None | None |
 
-<!-- Source: /questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/en-US.mdx -->
+<!-- Update here: /questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage) which contains more code samples and useful resources._
+
 
 ## Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()`?
 
-<!-- Source: /questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx -->
+<!-- Update here: /questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx -->
 
 - `function Person(){}`: A function declaration in JavaScript. It can be used as a regular function or as a constructor.
 - `const person = Person()`: Calls `Person` as a regular function, not a constructor. If `Person` is intended to be a constructor, this will lead to unexpected behavior.
@@ -66,11 +75,14 @@ Here's a table summarizing the 3 client storage mechanisms.
 | Instance Creation | No instance created | No instance created | New instance created |
 | Common Mistake | N/A | Misusing as constructor leading to `undefined` | None (when used correctly) |
 
-<!-- Source: /questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx -->
+<!-- Update here: /questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/difference-between-function-person-var-person-person-and-var-person-new-person) which contains more code samples and useful resources._
+
 
 ## Explain AJAX in as much detail as possible
 
-<!-- Source: /questions/explain-ajax-in-as-much-detail-as-possible/en-US.mdx -->
+<!-- Update here: /questions/explain-ajax-in-as-much-detail-as-possible/en-US.mdx -->
 
 AJAX (Asynchronous JavaScript and XML) facilitates asynchronous communication between the client and server, enabling dynamic updates to web pages without reloading. It uses techniques like `XMLHttpRequest` or the `fetch()` API to send and receive data in the background. In modern web applications, the `fetch()` API is more commonly used to implement AJAX.
 
@@ -105,11 +117,14 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
   .catch((error) => console.error('Fetch error:', error));
 ```
 
-<!-- Source: /questions/explain-ajax-in-as-much-detail-as-possible/en-US.mdx -->
+<!-- Update here: /questions/explain-ajax-in-as-much-detail-as-possible/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-ajax-in-as-much-detail-as-possible) which contains more code samples and useful resources._
+
 
 ## Explain event delegation
 
-<!-- Source: /questions/explain-event-delegation/en-US.mdx -->
+<!-- Update here: /questions/explain-event-delegation/en-US.mdx -->
 
 Event delegation is a technique in JavaScript where a single event listener is attached to a parent element instead of attaching event listeners to multiple child elements. When an event occurs on a child element, the event bubbles up the DOM tree, and the parent element's event listener handles the event based on the target element.
 
@@ -124,11 +139,14 @@ However, do note that:
 - It is important to identify the target element that triggered the event.
 - Not all events can be delegated because they are not bubbled. Non-bubbling events include: `focus`, `blur`, `scroll`, `mouseenter`, `mouseleave`, `resize`, etc.
 
-<!-- Source: /questions/explain-event-delegation/en-US.mdx -->
+<!-- Update here: /questions/explain-event-delegation/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-event-delegation) which contains more code samples and useful resources._
+
 
 ## Explain `Function.prototype.bind`
 
-<!-- Source: /questions/explain-function-prototype-bind/en-US.mdx -->
+<!-- Update here: /questions/explain-function-prototype-bind/en-US.mdx -->
 
 `Function.prototype.bind` is a method in JavaScript that allows you to create a new function with a specific `this` value and optional initial arguments. It's primary purpose is to:
 
@@ -138,11 +156,14 @@ However, do note that:
 
 The `bind` method is particularly useful in scenarios where you need to ensure that a function is called with a specific `this` context, such as in event handlers, callbacks, or method borrowing.
 
-<!-- Source: /questions/explain-function-prototype-bind/en-US.mdx -->
+<!-- Update here: /questions/explain-function-prototype-bind/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-function-prototype-bind) which contains more code samples and useful resources._
+
 
 ## Explain "hoisting"
 
-<!-- Source: /questions/explain-hoisting/en-US.mdx -->
+<!-- Update here: /questions/explain-hoisting/en-US.mdx -->
 
 - **Variable declarations (`var`)**: Declarations are hoisted, but not initializations. The value of the variable is `undefined` if accessed before initialization.
 - **Variable declarations (`let` and `const`)**: Declarations are hoisted, but not initialized. Accessing them results in `ReferenceError` until the actual declaration is encountered.
@@ -163,11 +184,14 @@ The following behavior summarizes the result of accessing the variables before t
 | `function foo() { ... }`       | Normal                       |
 | `import`                       | Normal                       |
 
-<!-- Source: /questions/explain-hoisting/en-US.mdx -->
+<!-- Update here: /questions/explain-hoisting/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-hoisting) which contains more code samples and useful resources._
+
 
 ## Explain how prototypal inheritance works
 
-<!-- Source: /questions/explain-how-prototypal-inheritance-works/en-US.mdx -->
+<!-- Update here: /questions/explain-how-prototypal-inheritance-works/en-US.mdx -->
 
 Prototypical inheritance in JavaScript is a way for objects to inherit properties and methods from other objects. Every JavaScript object has a special hidden property called `[[Prototype]]` (commonly accessed via `__proto__` or using `Object.getPrototypeOf()`) that is a reference to another object, which is called the object's "prototype". When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `__proto__`, and the `__proto__`'s `__proto__` and so on, until it finds the property defined on one of the `__proto__`s or until it reaches the end of the prototype chain. This behavior simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
 
@@ -211,11 +235,14 @@ Things to note are:
 - `.makeSound` is not defined on `Dog`, so the JavaScript engine goes up the prototype chain and finds `.makeSound` on the inherited `Animal`.
 - Using `Object.create()` to build the inheritance chain is no longer recommended. Use `Object.setPrototypeOf()` instead.
 
-<!-- Source: /questions/explain-how-prototypal-inheritance-works/en-US.mdx -->
+<!-- Update here: /questions/explain-how-prototypal-inheritance-works/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-how-prototypal-inheritance-works) which contains more code samples and useful resources._
+
 
 ## Explain the difference between mutable and immutable objects
 
-<!-- Source: /questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx -->
+<!-- Update here: /questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx -->
 
 **Mutable objects** allow for modification of properties and values after creation, which is the default behavior for most objects.
 
@@ -249,11 +276,14 @@ console.log(immutableObject); // Output: { name: 'John', age: 30 }
 
 The key difference between mutable and immutable objects is modifiability. Immutable objects cannot be modified after they are created, while mutable objects can be.
 
-<!-- Source: /questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx -->
+<!-- Update here: /questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-the-difference-between-mutable-and-immutable-objects) which contains more code samples and useful resources._
+
 
 ## Explain the difference between synchronous and asynchronous functions
 
-<!-- Source: /questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx -->
+<!-- Update here: /questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx -->
 
 Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. As a result, programs containing only synchronous code are evaluated exactly in order of the statements. The execution of the program is paused if one of the statements take a very long time.
 
@@ -294,11 +324,14 @@ console.log('Call made to fetch data'); // Output: This will be printed first
 // { name: 'John', age: 30 }
 ```
 
-<!-- Source: /questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx -->
+<!-- Update here: /questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-the-difference-between-synchronous-and-asynchronous-functions) which contains more code samples and useful resources._
+
 
 ## Explain the differences between CommonJS modules and ES modules
 
-<!-- Source: /questions/explain-the-differences-between-commonjs-modules-and-es-modules/en-US.mdx -->
+<!-- Update here: /questions/explain-the-differences-between-commonjs-modules-and-es-modules/en-US.mdx -->
 
 In JavaScript, modules are reusable pieces of code that encapsulate functionality, making it easier to manage, maintain, and structure your applications. Modules allow you to break down your code into smaller, manageable parts, each with its own scope.
 
@@ -338,11 +371,14 @@ console.log(value); // 42
 | Optimization | Limited optimization due to dynamic nature | Allows for optimizations like tree-shaking due to static structure |
 | Compatibility | Widely used in existing Node.js codebases and libraries | Newer standard, but gaining adoption in modern projects |
 
-<!-- Source: /questions/explain-the-differences-between-commonjs-modules-and-es-modules/en-US.mdx -->
+<!-- Update here: /questions/explain-the-differences-between-commonjs-modules-and-es-modules/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-the-differences-between-commonjs-modules-and-es-modules) which contains more code samples and useful resources._
+
 
 ## Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
 
-<!-- Source: /questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/en-US.mdx -->
+<!-- Update here: /questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/en-US.mdx -->
 
 `function foo() {}` a function declaration while the `var foo = function() {}` is a function expression. The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behavior as `var`-declared variables).
 
@@ -377,11 +413,14 @@ console.log(namedFunc); // undefined
 
 **Note**: The examples uses `var` due to legacy reasons. Function expressions can be defined using `let` and `const` and the key difference is in the hoisting behavior of those keywords.
 
-<!-- Source: /questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/en-US.mdx -->
+<!-- Update here: /questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function) which contains more code samples and useful resources._
+
 
 ## How do you abort a web request using `AbortController`?
 
-<!-- Source: /questions/how-do-you-abort-a-web-request-using-abortcontrollers/en-US.mdx -->
+<!-- Update here: /questions/how-do-you-abort-a-web-request-using-abortcontrollers/en-US.mdx -->
 
 `AbortController` is used to cancel ongoing asynchronous operations like fetch requests.
 
@@ -411,11 +450,14 @@ Aborting web requests is useful for:
 - Prioritizing the latest requests in scenarios with multiple simultaneous requests.
 - Canceling requests that are no longer needed, e.g. after the user has navigated away from the page.
 
-<!-- Source: /questions/how-do-you-abort-a-web-request-using-abortcontrollers/en-US.mdx -->
+<!-- Update here: /questions/how-do-you-abort-a-web-request-using-abortcontrollers/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/how-do-you-abort-a-web-request-using-abortcontrollers) which contains more code samples and useful resources._
+
 
 ## How does JavaScript garbage collection work?
 
-<!-- Source: /questions/how-does-javascript-garbage-collection-work/en-US.mdx -->
+<!-- Update here: /questions/how-does-javascript-garbage-collection-work/en-US.mdx -->
 
 Garbage collection in JavaScript is an automatic memory management mechanism that reclaims memory occupied by objects and variables that are no longer in use by the program. The two most common algorithms are mark-and-sweep and generational garbage collection.
 
@@ -434,11 +476,14 @@ Leveraged by modern JavaScript engines, objects are divided into different gener
 
 Different JavaScript engines (differs according to browsers) implement different garbage collection algorithms and there's no standard way of doing garbage collection.
 
-<!-- Source: /questions/how-does-javascript-garbage-collection-work/en-US.mdx -->
+<!-- Update here: /questions/how-does-javascript-garbage-collection-work/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/how-does-javascript-garbage-collection-work) which contains more code samples and useful resources._
+
 
 ## What advantage is there for using the arrow syntax for a method in a constructor?
 
-<!-- Source: /questions/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor/en-US.mdx -->
+<!-- Update here: /questions/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor/en-US.mdx -->
 
 The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can't change after that. When the constructor is used to create a new object, `this` will always refer to that object.
 
@@ -480,11 +525,14 @@ sayNameFromWindow2(); // John
 
 The main takeaway here is that `this` can be changed for a normal function, but `this` always stays the same for an arrow function. So even if you are passing around your arrow function to different parts of your application, you wouldn't have to worry about the value of `this` changing.
 
-<!-- Source: /questions/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor/en-US.mdx -->
+<!-- Update here: /questions/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor) which contains more code samples and useful resources._
+
 
 ## What are iterators and generators and what are they used for?
 
-<!-- Source: /questions/what-are-iterators-and-generators-and-what-are-they-used-for/en-US.mdx -->
+<!-- Update here: /questions/what-are-iterators-and-generators-and-what-are-they-used-for/en-US.mdx -->
 
 In JavaScript, iterators and generators are powerful tools for managing sequences of data and controlling the flow of execution in a more flexible way.
 
@@ -541,11 +589,14 @@ Generators are powerful for creating iterators on-demand, especially for infinit
 - Implementing iterators for custom data structures.
 - Creating asynchronous iterators for handling data streams.
 
-<!-- Source: /questions/what-are-iterators-and-generators-and-what-are-they-used-for/en-US.mdx -->
+<!-- Update here: /questions/what-are-iterators-and-generators-and-what-are-they-used-for/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-iterators-and-generators-and-what-are-they-used-for) which contains more code samples and useful resources._
+
 
 ## What are JavaScript object getters and setters for?
 
-<!-- Source: /questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx -->
+<!-- Update here: /questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx -->
 
 JavaScript object getters and setters are used to control access to an object's properties. They provide a way to encapsulate the implementation details of a property and define custom behavior when getting or setting its value.
 
@@ -583,11 +634,14 @@ person.name = ''; // Setter is called, but the value is not set due to validatio
 console.log(person.name); // Output: 'Jane Smith'
 ```
 
-<!-- Source: /questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx -->
+<!-- Update here: /questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-javascript-object-getters-and-setters-for) which contains more code samples and useful resources._
+
 
 ## What are JavaScript object property flags and descriptors?
 
-<!-- Source: /questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx -->
+<!-- Update here: /questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx -->
 
 In JavaScript, property flags and descriptors manage the behavior and attributes of object properties.
 
@@ -610,11 +664,14 @@ The use cases of property descriptors are as follows:
 - Preventing property deletion and modification by setting `configurable: false`.
 - Freezing or sealing objects to prevent modifications globally.
 
-<!-- Source: /questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx -->
+<!-- Update here: /questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-javascript-object-property-flags-and-descriptors) which contains more code samples and useful resources._
+
 
 ## What are JavaScript polyfills for?
 
-<!-- Source: /questions/what-are-javascript-polyfills-for/en-US.mdx -->
+<!-- Update here: /questions/what-are-javascript-polyfills-for/en-US.mdx -->
 
 Polyfills in JavaScript are pieces of code that provide modern functionality to older browsers that lack native support for those features. They bridge the gap between the JavaScript language features and APIs available in modern browsers and the limited capabilities of older browser versions.
 
@@ -641,11 +698,14 @@ Libraries and services for polyfills:
   <script src="https://polyfill.io/v3/polyfill.min.js"></script>
   ```
 
-<!-- Source: /questions/what-are-javascript-polyfills-for/en-US.mdx -->
+<!-- Update here: /questions/what-are-javascript-polyfills-for/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-javascript-polyfills-for) which contains more code samples and useful resources._
+
 
 ## What are server-sent events?
 
-<!-- Source: /questions/what-are-server-sent-events/en-US.mdx -->
+<!-- Update here: /questions/what-are-server-sent-events/en-US.mdx -->
 
 [Server-sent events (SSE)](https://html.spec.whatwg.org/multipage/comms.html#the-eventsource-interface) is a standard that allows a web page to receive automatic updates from a server via an HTTP connection. Server-sent events are used with `EventSource` instances that opens a connection with a server and allows client to receive events from the server. Connections created by server-sent events are persistent (similar to the `WebSocket`s), however there are a few differences:
 
@@ -710,11 +770,14 @@ app.listen(3000, () => console.log('Server started on port 3000'));
 
 In this example, the server sends a "Hello from server" message initially, and then sends the current date every second. The connection is kept alive until the client closes it
 
-<!-- Source: /questions/what-are-server-sent-events/en-US.mdx -->
+<!-- Update here: /questions/what-are-server-sent-events/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-server-sent-events) which contains more code samples and useful resources._
+
 
 ## What are `Symbol`s used for?
 
-<!-- Source: /questions/what-are-symbols-used-for/en-US.mdx -->
+<!-- Update here: /questions/what-are-symbols-used-for/en-US.mdx -->
 
 `Symbol`s in JavaScript are a new primitive data type introduced in ES6 (ECMAScript 2015). They are unique and immutable identifiers that is primarily for object property keys to avoid name collisions. These values can be created using `Symbol(...)` function, and each `Symbol` value is guaranteed to be unique, even if they have the same key/description. `Symbol` properties are not enumerable in `for...in` loops or `Object.keys()`, making them suitable for creating private/internal object state.
 
@@ -734,11 +797,14 @@ console.log(obj[sym]); // "value"
 
 **Note**: The `Symbol()` function must be called without the `new` keyword. It is not exactly a constructor because it can only be called as a function instead of with `new Symbol()`.
 
-<!-- Source: /questions/what-are-symbols-used-for/en-US.mdx -->
+<!-- Update here: /questions/what-are-symbols-used-for/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-symbols-used-for) which contains more code samples and useful resources._
+
 
 ## What are the advantages and disadvantages of using AJAX?
 
-<!-- Source: /questions/what-are-the-advantages-and-disadvantages-of-using-ajax/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-advantages-and-disadvantages-of-using-ajax/en-US.mdx -->
 
 AJAX (Asynchronous JavaScript and XML) is a technique in JavaScript that allows web pages to send and retrieve data asynchronously from servers without refreshing or reloading the entire page.
 
@@ -755,11 +821,14 @@ AJAX (Asynchronous JavaScript and XML) is a technique in JavaScript that allows 
 - **SEO Challenges**: Search engines may struggle to index dynamic content.
 - **Performance Concerns**: Processing Ajax data on low-end devices can be slow.
 
-<!-- Source: /questions/what-are-the-advantages-and-disadvantages-of-using-ajax/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-advantages-and-disadvantages-of-using-ajax/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax) which contains more code samples and useful resources._
+
 
 ## What are the benefits of using spread syntax and how is it different from rest syntax?
 
-<!-- Source: /questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/en-US.mdx -->
 
 **Spread syntax** (`...`) allows an iterable (like an array or string) to be expanded into individual elements. This is often used as a convenient and modern way to create new arrays or objects by combining existing ones.
 
@@ -781,11 +850,14 @@ function sum(...numbers) {
 console.log(sum(1, 2, 3)); // Output: 6
 ```
 
-<!-- Source: /questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax) which contains more code samples and useful resources._
+
 
 ## What are the differences between ES2015 classes and ES5 function constructors?
 
-<!-- Source: /questions/what-are-the-differences-between-es6-class-and-es5-function-constructors/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-differences-between-es6-class-and-es5-function-constructors/en-US.mdx -->
 
 ES2015 introduces a new way of creating classes, which provides a more intuitive and concise way to define and work with objects and inheritance compared to the ES5 function constructor syntax. Here's an example of each:
 
@@ -840,11 +912,14 @@ It's much more verbose to use inheritance in ES5 and the ES2015 version is easie
 | Inheritance | Uses `Object.create()` and manually sets prototype chain | Uses `extends` keyword and `super` function |
 | Readability | Less intuitive and more verbose | More concise and intuitive |
 
-<!-- Source: /questions/what-are-the-differences-between-es6-class-and-es5-function-constructors/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-differences-between-es6-class-and-es5-function-constructors/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-es6-class-and-es5-function-constructors) which contains more code samples and useful resources._
+
 
 ## What are the differences between `Map`/`Set` vs `WeakMap`/`WeakSet`?
 
-<!-- Source: /questions/what-are-the-differences-between-map-set-and-weakmap-weakset/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-differences-between-map-set-and-weakmap-weakset/en-US.mdx -->
 
 The primary difference between `Map`/`Set` and `WeakMap`/`WeakSet` in JavaScript lies in how they handle keys. Here's a breakdown:
 
@@ -879,11 +954,14 @@ On the other hand, `WeakSet` only allows objects as elements, and these object e
 - Use `Map` and `Set` for most scenarios where you need to store key-value pairs or unique elements and want to maintain references to both the keys/elements and the values.
 - Use `WeakMap` and `WeakSet` cautiously in specific situations where you want to associate data with objects without affecting their garbage collection. Be aware of the implications of weak references and potential memory leaks if not used correctly.
 
-<!-- Source: /questions/what-are-the-differences-between-map-set-and-weakmap-weakset/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-differences-between-map-set-and-weakmap-weakset/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-map-set-and-weakmap-weakset) which contains more code samples and useful resources._
+
 
 ## What are the differences between variables created using `let`, `var` or `const`?
 
-<!-- Source: /questions/what-are-the-differences-between-variables-created-using-let-var-or-const/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-differences-between-variables-created-using-let-var-or-const/en-US.mdx -->
 
 In JavaScript, `let`, `var`, and `const` are all keywords used to declare variables, but they differ significantly in terms of scope, initialization rules, whether they can be redeclared or reassigned and the behavior when they are accessed before declaration:
 
@@ -895,11 +973,14 @@ In JavaScript, `let`, `var`, and `const` are all keywords used to declare variab
 | Reassignment | Yes | Yes | No |
 | Accessing before declaration | `undefined` | `ReferenceError` | `ReferenceError` |
 
-<!-- Source: /questions/what-are-the-differences-between-variables-created-using-let-var-or-const/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-differences-between-variables-created-using-let-var-or-const/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-variables-created-using-let-var-or-const) which contains more code samples and useful resources._
+
 
 ## What are the differences between `XMLHttpRequest` and `fetch()`?
 
-<!-- Source: /questions/what-are-the-differences-between-xmlhttprequest-and-fetch/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-differences-between-xmlhttprequest-and-fetch/en-US.mdx -->
 
 `XMLHttpRequest` (XHR) and `fetch()` API are both used for asynchronous HTTP requests in JavaScript (AJAX). `fetch()` offers a cleaner syntax, promise-based approach, and more modern feature set compared to XHR. However, there are some differences:
 
@@ -913,19 +994,25 @@ In JavaScript, `let`, `var`, and `const` are all keywords used to declare variab
 
 These days `fetch()` is preferred for its cleaner syntax and modern features.
 
-<!-- Source: /questions/what-are-the-differences-between-xmlhttprequest-and-fetch/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-differences-between-xmlhttprequest-and-fetch/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-xmlhttprequest-and-fetch) which contains more code samples and useful resources._
+
 
 ## What are the pros and cons of using Promises instead of callbacks?
 
-<!-- Source: /questions/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks/en-US.mdx -->
 
 Promises offer a cleaner alternative to callbacks, helping to avoid callback hell and making asynchronous code more readable. They facilitate writing sequential and parallel asynchronous operations with ease. However, using promises may introduce slightly more complex code.
 
-<!-- Source: /questions/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks) which contains more code samples and useful resources._
+
 
 ## What are the various data types in JavaScript?
 
-<!-- Source: /questions/what-are-the-various-data-types-in-javascript/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-various-data-types-in-javascript/en-US.mdx -->
 
 In JavaScript, data types can be categorized into `primitive` and `non-primitive` types:
 
@@ -951,11 +1038,14 @@ In JavaScript, data types can be categorized into `primitive` and `non-primitive
 
 The primitive types store a single value, while non-primitive types can store collections of data or complex entities.
 
-<!-- Source: /questions/what-are-the-various-data-types-in-javascript/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-various-data-types-in-javascript/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-various-data-types-in-javascript) which contains more code samples and useful resources._
+
 
 ## What are the various ways to create objects in JavaScript?
 
-<!-- Source: /questions/what-are-the-various-ways-to-create-objects-in-javascript/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-various-ways-to-create-objects-in-javascript/en-US.mdx -->
 
 Creating objects in JavaScript offers several methods:
 
@@ -965,11 +1055,14 @@ Creating objects in JavaScript offers several methods:
 - **Constructor functions**: Define blueprints for objects using functions, creating instances with `new`.
 - **ES2015 classes**: Structured syntax similar to other languages, using `class` and `constructor` keywords.
 
-<!-- Source: /questions/what-are-the-various-ways-to-create-objects-in-javascript/en-US.mdx -->
+<!-- Update here: /questions/what-are-the-various-ways-to-create-objects-in-javascript/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-various-ways-to-create-objects-in-javascript) which contains more code samples and useful resources._
+
 
 ## What are workers in JavaScript used for?
 
-<!-- Source: /questions/what-are-workers-in-javascript-used-for/en-US.mdx -->
+<!-- Update here: /questions/what-are-workers-in-javascript-used-for/en-US.mdx -->
 
 Workers in JavaScript are background threads that allow you to run scripts in parallel with the main execution thread, without blocking or interfering with the user interface. Their key features include:
 
@@ -993,11 +1086,14 @@ There are three main types of workers in JavaScript:
   - Scripts communicate with the shared worker by sending and receiving messages.
   - Useful for coordinating tasks across different parts of a web page.
 
-<!-- Source: /questions/what-are-workers-in-javascript-used-for/en-US.mdx -->
+<!-- Update here: /questions/what-are-workers-in-javascript-used-for/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-workers-in-javascript-used-for) which contains more code samples and useful resources._
+
 
 ## What is event loop?
 
-<!-- Source: /questions/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue/en-US.mdx -->
+<!-- Update here: /questions/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue/en-US.mdx -->
 
 The event loop is concept within the browser runtime environment regarding how asynchronous operations are executed within JavaScript engines. It works as such:
 
@@ -1019,11 +1115,14 @@ The unfortunate truth is that it is extremely hard to explain the event loop wel
 
 We recommend watching [Lydia's video](https://www.youtube.com/watch?v=eiC58R16hb8) as it is the most modern and concise explanation standing at only 13 minutes long whereas the other videos are at least 30 minutes long. Her video is sufficient for the purpose of interviews.
 
-<!-- Source: /questions/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue/en-US.mdx -->
+<!-- Update here: /questions/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue) which contains more code samples and useful resources._
+
 
 ## What is the definition of a higher-order function?
 
-<!-- Source: /questions/what-is-the-definition-of-a-higher-order-function/en-US.mdx -->
+<!-- Update here: /questions/what-is-the-definition-of-a-higher-order-function/en-US.mdx -->
 
 A higher-order function is any function that takes one or more functions as arguments, which it uses to operate on some data, and/or returns a function as a result.
 
@@ -1059,11 +1158,14 @@ function transformNamesToUppercase(names) {
 transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
-<!-- Source: /questions/what-is-the-definition-of-a-higher-order-function/en-US.mdx -->
+<!-- Update here: /questions/what-is-the-definition-of-a-higher-order-function/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-is-the-definition-of-a-higher-order-function) which contains more code samples and useful resources._
+
 
 ## What is the difference between `==` and `===` in JavaScript?
 
-<!-- Source: /questions/what-is-the-difference-between-double-equal-and-triple-equal/en-US.mdx -->
+<!-- Update here: /questions/what-is-the-difference-between-double-equal-and-triple-equal/en-US.mdx -->
 
 `==` is the abstract equality operator while `===` is the strict equality operator. The `==` operator will compare for equality after doing any necessary type conversions. The `===` operator will not do type conversion, so if two values are not the same type `===` will simply return `false`.
 
@@ -1073,11 +1175,14 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 | Type coercion | Yes | No |
 | Compares value and type | No | Yes |
 
-<!-- Source: /questions/what-is-the-difference-between-double-equal-and-triple-equal/en-US.mdx -->
+<!-- Update here: /questions/what-is-the-difference-between-double-equal-and-triple-equal/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-is-the-difference-between-double-equal-and-triple-equal) which contains more code samples and useful resources._
+
 
 ## What is `"use strict";`?
 
-<!-- Source: /questions/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it/en-US.mdx -->
+<!-- Update here: /questions/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it/en-US.mdx -->
 
 `'use strict'` is a statement used to enable strict mode to entire scripts or individual functions. Strict mode is a way to opt into a restricted variant of JavaScript.
 
@@ -1099,11 +1204,14 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 Overall, the benefits outweigh the disadvantages and there is not really a need to rely on the features that strict mode prohibits. We should all be using strict mode by default.
 
-<!-- Source: /questions/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it/en-US.mdx -->
+<!-- Update here: /questions/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it) which contains more code samples and useful resources._
+
 
 ## What language constructions do you use for iterating over object properties and array items?
 
-<!-- Source: /questions/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items/en-US.mdx -->
+<!-- Update here: /questions/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items/en-US.mdx -->
 
 There are multiple ways to iterate over object properties as well as array in JavaScript. The following are a few of them:
 
@@ -1184,11 +1292,14 @@ There are also other inbuilt methods available which are suitable for specific s
 - `Array.prototype.map`: You can use the `map` method to create a new array based on the existing one, transforming each element with a provided function.
 - `Array.prototype.reduce`: You can use the `reduce` method to combine all elements into a single value by repeatedly calling a function that takes two arguments: the accumulated value and the current element.
 
-<!-- Source: /questions/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items/en-US.mdx -->
+<!-- Update here: /questions/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items) which contains more code samples and useful resources._
+
 
 ## What's a typical use case for anonymous functions?
 
-<!-- Source: /questions/whats-a-typical-use-case-for-anonymous-functions/en-US.mdx -->
+<!-- Update here: /questions/whats-a-typical-use-case-for-anonymous-functions/en-US.mdx -->
 
 Anonymous function in Javascript is a function that does not have any name associated with it. They are typically used as arguments to other functions or assigned to variables.
 
@@ -1218,11 +1329,14 @@ const double = arr.map(function (el) {
 console.log(double); // [2, 4, 6]
 ```
 
-<!-- Source: /questions/whats-a-typical-use-case-for-anonymous-functions/en-US.mdx -->
+<!-- Update here: /questions/whats-a-typical-use-case-for-anonymous-functions/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/whats-a-typical-use-case-for-anonymous-functions) which contains more code samples and useful resources._
+
 
 ## What's the difference between a variable that is: `null`, `undefined` or undeclared?
 
-<!-- Source: /questions/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states/en-US.mdx -->
+<!-- Update here: /questions/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states/en-US.mdx -->
 
 | Trait | `null` | `undefined` | Undeclared |
 | --- | --- | --- | --- |
@@ -1230,21 +1344,27 @@ console.log(double); // [2, 4, 6]
 | Type | `object` | `undefined` | Throws a `ReferenceError` |
 | Equality Comparison | `null == undefined` is `true` | `undefined == null` is `true` | Throws a `ReferenceError` |
 
-<!-- Source: /questions/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states/en-US.mdx -->
+<!-- Update here: /questions/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states) which contains more code samples and useful resources._
+
 
 ## Why is extending built-in JavaScript objects not a good idea?
 
-<!-- Source: /questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/en-US.mdx -->
+<!-- Update here: /questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/en-US.mdx -->
 
 Extending a built-in/native JavaScript object means adding properties/functions to its `prototype`. While this may seem like a good idea at first, it is dangerous in practice. Imagine your code uses a few libraries that both extend the `Array.prototype` by adding the same `contains` method, the implementations will overwrite each other and your code will have unpredictable behavior if these two methods do not work the same way.
 
 The only time you may want to extend a native object is when you want to create a polyfill, essentially providing your own implementation for a method that is part of the JavaScript specification but might not exist in the user's browser due to it being an older browser.
 
-<!-- Source: /questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/en-US.mdx -->
+<!-- Update here: /questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/why-is-extending-built-in-javascript-objects-not-a-good-idea) which contains more code samples and useful resources._
+
 
 ## Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 
-<!-- Source: /questions/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it/en-US.mdx -->
+<!-- Update here: /questions/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it/en-US.mdx -->
 
 JavaScript that is executed in the browser has access to the global scope (the `window` object). In general it's a good software engineering practice to not pollute the global namespace unless you are working on a feature that truly needs to be global – it is needed by the entire page. Several reasons to avoid touching the global scope:
 
@@ -1262,11 +1382,14 @@ Follow these best practices to avoid global scope pollution:
 - **Use immediately invoked function expressions (IIFE)**: Create new scopes with IIFEs to prevent adding variables to the global scope.
 - **Use modules**: Encapsulate code with module systems to maintain separate scopes and manageability.
 
-<!-- Source: /questions/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it/en-US.mdx -->
+<!-- Update here: /questions/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it) which contains more code samples and useful resources._
+
 
 ## Why might you want to create static class members?
 
-<!-- Source: /questions/why-you-might-want-to-create-static-class-members/en-US.mdx -->
+<!-- Update here: /questions/why-you-might-want-to-create-static-class-members/en-US.mdx -->
 
 Static class members (properties/methods) has a `static` keyword prepended. Such members cannot be directly accessed on instances of the class. Instead, they're accessed on the class itself.
 
@@ -1287,7 +1410,10 @@ Static members are useful under the following scenarios:
 - **Helper functions**: Static methods can be used as helper functions that operate on the class itself or its instances. This can improve code readability and maintainability by separating utility logic from the core functionality of the class. Examples of frequently used static methods include `Object.assign()`, `Math.max()`.
 - **Singleton pattern**: In some rare cases, static properties and methods can be used to implement a singleton pattern, where only one instance of a class ever exists. However, this pattern can be tricky to manage and is generally discouraged in favor of more modern dependency injection techniques.
 
-<!-- Source: /questions/why-you-might-want-to-create-static-class-members/en-US.mdx -->
+<!-- Update here: /questions/why-you-might-want-to-create-static-class-members/en-US.mdx -->
+
+_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/why-you-might-want-to-create-static-class-members) which contains more code samples and useful resources._
+
 
 
 <!-- QUESTIONS:END -->
