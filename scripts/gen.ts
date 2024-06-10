@@ -81,17 +81,22 @@ async function processQuestionList(qns: string[]) {
   );
 }
 
-function formatQuestion(qn: QuestionItem) {
-  return `## ${qn.title}
+function formatQuestion(qn: QuestionItem, index: number) {
+  return `${index}. ### ${qn.title}
 
-<!-- Update here: /questions/${qn.slug}/${qn.locale}.mdx -->
+    <!-- Update here: /questions/${qn.slug}/${qn.locale}.mdx -->
 
-${qn.content}
+${qn.content
+  .split('\n')
+  // Add indentation.
+  .map((line) => '    ' + line)
+  .join('\n')}
 
-<!-- Update here: /questions/${qn.slug}/${qn.locale}.mdx -->
+    <!-- Update here: /questions/${qn.slug}/${qn.locale}.mdx -->
 
-_Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/${qn.slug}) which contains more code samples and useful resources._
-
+    _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/${
+      qn.slug
+    }) which contains more code samples and useful resources._
 `;
 }
 
@@ -99,7 +104,7 @@ async function generate() {
   const qns = await readQuestionsList();
   const qnItemList = await processQuestionList(qns);
   const qnContents = qnItemList
-    .map((qnItem) => formatQuestion(qnItem))
+    .map((qnItem, index) => formatQuestion(qnItem, index + 1))
     .join('\n');
 
   const readmeFile = String(fs.readFileSync(README_PATH_EN));
