@@ -69,6 +69,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/describe-event-bubbling) which contains more code samples and useful resources._
 
+---
+
 2. ### Describe event capturing
 
     <!-- Update here: /questions/describe-event-capturing/en-US.mdx -->
@@ -80,6 +82,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/describe-event-capturing/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/describe-event-capturing) which contains more code samples and useful resources._
+
+---
 
 3. ### Describe the difference between a cookie, `sessionStorage` and `localStorage`.
 
@@ -107,6 +111,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage) which contains more code samples and useful resources._
 
+---
+
 4. ### Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()`?
 
     <!-- Update here: /questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx -->
@@ -125,6 +131,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/difference-between-function-person-var-person-person-and-var-person-new-person) which contains more code samples and useful resources._
+
+---
 
 5. ### Explain AJAX in as much detail as possible
 
@@ -167,6 +175,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-ajax-in-as-much-detail-as-possible) which contains more code samples and useful resources._
 
+---
+
 6. ### Explain event delegation
 
     <!-- Update here: /questions/explain-event-delegation/en-US.mdx -->
@@ -188,6 +198,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-event-delegation) which contains more code samples and useful resources._
 
+---
+
 7. ### Explain `Function.prototype.bind`
 
     <!-- Update here: /questions/explain-function-prototype-bind/en-US.mdx -->
@@ -203,6 +215,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/explain-function-prototype-bind/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-function-prototype-bind) which contains more code samples and useful resources._
+
+---
 
 8. ### Explain "hoisting"
 
@@ -230,6 +244,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/explain-hoisting/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-hoisting) which contains more code samples and useful resources._
+
+---
 
 9. ### Explain how prototypal inheritance works
 
@@ -281,6 +297,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-how-prototypal-inheritance-works) which contains more code samples and useful resources._
 
+---
+
 10. ### Explain the difference between mutable and immutable objects
 
     <!-- Update here: /questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx -->
@@ -320,6 +338,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-the-difference-between-mutable-and-immutable-objects) which contains more code samples and useful resources._
+
+---
 
 11. ### Explain the difference between synchronous and asynchronous functions
 
@@ -368,6 +388,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-the-difference-between-synchronous-and-asynchronous-functions) which contains more code samples and useful resources._
 
+---
+
 12. ### Explain the differences between CommonJS modules and ES modules
 
     <!-- Update here: /questions/explain-the-differences-between-commonjs-modules-and-es-modules/en-US.mdx -->
@@ -414,6 +436,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-the-differences-between-commonjs-modules-and-es-modules) which contains more code samples and useful resources._
 
+---
+
 13. ### Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
 
     <!-- Update here: /questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/en-US.mdx -->
@@ -455,6 +479,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function) which contains more code samples and useful resources._
 
+---
+
 14. ### How do you abort a web request using `AbortController`?
 
     <!-- Update here: /questions/how-do-you-abort-a-web-request-using-abortcontrollers/en-US.mdx -->
@@ -491,6 +517,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/how-do-you-abort-a-web-request-using-abortcontrollers) which contains more code samples and useful resources._
 
+---
+
 15. ### How does JavaScript garbage collection work?
 
     <!-- Update here: /questions/how-does-javascript-garbage-collection-work/en-US.mdx -->
@@ -515,6 +543,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/how-does-javascript-garbage-collection-work/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/how-does-javascript-garbage-collection-work) which contains more code samples and useful resources._
+
+---
 
 16. ### What advantage is there for using the arrow syntax for a method in a constructor?
 
@@ -563,6 +593,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor) which contains more code samples and useful resources._
+
+---
 
 17. ### What are iterators and generators and what are they used for?
 
@@ -627,6 +659,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-iterators-and-generators-and-what-are-they-used-for) which contains more code samples and useful resources._
 
+---
+
 18. ### What are JavaScript object getters and setters for?
 
     <!-- Update here: /questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx -->
@@ -671,6 +705,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-javascript-object-getters-and-setters-for) which contains more code samples and useful resources._
 
+---
+
 19. ### What are JavaScript object property flags and descriptors?
 
     <!-- Update here: /questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx -->
@@ -699,6 +735,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-javascript-object-property-flags-and-descriptors) which contains more code samples and useful resources._
+
+---
 
 20. ### What are JavaScript polyfills for?
 
@@ -732,6 +770,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/what-are-javascript-polyfills-for/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-javascript-polyfills-for) which contains more code samples and useful resources._
+
+---
 
 21. ### What are server-sent events?
 
@@ -804,6 +844,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-server-sent-events) which contains more code samples and useful resources._
 
+---
+
 22. ### What are `Symbol`s used for?
 
     <!-- Update here: /questions/what-are-symbols-used-for/en-US.mdx -->
@@ -830,6 +872,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-symbols-used-for) which contains more code samples and useful resources._
 
+---
+
 23. ### What are the advantages and disadvantages of using AJAX?
 
     <!-- Update here: /questions/what-are-the-advantages-and-disadvantages-of-using-ajax/en-US.mdx -->
@@ -852,6 +896,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/what-are-the-advantages-and-disadvantages-of-using-ajax/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax) which contains more code samples and useful resources._
+
+---
 
 24. ### What are the benefits of using spread syntax and how is it different from rest syntax?
 
@@ -880,6 +926,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax) which contains more code samples and useful resources._
+
+---
 
 25. ### What are the differences between ES2015 classes and ES5 function constructors?
 
@@ -942,6 +990,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-es6-class-and-es5-function-constructors) which contains more code samples and useful resources._
 
+---
+
 26. ### What are the differences between `Map`/`Set` vs `WeakMap`/`WeakSet`?
 
     <!-- Update here: /questions/what-are-the-differences-between-map-set-and-weakmap-weakset/en-US.mdx -->
@@ -983,6 +1033,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-map-set-and-weakmap-weakset) which contains more code samples and useful resources._
 
+---
+
 27. ### What are the differences between variables created using `let`, `var` or `const`?
 
     <!-- Update here: /questions/what-are-the-differences-between-variables-created-using-let-var-or-const/en-US.mdx -->
@@ -1000,6 +1052,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/what-are-the-differences-between-variables-created-using-let-var-or-const/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-variables-created-using-let-var-or-const) which contains more code samples and useful resources._
+
+---
 
 28. ### What are the differences between `XMLHttpRequest` and `fetch()`?
 
@@ -1021,6 +1075,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-xmlhttprequest-and-fetch) which contains more code samples and useful resources._
 
+---
+
 29. ### What are the pros and cons of using Promises instead of callbacks?
 
     <!-- Update here: /questions/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks/en-US.mdx -->
@@ -1030,6 +1086,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks) which contains more code samples and useful resources._
+
+---
 
 30. ### What are the various data types in JavaScript?
 
@@ -1063,6 +1121,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-various-data-types-in-javascript) which contains more code samples and useful resources._
 
+---
+
 31. ### What are the various ways to create objects in JavaScript?
 
     <!-- Update here: /questions/what-are-the-various-ways-to-create-objects-in-javascript/en-US.mdx -->
@@ -1078,6 +1138,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/what-are-the-various-ways-to-create-objects-in-javascript/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-the-various-ways-to-create-objects-in-javascript) which contains more code samples and useful resources._
+
+---
 
 32. ### What are workers in JavaScript used for?
 
@@ -1109,6 +1171,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-are-workers-in-javascript-used-for) which contains more code samples and useful resources._
 
+---
+
 33. ### What is event loop?
 
     <!-- Update here: /questions/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue/en-US.mdx -->
@@ -1136,6 +1200,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue) which contains more code samples and useful resources._
+
+---
 
 34. ### What is the definition of a higher-order function?
 
@@ -1179,6 +1245,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-is-the-definition-of-a-higher-order-function) which contains more code samples and useful resources._
 
+---
+
 35. ### What is the difference between `==` and `===` in JavaScript?
 
     <!-- Update here: /questions/what-is-the-difference-between-double-equal-and-triple-equal/en-US.mdx -->
@@ -1194,6 +1262,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/what-is-the-difference-between-double-equal-and-triple-equal/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-is-the-difference-between-double-equal-and-triple-equal) which contains more code samples and useful resources._
+
+---
 
 36. ### What is `"use strict";`?
 
@@ -1222,6 +1292,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it) which contains more code samples and useful resources._
+
+---
 
 37. ### What language constructions do you use for iterating over object properties and array items?
 
@@ -1310,6 +1382,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items) which contains more code samples and useful resources._
 
+---
+
 38. ### What's a typical use case for anonymous functions?
 
     <!-- Update here: /questions/whats-a-typical-use-case-for-anonymous-functions/en-US.mdx -->
@@ -1346,6 +1420,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/whats-a-typical-use-case-for-anonymous-functions) which contains more code samples and useful resources._
 
+---
+
 39. ### What's the difference between a variable that is: `null`, `undefined` or undeclared?
 
     <!-- Update here: /questions/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states/en-US.mdx -->
@@ -1360,6 +1436,8 @@ Top JavaScript interview questions for acing your front end interviews.
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states) which contains more code samples and useful resources._
 
+---
+
 40. ### Why is extending built-in JavaScript objects not a good idea?
 
     <!-- Update here: /questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/en-US.mdx -->
@@ -1371,6 +1449,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/why-is-extending-built-in-javascript-objects-not-a-good-idea) which contains more code samples and useful resources._
+
+---
 
 41. ### Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 
@@ -1395,6 +1475,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it) which contains more code samples and useful resources._
+
+---
 
 42. ### Why might you want to create static class members?
 
@@ -1422,6 +1504,8 @@ Top JavaScript interview questions for acing your front end interviews.
     <!-- Update here: /questions/why-you-might-want-to-create-static-class-members/en-US.mdx -->
 
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/why-you-might-want-to-create-static-class-members) which contains more code samples and useful resources._
+
+---
 
 
 <!-- QUESTIONS:END -->

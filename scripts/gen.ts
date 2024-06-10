@@ -107,6 +107,8 @@ ${qn.content
     _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/${
       qn.slug
     }) which contains more code samples and useful resources._
+
+---
 `;
 }
 
