@@ -81,6 +81,16 @@ async function processQuestionList(qns: string[]) {
   );
 }
 
+function formatTableOfContents(qnList: QuestionItem[]) {
+  const tableOfContentsLines = ['| No. | Questions |', '| --- | --------- |'];
+
+  qnList.forEach(({ title, slug }, index) =>
+    tableOfContentsLines.push(`| ${index + 1} | [${title}](#${slug}) |`),
+  );
+
+  return tableOfContentsLines.join('\n');
+}
+
 function formatQuestion(qn: QuestionItem, index: number) {
   return `${index}. ### ${qn.title}
 
@@ -103,17 +113,24 @@ ${qn.content
 async function generate() {
   const qns = await readQuestionsList();
   const qnItemList = await processQuestionList(qns);
-  const qnContents = qnItemList
+  const qnsItemListSorted = qnItemList;
+  const qnTableOfContents = formatTableOfContents(qnsItemListSorted);
+  const qnAnswers = qnsItemListSorted
     .map((qnItem, index) => formatQuestion(qnItem, index + 1))
     .join('\n');
 
   const readmeFile = String(fs.readFileSync(README_PATH_EN));
-  readmeFile;
 
-  const regex = /(<!-- QUESTIONS:START -->)([\s\S]*?)(<!-- QUESTIONS:END -->)/;
+  const updatedText = readmeFile
+    .replace(
+      /(<!-- TABLE_OF_CONTENTS:START -->)([\s\S]*?)(<!-- TABLE_OF_CONTENTS:END -->)/,
+      `$1\n\n${qnTableOfContents}\n\n$3`,
+    )
+    .replace(
+      /(<!-- QUESTIONS:START -->)([\s\S]*?)(<!-- QUESTIONS:END -->)/,
+      `$1\n\n${qnAnswers}\n\n$3`,
+    );
 
-  // Replace the content between the markers with the custom text
-  const updatedText = readmeFile.replace(regex, `$1\n\n${qnContents}\n\n$3`);
   fs.writeFileSync(README_PATH_EN, updatedText);
 }
 
