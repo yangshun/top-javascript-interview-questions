@@ -53,7 +53,10 @@ async function processQuestion(
     locale,
     metadata,
     title: data?.title,
-    content: tlDrPart.trim(),
+    content: tlDrPart
+      // Replace relative links with absolute links.
+      .replace('](/', '](https://greatfrontend.com/')
+      .trim(),
     slug,
   };
 }

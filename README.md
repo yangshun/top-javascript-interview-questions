@@ -24,7 +24,7 @@ _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.
 
 <!-- Update here: /questions/describe-event-capturing/en-US.mdx -->
 
-Event capturing is a lesser-used counterpart to [event bubbling](/questions/quiz/describe-event-bubbling) in the DOM event propagation mechanism. It follows the opposite order, where an event triggers first on the ancestor element and then travels down to the target element.
+Event capturing is a lesser-used counterpart to [event bubbling](https://greatfrontend.com/questions/quiz/describe-event-bubbling) in the DOM event propagation mechanism. It follows the opposite order, where an event triggers first on the ancestor element and then travels down to the target element.
 
 Event capturing is rarely used as compared to event bubbling, but it can be used in specific scenarios where you need to intercept events at a higher level before they reach the target element. It is disabled by default but can be enabled through an option on `addEventListener()`.
 
@@ -1023,7 +1023,7 @@ In JavaScript, data types can be categorized into `primitive` and `non-primitive
 - **Boolean**: Represents `true` or `false` values.
 - **Undefined**: A variable that has been declared but not assigned a value.
 - **Null**: Represents the intentional absence of any object value.
-- **Symbol**: A unique and immutable value used as object property keys. Read more in our [deep dive on `Symbol`s](/questions/quiz/what-are-symbols-used-for)
+- **Symbol**: A unique and immutable value used as object property keys. Read more in our [deep dive on `Symbol`s](https://greatfrontend.com/questions/quiz/what-are-symbols-used-for)
 - **BigInt**: Represents integers with arbitrary precision.
 
 **Non-primitive (Reference) data types**
