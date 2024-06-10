@@ -1,0 +1,23 @@
+{
+  "name": "top-javascript-interview-questions",
+  "version": "1.0.0",
+  "description": "List of top JavaScript interview questions",
+  "main": "index.js",
+  "scripts": {
+    "gen": "tsx scripts/gen.ts"
+  },
+  "keywords": [
+    "javascript",
+    "interview",
+    "questions"
+  ],
+  "author": "yangshun",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^20.14.2",
+    "github-slugger": "^2.0.0",
+    "globby": "^14.0.1",
+    "gray-matter": "^4.0.3",
+    "tsx": "^4.15.1"
+  }
+}
