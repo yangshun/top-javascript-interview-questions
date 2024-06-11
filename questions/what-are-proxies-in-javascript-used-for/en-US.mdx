@@ -1,0 +1,228 @@
+---
+title: What are proxies in JavaScript used for?
+---
+
+## TL;DR
+
+In JavaScript, a proxy is an object that acts as an intermediary between an object and the code. Proxies are used to intercept and customize the fundamental operations of JavaScript objects, such as property access, assignment, function invocation, and more.
+
+Here's a basic example of using a `Proxy` to log every property access:
+
+```js
+const myObject = {
+  name: 'John',
+  age: 42,
+};
+
+const handler = {
+  get: function (target, prop, receiver) {
+    console.log(`Someone accessed property "${prop}"`);
+    return target[prop];
+  },
+};
+
+const proxiedObject = new Proxy(myObject, handler);
+
+console.log(proxiedObject.name); // 'John'
+// Someone accessed property "name"
+
+console.log(proxiedObject.value); // 42
+// Someone accessed property "value"
+```
+
+Use cases include:
+
+- **Property access interception**: Intercept and customize property access on an object.
+  - **Property assignment validation**: Validate property values before they are set on the target object.
+  - **Logging and debugging**: Create wrappers for logging and debugging interactions with an object
+  - **Creating reactive systems**: Trigger updates in other parts of your application when object properties change (data binding).
+  - **Data transformation**: Transforming data being set or retrieved from an object.
+  - **Mocking and stubbing in tests**: Create mock or stub objects for testing purposes, allowing you to isolate dependencies and focus on the unit under test
+- **Function invocation interception**: Used to cache and return the result of frequently accessed methods if they involve network calls or computationally intensive logic, improving performance
+- **Dynamic property creation**: Useful for defining properties on-the-fly with default values and avoid storing redundant data in objects.
+
+---
+
+## JavaScript proxies
+
+In JavaScript, a proxy is an object that allows you to customize the behavior of another object, often referred to as the target object. Proxies can intercept and redefine various operations for the target object, such as property access, assignment, enumeration, function invocation, and more. This makes proxies a powerful tool for a variety of use cases, including but not limited to validation, logging, performance monitoring, and implementing advanced data structures.
+
+Here are some common use cases and examples of how proxies can be used in JavaScript:
+
+### Property access interception
+
+Proxies can be used to intercept and customize property access on an object.
+
+```js
+const target = {
+  message: 'Hello, world!',
+};
+
+const handler = {
+  get: function (target, property) {
+    if (property in target) {
+      return target[property];
+    }
+
+    return `Property ${property} does not exist.`;
+  },
+};
+
+const proxy = new Proxy(target, handler);
+
+console.log(proxy.message); // Hello, world!
+console.log(proxy.nonExistentProperty); // Property nonExistentProperty does not exist.
+```
+
+#### Creating wrappers for logging and debugging
+
+This is useful for creating wrappers for logging and debugging interactions with an object.
+
+```js
+const target = {
+  name: 'Alice',
+  age: 30,
+};
+
+const handler = {
+  get: function (target, property) {
+    console.log(`Getting property ${property}`);
+    return target[property];
+  },
+  set: function (target, property, value) {
+    console.log(`Setting property ${property} to ${value}`);
+    target[property] = value;
+    return true;
+  },
+};
+
+const proxy = new Proxy(target, handler);
+
+console.log(proxy.name); // Output: Getting property name
+//         Alice
+proxy.age = 31; // Output: Setting property age to 31
+console.log(proxy.age); // Output: Getting property age
+//         31
+```
+
+#### Property assignment validation
+
+Proxies can be used to validate property values before they are set on the target object.
+
+```js
+const target = {
+  age: 25,
+};
+
+const handler = {
+  set: function (target, property, value) {
+    if (property === 'age' && typeof value !== 'number') {
+      throw new TypeError('Age must be a number');
+    }
+    target[property] = value;
+    return true;
+  },
+};
+
+const proxy = new Proxy(target, handler);
+
+proxy.age = 30; // Works fine
+proxy.age = 'thirty'; // Throws TypeError: Age must be a number
+```
+
+#### Creating reactive systems
+
+Proxies are often used to trigger updates in other parts of your application when object properties change (data binding).
+
+A practical example is JavaScript frameworks like [Vue.js](https://vuejs.org/), where proxies are used to [create reactive systems that automatically update the UI when data changes](https://vuejs.org/guide/extras/reactivity-in-depth.html).
+
+```js
+const target = {
+  firstName: 'John',
+  lastName: 'Doe',
+};
+
+const handler = {
+  set: function (target, property, value) {
+    console.log(`Property ${property} set to ${value}`);
+    target[property] = value;
+    // Automatically update the UI or perform other actions
+    return true;
+  },
+};
+
+const proxy = new Proxy(target, handler);
+
+proxy.firstName = 'Jane'; // Output: Property firstName set to Jane
+```
+
+Other use cases for access interception include:
+
+- **Mocking and stubbing**: Proxies can be used to create mock or stub objects for testing purposes, allowing you to isolate dependencies and focus on the unit under test.
+
+### Function invocation interception
+
+Proxies can intercept and customize function calls.
+
+```js
+const target = function (name) {
+  return `Hello, ${name}!`;
+};
+
+const handler = {
+  apply: function (target, thisArg, argumentsList) {
+    console.log(`Called with arguments: ${argumentsList}`);
+    return target.apply(thisArg, argumentsList);
+  },
+};
+
+const proxy = new Proxy(target, handler);
+
+console.log(proxy('Alice')); // Called with arguments: Alice
+// Hello, Alice!
+```
+
+This interception can be used to cache and return the result of frequently accessed methods if they involve network calls or computationally intensive logic, improving performance by reducing the number of requests/computations made.
+
+### Dynamic property creation
+
+Proxies can be used to dynamically create properties or methods on an object. This is useful for defining properties on-the-fly with default values and avoid storing redundant data in objects.
+
+```js
+const target = {};
+
+const handler = {
+  get: function (target, property) {
+    if (!(property in target)) {
+      target[property] = `Dynamic property ${property}`;
+    }
+    return target[property];
+  },
+};
+
+const proxy = new Proxy(target, handler);
+
+console.log(proxy.newProp); // Output: Dynamic property newProp
+console.log(proxy.anotherProp); // Output: Dynamic property anotherProp
+```
+
+### Implementing object relational mappers (ORMs)
+
+Proxies can be used to create objects for database records by intercepting property access to lazily load data from the database. This provides a more object-oriented interface to interact with a database.
+
+## Real world use cases
+
+Many popular libraries, especially state management solutions, are built on top of JavaScript proxies:
+
+- **[Vue.js](https://vuejs.org/)**: Vue.js is a progressive framework for building user interfaces. In Vue 3, proxies are used extensively to implement the reactivity system.
+- **[MobX](https://mobx.js.org/)**: MobX uses proxies to make objects and arrays observable, allowing components to automatically react to state changes.
+- **[Immer](https://immerjs.github.io/)**: Immer is a library that allows you to work with immutable state in a more convenient way. It uses proxies to track changes and produce the next immutable state.
+
+## Summary
+
+Proxies in JavaScript provide a powerful and flexible way to intercept and customize operations on objects. They are useful for a wide range of applications, including validation, logging, debugging, dynamic property creation, and implementing reactive systems. By using proxies, developers can create more robust, maintainable, and feature-rich applications.
+
+## Further reading
+
+- [Foo](#foo)
+- [Bar](#bar)
