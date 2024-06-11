@@ -1,5 +1,5 @@
 {
-  "slug": "whats-the-difference-between-call-and-apply",
+  "slug": "what-is-the-difference-between-mouseenter-mouseover-event",
   "languages": [],
   "companies": [],
   "premium": false,
@@ -7,7 +7,7 @@
   "published": true,
   "featured": true,
   "topics": ["javascript"],
-  "importance": "high",
+  "importance": "low",
   "difficulty": "easy",
   "ranking": 1
 }

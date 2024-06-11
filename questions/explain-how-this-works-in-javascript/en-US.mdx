@@ -2,17 +2,234 @@
 title: Explain how `this` works in JavaScript
 ---
 
-There's no simple explanation for `this`; it is one of the most confusing concepts in JavaScript. A hand-wavey explanation is that the value of `this` depends on how the function is called. Having read many explanations on `this` online, [Arnav Aggrawal](https://medium.com/@arnav_aggarwal)'s explanation was the clearest. The following rules are applied:
+## TL;DR
 
-1. If the `new` keyword is used when calling the function, `this` inside the function is a brand new object.
-1. If `apply`, `call`, or `bind` are used to call/create a function, `this` inside the function is the object that is passed in as the argument.
-1. If a function is called as a method, such as `obj.method()` — `this` is the object that the function is a property of.
-1. If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, `this` is the global object. In a browser, it is the `window` object. If in strict mode (`'use strict'`), `this` will be `undefined` instead of the global object.
-1. If multiple of the above rules apply, the rule that is higher wins and will set the `this` value.
-1. If the function is an ES2015 arrow function, it ignores all the rules above and receives the `this` value of its surrounding scope at the time it is created.
+There's no simple explanation for `this`; it is one of the most confusing concepts in JavaScript because it's behavior differs from many other programming languages. The one-liner explanation of the `this` keyword is that it is a dynamic reference to the context in which a function is executed.
 
-For an in-depth explanation, do check out his [article on Medium](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3).
+A longer explanation follows is that `this` follows these rules:
 
-#### Can you give an example of one of the ways that working with this has changed in ES2015?
+1. If the `new` keyword is used when calling the function, meaning the function was used as a function constructor, the `this` inside the function is the newly-created object instance.
+2. If `this` is used in a `class` `constructor`, the `this` inside the `constructor` is the newly-created object instance.
+3. If `apply()`, `call()`, or `bind()` is used to call/create a function, `this` inside the function is the object that is passed in as the argument.
+4. If a function is called as a method (e.g. `obj.method()`) — `this` is the object that the function is a property of.
+5. If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, `this` is the global object. In the browser, the global object is the `window` object. If in strict mode (`'use strict';`), `this` will be `undefined` instead of the global object.
+6. If multiple of the above rules apply, the rule that is higher wins and will set the `this` value.
+7. If the function is an ES2015 arrow function, it ignores all the rules above and receives the `this` value of its surrounding scope at the time it is created.
 
-ES2015 allows you to use [arrow functions](http://2ality.com/2017/12/alternate-this.html#arrow-functions) which uses the [enclosing lexical scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this). This is usually convenient, but does prevent the caller from controlling context via `.call` or `.apply`—the consequences being that a library such as `jQuery` will not properly bind `this` in your event handler functions. Thus, it's important to keep this in mind when refactoring large legacy applications.
+For an in-depth explanation, do check out [Arnav Aggrawal's article on Medium](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3).
+
+---
+
+## `this` keyword
+
+In JavaScript, `this` is a keyword that refers to the current execution context of a function or script. It's a fundamental concept in JavaScript, and understanding how `this` works is crucial for building robust and maintainable applications.
+
+### Used globally
+
+In the global scope, `this` refers to the global object, which is the `window` object in a web browser or the `global` object in a Node.js environment.
+
+```js
+console.log(this); // In a browser, this will log the window object (for non-strict mode).
+```
+
+### Within a regular function call
+
+When a function is called in the global context or as a standalone function, `this` refers to the global object (in non-strict mode) or `undefined` (in strict mode).
+
+```js
+function showThis() {
+  console.log(this);
+}
+
+showThis(); // In non-strict mode: Window (global object). In strict mode: undefined.
+```
+
+### Within a method call
+
+When a function is called as a method of an object, `this` refers to the object that the method is called on.
+
+```js
+const obj = {
+  name: 'John',
+  showThis: function () {
+    console.log(this);
+  },
+};
+
+obj.showThis(); // { name: 'John', showThis: ƒ }
+```
+
+Note that if you do the following, it is as good as a regular function call and not a method call. `this` has lost its context and no longer points to `obj`.
+
+```js
+const obj = {
+  name: 'John',
+  showThis: function () {
+    console.log(this);
+  },
+};
+
+const showThisStandalone = obj.showThis;
+showThisStandalone(); // In non-strict mode: Window (global object). In strict mode: undefined.
+```
+
+### Within a function constructor
+
+When a function is used as a constructor (called with the `new` keyword), `this` refers to the newly-created instance. In the following example, `this` refers to the `Person` object being created, and the `name` property is set on that object.
+
+```js
+function Person(name) {
+  this.name = name;
+}
+
+const person = new Person('John');
+console.log(person.name); // "John"
+```
+
+### Within class constructor and methods
+
+In ES2015 classes, `this` behaves as it does in object methods. It refers to the instance of the class.
+
+```js
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  showThis() {
+    console.log(this);
+  }
+}
+
+const person = new Person('John');
+person.showThis(); // Person {name: 'John'}
+
+const showThisStandalone = person.showThis;
+showThisStandalone(); // `undefined` because all parts of a class' body are strict mode.
+```
+
+### Explicitly binding `this`
+
+You can use `bind()`, `call()`, or `apply()` to explicitly set the value of `this` for a function.
+
+Using the `call()` and `apply()` methods allow you to explicitly set the value of `this` when calling the function.
+
+```js
+function showThis() {
+  console.log(this);
+}
+const obj = { name: 'John' };
+
+showThis.call(obj); // { name: 'John' }
+showThis.apply(obj); // { name: 'John' }
+```
+
+The `bind()` method creates a new function with `this` bound to the specified value.
+
+```js
+function showThis() {
+  console.log(this);
+}
+const obj = { name: 'John' };
+
+const boundFunc = showThis.bind(obj);
+boundFunc(); // { name: 'John' }
+```
+
+### Within arrow functions
+
+Arrow functions do not have their own `this` context. Instead, the `this` is lexically scoped, which means it inherits the `this` value from its surrounding scope at the time they are defined.
+
+In this example, `this` refers to the global object (window or global), because the arrow function is not bound to the `person` object.
+
+```js
+const person = {
+  name: 'John',
+  sayHello: () => {
+    console.log(`Hello, my name is ${this.name}!`);
+  },
+};
+
+person.sayHello(); // "Hello, my name is undefined!"
+```
+
+In the following example, the `this` in the arrow function will be the `this` value of its enclosing context, so it depends on how `showThis()` is called.
+
+```js
+const obj = {
+  name: 'John',
+  showThis: function () {
+    const arrowFunc = () => {
+      console.log(this);
+    };
+    arrowFunc();
+  },
+};
+
+obj.showThis(); // { name: 'John', showThis: ƒ }
+
+const showThisStandalone = obj.showThis;
+showThisStandalone(); // In non-strict mode: Window (global object). In strict mode: undefined.
+```
+
+Therefore, the `this` value in arrow functions cannot be set by `bind()`, `apply()` or `call()` methods, nor does it point to the current object in object methods.
+
+```js
+const obj = {
+  name: 'Alice',
+  regularFunction: function () {
+    console.log('Regular function:', this.name);
+  },
+  arrowFunction: () => {
+    console.log('Arrow function:', this.name);
+  },
+};
+
+const anotherObj = {
+  name: 'Bob',
+};
+
+// Using call/apply/bind with a regular function
+obj.regularFunction.call(anotherObj); // Regular function: Bob
+obj.regularFunction.apply(anotherObj); // Regular function: Bob
+const boundRegularFunction = obj.regularFunction.bind(anotherObj);
+boundRegularFunction(); // Regular function: Bob
+
+// Using call/apply/bind with an arrow function, `this` refers to the global scope and cannot be modified.
+obj.arrowFunction.call(anotherObj); // Arrow function: window/undefined (depending if strict mode)
+obj.arrowFunction.apply(anotherObj); // Arrow function: window/undefined (depending if strict mode)
+const boundArrowFunction = obj.arrowFunction.bind(anotherObj);
+boundArrowFunction(); // Arrow function: window/undefined (depending if strict mode)
+```
+
+### Within event handlers
+
+When a function is called as a DOM event handler, `this` refers to the element that triggered the event. In this example, `this` refers to the `<button>` element that was clicked.
+
+```html
+<button id="my-button" onclick="console.log(this)">Click me</button>
+<!-- Logs the button element -->
+```
+
+When setting an event handler using JavaScript, this also refers to the element that received the event.
+
+```js
+document.getElementById('my-button').addEventListener('click', function () {
+  console.log(this); // Logs the button element
+});
+```
+
+As mentioned above, ES2015 introduces [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) which uses the [enclosing lexical scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this). This is usually convenient, but does prevent the caller from defining the `this` context via `.call`/`.apply`/`.bind`. One of the consequences is that DOM event handlers will not properly bind `this` in your event handler functions if you define the callback parameters to `.addEventListener()` using arrow functions.
+
+```js
+document.getElementById('my-button').addEventListener('click', () => {
+  console.log(this); // Window / undefined (depending on whether strict mode) instead of the button element.
+});
+```
+
+In summary, `this` in JavaScript refers to the current execution context of a function or script, and its value can change depending on the context in which it is used. Understanding how `this` works is essential for building robust and maintainable JavaScript applications.
+
+## Further reading
+
+- [this - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+- [The Simple Rules to `this` in Javascript](https://medium.com/m/global-identity-2?redirectUrl=https%3A%2F%2Fcodeburst.io%2Fthe-simple-rules-to-this-in-javascript-35d97f31bde3)

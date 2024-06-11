@@ -52,7 +52,8 @@ async function processQuestion(
   const frontMatter = data as QuestionFrontmatter;
 
   const title = frontMatter.title;
-  if (title == null) {
+  if (!title) {
+    console.warn(`${localeFile} does not have title`);
     return null;
   }
 

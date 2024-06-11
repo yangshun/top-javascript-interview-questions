@@ -11,47 +11,52 @@ Curated top JavaScript interview questions with high quality answers for acing y
 | 1 | [Describe event bubbling](#describe-event-bubbling) |
 | 2 | [Describe event capturing](#describe-event-capturing) |
 | 3 | [Describe the difference between a cookie, `sessionStorage` and `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage) |
-| 4 | [Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()`?](#difference-between-function-person-const-person--person-and-const-person--new-person) |
-| 5 | [Explain AJAX in as much detail as possible](#explain-ajax-in-as-much-detail-as-possible) |
-| 6 | [Explain event delegation](#explain-event-delegation) |
-| 7 | [Explain `Function.prototype.bind`](#explain-functionprototypebind) |
-| 8 | [Explain "hoisting"](#explain-hoisting) |
-| 9 | [Explain how prototypal inheritance works](#explain-how-prototypal-inheritance-works) |
-| 10 | [Explain the difference between mutable and immutable objects](#explain-the-difference-between-mutable-and-immutable-objects) |
-| 11 | [Explain the difference between synchronous and asynchronous functions](#explain-the-difference-between-synchronous-and-asynchronous-functions) |
-| 12 | [Explain the differences between CommonJS modules and ES modules](#explain-the-differences-between-commonjs-modules-and-es-modules) |
-| 13 | [Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`](#explain-the-differences-on-the-usage-of-foo-between-function-foo--and-var-foo--function-) |
-| 14 | [How do you abort a web request using `AbortController`?](#how-do-you-abort-a-web-request-using-abortcontroller) |
-| 15 | [How does JavaScript garbage collection work?](#how-does-javascript-garbage-collection-work) |
-| 16 | [What advantage is there for using the arrow syntax for a method in a constructor?](#what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor) |
-| 17 | [What are iterators and generators and what are they used for?](#what-are-iterators-and-generators-and-what-are-they-used-for) |
-| 18 | [What are JavaScript object getters and setters for?](#what-are-javascript-object-getters-and-setters-for) |
-| 19 | [What are JavaScript object property flags and descriptors?](#what-are-javascript-object-property-flags-and-descriptors) |
-| 20 | [What are JavaScript polyfills for?](#what-are-javascript-polyfills-for) |
-| 21 | [What are server-sent events?](#what-are-server-sent-events) |
-| 22 | [What are `Symbol`s used for?](#what-are-symbols-used-for) |
-| 23 | [What are the advantages and disadvantages of using AJAX?](#what-are-the-advantages-and-disadvantages-of-using-ajax) |
-| 24 | [What are the benefits of using spread syntax and how is it different from rest syntax?](#what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax) |
-| 25 | [What are the differences between ES2015 classes and ES5 function constructors?](#what-are-the-differences-between-es2015-classes-and-es5-function-constructors) |
-| 26 | [What are the differences between `Map`/`Set` vs `WeakMap`/`WeakSet`?](#what-are-the-differences-between-mapset-vs-weakmapweakset) |
-| 27 | [What are the differences between variables created using `let`, `var` or `const`?](#what-are-the-differences-between-variables-created-using-let-var-or-const) |
-| 28 | [What are the differences between `XMLHttpRequest` and `fetch()`?](#what-are-the-differences-between-xmlhttprequest-and-fetch) |
-| 29 | [What are the pros and cons of using Promises instead of callbacks?](#what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks) |
-| 30 | [What are the various data types in JavaScript?](#what-are-the-various-data-types-in-javascript) |
-| 31 | [What are the various ways to create objects in JavaScript?](#what-are-the-various-ways-to-create-objects-in-javascript) |
-| 32 | [What are workers in JavaScript used for?](#what-are-workers-in-javascript-used-for) |
-| 33 | [What is event loop?](#what-is-event-loop) |
-| 34 | [What is the definition of a higher-order function?](#what-is-the-definition-of-a-higher-order-function) |
-| 35 | [What is the difference between a `Map` object and a plain object in JavaScript?](#what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript) |
-| 36 | [What is the difference between `==` and `===` in JavaScript?](#what-is-the-difference-between--and--in-javascript) |
-| 37 | [What is `"use strict";`?](#what-is-use-strict) |
-| 38 | [What language constructs do you use for iterating over object properties and array items?](#what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items) |
-| 39 | [What tools and techniques do you use for debugging JavaScript code?](#what-tools-and-techniques-do-you-use-for-debugging-javascript-code) |
-| 40 | [What's a typical use case for anonymous functions?](#whats-a-typical-use-case-for-anonymous-functions) |
-| 41 | [What's the difference between a variable that is: `null`, `undefined` or undeclared?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared) |
-| 42 | [Why is extending built-in JavaScript objects not a good idea?](#why-is-extending-built-in-javascript-objects-not-a-good-idea) |
-| 43 | [Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?](#why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it) |
-| 44 | [Why might you want to create static class members?](#why-might-you-want-to-create-static-class-members) |
+| 4 | [Describe the difference between `<script>`, `<script async>` and `<script defer>`](#describe-the-difference-between-script-script-async-and-script-defer) |
+| 5 | [Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()`?](#difference-between-function-person-const-person--person-and-const-person--new-person) |
+| 6 | [Explain AJAX in as much detail as possible](#explain-ajax-in-as-much-detail-as-possible) |
+| 7 | [Explain event delegation](#explain-event-delegation) |
+| 8 | [Explain `Function.prototype.bind`](#explain-functionprototypebind) |
+| 9 | [Explain "hoisting"](#explain-hoisting) |
+| 10 | [Explain how prototypal inheritance works](#explain-how-prototypal-inheritance-works) |
+| 11 | [Explain how `this` works in JavaScript](#explain-how-this-works-in-javascript) |
+| 12 | [Explain the difference between mutable and immutable objects](#explain-the-difference-between-mutable-and-immutable-objects) |
+| 13 | [Explain the difference between synchronous and asynchronous functions](#explain-the-difference-between-synchronous-and-asynchronous-functions) |
+| 14 | [Explain the differences between CommonJS modules and ES modules](#explain-the-differences-between-commonjs-modules-and-es-modules) |
+| 15 | [Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`](#explain-the-differences-on-the-usage-of-foo-between-function-foo--and-var-foo--function-) |
+| 16 | [How do you abort a web request using `AbortController`?](#how-do-you-abort-a-web-request-using-abortcontroller) |
+| 17 | [How does JavaScript garbage collection work?](#how-does-javascript-garbage-collection-work) |
+| 18 | [What advantage is there for using the arrow syntax for a method in a constructor?](#what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor) |
+| 19 | [What are iterators and generators and what are they used for?](#what-are-iterators-and-generators-and-what-are-they-used-for) |
+| 20 | [What are JavaScript object getters and setters for?](#what-are-javascript-object-getters-and-setters-for) |
+| 21 | [What are JavaScript object property flags and descriptors?](#what-are-javascript-object-property-flags-and-descriptors) |
+| 22 | [What are JavaScript polyfills for?](#what-are-javascript-polyfills-for) |
+| 23 | [What are server-sent events?](#what-are-server-sent-events) |
+| 24 | [What are `Symbol`s used for?](#what-are-symbols-used-for) |
+| 25 | [What are the advantages and disadvantages of using AJAX?](#what-are-the-advantages-and-disadvantages-of-using-ajax) |
+| 26 | [What are the benefits of using spread syntax and how is it different from rest syntax?](#what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax) |
+| 27 | [What are the differences between ES2015 classes and ES5 function constructors?](#what-are-the-differences-between-es2015-classes-and-es5-function-constructors) |
+| 28 | [What are the differences between `Map`/`Set` vs `WeakMap`/`WeakSet`?](#what-are-the-differences-between-mapset-vs-weakmapweakset) |
+| 29 | [What are the differences between variables created using `let`, `var` or `const`?](#what-are-the-differences-between-variables-created-using-let-var-or-const) |
+| 30 | [What are the differences between `XMLHttpRequest` and `fetch()`?](#what-are-the-differences-between-xmlhttprequest-and-fetch) |
+| 31 | [What are the pros and cons of using Promises instead of callbacks?](#what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks) |
+| 32 | [What are the various data types in JavaScript?](#what-are-the-various-data-types-in-javascript) |
+| 33 | [What are the various ways to create objects in JavaScript?](#what-are-the-various-ways-to-create-objects-in-javascript) |
+| 34 | [What are workers in JavaScript used for?](#what-are-workers-in-javascript-used-for) |
+| 35 | [What is a closure, and how/why would you use one?](#what-is-a-closure-and-howwhy-would-you-use-one) |
+| 36 | [What is event loop?](#what-is-event-loop) |
+| 37 | [What is the definition of a higher-order function?](#what-is-the-definition-of-a-higher-order-function) |
+| 38 | [What is the difference between a `Map` object and a plain object in JavaScript?](#what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript) |
+| 39 | [What is the difference between `==` and `===` in JavaScript?](#what-is-the-difference-between--and--in-javascript) |
+| 40 | [What is the difference between `mouseenter` and `mouseover` event?](#what-is-the-difference-between-mouseenter-and-mouseover-event) |
+| 41 | [What is `"use strict";`?](#what-is-use-strict) |
+| 42 | [What language constructs do you use for iterating over object properties and array items?](#what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items) |
+| 43 | [What tools and techniques do you use for debugging JavaScript code?](#what-tools-and-techniques-do-you-use-for-debugging-javascript-code) |
+| 44 | [What's a typical use case for anonymous functions?](#whats-a-typical-use-case-for-anonymous-functions) |
+| 45 | [What's the difference between a variable that is: `null`, `undefined` or undeclared?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared) |
+| 46 | [What's the difference between `.call` and `.apply`?](#whats-the-difference-between-call-and-apply) |
+| 47 | [Why is extending built-in JavaScript objects not a good idea?](#why-is-extending-built-in-javascript-objects-not-a-good-idea) |
+| 48 | [Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?](#why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it) |
+| 49 | [Why might you want to create static class members?](#why-might-you-want-to-create-static-class-members) |
 
 <!-- TABLE_OF_CONTENTS:END -->
 
@@ -127,7 +132,35 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-4. ### Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()`?
+4. ### Describe the difference between `<script>`, `<script async>` and `<script defer>`
+
+    <!-- Update here: /questions/describe-the-difference-between-script-async-and-script-defer/en-US.mdx -->
+
+    All of these ways (`<script>`, `<script async>`, and `<script defer>`) are used to load and execute JavaScript files in an HTML document, but they differ in how the browser handles loading and execution of the script:
+    
+    - `<script>` is the default way of including JavaScript. The browser blocks HTML parsing while the script is being downloaded and executed. The browser will not continue rendering the page until the script has finished executing.
+    - `<script async>` downloads the script asynchronously, in parallel with parsing the HTML. Executes the script as soon as it is available, potentially interrupting the HTML parsing. `<script async>` do not wait for each other and execute in no particular order.
+    - `<script defer>` downloads the script asynchronously, in parallel with parsing the HTML. However, the execution of the script is deferred until HTML parsing is complete, in the order they appear in the HTML.
+    
+    Here's a table summarizing the 3 ways of loading `<script>`s in a HTML document.
+    
+    | Feature | `<script>` | `<script async>` | `<script defer>` |
+    | --- | --- | --- | --- |
+    | Parsing behavior | Blocks HTML parsing | Runs parallel to parsing | Runs parallel to parsing |
+    | Execution order | In order of appearance | Not guaranteed | In order of appearance |
+    | DOM dependency | No | No | Yes (waits for DOM) |
+
+    <!-- Update here: /questions/describe-the-difference-between-script-async-and-script-defer/en-US.mdx -->
+
+    <br>
+
+    > Read the [detailed answer](https://greatfrontend.com/questions/quiz/describe-the-difference-between-script-async-and-script-defer) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+
+    [Back to top ↑](#table-of-contents)
+    <br>
+    <br>
+
+5. ### Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()`?
 
     <!-- Update here: /questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx -->
 
@@ -152,7 +185,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-5. ### Explain AJAX in as much detail as possible
+6. ### Explain AJAX in as much detail as possible
 
     <!-- Update here: /questions/explain-ajax-in-as-much-detail-as-possible/en-US.mdx -->
 
@@ -199,7 +232,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-6. ### Explain event delegation
+7. ### Explain event delegation
 
     <!-- Update here: /questions/explain-event-delegation/en-US.mdx -->
 
@@ -226,7 +259,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-7. ### Explain `Function.prototype.bind`
+8. ### Explain `Function.prototype.bind`
 
     <!-- Update here: /questions/explain-function-prototype-bind/en-US.mdx -->
 
@@ -248,7 +281,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-8. ### Explain "hoisting"
+9. ### Explain "hoisting"
 
     <!-- Update here: /questions/explain-hoisting/en-US.mdx -->
 
@@ -281,7 +314,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-9. ### Explain how prototypal inheritance works
+10. ### Explain how prototypal inheritance works
 
     <!-- Update here: /questions/explain-how-prototypal-inheritance-works/en-US.mdx -->
 
@@ -341,7 +374,35 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-10. ### Explain the difference between mutable and immutable objects
+11. ### Explain how `this` works in JavaScript
+
+    <!-- Update here: /questions/explain-how-this-works-in-javascript/en-US.mdx -->
+
+    There's no simple explanation for `this`; it is one of the most confusing concepts in JavaScript because it's behavior differs from many other programming languages. The one-liner explanation of the `this` keyword is that it is a dynamic reference to the context in which a function is executed.
+    
+    A longer explanation follows is that `this` follows these rules:
+    
+    1. If the `new` keyword is used when calling the function, meaning the function was used as a function constructor, the `this` inside the function is the newly-created object instance.
+    2. If `this` is used in a `class` `constructor`, the `this` inside the `constructor` is the newly-created object instance.
+    3. If `apply()`, `call()`, or `bind()` is used to call/create a function, `this` inside the function is the object that is passed in as the argument.
+    4. If a function is called as a method (e.g. `obj.method()`) — `this` is the object that the function is a property of.
+    5. If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, `this` is the global object. In the browser, the global object is the `window` object. If in strict mode (`'use strict';`), `this` will be `undefined` instead of the global object.
+    6. If multiple of the above rules apply, the rule that is higher wins and will set the `this` value.
+    7. If the function is an ES2015 arrow function, it ignores all the rules above and receives the `this` value of its surrounding scope at the time it is created.
+    
+    For an in-depth explanation, do check out [Arnav Aggrawal's article on Medium](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3).
+
+    <!-- Update here: /questions/explain-how-this-works-in-javascript/en-US.mdx -->
+
+    <br>
+
+    > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-how-this-works-in-javascript) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+
+    [Back to top ↑](#table-of-contents)
+    <br>
+    <br>
+
+12. ### Explain the difference between mutable and immutable objects
 
     <!-- Update here: /questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx -->
 
@@ -387,7 +448,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-11. ### Explain the difference between synchronous and asynchronous functions
+13. ### Explain the difference between synchronous and asynchronous functions
 
     <!-- Update here: /questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx -->
 
@@ -440,7 +501,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-12. ### Explain the differences between CommonJS modules and ES modules
+14. ### Explain the differences between CommonJS modules and ES modules
 
     <!-- Update here: /questions/explain-the-differences-between-commonjs-modules-and-es-modules/en-US.mdx -->
 
@@ -492,7 +553,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-13. ### Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
+15. ### Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
 
     <!-- Update here: /questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/en-US.mdx -->
 
@@ -539,7 +600,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-14. ### How do you abort a web request using `AbortController`?
+16. ### How do you abort a web request using `AbortController`?
 
     <!-- Update here: /questions/how-do-you-abort-a-web-request-using-abortcontrollers/en-US.mdx -->
 
@@ -581,7 +642,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-15. ### How does JavaScript garbage collection work?
+17. ### How does JavaScript garbage collection work?
 
     <!-- Update here: /questions/how-does-javascript-garbage-collection-work/en-US.mdx -->
 
@@ -612,7 +673,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-16. ### What advantage is there for using the arrow syntax for a method in a constructor?
+18. ### What advantage is there for using the arrow syntax for a method in a constructor?
 
     <!-- Update here: /questions/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor/en-US.mdx -->
 
@@ -666,7 +727,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-17. ### What are iterators and generators and what are they used for?
+19. ### What are iterators and generators and what are they used for?
 
     <!-- Update here: /questions/what-are-iterators-and-generators-and-what-are-they-used-for/en-US.mdx -->
 
@@ -737,7 +798,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-18. ### What are JavaScript object getters and setters for?
+20. ### What are JavaScript object getters and setters for?
 
     <!-- Update here: /questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx -->
 
@@ -787,7 +848,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-19. ### What are JavaScript object property flags and descriptors?
+21. ### What are JavaScript object property flags and descriptors?
 
     <!-- Update here: /questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx -->
 
@@ -822,7 +883,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-20. ### What are JavaScript polyfills for?
+22. ### What are JavaScript polyfills for?
 
     <!-- Update here: /questions/what-are-javascript-polyfills-for/en-US.mdx -->
 
@@ -861,7 +922,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-21. ### What are server-sent events?
+23. ### What are server-sent events?
 
     <!-- Update here: /questions/what-are-server-sent-events/en-US.mdx -->
 
@@ -938,7 +999,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-22. ### What are `Symbol`s used for?
+24. ### What are `Symbol`s used for?
 
     <!-- Update here: /questions/what-are-symbols-used-for/en-US.mdx -->
 
@@ -970,7 +1031,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-23. ### What are the advantages and disadvantages of using AJAX?
+25. ### What are the advantages and disadvantages of using AJAX?
 
     <!-- Update here: /questions/what-are-the-advantages-and-disadvantages-of-using-ajax/en-US.mdx -->
 
@@ -999,7 +1060,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-24. ### What are the benefits of using spread syntax and how is it different from rest syntax?
+26. ### What are the benefits of using spread syntax and how is it different from rest syntax?
 
     <!-- Update here: /questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/en-US.mdx -->
 
@@ -1033,7 +1094,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-25. ### What are the differences between ES2015 classes and ES5 function constructors?
+27. ### What are the differences between ES2015 classes and ES5 function constructors?
 
     <!-- Update here: /questions/what-are-the-differences-between-es6-class-and-es5-function-constructors/en-US.mdx -->
 
@@ -1100,7 +1161,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-26. ### What are the differences between `Map`/`Set` vs `WeakMap`/`WeakSet`?
+28. ### What are the differences between `Map`/`Set` vs `WeakMap`/`WeakSet`?
 
     <!-- Update here: /questions/what-are-the-differences-between-map-set-and-weakmap-weakset/en-US.mdx -->
 
@@ -1147,7 +1208,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-27. ### What are the differences between variables created using `let`, `var` or `const`?
+29. ### What are the differences between variables created using `let`, `var` or `const`?
 
     <!-- Update here: /questions/what-are-the-differences-between-variables-created-using-let-var-or-const/en-US.mdx -->
 
@@ -1171,7 +1232,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-28. ### What are the differences between `XMLHttpRequest` and `fetch()`?
+30. ### What are the differences between `XMLHttpRequest` and `fetch()`?
 
     <!-- Update here: /questions/what-are-the-differences-between-xmlhttprequest-and-fetch/en-US.mdx -->
 
@@ -1197,7 +1258,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-29. ### What are the pros and cons of using Promises instead of callbacks?
+31. ### What are the pros and cons of using Promises instead of callbacks?
 
     <!-- Update here: /questions/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks/en-US.mdx -->
 
@@ -1213,7 +1274,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-30. ### What are the various data types in JavaScript?
+32. ### What are the various data types in JavaScript?
 
     <!-- Update here: /questions/what-are-the-various-data-types-in-javascript/en-US.mdx -->
 
@@ -1251,7 +1312,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-31. ### What are the various ways to create objects in JavaScript?
+33. ### What are the various ways to create objects in JavaScript?
 
     <!-- Update here: /questions/what-are-the-various-ways-to-create-objects-in-javascript/en-US.mdx -->
 
@@ -1273,7 +1334,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-32. ### What are workers in JavaScript used for?
+34. ### What are workers in JavaScript used for?
 
     <!-- Update here: /questions/what-are-workers-in-javascript-used-for/en-US.mdx -->
 
@@ -1309,7 +1370,50 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-33. ### What is event loop?
+35. ### What is a closure, and how/why would you use one?
+
+    <!-- Update here: /questions/what-is-a-closure-and-how-why-would-you-use-one/en-US.mdx -->
+
+    In the book ["You Don't Know JS"](https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/scope-closures) (YDKJS) by Kyle Simpson, a closure is defined as follows:
+    
+    > Closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope
+    
+    In simple terms, functions have access to variables that were in their scope at the time of their creation. This is what we call the function's lexical scope. A closure is a function that retains access to these variables even after the outer function has finished executing. This is like the function has a memory of its original environment.
+    
+    ```js
+    function outerFunction() {
+      const outerVar = 'I am outside of innerFunction';
+    
+      function innerFunction() {
+        console.log(outerVar); // `innerFunction` can still access `outerVar`.
+      }
+    
+      return innerFunction;
+    }
+    
+    const inner = outerFunction(); // `inner` now holds a reference to `innerFunction`.
+    
+    inner(); // "I am outside of innerFunction"
+    // Even though `outerFunction` has completed execution, `inner` still has access to variables defined inside `outerFunction`.
+    ```
+    
+    Key points to remember:
+    
+    - Closure occurs when an inner function has access to variables in its outer (lexical) scope, even when the outer function has finished executing.
+    - Closure allows a function to **remember** the environment in which it was created, even if that environment is no longer present.
+    - Closures are used extensively in JavaScript, such as in callbacks, event handlers, and asynchronous functions.
+
+    <!-- Update here: /questions/what-is-a-closure-and-how-why-would-you-use-one/en-US.mdx -->
+
+    <br>
+
+    > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-a-closure-and-how-why-would-you-use-one) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+
+    [Back to top ↑](#table-of-contents)
+    <br>
+    <br>
+
+36. ### What is event loop?
 
     <!-- Update here: /questions/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue/en-US.mdx -->
 
@@ -1343,7 +1447,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-34. ### What is the definition of a higher-order function?
+37. ### What is the definition of a higher-order function?
 
     <!-- Update here: /questions/what-is-the-definition-of-a-higher-order-function/en-US.mdx -->
 
@@ -1391,7 +1495,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-35. ### What is the difference between a `Map` object and a plain object in JavaScript?
+38. ### What is the difference between a `Map` object and a plain object in JavaScript?
 
     <!-- Update here: /questions/what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript/en-US.mdx -->
 
@@ -1417,7 +1521,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-36. ### What is the difference between `==` and `===` in JavaScript?
+39. ### What is the difference between `==` and `===` in JavaScript?
 
     <!-- Update here: /questions/what-is-the-difference-between-double-equal-and-triple-equal/en-US.mdx -->
 
@@ -1439,7 +1543,32 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-37. ### What is `"use strict";`?
+40. ### What is the difference between `mouseenter` and `mouseover` event?
+
+    <!-- Update here: /questions/what-is-the-difference-between-mouseenter-mouseover-event/en-US.mdx -->
+
+    The main difference lies in the bubbling behavior of `mouseenter` and `mouseover` events. `mouseenter` does not bubble while `mouseover` bubbles.
+    
+    `mouseenter` events do not bubble. The `mouseenter` event is triggered only when the mouse pointer enters the element itself, not its descendants. If a parent element has child elements, and the mouse pointer enters child elements, the `mouseenter` event will not be triggered on the parent element again, it's only triggered once upon entry of parent element without regard for its contents. If both parent and child have `mouseenter` listeners attached and the mouse pointer moves from the parent element to the child element, `mouseenter` will only fire for the child.
+    
+    `mouseover` events bubble up the DOM tree. The `mouseover` event is triggered when the mouse pointer enters the element or one of its descendants. If have a parent element has child elements, and the mouse pointer enters child elements, the `mouseover` event will be triggered on the parent element again as well. If the parent element has multiple child elements, this can result in multiple event callbacks fired. If there are child elements, and the mouse pointer moves from the parent element to the child element, `mouseover` will fire for both the parent and the child.
+    
+    | Property | `mouseenter` | `mouseover` |
+    | --- | --- | --- |
+    | Bubbling | No | Yes |
+    | Trigger | Only when entering itself | When entering itself and when entering descendants |
+
+    <!-- Update here: /questions/what-is-the-difference-between-mouseenter-mouseover-event/en-US.mdx -->
+
+    <br>
+
+    > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-the-difference-between-mouseenter-mouseover-event) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+
+    [Back to top ↑](#table-of-contents)
+    <br>
+    <br>
+
+41. ### What is `"use strict";`?
 
     <!-- Update here: /questions/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it/en-US.mdx -->
 
@@ -1473,7 +1602,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-38. ### What language constructs do you use for iterating over object properties and array items?
+42. ### What language constructs do you use for iterating over object properties and array items?
 
     <!-- Update here: /questions/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items/en-US.mdx -->
 
@@ -1562,7 +1691,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-39. ### What tools and techniques do you use for debugging JavaScript code?
+43. ### What tools and techniques do you use for debugging JavaScript code?
 
     <!-- Update here: /questions/what-tools-and-techniques-do-you-use-for-debugging-javascript-code/en-US.mdx -->
 
@@ -1596,7 +1725,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-40. ### What's a typical use case for anonymous functions?
+44. ### What's a typical use case for anonymous functions?
 
     <!-- Update here: /questions/whats-a-typical-use-case-for-anonymous-functions/en-US.mdx -->
 
@@ -1638,7 +1767,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-41. ### What's the difference between a variable that is: `null`, `undefined` or undeclared?
+45. ### What's the difference between a variable that is: `null`, `undefined` or undeclared?
 
     <!-- Update here: /questions/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states/en-US.mdx -->
 
@@ -1658,7 +1787,37 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-42. ### Why is extending built-in JavaScript objects not a good idea?
+46. ### What's the difference between `.call` and `.apply`?
+
+    <!-- Update here: /questions/whats-the-difference-between-call-and-apply/en-US.mdx -->
+
+    `.call` and `.apply` are both used to invoke functions with a specific `this` context and arguments. The primary difference lies in how they accept arguments:
+    
+    - `.call(thisArg, arg1, arg2, ...)`: Takes arguments individually.
+    - `.apply(thisArg, [argsArray])`: Takes arguments as an array.
+    
+    Assuming we have a function `add`, the function can be invoked using `.call` and `.apply` in the following manner:
+    
+    ```js
+    function add(a, b) {
+      return a + b;
+    }
+    
+    console.log(add.call(null, 1, 2)); // 3
+    console.log(add.apply(null, [1, 2])); // 3
+    ```
+
+    <!-- Update here: /questions/whats-the-difference-between-call-and-apply/en-US.mdx -->
+
+    <br>
+
+    > Read the [detailed answer](https://greatfrontend.com/questions/quiz/whats-the-difference-between-call-and-apply) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+
+    [Back to top ↑](#table-of-contents)
+    <br>
+    <br>
+
+47. ### Why is extending built-in JavaScript objects not a good idea?
 
     <!-- Update here: /questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/en-US.mdx -->
 
@@ -1676,7 +1835,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-43. ### Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
+48. ### Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 
     <!-- Update here: /questions/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it/en-US.mdx -->
 
@@ -1706,7 +1865,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-44. ### Why might you want to create static class members?
+49. ### Why might you want to create static class members?
 
     <!-- Update here: /questions/why-you-might-want-to-create-static-class-members/en-US.mdx -->
 
