@@ -72,8 +72,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/describe-event-bubbling) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 2. ### Describe event capturing
 
@@ -90,8 +90,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/describe-event-capturing) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 3. ### Describe the difference between a cookie, `sessionStorage` and `localStorage`.
 
@@ -122,8 +122,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 4. ### Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()`?
 
@@ -147,8 +147,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/difference-between-function-person-var-person-person-and-var-person-new-person) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 5. ### Explain AJAX in as much detail as possible
 
@@ -194,8 +194,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-ajax-in-as-much-detail-as-possible) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 6. ### Explain event delegation
 
@@ -221,8 +221,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-event-delegation) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 7. ### Explain `Function.prototype.bind`
 
@@ -243,8 +243,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-function-prototype-bind) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 8. ### Explain "hoisting"
 
@@ -276,8 +276,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-hoisting) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 9. ### Explain how prototypal inheritance works
 
@@ -332,8 +332,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-how-prototypal-inheritance-works) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 10. ### Explain the difference between mutable and immutable objects
 
@@ -378,8 +378,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-the-difference-between-mutable-and-immutable-objects) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 11. ### Explain the difference between synchronous and asynchronous functions
 
@@ -431,8 +431,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-the-difference-between-synchronous-and-asynchronous-functions) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 12. ### Explain the differences between CommonJS modules and ES modules
 
@@ -483,8 +483,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-the-differences-between-commonjs-modules-and-es-modules) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 13. ### Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
 
@@ -530,8 +530,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 14. ### How do you abort a web request using `AbortController`?
 
@@ -572,8 +572,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/how-do-you-abort-a-web-request-using-abortcontrollers) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 15. ### How does JavaScript garbage collection work?
 
@@ -603,8 +603,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/how-does-javascript-garbage-collection-work) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 16. ### What advantage is there for using the arrow syntax for a method in a constructor?
 
@@ -657,8 +657,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 17. ### What are iterators and generators and what are they used for?
 
@@ -726,8 +726,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-iterators-and-generators-and-what-are-they-used-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 18. ### What are JavaScript object getters and setters for?
 
@@ -776,8 +776,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-javascript-object-getters-and-setters-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 19. ### What are JavaScript object property flags and descriptors?
 
@@ -811,8 +811,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-javascript-object-property-flags-and-descriptors) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 20. ### What are JavaScript polyfills for?
 
@@ -850,8 +850,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-javascript-polyfills-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 21. ### What are server-sent events?
 
@@ -927,8 +927,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-server-sent-events) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 22. ### What are `Symbol`s used for?
 
@@ -959,8 +959,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-symbols-used-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 23. ### What are the advantages and disadvantages of using AJAX?
 
@@ -988,8 +988,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 24. ### What are the benefits of using spread syntax and how is it different from rest syntax?
 
@@ -1022,8 +1022,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 25. ### What are the differences between ES2015 classes and ES5 function constructors?
 
@@ -1089,8 +1089,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-es6-class-and-es5-function-constructors) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 26. ### What are the differences between `Map`/`Set` vs `WeakMap`/`WeakSet`?
 
@@ -1136,8 +1136,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-map-set-and-weakmap-weakset) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 27. ### What are the differences between variables created using `let`, `var` or `const`?
 
@@ -1160,8 +1160,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-variables-created-using-let-var-or-const) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 28. ### What are the differences between `XMLHttpRequest` and `fetch()`?
 
@@ -1186,8 +1186,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-xmlhttprequest-and-fetch) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 29. ### What are the pros and cons of using Promises instead of callbacks?
 
@@ -1202,8 +1202,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 30. ### What are the various data types in JavaScript?
 
@@ -1240,8 +1240,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-various-data-types-in-javascript) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 31. ### What are the various ways to create objects in JavaScript?
 
@@ -1262,8 +1262,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-various-ways-to-create-objects-in-javascript) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 32. ### What are workers in JavaScript used for?
 
@@ -1298,8 +1298,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-workers-in-javascript-used-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 33. ### What is event loop?
 
@@ -1332,8 +1332,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 34. ### What is the definition of a higher-order function?
 
@@ -1380,8 +1380,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-the-definition-of-a-higher-order-function) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 35. ### What is the difference between `==` and `===` in JavaScript?
 
@@ -1402,8 +1402,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-the-difference-between-double-equal-and-triple-equal) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 36. ### What is `"use strict";`?
 
@@ -1436,8 +1436,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 37. ### What language constructions do you use for iterating over object properties and array items?
 
@@ -1529,8 +1529,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 38. ### What's a typical use case for anonymous functions?
 
@@ -1571,8 +1571,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/whats-a-typical-use-case-for-anonymous-functions) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 39. ### What's the difference between a variable that is: `null`, `undefined` or undeclared?
 
@@ -1591,8 +1591,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 40. ### Why is extending built-in JavaScript objects not a good idea?
 
@@ -1609,8 +1609,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/why-is-extending-built-in-javascript-objects-not-a-good-idea) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 41. ### Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 
@@ -1639,8 +1639,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 42. ### Why might you want to create static class members?
 
@@ -1672,8 +1672,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/why-you-might-want-to-create-static-class-members) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents)
-<br>
-<br>
+    <br>
+    <br>
 
 
 <!-- QUESTIONS:END -->
