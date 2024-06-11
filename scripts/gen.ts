@@ -14,6 +14,7 @@ type QuestionMetadata = Readonly<{
 }>;
 type QuestionItem = Readonly<{
   metadata: QuestionMetadata;
+  href: string;
   title: string;
   locale: string;
   content: string;
@@ -52,6 +53,7 @@ async function processQuestion(
   return {
     locale,
     metadata,
+    href: `https://greatfrontend.com/questions/quiz/${slug}`,
     title: data?.title,
     content: tlDrPart
       // Replace relative links with absolute links.
@@ -104,11 +106,15 @@ ${qn.content
 
     <!-- Update here: /questions/${qn.slug}/${qn.locale}.mdx -->
 
-    _Read a detailed version of the answer on [GreatFrontEnd](https://greatfrontend.com/questions/quiz/${
-      qn.slug
-    }) which contains more code samples and useful resources._
+    <br>
 
----
+    > Read the [detailed answer](${
+      qn.href
+    }) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+
+    [Back to top ↑](#table-of-contents)
+    <br>
+    <br>
 `;
 }
 
