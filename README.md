@@ -11,17 +11,17 @@ Curated top JavaScript interview questions with high quality answers for acing y
 | 1 | [Describe event bubbling](#describe-event-bubbling) |
 | 2 | [Describe event capturing](#describe-event-capturing) |
 | 3 | [Describe the difference between a cookie, `sessionStorage` and `localStorage`.](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage) |
-| 4 | [Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()`?](#difference-between-function-person-var-person-person-and-var-person-new-person) |
+| 4 | [Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()`?](#difference-between-function-person-const-person--person-and-const-person--new-person) |
 | 5 | [Explain AJAX in as much detail as possible](#explain-ajax-in-as-much-detail-as-possible) |
 | 6 | [Explain event delegation](#explain-event-delegation) |
-| 7 | [Explain `Function.prototype.bind`](#explain-function-prototype-bind) |
+| 7 | [Explain `Function.prototype.bind`](#explain-functionprototypebind) |
 | 8 | [Explain "hoisting"](#explain-hoisting) |
 | 9 | [Explain how prototypal inheritance works](#explain-how-prototypal-inheritance-works) |
 | 10 | [Explain the difference between mutable and immutable objects](#explain-the-difference-between-mutable-and-immutable-objects) |
 | 11 | [Explain the difference between synchronous and asynchronous functions](#explain-the-difference-between-synchronous-and-asynchronous-functions) |
 | 12 | [Explain the differences between CommonJS modules and ES modules](#explain-the-differences-between-commonjs-modules-and-es-modules) |
-| 13 | [Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`](#explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function) |
-| 14 | [How do you abort a web request using `AbortController`?](#how-do-you-abort-a-web-request-using-abortcontrollers) |
+| 13 | [Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`](#explain-the-differences-on-the-usage-of-foo-between-function-foo--and-var-foo--function-) |
+| 14 | [How do you abort a web request using `AbortController`?](#how-do-you-abort-a-web-request-using-abortcontroller) |
 | 15 | [How does JavaScript garbage collection work?](#how-does-javascript-garbage-collection-work) |
 | 16 | [What advantage is there for using the arrow syntax for a method in a constructor?](#what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor) |
 | 17 | [What are iterators and generators and what are they used for?](#what-are-iterators-and-generators-and-what-are-they-used-for) |
@@ -32,24 +32,24 @@ Curated top JavaScript interview questions with high quality answers for acing y
 | 22 | [What are `Symbol`s used for?](#what-are-symbols-used-for) |
 | 23 | [What are the advantages and disadvantages of using AJAX?](#what-are-the-advantages-and-disadvantages-of-using-ajax) |
 | 24 | [What are the benefits of using spread syntax and how is it different from rest syntax?](#what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax) |
-| 25 | [What are the differences between ES2015 classes and ES5 function constructors?](#what-are-the-differences-between-es6-class-and-es5-function-constructors) |
-| 26 | [What are the differences between `Map`/`Set` vs `WeakMap`/`WeakSet`?](#what-are-the-differences-between-map-set-and-weakmap-weakset) |
+| 25 | [What are the differences between ES2015 classes and ES5 function constructors?](#what-are-the-differences-between-es2015-classes-and-es5-function-constructors) |
+| 26 | [What are the differences between `Map`/`Set` vs `WeakMap`/`WeakSet`?](#what-are-the-differences-between-mapset-vs-weakmapweakset) |
 | 27 | [What are the differences between variables created using `let`, `var` or `const`?](#what-are-the-differences-between-variables-created-using-let-var-or-const) |
 | 28 | [What are the differences between `XMLHttpRequest` and `fetch()`?](#what-are-the-differences-between-xmlhttprequest-and-fetch) |
 | 29 | [What are the pros and cons of using Promises instead of callbacks?](#what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks) |
 | 30 | [What are the various data types in JavaScript?](#what-are-the-various-data-types-in-javascript) |
 | 31 | [What are the various ways to create objects in JavaScript?](#what-are-the-various-ways-to-create-objects-in-javascript) |
 | 32 | [What are workers in JavaScript used for?](#what-are-workers-in-javascript-used-for) |
-| 33 | [What is event loop?](#what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue) |
+| 33 | [What is event loop?](#what-is-event-loop) |
 | 34 | [What is the definition of a higher-order function?](#what-is-the-definition-of-a-higher-order-function) |
-| 35 | [What is the difference between `==` and `===` in JavaScript?](#what-is-the-difference-between-double-equal-and-triple-equal) |
-| 36 | [What is `"use strict";`?](#what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it) |
-| 37 | [What language constructions do you use for iterating over object properties and array items?](#what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items) |
+| 35 | [What is the difference between `==` and `===` in JavaScript?](#what-is-the-difference-between--and--in-javascript) |
+| 36 | [What is `"use strict";`?](#what-is-use-strict) |
+| 37 | [What language constructions do you use for iterating over object properties and array items?](#what-language-constructions-do-you-use-for-iterating-over-object-properties-and-array-items) |
 | 38 | [What's a typical use case for anonymous functions?](#whats-a-typical-use-case-for-anonymous-functions) |
-| 39 | [What's the difference between a variable that is: `null`, `undefined` or undeclared?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states) |
+| 39 | [What's the difference between a variable that is: `null`, `undefined` or undeclared?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared) |
 | 40 | [Why is extending built-in JavaScript objects not a good idea?](#why-is-extending-built-in-javascript-objects-not-a-good-idea) |
 | 41 | [Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?](#why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it) |
-| 42 | [Why might you want to create static class members?](#why-you-might-want-to-create-static-class-members) |
+| 42 | [Why might you want to create static class members?](#why-might-you-want-to-create-static-class-members) |
 
 <!-- TABLE_OF_CONTENTS:END -->
 

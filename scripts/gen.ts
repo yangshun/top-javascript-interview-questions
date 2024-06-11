@@ -1,3 +1,4 @@
+import GitHubSlugger from 'github-slugger';
 import fs from 'fs';
 import path from 'path';
 import grayMatter from 'gray-matter';
@@ -12,22 +13,29 @@ type QuestionMetadata = Readonly<{
   importance: string;
   featured: boolean;
 }>;
+
+type QuestionFrontmatter = Readonly<{
+  title: string;
+}>;
+
 type QuestionItem = Readonly<{
   metadata: QuestionMetadata;
   href: string;
   title: string;
+  titleSlug: string;
   locale: string;
   content: string;
-  slug: string;
 }>;
 
+const slugger = new GitHubSlugger();
+
 async function processQuestion(
-  slug: string,
+  dirName: string,
   locale: string = 'en-US',
 ): Promise<QuestionItem | null> {
   const [metadataFile, markdownFile] = await Promise.all([
-    readFileAsync(path.join('./questions', slug, 'metadata.json')),
-    readFileAsync(path.join('./questions', slug, locale + '.mdx')),
+    readFileAsync(path.join('./questions', dirName, 'metadata.json')),
+    readFileAsync(path.join('./questions', dirName, locale + '.mdx')),
   ]);
 
   const metadata: QuestionMetadata = JSON.parse(String(metadataFile));
@@ -38,7 +46,10 @@ async function processQuestion(
   }
 
   const { data } = grayMatter(markdown);
-  if (data?.title == null) {
+  const frontMatter = data as QuestionFrontmatter;
+
+  const title = frontMatter.title;
+  if (title == null) {
     return null;
   }
 
@@ -53,13 +64,13 @@ async function processQuestion(
   return {
     locale,
     metadata,
-    href: `https://greatfrontend.com/questions/quiz/${slug}`,
-    title: data?.title,
+    href: `https://greatfrontend.com/questions/quiz/${metadata.slug}`,
+    title,
+    titleSlug: slugger.slug(title),
     content: tlDrPart
       // Replace relative links with absolute links.
       .replace('](/', '](https://greatfrontend.com/')
       .trim(),
-    slug,
   };
 }
 
@@ -86,8 +97,8 @@ async function processQuestionList(qns: string[]) {
 function formatTableOfContents(qnList: QuestionItem[]) {
   const tableOfContentsLines = ['| No. | Questions |', '| --- | --------- |'];
 
-  qnList.forEach(({ title, slug }, index) =>
-    tableOfContentsLines.push(`| ${index + 1} | [${title}](#${slug}) |`),
+  qnList.forEach(({ title, titleSlug }, index) =>
+    tableOfContentsLines.push(`| ${index + 1} | [${title}](#${titleSlug}) |`),
   );
 
   return tableOfContentsLines.join('\n');
@@ -96,7 +107,7 @@ function formatTableOfContents(qnList: QuestionItem[]) {
 function formatQuestion(qn: QuestionItem, index: number) {
   return `${index}. ### ${qn.title}
 
-    <!-- Update here: /questions/${qn.slug}/${qn.locale}.mdx -->
+    <!-- Update here: /questions/${qn.metadata.slug}/${qn.locale}.mdx -->
 
 ${qn.content
   .split('\n')
@@ -104,7 +115,7 @@ ${qn.content
   .map((line) => '    ' + line)
   .join('\n')}
 
-    <!-- Update here: /questions/${qn.slug}/${qn.locale}.mdx -->
+    <!-- Update here: /questions/${qn.metadata.slug}/${qn.locale}.mdx -->
 
     <br>
 
