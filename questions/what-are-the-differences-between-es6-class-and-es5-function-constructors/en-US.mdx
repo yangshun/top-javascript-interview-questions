@@ -7,7 +7,7 @@ title: What are the differences between ES2015 classes and ES5 function construc
 ES2015 introduces a new way of creating classes, which provides a more intuitive and concise way to define and work with objects and inheritance compared to the ES5 function constructor syntax. Here's an example of each:
 
 ```js
-// ES5 Function Constructor
+// ES5 function constructor
 function Person(name) {
   this.name = name;
 }
@@ -23,7 +23,7 @@ class Person {
 For simple constructors, they look pretty similar. The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
 
 ```js
-// ES5 Function Constructor
+// ES5 function constructor
 function Student(name, studentId) {
   // Call constructor of superclass to initialize superclass-derived members.
   Person.call(this, name);
@@ -68,7 +68,7 @@ ES5 function constructors and ES2015 classes are two different ways of defining 
 In ES5, you define a class-like structure using a function constructor and prototypes. Here's an example:
 
 ```js
-// ES5 Function Constructor
+// ES5 function constructor
 function Person(name, age) {
   this.name = name;
   this.age = age;
@@ -151,7 +151,7 @@ person1.greet(); // Hello, my name is John and I am 30 years old.
    ```js
    // ES5 Inheritance
 
-   // ES5 Function Constructor
+   // ES5 function constructor
    function Person(name, age) {
      this.name = name;
      this.age = age;

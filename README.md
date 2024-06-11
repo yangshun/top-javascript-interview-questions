@@ -42,14 +42,16 @@ Curated top JavaScript interview questions with high quality answers for acing y
 | 32 | [What are workers in JavaScript used for?](#what-are-workers-in-javascript-used-for) |
 | 33 | [What is event loop?](#what-is-event-loop) |
 | 34 | [What is the definition of a higher-order function?](#what-is-the-definition-of-a-higher-order-function) |
-| 35 | [What is the difference between `==` and `===` in JavaScript?](#what-is-the-difference-between--and--in-javascript) |
-| 36 | [What is `"use strict";`?](#what-is-use-strict) |
-| 37 | [What language constructions do you use for iterating over object properties and array items?](#what-language-constructions-do-you-use-for-iterating-over-object-properties-and-array-items) |
-| 38 | [What's a typical use case for anonymous functions?](#whats-a-typical-use-case-for-anonymous-functions) |
-| 39 | [What's the difference between a variable that is: `null`, `undefined` or undeclared?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared) |
-| 40 | [Why is extending built-in JavaScript objects not a good idea?](#why-is-extending-built-in-javascript-objects-not-a-good-idea) |
-| 41 | [Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?](#why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it) |
-| 42 | [Why might you want to create static class members?](#why-might-you-want-to-create-static-class-members) |
+| 35 | [What is the difference between a `Map` object and a plain object in JavaScript?](#what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript) |
+| 36 | [What is the difference between `==` and `===` in JavaScript?](#what-is-the-difference-between--and--in-javascript) |
+| 37 | [What is `"use strict";`?](#what-is-use-strict) |
+| 38 | [What language constructs do you use for iterating over object properties and array items?](#what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items) |
+| 39 | [What tools and techniques do you use for debugging JavaScript code?](#what-tools-and-techniques-do-you-use-for-debugging-javascript-code) |
+| 40 | [What's a typical use case for anonymous functions?](#whats-a-typical-use-case-for-anonymous-functions) |
+| 41 | [What's the difference between a variable that is: `null`, `undefined` or undeclared?](#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared) |
+| 42 | [Why is extending built-in JavaScript objects not a good idea?](#why-is-extending-built-in-javascript-objects-not-a-good-idea) |
+| 43 | [Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?](#why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it) |
+| 44 | [Why might you want to create static class members?](#why-might-you-want-to-create-static-class-members) |
 
 <!-- TABLE_OF_CONTENTS:END -->
 
@@ -283,9 +285,13 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     <!-- Update here: /questions/explain-how-prototypal-inheritance-works/en-US.mdx -->
 
-    Prototypical inheritance in JavaScript is a way for objects to inherit properties and methods from other objects. Every JavaScript object has a special hidden property called `[[Prototype]]` (commonly accessed via `__proto__` or using `Object.getPrototypeOf()`) that is a reference to another object, which is called the object's "prototype". When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `__proto__`, and the `__proto__`'s `__proto__` and so on, until it finds the property defined on one of the `__proto__`s or until it reaches the end of the prototype chain. This behavior simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
+    Prototypical inheritance in JavaScript is a way for objects to inherit properties and methods from other objects. Every JavaScript object has a special hidden property called `[[Prototype]]` (commonly accessed via `__proto__` or using `Object.getPrototypeOf()`) that is a reference to another object, which is called the object's "prototype".
     
-    ## Example of Prototypal Inheritance
+    When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `__proto__`, and the `__proto__`'s `__proto__` and so on, until it finds the property defined on one of the `__proto__`s or until it reaches the end of the prototype chain.
+    
+    This behavior simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
+    
+    Here's an example of prototypal inheritance:
     
     ```js
     // Parent object constructor.
@@ -673,6 +679,8 @@ Curated top JavaScript interview questions with high quality answers for acing y
       - `value`: The next value in the sequence.
       - `done`: A boolean that is `true` if the iterator has finished its sequence, otherwise `false`.
     
+    Here's an example of an object implementing the iterator interface.
+    
     ```js
     const iterator = {
       current: 0,
@@ -970,7 +978,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     
     **Advantages**
     
-    - **Smoother User Experience**: Updates happen without full page reloads, like in mail and chat applications.
+    - **Smoother user experience**: Updates happen without full page reloads, like in mail and chat applications.
     - **Lighter server Load**: Only necessary data is fetched via AJAX, reducing server load and improving perceived performance of webpages.
     - **Maintains client state**: User interactions and any client states are persisted within the page.
     
@@ -1032,7 +1040,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     ES2015 introduces a new way of creating classes, which provides a more intuitive and concise way to define and work with objects and inheritance compared to the ES5 function constructor syntax. Here's an example of each:
     
     ```js
-    // ES5 Function Constructor
+    // ES5 function constructor
     function Person(name) {
       this.name = name;
     }
@@ -1048,7 +1056,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     For simple constructors, they look pretty similar. The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
     
     ```js
-    // ES5 Function Constructor
+    // ES5 function constructor
     function Student(name, studentId) {
       // Call constructor of superclass to initialize superclass-derived members.
       Person.call(this, name);
@@ -1174,7 +1182,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     - `fetch()` support cleaner error handling with `catch()`.
     - Handling caching with `XMLHttpRequest` is difficult but caching is supported by `fetch()` by default in the `options.cache` object (`cache` value of second parameter) to `fetch()` or `Request()`.
     - `fetch()` requires an `AbortController` for cancelation, while for `XMLHttpRequest`, it provides `abort()` property.
-    - `XMLHttpRequest` has god support for progress tracking, which `fetch()` lacks.
+    - `XMLHttpRequest` has good support for progress tracking, which `fetch()` lacks.
     - `XMLHttpRequest` is only available in the browser and not natively supported in Node.js environments. On the other hand `fetch()` is part of the JavaScript language and is supported on all modern JavaScript runtimes.
     
     These days `fetch()` is preferred for its cleaner syntax and modern features.
@@ -1383,7 +1391,33 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-35. ### What is the difference between `==` and `===` in JavaScript?
+35. ### What is the difference between a `Map` object and a plain object in JavaScript?
+
+    <!-- Update here: /questions/what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript/en-US.mdx -->
+
+    Both `Map` objects and plain objects in JavaScript can store key-value pairs, but they have several key differences:
+    
+    | Feature | `Map` | Plain object |
+    | --- | --- | --- |
+    | Key type | Any data type | String (or Symbol) |
+    | Key order | Maintained | Not guaranteed |
+    | Size property | Yes (`size`) | None |
+    | Iteration | `forEach`, `keys()`, `values()`, `entries()` | `for...in`, `Object.keys()`, etc. |
+    | Inheritance | No | Yes |
+    | Performance | Generally better for larger datasets and frequent additions/deletions | Faster for small datasets and simple operations |
+    | Serializable | No | Yes |
+
+    <!-- Update here: /questions/what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript/en-US.mdx -->
+
+    <br>
+
+    > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+
+    [Back to top ↑](#table-of-contents)
+    <br>
+    <br>
+
+36. ### What is the difference between `==` and `===` in JavaScript?
 
     <!-- Update here: /questions/what-is-the-difference-between-double-equal-and-triple-equal/en-US.mdx -->
 
@@ -1405,7 +1439,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-36. ### What is `"use strict";`?
+37. ### What is `"use strict";`?
 
     <!-- Update here: /questions/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it/en-US.mdx -->
 
@@ -1439,15 +1473,13 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-37. ### What language constructions do you use for iterating over object properties and array items?
+38. ### What language constructs do you use for iterating over object properties and array items?
 
     <!-- Update here: /questions/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items/en-US.mdx -->
 
-    There are multiple ways to iterate over object properties as well as array in JavaScript. The following are a few of them:
+    There are multiple ways to iterate over object properties as well as arrays in JavaScript:
     
-    ### Iterating over object properties
-    
-    #### Good old `for...in` loop
+    **`for...in` loop**
     
     The `for...in` loop iterates over all enumerable properties of an object, including inherited enumerable properties. So it is important to have a check if you only want to iterate over object's own properties
     
@@ -1466,7 +1498,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     }
     ```
     
-    #### Using `Object.keys()`
+    **`Object.keys()`**
     
     `Object.keys()` returns an array of the object's own enumerable property names. You can then use a for...of loop or forEach to iterate over this array.
     
@@ -1482,11 +1514,9 @@ Curated top JavaScript interview questions with high quality answers for acing y
     });
     ```
     
-    ### Iterating over array
-    
     Most common ways to iterate over array are using `for` loop and `Array.prototype.forEach` method.
     
-    #### Using `for` loop
+    **Using `for` loop**
     
     ```js
     let array = [1, 2, 3, 4, 5, 6];
@@ -1495,7 +1525,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     }
     ```
     
-    #### Using `Array.prototype.forEach` Method:
+    **Using `Array.prototype.forEach` method**
     
     ```js
     let array = [1, 2, 3, 4, 5, 6];
@@ -1504,7 +1534,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     });
     ```
     
-    #### Using `for...of` loop
+    **Using `for...of`**
     
     This method is the newest and most convenient way to iterate over arrays. It automatically iterates over each element without requiring you to manage the index.
     
@@ -1532,7 +1562,41 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-38. ### What's a typical use case for anonymous functions?
+39. ### What tools and techniques do you use for debugging JavaScript code?
+
+    <!-- Update here: /questions/what-tools-and-techniques-do-you-use-for-debugging-javascript-code/en-US.mdx -->
+
+    Some of the most commonly used tools and techniques for debugging JavaScript:
+    
+    - JavaScript language
+      - `console` methods (e.g. `console.log()`, `console.error()`, `console.warn()`, `console.table()`)
+      - `debugger` statement
+    - Breakpoints (browser or IDE)
+    - JavaScript frameworks
+      - [React Devtools](https://github.com/facebook/react-devtools)
+      - [Redux Devtools](https://github.com/gaearon/redux-devtools)
+      - [Vue Devtools](https://github.com/vuejs/vue-devtools)
+    - Browser developer tools
+      - **Chrome DevTools**: The most widely used tool for debugging JavaScript. It provides a rich set of features including the ability to set breakpoints, inspect variables, view the call stack, and more.
+      - **Firefox Developer Tools**: Similar to Chrome DevTools with its own set of features for debugging.
+      - **Safari Web Inspector**: Provides tools for debugging on Safari.
+      - **Edge Developer Tools**: Similar to Chrome DevTools, as Edge is now Chromium-based.
+    - Network requests
+      - **Postman**: Useful for debugging API calls.
+      - **Fiddler**: Helps capture and inspect HTTP/HTTPS traffic.
+      - **Charles Proxy**: Another tool for intercepting and debugging network calls.
+
+    <!-- Update here: /questions/what-tools-and-techniques-do-you-use-for-debugging-javascript-code/en-US.mdx -->
+
+    <br>
+
+    > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-tools-and-techniques-do-you-use-for-debugging-javascript-code) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+
+    [Back to top ↑](#table-of-contents)
+    <br>
+    <br>
+
+40. ### What's a typical use case for anonymous functions?
 
     <!-- Update here: /questions/whats-a-typical-use-case-for-anonymous-functions/en-US.mdx -->
 
@@ -1574,7 +1638,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-39. ### What's the difference between a variable that is: `null`, `undefined` or undeclared?
+41. ### What's the difference between a variable that is: `null`, `undefined` or undeclared?
 
     <!-- Update here: /questions/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states/en-US.mdx -->
 
@@ -1594,7 +1658,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-40. ### Why is extending built-in JavaScript objects not a good idea?
+42. ### Why is extending built-in JavaScript objects not a good idea?
 
     <!-- Update here: /questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/en-US.mdx -->
 
@@ -1612,7 +1676,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-41. ### Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
+43. ### Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 
     <!-- Update here: /questions/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it/en-US.mdx -->
 
@@ -1642,7 +1706,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <br>
     <br>
 
-42. ### Why might you want to create static class members?
+44. ### Why might you want to create static class members?
 
     <!-- Update here: /questions/why-you-might-want-to-create-static-class-members/en-US.mdx -->
 

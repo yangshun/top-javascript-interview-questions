@@ -11,7 +11,7 @@ title: What are the differences between `XMLHttpRequest` and `fetch()`?
 - `fetch()` support cleaner error handling with `catch()`.
 - Handling caching with `XMLHttpRequest` is difficult but caching is supported by `fetch()` by default in the `options.cache` object (`cache` value of second parameter) to `fetch()` or `Request()`.
 - `fetch()` requires an `AbortController` for cancelation, while for `XMLHttpRequest`, it provides `abort()` property.
-- `XMLHttpRequest` has god support for progress tracking, which `fetch()` lacks.
+- `XMLHttpRequest` has good support for progress tracking, which `fetch()` lacks.
 - `XMLHttpRequest` is only available in the browser and not natively supported in Node.js environments. On the other hand `fetch()` is part of the JavaScript language and is supported on all modern JavaScript runtimes.
 
 These days `fetch()` is preferred for its cleaner syntax and modern features.

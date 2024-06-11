@@ -1,14 +1,12 @@
 ---
-title: What language constructions do you use for iterating over object properties and array items?
+title: What language constructs do you use for iterating over object properties and array items?
 ---
 
 ## TL;DR
 
-There are multiple ways to iterate over object properties as well as array in JavaScript. The following are a few of them:
+There are multiple ways to iterate over object properties as well as arrays in JavaScript:
 
-### Iterating over object properties
-
-#### Good old `for...in` loop
+**`for...in` loop**
 
 The `for...in` loop iterates over all enumerable properties of an object, including inherited enumerable properties. So it is important to have a check if you only want to iterate over object's own properties
 
@@ -27,7 +25,7 @@ for (const key in obj) {
 }
 ```
 
-#### Using `Object.keys()`
+**`Object.keys()`**
 
 `Object.keys()` returns an array of the object's own enumerable property names. You can then use a for...of loop or forEach to iterate over this array.
 
@@ -43,11 +41,9 @@ Object.keys(obj).forEach((key) => {
 });
 ```
 
-### Iterating over array
-
 Most common ways to iterate over array are using `for` loop and `Array.prototype.forEach` method.
 
-#### Using `for` loop
+**Using `for` loop**
 
 ```js
 let array = [1, 2, 3, 4, 5, 6];
@@ -56,7 +52,7 @@ for (let index = 0; index < array.length; index++) {
 }
 ```
 
-#### Using `Array.prototype.forEach` Method:
+**Using `Array.prototype.forEach` method**
 
 ```js
 let array = [1, 2, 3, 4, 5, 6];
@@ -65,7 +61,7 @@ array.forEach((number, index) => {
 });
 ```
 
-#### Using `for...of` loop
+**Using `for...of`**
 
 This method is the newest and most convenient way to iterate over arrays. It automatically iterates over each element without requiring you to manage the index.
 

@@ -1,0 +1,80 @@
+---
+title: What is the difference between a `Map` object and a plain object in JavaScript?
+---
+
+## TL;DR
+
+Both `Map` objects and plain objects in JavaScript can store key-value pairs, but they have several key differences:
+
+| Feature | `Map` | Plain object |
+| --- | --- | --- |
+| Key type | Any data type | String (or Symbol) |
+| Key order | Maintained | Not guaranteed |
+| Size property | Yes (`size`) | None |
+| Iteration | `forEach`, `keys()`, `values()`, `entries()` | `for...in`, `Object.keys()`, etc. |
+| Inheritance | No | Yes |
+| Performance | Generally better for larger datasets and frequent additions/deletions | Faster for small datasets and simple operations |
+| Serializable | No | Yes |
+
+---
+
+## `Map` vs plain JavaScript objects
+
+In JavaScript, `Map` objects and a plain object (also known as a "POJO" or "plain old JavaScript object") are both used to store key-value pairs, but they have different characteristics, use cases, and behaviors.
+
+### Plain JavaScript objects (POJO)
+
+A plain object is a basic JavaScript object created using the `{}` syntax. It is a collection of key-value pairs, where each key is a string (or a symbol, in modern JavaScript) and each value can be any type of value, including strings, numbers, booleans, arrays, objects, and more.
+
+```js
+const person = { name: 'John', age: 30, occupation: 'Developer' };
+```
+
+### `Map` objects
+
+A `Map` object, introduced in ECMAScript 2015 (ES6), is a more advanced data structure that allows you to store key-value pairs with additional features. A `Map` is an iterable, which means you can use it with `for...of` loops, and it provides methods for common operations like `get`, `set`, `has`, and `delete`.
+
+```js
+const person = new Map([
+  ['name', 'John'],
+  ['age', 30],
+  ['occupation', 'Developer'],
+]);
+```
+
+## Key differences
+
+Here are the main differences between a `Map` object and a plain object:
+
+1. **Key types**: In a plain object, keys are always strings (or symbols). In a `Map`, keys can be any type of value, including objects, arrays, and even other `Map`s.
+2. **Key ordering**: In a plain object, the order of keys is not guaranteed. In a `Map`, the order of keys is preserved, and you can iterate over them in the order they were inserted.
+3. **Iteration**: A `Map` is iterable, which means you can use `for...of` loops to iterate over its key-value pairs. A plain object is not iterable by default, but you can use `Object.keys()` or `Object.entries()` to iterate over its properties.
+4. **Performance**: `Map` objects are generally faster and more efficient than plain objects, especially when dealing with large datasets.
+5. **Methods**: A `Map` object provides additional methods, such as `get`, `set`, `has`, and `delete`, which make it easier to work with key-value pairs.
+6. **Serialization**: When serializing a `Map` object to JSON, it will be converted to an object but the existing `Map` properties might be lost in the conversion. A plain object, on the other hand, is serialized to a JSON object with the same structure.
+
+## When to use which
+
+Use a plain object (POJO) when:
+
+- You need a simple, lightweight object with string keys.
+- You're working with a small dataset.
+- You need to serialize the object to JSON (e.g. to send over the network).
+
+Use a `Map` object when:
+
+- You need to store key-value pairs with non-string keys (e.g., objects, arrays).
+- You need to preserve the order of key-value pairs.
+- You need to iterate over the key-value pairs in a specific order.
+- You're working with a large dataset and need better performance.
+
+In summary, while both plain objects and `Map` objects can be used to store key-value pairs, `Map` objects offer more advanced features, better performance, and additional methods, making them a better choice for more complex use cases.
+
+## Notes
+
+`Map` objects cannot be serialized to be sent in HTTP requests, but libraries like [superjson](https://github.com/blitz-js/superjson) allowing them to be serialized and deserialized.
+
+## Further reading
+
+- [Map - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+- [Object - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
