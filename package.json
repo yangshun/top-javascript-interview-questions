@@ -19,5 +19,6 @@
     "globby": "^14.0.1",
     "gray-matter": "^4.0.3",
     "tsx": "^4.15.1"
-  }
+  },
+  "packageManager": "pnpm@8.15.8"
 }
