@@ -33,9 +33,12 @@ async function processQuestion(
   dirName: string,
   locale: string = 'en-US',
 ): Promise<QuestionItem | null> {
+  const metadataPath = path.join('./questions', dirName, 'metadata.json');
+  const localeFile = path.join('./questions', dirName, locale + '.mdx');
+
   const [metadataFile, markdownFile] = await Promise.all([
-    readFileAsync(path.join('./questions', dirName, 'metadata.json')),
-    readFileAsync(path.join('./questions', dirName, locale + '.mdx')),
+    readFileAsync(metadataPath),
+    readFileAsync(localeFile),
   ]);
 
   const metadata: QuestionMetadata = JSON.parse(String(metadataFile));
@@ -59,6 +62,11 @@ async function processQuestion(
   const tlDrPart = content?.[1];
   if (tlDrPart == null) {
     return null;
+  }
+
+  // TODO: use a more robust check for headings.
+  if (tlDrPart.includes('###')) {
+    throw `${localeFile}'s TL;DR contains headings`;
   }
 
   return {
