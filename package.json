@@ -4,7 +4,8 @@
   "description": "List of top JavaScript interview questions",
   "main": "index.js",
   "scripts": {
-    "gen": "tsx scripts/gen.ts"
+    "gen": "tsx scripts/gen.ts",
+    "rank": "tsx scripts/rank.ts"
   },
   "keywords": [
     "javascript",

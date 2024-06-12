@@ -3,29 +3,11 @@ import fs from 'fs';
 import path from 'path';
 import grayMatter from 'gray-matter';
 import util from 'util';
+import { QuestionFrontmatter, QuestionItem, QuestionMetadata } from './types';
 
 const README_PATH_EN = 'README.md';
 
 const readFileAsync = util.promisify(fs.readFile);
-
-type QuestionMetadata = Readonly<{
-  slug: string;
-  importance: string;
-  featured: boolean;
-}>;
-
-type QuestionFrontmatter = Readonly<{
-  title: string;
-}>;
-
-type QuestionItem = Readonly<{
-  metadata: QuestionMetadata;
-  href: string;
-  title: string;
-  titleSlug: string;
-  locale: string;
-  content: string;
-}>;
 
 const slugger = new GitHubSlugger();
 
@@ -43,6 +25,10 @@ async function processQuestion(
 
   const metadata: QuestionMetadata = JSON.parse(String(metadataFile));
   const markdown = String(markdownFile);
+
+  if (dirName !== metadata.slug) {
+    throw `${dirName} !== ${metadata.slug}`;
+  }
 
   if (!metadata.featured) {
     return null;
@@ -141,7 +127,9 @@ ${qn.content
 async function generate() {
   const qns = await readQuestionsList();
   const qnItemList = await processQuestionList(qns);
-  const qnsItemListSorted = qnItemList;
+  const qnsItemListSorted = qnItemList.sort(
+    (a, b) => a.metadata.ranking - b.metadata.ranking,
+  );
   const qnTableOfContents = formatTableOfContents(qnsItemListSorted);
   const qnAnswers = qnsItemListSorted
     .map((qnItem, index) => formatQuestion(qnItem, index + 1))

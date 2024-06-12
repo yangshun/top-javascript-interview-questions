@@ -1,5 +1,5 @@
 {
-  "slug": "what-is-the-difference-between-mouseenter-mouseover-event",
+  "slug": "what-is-the-difference-between-mouseenter-and-mouseover-event",
   "languages": [],
   "companies": [],
   "premium": false,
@@ -8,6 +8,6 @@
   "featured": true,
   "topics": ["javascript"],
   "importance": "low",
-  "difficulty": "easy",
-  "ranking": 1
+  "ranking": 230,
+  "difficulty": "easy"
 }

@@ -8,5 +8,6 @@
   "featured": true,
   "topics": ["javascript"],
   "importance": "low",
+  "ranking": 420,
   "difficulty": "medium"
 }

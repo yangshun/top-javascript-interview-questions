@@ -7,5 +7,6 @@
   "published": true,
   "topics": ["javascript"],
   "importance": "mid",
+  "ranking": 999,
   "difficulty": "easy"
 }

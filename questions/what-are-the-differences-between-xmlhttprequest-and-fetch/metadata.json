@@ -8,5 +8,6 @@
   "featured": true,
   "topics": ["javascript", "network"],
   "importance": "mid",
+  "ranking": 290,
   "difficulty": "hard"
 }

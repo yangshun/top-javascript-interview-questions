@@ -31,7 +31,7 @@ For normal `<script>` tags without any `async` or `defer`, when they are encount
 Use `<script>` for critical scripts that the page relies on to render properly.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>Regular Script</title>
@@ -59,7 +59,7 @@ In `<script async>`, the browser downloads the script file asynchronously (in pa
 Use `<script async>` when the script is independent of any other scripts on the page, for example, analytics and ads scripts.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>Async Script</title>
@@ -87,7 +87,7 @@ Similar to `<script async>`, `<script defer>` also downloads the script in paral
 If a script relies on a fully-parsed DOM, the `defer` attribute will be useful in ensuring that the HTML is fully parsed before executing.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>Deferred Script</title>
