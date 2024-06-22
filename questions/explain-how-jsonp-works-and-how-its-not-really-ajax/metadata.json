@@ -5,6 +5,7 @@
   "premium": false,
   "duration": 5,
   "published": true,
+  "website": true,
   "featured": true,
   "topics": ["javascript", "network", "security"],
   "importance": "mid",

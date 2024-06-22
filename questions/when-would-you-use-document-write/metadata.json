@@ -5,6 +5,7 @@
   "premium": false,
   "duration": 5,
   "published": true,
+  "website": true,
   "topics": ["javascript"],
   "importance": "low",
   "ranking": 999,
