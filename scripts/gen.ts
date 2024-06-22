@@ -4,6 +4,7 @@ import path from 'path';
 import grayMatter from 'gray-matter';
 import util from 'util';
 import { QuestionFrontmatter, QuestionItem, QuestionMetadata } from './types';
+import { GITHUB_ORG, GITHUB_REPO } from './constants';
 
 const README_PATH_EN = 'README.md';
 
@@ -118,7 +119,9 @@ ${qn.content
       qn.href
     }) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/${GITHUB_ORG}/${GITHUB_REPO}/edit/main/questions/${
+    qn.metadata.slug
+  }/${qn.locale}.mdx)
     <br>
     <br>
 `;

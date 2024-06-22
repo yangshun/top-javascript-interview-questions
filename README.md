@@ -94,7 +94,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-hoisting) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-hoisting/en-US.mdx)
     <br>
     <br>
 
@@ -118,7 +118,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-variables-created-using-let-var-or-const) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-differences-between-variables-created-using-let-var-or-const/en-US.mdx)
     <br>
     <br>
 
@@ -140,7 +140,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-the-difference-between-double-equal-and-triple-equal) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-double-equal-and-triple-equal/en-US.mdx)
     <br>
     <br>
 
@@ -174,7 +174,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue/en-US.mdx)
     <br>
     <br>
 
@@ -201,7 +201,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-event-delegation) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-event-delegation/en-US.mdx)
     <br>
     <br>
 
@@ -229,7 +229,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-how-this-works-in-javascript) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-how-this-works-in-javascript/en-US.mdx)
     <br>
     <br>
 
@@ -261,7 +261,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/en-US.mdx)
     <br>
     <br>
 
@@ -289,7 +289,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/describe-the-difference-between-script-async-and-script-defer) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-the-difference-between-script-async-and-script-defer/en-US.mdx)
     <br>
     <br>
 
@@ -309,7 +309,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states/en-US.mdx)
     <br>
     <br>
 
@@ -339,7 +339,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/whats-the-difference-between-call-and-apply) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/whats-the-difference-between-call-and-apply/en-US.mdx)
     <br>
     <br>
 
@@ -361,7 +361,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-function-prototype-bind) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-function-prototype-bind/en-US.mdx)
     <br>
     <br>
 
@@ -415,7 +415,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor/en-US.mdx)
     <br>
     <br>
 
@@ -475,7 +475,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-how-prototypal-inheritance-works) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-how-prototypal-inheritance-works/en-US.mdx)
     <br>
     <br>
 
@@ -500,7 +500,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/difference-between-function-person-var-person-person-and-var-person-new-person) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx)
     <br>
     <br>
 
@@ -547,7 +547,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/en-US.mdx)
     <br>
     <br>
 
@@ -589,7 +589,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/whats-a-typical-use-case-for-anonymous-functions) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/whats-a-typical-use-case-for-anonymous-functions/en-US.mdx)
     <br>
     <br>
 
@@ -611,7 +611,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-various-ways-to-create-objects-in-javascript) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-various-ways-to-create-objects-in-javascript/en-US.mdx)
     <br>
     <br>
 
@@ -654,7 +654,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-a-closure-and-how-why-would-you-use-one) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-a-closure-and-how-why-would-you-use-one/en-US.mdx)
     <br>
     <br>
 
@@ -702,7 +702,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-the-definition-of-a-higher-order-function) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-definition-of-a-higher-order-function/en-US.mdx)
     <br>
     <br>
 
@@ -769,7 +769,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-es6-class-and-es5-function-constructors) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-differences-between-es6-class-and-es5-function-constructors/en-US.mdx)
     <br>
     <br>
 
@@ -787,7 +787,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/describe-event-bubbling) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-event-bubbling/en-US.mdx)
     <br>
     <br>
 
@@ -805,7 +805,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/describe-event-capturing) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-event-capturing/en-US.mdx)
     <br>
     <br>
 
@@ -830,7 +830,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-the-difference-between-mouseenter-and-mouseover-event) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-mouseenter-and-mouseover-event/en-US.mdx)
     <br>
     <br>
 
@@ -864,7 +864,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it/en-US.mdx)
     <br>
     <br>
 
@@ -917,7 +917,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-the-difference-between-synchronous-and-asynchronous-functions) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx)
     <br>
     <br>
 
@@ -933,7 +933,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks/en-US.mdx)
     <br>
     <br>
 
@@ -980,7 +980,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-ajax-in-as-much-detail-as-possible) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-ajax-in-as-much-detail-as-possible/en-US.mdx)
     <br>
     <br>
 
@@ -1009,7 +1009,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-advantages-and-disadvantages-of-using-ajax/en-US.mdx)
     <br>
     <br>
 
@@ -1035,7 +1035,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-xmlhttprequest-and-fetch) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-differences-between-xmlhttprequest-and-fetch/en-US.mdx)
     <br>
     <br>
 
@@ -1077,7 +1077,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/how-do-you-abort-a-web-request-using-abortcontrollers) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-abort-a-web-request-using-abortcontrollers/en-US.mdx)
     <br>
     <br>
 
@@ -1116,7 +1116,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-javascript-polyfills-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-javascript-polyfills-for/en-US.mdx)
     <br>
     <br>
 
@@ -1134,7 +1134,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/why-is-extending-built-in-javascript-objects-not-a-good-idea) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/en-US.mdx)
     <br>
     <br>
 
@@ -1164,7 +1164,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it/en-US.mdx)
     <br>
     <br>
 
@@ -1216,7 +1216,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-the-differences-between-commonjs-modules-and-es-modules) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-differences-between-commonjs-modules-and-es-modules/en-US.mdx)
     <br>
     <br>
 
@@ -1254,7 +1254,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-various-data-types-in-javascript) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-various-data-types-in-javascript/en-US.mdx)
     <br>
     <br>
 
@@ -1343,7 +1343,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items/en-US.mdx)
     <br>
     <br>
 
@@ -1377,7 +1377,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/en-US.mdx)
     <br>
     <br>
 
@@ -1448,7 +1448,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-iterators-and-generators-and-what-are-they-used-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-iterators-and-generators-and-what-are-they-used-for/en-US.mdx)
     <br>
     <br>
 
@@ -1494,7 +1494,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-the-difference-between-mutable-and-immutable-objects) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx)
     <br>
     <br>
 
@@ -1520,7 +1520,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript/en-US.mdx)
     <br>
     <br>
 
@@ -1567,7 +1567,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-map-set-and-weakmap-weakset) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-differences-between-map-set-and-weakmap-weakset/en-US.mdx)
     <br>
     <br>
 
@@ -1600,7 +1600,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/why-you-might-want-to-create-static-class-members) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/why-you-might-want-to-create-static-class-members/en-US.mdx)
     <br>
     <br>
 
@@ -1632,7 +1632,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-symbols-used-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-symbols-used-for/en-US.mdx)
     <br>
     <br>
 
@@ -1709,7 +1709,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-server-sent-events) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-server-sent-events/en-US.mdx)
     <br>
     <br>
 
@@ -1744,7 +1744,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-javascript-object-property-flags-and-descriptors) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx)
     <br>
     <br>
 
@@ -1794,7 +1794,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-javascript-object-getters-and-setters-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx)
     <br>
     <br>
 
@@ -1845,7 +1845,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-proxies-in-javascript-used-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-proxies-in-javascript-used-for/en-US.mdx)
     <br>
     <br>
 
@@ -1879,7 +1879,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-tools-and-techniques-do-you-use-for-debugging-javascript-code) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-tools-and-techniques-do-you-use-for-debugging-javascript-code/en-US.mdx)
     <br>
     <br>
 
@@ -1915,7 +1915,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-workers-in-javascript-used-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-workers-in-javascript-used-for/en-US.mdx)
     <br>
     <br>
 
@@ -1946,7 +1946,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/how-does-javascript-garbage-collection-work) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
-    [Back to top ↑](#table-of-contents)
+    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-does-javascript-garbage-collection-work/en-US.mdx)
     <br>
     <br>
 
