@@ -1,0 +1,17 @@
+{
+  "slug": "explain-the-concept-of-debouncing-and-throttling",
+  "languages": [],
+  "companies": [],
+  "premium": false,
+  "duration": 5,
+  "published": false,
+  "featured": false,
+  "website": false,
+  "topics": [
+    "javascript"
+  ],
+  "importance": "low",
+  "ranking": 999,
+  "difficulty": "easy",
+  "section": "Performance Optimization"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "what-is-the-purpose-of-the-break-and-continue-statements",
+  "languages": [],
+  "companies": [],
+  "premium": false,
+  "duration": 5,
+  "published": false,
+  "featured": false,
+  "website": false,
+  "topics": [
+    "javascript"
+  ],
+  "importance": "low",
+  "ranking": 999,
+  "difficulty": "easy",
+  "section": "Operators & Control Flow"
+}

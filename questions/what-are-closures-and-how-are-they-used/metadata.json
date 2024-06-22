@@ -1,0 +1,17 @@
+{
+  "slug": "what-are-closures-and-how-are-they-used",
+  "languages": [],
+  "companies": [],
+  "premium": false,
+  "duration": 5,
+  "published": false,
+  "featured": false,
+  "website": false,
+  "topics": [
+    "javascript"
+  ],
+  "importance": "low",
+  "ranking": 999,
+  "difficulty": "easy",
+  "section": "Functions"
+}

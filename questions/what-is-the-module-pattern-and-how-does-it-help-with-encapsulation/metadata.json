@@ -1,0 +1,17 @@
+{
+  "slug": "what-is-the-module-pattern-and-how-does-it-help-with-encapsulation",
+  "languages": [],
+  "companies": [],
+  "premium": false,
+  "duration": 5,
+  "published": false,
+  "featured": false,
+  "website": false,
+  "topics": [
+    "javascript"
+  ],
+  "importance": "low",
+  "ranking": 999,
+  "difficulty": "easy",
+  "section": "Design Patterns"
+}

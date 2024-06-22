@@ -1,0 +1,17 @@
+{
+  "slug": "what-is-event-bubbling-and-capturing",
+  "languages": [],
+  "companies": [],
+  "premium": false,
+  "duration": 5,
+  "published": false,
+  "featured": false,
+  "website": false,
+  "topics": [
+    "javascript"
+  ],
+  "importance": "low",
+  "ranking": 999,
+  "difficulty": "easy",
+  "section": "DOM Manipulation & Events"
+}

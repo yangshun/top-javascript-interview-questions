@@ -1,0 +1,17 @@
+{
+  "slug": "explain-the-concept-of-cross-site-request-forgery-csrf-and-its-mitigation-techniques",
+  "languages": [],
+  "companies": [],
+  "premium": false,
+  "duration": 5,
+  "published": false,
+  "featured": false,
+  "website": false,
+  "topics": [
+    "javascript"
+  ],
+  "importance": "low",
+  "ranking": 999,
+  "difficulty": "easy",
+  "section": "Security"
+}

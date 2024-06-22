@@ -1,0 +1,17 @@
+{
+  "slug": "explain-the-difference-between-dot-notation-and-bracket-notation-for-accessing-object-properties",
+  "languages": [],
+  "companies": [],
+  "premium": false,
+  "duration": 5,
+  "published": false,
+  "featured": false,
+  "website": false,
+  "topics": [
+    "javascript"
+  ],
+  "importance": "low",
+  "ranking": 999,
+  "difficulty": "easy",
+  "section": "Objects & Arrays"
+}
