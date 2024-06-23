@@ -5,6 +5,7 @@ import grayMatter from 'gray-matter';
 import util from 'util';
 import { QuestionFrontmatter, QuestionItem, QuestionMetadata } from './types';
 import { GITHUB_ORG, GITHUB_REPO } from './constants';
+import questionsAll from '../data/questions.json';
 
 const README_PATH_EN = 'README.md';
 
@@ -96,10 +97,12 @@ async function processQuestionList(qns: string[]) {
 }
 
 function formatTableOfContents(qnList: QuestionItem[]) {
-  const tableOfContentsLines = ['| No. | Questions |', '| --- | --------- |'];
+  const tableOfContentsLines = ['| No. | Questions |', '| --- | --- |'];
 
   qnList.forEach(({ title, titleSlug }, index) =>
-    tableOfContentsLines.push(`| ${index + 1} | [${title}](#${titleSlug}) |`),
+    tableOfContentsLines.push(
+      `| ${index + 1} | [${title}](#${index + 1}-${titleSlug}) |`,
+    ),
   );
 
   return tableOfContentsLines.join('\n');
@@ -111,32 +114,31 @@ function formatQuestion(
   tableOfContentsAnchor: string,
   onGFE: boolean = true,
 ) {
-  return `${index}. ### ${qn.title}
+  return `### ${index}. ${qn.title}
 
-    <!-- Update here: /questions/${qn.metadata.slug}/${qn.locale}.mdx -->
+<!-- Update here: /questions/${qn.metadata.slug}/${qn.locale}.mdx -->
 
 ${qn.content
   .split('\n')
   // Add indentation.
-  .map((line) => '    ' + line)
+  // .map((line) => '    ' + line)
   .join('\n')}
 
-    <!-- Update here: /questions/${qn.metadata.slug}/${qn.locale}.mdx -->
+<!-- Update here: /questions/${qn.metadata.slug}/${qn.locale}.mdx -->
 
-    <br>
+<br>
     ${
       onGFE
         ? `
-    > Read the [detailed answer](${qn.href}) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](${qn.href}) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 `
         : ''
     }
-    [Back to top ↑](#${tableOfContentsAnchor}) | [Edit answer](https://github.com/${GITHUB_ORG}/${GITHUB_REPO}/edit/main/questions/${
+[Back to top ↑](#${tableOfContentsAnchor}) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/${GITHUB_ORG}/${GITHUB_REPO}/edit/main/questions/${
     qn.metadata.slug
   }/${qn.locale}.mdx)
-  
-    <br>
-    <br>
+
+<br>
 `;
 }
 
@@ -195,23 +197,21 @@ async function generateAll() {
       tocEnd: 'TABLE_OF_CONTENTS:TOP:END',
       qnsStart: 'QUESTIONS:TOP:START',
       qnsEnd: 'QUESTIONS:TOP:END',
-      tableOfContentsAnchor: 'table-of-contents',
+      tableOfContentsAnchor: 'table-of-contents-top-questions',
       showLinkToGFE: true,
     },
   );
 
-  const nonFeaturedQns = qns.filter((qn) => !qn.featured);
-  await generate(
-    nonFeaturedQns.map((qn) => qn.slug),
-    {
-      tocStart: 'TABLE_OF_CONTENTS:ALL:START',
-      tocEnd: 'TABLE_OF_CONTENTS:ALL:END',
-      qnsStart: 'QUESTIONS:ALL:START',
-      qnsEnd: 'QUESTIONS:ALL:END',
-      tableOfContentsAnchor: 'table-of-contents-all',
-      showLinkToGFE: false,
-    },
-  );
+  const nonFeaturedQns = Object.values(questionsAll).flat();
+
+  await generate(nonFeaturedQns, {
+    tocStart: 'TABLE_OF_CONTENTS:ALL:START',
+    tocEnd: 'TABLE_OF_CONTENTS:ALL:END',
+    qnsStart: 'QUESTIONS:ALL:START',
+    qnsEnd: 'QUESTIONS:ALL:END',
+    tableOfContentsAnchor: 'table-of-contents-all-questions',
+    showLinkToGFE: false,
+  });
 }
 
 generateAll();

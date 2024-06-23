@@ -1,5 +1,5 @@
 ---
-title: Explain the concept of Cross-Site Request Forgery (CSRF) and its mitigation techniques.
+title: Explain the concept of Cross-Site Request Forgery (CSRF) and its mitigation techniques
 ---
 
 ## TL;DR
@@ -28,7 +28,7 @@ One of the most effective ways to prevent CSRF attacks is by using anti-CSRF tok
 
 ```html
 <form method="POST" action="/update-profile">
-  <input type="hidden" name="csrf_token" value="unique_token_value">
+  <input type="hidden" name="csrf_token" value="unique_token_value" />
   <!-- other form fields -->
   <button type="submit">Update Profile</button>
 </form>
@@ -61,4 +61,3 @@ Access-Control-Allow-Origin: https://trustedwebsite.com
 - [OWASP CSRF Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
 - [MDN Web Docs: SameSite cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite)
 - [MDN Web Docs: Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
-
