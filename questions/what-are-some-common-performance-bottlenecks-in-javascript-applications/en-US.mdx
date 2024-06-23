@@ -14,7 +14,7 @@ Common performance bottlenecks in JavaScript applications include inefficient DO
 
 Frequent DOM updates can be costly because the browser has to re-render the page each time the DOM changes. Batch DOM updates together to minimize reflows and repaints.
 
-```javascript
+```js
 // Inefficient
 for (let i = 0; i < 1000; i++) {
   const div = document.createElement('div');
@@ -36,7 +36,7 @@ document.body.appendChild(fragment);
 
 Layout thrashing occurs when you read and write to the DOM repeatedly, causing multiple reflows and repaints. Minimize layout thrashing by batching reads and writes separately.
 
-```javascript
+```js
 // Inefficient
 for (let i = 0; i < 1000; i++) {
   const height = element.clientHeight;
@@ -54,7 +54,7 @@ for (let i = 0; i < 1000; i++) {
 
 Global variables can lead to memory leaks and make the code harder to maintain. Use local variables and closures to limit the scope of variables.
 
-```javascript
+```js
 // Inefficient
 var globalVar = 'I am global';
 
@@ -70,7 +70,7 @@ function myFunction() {
 
 Heavy computations can block the main thread, making the UI unresponsive. Use web workers to offload heavy computations to a background thread.
 
-```javascript
+```js
 // Main thread
 const worker = new Worker('worker.js');
 worker.postMessage('start');
@@ -88,7 +88,7 @@ self.onmessage = function (e) {
 
 Avoid synchronous operations like `alert`, `prompt`, and synchronous XHR requests, as they block the main thread.
 
-```javascript
+```js
 // Inefficient
 alert('This blocks the main thread');
 
@@ -102,7 +102,7 @@ Memory leaks occur when memory that is no longer needed is not released. Common 
 
 ### Circular references
 
-```javascript
+```js
 // Inefficient
 function createCircularReference() {
   const obj1 = {};
@@ -121,7 +121,7 @@ function createNonCircularReference() {
 
 ### Unremoved event listeners
 
-```javascript
+```js
 // Inefficient
 element.addEventListener('click', handleClick);
 
@@ -135,11 +135,11 @@ element.removeEventListener('click', handleClick);
 
 Chain promises properly to avoid blocking the main thread.
 
-```javascript
+```js
 // Inefficient
 fetch('url')
-  .then(response => response.json())
-  .then(data => {
+  .then((response) => response.json())
+  .then((data) => {
     // Process data
   });
 
@@ -156,7 +156,7 @@ fetchData();
 
 Use debouncing and throttling to limit the rate of function execution, especially for event handlers.
 
-```javascript
+```js
 // Debouncing
 function debounce(func, wait) {
   let timeout;
@@ -184,4 +184,3 @@ function throttle(func, limit) {
 - [MDN Web Docs: Performance](https://developer.mozilla.org/en-US/docs/Web/Performance)
 - [Google Developers: Web Performance Optimization](https://developers.google.com/web/fundamentals/performance)
 - [JavaScript.info: Optimizing browser rendering](https://javascript.info/rendering)
-

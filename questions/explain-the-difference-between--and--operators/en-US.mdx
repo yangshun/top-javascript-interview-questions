@@ -16,7 +16,7 @@ The `&&` operator evaluates expressions from left to right and returns the first
 
 #### Example
 
-```javascript
+```js
 console.log(true && false); // Output: false
 console.log(1 && 0); // Output: 0
 console.log(1 && 2 && 3); // Output: 3
@@ -28,10 +28,10 @@ The `||` operator evaluates expressions from left to right and returns the first
 
 #### Example
 
-```javascript
+```js
 console.log(true || false); // Output: true
 console.log(0 || 1); // Output: 1
-console.log(null || undefined || "Hello"); // Output: "Hello"
+console.log(null || undefined || 'Hello'); // Output: "Hello"
 ```
 
 ### Short-circuit evaluation
@@ -40,7 +40,7 @@ Both `&&` and `||` operators use short-circuit evaluation, meaning they stop eva
 
 #### Example
 
-```javascript
+```js
 function logAndReturn(value) {
   console.log(value);
   return value;
@@ -57,4 +57,3 @@ In the first example, `logAndReturn(true)` is not called because `logAndReturn(f
 - [MDN Web Docs: Logical AND (&&)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND)
 - [MDN Web Docs: Logical OR (||)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR)
 - [JavaScript Info: Logical operators](https://javascript.info/logical-operators)
-

@@ -6,7 +6,7 @@ title: Explain the concept of destructuring assignment for objects and arrays.
 
 Destructuring assignment is a syntax in JavaScript that allows you to unpack values from arrays or properties from objects into distinct variables. For arrays, you use square brackets, and for objects, you use curly braces. For example:
 
-```javascript
+```js
 // Array destructuring
 const [a, b] = [1, 2];
 
@@ -26,7 +26,7 @@ Array destructuring allows you to unpack values from arrays into distinct variab
 
 #### Basic example
 
-```javascript
+```js
 const numbers = [1, 2, 3];
 const [first, second, third] = numbers;
 
@@ -39,7 +39,7 @@ console.log(third); // 3
 
 You can skip values in the array by leaving an empty space between commas.
 
-```javascript
+```js
 const numbers = [1, 2, 3];
 const [first, , third] = numbers;
 
@@ -51,7 +51,7 @@ console.log(third); // 3
 
 You can assign default values in case the array does not have enough elements.
 
-```javascript
+```js
 const numbers = [1];
 const [first, second = 2] = numbers;
 
@@ -65,7 +65,7 @@ Object destructuring allows you to unpack properties from objects into distinct 
 
 #### Basic example
 
-```javascript
+```js
 const person = { name: 'John', age: 30 };
 const { name, age } = person;
 
@@ -77,7 +77,7 @@ console.log(age); // 30
 
 You can rename the variables while destructuring.
 
-```javascript
+```js
 const person = { name: 'John', age: 30 };
 const { name: personName, age: personAge } = person;
 
@@ -89,7 +89,7 @@ console.log(personAge); // 30
 
 You can assign default values in case the property does not exist in the object.
 
-```javascript
+```js
 const person = { name: 'John' };
 const { name, age = 25 } = person;
 
@@ -101,9 +101,12 @@ console.log(age); // 25
 
 You can destructure nested objects as well.
 
-```javascript
+```js
 const person = { name: 'John', address: { city: 'New York', zip: '10001' } };
-const { name, address: { city, zip } } = person;
+const {
+  name,
+  address: { city, zip },
+} = person;
 
 console.log(name); // John
 console.log(city); // New York
@@ -115,4 +118,3 @@ console.log(zip); // 10001
 - [MDN Web Docs: Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 - [JavaScript.info: Destructuring assignment](https://javascript.info/destructuring-assignment)
 - [FreeCodeCamp: Destructuring assignment](https://www.freecodecamp.org/news/destructuring-assignment-in-es6-30e398f21d10/)
-

@@ -6,15 +6,15 @@ title: What is a function declaration and how does it differ from a function exp
 
 A function declaration defines a named function and is hoisted, meaning it can be called before it is defined in the code. A function expression defines a function as part of an expression and is not hoisted, so it cannot be called before it is defined.
 
-```javascript
+```js
 // Function declaration
 function greet() {
-  console.log("Hello!");
+  console.log('Hello!');
 }
 
 // Function expression
-const greet = function() {
-  console.log("Hello!");
+const greet = function () {
+  console.log('Hello!');
 };
 ```
 
@@ -26,10 +26,10 @@ const greet = function() {
 
 A function declaration defines a named function. It is hoisted to the top of its scope, meaning you can call the function before it is defined in the code.
 
-```javascript
+```js
 // Function declaration
 function greet() {
-  console.log("Hello!");
+  console.log('Hello!');
 }
 
 greet(); // Output: Hello!
@@ -39,10 +39,10 @@ greet(); // Output: Hello!
 
 A function expression defines a function as part of an expression. It can be anonymous or named, but it is not hoisted, so it cannot be called before it is defined.
 
-```javascript
+```js
 // Function expression
-const greet = function() {
-  console.log("Hello!");
+const greet = function () {
+  console.log('Hello!');
 };
 
 greet(); // Output: Hello!
@@ -58,4 +58,3 @@ greet(); // Output: Hello!
 
 - [MDN Web Docs: Function declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
 - [MDN Web Docs: Function expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function)
-

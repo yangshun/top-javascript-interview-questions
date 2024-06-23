@@ -6,7 +6,7 @@ title: What are the different ways to create an object in JavaScript?
 
 In JavaScript, you can create objects in several ways. The most common methods are using object literals, the `Object` constructor, and constructor functions. You can also use `Object.create` for creating objects with a specific prototype and ES6 classes for a more structured approach.
 
-```javascript
+```js
 // Object literal
 const obj1 = { key: 'value' };
 
@@ -39,10 +39,10 @@ const obj5 = new MyClass();
 
 Object literals are the most straightforward way to create an object in JavaScript. You define the object and its properties within curly braces.
 
-```javascript
+```js
 const obj = {
   key1: 'value1',
-  key2: 'value2'
+  key2: 'value2',
 };
 ```
 
@@ -59,7 +59,7 @@ const obj = {
 
 You can create an object using the `Object` constructor. This method is less common but still useful in certain scenarios.
 
-```javascript
+```js
 const obj = new Object();
 obj.key1 = 'value1';
 obj.key2 = 'value2';
@@ -77,7 +77,7 @@ obj.key2 = 'value2';
 
 Constructor functions allow you to create multiple instances of an object with the same structure. You define a function and use the `new` keyword to create instances.
 
-```javascript
+```js
 function MyObject() {
   this.key1 = 'value1';
   this.key2 = 'value2';
@@ -99,9 +99,9 @@ const obj = new MyObject();
 
 The `Object.create` method allows you to create a new object with a specified prototype. This is useful for creating objects that inherit from other objects.
 
-```javascript
+```js
 const proto = {
-  key1: 'value1'
+  key1: 'value1',
 };
 
 const obj = Object.create(proto);
@@ -121,7 +121,7 @@ obj.key2 = 'value2';
 
 ES6 introduced classes, which provide a more structured way to create objects and handle inheritance.
 
-```javascript
+```js
 class MyClass {
   constructor() {
     this.key1 = 'value1';
@@ -146,4 +146,3 @@ const obj = new MyClass();
 - [MDN Web Docs: Working with objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
 - [MDN Web Docs: Object.create()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create)
 - [MDN Web Docs: Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
-

@@ -6,7 +6,7 @@ title: What are callback functions and how are they used?
 
 A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action. They are commonly used for asynchronous operations like handling events, making API calls, or reading files. For example:
 
-```javascript
+```js
 function fetchData(callback) {
   setTimeout(() => {
     const data = { name: 'John Doe' };
@@ -33,7 +33,7 @@ A callback function is a function that is passed as an argument to another funct
 
 Synchronous callbacks are executed immediately within the function they are passed to. They are often used for tasks that need to be completed before moving on to the next line of code.
 
-```javascript
+```js
 function greet(name, callback) {
   console.log('Hello ' + name);
   callback();
@@ -50,7 +50,7 @@ greet('Alice', sayGoodbye);
 
 Asynchronous callbacks are used for operations that take some time to complete, such as reading files, making HTTP requests, or handling events. These callbacks are executed after the asynchronous operation has finished.
 
-```javascript
+```js
 function fetchData(callback) {
   setTimeout(() => {
     const data = { name: 'John Doe' };
@@ -71,8 +71,8 @@ fetchData(handleData);
 
 Callbacks are often used in event handling. For example, in JavaScript, you can pass a callback function to an event listener.
 
-```javascript
-document.getElementById('myButton').addEventListener('click', function() {
+```js
+document.getElementById('myButton').addEventListener('click', function () {
   console.log('Button clicked!');
 });
 ```
@@ -81,12 +81,12 @@ document.getElementById('myButton').addEventListener('click', function() {
 
 Callbacks are frequently used in making API calls to handle the response data.
 
-```javascript
+```js
 function getUserData(userId, callback) {
   fetch(`https://api.example.com/users/${userId}`)
-    .then(response => response.json())
-    .then(data => callback(data))
-    .catch(error => console.error('Error:', error));
+    .then((response) => response.json())
+    .then((data) => callback(data))
+    .catch((error) => console.error('Error:', error));
 }
 
 function displayUserData(data) {
@@ -100,7 +100,7 @@ getUserData(1, displayUserData);
 
 Callbacks are also used with timers like `setTimeout` and `setInterval`.
 
-```javascript
+```js
 function sayHello() {
   console.log('Hello, world!');
 }
@@ -113,4 +113,3 @@ setTimeout(sayHello, 2000);
 - [MDN Web Docs: Callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
 - [JavaScript.info: Callbacks](https://javascript.info/callbacks)
 - [Eloquent JavaScript: Asynchronous Programming](https://eloquentjavascript.net/11_async.html)
-

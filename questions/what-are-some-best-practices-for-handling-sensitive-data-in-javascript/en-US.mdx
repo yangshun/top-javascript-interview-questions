@@ -14,7 +14,7 @@ Handling sensitive data in JavaScript requires careful attention to security pra
 
 Storing sensitive data such as tokens, passwords, or personal information in client-side storage like `localStorage` or `sessionStorage` is risky because it can be easily accessed by malicious scripts. Instead, use secure cookies with the `HttpOnly` and `Secure` flags.
 
-```javascript
+```js
 // Example of setting a secure cookie in an Express.js server
 res.cookie('token', token, { httpOnly: true, secure: true });
 ```
@@ -27,38 +27,41 @@ Always use HTTPS to encrypt data in transit between the client and server. This 
 
 Ensure that your application has robust authentication and authorization mechanisms. Use libraries and frameworks that are well-tested and maintained.
 
-```javascript
+```js
 // Example of using JSON Web Tokens (JWT) for authentication
 const jwt = require('jsonwebtoken');
 
-const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
+  expiresIn: '1h',
+});
 ```
 
 ### Sanitize and validate inputs
 
 Always sanitize and validate user inputs to prevent injection attacks such as SQL injection and cross-site scripting (XSS).
 
-```javascript
+```js
 // Example of input validation using the express-validator library
 const { body, validationResult } = require('express-validator');
 
-app.post('/submit', [
-  body('email').isEmail(),
-  body('password').isLength({ min: 5 })
-], (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
-  // Proceed with handling the request
-});
+app.post(
+  '/submit',
+  [body('email').isEmail(), body('password').isLength({ min: 5 })],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    // Proceed with handling the request
+  },
+);
 ```
 
 ### Use environment variables
 
 Store sensitive data such as API keys and database credentials in environment variables rather than hardcoding them in your source code.
 
-```javascript
+```js
 // Example of accessing environment variables in Node.js
 const dbPassword = process.env.DB_PASSWORD;
 ```
@@ -79,4 +82,3 @@ npm audit fix
 - [Express.js Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html)
 - [JSON Web Tokens (JWT) Introduction](https://jwt.io/introduction/)
 - [express-validator Documentation](https://express-validator.github.io/docs/)
-

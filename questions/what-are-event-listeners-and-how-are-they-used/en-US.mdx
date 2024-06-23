@@ -6,9 +6,9 @@ title: What are event listeners and how are they used?
 
 Event listeners are functions that wait for specific events to occur on elements, such as clicks or key presses. They are used to execute code in response to these events. You can add an event listener to an element using the `addEventListener` method. For example:
 
-```javascript
-document.getElementById('myButton').addEventListener('click', function() {
-    alert('Button was clicked!');
+```js
+document.getElementById('myButton').addEventListener('click', function () {
+  alert('Button was clicked!');
 });
 ```
 
@@ -22,11 +22,11 @@ Event listeners are a fundamental part of web development, allowing developers t
 
 To add an event listener to an element, you use the `addEventListener` method. This method takes two main arguments: the type of event to listen for and the function to execute when the event occurs.
 
-```javascript
+```js
 const button = document.getElementById('myButton');
 
-button.addEventListener('click', function() {
-    alert('Button was clicked!');
+button.addEventListener('click', function () {
+  alert('Button was clicked!');
 });
 ```
 
@@ -36,9 +36,9 @@ In this example, an event listener is added to a button element with the ID `myB
 
 You can also remove an event listener using the `removeEventListener` method. This method requires the same arguments as `addEventListener`: the event type and the function to remove.
 
-```javascript
+```js
 function handleClick() {
-    alert('Button was clicked!');
+  alert('Button was clicked!');
 }
 
 button.addEventListener('click', handleClick);
@@ -51,10 +51,10 @@ button.removeEventListener('click', handleClick);
 
 When an event listener is triggered, an event object is passed to the event handler function. This object contains useful information about the event, such as the target element, the type of event, and more.
 
-```javascript
-button.addEventListener('click', function(event) {
-    console.log('Event type:', event.type);
-    console.log('Target element:', event.target);
+```js
+button.addEventListener('click', function (event) {
+  console.log('Event type:', event.type);
+  console.log('Target element:', event.target);
 });
 ```
 
@@ -70,13 +70,13 @@ button.addEventListener('click', function(event) {
 
 Event delegation is a technique where a single event listener is added to a parent element to manage events for multiple child elements. This is useful for improving performance and managing dynamic content.
 
-```javascript
+```js
 const list = document.getElementById('myList');
 
-list.addEventListener('click', function(event) {
-    if (event.target && event.target.nodeName === 'LI') {
-        console.log('List item clicked:', event.target.textContent);
-    }
+list.addEventListener('click', function (event) {
+  if (event.target && event.target.nodeName === 'LI') {
+    console.log('List item clicked:', event.target.textContent);
+  }
 });
 ```
 
@@ -87,4 +87,3 @@ In this example, a single event listener is added to a list element. When any li
 - [MDN Web Docs: EventTarget.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
 - [JavaScript.info: Introduction to browser events](https://javascript.info/introduction-browser-events)
 - [W3Schools: JavaScript Event Listeners](https://www.w3schools.com/js/js_htmldom_eventlistener.asp)
-

@@ -16,10 +16,10 @@ Currying is a technique where a function with multiple arguments is transformed 
 
 #### Example
 
-```javascript
+```js
 function add(a) {
-  return function(b) {
-    return function(c) {
+  return function (b) {
+    return function (c) {
       return a + b + c;
     };
   };
@@ -36,7 +36,7 @@ Partial application is a technique where you fix a few arguments of a function, 
 
 #### Example
 
-```javascript
+```js
 function add(a, b, c) {
   return a + b + c;
 }
@@ -57,4 +57,3 @@ In this example, `addOne` is a partially applied function that fixes the first a
 - [Currying on MDN](https://developer.mozilla.org/en-US/docs/Glossary/Currying)
 - [Partial application on MDN](https://developer.mozilla.org/en-US/docs/Glossary/Partial_application)
 - [JavaScript.info on currying and partial application](https://javascript.info/currying-partials)
-

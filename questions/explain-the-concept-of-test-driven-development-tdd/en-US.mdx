@@ -17,7 +17,7 @@ Test-driven development (TDD) is a software development methodology that emphasi
 1. Write a test for a new feature or functionality.
 2. Run the test to ensure it fails, confirming that the feature is not yet implemented.
 
-```javascript
+```js
 // Example using Jest
 test('adds 1 + 2 to equal 3', () => {
   expect(add(1, 2)).toBe(3);
@@ -29,7 +29,7 @@ test('adds 1 + 2 to equal 3', () => {
 1. Write the simplest code possible to make the test pass.
 2. Run the test to ensure it passes.
 
-```javascript
+```js
 function add(a, b) {
   return a + b;
 }
@@ -40,7 +40,7 @@ function add(a, b) {
 1. Refactor the code to improve its structure and readability without changing its behavior.
 2. Ensure that all tests still pass after refactoring.
 
-```javascript
+```js
 // Refactored code (if needed)
 function add(a, b) {
   return a + b; // In this simple example, no refactoring is needed
@@ -84,4 +84,3 @@ Maintaining a large number of tests can become an overhead, especially when the 
 - [Test-Driven Development by Example by Kent Beck](https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530)
 - [TDD on Martin Fowler's website](https://martinfowler.com/bliki/TestDrivenDevelopment.html)
 - [Jest documentation](https://jestjs.io/docs/getting-started)
-

@@ -33,12 +33,14 @@ Progressive Web Applications (PWAs) are web applications that combine the best o
 
 Service workers are scripts that run in the background, separate from the web page, enabling features like offline functionality, background sync, and push notifications.
 
-```javascript
+```js
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js')
-    .then(function(registration) {
+  navigator.serviceWorker
+    .register('/service-worker.js')
+    .then(function (registration) {
       console.log('Service Worker registered with scope:', registration.scope);
-    }).catch(function(error) {
+    })
+    .catch(function (error) {
       console.log('Service Worker registration failed:', error);
     });
 }
@@ -85,4 +87,3 @@ PWAs must be served over HTTPS to ensure security and privacy. This is a require
 - [Google Developers: Progressive Web Apps](https://developers.google.com/web/progressive-web-apps)
 - [MDN Web Docs: Progressive web apps (PWAs)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
 - [Web.dev: What are Progressive Web Apps?](https://web.dev/what-are-pwas/)
-

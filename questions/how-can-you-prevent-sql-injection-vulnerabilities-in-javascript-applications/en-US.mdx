@@ -16,13 +16,13 @@ Parameterized queries or prepared statements ensure that user input is treated a
 
 #### Example using Node.js with the `mysql` library:
 
-```javascript
+```js
 const mysql = require('mysql');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'password',
-  database: 'test'
+  database: 'test',
 });
 
 const userId = 1;
@@ -40,25 +40,25 @@ Object-Relational Mapping (ORM) libraries like Sequelize, TypeORM, or Mongoose (
 
 #### Example using Sequelize:
 
-```javascript
+```js
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('database', 'username', 'password', {
   host: 'localhost',
-  dialect: 'mysql'
+  dialect: 'mysql',
 });
 
 const User = sequelize.define('User', {
   username: {
     type: DataTypes.STRING,
-    allowNull: false
-  }
+    allowNull: false,
+  },
 });
 
 User.findAll({
   where: {
-    id: 1
-  }
-}).then(users => {
+    id: 1,
+  },
+}).then((users) => {
   console.log(users);
 });
 ```
@@ -69,10 +69,10 @@ Always validate and sanitize user inputs to ensure they conform to expected form
 
 #### Example using `validator` library:
 
-```javascript
+```js
 const validator = require('validator');
 
-const userInput = "someUserInput";
+const userInput = 'someUserInput';
 if (validator.isAlphanumeric(userInput)) {
   // Proceed with using the input
 } else {
@@ -99,19 +99,20 @@ Leverage security libraries and frameworks that provide built-in protection agai
 
 #### Example using Express.js with `express-validator`:
 
-```javascript
+```js
 const { body, validationResult } = require('express-validator');
 
-app.post('/user', [
-  body('username').isAlphanumeric(),
-  body('email').isEmail()
-], (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
-  // Proceed with safe input
-});
+app.post(
+  '/user',
+  [body('username').isAlphanumeric(), body('email').isEmail()],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    // Proceed with safe input
+  },
+);
 ```
 
 ## Further reading
@@ -121,4 +122,3 @@ app.post('/user', [
 - [Sequelize Documentation](https://sequelize.org/master/)
 - [Express Validator Documentation](https://express-validator.github.io/docs/)
 - [Validator.js Documentation](https://github.com/validatorjs/validator.js)
-

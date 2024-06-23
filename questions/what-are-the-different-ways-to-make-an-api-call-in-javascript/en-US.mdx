@@ -14,7 +14,7 @@ In JavaScript, you can make API calls using several methods. The most common one
 
 `XMLHttpRequest` is the traditional way to make API calls in JavaScript. It is more verbose and requires more code compared to modern methods.
 
-```javascript
+```js
 const xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://api.example.com/data', true);
 xhr.onreadystatechange = function () {
@@ -29,33 +29,38 @@ xhr.send();
 
 `fetch` is a modern and more convenient way to make API calls. It returns a promise, making it easier to handle asynchronous operations.
 
-```javascript
+```js
 fetch('https://api.example.com/data')
-  .then(response => {
+  .then((response) => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
     return response.json();
   })
-  .then(data => console.log(data))
-  .catch(error => console.error('There was a problem with the fetch operation:', error));
+  .then((data) => console.log(data))
+  .catch((error) =>
+    console.error('There was a problem with the fetch operation:', error),
+  );
 ```
 
 ### Axios
 
 `Axios` is a popular third-party library that simplifies making API calls. It provides additional features like interceptors, automatic JSON transformation, and more.
 
-```javascript
-axios.get('https://api.example.com/data')
-  .then(response => console.log(response.data))
-  .catch(error => console.error('There was a problem with the Axios request:', error));
+```js
+axios
+  .get('https://api.example.com/data')
+  .then((response) => console.log(response.data))
+  .catch((error) =>
+    console.error('There was a problem with the Axios request:', error),
+  );
 ```
 
 ### jQuery AJAX
 
 `jQuery` also provides an `ajax` method to make API calls. This method is less common in modern development but still used in some legacy projects.
 
-```javascript
+```js
 $.ajax({
   url: 'https://api.example.com/data',
   method: 'GET',
@@ -64,7 +69,7 @@ $.ajax({
   },
   error: function (error) {
     console.error('There was a problem with the jQuery AJAX request:', error);
-  }
+  },
 });
 ```
 
@@ -74,4 +79,3 @@ $.ajax({
 - [MDN Web Docs: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 - [Axios GitHub Repository](https://github.com/axios/axios)
 - [jQuery AJAX Documentation](https://api.jquery.com/jquery.ajax/)
-

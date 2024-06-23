@@ -23,29 +23,29 @@ The Observer pattern is a behavioral design pattern that defines a one-to-many d
 
 Here is a simple example in JavaScript:
 
-```javascript
+```js
 class Subject {
-    constructor() {
-        this.observers = [];
-    }
+  constructor() {
+    this.observers = [];
+  }
 
-    addObserver(observer) {
-        this.observers.push(observer);
-    }
+  addObserver(observer) {
+    this.observers.push(observer);
+  }
 
-    removeObserver(observer) {
-        this.observers = this.observers.filter(obs => obs !== observer);
-    }
+  removeObserver(observer) {
+    this.observers = this.observers.filter((obs) => obs !== observer);
+  }
 
-    notifyObservers() {
-        this.observers.forEach(observer => observer.update());
-    }
+  notifyObservers() {
+    this.observers.forEach((observer) => observer.update());
+  }
 }
 
 class Observer {
-    update() {
-        console.log('Observer updated');
-    }
+  update() {
+    console.log('Observer updated');
+  }
 }
 
 // Usage
@@ -82,4 +82,3 @@ In complex applications, managing dependencies between different modules can be 
 - [Observer pattern on Wikipedia](https://en.wikipedia.org/wiki/Observer_pattern)
 - [Observer pattern in JavaScript](https://www.dofactory.com/javascript/observer-design-pattern)
 - [Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612) by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides
-

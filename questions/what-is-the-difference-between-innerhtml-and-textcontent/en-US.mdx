@@ -6,12 +6,12 @@ title: What is the difference between `innerHTML` and `textContent`?
 
 `innerHTML` and `textContent` are both properties used to get or set the content of an HTML element, but they serve different purposes. `innerHTML` returns or sets the HTML markup contained within the element, which means it can parse and render HTML tags. On the other hand, `textContent` returns or sets the text content of the element, ignoring any HTML tags and rendering them as plain text.
 
-```javascript
+```js
 // Example of innerHTML
-element.innerHTML = "<strong>Bold Text</strong>"; // Renders as bold text
+element.innerHTML = '<strong>Bold Text</strong>'; // Renders as bold text
 
 // Example of textContent
-element.textContent = "<strong>Bold Text</strong>"; // Renders as plain text: <strong>Bold Text</strong>
+element.textContent = '<strong>Bold Text</strong>'; // Renders as plain text: <strong>Bold Text</strong>
 ```
 
 ---
@@ -24,9 +24,9 @@ element.textContent = "<strong>Bold Text</strong>"; // Renders as plain text: <s
 
 #### Example
 
-```javascript
+```js
 const element = document.getElementById('example');
-element.innerHTML = "<strong>Bold Text</strong>"; // This will render as bold text
+element.innerHTML = '<strong>Bold Text</strong>'; // This will render as bold text
 ```
 
 #### Use cases
@@ -44,9 +44,9 @@ Using `innerHTML` can expose your application to Cross-Site Scripting (XSS) atta
 
 #### Example
 
-```javascript
+```js
 const element = document.getElementById('example');
-element.textContent = "<strong>Bold Text</strong>"; // This will render as plain text: <strong>Bold Text</strong>
+element.textContent = '<strong>Bold Text</strong>'; // This will render as plain text: <strong>Bold Text</strong>
 ```
 
 #### Use cases
@@ -63,4 +63,3 @@ element.textContent = "<strong>Bold Text</strong>"; // This will render as plain
 - [MDN Web Docs: innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)
 - [MDN Web Docs: textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent)
 - [Cross-Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/)
-

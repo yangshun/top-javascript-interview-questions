@@ -16,36 +16,40 @@ title: How is `Promise.all()` different from `Promise.allSettled()`?
 
 #### Example
 
-```javascript
+```js
 const promise1 = Promise.resolve(3);
 const promise2 = 42;
 const promise3 = new Promise((resolve, reject) => {
   setTimeout(resolve, 100, 'foo');
 });
 
-Promise.all([promise1, promise2, promise3]).then((values) => {
-  console.log(values); // [3, 42, 'foo']
-}).catch((error) => {
-  console.error(error);
-});
+Promise.all([promise1, promise2, promise3])
+  .then((values) => {
+    console.log(values); // [3, 42, 'foo']
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 ```
 
 In this example, `Promise.all()` resolves with an array of results `[3, 42, 'foo']` because all promises resolve successfully.
 
 #### Failure case
 
-```javascript
+```js
 const promise1 = Promise.resolve(3);
 const promise2 = Promise.reject('error');
 const promise3 = new Promise((resolve, reject) => {
   setTimeout(resolve, 100, 'foo');
 });
 
-Promise.all([promise1, promise2, promise3]).then((values) => {
-  console.log(values);
-}).catch((error) => {
-  console.error(error); // 'error'
-});
+Promise.all([promise1, promise2, promise3])
+  .then((values) => {
+    console.log(values);
+  })
+  .catch((error) => {
+    console.error(error); // 'error'
+  });
 ```
 
 In this example, `Promise.all()` rejects immediately with the reason `'error'` because `promise2` rejects.
@@ -56,7 +60,7 @@ In this example, `Promise.all()` rejects immediately with the reason `'error'` b
 
 #### Example
 
-```javascript
+```js
 const promise1 = Promise.resolve(3);
 const promise2 = 42;
 const promise3 = new Promise((resolve, reject) => {
@@ -75,7 +79,7 @@ In this example, `Promise.allSettled()` resolves with an array of result objects
 
 #### Failure case
 
-```javascript
+```js
 const promise1 = Promise.resolve(3);
 const promise2 = Promise.reject('error');
 const promise3 = new Promise((resolve, reject) => {
@@ -97,4 +101,3 @@ In this example, `Promise.allSettled()` resolves with an array of result objects
 - [MDN Web Docs: Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
 - [MDN Web Docs: Promise.allSettled()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)
 - [JavaScript.info: Promise API](https://javascript.info/promise-api)
-

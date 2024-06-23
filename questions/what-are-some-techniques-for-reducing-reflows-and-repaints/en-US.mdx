@@ -28,7 +28,7 @@ Grouping multiple DOM changes together can reduce the number of reflows and repa
 
 Instead of changing styles directly via JavaScript, use CSS classes:
 
-```javascript
+```js
 element.classList.add('new-class');
 ```
 
@@ -43,7 +43,7 @@ Complex selectors can slow down the rendering process:
 
 Using `requestAnimationFrame` ensures that animations are synchronized with the browser's repaint cycle:
 
-```javascript
+```js
 function animate() {
   // Animation logic
   requestAnimationFrame(animate);
@@ -65,7 +65,7 @@ The `will-change` property can hint to the browser about which elements will cha
 
 Reading and writing to the DOM separately can prevent layout thrashing:
 
-```javascript
+```js
 const height = element.offsetHeight; // Read
 element.style.height = `${height + 10}px`; // Write
 ```
@@ -75,4 +75,3 @@ element.style.height = `${height + 10}px`; // Write
 - [MDN Web Docs: Reflow](https://developer.mozilla.org/en-US/docs/Glossary/Reflow)
 - [Google Developers: Avoid large, complex layouts and layout thrashing](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing)
 - [CSS-Tricks: Debouncing and Throttling Explained Through Examples](https://css-tricks.com/debouncing-throttling-explained-examples/)
-

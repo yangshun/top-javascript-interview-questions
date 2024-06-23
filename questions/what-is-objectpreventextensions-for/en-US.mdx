@@ -6,7 +6,7 @@ title: What is `Object.preventExtensions()` for?
 
 `Object.preventExtensions()` is a method in JavaScript that prevents new properties from being added to an object. However, it does not affect the deletion or modification of existing properties. This method is useful when you want to ensure that an object remains in a certain shape and no additional properties can be added to it.
 
-```javascript
+```js
 const obj = { name: 'John' };
 Object.preventExtensions(obj);
 
@@ -22,7 +22,7 @@ console.log(obj.age); // undefined
 
 ### Syntax
 
-```javascript
+```js
 Object.preventExtensions(obj);
 ```
 
@@ -36,7 +36,7 @@ Object.preventExtensions(obj);
 
 ### Example
 
-```javascript
+```js
 const obj = { name: 'John' };
 Object.preventExtensions(obj);
 
@@ -54,7 +54,7 @@ console.log(obj.name); // undefined
 
 You can check if an object is extensible using the `Object.isExtensible()` method.
 
-```javascript
+```js
 const obj = { name: 'John' };
 console.log(Object.isExtensible(obj)); // true
 
@@ -72,4 +72,3 @@ console.log(Object.isExtensible(obj)); // false
 - [MDN Web Docs: Object.preventExtensions()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions)
 - [MDN Web Docs: Object.isExtensible()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible)
 - [ECMAScript 5 Specification](https://www.ecma-international.org/ecma-262/5.1/#sec-15.2.3.10)
-

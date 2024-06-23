@@ -6,7 +6,7 @@ title: Explain the concept of partial application.
 
 Partial application is a technique in functional programming where a function is applied to some of its arguments, producing a new function that takes the remaining arguments. This allows you to create more specific functions from general ones. For example, if you have a function `add(a, b)`, you can partially apply it to create a new function `add5` that always adds 5 to its argument.
 
-```javascript
+```js
 function add(a, b) {
   return a + b;
 }
@@ -25,7 +25,7 @@ Partial application is a functional programming technique where a function is ap
 
 Consider a simple `add` function that takes two arguments:
 
-```javascript
+```js
 function add(a, b) {
   return a + b;
 }
@@ -33,7 +33,7 @@ function add(a, b) {
 
 Using partial application, you can create a new function `add5` that always adds 5 to its argument:
 
-```javascript
+```js
 const add5 = add.bind(null, 5);
 console.log(add5(10)); // Outputs 15
 ```
@@ -51,7 +51,7 @@ In the example above, `add.bind(null, 5)` creates a new function where the first
 
 Partial application is often used in libraries like Lodash. For example, Lodash's `_.partial` function allows you to create partially applied functions easily:
 
-```javascript
+```js
 const _ = require('lodash');
 
 function greet(greeting, name) {
@@ -65,6 +65,5 @@ console.log(sayHelloTo('John')); // Outputs "Hello, John!"
 ## Further reading
 
 - [MDN Web Docs: Function.prototype.bind()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
-- [Lodash Documentation: _.partial](https://lodash.com/docs/4.17.15#partial)
+- [Lodash Documentation: \_.partial](https://lodash.com/docs/4.17.15#partial)
 - [Wikipedia: Partial application](https://en.wikipedia.org/wiki/Partial_application)
-

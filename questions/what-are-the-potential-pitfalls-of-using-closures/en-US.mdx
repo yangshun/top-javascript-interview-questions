@@ -14,12 +14,12 @@ Closures can lead to memory leaks if not managed properly, especially when they 
 
 Closures can cause memory leaks if they capture variables that are no longer needed. This happens because closures keep references to the variables in their scope, preventing the garbage collector from freeing up memory.
 
-```javascript
+```js
 function createClosure() {
-    let largeArray = new Array(1000000).fill('some data');
-    return function() {
-        console.log(largeArray[0]);
-    };
+  let largeArray = new Array(1000000).fill('some data');
+  return function () {
+    console.log(largeArray[0]);
+  };
 }
 
 let closure = createClosure();
@@ -30,15 +30,15 @@ let closure = createClosure();
 
 Closures can make debugging more difficult due to the complexity of the scope chain. When a bug occurs, it can be challenging to trace the source of the problem through multiple layers of nested functions and scopes.
 
-```javascript
+```js
 function outerFunction() {
-    let outerVar = 'I am outside!';
-    
-    function innerFunction() {
-        console.log(outerVar); // What if outerVar is not what you expect?
-    }
-    
-    return innerFunction;
+  let outerVar = 'I am outside!';
+
+  function innerFunction() {
+    console.log(outerVar); // What if outerVar is not what you expect?
+  }
+
+  return innerFunction;
 }
 
 let myFunction = outerFunction();
@@ -49,17 +49,17 @@ myFunction();
 
 Overusing closures or using them inappropriately can lead to performance issues. Since closures keep references to variables in their scope, they can prevent garbage collection, leading to increased memory usage and potential slowdowns.
 
-```javascript
+```js
 function createManyClosures() {
-    let counter = 0;
-    
-    for (let i = 0; i < 1000000; i++) {
-        (function() {
-            counter++;
-        })();
-    }
-    
-    console.log(counter); // This can be inefficient
+  let counter = 0;
+
+  for (let i = 0; i < 1000000; i++) {
+    (function () {
+      counter++;
+    })();
+  }
+
+  console.log(counter); // This can be inefficient
 }
 
 createManyClosures();
@@ -69,17 +69,17 @@ createManyClosures();
 
 Closures can lead to unintended variable sharing, especially in loops. This happens when all closures share the same reference to a variable, leading to unexpected behavior.
 
-```javascript
+```js
 function createFunctions() {
-    let functions = [];
-    
-    for (var i = 0; i < 3; i++) {
-        functions.push(function() {
-            console.log(i); // All functions will log the same value of i
-        });
-    }
-    
-    return functions;
+  let functions = [];
+
+  for (var i = 0; i < 3; i++) {
+    functions.push(function () {
+      console.log(i); // All functions will log the same value of i
+    });
+  }
+
+  return functions;
 }
 
 let funcs = createFunctions();
@@ -90,17 +90,17 @@ funcs[2](); // 3
 
 To avoid this, use `let` instead of `var` to create a new binding for each iteration:
 
-```javascript
+```js
 function createFunctions() {
-    let functions = [];
-    
-    for (let i = 0; i < 3; i++) {
-        functions.push(function() {
-            console.log(i); // Each function will log its own value of i
-        });
-    }
-    
-    return functions;
+  let functions = [];
+
+  for (let i = 0; i < 3; i++) {
+    functions.push(function () {
+      console.log(i); // Each function will log its own value of i
+    });
+  }
+
+  return functions;
 }
 
 let funcs = createFunctions();
@@ -114,4 +114,3 @@ funcs[2](); // 2
 - [MDN Web Docs: Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
 - [JavaScript.info: Closures](https://javascript.info/closure)
 - [Understanding JavaScript Closures with Ease](https://medium.com/dailyjs/i-never-understood-javascript-closures-9663703368e8)
-

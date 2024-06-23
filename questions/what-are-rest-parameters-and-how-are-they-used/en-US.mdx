@@ -6,7 +6,7 @@ title: What are rest parameters and how are they used?
 
 Rest parameters in JavaScript allow a function to accept an indefinite number of arguments as an array. They are denoted by three dots (`...`) followed by the name of the array. This feature is useful for functions that need to handle multiple arguments without knowing the exact number in advance.
 
-```javascript
+```js
 function sum(...numbers) {
   return numbers.reduce((acc, curr) => acc + curr, 0);
 }
@@ -26,7 +26,7 @@ Rest parameters allow a function to accept an indefinite number of arguments as 
 
 The syntax for rest parameters is straightforward. You place three dots before the last parameter in the function definition:
 
-```javascript
+```js
 function myFunction(a, b, ...rest) {
   // 'rest' is an array containing the remaining arguments
 }
@@ -40,7 +40,7 @@ Rest parameters are useful in various scenarios, such as when you need to handle
 
 Here's a simple example of a function that sums an indefinite number of arguments:
 
-```javascript
+```js
 function sum(...numbers) {
   return numbers.reduce((acc, curr) => acc + curr, 0);
 }
@@ -54,7 +54,7 @@ In this example, the `sum` function uses the rest parameter `numbers` to collect
 
 Rest parameters can also be used to combine multiple arrays into one:
 
-```javascript
+```js
 function combineArrays(...arrays) {
   return arrays.flat();
 }
@@ -75,4 +75,3 @@ In this example, the `combineArrays` function uses the rest parameter `arrays` t
 - [MDN Web Docs: Rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
 - [JavaScript.info: Rest parameters and spread syntax](https://javascript.info/rest-parameters-spread)
 - [W3Schools: JavaScript Function Parameters](https://www.w3schools.com/js/js_function_parameters.asp)
-

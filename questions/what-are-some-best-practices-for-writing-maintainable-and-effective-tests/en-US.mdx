@@ -26,7 +26,7 @@ To write maintainable and effective tests, ensure they are clear, concise, and f
 - **Act**: Execute the behavior being tested
 - **Assert**: Verify the outcome
 
-```javascript
+```js
 test('should add two numbers correctly', () => {
   // Arrange
   const a = 1;
@@ -44,7 +44,7 @@ test('should add two numbers correctly', () => {
 
 - Use variables and constants to make tests more readable and maintainable
 
-```javascript
+```js
 const input = 5;
 const expectedOutput = 25;
 
@@ -59,7 +59,7 @@ test('should return the square of a number', () => {
 - Use mocking libraries to simulate external dependencies like APIs, databases, or third-party services
 - Keep tests isolated from external factors
 
-```javascript
+```js
 jest.mock('axios');
 
 test('should fetch data from API', async () => {
@@ -77,7 +77,7 @@ test('should fetch data from API', async () => {
 - Ensure tests do not depend on each other
 - Reset state and clean up after each test
 
-```javascript
+```js
 afterEach(() => {
   jest.clearAllMocks();
 });
@@ -111,4 +111,3 @@ afterEach(() => {
 - [Testing Library documentation](https://testing-library.com/docs/)
 - [Effective testing with Jest](https://kentcdodds.com/blog/effective-snapshot-testing)
 - [Test-driven development (TDD)](https://martinfowler.com/bliki/TestDrivenDevelopment.html)
-

@@ -18,8 +18,8 @@ The `window.history` API provides methods to interact with the browser's history
 
 This method adds a new entry to the history stack.
 
-```javascript
-history.pushState({ page: 1 }, "title 1", "?page=1");
+```js
+history.pushState({ page: 1 }, 'title 1', '?page=1');
 ```
 
 - The first parameter is a state object associated with the new history entry.
@@ -30,8 +30,8 @@ history.pushState({ page: 1 }, "title 1", "?page=1");
 
 This method modifies the current history entry.
 
-```javascript
-history.replaceState({ page: 2 }, "title 2", "?page=2");
+```js
+history.replaceState({ page: 2 }, 'title 2', '?page=2');
 ```
 
 - The parameters are the same as `pushState()`, but this method replaces the current entry instead of adding a new one.
@@ -40,7 +40,7 @@ history.replaceState({ page: 2 }, "title 2", "?page=2");
 
 This method moves the user back one entry in the history stack, similar to clicking the browser's back button.
 
-```javascript
+```js
 history.back();
 ```
 
@@ -48,7 +48,7 @@ history.back();
 
 This method moves the user forward one entry in the history stack, similar to clicking the browser's forward button.
 
-```javascript
+```js
 history.forward();
 ```
 
@@ -56,7 +56,7 @@ history.forward();
 
 This method moves the user a specified number of entries in the history stack.
 
-```javascript
+```js
 // Move back one entry
 history.go(-1);
 
@@ -74,34 +74,36 @@ Here's a simple example demonstrating the use of `pushState` and `replaceState`:
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>History API Example</title>
-</head>
-<body>
+  </head>
+  <body>
     <button id="pushStateBtn">Push State</button>
     <button id="replaceStateBtn">Replace State</button>
     <button id="backBtn">Back</button>
     <button id="forwardBtn">Forward</button>
 
     <script>
-        document.getElementById('pushStateBtn').addEventListener('click', () => {
-            history.pushState({ page: 1 }, "title 1", "?page=1");
+      document.getElementById('pushStateBtn').addEventListener('click', () => {
+        history.pushState({ page: 1 }, 'title 1', '?page=1');
+      });
+
+      document
+        .getElementById('replaceStateBtn')
+        .addEventListener('click', () => {
+          history.replaceState({ page: 2 }, 'title 2', '?page=2');
         });
 
-        document.getElementById('replaceStateBtn').addEventListener('click', () => {
-            history.replaceState({ page: 2 }, "title 2", "?page=2");
-        });
+      document.getElementById('backBtn').addEventListener('click', () => {
+        history.back();
+      });
 
-        document.getElementById('backBtn').addEventListener('click', () => {
-            history.back();
-        });
-
-        document.getElementById('forwardBtn').addEventListener('click', () => {
-            history.forward();
-        });
+      document.getElementById('forwardBtn').addEventListener('click', () => {
+        history.forward();
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -113,4 +115,3 @@ Here's a simple example demonstrating the use of `pushState` and `replaceState`:
 - [MDN Web Docs: `history.back()`](https://developer.mozilla.org/en-US/docs/Web/API/History/back)
 - [MDN Web Docs: `history.forward()`](https://developer.mozilla.org/en-US/docs/Web/API/History/forward)
 - [MDN Web Docs: `history.go()`](https://developer.mozilla.org/en-US/docs/Web/API/History/go)
-

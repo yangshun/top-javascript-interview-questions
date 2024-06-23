@@ -6,15 +6,15 @@ title: What is the difference between synchronous and asynchronous code?
 
 Synchronous code executes sequentially, meaning each operation must wait for the previous one to complete before it can start. Asynchronous code allows multiple operations to run concurrently, so tasks can start before others finish, improving efficiency and responsiveness. For example, in JavaScript, synchronous code might look like this:
 
-```javascript
+```js
 const result = doSomething();
 console.log(result);
 ```
 
 While asynchronous code might use callbacks, promises, or `async/await`:
 
-```javascript
-doSomethingAsync().then(result => {
+```js
+doSomethingAsync().then((result) => {
   console.log(result);
 });
 ```
@@ -29,7 +29,7 @@ Synchronous code executes in a sequential manner. Each operation waits for the p
 
 #### Example
 
-```javascript
+```js
 function doSomething() {
   // Simulate a time-consuming task
   for (let i = 0; i < 1e9; i++) {}
@@ -46,39 +46,39 @@ Asynchronous code allows multiple operations to run concurrently. This means tha
 
 #### Example with callbacks
 
-```javascript
+```js
 function doSomethingAsync(callback) {
   setTimeout(() => {
     callback('Done');
   }, 1000);
 }
 
-doSomethingAsync(result => {
+doSomethingAsync((result) => {
   console.log(result); // 'Done' is logged after 1 second
 });
 ```
 
 #### Example with promises
 
-```javascript
+```js
 function doSomethingAsync() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve('Done');
     }, 1000);
   });
 }
 
-doSomethingAsync().then(result => {
+doSomethingAsync().then((result) => {
   console.log(result); // 'Done' is logged after 1 second
 });
 ```
 
 #### Example with `async/await`
 
-```javascript
+```js
 function doSomethingAsync() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve('Done');
     }, 1000);
@@ -99,4 +99,3 @@ main();
 - [JavaScript.info: Asynchronous programming](https://javascript.info/async)
 - [MDN Web Docs: Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 - [MDN Web Docs: async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
-

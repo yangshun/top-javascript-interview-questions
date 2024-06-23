@@ -14,12 +14,12 @@ The `this` keyword in JavaScript can be tricky because its value depends on how 
 
 When you pass a method as a callback, the context of `this` can be lost. For example:
 
-```javascript
+```js
 const obj = {
   value: 42,
-  getValue: function() {
+  getValue: function () {
     return this.value;
-  }
+  },
 };
 
 const getValue = obj.getValue;
@@ -32,15 +32,15 @@ In this case, `this` inside `getValue` is not bound to `obj`.
 
 In nested functions, `this` does not refer to the outer function's context:
 
-```javascript
+```js
 const obj = {
   value: 42,
-  getValue: function() {
+  getValue: function () {
     function innerFunction() {
       return this.value;
     }
     return innerFunction();
-  }
+  },
 };
 
 console.log(obj.getValue()); // undefined
@@ -52,12 +52,12 @@ Here, `this` inside `innerFunction` refers to the global object, not `obj`.
 
 Arrow functions do not have their own `this` context; they inherit it from the enclosing scope:
 
-```javascript
+```js
 const obj = {
   value: 42,
   getValue: () => {
     return this.value;
-  }
+  },
 };
 
 console.log(obj.getValue()); // undefined
@@ -71,12 +71,12 @@ In this example, `this` inside the arrow function refers to the global object, n
 
 You can use `.bind()` to explicitly set the context of `this`:
 
-```javascript
+```js
 const obj = {
   value: 42,
-  getValue: function() {
+  getValue: function () {
     return this.value;
-  }
+  },
 };
 
 const getValue = obj.getValue.bind(obj);
@@ -87,15 +87,15 @@ console.log(getValue()); // 42
 
 Arrow functions inherit `this` from the enclosing scope, which can be useful:
 
-```javascript
+```js
 const obj = {
   value: 42,
-  getValue: function() {
+  getValue: function () {
     const innerFunction = () => {
       return this.value;
     };
     return innerFunction();
-  }
+  },
 };
 
 console.log(obj.getValue()); // 42
@@ -105,16 +105,16 @@ console.log(obj.getValue()); // 42
 
 You can store the context in a variable to maintain it in nested functions:
 
-```javascript
+```js
 const obj = {
   value: 42,
-  getValue: function() {
+  getValue: function () {
     const self = this;
     function innerFunction() {
       return self.value;
     }
     return innerFunction();
-  }
+  },
 };
 
 console.log(obj.getValue()); // 42
@@ -125,4 +125,3 @@ console.log(obj.getValue()); // 42
 - [MDN Web Docs: `this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 - [JavaScript.info: `this`](https://javascript.info/this)
 - [Eloquent JavaScript: `this`](https://eloquentjavascript.net/03_functions.html#h_jxlm9L8T4l)
-

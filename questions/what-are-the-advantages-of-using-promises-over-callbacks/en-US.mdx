@@ -14,11 +14,11 @@ Promises provide a more readable and maintainable way to handle asynchronous ope
 
 Promises allow for chaining of asynchronous operations, which makes the code more readable and easier to follow. Instead of nesting multiple callbacks, you can chain `.then()` methods.
 
-```javascript
+```js
 // Using callbacks
-doSomething(function(result) {
-  doSomethingElse(result, function(newResult) {
-    doThirdThing(newResult, function(finalResult) {
+doSomething(function (result) {
+  doSomethingElse(result, function (newResult) {
+    doThirdThing(newResult, function (finalResult) {
       console.log(finalResult);
     });
   });
@@ -26,9 +26,9 @@ doSomething(function(result) {
 
 // Using Promises
 doSomething()
-  .then(result => doSomethingElse(result))
-  .then(newResult => doThirdThing(newResult))
-  .then(finalResult => console.log(finalResult));
+  .then((result) => doSomethingElse(result))
+  .then((newResult) => doThirdThing(newResult))
+  .then((finalResult) => console.log(finalResult));
 ```
 
 ### Avoiding callback hell
@@ -39,17 +39,17 @@ Callback hell occurs when multiple nested callbacks make the code difficult to r
 
 With callbacks, error handling can become cumbersome as you need to handle errors at each level of the callback chain. Promises provide a `.catch()` method that can handle errors at any point in the chain.
 
-```javascript
+```js
 // Using callbacks
-doSomething(function(err, result) {
+doSomething(function (err, result) {
   if (err) {
     handleError(err);
   } else {
-    doSomethingElse(result, function(err, newResult) {
+    doSomethingElse(result, function (err, newResult) {
       if (err) {
         handleError(err);
       } else {
-        doThirdThing(newResult, function(err, finalResult) {
+        doThirdThing(newResult, function (err, finalResult) {
           if (err) {
             handleError(err);
           } else {
@@ -63,17 +63,17 @@ doSomething(function(err, result) {
 
 // Using Promises
 doSomething()
-  .then(result => doSomethingElse(result))
-  .then(newResult => doThirdThing(newResult))
-  .then(finalResult => console.log(finalResult))
-  .catch(err => handleError(err));
+  .then((result) => doSomethingElse(result))
+  .then((newResult) => doThirdThing(newResult))
+  .then((finalResult) => console.log(finalResult))
+  .catch((err) => handleError(err));
 ```
 
 ### Integration with async/await
 
 Promises integrate seamlessly with the `async`/`await` syntax, which further simplifies asynchronous code and makes it look more like synchronous code.
 
-```javascript
+```js
 // Using async/await
 async function doAllThings() {
   try {
@@ -92,4 +92,3 @@ async function doAllThings() {
 - [MDN Web Docs: Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 - [JavaScript.info: Promises](https://javascript.info/promise-basics)
 - [MDN Web Docs: async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
-

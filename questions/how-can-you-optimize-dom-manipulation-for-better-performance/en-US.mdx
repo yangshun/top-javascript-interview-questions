@@ -14,7 +14,7 @@ To optimize DOM manipulation for better performance, minimize direct DOM access 
 
 Accessing the DOM is relatively slow, so try to minimize the number of times you read from or write to the DOM. Instead, store references to elements in variables and work with those.
 
-```javascript
+```js
 const element = document.getElementById('myElement');
 element.style.color = 'red';
 element.style.backgroundColor = 'blue';
@@ -24,7 +24,7 @@ element.style.backgroundColor = 'blue';
 
 Instead of making multiple changes to the DOM one at a time, batch them together. This reduces the number of reflows and repaints.
 
-```javascript
+```js
 const element = document.getElementById('myElement');
 element.style.cssText = 'color: red; background-color: blue;';
 ```
@@ -33,7 +33,7 @@ element.style.cssText = 'color: red; background-color: blue;';
 
 When adding multiple elements to the DOM, use a `documentFragment` to minimize reflows and repaints.
 
-```javascript
+```js
 const fragment = document.createDocumentFragment();
 for (let i = 0; i < 100; i++) {
   const newElement = document.createElement('div');
@@ -47,7 +47,7 @@ document.getElementById('container').appendChild(fragment);
 
 Libraries like React use a virtual DOM to batch updates and minimize direct DOM manipulation, which can significantly improve performance.
 
-```javascript
+```js
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -64,7 +64,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 For smoother animations, use `requestAnimationFrame` to ensure updates are synchronized with the browser's repaint cycle.
 
-```javascript
+```js
 function animate() {
   // Update animation state
   requestAnimationFrame(animate);
@@ -76,7 +76,7 @@ requestAnimationFrame(animate);
 
 Layout thrashing occurs when you read and write to the DOM repeatedly in a way that forces the browser to recalculate styles and layout multiple times. To avoid this, separate read and write operations.
 
-```javascript
+```js
 const element = document.getElementById('myElement');
 const height = element.clientHeight; // Read
 element.style.height = `${height + 10}px`; // Write
@@ -88,4 +88,3 @@ element.style.height = `${height + 10}px`; // Write
 - [Google Developers: Avoid large, complex layouts and layout thrashing](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing)
 - [React documentation](https://reactjs.org/docs/getting-started.html)
 - [MDN Web Docs: Using requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)
-

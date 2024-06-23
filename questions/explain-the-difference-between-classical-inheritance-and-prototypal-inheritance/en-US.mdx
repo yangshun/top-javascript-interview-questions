@@ -52,16 +52,16 @@ Prototypal inheritance is a feature of JavaScript where objects inherit directly
 
 Example in JavaScript:
 
-```javascript
+```js
 const animal = {
-    eat() {
-        console.log("This animal eats food.");
-    }
+  eat() {
+    console.log('This animal eats food.');
+  },
 };
 
 const dog = Object.create(animal);
-dog.bark = function() {
-    console.log("The dog barks.");
+dog.bark = function () {
+  console.log('The dog barks.');
 };
 
 dog.eat(); // Inherited method
@@ -79,4 +79,3 @@ dog.bark(); // Own method
 - [MDN Web Docs: Inheritance and the prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 - [JavaScript.info: Prototypal inheritance](https://javascript.info/prototype-inheritance)
 - [MDN Web Docs: Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
-

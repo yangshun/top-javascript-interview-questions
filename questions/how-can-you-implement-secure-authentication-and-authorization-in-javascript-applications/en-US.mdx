@@ -20,15 +20,17 @@ Use JSON Web Tokens (JWT) for token-based authentication. JWTs are compact, URL-
 
 #### Example of generating a JWT
 
-```javascript
+```js
 const jwt = require('jsonwebtoken');
 
-const token = jwt.sign({ userId: 123 }, 'your-256-bit-secret', { expiresIn: '1h' });
+const token = jwt.sign({ userId: 123 }, 'your-256-bit-secret', {
+  expiresIn: '1h',
+});
 ```
 
 #### Example of verifying a JWT
 
-```javascript
+```js
 const jwt = require('jsonwebtoken');
 
 try {
@@ -45,13 +47,13 @@ Store sensitive data like tokens securely. Use `localStorage` or `sessionStorage
 
 #### Example of storing a token in `localStorage`
 
-```javascript
+```js
 localStorage.setItem('token', token);
 ```
 
 #### Example of retrieving a token from `localStorage`
 
-```javascript
+```js
 const token = localStorage.getItem('token');
 ```
 
@@ -65,21 +67,24 @@ Use OAuth for third-party authentication. Libraries like Passport.js can simplif
 
 #### Example of using Passport.js for Google OAuth
 
-```javascript
+```js
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
-passport.use(new GoogleStrategy({
-  clientID: 'YOUR_GOOGLE_CLIENT_ID',
-  clientSecret: 'YOUR_GOOGLE_CLIENT_SECRET',
-  callbackURL: 'http://www.example.com/auth/google/callback'
-},
-function(accessToken, refreshToken, profile, done) {
-  User.findOrCreate({ googleId: profile.id }, function (err, user) {
-    return done(err, user);
-  });
-}
-));
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: 'YOUR_GOOGLE_CLIENT_ID',
+      clientSecret: 'YOUR_GOOGLE_CLIENT_SECRET',
+      callbackURL: 'http://www.example.com/auth/google/callback',
+    },
+    function (accessToken, refreshToken, profile, done) {
+      User.findOrCreate({ googleId: profile.id }, function (err, user) {
+        return done(err, user);
+      });
+    },
+  ),
+);
 ```
 
 ### Role-based access control (RBAC)
@@ -88,9 +93,9 @@ Implement role-based access control to ensure that users have the appropriate pe
 
 #### Example of RBAC middleware in Express.js
 
-```javascript
+```js
 function checkRole(role) {
-  return function(req, res, next) {
+  return function (req, res, next) {
     if (req.user && req.user.role === role) {
       next();
     } else {
@@ -111,4 +116,3 @@ app.get('/admin', checkRole('admin'), (req, res) => {
 - [Passport.js documentation](http://www.passportjs.org/docs/)
 - [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices/)
 - [MDN Web Docs on HTTPS](https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security)
-

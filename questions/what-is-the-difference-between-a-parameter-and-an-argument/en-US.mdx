@@ -15,11 +15,13 @@ A parameter is a variable in the declaration of a function, while an argument is
 Parameters are variables listed as part of a function's definition. They act as placeholders for the values that will be passed to the function when it is called.
 
 Example:
-```javascript
+
+```js
 function greet(name) {
-    console.log("Hello, " + name);
+  console.log('Hello, ' + name);
 }
 ```
+
 In this example, `name` is a parameter.
 
 ### Arguments
@@ -27,9 +29,11 @@ In this example, `name` is a parameter.
 Arguments are the actual values that are passed to the function when it is invoked. These values are assigned to the corresponding parameters in the function definition.
 
 Example:
-```javascript
-greet("Alice");
+
+```js
+greet('Alice');
 ```
+
 In this example, `"Alice"` is an argument.
 
 ### Key differences
@@ -39,9 +43,10 @@ In this example, `"Alice"` is an argument.
 
 ### Example combining both
 
-```javascript
-function add(a, b) { // a and b are parameters
-    return a + b;
+```js
+function add(a, b) {
+  // a and b are parameters
+  return a + b;
 }
 
 const result = add(2, 3); // 2 and 3 are arguments
@@ -53,4 +58,3 @@ console.log(result); // Outputs: 5
 - [MDN Web Docs: Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 - [JavaScript.info: Function basics](https://javascript.info/function-basics)
 - [W3Schools: JavaScript Function Parameters](https://www.w3schools.com/js/js_function_parameters.asp)
-

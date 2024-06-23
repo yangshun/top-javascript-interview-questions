@@ -6,7 +6,7 @@ title: How do `Set`s and `Map`s handle equality checks for objects?
 
 `Set`s and `Map`s in JavaScript handle equality checks for objects based on reference equality, not deep equality. This means that two objects are considered equal only if they reference the same memory location. For example, if you add two different object literals with the same properties to a `Set`, they will be treated as distinct entries.
 
-```javascript
+```js
 const set = new Set();
 const obj1 = { a: 1 };
 const obj2 = { a: 1 };
@@ -29,7 +29,7 @@ In JavaScript, `Set`s and `Map`s use reference equality to determine if two obje
 
 When you add objects to a `Set`, the `Set` will only consider them equal if they are the same object reference.
 
-```javascript
+```js
 const set = new Set();
 const obj1 = { a: 1 };
 const obj2 = { a: 1 };
@@ -46,7 +46,7 @@ In this example, `obj1` and `obj2` have the same properties, but they are differ
 
 Similarly, when you use objects as keys in a `Map`, the `Map` will only consider them equal if they are the same object reference.
 
-```javascript
+```js
 const map = new Map();
 const obj1 = { a: 1 };
 const obj2 = { a: 1 };
@@ -71,4 +71,3 @@ In this example, `obj1` and `obj2` are different object references, so the `Map`
 - [MDN Web Docs: Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
 - [MDN Web Docs: Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
 - [Lodash: isEqual](https://lodash.com/docs/4.17.15#isEqual)
-

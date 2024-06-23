@@ -22,9 +22,9 @@ Currying is a technique where a function with multiple arguments is transformed 
 
 #### Example
 
-```javascript
+```js
 function add(a) {
-  return function(b) {
+  return function (b) {
     return a + b;
   };
 }
@@ -45,7 +45,7 @@ Partial application is a technique where you fix a few arguments of a function a
 
 #### Example
 
-```javascript
+```js
 function multiply(a, b) {
   return a * b;
 }
@@ -59,4 +59,3 @@ console.log(double(5)); // Output: 10
 - [Currying in JavaScript](https://javascript.info/currying-partials)
 - [Partial application in JavaScript](https://medium.com/javascript-scene/curry-and-function-composition-2c208d774983)
 - [Functional programming concepts](https://www.freecodecamp.org/news/functional-programming-in-js-with-practical-examples-part-1-87c2b0dbc276/)
-

@@ -6,9 +6,9 @@ title: Provide some examples of how currying and partial application can be used
 
 Currying transforms a function with multiple arguments into a sequence of functions, each taking a single argument. Partial application fixes a few arguments of a function, producing another function with a smaller number of arguments. For example, currying a function `add(a, b)` would look like `add(a)(b)`, while partial application of `add(2, b)` would fix the first argument to 2, resulting in a function that only needs the second argument.
 
-```javascript
+```js
 // Currying example
-const add = a => b => a + b;
+const add = (a) => (b) => a + b;
 const addTwo = add(2);
 console.log(addTwo(3)); // 5
 
@@ -30,7 +30,7 @@ Currying is a technique where a function with multiple arguments is transformed 
 
 Consider a simple function that adds two numbers:
 
-```javascript
+```js
 function add(a, b) {
   return a + b;
 }
@@ -38,13 +38,13 @@ function add(a, b) {
 
 To curry this function, we transform it into a series of functions, each taking one argument:
 
-```javascript
-const add = a => b => a + b;
+```js
+const add = (a) => (b) => a + b;
 ```
 
 Now, you can use the curried function like this:
 
-```javascript
+```js
 const addTwo = add(2);
 console.log(addTwo(3)); // 5
 ```
@@ -57,7 +57,7 @@ Partial application is a technique where you fix a few arguments of a function, 
 
 Consider the same `add` function:
 
-```javascript
+```js
 function add(a, b) {
   return a + b;
 }
@@ -65,16 +65,16 @@ function add(a, b) {
 
 To partially apply this function, you can use the `bind` method to fix the first argument:
 
-```javascript
+```js
 const addTwo = add.bind(null, 2);
 console.log(addTwo(3)); // 5
 ```
 
 Alternatively, you can create a custom partial application function:
 
-```javascript
+```js
 function partial(fn, ...fixedArgs) {
-  return function(...remainingArgs) {
+  return function (...remainingArgs) {
     return fn(...fixedArgs, ...remainingArgs);
   };
 }
@@ -88,4 +88,3 @@ console.log(addTwo(3)); // 5
 - [Currying on MDN](https://developer.mozilla.org/en-US/docs/Glossary/Currying)
 - [Partial application on MDN](https://developer.mozilla.org/en-US/docs/Glossary/Partial_application)
 - [Functional programming in JavaScript](https://eloquentjavascript.net/1st_edition/chapter6.html)
-

@@ -16,7 +16,7 @@ Stubs are simple objects that provide predefined responses to function calls mad
 
 #### Example
 
-```javascript
+```js
 // A simple stub for a function that fetches user data
 const fetchUserDataStub = sinon.stub();
 fetchUserDataStub.returns({ id: 1, name: 'John Doe' });
@@ -32,7 +32,7 @@ Mocks are more complex than stubs. They not only provide predefined responses bu
 
 #### Example
 
-```javascript
+```js
 // A simple mock for a function that logs user data
 const logUserDataMock = sinon.mock();
 logUserDataMock.expects('log').once().withArgs({ id: 1, name: 'John Doe' });
@@ -52,4 +52,3 @@ logUserDataMock.verify(); // Verifies that the log method was called once with t
 - [Sinon.js documentation](https://sinonjs.org/releases/latest/)
 - [Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html) by Martin Fowler
 - [Testing JavaScript with Mocks and Stubs](https://www.sitepoint.com/testing-javascript-mocks-stubs/) on SitePoint
-

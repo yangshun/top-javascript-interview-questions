@@ -6,17 +6,17 @@ title: What are Web Workers and how can they be used?
 
 Web Workers are a way to run JavaScript in the background, separate from the main execution thread of a web application. This helps in performing tasks like data processing or heavy computations without blocking the user interface. You can create a Web Worker by instantiating a new `Worker` object and passing it a JavaScript file. Communication between the main thread and the worker is done using the `postMessage` method and the `onmessage` event handler.
 
-```javascript
+```js
 // main.js
 const worker = new Worker('worker.js');
 worker.postMessage('Hello, worker!');
 
-worker.onmessage = function(event) {
+worker.onmessage = function (event) {
   console.log('Message from worker:', event.data);
 };
 
 // worker.js
-onmessage = function(event) {
+onmessage = function (event) {
   console.log('Message from main thread:', event.data);
   postMessage('Hello, main thread!');
 };
@@ -34,7 +34,7 @@ Web Workers provide a way to run JavaScript in the background, separate from the
 
 To create a Web Worker, you instantiate a new `Worker` object and pass it the URL of a JavaScript file that contains the code to be executed in the worker thread.
 
-```javascript
+```js
 // main.js
 const worker = new Worker('worker.js');
 ```
@@ -47,7 +47,7 @@ Communication between the main thread and the worker is done using the `postMess
 
 You can send messages to the worker using the `postMessage` method.
 
-```javascript
+```js
 // main.js
 worker.postMessage('Hello, worker!');
 ```
@@ -56,9 +56,9 @@ worker.postMessage('Hello, worker!');
 
 The worker can receive messages from the main thread using the `onmessage` event handler.
 
-```javascript
+```js
 // worker.js
-onmessage = function(event) {
+onmessage = function (event) {
   console.log('Message from main thread:', event.data);
 };
 ```
@@ -67,7 +67,7 @@ onmessage = function(event) {
 
 The worker can send messages back to the main thread using the `postMessage` method.
 
-```javascript
+```js
 // worker.js
 postMessage('Hello, main thread!');
 ```
@@ -76,9 +76,9 @@ postMessage('Hello, main thread!');
 
 The main thread can receive messages from the worker using the `onmessage` event handler.
 
-```javascript
+```js
 // main.js
-worker.onmessage = function(event) {
+worker.onmessage = function (event) {
   console.log('Message from worker:', event.data);
 };
 ```
@@ -87,7 +87,7 @@ worker.onmessage = function(event) {
 
 You can terminate a Web Worker from the main thread using the `terminate` method.
 
-```javascript
+```js
 // main.js
 worker.terminate();
 ```
@@ -96,19 +96,19 @@ worker.terminate();
 
 Here is a complete example demonstrating the creation and communication with a Web Worker:
 
-```javascript
+```js
 // main.js
 const worker = new Worker('worker.js');
 
 worker.postMessage('Hello, worker!');
 
-worker.onmessage = function(event) {
+worker.onmessage = function (event) {
   console.log('Message from worker:', event.data);
   worker.terminate(); // Terminate the worker when done
 };
 
 // worker.js
-onmessage = function(event) {
+onmessage = function (event) {
   console.log('Message from main thread:', event.data);
   postMessage('Hello, main thread!');
 };
@@ -126,4 +126,3 @@ onmessage = function(event) {
 - [MDN Web Docs: Using Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
 - [HTML5 Rocks: A Beginner's Guide to Web Workers](https://www.html5rocks.com/en/tutorials/workers/basics/)
 - [MDN Web Docs: Web Workers API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
-

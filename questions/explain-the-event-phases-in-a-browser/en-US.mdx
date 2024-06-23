@@ -14,7 +14,7 @@ In a browser, events go through three phases: capturing, target, and bubbling. D
 
 The capturing phase, also known as the trickling phase, is the first phase of event propagation. During this phase, the event starts from the root of the DOM tree and travels down to the target element. Event listeners registered for this phase will be triggered in the order from the outermost ancestor to the target element.
 
-```javascript
+```js
 element.addEventListener('click', handler, true); // true indicates capturing phase
 ```
 
@@ -22,7 +22,7 @@ element.addEventListener('click', handler, true); // true indicates capturing ph
 
 The target phase is the second phase of event propagation. In this phase, the event has reached the target element itself. Event listeners registered directly on the target element will be triggered during this phase.
 
-```javascript
+```js
 element.addEventListener('click', handler); // default is target phase
 ```
 
@@ -30,7 +30,7 @@ element.addEventListener('click', handler); // default is target phase
 
 The bubbling phase is the final phase of event propagation. During this phase, the event travels back up from the target element to the root of the DOM tree. Event listeners registered for this phase will be triggered in the order from the target element to the outermost ancestor.
 
-```javascript
+```js
 element.addEventListener('click', handler, false); // false indicates bubbling phase
 ```
 
@@ -38,8 +38,8 @@ element.addEventListener('click', handler, false); // false indicates bubbling p
 
 You can control event propagation using methods like `stopPropagation` and `stopImmediatePropagation`. These methods can be called within an event handler to stop the event from propagating further.
 
-```javascript
-element.addEventListener('click', function(event) {
+```js
+element.addEventListener('click', function (event) {
   event.stopPropagation(); // Stops the event from propagating further
 });
 ```
@@ -49,4 +49,3 @@ element.addEventListener('click', function(event) {
 - [MDN Web Docs: Event bubbling and capturing](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_bubbling_and_capture)
 - [JavaScript.info: Bubbling and capturing](https://javascript.info/bubbling-and-capturing)
 - [W3C: DOM Level 3 Events Specification](https://www.w3.org/TR/DOM-Level-3-Events/#event-flow)
-

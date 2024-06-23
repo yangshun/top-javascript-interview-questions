@@ -6,9 +6,9 @@ title: What are default parameters and how are they used?
 
 Default parameters in JavaScript allow you to set default values for function parameters if no value or `undefined` is passed. This helps avoid `undefined` values and makes your code more robust. You can define default parameters by assigning a value to the parameter in the function definition.
 
-```javascript
+```js
 function greet(name = 'Guest') {
-    console.log(`Hello, ${name}!`);
+  console.log(`Hello, ${name}!`);
 }
 
 greet(); // Output: Hello, Guest!
@@ -25,9 +25,9 @@ Default parameters in JavaScript provide a way to set default values for functio
 
 You can define default parameters by assigning a value to the parameter in the function definition. If no value or `undefined` is passed for that parameter, the default value will be used.
 
-```javascript
+```js
 function functionName(parameter1 = defaultValue1, parameter2 = defaultValue2) {
-    // function body
+  // function body
 }
 ```
 
@@ -35,9 +35,9 @@ function functionName(parameter1 = defaultValue1, parameter2 = defaultValue2) {
 
 Here is a simple example to illustrate how default parameters work:
 
-```javascript
+```js
 function greet(name = 'Guest') {
-    console.log(`Hello, ${name}!`);
+  console.log(`Hello, ${name}!`);
 }
 
 greet(); // Output: Hello, Guest!
@@ -50,9 +50,9 @@ In this example, the `greet` function has a default parameter `name` with a defa
 
 You can also define multiple default parameters in a function:
 
-```javascript
+```js
 function createUser(username = 'Anonymous', age = 18) {
-    console.log(`Username: ${username}, Age: ${age}`);
+  console.log(`Username: ${username}, Age: ${age}`);
 }
 
 createUser(); // Output: Username: Anonymous, Age: 18
@@ -66,9 +66,9 @@ In this example, the `createUser` function has two default parameters: `username
 
 You can also use expressions as default values for parameters:
 
-```javascript
+```js
 function add(a = 0, b = a + 1) {
-    return a + b;
+  return a + b;
 }
 
 console.log(add()); // Output: 1
@@ -83,4 +83,3 @@ In this example, the default value for `b` is an expression that depends on the 
 - [MDN Web Docs: Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
 - [JavaScript.info: Default parameters](https://javascript.info/function-basics#default-values)
 - [ECMAScript 2015 (ES6) specification](https://www.ecma-international.org/ecma-262/6.0/#sec-function-definitions)
-

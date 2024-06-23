@@ -4,17 +4,17 @@ title: What is the Factory pattern and how is it used?
 
 ## TL;DR
 
-The Factory pattern is a design pattern used to create objects without specifying the exact class of the object that will be created. It provides a way to encapsulate the instantiation logic and can be particularly useful when the creation process is complex or when the type of object to be created is determined at runtime. 
+The Factory pattern is a design pattern used to create objects without specifying the exact class of the object that will be created. It provides a way to encapsulate the instantiation logic and can be particularly useful when the creation process is complex or when the type of object to be created is determined at runtime.
 
 For example, in JavaScript, you can use a factory function to create different types of objects:
 
-```javascript
+```js
 function createAnimal(type) {
-    if (type === 'dog') {
-        return { sound: 'woof' };
-    } else if (type === 'cat') {
-        return { sound: 'meow' };
-    }
+  if (type === 'dog') {
+    return { sound: 'woof' };
+  } else if (type === 'cat') {
+    return { sound: 'meow' };
+  }
 }
 
 const dog = createAnimal('dog');
@@ -43,15 +43,15 @@ In JavaScript, the Factory pattern can be implemented using factory functions or
 
 A factory function is a simple function that returns an object. It can contain logic to decide which type of object to create.
 
-```javascript
+```js
 function createAnimal(type) {
-    if (type === 'dog') {
-        return { sound: 'woof' };
-    } else if (type === 'cat') {
-        return { sound: 'meow' };
-    } else {
-        return { sound: 'unknown' };
-    }
+  if (type === 'dog') {
+    return { sound: 'woof' };
+  } else if (type === 'cat') {
+    return { sound: 'meow' };
+  } else {
+    return { sound: 'unknown' };
+  }
 }
 
 const dog = createAnimal('dog');
@@ -64,35 +64,35 @@ console.log(cat.sound); // Output: meow
 
 A factory class can be used to encapsulate the creation logic within a class structure.
 
-```javascript
+```js
 class AnimalFactory {
-    createAnimal(type) {
-        if (type === 'dog') {
-            return new Dog();
-        } else if (type === 'cat') {
-            return new Cat();
-        } else {
-            return new Animal();
-        }
+  createAnimal(type) {
+    if (type === 'dog') {
+      return new Dog();
+    } else if (type === 'cat') {
+      return new Cat();
+    } else {
+      return new Animal();
     }
+  }
 }
 
 class Dog {
-    constructor() {
-        this.sound = 'woof';
-    }
+  constructor() {
+    this.sound = 'woof';
+  }
 }
 
 class Cat {
-    constructor() {
-        this.sound = 'meow';
-    }
+  constructor() {
+    this.sound = 'meow';
+  }
 }
 
 class Animal {
-    constructor() {
-        this.sound = 'unknown';
-    }
+  constructor() {
+    this.sound = 'unknown';
+  }
 }
 
 const factory = new AnimalFactory();
@@ -118,4 +118,3 @@ console.log(cat.sound); // Output: meow
 - [Factory Method Pattern on Wikipedia](https://en.wikipedia.org/wiki/Factory_method_pattern)
 - [Factory Pattern in JavaScript](https://www.dofactory.com/javascript/design-patterns/factory)
 - [MDN Web Docs: Object-oriented JavaScript for beginners](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS)
-

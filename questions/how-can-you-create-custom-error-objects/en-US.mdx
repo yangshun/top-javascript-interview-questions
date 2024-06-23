@@ -6,7 +6,7 @@ title: How can you create custom error objects?
 
 To create custom error objects in JavaScript, you can extend the built-in `Error` class. This allows you to add custom properties and methods to your error objects. Here's a quick example:
 
-```javascript
+```js
 class CustomError extends Error {
   constructor(message) {
     super(message);
@@ -30,7 +30,7 @@ try {
 
 To create a custom error object, you can extend the built-in `Error` class. This allows you to inherit the properties and methods of the `Error` class while adding your own custom properties and methods.
 
-```javascript
+```js
 class CustomError extends Error {
   constructor(message) {
     super(message);
@@ -43,7 +43,7 @@ class CustomError extends Error {
 
 You can add custom properties to your custom error class to provide more context about the error.
 
-```javascript
+```js
 class CustomError extends Error {
   constructor(message, errorCode) {
     super(message);
@@ -65,7 +65,7 @@ try {
 
 You can also add custom methods to your custom error class to handle specific error-related logic.
 
-```javascript
+```js
 class CustomError extends Error {
   constructor(message, errorCode) {
     super(message);
@@ -89,7 +89,7 @@ try {
 
 You can use the `instanceof` operator to check if an error is an instance of your custom error class.
 
-```javascript
+```js
 try {
   throw new CustomError('This is a custom error message', 404);
 } catch (error) {
@@ -106,4 +106,3 @@ try {
 - [MDN Web Docs: Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
 - [MDN Web Docs: Extending built-in classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#subclassing_built-in_classes)
 - [JavaScript.info: Custom errors](https://javascript.info/custom-errors)
-

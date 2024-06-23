@@ -6,13 +6,13 @@ title: How do you manipulate CSS styles using JavaScript?
 
 You can manipulate CSS styles using JavaScript by accessing the `style` property of an HTML element. For example, to change the background color of a `div` element with the id `myDiv`, you can use:
 
-```javascript
+```js
 document.getElementById('myDiv').style.backgroundColor = 'blue';
 ```
 
 You can also add, remove, or toggle CSS classes using the `classList` property:
 
-```javascript
+```js
 document.getElementById('myDiv').classList.add('newClass');
 document.getElementById('myDiv').classList.remove('oldClass');
 document.getElementById('myDiv').classList.toggle('toggleClass');
@@ -26,7 +26,7 @@ document.getElementById('myDiv').classList.toggle('toggleClass');
 
 You can directly manipulate the inline styles of an HTML element using the `style` property. This property allows you to set individual CSS properties.
 
-```javascript
+```js
 // Select the element
 const myDiv = document.getElementById('myDiv');
 
@@ -43,7 +43,7 @@ myDiv.style.border = '1px solid black';
 
 The `classList` property provides methods to add, remove, and toggle CSS classes on an element. This is useful for applying predefined styles from your CSS files.
 
-```javascript
+```js
 // Select the element
 const myDiv = document.getElementById('myDiv');
 
@@ -61,12 +61,14 @@ myDiv.classList.toggle('toggleClass');
 
 CSS variables (custom properties) can be manipulated using JavaScript. This is particularly useful for theming and dynamic styling.
 
-```javascript
+```js
 // Set a CSS variable
 document.documentElement.style.setProperty('--main-color', 'blue');
 
 // Get the value of a CSS variable
-const mainColor = getComputedStyle(document.documentElement).getPropertyValue('--main-color');
+const mainColor = getComputedStyle(document.documentElement).getPropertyValue(
+  '--main-color',
+);
 console.log(mainColor);
 ```
 
@@ -74,7 +76,7 @@ console.log(mainColor);
 
 You can also manipulate styles by dynamically adding or removing stylesheets.
 
-```javascript
+```js
 // Create a new link element
 const link = document.createElement('link');
 link.rel = 'stylesheet';
@@ -93,4 +95,3 @@ document.head.removeChild(link);
 - [MDN Web Docs: Element.classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
 - [MDN Web Docs: Using CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
 - [MDN Web Docs: Document.createElement()](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
-

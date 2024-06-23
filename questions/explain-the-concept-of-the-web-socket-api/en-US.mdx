@@ -6,18 +6,18 @@ title: Explain the concept of the Web Socket API.
 
 The WebSocket API provides a way to open a persistent connection between a client and a server, allowing for real-time, two-way communication. Unlike HTTP, which is request-response based, WebSocket enables full-duplex communication, meaning both the client and server can send and receive messages independently. This is particularly useful for applications like chat apps, live updates, and online gaming.
 
-```javascript
+```js
 // Example of creating a WebSocket connection
 const socket = new WebSocket('ws://example.com/socket');
 
 // Event listener for when the connection is open
 socket.addEventListener('open', function (event) {
-    socket.send('Hello Server!');
+  socket.send('Hello Server!');
 });
 
 // Event listener for when a message is received from the server
 socket.addEventListener('message', function (event) {
-    console.log('Message from server ', event.data);
+  console.log('Message from server ', event.data);
 });
 ```
 
@@ -44,29 +44,29 @@ The WebSocket API is a technology that provides a way to establish a persistent,
 
 Here is a basic example of how to use the WebSocket API in JavaScript:
 
-```javascript
+```js
 // Create a new WebSocket connection
 const socket = new WebSocket('ws://example.com/socket');
 
 // Event listener for when the connection is open
 socket.addEventListener('open', function (event) {
-    console.log('Connection opened');
-    socket.send('Hello Server!');
+  console.log('Connection opened');
+  socket.send('Hello Server!');
 });
 
 // Event listener for when a message is received from the server
 socket.addEventListener('message', function (event) {
-    console.log('Message from server ', event.data);
+  console.log('Message from server ', event.data);
 });
 
 // Event listener for when the connection is closed
 socket.addEventListener('close', function (event) {
-    console.log('Connection closed');
+  console.log('Connection closed');
 });
 
 // Event listener for when an error occurs
 socket.addEventListener('error', function (event) {
-    console.error('WebSocket error: ', event);
+  console.error('WebSocket error: ', event);
 });
 ```
 
@@ -82,4 +82,3 @@ socket.addEventListener('error', function (event) {
 - [MDN WebSocket API documentation](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 - [WebSocket.org](https://www.websocket.org/)
 - [Introduction to WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)
-

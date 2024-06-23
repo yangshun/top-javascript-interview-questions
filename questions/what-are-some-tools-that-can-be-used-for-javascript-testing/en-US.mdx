@@ -21,7 +21,7 @@ Jest is a popular testing framework developed by Facebook. It is widely used for
 
 Example of a simple test using Jest:
 
-```javascript
+```js
 const sum = (a, b) => a + b;
 
 test('adds 1 + 2 to equal 3', () => {
@@ -39,7 +39,7 @@ Mocha is a flexible testing framework that can be used with various assertion li
 
 Example of a simple test using Mocha and Chai:
 
-```javascript
+```js
 const { expect } = require('chai');
 
 describe('Array', () => {
@@ -58,7 +58,7 @@ Jasmine is a behavior-driven development (BDD) framework for testing JavaScript 
 
 Example of a simple test using Jasmine:
 
-```javascript
+```js
 describe('A suite', () => {
   it('contains a spec with an expectation', () => {
     expect(true).toBe(true);
@@ -76,13 +76,15 @@ Cypress is an end-to-end testing framework that focuses on real browser interact
 
 Example of a simple test using Cypress:
 
-```javascript
+```js
 describe('My First Test', () => {
   it('Visits the Kitchen Sink', () => {
     cy.visit('https://example.cypress.io');
     cy.contains('type').click();
     cy.url().should('include', '/commands/actions');
-    cy.get('.action-email').type('fake@email.com').should('have.value', 'fake@email.com');
+    cy.get('.action-email')
+      .type('fake@email.com')
+      .should('have.value', 'fake@email.com');
   });
 });
 ```
@@ -93,4 +95,3 @@ describe('My First Test', () => {
 - [Mocha documentation](https://mochajs.org/)
 - [Jasmine documentation](https://jasmine.github.io/)
 - [Cypress documentation](https://docs.cypress.io/guides/overview/why-cypress)
-

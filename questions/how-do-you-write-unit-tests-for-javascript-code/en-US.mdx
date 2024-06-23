@@ -8,7 +8,7 @@ To write unit tests for JavaScript code, you typically use a testing framework l
 
 Example using Jest:
 
-```javascript
+```js
 // sum.js
 function sum(a, b) {
   return a + b;
@@ -55,7 +55,7 @@ A test file typically contains one or more `describe` blocks, which group relate
 
 Example:
 
-```javascript
+```js
 // sum.js
 function sum(a, b) {
   return a + b;
@@ -82,7 +82,7 @@ Assertions are used to check if the output of your code matches the expected res
 
 Example:
 
-```javascript
+```js
 test('object assignment', () => {
   const data = { one: 1 };
   data['two'] = 2;
@@ -96,7 +96,7 @@ Sometimes, you need to mock dependencies to isolate the unit of code you are tes
 
 Example:
 
-```javascript
+```js
 // fetchData.js
 const fetch = require('node-fetch');
 
@@ -137,4 +137,3 @@ npm test
 - [Mocha documentation](https://mochajs.org/)
 - [Chai documentation](https://www.chaijs.com/)
 - [Sinon documentation](https://sinonjs.org/)
-

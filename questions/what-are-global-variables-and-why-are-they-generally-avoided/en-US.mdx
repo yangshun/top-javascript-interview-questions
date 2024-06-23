@@ -14,12 +14,12 @@ Global variables are variables that are declared outside of any function or bloc
 
 Global variables are variables that are declared outside of any function, block, or module, making them accessible from any part of the code. In JavaScript, a variable becomes global if it is declared outside of any function or if it is declared without the `var`, `let`, or `const` keywords.
 
-```javascript
+```js
 // Global variable
-var globalVar = "I am a global variable";
+var globalVar = 'I am a global variable';
 
 function exampleFunction() {
-    console.log(globalVar); // Accessible here
+  console.log(globalVar); // Accessible here
 }
 
 exampleFunction();
@@ -32,16 +32,16 @@ console.log(globalVar); // Accessible here as well
 
 Global variables can lead to name collisions, where multiple variables with the same name exist in different parts of the code. This can cause unexpected behavior and bugs that are difficult to trace.
 
-```javascript
-var globalVar = "First declaration";
+```js
+var globalVar = 'First declaration';
 
 function firstFunction() {
-    globalVar = "Modified in firstFunction";
+  globalVar = 'Modified in firstFunction';
 }
 
 function secondFunction() {
-    var globalVar = "Local to secondFunction";
-    console.log(globalVar); // Outputs: "Local to secondFunction"
+  var globalVar = 'Local to secondFunction';
+  console.log(globalVar); // Outputs: "Local to secondFunction"
 }
 
 firstFunction();
@@ -53,15 +53,15 @@ console.log(globalVar); // Outputs: "Modified in firstFunction"
 
 Since global variables can be accessed and modified from anywhere in the code, it is easy to accidentally change their values, leading to unintended side effects.
 
-```javascript
+```js
 var counter = 0;
 
 function incrementCounter() {
-    counter++;
+  counter++;
 }
 
 function resetCounter() {
-    counter = 0;
+  counter = 0;
 }
 
 incrementCounter();
@@ -74,20 +74,20 @@ console.log(counter); // Outputs: 0
 
 Global variables make it harder to track the state of the application, as their values can be changed from any part of the code. This can make debugging and maintaining the code more challenging.
 
-```javascript
-var appState = "initial";
+```js
+var appState = 'initial';
 
 function changeState(newState) {
-    appState = newState;
+  appState = newState;
 }
 
 function logState() {
-    console.log(appState);
+  console.log(appState);
 }
 
-changeState("loading");
+changeState('loading');
 logState(); // Outputs: "loading"
-changeState("complete");
+changeState('complete');
 logState(); // Outputs: "complete"
 ```
 
@@ -100,10 +100,10 @@ To avoid the issues associated with global variables, it is recommended to:
 - Use closures to create private variables
 - Use `const` and `let` to declare variables with block scope
 
-```javascript
+```js
 function exampleFunction() {
-    let localVar = "I am a local variable";
-    console.log(localVar); // Accessible here
+  let localVar = 'I am a local variable';
+  console.log(localVar); // Accessible here
 }
 
 exampleFunction();
@@ -116,4 +116,3 @@ console.log(localVar); // ReferenceError: localVar is not defined
 - [MDN Web Docs: var](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var)
 - [MDN Web Docs: let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
 - [MDN Web Docs: const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
-

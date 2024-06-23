@@ -14,7 +14,7 @@ Using a module bundler like Webpack, Rollup, or Parcel helps manage dependencies
 
 A module bundler helps manage dependencies by allowing you to import and export modules in a clean and organized manner. This makes it easier to maintain and understand the codebase.
 
-```javascript
+```js
 // Importing a module
 import { myFunction } from './myModule.js';
 
@@ -30,9 +30,9 @@ Module bundlers can optimize performance by reducing the number of HTTP requests
 
 Code splitting allows you to split your code into smaller chunks that can be loaded on demand. This can improve the initial load time of your application by only loading the necessary code.
 
-```javascript
+```js
 // Example of dynamic import for code splitting
-import('./myModule.js').then(module => {
+import('./myModule.js').then((module) => {
   module.myFunction();
 });
 ```
@@ -41,7 +41,7 @@ import('./myModule.js').then(module => {
 
 Tree shaking is a feature that removes unused code from the final bundle. This helps reduce the bundle size and improve performance.
 
-```javascript
+```js
 // Only the used function will be included in the final bundle
 import { usedFunction } from './myModule.js';
 usedFunction();
@@ -51,9 +51,9 @@ usedFunction();
 
 Hot module replacement (HMR) allows you to update modules in real-time without refreshing the entire page. This can significantly speed up the development process by providing instant feedback.
 
-```javascript
+```js
 if (module.hot) {
-  module.hot.accept('./myModule.js', function() {
+  module.hot.accept('./myModule.js', function () {
     // Handle the updated module
     const updatedModule = require('./myModule.js');
     updatedModule.myFunction();
@@ -65,7 +65,7 @@ if (module.hot) {
 
 Module bundlers can also handle other assets like CSS, images, and fonts. This allows you to import these assets directly into your JavaScript files, making it easier to manage and optimize them.
 
-```javascript
+```js
 // Importing a CSS file
 import './styles.css';
 
@@ -79,4 +79,3 @@ import myImage from './image.png';
 - [Rollup documentation](https://rollupjs.org/guide/en/)
 - [Parcel documentation](https://parceljs.org/getting_started.html)
 - [MDN Web Docs: JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
-

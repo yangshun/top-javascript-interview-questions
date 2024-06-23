@@ -6,10 +6,10 @@ title: What is `Object.freeze()` for?
 
 `Object.freeze()` is used to make an object immutable. Once an object is frozen, you cannot add, remove, or modify its properties. This is useful for creating constants or ensuring that an object remains unchanged throughout the program.
 
-```javascript
-const obj = { name: "John" };
+```js
+const obj = { name: 'John' };
 Object.freeze(obj);
-obj.name = "Doe"; // This will not change the name property
+obj.name = 'Doe'; // This will not change the name property
 ```
 
 ---
@@ -22,16 +22,16 @@ obj.name = "Doe"; // This will not change the name property
 
 To use `Object.freeze()`, simply pass the object you want to freeze as an argument to the method. Here is a basic example:
 
-```javascript
+```js
 const obj = {
-  name: "John",
-  age: 30
+  name: 'John',
+  age: 30,
 };
 
 Object.freeze(obj);
 
-obj.name = "Doe"; // This will not change the name property
-obj.gender = "male"; // This will not add a new property
+obj.name = 'Doe'; // This will not change the name property
+obj.gender = 'male'; // This will not add a new property
 delete obj.age; // This will not delete the age property
 
 console.log(obj); // Output: { name: "John", age: 30 }
@@ -54,7 +54,7 @@ console.log(obj); // Output: { name: "John", age: 30 }
 - `Object.freeze()` only makes the object itself immutable. If the object contains nested objects, those nested objects are not frozen and can still be modified.
 - To deeply freeze an object, you would need to recursively apply `Object.freeze()` to all nested objects.
 
-```javascript
+```js
 const deepFreeze = (obj) => {
   Object.keys(obj).forEach((key) => {
     if (typeof obj[key] === 'object' && obj[key] !== null) {
@@ -65,11 +65,11 @@ const deepFreeze = (obj) => {
 };
 
 const nestedObj = {
-  name: "John",
+  name: 'John',
   details: {
     age: 30,
-    address: "123 Street"
-  }
+    address: '123 Street',
+  },
 };
 
 deepFreeze(nestedObj);
@@ -83,4 +83,3 @@ console.log(nestedObj); // Output: { name: "John", details: { age: 30, address: 
 - [MDN Web Docs on Object.freeze()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze)
 - [JavaScript.info on property flags and descriptors](https://javascript.info/property-descriptors)
 - [Deep freezing objects in JavaScript](https://medium.com/@saranshkataria/deep-freezing-objects-in-javascript-637f3d4d7d7)
-

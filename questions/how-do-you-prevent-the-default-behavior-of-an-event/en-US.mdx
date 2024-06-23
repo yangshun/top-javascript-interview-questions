@@ -6,8 +6,8 @@ title: How do you prevent the default behavior of an event?
 
 To prevent the default behavior of an event in JavaScript, you can use the `preventDefault` method on the event object. For example, if you want to prevent a form from submitting, you can do the following:
 
-```javascript
-document.querySelector('form').addEventListener('submit', function(event) {
+```js
+document.querySelector('form').addEventListener('submit', function (event) {
   event.preventDefault();
 });
 ```
@@ -26,8 +26,8 @@ The `preventDefault` method is used to stop the default action of an event from 
 
 To prevent a form from submitting, you can attach an event listener to the form's `submit` event and call `preventDefault` within the event handler:
 
-```javascript
-document.querySelector('form').addEventListener('submit', function(event) {
+```js
+document.querySelector('form').addEventListener('submit', function (event) {
   event.preventDefault();
   // Additional code to handle form submission
 });
@@ -37,8 +37,8 @@ document.querySelector('form').addEventListener('submit', function(event) {
 
 To prevent a link from navigating to a new page, you can attach an event listener to the link's `click` event and call `preventDefault`:
 
-```javascript
-document.querySelector('a').addEventListener('click', function(event) {
+```js
+document.querySelector('a').addEventListener('click', function (event) {
   event.preventDefault();
   // Additional code to handle the click event
 });
@@ -48,8 +48,8 @@ document.querySelector('a').addEventListener('click', function(event) {
 
 The `preventDefault` method can be used with various other events, such as `keydown`, `contextmenu`, and more. Here is an example of preventing the default context menu from appearing on right-click:
 
-```javascript
-document.addEventListener('contextmenu', function(event) {
+```js
+document.addEventListener('contextmenu', function (event) {
   event.preventDefault();
   // Additional code to handle the right-click event
 });
@@ -65,4 +65,3 @@ document.addEventListener('contextmenu', function(event) {
 - [MDN Web Docs: Event.preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
 - [JavaScript.info: Browser default actions](https://javascript.info/default-browser-action)
 - [W3Schools: JavaScript Event preventDefault()](https://www.w3schools.com/jsref/event_preventdefault.asp)
-

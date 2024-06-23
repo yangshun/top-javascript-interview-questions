@@ -7,14 +7,16 @@ title: What are destructuring assignments and how are they used with objects and
 Destructuring assignments in JavaScript allow you to unpack values from arrays or properties from objects into distinct variables. For arrays, you can extract elements by their position, and for objects, you can extract properties by their names.
 
 For arrays:
-```javascript
+
+```js
 const [a, b] = [1, 2];
 console.log(a); // 1
 console.log(b); // 2
 ```
 
 For objects:
-```javascript
+
+```js
 const { name, age } = { name: 'John', age: 30 };
 console.log(name); // John
 console.log(age); // 30
@@ -30,7 +32,7 @@ Destructuring assignments in JavaScript provide a convenient way to extract valu
 
 When destructuring arrays, you can assign elements to variables based on their position in the array.
 
-```javascript
+```js
 const numbers = [1, 2, 3];
 const [first, second, third] = numbers;
 
@@ -41,7 +43,7 @@ console.log(third); // 3
 
 You can also skip elements by leaving gaps in the assignment:
 
-```javascript
+```js
 const numbers = [1, 2, 3];
 const [first, , third] = numbers;
 
@@ -53,7 +55,7 @@ console.log(third); // 3
 
 When destructuring objects, you can assign properties to variables based on their names.
 
-```javascript
+```js
 const person = { name: 'John', age: 30 };
 const { name, age } = person;
 
@@ -63,7 +65,7 @@ console.log(age); // 30
 
 You can also assign properties to variables with different names:
 
-```javascript
+```js
 const person = { name: 'John', age: 30 };
 const { name: personName, age: personAge } = person;
 
@@ -75,16 +77,19 @@ console.log(personAge); // 30
 
 Destructuring can be used with nested objects and arrays as well.
 
-```javascript
+```js
 const person = {
   name: 'John',
   address: {
     city: 'New York',
-    zip: '10001'
-  }
+    zip: '10001',
+  },
 };
 
-const { name, address: { city, zip } } = person;
+const {
+  name,
+  address: { city, zip },
+} = person;
 
 console.log(name); // John
 console.log(city); // New York
@@ -95,7 +100,7 @@ console.log(zip); // 10001
 
 You can provide default values in case the property or element does not exist.
 
-```javascript
+```js
 const person = { name: 'John' };
 const { name, age = 25 } = person;
 
@@ -107,7 +112,7 @@ console.log(age); // 25
 
 Destructuring can also be used in function parameters to directly extract values from objects or arrays passed as arguments.
 
-```javascript
+```js
 function greet({ name, age }) {
   console.log(`Hello, my name is ${name} and I am ${age} years old.`);
 }
@@ -121,4 +126,3 @@ greet(person); // Hello, my name is John and I am 30 years old.
 - [MDN Web Docs: Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 - [JavaScript.info: Destructuring assignment](https://javascript.info/destructuring-assignment)
 - [Eloquent JavaScript: Destructuring](https://eloquentjavascript.net/11_language.html#h_jrVhA5vaEB)
-

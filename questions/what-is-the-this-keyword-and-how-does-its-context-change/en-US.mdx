@@ -6,11 +6,11 @@ title: What is the `this` keyword and how does its context change?
 
 The `this` keyword in JavaScript refers to the object it belongs to. Its value depends on how a function is called. In a method, `this` refers to the owner object. In a function, `this` refers to the global object (or `undefined` in strict mode). In an event, `this` refers to the element that received the event. Arrow functions do not have their own `this` and inherit it from the parent scope.
 
-```javascript
+```js
 const obj = {
-  method: function() {
+  method: function () {
     console.log(this); // `this` refers to `obj`
-  }
+  },
 };
 
 function regularFunction() {
@@ -30,12 +30,12 @@ const arrowFunction = () => {
 
 When `this` is used inside a method, it refers to the object that owns the method.
 
-```javascript
+```js
 const person = {
   name: 'Alice',
-  greet: function() {
+  greet: function () {
     console.log(this.name); // `this` refers to `person`
-  }
+  },
 };
 
 person.greet(); // Output: Alice
@@ -45,7 +45,7 @@ person.greet(); // Output: Alice
 
 When `this` is used inside a regular function, it refers to the global object (`window` in browsers) or `undefined` if in strict mode.
 
-```javascript
+```js
 function showThis() {
   console.log(this); // `this` refers to the global object or `undefined` in strict mode
 }
@@ -57,8 +57,8 @@ showThis(); // Output: [object Window] or `undefined` in strict mode
 
 When `this` is used in an event handler, it refers to the element that received the event.
 
-```javascript
-document.getElementById('myButton').addEventListener('click', function() {
+```js
+document.getElementById('myButton').addEventListener('click', function () {
   console.log(this); // `this` refers to the button element
 });
 ```
@@ -67,12 +67,12 @@ document.getElementById('myButton').addEventListener('click', function() {
 
 Arrow functions do not have their own `this`. Instead, they inherit `this` from the parent scope at the time they are defined.
 
-```javascript
+```js
 const obj = {
   name: 'Alice',
   arrowFunc: () => {
     console.log(this); // `this` refers to the parent scope, not `obj`
-  }
+  },
 };
 
 obj.arrowFunc(); // Output: [object Window] or `undefined` in strict mode
@@ -82,13 +82,13 @@ obj.arrowFunc(); // Output: [object Window] or `undefined` in strict mode
 
 You can change the context of `this` using `call`, `apply`, or `bind`.
 
-```javascript
+```js
 function showName() {
   console.log(this.name);
 }
 
 const person = {
-  name: 'Alice'
+  name: 'Alice',
 };
 
 showName.call(person); // Output: Alice
@@ -99,4 +99,3 @@ showName.call(person); // Output: Alice
 - [MDN Web Docs: this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 - [JavaScript.info: This](https://javascript.info/this)
 - [Eloquent JavaScript: The Secret Life of Objects](https://eloquentjavascript.net/06_object.html#h_jl8p9uBO2a)
-

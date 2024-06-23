@@ -6,7 +6,7 @@ title: How do you handle errors using `try...catch` blocks?
 
 To handle errors using `try...catch` blocks, you wrap the code that might throw an error inside a `try` block. If an error occurs, the control is transferred to the `catch` block where you can handle the error. Optionally, you can use a `finally` block to execute code regardless of whether an error occurred or not.
 
-```javascript
+```js
 try {
   // Code that may throw an error
 } catch (error) {
@@ -24,7 +24,7 @@ try {
 
 The `try...catch` statement consists of a `try` block, a `catch` block, and optionally a `finally` block.
 
-```javascript
+```js
 try {
   // Code that may throw an error
 } catch (error) {
@@ -38,7 +38,7 @@ try {
 
 Here is an example of using `try...catch` to handle errors:
 
-```javascript
+```js
 try {
   let result = riskyOperation();
   console.log(result);
@@ -59,7 +59,7 @@ try {
 
 You can nest `try...catch` blocks to handle different levels of errors:
 
-```javascript
+```js
 try {
   try {
     let result = anotherRiskyOperation();
@@ -76,7 +76,7 @@ try {
 
 You can re-throw an error from the `catch` block if you want it to be handled by an outer `try...catch` block:
 
-```javascript
+```js
 try {
   try {
     let result = yetAnotherRiskyOperation();
@@ -94,7 +94,7 @@ try {
 
 The `finally` block is useful for cleanup tasks, such as closing a file or releasing resources:
 
-```javascript
+```js
 try {
   let file = openFile('example.txt');
   // Perform operations on the file
@@ -110,4 +110,3 @@ try {
 - [MDN Web Docs: try...catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)
 - [JavaScript.info: Error handling, "try...catch"](https://javascript.info/try-catch)
 - [MDN Web Docs: Error object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
-

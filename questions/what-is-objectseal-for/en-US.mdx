@@ -6,7 +6,7 @@ title: What is `Object.seal()` for?
 
 `Object.seal()` is used to prevent new properties from being added to an object and to mark all existing properties as non-configurable. This means you can still modify the values of existing properties, but you cannot delete them or add new ones.
 
-```javascript
+```js
 const obj = { name: 'John' };
 Object.seal(obj);
 
@@ -23,7 +23,7 @@ delete obj.name; // Not allowed
 
 ### Syntax
 
-```javascript
+```js
 Object.seal(obj);
 ```
 
@@ -37,10 +37,10 @@ Object.seal(obj);
 
 ### Example
 
-```javascript
+```js
 const person = {
   name: 'Alice',
-  age: 25
+  age: 25,
 };
 
 Object.seal(person);
@@ -63,7 +63,7 @@ console.log(person); // { name: 'Bob', age: 30 }
 
 You can check if an object is sealed using the `Object.isSealed()` method.
 
-```javascript
+```js
 const obj = { name: 'John' };
 Object.seal(obj);
 
@@ -75,4 +75,3 @@ console.log(Object.isSealed(obj)); // true
 - [MDN Web Docs on Object.seal()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/seal)
 - [MDN Web Docs on Object.isSealed()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed)
 - [JavaScript.info on property flags and descriptors](https://javascript.info/property-descriptors)
-

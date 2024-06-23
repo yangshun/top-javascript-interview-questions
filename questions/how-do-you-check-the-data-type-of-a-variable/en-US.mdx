@@ -14,8 +14,8 @@ To check the data type of a variable in JavaScript, you can use the `typeof` ope
 
 The `typeof` operator is the most common way to check the data type of a variable in JavaScript. It returns a string indicating the type of the operand.
 
-```javascript
-let str = "Hello, world!";
+```js
+let str = 'Hello, world!';
 console.log(typeof str); // "string"
 
 let num = 42;
@@ -24,10 +24,10 @@ console.log(typeof num); // "number"
 let bool = true;
 console.log(typeof bool); // "boolean"
 
-let obj = { name: "Alice" };
+let obj = { name: 'Alice' };
 console.log(typeof obj); // "object"
 
-let func = function() {};
+let func = function () {};
 console.log(typeof func); // "function"
 
 let undef;
@@ -41,7 +41,7 @@ console.log(typeof sym); // "symbol"
 
 The `typeof` operator returns `"object"` for `null`, which can be misleading. To specifically check for `null`, you should use a strict equality comparison.
 
-```javascript
+```js
 let n = null;
 console.log(n === null); // true
 ```
@@ -50,7 +50,7 @@ console.log(n === null); // true
 
 Arrays are a special type of object in JavaScript. To check if a variable is an array, you can use the `Array.isArray` method.
 
-```javascript
+```js
 let arr = [1, 2, 3];
 console.log(Array.isArray(arr)); // true
 ```
@@ -59,7 +59,7 @@ console.log(Array.isArray(arr)); // true
 
 `NaN` (Not-a-Number) is a special numeric value in JavaScript. To check if a value is `NaN`, you can use the `Number.isNaN` method.
 
-```javascript
+```js
 let notANumber = NaN;
 console.log(Number.isNaN(notANumber)); // true
 ```
@@ -68,12 +68,12 @@ console.log(Number.isNaN(notANumber)); // true
 
 To check if a variable is either `null` or `undefined`, you can use a combination of the `==` operator and the `typeof` operator.
 
-```javascript
+```js
 let value = null;
 console.log(value == null); // true
 
 let value2;
-console.log(typeof value2 === "undefined"); // true
+console.log(typeof value2 === 'undefined'); // true
 ```
 
 ## Further reading
@@ -82,4 +82,3 @@ console.log(typeof value2 === "undefined"); // true
 - [MDN Web Docs: Array.isArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
 - [MDN Web Docs: Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
 - [MDN Web Docs: null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)
-

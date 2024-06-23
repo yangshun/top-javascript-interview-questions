@@ -6,7 +6,7 @@ title: What are the advantages of using the spread operator with arrays and obje
 
 The spread operator (`...`) in JavaScript allows you to easily copy arrays and objects, merge them, and add new elements or properties. It simplifies syntax and improves readability. For arrays, it can be used to concatenate or clone arrays. For objects, it can be used to merge objects or add new properties.
 
-```javascript
+```js
 // Arrays
 const arr1 = [1, 2, 3];
 const arr2 = [...arr1, 4, 5]; // [1, 2, 3, 4, 5]
@@ -26,7 +26,7 @@ const obj2 = { ...obj1, c: 3 }; // { a: 1, b: 2, c: 3 }
 
 The spread operator allows you to create a shallow copy of an array easily.
 
-```javascript
+```js
 const originalArray = [1, 2, 3];
 const clonedArray = [...originalArray]; // [1, 2, 3]
 ```
@@ -35,7 +35,7 @@ const clonedArray = [...originalArray]; // [1, 2, 3]
 
 You can concatenate multiple arrays into one.
 
-```javascript
+```js
 const array1 = [1, 2];
 const array2 = [3, 4];
 const mergedArray = [...array1, ...array2]; // [1, 2, 3, 4]
@@ -45,7 +45,7 @@ const mergedArray = [...array1, ...array2]; // [1, 2, 3, 4]
 
 You can add new elements to an array without mutating the original array.
 
-```javascript
+```js
 const array = [1, 2, 3];
 const newArray = [...array, 4, 5]; // [1, 2, 3, 4, 5]
 ```
@@ -56,7 +56,7 @@ const newArray = [...array, 4, 5]; // [1, 2, 3, 4, 5]
 
 The spread operator allows you to create a shallow copy of an object.
 
-```javascript
+```js
 const originalObject = { a: 1, b: 2 };
 const clonedObject = { ...originalObject }; // { a: 1, b: 2 }
 ```
@@ -65,7 +65,7 @@ const clonedObject = { ...originalObject }; // { a: 1, b: 2 }
 
 You can merge multiple objects into one.
 
-```javascript
+```js
 const object1 = { a: 1 };
 const object2 = { b: 2 };
 const mergedObject = { ...object1, ...object2 }; // { a: 1, b: 2 }
@@ -75,7 +75,7 @@ const mergedObject = { ...object1, ...object2 }; // { a: 1, b: 2 }
 
 You can add new properties to an object without mutating the original object.
 
-```javascript
+```js
 const object = { a: 1, b: 2 };
 const newObject = { ...object, c: 3 }; // { a: 1, b: 2, c: 3 }
 ```
@@ -85,4 +85,3 @@ const newObject = { ...object, c: 3 }; // { a: 1, b: 2, c: 3 }
 - [MDN Web Docs: Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 - [JavaScript.info: Spread operator](https://javascript.info/rest-parameters-spread#spread-operator)
 - [FreeCodeCamp: How to use the spread operator in JavaScript](https://www.freecodecamp.org/news/how-to-use-the-spread-operator-in-javascript/)
-

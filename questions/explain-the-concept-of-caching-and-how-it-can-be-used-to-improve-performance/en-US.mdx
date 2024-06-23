@@ -48,23 +48,19 @@ With service workers, cached resources can be served even when the user is offli
 
 ```html
 <head>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
   <script src="app.js"></script>
 </head>
 ```
 
 #### Service worker example
 
-```javascript
+```js
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open('v1').then((cache) => {
-      return cache.addAll([
-        '/index.html',
-        '/styles.css',
-        '/app.js',
-      ]);
-    })
+      return cache.addAll(['/index.html', '/styles.css', '/app.js']);
+    }),
   );
 });
 
@@ -72,7 +68,7 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
       return response || fetch(event.request);
-    })
+    }),
   );
 });
 ```
@@ -88,4 +84,3 @@ Cache-Control: max-age=3600
 - [MDN Web Docs: HTTP caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
 - [Google Developers: The offline cookbook](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook)
 - [Service Workers: an Introduction](https://developers.google.com/web/fundamentals/primers/service-workers)
-

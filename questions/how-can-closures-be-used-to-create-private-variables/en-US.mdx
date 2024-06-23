@@ -6,22 +6,22 @@ title: How can closures be used to create private variables?
 
 Closures in JavaScript can be used to create private variables by defining a function within another function. The inner function has access to the outer function's variables, but those variables are not accessible from outside the outer function. This allows you to encapsulate and protect the variables from being accessed or modified directly.
 
-```javascript
+```js
 function createCounter() {
   let count = 0; // private variable
 
   return {
-    increment: function() {
+    increment: function () {
       count++;
       return count;
     },
-    decrement: function() {
+    decrement: function () {
       count--;
       return count;
     },
-    getCount: function() {
+    getCount: function () {
       return count;
-    }
+    },
   };
 }
 
@@ -51,22 +51,22 @@ To create private variables using closures, you can define a function that retur
 
 Here's a detailed example to illustrate how closures can be used to create private variables:
 
-```javascript
+```js
 function createCounter() {
   let count = 0; // private variable
 
   return {
-    increment: function() {
+    increment: function () {
       count++;
       return count;
     },
-    decrement: function() {
+    decrement: function () {
       count--;
       return count;
     },
-    getCount: function() {
+    getCount: function () {
       return count;
-    }
+    },
   };
 }
 
@@ -94,4 +94,3 @@ console.log(counter.count); // undefined
 - [MDN Web Docs: Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
 - [JavaScript.info: Closures](https://javascript.info/closure)
 - [Eloquent JavaScript: Functions and Closures](https://eloquentjavascript.net/03_functions.html#h_jxlmhe5yFI)
-

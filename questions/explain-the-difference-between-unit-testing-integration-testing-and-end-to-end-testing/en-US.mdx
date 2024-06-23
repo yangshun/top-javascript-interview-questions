@@ -18,7 +18,7 @@ Unit testing involves testing individual components or functions in isolation. T
 - **Tools**: Jest, Mocha, Jasmine
 - **Example**: Testing a function that adds two numbers
 
-```javascript
+```js
 function add(a, b) {
   return a + b;
 }
@@ -36,7 +36,7 @@ Integration testing focuses on verifying the interactions between different modu
 - **Tools**: Jest, Mocha, Jasmine, Postman (for API testing)
 - **Example**: Testing a function that fetches data from an API and processes it
 
-```javascript
+```js
 async function fetchData(apiUrl) {
   const response = await fetch(apiUrl);
   const data = await response.json();
@@ -58,7 +58,7 @@ End-to-end (E2E) testing simulates real user scenarios to verify the entire appl
 - **Tools**: Cypress, Selenium, Puppeteer
 - **Example**: Testing a user login flow
 
-```javascript
+```js
 describe('User Login Flow', () => {
   it('should allow a user to log in', () => {
     cy.visit('https://example.com/login');
@@ -77,4 +77,3 @@ describe('User Login Flow', () => {
 - [End-to-end testing on Wikipedia](https://en.wikipedia.org/wiki/End-to-end_testing)
 - [Jest documentation](https://jestjs.io/docs/getting-started)
 - [Cypress documentation](https://docs.cypress.io/guides/overview/why-cypress)
-

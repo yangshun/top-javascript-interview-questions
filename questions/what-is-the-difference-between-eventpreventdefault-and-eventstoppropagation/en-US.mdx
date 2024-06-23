@@ -14,8 +14,8 @@ title: What is the difference between `event.preventDefault()` and `event.stopPr
 
 `event.preventDefault()` is a method that cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur. For example, this can be used to prevent a form from being submitted:
 
-```javascript
-document.querySelector('form').addEventListener('submit', function(event) {
+```js
+document.querySelector('form').addEventListener('submit', function (event) {
   event.preventDefault();
   // Form submission is prevented
 });
@@ -25,8 +25,8 @@ document.querySelector('form').addEventListener('submit', function(event) {
 
 `event.stopPropagation()` is a method that prevents the event from bubbling up the DOM tree, stopping any parent handlers from being notified of the event. This is useful when you want to handle an event at a specific level and do not want it to trigger handlers on parent elements:
 
-```javascript
-document.querySelector('.child').addEventListener('click', function(event) {
+```js
+document.querySelector('.child').addEventListener('click', function (event) {
   event.stopPropagation();
   // Click event will not propagate to parent elements
 });
@@ -47,4 +47,3 @@ document.querySelector('.child').addEventListener('click', function(event) {
 - [MDN Web Docs: event.preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
 - [MDN Web Docs: event.stopPropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation)
 - [JavaScript Event Propagation](https://javascript.info/bubbling-and-capturing)
-

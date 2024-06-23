@@ -6,7 +6,7 @@ title: Explain the concept of tagged templates.
 
 Tagged templates in JavaScript allow you to parse template literals with a function. The function receives the literal strings and the values as arguments, enabling custom processing of the template. For example:
 
-```javascript
+```js
 function tag(strings, ...values) {
   return strings[0] + values[0] + strings[1] + values[1];
 }
@@ -27,7 +27,7 @@ Tagged templates are a feature in JavaScript that allows you to call a function 
 
 The syntax for tagged templates involves placing a function name before a template literal:
 
-```javascript
+```js
 function tag(strings, ...values) {
   // Custom processing
 }
@@ -44,10 +44,10 @@ When a tagged template is invoked, the tag function receives:
 
 For example:
 
-```javascript
+```js
 function tag(strings, ...values) {
   console.log(strings); // ["Hello ", "! How are ", "?"]
-  console.log(values);  // ["world", "you"]
+  console.log(values); // ["world", "you"]
 }
 
 tag`Hello ${'world'}! How are ${'you'}?`;
@@ -65,11 +65,20 @@ Tagged templates can be used for various purposes, such as:
 
 Here is a simple example of a tagged template that escapes HTML:
 
-```javascript
+```js
 function escapeHTML(strings, ...values) {
   return strings.reduce((result, string, i) => {
     const value = values[i - 1];
-    return result + (value ? String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') : '') + string;
+    return (
+      result +
+      (value
+        ? String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+        : '') +
+      string
+    );
   });
 }
 
@@ -83,4 +92,3 @@ console.log(result); // "User input: &lt;script&gt;alert(&quot;XSS&quot;)&lt;/sc
 - [MDN Web Docs: Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates)
 - [JavaScript.info: Tagged templates](https://javascript.info/tagged-templates)
 - [Exploring JS: Template literals](http://exploringjs.com/es6/ch_template-literals.html#tagged-templates)
-

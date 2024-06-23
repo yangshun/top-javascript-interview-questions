@@ -14,7 +14,7 @@ The `==` operator checks for equality with type coercion, meaning it converts th
 
 The `==` operator performs type coercion, which means it converts the operands to the same type before making the comparison. This can lead to unexpected results if you're not careful.
 
-```javascript
+```js
 console.log(5 == '5'); // true
 console.log(true == 1); // true
 console.log(null == undefined); // true
@@ -24,7 +24,7 @@ console.log(null == undefined); // true
 
 The `===` operator, on the other hand, does not perform type coercion. It checks for both value and type equality. This makes it a safer choice for comparisons in most cases.
 
-```javascript
+```js
 console.log(5 === '5'); // false
 console.log(true === 1); // false
 console.log(null === undefined); // false
@@ -40,7 +40,7 @@ console.log(null === undefined); // false
 - Comparing `null` and `undefined` with `==` returns true, but with `===` it returns false.
 - Comparing different types with `==` can lead to unexpected results due to type coercion.
 
-```javascript
+```js
 console.log(null == undefined); // true
 console.log(null === undefined); // false
 console.log('' == 0); // true
@@ -52,4 +52,3 @@ console.log('' === 0); // false
 - [MDN Web Docs: Equality comparisons and sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
 - [JavaScript Equality Table](https://dorey.github.io/JavaScript-Equality-Table/)
 - [JavaScript: The Good Parts by Douglas Crockford](https://www.oreilly.com/library/view/javascript-the-good/9780596517748/)
-

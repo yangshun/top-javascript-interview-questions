@@ -26,13 +26,13 @@ The event loop is a core part of JavaScript's runtime environment, responsible f
 JavaScript uses the event loop to handle various asynchronous operations:
 
 - **`setTimeout` and `setInterval`**: These functions allow you to schedule code to run after a specified delay.
-  ```javascript
+  ```js
   setTimeout(() => {
     console.log('This runs after 1 second');
   }, 1000);
   ```
 - **Promises**: Promises represent a value that may be available now, or in the future, or never. They allow you to handle asynchronous operations more gracefully.
-  ```javascript
+  ```js
   new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve('Promise resolved');
@@ -42,7 +42,7 @@ JavaScript uses the event loop to handle various asynchronous operations:
   });
   ```
 - **`async/await`**: These keywords provide a way to work with Promises more comfortably, making asynchronous code look synchronous.
-  ```javascript
+  ```js
   async function fetchData() {
     const response = await fetch('https://api.example.com/data');
     const data = await response.json();
@@ -54,7 +54,8 @@ JavaScript uses the event loop to handle various asynchronous operations:
 ### Event loop in action
 
 Consider the following example to see the event loop in action:
-```javascript
+
+```js
 console.log('Start');
 
 setTimeout(() => {
@@ -67,14 +68,18 @@ Promise.resolve().then(() => {
 
 console.log('End');
 ```
+
 The output will be:
+
 ```
 Start
 End
 Promise callback
 Timeout callback
 ```
+
 Here's what happens:
+
 1. `console.log('Start')` is executed and added to the call stack.
 2. `setTimeout` is called, and its callback is sent to the Web API.
 3. `Promise.resolve().then` is called, and its callback is added to the microtask queue.
@@ -87,4 +92,3 @@ Here's what happens:
 - [MDN Web Docs: Concurrency model and the event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
 - [JavaScript.info: Event loop](https://javascript.info/event-loop)
 - [Node.js: Understanding the event loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
-

@@ -6,9 +6,9 @@ title: How can you explicitly set the value of `this` using `call`, `apply`, and
 
 You can explicitly set the value of `this` in JavaScript using the `call`, `apply`, and `bind` methods. `call` and `apply` immediately invoke the function with a specified `this` value, but `call` takes arguments individually while `apply` takes them as an array. `bind` returns a new function with a specified `this` value, which can be invoked later.
 
-```javascript
+```js
 function greet(greeting) {
-    console.log(greeting + ', ' + this.name);
+  console.log(greeting + ', ' + this.name);
 }
 
 const person = { name: 'Alice' };
@@ -28,9 +28,9 @@ boundGreet('Hey'); // Hey, Alice
 
 The `call` method immediately invokes the function with a specified `this` value and arguments provided individually.
 
-```javascript
+```js
 function greet(greeting) {
-    console.log(greeting + ', ' + this.name);
+  console.log(greeting + ', ' + this.name);
 }
 
 const person = { name: 'Alice' };
@@ -42,9 +42,9 @@ greet.call(person, 'Hello'); // Output: Hello, Alice
 
 The `apply` method immediately invokes the function with a specified `this` value, but arguments are provided as an array.
 
-```javascript
+```js
 function greet(greeting) {
-    console.log(greeting + ', ' + this.name);
+  console.log(greeting + ', ' + this.name);
 }
 
 const person = { name: 'Alice' };
@@ -56,9 +56,9 @@ greet.apply(person, ['Hi']); // Output: Hi, Alice
 
 The `bind` method returns a new function with a specified `this` value. This new function can be invoked later with arguments provided individually.
 
-```javascript
+```js
 function greet(greeting) {
-    console.log(greeting + ', ' + this.name);
+  console.log(greeting + ', ' + this.name);
 }
 
 const person = { name: 'Alice' };
@@ -72,4 +72,3 @@ boundGreet('Hey'); // Output: Hey, Alice
 - [MDN Web Docs: Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
 - [MDN Web Docs: Function.prototype.apply()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
 - [MDN Web Docs: Function.prototype.bind()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
-

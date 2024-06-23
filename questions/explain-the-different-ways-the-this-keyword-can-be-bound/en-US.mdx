@@ -4,7 +4,7 @@ title: Explain the different ways the `this` keyword can be bound.
 
 ## TL;DR
 
-The `this` keyword in JavaScript can be bound in several ways: 
+The `this` keyword in JavaScript can be bound in several ways:
 
 - Default binding: In non-strict mode, `this` refers to the global object (window in browsers). In strict mode, `this` is `undefined`.
 - Implicit binding: When a function is called as a method of an object, `this` refers to the object.
@@ -18,9 +18,9 @@ The `this` keyword in JavaScript can be bound in several ways:
 
 In non-strict mode, if a function is called without any context, `this` refers to the global object (window in browsers). In strict mode, `this` is `undefined`.
 
-```javascript
+```js
 function showThis() {
-    console.log(this);
+  console.log(this);
 }
 
 showThis(); // In non-strict mode: window, in strict mode: undefined
@@ -30,12 +30,12 @@ showThis(); // In non-strict mode: window, in strict mode: undefined
 
 When a function is called as a method of an object, `this` refers to the object.
 
-```javascript
+```js
 const obj = {
-    name: 'Alice',
-    greet: function() {
-        console.log(this.name);
-    }
+  name: 'Alice',
+  greet: function () {
+    console.log(this.name);
+  },
 };
 
 obj.greet(); // 'Alice'
@@ -47,9 +47,9 @@ Using `call`, `apply`, or `bind` methods, you can explicitly set `this`.
 
 ### Using `call`
 
-```javascript
+```js
 function greet() {
-    console.log(this.name);
+  console.log(this.name);
 }
 
 const person = { name: 'Bob' };
@@ -59,9 +59,9 @@ greet.call(person); // 'Bob'
 
 ### Using `apply`
 
-```javascript
+```js
 function greet(greeting) {
-    console.log(greeting + ', ' + this.name);
+  console.log(greeting + ', ' + this.name);
 }
 
 const person = { name: 'Charlie' };
@@ -71,9 +71,9 @@ greet.apply(person, ['Hello']); // 'Hello, Charlie'
 
 ### Using `bind`
 
-```javascript
+```js
 function greet() {
-    console.log(this.name);
+  console.log(this.name);
 }
 
 const person = { name: 'Dave' };
@@ -86,9 +86,9 @@ boundGreet(); // 'Dave'
 
 When a function is used as a constructor with the `new` keyword, `this` refers to the newly created object.
 
-```javascript
+```js
 function Person(name) {
-    this.name = name;
+  this.name = name;
 }
 
 const person = new Person('Eve');
@@ -99,12 +99,12 @@ console.log(person.name); // 'Eve'
 
 Arrow functions do not have their own `this` and inherit `this` from the surrounding lexical context.
 
-```javascript
+```js
 const obj = {
-    name: 'Frank',
-    greet: () => {
-        console.log(this.name);
-    }
+  name: 'Frank',
+  greet: () => {
+    console.log(this.name);
+  },
 };
 
 obj.greet(); // undefined, because `this` is inherited from the global scope
@@ -115,4 +115,3 @@ obj.greet(); // undefined, because `this` is inherited from the global scope
 - [MDN Web Docs: this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 - [JavaScript.info: This](https://javascript.info/this)
 - [You Don't Know JS: this & Object Prototypes](https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/this%20%26%20object%20prototypes)
-

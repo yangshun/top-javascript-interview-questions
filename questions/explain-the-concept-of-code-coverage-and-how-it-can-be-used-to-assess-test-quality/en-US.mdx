@@ -24,7 +24,7 @@ Code coverage is a software testing metric that determines the amount of code th
 
 Consider the following JavaScript function:
 
-```javascript
+```js
 function isEven(num) {
   if (num % 2 === 0) {
     return true;
@@ -36,7 +36,7 @@ function isEven(num) {
 
 A test suite for this function might look like this:
 
-```javascript
+```js
 test('isEven returns true for even numbers', () => {
   expect(isEven(2)).toBe(true);
 });
@@ -84,4 +84,3 @@ This will generate a coverage report that shows the percentage of code covered b
 - [Istanbul documentation](https://istanbul.js.org/)
 - [Jest code coverage](https://jestjs.io/docs/en/coverage)
 - [Karma coverage](https://karma-runner.github.io/6.3/intro/installation.html)
-

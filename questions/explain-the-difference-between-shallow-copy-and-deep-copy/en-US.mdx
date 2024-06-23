@@ -6,7 +6,7 @@ title: Explain the difference between shallow copy and deep copy.
 
 A shallow copy duplicates the top-level properties of an object, but nested objects are still referenced. A deep copy duplicates all levels of an object, creating entirely new instances of nested objects. For example, using `Object.assign()` creates a shallow copy, while using libraries like `Lodash` or `structuredClone()` in modern JavaScript can create deep copies.
 
-```javascript
+```js
 // Shallow copy example
 let obj1 = { a: 1, b: { c: 2 } };
 let shallowCopy = Object.assign({}, obj1);
@@ -29,7 +29,7 @@ A shallow copy creates a new object and copies the values of the original object
 
 #### Example
 
-```javascript
+```js
 let obj1 = { a: 1, b: { c: 2 } };
 let shallowCopy = Object.assign({}, obj1);
 shallowCopy.b.c = 3;
@@ -44,7 +44,7 @@ A deep copy creates a new object and recursively copies all properties and neste
 
 #### Example
 
-```javascript
+```js
 let obj1 = { a: 1, b: { c: 2 } };
 let deepCopy = JSON.parse(JSON.stringify(obj1));
 deepCopy.b.c = 4;
@@ -71,5 +71,4 @@ In this example, `deepCopy` is a deep copy of `obj1`. Changing `deepCopy.b.c` do
 - [MDN Web Docs: Object.assign()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 - [MDN Web Docs: JSON.parse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
 - [MDN Web Docs: structuredClone()](https://developer.mozilla.org/en-US/docs/Web/API/structuredClone)
-- [Lodash Documentation: _.cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)
-
+- [Lodash Documentation: \_.cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)

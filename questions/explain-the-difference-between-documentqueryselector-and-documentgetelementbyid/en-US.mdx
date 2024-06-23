@@ -6,7 +6,7 @@ title: Explain the difference between `document.querySelector()` and `document.g
 
 `document.querySelector()` and `document.getElementById()` are both methods used to select elements from the DOM, but they have key differences. `document.querySelector()` can select any element using a CSS selector and returns the first match, while `document.getElementById()` selects an element by its ID and returns the element with that specific ID.
 
-```javascript
+```js
 // Using document.querySelector()
 const element = document.querySelector('.my-class');
 
@@ -24,7 +24,7 @@ const elementById = document.getElementById('my-id');
 - Returns the first element that matches the specified selector
 - More versatile but slightly slower due to the flexibility of CSS selectors
 
-```javascript
+```js
 // Select the first element with the class 'my-class'
 const element = document.querySelector('.my-class');
 
@@ -41,7 +41,7 @@ const buttonElement = document.querySelector('[data-role="button"]');
 - Returns the element with the specified ID
 - Faster and more efficient for selecting elements by ID, but less versatile
 
-```javascript
+```js
 // Select the element with the ID 'my-id'
 const elementById = document.getElementById('my-id');
 ```
@@ -56,4 +56,3 @@ const elementById = document.getElementById('my-id');
 
 - [MDN Web Docs: document.querySelector()](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
 - [MDN Web Docs: document.getElementById()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById)
-

@@ -6,7 +6,7 @@ title: What are `Set`s and `Map`s and how are they used?
 
 `Set`s and `Map`s are built-in JavaScript objects that help manage collections of data. A `Set` is a collection of unique values, while a `Map` is a collection of key-value pairs where keys can be of any type. `Set`s are useful for storing unique items, and `Map`s are useful for associating values with keys.
 
-```javascript
+```js
 // Set example
 let mySet = new Set([1, 2, 3, 3]);
 mySet.add(4); // Set {1, 2, 3, 4}
@@ -30,7 +30,7 @@ A `Set` is a collection of values where each value must be unique. It is similar
 
 You can create a `Set` using the `Set` constructor:
 
-```javascript
+```js
 let mySet = new Set([1, 2, 3, 3]);
 console.log(mySet); // Set {1, 2, 3}
 ```
@@ -45,7 +45,7 @@ console.log(mySet); // Set {1, 2, 3}
 
 ### Example usage
 
-```javascript
+```js
 let mySet = new Set();
 mySet.add(1);
 mySet.add(2);
@@ -68,7 +68,7 @@ A `Map` is a collection of key-value pairs where keys can be of any type, includ
 
 You can create a `Map` using the `Map` constructor:
 
-```javascript
+```js
 let myMap = new Map();
 myMap.set('key1', 'value1');
 myMap.set('key2', 'value2');
@@ -85,7 +85,7 @@ myMap.set('key2', 'value2');
 
 ### Example usage
 
-```javascript
+```js
 let myMap = new Map();
 myMap.set('key1', 'value1');
 myMap.set('key2', 'value2');
@@ -103,4 +103,3 @@ console.log(myMap.size); // 0
 - [MDN Web Docs: Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
 - [MDN Web Docs: Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
 - [JavaScript.info: Set and Map](https://javascript.info/map-set)
-

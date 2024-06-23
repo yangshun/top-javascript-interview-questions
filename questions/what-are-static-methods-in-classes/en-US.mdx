@@ -6,7 +6,7 @@ title: What are static methods in classes?
 
 Static methods in classes are methods that belong to the class itself rather than to instances of the class. They can be called without creating an instance of the class. You define a static method using the `static` keyword. For example:
 
-```javascript
+```js
 class MyClass {
   static myStaticMethod() {
     return 'Hello, World!';
@@ -28,7 +28,7 @@ Static methods are methods that are defined on the class itself, not on instance
 
 To define a static method, use the `static` keyword before the method name:
 
-```javascript
+```js
 class MyClass {
   static myStaticMethod() {
     return 'Hello, World!';
@@ -40,7 +40,7 @@ class MyClass {
 
 Static methods are useful for utility functions, helper methods, or any functionality that does not require an instance of the class. They can be called directly on the class:
 
-```javascript
+```js
 console.log(MyClass.myStaticMethod()); // Output: 'Hello, World!'
 ```
 
@@ -48,7 +48,7 @@ console.log(MyClass.myStaticMethod()); // Output: 'Hello, World!'
 
 Static methods can only be accessed through the class itself, not through instances of the class:
 
-```javascript
+```js
 const myInstance = new MyClass();
 console.log(myInstance.myStaticMethod()); // Error: myStaticMethod is not a function
 ```
@@ -57,7 +57,7 @@ console.log(myInstance.myStaticMethod()); // Error: myStaticMethod is not a func
 
 Here is a more comprehensive example demonstrating the use of static methods:
 
-```javascript
+```js
 class MathUtils {
   static add(a, b) {
     return a + b;
@@ -79,4 +79,3 @@ In this example, `add` and `subtract` are static methods that perform basic arit
 - [MDN Web Docs: Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 - [MDN Web Docs: static](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
 - [JavaScript.info: Class basic syntax](https://javascript.info/class)
-

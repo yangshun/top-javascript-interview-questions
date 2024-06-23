@@ -6,9 +6,9 @@ title: Explain the concept of higher-order functions.
 
 Higher-order functions are functions that can take other functions as arguments or return them as results. They are a key feature of JavaScript and enable powerful programming patterns like callbacks, function composition, and currying. For example, `Array.prototype.map` is a higher-order function because it takes a function as an argument and applies it to each element in the array.
 
-```javascript
+```js
 const numbers = [1, 2, 3];
-const doubled = numbers.map(num => num * 2); // [2, 4, 6]
+const doubled = numbers.map((num) => num * 2); // [2, 4, 6]
 ```
 
 ---
@@ -32,21 +32,21 @@ Many of the built-in array methods in JavaScript are higher-order functions. For
 
 - `Array.prototype.map`: Takes a function as an argument and applies it to each element in the array.
 
-  ```javascript
+  ```js
   const numbers = [1, 2, 3];
-  const doubled = numbers.map(num => num * 2); // [2, 4, 6]
+  const doubled = numbers.map((num) => num * 2); // [2, 4, 6]
   ```
 
 - `Array.prototype.filter`: Takes a function as an argument and returns a new array with elements that pass the test implemented by the provided function.
 
-  ```javascript
+  ```js
   const numbers = [1, 2, 3, 4];
-  const even = numbers.filter(num => num % 2 === 0); // [2, 4]
+  const even = numbers.filter((num) => num % 2 === 0); // [2, 4]
   ```
 
 - `Array.prototype.reduce`: Takes a function as an argument and applies it against an accumulator and each element in the array to reduce it to a single value.
 
-  ```javascript
+  ```js
   const numbers = [1, 2, 3, 4];
   const sum = numbers.reduce((acc, num) => acc + num, 0); // 10
   ```
@@ -57,7 +57,7 @@ A higher-order function can also return another function. This is useful for cre
 
 - Function factory example:
 
-  ```javascript
+  ```js
   function createMultiplier(multiplier) {
     return function (num) {
       return num * multiplier;
@@ -70,7 +70,7 @@ A higher-order function can also return another function. This is useful for cre
 
 - Currying example:
 
-  ```javascript
+  ```js
   function add(a) {
     return function (b) {
       return a + b;
@@ -92,4 +92,3 @@ A higher-order function can also return another function. This is useful for cre
 - [MDN Web Docs: Higher-order function](https://developer.mozilla.org/en-US/docs/Glossary/Higher-order_function)
 - [Eloquent JavaScript: Higher-order functions](https://eloquentjavascript.net/05_higher_order.html)
 - [JavaScript.info: Higher-order functions](https://javascript.info/functional-programming#higher-order-functions)
-

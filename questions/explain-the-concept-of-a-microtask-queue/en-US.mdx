@@ -24,23 +24,26 @@ The microtask queue is a part of the JavaScript event loop mechanism. It is a qu
 
 Here is an example to illustrate how the microtask queue works:
 
-```javascript
+```js
 console.log('Script start');
 
 setTimeout(() => {
   console.log('setTimeout');
 }, 0);
 
-Promise.resolve().then(() => {
-  console.log('Promise 1');
-}).then(() => {
-  console.log('Promise 2');
-});
+Promise.resolve()
+  .then(() => {
+    console.log('Promise 1');
+  })
+  .then(() => {
+    console.log('Promise 2');
+  });
 
 console.log('Script end');
 ```
 
 Output:
+
 ```
 Script start
 Script end
@@ -50,6 +53,7 @@ setTimeout
 ```
 
 In this example:
+
 - The synchronous code (`console.log('Script start')` and `console.log('Script end')`) is executed first.
 - The promise callbacks (`Promise 1` and `Promise 2`) are added to the microtask queue and executed next.
 - The `setTimeout` callback is added to the macrotask queue and executed last.
@@ -64,4 +68,3 @@ In this example:
 - [MDN Web Docs: Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide)
 - [JavaScript Event Loop Explained](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
 - [Understanding the JavaScript Microtask Queue](https://javascript.info/microtask-queue)
-

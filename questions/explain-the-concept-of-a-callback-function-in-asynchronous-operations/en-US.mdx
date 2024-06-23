@@ -6,7 +6,7 @@ title: Explain the concept of a callback function in asynchronous operations.
 
 A callback function is a function passed as an argument to another function, which is then invoked inside the outer function to complete some kind of routine or action. In asynchronous operations, callbacks are used to handle tasks that take time to complete, such as network requests or file I/O, without blocking the execution of the rest of the code. For example:
 
-```javascript
+```js
 function fetchData(callback) {
   setTimeout(() => {
     const data = { name: 'John', age: 30 };
@@ -32,7 +32,7 @@ A callback function is a function that is passed as an argument to another funct
 
 ### Example of a synchronous callback
 
-```javascript
+```js
 function greet(name, callback) {
   console.log('Hello ' + name);
   callback();
@@ -50,7 +50,7 @@ greet('Alice', sayGoodbye);
 
 ### Example of an asynchronous callback
 
-```javascript
+```js
 function fetchData(callback) {
   setTimeout(() => {
     const data = { name: 'John', age: 30 };
@@ -76,7 +76,7 @@ fetchData((data) => {
 
 When dealing with asynchronous operations, it's important to handle errors properly. A common pattern is to use the first argument of the callback function to pass an error object, if any.
 
-```javascript
+```js
 function fetchData(callback) {
   setTimeout(() => {
     const error = null;
@@ -99,4 +99,3 @@ fetchData((error, data) => {
 - [MDN Web Docs: Callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
 - [JavaScript.info: Callbacks](https://javascript.info/callbacks)
 - [Node.js: Asynchronous programming and callbacks](https://nodejs.org/en/knowledge/getting-started/control-flow/what-are-callbacks/)
-

@@ -6,7 +6,7 @@ title: How do you create a constructor function?
 
 To create a constructor function in JavaScript, define a regular function with a capitalized name to indicate it's a constructor. Use the `this` keyword to set properties and methods. When creating an instance, use the `new` keyword.
 
-```javascript
+```js
 function Person(name, age) {
   this.name = name;
   this.age = age;
@@ -23,7 +23,7 @@ const john = new Person('John', 30);
 
 A constructor function in JavaScript is a regular function that is used to create objects. By convention, the name of the constructor function starts with a capital letter to distinguish it from regular functions.
 
-```javascript
+```js
 function Person(name, age) {
   this.name = name;
   this.age = age;
@@ -34,12 +34,14 @@ function Person(name, age) {
 
 Within the constructor function, the `this` keyword is used to refer to the object that will be created. Properties and methods can be assigned to `this`.
 
-```javascript
+```js
 function Person(name, age) {
   this.name = name;
   this.age = age;
-  this.greet = function() {
-    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  this.greet = function () {
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`,
+    );
   };
 }
 ```
@@ -48,7 +50,7 @@ function Person(name, age) {
 
 To create an instance of the object, use the `new` keyword followed by the constructor function.
 
-```javascript
+```js
 const john = new Person('John', 30);
 john.greet(); // Output: Hello, my name is John and I am 30 years old.
 ```
@@ -57,13 +59,13 @@ john.greet(); // Output: Hello, my name is John and I am 30 years old.
 
 To save memory, it's a good practice to add methods to the constructor's prototype instead of defining them inside the constructor function.
 
-```javascript
+```js
 function Person(name, age) {
   this.name = name;
   this.age = age;
 }
 
-Person.prototype.greet = function() {
+Person.prototype.greet = function () {
   console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
 };
 
@@ -75,7 +77,7 @@ jane.greet(); // Output: Hello, my name is Jane and I am 25 years old.
 
 You can check if an object is an instance of a constructor function using the `instanceof` operator.
 
-```javascript
+```js
 console.log(jane instanceof Person); // Output: true
 ```
 
@@ -84,4 +86,3 @@ console.log(jane instanceof Person); // Output: true
 - [MDN Web Docs: Working with objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
 - [MDN Web Docs: Object prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
 - [JavaScript.info: Constructor, operator "new"](https://javascript.info/constructor-new)
-

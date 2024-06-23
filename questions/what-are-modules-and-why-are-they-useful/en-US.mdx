@@ -6,7 +6,7 @@ title: What are modules and why are they useful?
 
 Modules are reusable pieces of code that can be imported and exported between different files in a project. They help in organizing code, making it more maintainable and scalable. By using modules, you can avoid global namespace pollution and manage dependencies more effectively. In JavaScript, you can use `import` and `export` statements to work with modules.
 
-```javascript
+```js
 // myModule.js
 export const myFunction = () => {
   console.log('Hello, World!');
@@ -53,7 +53,7 @@ Modules make it easier to manage dependencies between different parts of an appl
 
 You can export variables, functions, or classes from a module using the `export` keyword.
 
-```javascript
+```js
 // myModule.js
 export const myVariable = 42;
 export function myFunction() {
@@ -70,7 +70,7 @@ export class MyClass {
 
 You can import variables, functions, or classes from another module using the `import` keyword.
 
-```javascript
+```js
 // main.js
 import { myVariable, myFunction, MyClass } from './myModule.js';
 
@@ -83,7 +83,7 @@ const myClassInstance = new MyClass(); // Outputs: MyClass instance created
 
 A module can have a default export, which can be imported without using curly braces.
 
-```javascript
+```js
 // myModule.js
 const myDefaultFunction = () => {
   console.log('Default export function');
@@ -100,4 +100,3 @@ myDefaultFunction(); // Outputs: Default export function
 - [MDN Web Docs: Import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 - [MDN Web Docs: Export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
 - [JavaScript Modules: A Beginner’s Guide](https://www.sitepoint.com/understanding-es6-modules/)
-

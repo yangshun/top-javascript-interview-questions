@@ -16,7 +16,7 @@ title: What are some use cases for using a `WeakSet` or `WeakMap` in JavaScript?
 
 A `WeakSet` allows you to store objects without preventing them from being garbage collected. This is useful when you need to keep track of objects but don't want to interfere with their lifecycle.
 
-```javascript
+```js
 const weakSet = new WeakSet();
 let obj = { name: 'example' };
 
@@ -30,7 +30,7 @@ obj = null;
 
 Since `WeakSet` holds weak references to objects, it helps in avoiding memory leaks in applications where objects are dynamically created and destroyed.
 
-```javascript
+```js
 const weakSet = new WeakSet();
 
 function process(obj) {
@@ -47,7 +47,7 @@ function process(obj) {
 
 A `WeakMap` allows you to associate data with objects without preventing them from being garbage collected. This is useful for storing metadata or private data related to an object.
 
-```javascript
+```js
 const weakMap = new WeakMap();
 let obj = { name: 'example' };
 
@@ -61,7 +61,7 @@ obj = null;
 
 `WeakMap` can be used to implement private properties in JavaScript classes, ensuring that the properties are not accessible from outside the class.
 
-```javascript
+```js
 const privateData = new WeakMap();
 
 class MyClass {
@@ -82,7 +82,7 @@ console.log(instance.getName()); // 'example'
 
 `WeakMap` can be used to cache results of expensive computations associated with objects, ensuring that the cache does not prevent the objects from being garbage collected.
 
-```javascript
+```js
 const cache = new WeakMap();
 
 function compute(obj) {
@@ -99,4 +99,3 @@ function compute(obj) {
 - [MDN Web Docs: WeakSet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
 - [MDN Web Docs: WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
 - [JavaScript.info: WeakMap and WeakSet](https://javascript.info/weakmap-weakset)
-

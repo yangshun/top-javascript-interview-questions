@@ -6,7 +6,7 @@ title: What is async/await and how does it simplify asynchronous code?
 
 `async/await` is a modern syntax in JavaScript that simplifies working with promises. By using the `async` keyword before a function, you can use the `await` keyword inside that function to pause execution until a promise is resolved. This makes asynchronous code look and behave more like synchronous code, making it easier to read and maintain.
 
-```javascript
+```js
 async function fetchData() {
   try {
     const response = await fetch('https://api.example.com/data');
@@ -30,7 +30,7 @@ async function fetchData() {
 
 The `async` keyword is used to declare an asynchronous function. When a function is declared as `async`, it automatically returns a promise. This means you can use the `await` keyword inside it to pause the execution of the function until a promise is resolved.
 
-```javascript
+```js
 async function exampleFunction() {
   return 'Hello, World!';
 }
@@ -42,7 +42,7 @@ exampleFunction().then(console.log); // Output: Hello, World!
 
 The `await` keyword can only be used inside an `async` function. It pauses the execution of the function until the promise is resolved, and then returns the resolved value. If the promise is rejected, it throws an error, which can be caught using a `try...catch` block.
 
-```javascript
+```js
 async function fetchData() {
   try {
     const response = await fetch('https://api.example.com/data');
@@ -60,20 +60,20 @@ Before `async/await`, handling asynchronous operations often involved chaining m
 
 #### Example with promises
 
-```javascript
+```js
 fetch('https://api.example.com/data')
-  .then(response => response.json())
-  .then(data => {
+  .then((response) => response.json())
+  .then((data) => {
     console.log(data);
   })
-  .catch(error => {
+  .catch((error) => {
     console.error('Error fetching data:', error);
   });
 ```
 
 #### Example with async/await
 
-```javascript
+```js
 async function fetchData() {
   try {
     const response = await fetch('https://api.example.com/data');
@@ -89,7 +89,7 @@ async function fetchData() {
 
 Error handling with `async/await` is more straightforward compared to promises. You can use `try...catch` blocks to handle errors, making the code cleaner and more intuitive.
 
-```javascript
+```js
 async function fetchData() {
   try {
     const response = await fetch('https://api.example.com/data');
@@ -106,4 +106,3 @@ async function fetchData() {
 - [MDN Web Docs: async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 - [MDN Web Docs: await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 - [JavaScript.info: Async/await](https://javascript.info/async-await)
-

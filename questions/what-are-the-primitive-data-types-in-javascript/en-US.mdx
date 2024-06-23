@@ -14,9 +14,9 @@ JavaScript has seven primitive data types: `string`, `number`, `boolean`, `null`
 
 A `string` represents a sequence of characters used to represent text. Strings are created by enclosing characters in single quotes (`'`), double quotes (`"`), or backticks (`` ` ``).
 
-```javascript
+```js
 let name = 'John';
-let greeting = "Hello, world!";
+let greeting = 'Hello, world!';
 let templateLiteral = `This is a template literal`;
 ```
 
@@ -24,7 +24,7 @@ let templateLiteral = `This is a template literal`;
 
 A `number` represents both integer and floating-point numbers. JavaScript does not differentiate between the two.
 
-```javascript
+```js
 let integer = 42;
 let float = 3.14;
 ```
@@ -33,7 +33,7 @@ let float = 3.14;
 
 A `boolean` represents a logical entity and can have only two values: `true` or `false`.
 
-```javascript
+```js
 let isJavaScriptFun = true;
 let isTired = false;
 ```
@@ -42,7 +42,7 @@ let isTired = false;
 
 `null` is a special value that represents the intentional absence of any object value. It is often used to indicate that a variable should be empty.
 
-```javascript
+```js
 let emptyValue = null;
 ```
 
@@ -50,7 +50,7 @@ let emptyValue = null;
 
 `undefined` indicates that a variable has been declared but has not yet been assigned a value.
 
-```javascript
+```js
 let notAssigned;
 console.log(notAssigned); // undefined
 ```
@@ -59,7 +59,7 @@ console.log(notAssigned); // undefined
 
 A `symbol` is a unique and immutable primitive value and may be used as the key of an object property. Symbols are created using the `Symbol()` function.
 
-```javascript
+```js
 let uniqueId = Symbol('id');
 ```
 
@@ -67,7 +67,7 @@ let uniqueId = Symbol('id');
 
 A `bigint` is a numeric data type that can represent integers with arbitrary precision. BigInts are created by appending `n` to the end of an integer or by using the `BigInt()` function.
 
-```javascript
+```js
 let bigNumber = 1234567890123456789012345678901234567890n;
 let anotherBigNumber = BigInt(1234567890123456789012345678901234567890);
 ```
@@ -77,4 +77,3 @@ let anotherBigNumber = BigInt(1234567890123456789012345678901234567890);
 - [MDN Web Docs: Data types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#primitive_values)
 - [MDN Web Docs: Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
 - [MDN Web Docs: BigInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
-

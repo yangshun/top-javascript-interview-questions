@@ -6,11 +6,11 @@ title: Explain the concept of prototypal inheritance in JavaScript.
 
 Prototypal inheritance in JavaScript is a feature that allows objects to inherit properties and methods from other objects. This is achieved through the prototype chain, where an object can have a prototype object, and that prototype object can have its own prototype, and so on. This chain allows for property and method sharing across objects. For example:
 
-```javascript
+```js
 const parent = {
   greet() {
     console.log('Hello');
-  }
+  },
 };
 
 const child = Object.create(parent);
@@ -31,11 +31,11 @@ In JavaScript, every object has a special property called `__proto__` (or `[[Pro
 
 You can create an object with a specific prototype using `Object.create()`:
 
-```javascript
+```js
 const parent = {
   greet() {
     console.log('Hello');
-  }
+  },
 };
 
 const child = Object.create(parent);
@@ -48,12 +48,12 @@ In this example, `child` inherits the `greet` method from `parent`.
 
 Another way to set up prototypal inheritance is by using constructor functions and the `prototype` property:
 
-```javascript
+```js
 function Person(name) {
   this.name = name;
 }
 
-Person.prototype.greet = function() {
+Person.prototype.greet = function () {
   console.log(`Hello, my name is ${this.name}`);
 };
 
@@ -67,7 +67,7 @@ Here, the `greet` method is defined on `Person.prototype`, so all instances of `
 
 ES6 introduced the `class` syntax, which provides a more familiar way to work with prototypal inheritance, but under the hood, it still uses prototypes:
 
-```javascript
+```js
 class Person {
   constructor(name) {
     this.name = name;
@@ -97,4 +97,3 @@ bob.greet(); // Outputs: Hello, my name is Bob
 - [MDN Web Docs: Inheritance and the prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 - [MDN Web Docs: Object.create()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create)
 - [MDN Web Docs: Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
-

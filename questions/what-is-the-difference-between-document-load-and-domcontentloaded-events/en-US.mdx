@@ -6,13 +6,13 @@ title: What is the difference between document `load` and `DOMContentLoaded` eve
 
 The `DOMContentLoaded` event fires when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading. The `load` event, on the other hand, fires when the entire page, including all dependent resources such as stylesheets and images, has finished loading.
 
-```javascript
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM fully loaded and parsed');
+```js
+document.addEventListener('DOMContentLoaded', function () {
+  console.log('DOM fully loaded and parsed');
 });
 
-window.addEventListener('load', function() {
-    console.log('Page fully loaded');
+window.addEventListener('load', function () {
+  console.log('Page fully loaded');
 });
 ```
 
@@ -24,9 +24,9 @@ window.addEventListener('load', function() {
 
 The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading. This event is useful when you want to execute JavaScript code as soon as the DOM is ready, without waiting for the entire page to load.
 
-```javascript
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM fully loaded and parsed');
+```js
+document.addEventListener('DOMContentLoaded', function () {
+  console.log('DOM fully loaded and parsed');
 });
 ```
 
@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 The `load` event is fired when the entire page, including all dependent resources such as stylesheets, images, and subframes, has finished loading. This event is useful when you need to ensure that all resources are fully loaded before executing your code.
 
-```javascript
-window.addEventListener('load', function() {
-    console.log('Page fully loaded');
+```js
+window.addEventListener('load', function () {
+  console.log('Page fully loaded');
 });
 ```
 
@@ -55,4 +55,3 @@ window.addEventListener('load', function() {
 - [MDN Web Docs: DOMContentLoaded](https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event)
 - [MDN Web Docs: load event](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event)
 - [JavaScript.info: DOMContentLoaded, load and beforeunload](https://javascript.info/onload-ondomcontentloaded)
-

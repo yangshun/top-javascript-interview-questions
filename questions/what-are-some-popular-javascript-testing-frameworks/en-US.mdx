@@ -20,7 +20,7 @@ Jest is a testing framework developed by Facebook, primarily used for testing Re
 
 Example:
 
-```javascript
+```js
 test('adds 1 + 2 to equal 3', () => {
   expect(1 + 2).toBe(3);
 });
@@ -36,12 +36,12 @@ Mocha is a flexible testing framework that can be used with various assertion li
 
 Example:
 
-```javascript
+```js
 const assert = require('assert');
 
-describe('Array', function() {
-  describe('#indexOf()', function() {
-    it('should return -1 when the value is not present', function() {
+describe('Array', function () {
+  describe('#indexOf()', function () {
+    it('should return -1 when the value is not present', function () {
       assert.strictEqual([1, 2, 3].indexOf(4), -1);
     });
   });
@@ -58,9 +58,9 @@ Jasmine is a behavior-driven development framework that requires no additional l
 
 Example:
 
-```javascript
-describe('A suite', function() {
-  it('contains a spec with an expectation', function() {
+```js
+describe('A suite', function () {
+  it('contains a spec with an expectation', function () {
     expect(true).toBe(true);
   });
 });
@@ -76,9 +76,9 @@ Cypress is an end-to-end testing framework that provides a great developer exper
 
 Example:
 
-```javascript
-describe('My First Test', function() {
-  it('Visits the Kitchen Sink', function() {
+```js
+describe('My First Test', function () {
+  it('Visits the Kitchen Sink', function () {
     cy.visit('https://example.cypress.io');
     cy.contains('type').click();
     cy.url().should('include', '/commands/actions');
@@ -92,4 +92,3 @@ describe('My First Test', function() {
 - [Mocha documentation](https://mochajs.org/#getting-started)
 - [Jasmine documentation](https://jasmine.github.io/pages/getting_started.html)
 - [Cypress documentation](https://docs.cypress.io/guides/overview/why-cypress)
-

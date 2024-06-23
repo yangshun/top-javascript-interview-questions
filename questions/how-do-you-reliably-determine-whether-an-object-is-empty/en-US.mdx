@@ -6,7 +6,7 @@ title: How do you reliably determine whether an object is empty?
 
 To reliably determine whether an object is empty, you can use `Object.keys()` to check if the object has any enumerable properties. If the length of the array returned by `Object.keys()` is zero, the object is empty.
 
-```javascript
+```js
 const isEmpty = (obj) => Object.keys(obj).length === 0;
 
 const obj = {};
@@ -21,7 +21,7 @@ console.log(isEmpty(obj)); // true
 
 The most common and reliable way to check if an object is empty is by using `Object.keys()`. This method returns an array of the object's own enumerable property names. If the length of this array is zero, the object is empty.
 
-```javascript
+```js
 const isEmpty = (obj) => Object.keys(obj).length === 0;
 
 const obj1 = {};
@@ -35,7 +35,7 @@ console.log(isEmpty(obj2)); // false
 
 Another method is to use `Object.entries()`, which returns an array of the object's own enumerable property `[key, value]` pairs. If the length of this array is zero, the object is empty.
 
-```javascript
+```js
 const isEmpty = (obj) => Object.entries(obj).length === 0;
 
 const obj1 = {};
@@ -49,7 +49,7 @@ console.log(isEmpty(obj2)); // false
 
 Similarly, you can use `Object.values()`, which returns an array of the object's own enumerable property values. If the length of this array is zero, the object is empty.
 
-```javascript
+```js
 const isEmpty = (obj) => Object.values(obj).length === 0;
 
 const obj1 = {};
@@ -63,7 +63,7 @@ console.log(isEmpty(obj2)); // false
 
 You can also use a `for...in` loop to check if an object has any properties. If the loop doesn't iterate over any properties, the object is empty.
 
-```javascript
+```js
 const isEmpty = (obj) => {
   for (let key in obj) {
     if (obj.hasOwnProperty(key)) {
@@ -91,4 +91,3 @@ console.log(isEmpty(obj2)); // false
 - [MDN Web Docs: Object.entries()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
 - [MDN Web Docs: Object.values()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values)
 - [MDN Web Docs: for...in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
-

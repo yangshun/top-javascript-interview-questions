@@ -6,7 +6,7 @@ title: What is the difference between `for...in` and `for...of` loops?
 
 `for...in` loops iterate over the enumerable properties of an object, including inherited properties. It is best used for objects. `for...of` loops iterate over the values of an iterable object like arrays, strings, or NodeLists. It is best used for arrays and other iterable collections.
 
-```javascript
+```js
 // for...in example
 const obj = { a: 1, b: 2, c: 3 };
 for (let key in obj) {
@@ -28,7 +28,7 @@ for (let value of arr) {
 
 The `for...in` loop is used to iterate over the enumerable properties of an object. It iterates over the keys (property names) of the object.
 
-```javascript
+```js
 const obj = { a: 1, b: 2, c: 3 };
 for (let key in obj) {
   console.log(key); // logs "a", "b", "c"
@@ -45,7 +45,7 @@ for (let key in obj) {
 
 The `for...of` loop is used to iterate over the values of an iterable object. It works with arrays, strings, maps, sets, and other iterable collections.
 
-```javascript
+```js
 const arr = [1, 2, 3];
 for (let value of arr) {
   console.log(value); // logs 1, 2, 3
@@ -63,4 +63,3 @@ for (let value of arr) {
 - [MDN Web Docs: for...in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
 - [MDN Web Docs: for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
 - [JavaScript.info: Iterables](https://javascript.info/iterable)
-

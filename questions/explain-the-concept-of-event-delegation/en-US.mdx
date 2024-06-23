@@ -6,8 +6,8 @@ title: Explain the concept of event delegation.
 
 Event delegation is a technique in JavaScript where you add a single event listener to a parent element instead of multiple event listeners to individual child elements. This works because events bubble up from the target element to the parent elements. By using event delegation, you can manage events more efficiently and reduce memory usage.
 
-```javascript
-document.getElementById('parent').addEventListener('click', function(event) {
+```js
+document.getElementById('parent').addEventListener('click', function (event) {
   if (event.target && event.target.matches('button')) {
     console.log('Button clicked:', event.target);
   }
@@ -38,10 +38,10 @@ Consider a scenario where you have a list of buttons inside a parent container, 
 
 #### Without event delegation
 
-```javascript
+```js
 const buttons = document.querySelectorAll('button');
-buttons.forEach(button => {
-  button.addEventListener('click', function() {
+buttons.forEach((button) => {
+  button.addEventListener('click', function () {
     console.log('Button clicked:', this);
   });
 });
@@ -49,8 +49,8 @@ buttons.forEach(button => {
 
 #### With event delegation
 
-```javascript
-document.getElementById('parent').addEventListener('click', function(event) {
+```js
+document.getElementById('parent').addEventListener('click', function (event) {
   if (event.target && event.target.matches('button')) {
     console.log('Button clicked:', event.target);
   }
@@ -70,4 +70,3 @@ In the event delegation example, a single event listener is added to the parent 
 - [MDN Web Docs: Event delegation](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_delegation)
 - [JavaScript.info: Event delegation](https://javascript.info/event-delegation)
 - [CSS-Tricks: An introduction to event delegation in JavaScript](https://css-tricks.com/an-introduction-to-event-delegation-in-javascript/)
-

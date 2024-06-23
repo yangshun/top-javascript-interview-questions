@@ -6,7 +6,7 @@ title: How can you test asynchronous code in JavaScript?
 
 To test asynchronous code in JavaScript, you can use testing frameworks like Jest or Mocha. These frameworks provide built-in support for handling asynchronous operations. You can use `async`/`await` or return promises in your test functions. For example, in Jest, you can write:
 
-```javascript
+```js
 test('fetches data successfully', async () => {
   const data = await fetchData();
   expect(data).toBeDefined();
@@ -27,7 +27,7 @@ One of the most straightforward ways to test asynchronous code is by using `asyn
 
 #### Example with Jest
 
-```javascript
+```js
 // fetchData.js
 export const fetchData = async () => {
   const response = await fetch('https://api.example.com/data');
@@ -49,17 +49,19 @@ Another way to handle asynchronous tests is by returning a promise from your tes
 
 #### Example with Jest
 
-```javascript
+```js
 // fetchData.js
 export const fetchData = () => {
-  return fetch('https://api.example.com/data').then(response => response.json());
+  return fetch('https://api.example.com/data').then((response) =>
+    response.json(),
+  );
 };
 
 // fetchData.test.js
 import { fetchData } from './fetchData';
 
 test('fetches data successfully', () => {
-  return fetchData().then(data => {
+  return fetchData().then((data) => {
     expect(data).toBeDefined();
   });
 });
@@ -71,13 +73,13 @@ For older codebases or specific scenarios, you might need to use callbacks. In J
 
 #### Example with Jest
 
-```javascript
+```js
 // fetchData.js
 export const fetchData = (callback) => {
   fetch('https://api.example.com/data')
-    .then(response => response.json())
-    .then(data => callback(null, data))
-    .catch(error => callback(error));
+    .then((response) => response.json())
+    .then((data) => callback(null, data))
+    .catch((error) => callback(error));
 };
 
 // fetchData.test.js
@@ -96,7 +98,7 @@ test('fetches data successfully', (done) => {
 
 Mocha also supports `async`/`await`, returning promises, and using callbacks. Here is an example using `async`/`await` with Mocha:
 
-```javascript
+```js
 // fetchData.js
 export const fetchData = async () => {
   const response = await fetch('https://api.example.com/data');
@@ -121,4 +123,3 @@ describe('fetchData', () => {
 - [Mocha documentation on testing asynchronous code](https://mochajs.org/#asynchronous-code)
 - [MDN Web Docs on async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
 - [Chai assertion library](https://www.chaijs.com/)
-

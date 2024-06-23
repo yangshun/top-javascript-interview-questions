@@ -15,10 +15,12 @@ To identify security vulnerabilities in JavaScript code, you can use static code
 Static code analysis tools examine your code without executing it. They can identify potential security vulnerabilities by analyzing the code structure and patterns.
 
 - **ESLint**: A popular linting tool for JavaScript that can be extended with security-focused plugins like `eslint-plugin-security` to catch common security issues.
+
   ```bash
   npm install eslint eslint-plugin-security --save-dev
   ```
-  ```javascript
+
+  ```js
   // .eslintrc.json
   {
     "plugins": ["security"],
@@ -33,6 +35,7 @@ Static code analysis tools examine your code without executing it. They can iden
 Dynamic analysis tools test your application while it is running to identify security vulnerabilities.
 
 - **OWASP ZAP (Zed Attack Proxy)**: An open-source tool for finding security vulnerabilities in web applications. It can be used to perform automated scans and manual testing.
+
   ```bash
   zap.sh -daemon -port 8080 -config api.disablekey=true
   ```
@@ -44,6 +47,7 @@ Dynamic analysis tools test your application while it is running to identify sec
 Dependency checkers analyze the third-party libraries and packages your project depends on to identify known vulnerabilities.
 
 - **npm audit**: A built-in tool for npm that checks for vulnerabilities in your project's dependencies.
+
   ```bash
   npm audit
   ```
@@ -75,4 +79,3 @@ Adhering to secure coding practices can help prevent security vulnerabilities fr
 - [Burp Suite](https://portswigger.net/burp)
 - [npm audit](https://docs.npmjs.com/cli/v7/commands/npm-audit)
 - [Snyk](https://snyk.io/)
-

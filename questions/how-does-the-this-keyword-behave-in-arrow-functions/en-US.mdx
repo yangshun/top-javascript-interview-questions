@@ -6,7 +6,7 @@ title: How does the `this` keyword behave in arrow functions?
 
 In arrow functions, the `this` keyword retains the value of the enclosing lexical context. Unlike regular functions, arrow functions do not have their own `this` context. Instead, they inherit `this` from the parent scope at the time they are defined. This makes arrow functions particularly useful for maintaining the correct `this` value in callbacks and event handlers.
 
-```javascript
+```js
 function Person() {
   this.age = 0;
 
@@ -30,7 +30,7 @@ Arrow functions do not have their own `this` context. Instead, they lexically bi
 
 Consider the following example to illustrate the behavior of `this` in arrow functions:
 
-```javascript
+```js
 function Person() {
   this.age = 0;
 
@@ -49,11 +49,11 @@ In this example, the arrow function inside `setInterval` inherits `this` from th
 
 If we use a regular function instead of an arrow function, the behavior of `this` changes:
 
-```javascript
+```js
 function Person() {
   this.age = 0;
 
-  setInterval(function() {
+  setInterval(function () {
     this.age++; // `this` refers to the global object or `undefined` in strict mode
     console.log(this.age);
   }, 1000);
@@ -84,4 +84,3 @@ While arrow functions provide a convenient way to handle `this`, they also come 
 - [MDN Web Docs: Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 - [MDN Web Docs: this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 - [JavaScript.info: Arrow functions revisited](https://javascript.info/arrow-functions)
-

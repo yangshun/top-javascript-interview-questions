@@ -6,17 +6,17 @@ title: Explain the concept of hoisting with regards to functions.
 
 Hoisting in JavaScript is a behavior where function declarations are moved to the top of their containing scope during the compile phase. This means you can call a function before it is defined in the code. However, this does not apply to function expressions or arrow functions, which are not hoisted in the same way.
 
-```javascript
+```js
 // Function declaration
 hoistedFunction(); // Works fine
 function hoistedFunction() {
-    console.log('This function is hoisted');
+  console.log('This function is hoisted');
 }
 
 // Function expression
 nonHoistedFunction(); // Throws an error
-var nonHoistedFunction = function() {
-    console.log('This function is not hoisted');
+var nonHoistedFunction = function () {
+  console.log('This function is not hoisted');
 };
 ```
 
@@ -30,11 +30,11 @@ Hoisting is a JavaScript mechanism where variables and function declarations are
 
 Function declarations are fully hoisted. This means you can call a function before its declaration in the code.
 
-```javascript
+```js
 hoistedFunction(); // Works fine
 
 function hoistedFunction() {
-    console.log('This function is hoisted');
+  console.log('This function is hoisted');
 }
 ```
 
@@ -42,11 +42,11 @@ function hoistedFunction() {
 
 Function expressions, including arrow functions, are not hoisted in the same way. They are treated as variable assignments and are only hoisted as undefined.
 
-```javascript
+```js
 nonHoistedFunction(); // Throws an error: TypeError: nonHoistedFunction is not a function
 
-var nonHoistedFunction = function() {
-    console.log('This function is not hoisted');
+var nonHoistedFunction = function () {
+  console.log('This function is not hoisted');
 };
 ```
 
@@ -54,11 +54,11 @@ var nonHoistedFunction = function() {
 
 Arrow functions behave similarly to function expressions in terms of hoisting.
 
-```javascript
+```js
 arrowFunction(); // Throws an error: TypeError: arrowFunction is not a function
 
 var arrowFunction = () => {
-    console.log('This arrow function is not hoisted');
+  console.log('This arrow function is not hoisted');
 };
 ```
 
@@ -68,4 +68,3 @@ var arrowFunction = () => {
 - [JavaScript.info on Hoisting](https://javascript.info/hoisting)
 - [MDN Web Docs on Function Declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
 - [MDN Web Docs on Function Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function)
-

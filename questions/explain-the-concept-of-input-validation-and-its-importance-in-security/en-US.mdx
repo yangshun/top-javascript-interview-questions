@@ -23,47 +23,47 @@ Input validation is the process of verifying that the data provided by a user or
 
 1. **Client-side validation**: This occurs in the user's browser before the data is sent to the server. It provides immediate feedback to the user and can improve the user experience. However, it should not be solely relied upon for security purposes, as it can be easily bypassed.
 
-    ```html
-    <form>
-        <input type="text" id="username" required pattern="[A-Za-z0-9]{5,}">
-        <input type="submit">
-    </form>
-    ```
+   ```html
+   <form>
+     <input type="text" id="username" required pattern="[A-Za-z0-9]{5,}" />
+     <input type="submit" />
+   </form>
+   ```
 
 2. **Server-side validation**: This occurs on the server after the data has been submitted. It is essential for security because it ensures that all data is validated regardless of the client's behavior.
 
-    ```javascript
-    const express = require('express');
-    const app = express();
+   ```js
+   const express = require('express');
+   const app = express();
 
-    app.post('/submit', (req, res) => {
-        const username = req.body.username;
-        if (!/^[A-Za-z0-9]{5,}$/.test(username)) {
-            return res.status(400).send('Invalid username');
-        }
-        // Proceed with processing the valid input
-    });
-    ```
+   app.post('/submit', (req, res) => {
+     const username = req.body.username;
+     if (!/^[A-Za-z0-9]{5,}$/.test(username)) {
+       return res.status(400).send('Invalid username');
+     }
+     // Proceed with processing the valid input
+   });
+   ```
 
 ### Importance of input validation in security
 
 1. **Preventing SQL injection**: By validating and sanitizing input, you can prevent attackers from injecting malicious SQL code into your database queries.
 
-    ```javascript
-    const username = req.body.username;
-    const query = 'SELECT * FROM users WHERE username = ?';
-    db.query(query, [username], (err, results) => {
-        // Handle results
-    });
-    ```
+   ```js
+   const username = req.body.username;
+   const query = 'SELECT * FROM users WHERE username = ?';
+   db.query(query, [username], (err, results) => {
+     // Handle results
+   });
+   ```
 
 2. **Preventing cross-site scripting (XSS)**: Input validation helps ensure that user input does not contain malicious scripts that could be executed in the browser.
 
-    ```javascript
-    const sanitizeHtml = require('sanitize-html');
-    const userInput = req.body.comment;
-    const sanitizedInput = sanitizeHtml(userInput);
-    ```
+   ```js
+   const sanitizeHtml = require('sanitize-html');
+   const userInput = req.body.comment;
+   const sanitizedInput = sanitizeHtml(userInput);
+   ```
 
 3. **Preventing buffer overflow attacks**: By validating the length of input data, you can prevent attackers from sending excessively large inputs that could cause buffer overflows and crash your application.
 
@@ -82,4 +82,3 @@ Input validation is the process of verifying that the data provided by a user or
 - [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
 - [MDN Web Docs: Client-side form validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation)
 - [Sanitize-html library](https://www.npmjs.com/package/sanitize-html)
-

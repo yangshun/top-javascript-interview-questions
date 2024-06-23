@@ -4,9 +4,9 @@ title: What are the different ways to copy an object or an array?
 
 ## TL;DR
 
-To copy an object or an array in JavaScript, you can use several methods. For shallow copies, you can use the spread operator (`...`) or `Object.assign()`. For deep copies, you can use `JSON.parse(JSON.stringify())` or libraries like Lodash's `_.cloneDeep()`. 
+To copy an object or an array in JavaScript, you can use several methods. For shallow copies, you can use the spread operator (`...`) or `Object.assign()`. For deep copies, you can use `JSON.parse(JSON.stringify())` or libraries like Lodash's `_.cloneDeep()`.
 
-```javascript
+```js
 // Shallow copy of an array
 const originalArray = [1, 2, 3];
 const shallowCopyArray = [...originalArray];
@@ -29,7 +29,7 @@ const deepCopyObject = JSON.parse(JSON.stringify(originalObject));
 
 The spread operator (`...`) is a concise way to create a shallow copy of an array or an object.
 
-```javascript
+```js
 // Shallow copy of an array
 const originalArray = [1, 2, 3];
 const shallowCopyArray = [...originalArray];
@@ -43,7 +43,7 @@ const shallowCopyObject = { ...originalObject };
 
 `Object.assign()` can also be used to create a shallow copy of an object.
 
-```javascript
+```js
 const originalObject = { a: 1, b: 2 };
 const shallowCopyObject = Object.assign({}, originalObject);
 ```
@@ -54,7 +54,7 @@ const shallowCopyObject = Object.assign({}, originalObject);
 
 This method is a simple way to create a deep copy of an object or an array. However, it has limitations, such as not handling functions, `undefined`, or circular references.
 
-```javascript
+```js
 const originalObject = { a: 1, b: { c: 2 } };
 const deepCopyObject = JSON.parse(JSON.stringify(originalObject));
 ```
@@ -63,7 +63,7 @@ const deepCopyObject = JSON.parse(JSON.stringify(originalObject));
 
 Lodash is a popular utility library that provides a `_.cloneDeep()` method for deep copying objects and arrays.
 
-```javascript
+```js
 const _ = require('lodash');
 const originalObject = { a: 1, b: { c: 2 } };
 const deepCopyObject = _.cloneDeep(originalObject);
@@ -75,14 +75,14 @@ const deepCopyObject = _.cloneDeep(originalObject);
 
 For custom deep copy logic, you can implement a recursive function.
 
-```javascript
+```js
 function deepCopy(obj) {
   if (obj === null || typeof obj !== 'object') {
     return obj;
   }
 
   if (Array.isArray(obj)) {
-    return obj.map(item => deepCopy(item));
+    return obj.map((item) => deepCopy(item));
   }
 
   const copy = {};
@@ -102,7 +102,6 @@ const deepCopyObject = deepCopy(originalObject);
 
 - [MDN Web Docs: Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 - [MDN Web Docs: Object.assign()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
-- [Lodash documentation: _.cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)
+- [Lodash documentation: \_.cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)
 - [MDN Web Docs: JSON.parse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
 - [MDN Web Docs: JSON.stringify()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
-

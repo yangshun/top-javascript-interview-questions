@@ -18,8 +18,8 @@ The ternary operator, also known as the conditional operator, is a concise way t
 
 The syntax for the ternary operator is:
 
-```javascript
-condition ? expr1 : expr2
+```js
+condition ? expr1 : expr2;
 ```
 
 - `condition`: An expression that evaluates to `true` or `false`
@@ -30,9 +30,9 @@ condition ? expr1 : expr2
 
 Here is a basic example of the ternary operator:
 
-```javascript
+```js
 let age = 18;
-let canVote = (age >= 18) ? 'Yes' : 'No';
+let canVote = age >= 18 ? 'Yes' : 'No';
 console.log(canVote); // Output: Yes
 ```
 
@@ -42,12 +42,18 @@ In this example, the condition `age >= 18` is evaluated. If it is `true`, the st
 
 You can also nest ternary operators, although it can make the code harder to read:
 
-```javascript
+```js
 let score = 85;
-let grade = (score >= 90) ? 'A' :
-            (score >= 80) ? 'B' :
-            (score >= 70) ? 'C' :
-            (score >= 60) ? 'D' : 'F';
+let grade =
+  score >= 90
+    ? 'A'
+    : score >= 80
+    ? 'B'
+    : score >= 70
+    ? 'C'
+    : score >= 60
+    ? 'D'
+    : 'F';
 console.log(grade); // Output: B
 ```
 
@@ -68,4 +74,3 @@ In this example, the ternary operator is used to assign a grade based on the val
 - [MDN Web Docs: Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
 - [JavaScript.info: Conditional operators](https://javascript.info/ifelse#conditional-operator)
 - [W3Schools: JavaScript ternary operator](https://www.w3schools.com/jsref/jsref_operators.asp)
-

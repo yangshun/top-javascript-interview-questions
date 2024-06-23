@@ -6,9 +6,9 @@ title: What are polyfills used for?
 
 Polyfills are used to provide modern functionality on older browsers that do not natively support it. They are essentially pieces of code (usually JavaScript) that replicate the behavior of newer features in older environments. For example, if you want to use `Array.prototype.includes` in an older browser that doesn't support it, you can use a polyfill to add this method.
 
-```javascript
+```js
 if (!Array.prototype.includes) {
-  Array.prototype.includes = function(searchElement, fromIndex) {
+  Array.prototype.includes = function (searchElement, fromIndex) {
     // Polyfill code here
   };
 }
@@ -39,9 +39,9 @@ Polyfills are scripts that provide modern functionality on older browsers that d
 
 Here is an example of a polyfill for `Array.prototype.includes`:
 
-```javascript
+```js
 if (!Array.prototype.includes) {
-  Array.prototype.includes = function(searchElement, fromIndex) {
+  Array.prototype.includes = function (searchElement, fromIndex) {
     if (this == null) {
       throw new TypeError('"this" is null or not defined');
     }
@@ -97,4 +97,3 @@ if (!Array.prototype.includes) {
 - [MDN Web Docs: Polyfill](https://developer.mozilla.org/en-US/docs/Glossary/Polyfill)
 - [Using polyfills](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes#polyfill)
 - [Polyfill.io](https://polyfill.io/v3/)
-

@@ -27,14 +27,6 @@ async function processQuestion(
   const metadata: QuestionMetadata = JSON.parse(String(metadataFile));
   const markdown = String(markdownFile);
 
-  if (dirName !== metadata.slug) {
-    throw `${dirName} !== ${metadata.slug}`;
-  }
-
-  if (!metadata.featured) {
-    return null;
-  }
-
   const { data } = grayMatter(markdown);
   const frontMatter = data as QuestionFrontmatter;
 
@@ -77,7 +69,20 @@ async function readQuestionsList() {
     })
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => dirent.name);
-  return qnSlugs;
+
+  return await Promise.all(
+    qnSlugs.map(async (qnSlug) => {
+      const metadataPath = path.join('./questions', qnSlug, 'metadata.json');
+
+      const metadataFile = await readFileAsync(metadataPath);
+      const metadata: QuestionMetadata = JSON.parse(String(metadataFile));
+      if (qnSlug !== metadata.slug) {
+        throw `Mismatch in directory and slug: "${qnSlug}" vs "${metadata.slug}"`;
+      }
+
+      return metadata;
+    }),
+  );
 }
 
 async function processQuestionList(qns: string[]) {
@@ -100,7 +105,12 @@ function formatTableOfContents(qnList: QuestionItem[]) {
   return tableOfContentsLines.join('\n');
 }
 
-function formatQuestion(qn: QuestionItem, index: number) {
+function formatQuestion(
+  qn: QuestionItem,
+  index: number,
+  tableOfContentsAnchor: string,
+  onGFE: boolean = true,
+) {
   return `${index}. ### ${qn.title}
 
     <!-- Update here: /questions/${qn.metadata.slug}/${qn.locale}.mdx -->
@@ -114,43 +124,94 @@ ${qn.content
     <!-- Update here: /questions/${qn.metadata.slug}/${qn.locale}.mdx -->
 
     <br>
-
-    > Read the [detailed answer](${
-      qn.href
-    }) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
-
-    [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/${GITHUB_ORG}/${GITHUB_REPO}/edit/main/questions/${
+    ${
+      onGFE
+        ? `
+    > Read the [detailed answer](${qn.href}) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+`
+        : ''
+    }
+    [Back to top ↑](#${tableOfContentsAnchor}) | [Edit answer](https://github.com/${GITHUB_ORG}/${GITHUB_REPO}/edit/main/questions/${
     qn.metadata.slug
   }/${qn.locale}.mdx)
+  
     <br>
     <br>
 `;
 }
 
-async function generate() {
-  const qns = await readQuestionsList();
+type Options = Readonly<{
+  showLinkToGFE: boolean;
+  tableOfContentsAnchor: string;
+  tocStart: string;
+  tocEnd: string;
+  qnsStart: string;
+  qnsEnd: string;
+}>;
+
+async function generate(qns: string[], options: Options) {
+  const {
+    tableOfContentsAnchor,
+    tocStart,
+    tocEnd,
+    qnsStart,
+    qnsEnd,
+    showLinkToGFE,
+  } = options;
   const qnItemList = await processQuestionList(qns);
   const qnsItemListSorted = qnItemList.sort(
     (a, b) => a.metadata.ranking - b.metadata.ranking,
   );
   const qnTableOfContents = formatTableOfContents(qnsItemListSorted);
   const qnAnswers = qnsItemListSorted
-    .map((qnItem, index) => formatQuestion(qnItem, index + 1))
+    .map((qnItem, index) =>
+      formatQuestion(qnItem, index + 1, tableOfContentsAnchor, showLinkToGFE),
+    )
     .join('\n');
 
   const readmeFile = String(fs.readFileSync(README_PATH_EN));
 
+  const tocRegex = new RegExp(
+    `(<!-- ${tocStart} -->)([\\s\\S]*?)(<!-- ${tocEnd} -->)`,
+  );
+  const qnsRegex = new RegExp(
+    `(<!-- ${qnsStart} -->)([\\s\\S]*?)(<!-- ${qnsEnd} -->)`,
+  );
+
   const updatedText = readmeFile
-    .replace(
-      /(<!-- TABLE_OF_CONTENTS:START -->)([\s\S]*?)(<!-- TABLE_OF_CONTENTS:END -->)/,
-      `$1\n\n${qnTableOfContents}\n\n$3`,
-    )
-    .replace(
-      /(<!-- QUESTIONS:START -->)([\s\S]*?)(<!-- QUESTIONS:END -->)/,
-      `$1\n\n${qnAnswers}\n\n$3`,
-    );
+    .replace(tocRegex, `$1\n\n${qnTableOfContents}\n\n$3`)
+    .replace(qnsRegex, `$1\n\n${qnAnswers}\n\n$3`);
 
   fs.writeFileSync(README_PATH_EN, updatedText);
 }
 
-generate();
+async function generateAll() {
+  const qns = await readQuestionsList();
+  const featuredQns = qns.filter((qn) => qn.featured);
+  await generate(
+    featuredQns.map((qn) => qn.slug),
+    {
+      tocStart: 'TABLE_OF_CONTENTS:TOP:START',
+      tocEnd: 'TABLE_OF_CONTENTS:TOP:END',
+      qnsStart: 'QUESTIONS:TOP:START',
+      qnsEnd: 'QUESTIONS:TOP:END',
+      tableOfContentsAnchor: 'table-of-contents',
+      showLinkToGFE: true,
+    },
+  );
+
+  const nonFeaturedQns = qns.filter((qn) => !qn.featured);
+  await generate(
+    nonFeaturedQns.map((qn) => qn.slug),
+    {
+      tocStart: 'TABLE_OF_CONTENTS:ALL:START',
+      tocEnd: 'TABLE_OF_CONTENTS:ALL:END',
+      qnsStart: 'QUESTIONS:ALL:START',
+      qnsEnd: 'QUESTIONS:ALL:END',
+      tableOfContentsAnchor: 'table-of-contents-all',
+      showLinkToGFE: false,
+    },
+  );
+}
+
+generateAll();

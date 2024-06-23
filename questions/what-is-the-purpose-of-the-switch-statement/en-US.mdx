@@ -6,7 +6,7 @@ title: What is the purpose of the `switch` statement?
 
 The `switch` statement is used to execute one block of code among many based on the value of an expression. It is an alternative to using multiple `if...else if` statements. The `switch` statement evaluates an expression, matches the expression's value to a `case` label, and executes the associated block of code. If no `case` matches, the `default` block is executed.
 
-```javascript
+```js
 switch (expression) {
   case value1:
     // code to be executed if expression === value1
@@ -15,7 +15,7 @@ switch (expression) {
     // code to be executed if expression === value2
     break;
   default:
-    // code to be executed if no case matches
+  // code to be executed if no case matches
 }
 ```
 
@@ -31,7 +31,7 @@ The `switch` statement provides a cleaner and more readable way to handle multip
 
 The basic syntax of a `switch` statement is as follows:
 
-```javascript
+```js
 switch (expression) {
   case value1:
     // code to be executed if expression === value1
@@ -41,7 +41,7 @@ switch (expression) {
     break;
   // more cases...
   default:
-    // code to be executed if no case matches
+  // code to be executed if no case matches
 }
 ```
 
@@ -57,7 +57,7 @@ switch (expression) {
 
 Here is an example of a `switch` statement in action:
 
-```javascript
+```js
 let fruit = 'apple';
 
 switch (fruit) {
@@ -81,7 +81,7 @@ In this example, the output will be `Apple is red.` because the value of `fruit`
 
 If the `break` statement is omitted, the `switch` statement will continue to execute the subsequent `case` blocks until it encounters a `break` or the end of the `switch` block. This is known as fall-through behavior.
 
-```javascript
+```js
 let day = 2;
 
 switch (day) {
@@ -110,4 +110,3 @@ This happens because there are no `break` statements to stop the execution after
 
 - [MDN Web Docs: switch statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
 - [JavaScript.info: switch statement](https://javascript.info/switch)
-

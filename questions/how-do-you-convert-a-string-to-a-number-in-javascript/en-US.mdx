@@ -14,11 +14,11 @@ In JavaScript, you can convert a string to a number using several methods. The m
 
 The `Number()` function converts a string to a number. It can handle both integer and floating-point numbers.
 
-```javascript
-let str = "123";
+```js
+let str = '123';
 let num = Number(str); // 123
 
-let floatStr = "123.45";
+let floatStr = '123.45';
 let floatNum = Number(floatStr); // 123.45
 ```
 
@@ -26,14 +26,14 @@ let floatNum = Number(floatStr); // 123.45
 
 The `parseInt()` function parses a string and returns an integer. It can also take a second argument, the radix (base) of the numeral system to be used.
 
-```javascript
-let str = "123";
+```js
+let str = '123';
 let num = parseInt(str); // 123
 
-let floatStr = "123.45";
+let floatStr = '123.45';
 let floatNum = parseInt(floatStr); // 123
 
-let binaryStr = "1010";
+let binaryStr = '1010';
 let binaryNum = parseInt(binaryStr, 2); // 10
 ```
 
@@ -41,8 +41,8 @@ let binaryNum = parseInt(binaryStr, 2); // 10
 
 The `parseFloat()` function parses a string and returns a floating-point number.
 
-```javascript
-let floatStr = "123.45";
+```js
+let floatStr = '123.45';
 let floatNum = parseFloat(floatStr); // 123.45
 ```
 
@@ -50,11 +50,11 @@ let floatNum = parseFloat(floatStr); // 123.45
 
 The unary plus operator can be used to convert a string to a number. It is a shorthand method and works for both integers and floating-point numbers.
 
-```javascript
-let str = "123";
+```js
+let str = '123';
 let num = +str; // 123
 
-let floatStr = "123.45";
+let floatStr = '123.45';
 let floatNum = +floatStr; // 123.45
 ```
 
@@ -62,8 +62,8 @@ let floatNum = +floatStr; // 123.45
 
 If the string cannot be converted to a number, these methods will return `NaN` (Not-a-Number).
 
-```javascript
-let invalidStr = "abc";
+```js
+let invalidStr = 'abc';
 let num = Number(invalidStr); // NaN
 let intNum = parseInt(invalidStr); // NaN
 let floatNum = parseFloat(invalidStr); // NaN
@@ -76,4 +76,3 @@ let unaryNum = +invalidStr; // NaN
 - [MDN Web Docs: parseInt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
 - [MDN Web Docs: parseFloat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat)
 - [MDN Web Docs: Unary plus (+)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_plus)
-

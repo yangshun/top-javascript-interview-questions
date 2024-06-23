@@ -4,7 +4,7 @@ Curated top JavaScript interview questions with high quality answers for acing y
 
 ## Table of Contents
 
-<!-- TABLE_OF_CONTENTS:START -->
+<!-- TABLE_OF_CONTENTS:TOP:START -->
 
 | No. | Questions |
 | --- | --------- |
@@ -59,11 +59,186 @@ Curated top JavaScript interview questions with high quality answers for acing y
 | 49 | [What are workers in JavaScript used for?](#what-are-workers-in-javascript-used-for) |
 | 50 | [How does JavaScript garbage collection work?](#how-does-javascript-garbage-collection-work) |
 
-<!-- TABLE_OF_CONTENTS:END -->
+<!-- TABLE_OF_CONTENTS:TOP:END -->
 
-## Questions with answers
+## Table of Contents (All)
 
-<!-- QUESTIONS:START -->
+<!-- TABLE_OF_CONTENTS:ALL:START -->
+
+| No. | Questions |
+| --- | --------- |
+| 1 | [Explain the concept of a callback function in asynchronous operations.](#explain-the-concept-of-a-callback-function-in-asynchronous-operations) |
+| 2 | [Explain the concept of a microtask queue.](#explain-the-concept-of-a-microtask-queue) |
+| 3 | [Explain the concept of caching and how it can be used to improve performance.](#explain-the-concept-of-caching-and-how-it-can-be-used-to-improve-performance) |
+| 4 | [Explain the concept of classes in ES2015 and how they differ from constructor functions.](#explain-the-concept-of-classes-in-es2015-and-how-they-differ-from-constructor-functions) |
+| 5 | [Explain the concept of code coverage and how it can be used to assess test quality.](#explain-the-concept-of-code-coverage-and-how-it-can-be-used-to-assess-test-quality) |
+| 6 | [Explain the concept of Content Security Policy (CSP) and how it enhances security.](#explain-the-concept-of-content-security-policy-csp-and-how-it-enhances-security) |
+| 7 | [Explain the concept of Cross-Site Request Forgery (CSRF) and its mitigation techniques.](#explain-the-concept-of-cross-site-request-forgery-csrf-and-its-mitigation-techniques) |
+| 8 | [Explain the concept of debouncing and throttling.](#explain-the-concept-of-debouncing-and-throttling) |
+| 9 | [Explain the concept of destructuring assignment for objects and arrays.](#explain-the-concept-of-destructuring-assignment-for-objects-and-arrays) |
+| 10 | [Explain the concept of error propagation in JavaScript.](#explain-the-concept-of-error-propagation-in-javascript) |
+| 11 | [Explain the concept of event delegation.](#explain-the-concept-of-event-delegation) |
+| 12 | [Explain the concept of higher-order functions.](#explain-the-concept-of-higher-order-functions) |
+| 13 | [Explain the concept of hoisting with regards to functions.](#explain-the-concept-of-hoisting-with-regards-to-functions) |
+| 14 | [Explain the concept of inheritance in ES2015 classes.](#explain-the-concept-of-inheritance-in-es2015-classes) |
+| 15 | [Explain the concept of input validation and its importance in security.](#explain-the-concept-of-input-validation-and-its-importance-in-security) |
+| 16 | [Explain the concept of lazy loading and how it can improve performance.](#explain-the-concept-of-lazy-loading-and-how-it-can-improve-performance) |
+| 17 | [Explain the concept of lexical scoping.](#explain-the-concept-of-lexical-scoping) |
+| 18 | [Explain the concept of object prototypes and prototypal inheritance.](#explain-the-concept-of-object-prototypes-and-prototypal-inheritance) |
+| 19 | [Explain the concept of partial application.](#explain-the-concept-of-partial-application) |
+| 20 | [Explain the concept of prototypal inheritance in JavaScript.](#explain-the-concept-of-prototypal-inheritance-in-javascript) |
+| 21 | [Explain the concept of scope in JavaScript.](#explain-the-concept-of-scope-in-javascript) |
+| 22 | [Explain the concept of tagged templates.](#explain-the-concept-of-tagged-templates) |
+| 23 | [Explain the concept of test-driven development (TDD).](#explain-the-concept-of-test-driven-development-tdd) |
+| 24 | [Explain the concept of the Prototype pattern.](#explain-the-concept-of-the-prototype-pattern) |
+| 25 | [Explain the concept of the Singleton pattern.](#explain-the-concept-of-the-singleton-pattern) |
+| 26 | [Explain the concept of the spread operator and its uses.](#explain-the-concept-of-the-spread-operator-and-its-uses) |
+| 27 | [Explain the concept of the Strategy pattern.](#explain-the-concept-of-the-strategy-pattern) |
+| 28 | [Explain the concept of the Web Socket API.](#explain-the-concept-of-the-web-socket-api) |
+| 29 | [Explain the concept of `this` binding in event handlers.](#explain-the-concept-of-this-binding-in-event-handlers) |
+| 30 | [Explain the concept of tree shaking in module bundling.](#explain-the-concept-of-tree-shaking-in-module-bundling) |
+| 31 | [Explain the difference between `&&` and `||` operators.](#explain-the-difference-between--and--operators) |
+| 32 | [Explain the difference between classical inheritance and prototypal inheritance.](#explain-the-difference-between-classical-inheritance-and-prototypal-inheritance) |
+| 33 | [Explain the difference between CommonJS and ES modules.](#explain-the-difference-between-commonjs-and-es-modules) |
+| 34 | [Explain the difference between `document.querySelector()` and `document.getElementById()`.](#explain-the-difference-between-documentqueryselector-and-documentgetelementbyid) |
+| 35 | [Explain the difference between dot notation and bracket notation for accessing object properties.](#explain-the-difference-between-dot-notation-and-bracket-notation-for-accessing-object-properties) |
+| 36 | [Explain the difference between global scope, function scope, and block scope.](#explain-the-difference-between-global-scope-function-scope-and-block-scope) |
+| 37 | [Explain the difference between shallow copy and deep copy.](#explain-the-difference-between-shallow-copy-and-deep-copy) |
+| 38 | [Explain the difference between the `==` and `===` operators.](#explain-the-difference-between-the--and--operators) |
+| 39 | [Explain the difference between unit testing, integration testing, and end-to-end testing.](#explain-the-difference-between-unit-testing-integration-testing-and-end-to-end-testing) |
+| 40 | [Explain the difference in hoisting between `var`, `let`, and `const`.](#explain-the-difference-in-hoisting-between-var-let-and-const) |
+| 41 | [Explain the different states of a Promise.](#explain-the-different-states-of-a-promise) |
+| 42 | [Explain the different ways the `this` keyword can be bound.](#explain-the-different-ways-the-this-keyword-can-be-bound) |
+| 43 | [Explain the event phases in a browser](#explain-the-event-phases-in-a-browser) |
+| 44 | [Explain the Observer pattern and its use cases.](#explain-the-observer-pattern-and-its-use-cases) |
+| 45 | [Explain the purpose of the `localStorage`, `sessionStorage`, `IndexedDB` APIs.](#explain-the-purpose-of-the-localstorage-sessionstorage-indexeddb-apis) |
+| 46 | [How can closures be used to create private variables?](#how-can-closures-be-used-to-create-private-variables) |
+| 47 | [How can you avoid problems related to hoisting?](#how-can-you-avoid-problems-related-to-hoisting) |
+| 48 | [How can you create custom error objects?](#how-can-you-create-custom-error-objects) |
+| 49 | [How can you explicitly set the value of `this` using `call`, `apply`, and `bind`?](#how-can-you-explicitly-set-the-value-of-this-using-call-apply-and-bind) |
+| 50 | [How can you implement secure authentication and authorization in JavaScript applications?](#how-can-you-implement-secure-authentication-and-authorization-in-javascript-applications) |
+| 51 | [How can you optimize DOM manipulation for better performance?](#how-can-you-optimize-dom-manipulation-for-better-performance) |
+| 52 | [How can you optimize network requests for better performance?](#how-can-you-optimize-network-requests-for-better-performance) |
+| 53 | [How can you prevent clickjacking attacks?](#how-can-you-prevent-clickjacking-attacks) |
+| 54 | [How can you prevent SQL injection vulnerabilities in JavaScript applications?](#how-can-you-prevent-sql-injection-vulnerabilities-in-javascript-applications) |
+| 55 | [How can you test asynchronous code in JavaScript?](#how-can-you-test-asynchronous-code-in-javascript) |
+| 56 | [How do currying and partial application differ from each other?](#how-do-currying-and-partial-application-differ-from-each-other) |
+| 57 | [How do `<iframe>` on a page communicate?](#how-do-iframe-on-a-page-communicate) |
+| 58 | [How do `Map`s in JavaScript differ from `Object`s?](#how-do-maps-in-javascript-differ-from-objects) |
+| 59 | [How do `Set`s and `Map`s handle equality checks for objects?](#how-do-sets-and-maps-handle-equality-checks-for-objects) |
+| 60 | [How do you access the index of an element in an array during iteration?](#how-do-you-access-the-index-of-an-element-in-an-array-during-iteration) |
+| 61 | [How do you add, remove, and modify HTML elements using JavaScript?](#how-do-you-add-remove-and-modify-html-elements-using-javascript) |
+| 62 | [How do you add, remove, and update elements in an array?](#how-do-you-add-remove-and-update-elements-in-an-array) |
+| 63 | [How do you cancel a `fetch` request?](#how-do-you-cancel-a-fetch-request) |
+| 64 | [How do you check if an object has a specific property?](#how-do-you-check-if-an-object-has-a-specific-property) |
+| 65 | [How do you check the data type of a variable?](#how-do-you-check-the-data-type-of-a-variable) |
+| 66 | [How do you convert a `Set` to an array in JavaScript?](#how-do-you-convert-a-set-to-an-array-in-javascript) |
+| 67 | [How do you convert a string to a number in JavaScript?](#how-do-you-convert-a-string-to-a-number-in-javascript) |
+| 68 | [How do you create a constructor function?](#how-do-you-create-a-constructor-function) |
+| 69 | [How do you detect if JavaScript is disabled on a page?](#how-do-you-detect-if-javascript-is-disabled-on-a-page) |
+| 70 | [How do you get the query string values of the current page in JavaScript?](#how-do-you-get-the-query-string-values-of-the-current-page-in-javascript) |
+| 71 | [How do you handle errors in asynchronous operations?](#how-do-you-handle-errors-in-asynchronous-operations) |
+| 72 | [How do you handle errors using `try...catch` blocks?](#how-do-you-handle-errors-using-trycatch-blocks) |
+| 73 | [How do you import and export modules in JavaScript?](#how-do-you-import-and-export-modules-in-javascript) |
+| 74 | [How do you make an HTTP request using the Fetch API?](#how-do-you-make-an-http-request-using-the-fetch-api) |
+| 75 | [How do you manipulate CSS styles using JavaScript?](#how-do-you-manipulate-css-styles-using-javascript) |
+| 76 | [How do you prevent the default behavior of an event?](#how-do-you-prevent-the-default-behavior-of-an-event) |
+| 77 | [How do you redirect to a new page in JavaScript?](#how-do-you-redirect-to-a-new-page-in-javascript) |
+| 78 | [How do you reliably determine whether an object is empty?](#how-do-you-reliably-determine-whether-an-object-is-empty) |
+| 79 | [How do you use `window.history` API?](#how-do-you-use-windowhistory-api) |
+| 80 | [How do you validate form elements using the Constraint Validation API?](#how-do-you-validate-form-elements-using-the-constraint-validation-api) |
+| 81 | [How do you write unit tests for JavaScript code?](#how-do-you-write-unit-tests-for-javascript-code) |
+| 82 | [How does hoisting affect function declarations and expressions?](#how-does-hoisting-affect-function-declarations-and-expressions) |
+| 83 | [How does the `this` keyword behave in arrow functions?](#how-does-the-this-keyword-behave-in-arrow-functions) |
+| 84 | [How is `Promise.all()` different from `Promise.allSettled()`?](#how-is-promiseall-different-from-promiseallsettled) |
+| 85 | [Provide some examples of how currying and partial application can be used.](#provide-some-examples-of-how-currying-and-partial-application-can-be-used) |
+| 86 | [What are arrow functions and how do they differ from regular functions?](#what-are-arrow-functions-and-how-do-they-differ-from-regular-functions) |
+| 87 | [What are callback functions and how are they used?](#what-are-callback-functions-and-how-are-they-used) |
+| 88 | [What are closures and how are they used?](#what-are-closures-and-how-are-they-used) |
+| 89 | [What are default parameters and how are they used?](#what-are-default-parameters-and-how-are-they-used) |
+| 90 | [What are design patterns and why are they useful?](#what-are-design-patterns-and-why-are-they-useful) |
+| 91 | [What are destructuring assignments and how are they used with objects and arrays?](#what-are-destructuring-assignments-and-how-are-they-used-with-objects-and-arrays) |
+| 92 | [What are event listeners and how are they used?](#what-are-event-listeners-and-how-are-they-used) |
+| 93 | [What are global variables and why are they generally avoided?](#what-are-global-variables-and-why-are-they-generally-avoided) |
+| 94 | [What are mocks and stubs and how are they used in testing?](#what-are-mocks-and-stubs-and-how-are-they-used-in-testing) |
+| 95 | [What are modules and why are they useful?](#what-are-modules-and-why-are-they-useful) |
+| 96 | [What are polyfills used for?](#what-are-polyfills-used-for) |
+| 97 | [What are Progressive Web Applications (PWAs)?](#what-are-progressive-web-applications-pwas) |
+| 98 | [What are Promises and how do they work?](#what-are-promises-and-how-do-they-work) |
+| 99 | [What are rest parameters and how are they used?](#what-are-rest-parameters-and-how-are-they-used) |
+| 100 | [What are `Set`s and `Map`s and how are they used?](#what-are-sets-and-maps-and-how-are-they-used) |
+| 101 | [What are some best practices for handling sensitive data in JavaScript?](#what-are-some-best-practices-for-handling-sensitive-data-in-javascript) |
+| 102 | [What are some best practices for writing maintainable and effective tests?](#what-are-some-best-practices-for-writing-maintainable-and-effective-tests) |
+| 103 | [What are some common performance bottlenecks in JavaScript applications?](#what-are-some-common-performance-bottlenecks-in-javascript-applications) |
+| 104 | [What are some common security headers and their purpose?](#what-are-some-common-security-headers-and-their-purpose) |
+| 105 | [What are some popular JavaScript testing frameworks?](#what-are-some-popular-javascript-testing-frameworks) |
+| 106 | [What are some techniques for reducing reflows and repaints?](#what-are-some-techniques-for-reducing-reflows-and-repaints) |
+| 107 | [What are some tools and techniques for identifying security vulnerabilities in JavaScript code?](#what-are-some-tools-and-techniques-for-identifying-security-vulnerabilities-in-javascript-code) |
+| 108 | [What are some tools that can be used for JavaScript testing?](#what-are-some-tools-that-can-be-used-for-javascript-testing) |
+| 109 | [What are some tools that can be used to measure and analyze JavaScript performance?](#what-are-some-tools-that-can-be-used-to-measure-and-analyze-javascript-performance) |
+| 110 | [What are some use cases for using a `WeakSet` or `WeakMap` in JavaScript?](#what-are-some-use-cases-for-using-a-weakset-or-weakmap-in-javascript) |
+| 111 | [What are static methods in classes?](#what-are-static-methods-in-classes) |
+| 112 | [What are template literals and how are they used?](#what-are-template-literals-and-how-are-they-used) |
+| 113 | [What are the advantages of using Promises over callbacks?](#what-are-the-advantages-of-using-promises-over-callbacks) |
+| 114 | [What are the advantages of using the spread operator with arrays and objects?](#what-are-the-advantages-of-using-the-spread-operator-with-arrays-and-objects) |
+| 115 | [What are the benefits of using a module bundler?](#what-are-the-benefits-of-using-a-module-bundler) |
+| 116 | [What are the benefits of using currying and partial application?](#what-are-the-benefits-of-using-currying-and-partial-application) |
+| 117 | [What are the common pitfalls of using the `this` keyword?](#what-are-the-common-pitfalls-of-using-the-this-keyword) |
+| 118 | [What are the different methods for iterating over an array?](#what-are-the-different-methods-for-iterating-over-an-array) |
+| 119 | [What are the different types of errors in JavaScript?](#what-are-the-different-types-of-errors-in-javascript) |
+| 120 | [What are the different types of loops in JavaScript?](#what-are-the-different-types-of-loops-in-javascript) |
+| 121 | [What are the different types of testing in software development?](#what-are-the-different-types-of-testing-in-software-development) |
+| 122 | [What are the different ways to copy an object or an array?](#what-are-the-different-ways-to-copy-an-object-or-an-array) |
+| 123 | [What are the different ways to create an object in JavaScript?](#what-are-the-different-ways-to-create-an-object-in-javascript) |
+| 124 | [What are the different ways to make an API call in JavaScript?](#what-are-the-different-ways-to-make-an-api-call-in-javascript) |
+| 125 | [What are the metadata fields of a module?](#what-are-the-metadata-fields-of-a-module) |
+| 126 | [What are the potential issues caused by hoisting?](#what-are-the-potential-issues-caused-by-hoisting) |
+| 127 | [What are the potential pitfalls of using closures?](#what-are-the-potential-pitfalls-of-using-closures) |
+| 128 | [What are the primitive data types in JavaScript?](#what-are-the-primitive-data-types-in-javascript) |
+| 129 | [What are Web Workers and how can they be used?](#what-are-web-workers-and-how-can-they-be-used) |
+| 130 | [What are Web Workers and how can they be used to improve performance?](#what-are-web-workers-and-how-can-they-be-used-to-improve-performance) |
+| 131 | [What is a closure and how does it work?](#what-is-a-closure-and-how-does-it-work) |
+| 132 | [What is a function declaration and how does it differ from a function expression?](#what-is-a-function-declaration-and-how-does-it-differ-from-a-function-expression) |
+| 133 | [What is async/await and how does it simplify asynchronous code?](#what-is-asyncawait-and-how-does-it-simplify-asynchronous-code) |
+| 134 | [What is Cross-Site Scripting (XSS) and how can you prevent it?](#what-is-cross-site-scripting-xss-and-how-can-you-prevent-it) |
+| 135 | [What is currying and how does it work?](#what-is-currying-and-how-does-it-work) |
+| 136 | [What is event bubbling and capturing?](#what-is-event-bubbling-and-capturing) |
+| 137 | [What is hoisting in JavaScript?](#what-is-hoisting-in-javascript) |
+| 138 | [What is `Object.freeze()` for?](#what-is-objectfreeze-for) |
+| 139 | [What is `Object.preventExtensions()` for?](#what-is-objectpreventextensions-for) |
+| 140 | [What is `Object.seal()` for?](#what-is-objectseal-for) |
+| 141 | [What is recursion and how is it used in JavaScript?](#what-is-recursion-and-how-is-it-used-in-javascript) |
+| 142 | [What is the Command pattern and how is it used?](#what-is-the-command-pattern-and-how-is-it-used) |
+| 143 | [What is the Decorator pattern and how is it used?](#what-is-the-decorator-pattern-and-how-is-it-used) |
+| 144 | [What is the difference between a parameter and an argument?](#what-is-the-difference-between-a-parameter-and-an-argument) |
+| 145 | [What is the difference between document `load` and `DOMContentLoaded` events](#what-is-the-difference-between-document-load-and-domcontentloaded-events) |
+| 146 | [What is the difference between `event.preventDefault()` and `event.stopPropagation()`?](#what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation) |
+| 147 | [What is the difference between `for...in` and `for...of` loops?](#what-is-the-difference-between-forin-and-forof-loops) |
+| 148 | [What is the difference between `innerHTML` and `textContent`?](#what-is-the-difference-between-innerhtml-and-textcontent) |
+| 149 | [What is the difference between `null` and `undefined`?](#what-is-the-difference-between-null-and-undefined) |
+| 150 | [What is the difference between `setTimeout()`, `setImmediate()`, and `process.nextTick()`?](#what-is-the-difference-between-settimeout-setimmediate-and-processnexttick) |
+| 151 | [What is the difference between synchronous and asynchronous code?](#what-is-the-difference-between-synchronous-and-asynchronous-code) |
+| 152 | [What is the difference between the Window object and the Document object?](#what-is-the-difference-between-the-window-object-and-the-document-object) |
+| 153 | [What is the DOM and how is it structured?](#what-is-the-dom-and-how-is-it-structured) |
+| 154 | [What is the event loop and how does it relate to asynchronous JavaScript?](#what-is-the-event-loop-and-how-does-it-relate-to-asynchronous-javascript) |
+| 155 | [What is the Factory pattern and how is it used?](#what-is-the-factory-pattern-and-how-is-it-used) |
+| 156 | [What is the `Intl` namespace object for?](#what-is-the-intl-namespace-object-for) |
+| 157 | [What is the Module pattern and how does it help with encapsulation?](#what-is-the-module-pattern-and-how-does-it-help-with-encapsulation) |
+| 158 | [What is the prototype chain and how does it work?](#what-is-the-prototype-chain-and-how-does-it-work) |
+| 159 | [What is the purpose of the `break` and `continue` statements?](#what-is-the-purpose-of-the-break-and-continue-statements) |
+| 160 | [What is the purpose of the `finally` block?](#what-is-the-purpose-of-the-finally-block) |
+| 161 | [What is the purpose of the `new` keyword?](#what-is-the-purpose-of-the-new-keyword) |
+| 162 | [What is the purpose of the `switch` statement?](#what-is-the-purpose-of-the-switch-statement) |
+| 163 | [What is the spread operator and how is it used?](#what-is-the-spread-operator-and-how-is-it-used) |
+| 164 | [What is the ternary operator and how is it used?](#what-is-the-ternary-operator-and-how-is-it-used) |
+| 165 | [What is the `this` keyword and how does its context change?](#what-is-the-this-keyword-and-how-does-its-context-change) |
+| 166 | [What is the use of `Promise.all()`](#what-is-the-use-of-promiseall) |
+
+<!-- TABLE_OF_CONTENTS:ALL:END -->
+
+## Top Questions with Answers
+
+<!-- QUESTIONS:TOP:START -->
 
 1. ### Explain the concept of "hoisting" in JavaScript
 
@@ -91,10 +266,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/explain-hoisting/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-hoisting) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-hoisting/en-US.mdx)
+  
     <br>
     <br>
 
@@ -115,10 +291,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-the-differences-between-variables-created-using-let-var-or-const/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-variables-created-using-let-var-or-const) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-differences-between-variables-created-using-let-var-or-const/en-US.mdx)
+  
     <br>
     <br>
 
@@ -137,10 +314,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-is-the-difference-between-double-equal-and-triple-equal/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-the-difference-between-double-equal-and-triple-equal) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-double-equal-and-triple-equal/en-US.mdx)
+  
     <br>
     <br>
 
@@ -171,10 +349,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue/en-US.mdx)
+  
     <br>
     <br>
 
@@ -198,10 +377,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/explain-event-delegation/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-event-delegation) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-event-delegation/en-US.mdx)
+  
     <br>
     <br>
 
@@ -226,10 +406,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/explain-how-this-works-in-javascript/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-how-this-works-in-javascript) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-how-this-works-in-javascript/en-US.mdx)
+  
     <br>
     <br>
 
@@ -258,10 +439,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/en-US.mdx)
+  
     <br>
     <br>
 
@@ -286,10 +468,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/describe-the-difference-between-script-async-and-script-defer/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/describe-the-difference-between-script-async-and-script-defer) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-the-difference-between-script-async-and-script-defer/en-US.mdx)
+  
     <br>
     <br>
 
@@ -306,10 +489,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states/en-US.mdx)
+  
     <br>
     <br>
 
@@ -336,10 +520,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/whats-the-difference-between-call-and-apply/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/whats-the-difference-between-call-and-apply) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/whats-the-difference-between-call-and-apply/en-US.mdx)
+  
     <br>
     <br>
 
@@ -358,10 +543,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/explain-function-prototype-bind/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-function-prototype-bind) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-function-prototype-bind/en-US.mdx)
+  
     <br>
     <br>
 
@@ -412,10 +598,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor/en-US.mdx)
+  
     <br>
     <br>
 
@@ -472,10 +659,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/explain-how-prototypal-inheritance-works/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-how-prototypal-inheritance-works) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-how-prototypal-inheritance-works/en-US.mdx)
+  
     <br>
     <br>
 
@@ -497,10 +685,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/difference-between-function-person-var-person-person-and-var-person-new-person) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx)
+  
     <br>
     <br>
 
@@ -544,10 +733,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/en-US.mdx)
+  
     <br>
     <br>
 
@@ -586,10 +776,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/whats-a-typical-use-case-for-anonymous-functions/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/whats-a-typical-use-case-for-anonymous-functions) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/whats-a-typical-use-case-for-anonymous-functions/en-US.mdx)
+  
     <br>
     <br>
 
@@ -608,10 +799,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-the-various-ways-to-create-objects-in-javascript/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-various-ways-to-create-objects-in-javascript) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-various-ways-to-create-objects-in-javascript/en-US.mdx)
+  
     <br>
     <br>
 
@@ -651,10 +843,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-is-a-closure-and-how-why-would-you-use-one/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-a-closure-and-how-why-would-you-use-one) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-a-closure-and-how-why-would-you-use-one/en-US.mdx)
+  
     <br>
     <br>
 
@@ -699,10 +892,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-is-the-definition-of-a-higher-order-function/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-the-definition-of-a-higher-order-function) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-definition-of-a-higher-order-function/en-US.mdx)
+  
     <br>
     <br>
 
@@ -766,10 +960,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-the-differences-between-es6-class-and-es5-function-constructors/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-es6-class-and-es5-function-constructors) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-differences-between-es6-class-and-es5-function-constructors/en-US.mdx)
+  
     <br>
     <br>
 
@@ -784,10 +979,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/describe-event-bubbling/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/describe-event-bubbling) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-event-bubbling/en-US.mdx)
+  
     <br>
     <br>
 
@@ -802,10 +998,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/describe-event-capturing/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/describe-event-capturing) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-event-capturing/en-US.mdx)
+  
     <br>
     <br>
 
@@ -827,10 +1024,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-is-the-difference-between-mouseenter-and-mouseover-event/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-the-difference-between-mouseenter-and-mouseover-event) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-mouseenter-and-mouseover-event/en-US.mdx)
+  
     <br>
     <br>
 
@@ -861,10 +1059,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it/en-US.mdx)
+  
     <br>
     <br>
 
@@ -914,10 +1113,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-the-difference-between-synchronous-and-asynchronous-functions) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx)
+  
     <br>
     <br>
 
@@ -930,10 +1130,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks/en-US.mdx)
+  
     <br>
     <br>
 
@@ -977,10 +1178,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/explain-ajax-in-as-much-detail-as-possible/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-ajax-in-as-much-detail-as-possible) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-ajax-in-as-much-detail-as-possible/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1006,10 +1208,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-the-advantages-and-disadvantages-of-using-ajax/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-advantages-and-disadvantages-of-using-ajax/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1032,10 +1235,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-the-differences-between-xmlhttprequest-and-fetch/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-xmlhttprequest-and-fetch) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-differences-between-xmlhttprequest-and-fetch/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1074,10 +1278,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/how-do-you-abort-a-web-request-using-abortcontrollers/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/how-do-you-abort-a-web-request-using-abortcontrollers) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-abort-a-web-request-using-abortcontrollers/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1113,10 +1318,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-javascript-polyfills-for/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-javascript-polyfills-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-javascript-polyfills-for/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1131,10 +1337,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/why-is-extending-built-in-javascript-objects-not-a-good-idea) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1161,10 +1368,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1213,10 +1421,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/explain-the-differences-between-commonjs-modules-and-es-modules/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-the-differences-between-commonjs-modules-and-es-modules) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-differences-between-commonjs-modules-and-es-modules/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1251,10 +1460,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-the-various-data-types-in-javascript/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-various-data-types-in-javascript) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-various-data-types-in-javascript/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1340,10 +1550,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1374,10 +1585,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1445,10 +1657,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-iterators-and-generators-and-what-are-they-used-for/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-iterators-and-generators-and-what-are-they-used-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-iterators-and-generators-and-what-are-they-used-for/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1491,10 +1704,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-the-difference-between-mutable-and-immutable-objects) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1517,10 +1731,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1564,10 +1779,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-the-differences-between-map-set-and-weakmap-weakset/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-map-set-and-weakmap-weakset) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-differences-between-map-set-and-weakmap-weakset/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1597,10 +1813,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/why-you-might-want-to-create-static-class-members/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/why-you-might-want-to-create-static-class-members) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/why-you-might-want-to-create-static-class-members/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1629,10 +1846,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-symbols-used-for/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-symbols-used-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-symbols-used-for/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1706,10 +1924,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-server-sent-events/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-server-sent-events) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-server-sent-events/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1741,10 +1960,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-javascript-object-property-flags-and-descriptors) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1791,10 +2011,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-javascript-object-getters-and-setters-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1842,10 +2063,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-proxies-in-javascript-used-for/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-proxies-in-javascript-used-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-proxies-in-javascript-used-for/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1876,10 +2098,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-tools-and-techniques-do-you-use-for-debugging-javascript-code/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-tools-and-techniques-do-you-use-for-debugging-javascript-code) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-tools-and-techniques-do-you-use-for-debugging-javascript-code/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1912,10 +2135,11 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/what-are-workers-in-javascript-used-for/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-workers-in-javascript-used-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-workers-in-javascript-used-for/en-US.mdx)
+  
     <br>
     <br>
 
@@ -1943,12 +2167,3878 @@ Curated top JavaScript interview questions with high quality answers for acing y
     <!-- Update here: /questions/how-does-javascript-garbage-collection-work/en-US.mdx -->
 
     <br>
-
+    
     > Read the [detailed answer](https://greatfrontend.com/questions/quiz/how-does-javascript-garbage-collection-work) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
     [Back to top ↑](#table-of-contents) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-does-javascript-garbage-collection-work/en-US.mdx)
+  
     <br>
     <br>
 
 
-<!-- QUESTIONS:END -->
+<!-- QUESTIONS:TOP:END -->
+
+## All Questions with Answers
+
+<!-- QUESTIONS:ALL:START -->
+
+1. ### Explain the concept of a callback function in asynchronous operations.
+
+    <!-- Update here: /questions/explain-the-concept-of-a-callback-function-in-asynchronous-operations/en-US.mdx -->
+
+    A callback function is a function passed as an argument to another function, which is then invoked inside the outer function to complete some kind of routine or action. In asynchronous operations, callbacks are used to handle tasks that take time to complete, such as network requests or file I/O, without blocking the execution of the rest of the code. For example:
+    
+    ```js
+    function fetchData(callback) {
+      setTimeout(() => {
+        const data = { name: 'John', age: 30 };
+        callback(data);
+      }, 1000);
+    }
+    
+    fetchData((data) => {
+      console.log(data);
+    });
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-a-callback-function-in-asynchronous-operations/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-a-callback-function-in-asynchronous-operations/en-US.mdx)
+  
+    <br>
+    <br>
+
+2. ### Explain the concept of a microtask queue.
+
+    <!-- Update here: /questions/explain-the-concept-of-a-microtask-queue/en-US.mdx -->
+
+    The microtask queue is a queue of tasks that need to be executed after the currently executing script and before any other task. Microtasks are typically used for tasks that need to be executed immediately after the current operation, such as promise callbacks. The microtask queue is processed before the macrotask queue, ensuring that microtasks are executed as soon as possible.
+
+    <!-- Update here: /questions/explain-the-concept-of-a-microtask-queue/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-a-microtask-queue/en-US.mdx)
+  
+    <br>
+    <br>
+
+3. ### Explain the concept of caching and how it can be used to improve performance.
+
+    <!-- Update here: /questions/explain-the-concept-of-caching-and-how-it-can-be-used-to-improve-performance/en-US.mdx -->
+
+    Caching is a technique used to store copies of files or data in a temporary storage location to reduce the time it takes to access them. It improves performance by reducing the need to fetch data from the original source repeatedly. In front end development, caching can be implemented using browser cache, service workers, and HTTP headers like `Cache-Control`.
+
+    <!-- Update here: /questions/explain-the-concept-of-caching-and-how-it-can-be-used-to-improve-performance/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-caching-and-how-it-can-be-used-to-improve-performance/en-US.mdx)
+  
+    <br>
+    <br>
+
+4. ### Explain the concept of classes in ES2015 and how they differ from constructor functions.
+
+    <!-- Update here: /questions/explain-the-concept-of-classes-in-es2015-and-how-they-differ-from-constructor-functions/en-US.mdx -->
+
+    In ES2015, classes provide a more intuitive and cleaner syntax for creating objects and handling inheritance compared to constructor functions. Classes use the `class` keyword and include methods like `constructor` for initialization. Unlike constructor functions, classes support inheritance using the `extends` keyword and the `super` function to call parent class methods.
+    
+    ```js
+    class Animal {
+      constructor(name) {
+        this.name = name;
+      }
+    
+      speak() {
+        console.log(`${this.name} makes a noise.`);
+      }
+    }
+    
+    class Dog extends Animal {
+      speak() {
+        console.log(`${this.name} barks.`);
+      }
+    }
+    
+    const dog = new Dog('Rex');
+    dog.speak(); // Rex barks.
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-classes-in-es2015-and-how-they-differ-from-constructor-functions/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-classes-in-es2015-and-how-they-differ-from-constructor-functions/en-US.mdx)
+  
+    <br>
+    <br>
+
+5. ### Explain the concept of code coverage and how it can be used to assess test quality.
+
+    <!-- Update here: /questions/explain-the-concept-of-code-coverage-and-how-it-can-be-used-to-assess-test-quality/en-US.mdx -->
+
+    Code coverage is a metric that measures the percentage of code that is executed when the test suite runs. It helps in assessing the quality of tests by identifying untested parts of the codebase. Higher code coverage generally indicates more thorough testing, but it doesn't guarantee the absence of bugs. Tools like Istanbul or Jest can be used to measure code coverage.
+
+    <!-- Update here: /questions/explain-the-concept-of-code-coverage-and-how-it-can-be-used-to-assess-test-quality/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-code-coverage-and-how-it-can-be-used-to-assess-test-quality/en-US.mdx)
+  
+    <br>
+    <br>
+
+6. ### Explain the concept of Content Security Policy (CSP) and how it enhances security.
+
+    <!-- Update here: /questions/explain-the-concept-of-content-security-policy-csp-and-how-it-enhances-security/en-US.mdx -->
+
+    Content Security Policy (CSP) is a security feature that helps prevent various types of attacks, such as Cross-Site Scripting (XSS) and data injection attacks, by specifying which content sources are trusted. It works by allowing developers to define a whitelist of trusted sources for content like scripts, styles, and images. This is done through HTTP headers or meta tags. For example, you can use the `Content-Security-Policy` header to specify that only scripts from your own domain should be executed:
+    
+    ```http
+    Content-Security-Policy: script-src 'self'
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-content-security-policy-csp-and-how-it-enhances-security/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-content-security-policy-csp-and-how-it-enhances-security/en-US.mdx)
+  
+    <br>
+    <br>
+
+7. ### Explain the concept of Cross-Site Request Forgery (CSRF) and its mitigation techniques.
+
+    <!-- Update here: /questions/explain-the-concept-of-cross-site-request-forgery-csrf-and-its-mitigation-techniques/en-US.mdx -->
+
+    Cross-Site Request Forgery (CSRF) is an attack where a malicious website tricks a user's browser into making an unwanted request to another site where the user is authenticated. This can lead to unauthorized actions being performed on behalf of the user. Mitigation techniques include using anti-CSRF tokens, SameSite cookies, and ensuring proper CORS configurations.
+
+    <!-- Update here: /questions/explain-the-concept-of-cross-site-request-forgery-csrf-and-its-mitigation-techniques/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-cross-site-request-forgery-csrf-and-its-mitigation-techniques/en-US.mdx)
+  
+    <br>
+    <br>
+
+8. ### Explain the concept of debouncing and throttling.
+
+    <!-- Update here: /questions/explain-the-concept-of-debouncing-and-throttling/en-US.mdx -->
+
+    Debouncing and throttling are techniques used to control the rate at which a function is executed. Debouncing ensures that a function is only called after a specified delay has passed since the last time it was invoked. Throttling ensures that a function is called at most once in a specified time interval.
+    
+    Debouncing delays the execution of a function until a certain amount of time has passed since it was last called. This is useful for scenarios like search input fields where you want to wait until the user has stopped typing before making an API call.
+    
+    ```js
+    function debounce(func, delay) {
+      let timeoutId;
+      return function (...args) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func.apply(this, args), delay);
+      };
+    }
+    ```
+    
+    Throttling ensures that a function is called at most once in a specified time interval. This is useful for scenarios like window resizing or scrolling where you want to limit the number of times a function is called.
+    
+    ```js
+    function throttle(func, limit) {
+      let inThrottle;
+      return function (...args) {
+        if (!inThrottle) {
+          func.apply(this, args);
+          inThrottle = true;
+          setTimeout(() => (inThrottle = false), limit);
+        }
+      };
+    }
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-debouncing-and-throttling/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-debouncing-and-throttling/en-US.mdx)
+  
+    <br>
+    <br>
+
+9. ### Explain the concept of destructuring assignment for objects and arrays.
+
+    <!-- Update here: /questions/explain-the-concept-of-destructuring-assignment-for-objects-and-arrays/en-US.mdx -->
+
+    Destructuring assignment is a syntax in JavaScript that allows you to unpack values from arrays or properties from objects into distinct variables. For arrays, you use square brackets, and for objects, you use curly braces. For example:
+    
+    ```js
+    // Array destructuring
+    const [a, b] = [1, 2];
+    
+    // Object destructuring
+    const { name, age } = { name: 'John', age: 30 };
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-destructuring-assignment-for-objects-and-arrays/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-destructuring-assignment-for-objects-and-arrays/en-US.mdx)
+  
+    <br>
+    <br>
+
+10. ### Explain the concept of error propagation in JavaScript.
+
+    <!-- Update here: /questions/explain-the-concept-of-error-propagation-in-javascript/en-US.mdx -->
+
+    Error propagation in JavaScript refers to how errors are passed through the call stack. When an error occurs in a function, it can be caught and handled using `try...catch` blocks. If not caught, the error propagates up the call stack until it is either caught or causes the program to terminate. For example:
+    
+    ```js
+    function a() {
+      throw new Error('An error occurred');
+    }
+    
+    function b() {
+      a();
+    }
+    
+    try {
+      b();
+    } catch (e) {
+      console.error(e.message); // Outputs: An error occurred
+    }
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-error-propagation-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-error-propagation-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+11. ### Explain the concept of event delegation.
+
+    <!-- Update here: /questions/explain-the-concept-of-event-delegation/en-US.mdx -->
+
+    Event delegation is a technique in JavaScript where you add a single event listener to a parent element instead of multiple event listeners to individual child elements. This works because events bubble up from the target element to the parent elements. By using event delegation, you can manage events more efficiently and reduce memory usage.
+    
+    ```js
+    document.getElementById('parent').addEventListener('click', function (event) {
+      if (event.target && event.target.matches('button')) {
+        console.log('Button clicked:', event.target);
+      }
+    });
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-event-delegation/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-event-delegation/en-US.mdx)
+  
+    <br>
+    <br>
+
+12. ### Explain the concept of higher-order functions.
+
+    <!-- Update here: /questions/explain-the-concept-of-higher-order-functions/en-US.mdx -->
+
+    Higher-order functions are functions that can take other functions as arguments or return them as results. They are a key feature of JavaScript and enable powerful programming patterns like callbacks, function composition, and currying. For example, `Array.prototype.map` is a higher-order function because it takes a function as an argument and applies it to each element in the array.
+    
+    ```js
+    const numbers = [1, 2, 3];
+    const doubled = numbers.map((num) => num * 2); // [2, 4, 6]
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-higher-order-functions/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-higher-order-functions/en-US.mdx)
+  
+    <br>
+    <br>
+
+13. ### Explain the concept of hoisting with regards to functions.
+
+    <!-- Update here: /questions/explain-the-concept-of-hoisting-with-regards-to-functions/en-US.mdx -->
+
+    Hoisting in JavaScript is a behavior where function declarations are moved to the top of their containing scope during the compile phase. This means you can call a function before it is defined in the code. However, this does not apply to function expressions or arrow functions, which are not hoisted in the same way.
+    
+    ```js
+    // Function declaration
+    hoistedFunction(); // Works fine
+    function hoistedFunction() {
+      console.log('This function is hoisted');
+    }
+    
+    // Function expression
+    nonHoistedFunction(); // Throws an error
+    var nonHoistedFunction = function () {
+      console.log('This function is not hoisted');
+    };
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-hoisting-with-regards-to-functions/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-hoisting-with-regards-to-functions/en-US.mdx)
+  
+    <br>
+    <br>
+
+14. ### Explain the concept of inheritance in ES2015 classes.
+
+    <!-- Update here: /questions/explain-the-concept-of-inheritance-in-es2015-classes/en-US.mdx -->
+
+    Inheritance in ES2015 classes allows one class to extend another, enabling the child class to inherit properties and methods from the parent class. This is done using the `extends` keyword. The `super` keyword is used to call the constructor and methods of the parent class. Here's a quick example:
+    
+    ```js
+    class Animal {
+      constructor(name) {
+        this.name = name;
+      }
+    
+      speak() {
+        console.log(`${this.name} makes a noise.`);
+      }
+    }
+    
+    class Dog extends Animal {
+      constructor(name, breed) {
+        super(name);
+        this.breed = breed;
+      }
+    
+      speak() {
+        console.log(`${this.name} barks.`);
+      }
+    }
+    
+    const dog = new Dog('Rex', 'German Shepherd');
+    dog.speak(); // Rex barks.
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-inheritance-in-es2015-classes/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-inheritance-in-es2015-classes/en-US.mdx)
+  
+    <br>
+    <br>
+
+15. ### Explain the concept of input validation and its importance in security.
+
+    <!-- Update here: /questions/explain-the-concept-of-input-validation-and-its-importance-in-security/en-US.mdx -->
+
+    Input validation is the process of ensuring that user input is correct, safe, and meets the application's requirements. It is crucial for security because it helps prevent attacks like SQL injection, cross-site scripting (XSS), and other forms of data manipulation. By validating input, you ensure that only properly formatted data enters your system, reducing the risk of malicious data causing harm.
+
+    <!-- Update here: /questions/explain-the-concept-of-input-validation-and-its-importance-in-security/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-input-validation-and-its-importance-in-security/en-US.mdx)
+  
+    <br>
+    <br>
+
+16. ### Explain the concept of lazy loading and how it can improve performance.
+
+    <!-- Update here: /questions/explain-the-concept-of-lazy-loading-and-how-it-can-improve-performance/en-US.mdx -->
+
+    Lazy loading is a design pattern that delays the loading of resources until they are actually needed. This can significantly improve performance by reducing initial load times and conserving bandwidth. For example, images on a webpage can be lazy-loaded so that they only load when they come into the viewport. This can be achieved using the `loading="lazy"` attribute in HTML or by using JavaScript libraries.
+    
+    ```html
+    <img src="image.jpg" loading="lazy" alt="Lazy loaded image" />
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-lazy-loading-and-how-it-can-improve-performance/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-lazy-loading-and-how-it-can-improve-performance/en-US.mdx)
+  
+    <br>
+    <br>
+
+17. ### Explain the concept of lexical scoping.
+
+    <!-- Update here: /questions/explain-the-concept-of-lexical-scoping/en-US.mdx -->
+
+    Lexical scoping means that the scope of a variable is determined by its location within the source code, and nested functions have access to variables declared in their outer scope. For example:
+    
+    ```js
+    function outerFunction() {
+      let outerVariable = 'I am outside!';
+    
+      function innerFunction() {
+        console.log(outerVariable); // 'I am outside!'
+      }
+    
+      innerFunction();
+    }
+    
+    outerFunction();
+    ```
+    
+    In this example, `innerFunction` can access `outerVariable` because of lexical scoping.
+
+    <!-- Update here: /questions/explain-the-concept-of-lexical-scoping/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-lexical-scoping/en-US.mdx)
+  
+    <br>
+    <br>
+
+18. ### Explain the concept of object prototypes and prototypal inheritance.
+
+    <!-- Update here: /questions/explain-the-concept-of-object-prototypes-and-prototypal-inheritance/en-US.mdx -->
+
+    In JavaScript, every object has a prototype, which is another object it inherits properties and methods from. This is known as prototypal inheritance. When you try to access a property on an object, JavaScript will first look for the property on the object itself. If it doesn't find it, it will look at the object's prototype, and so on up the prototype chain until it either finds the property or reaches the end of the chain.
+    
+    ```js
+    function Person(name) {
+      this.name = name;
+    }
+    
+    Person.prototype.greet = function () {
+      console.log(`Hello, my name is ${this.name}`);
+    };
+    
+    const alice = new Person('Alice');
+    alice.greet(); // "Hello, my name is Alice"
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-object-prototypes-and-prototypal-inheritance/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-object-prototypes-and-prototypal-inheritance/en-US.mdx)
+  
+    <br>
+    <br>
+
+19. ### Explain the concept of partial application.
+
+    <!-- Update here: /questions/explain-the-concept-of-partial-application/en-US.mdx -->
+
+    Partial application is a technique in functional programming where a function is applied to some of its arguments, producing a new function that takes the remaining arguments. This allows you to create more specific functions from general ones. For example, if you have a function `add(a, b)`, you can partially apply it to create a new function `add5` that always adds 5 to its argument.
+    
+    ```js
+    function add(a, b) {
+      return a + b;
+    }
+    
+    const add5 = add.bind(null, 5);
+    console.log(add5(10)); // Outputs 15
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-partial-application/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-partial-application/en-US.mdx)
+  
+    <br>
+    <br>
+
+20. ### Explain the concept of prototypal inheritance in JavaScript.
+
+    <!-- Update here: /questions/explain-the-concept-of-prototypal-inheritance-in-javascript/en-US.mdx -->
+
+    Prototypal inheritance in JavaScript is a feature that allows objects to inherit properties and methods from other objects. This is achieved through the prototype chain, where an object can have a prototype object, and that prototype object can have its own prototype, and so on. This chain allows for property and method sharing across objects. For example:
+    
+    ```js
+    const parent = {
+      greet() {
+        console.log('Hello');
+      },
+    };
+    
+    const child = Object.create(parent);
+    child.greet(); // Outputs: Hello
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-prototypal-inheritance-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-prototypal-inheritance-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+21. ### Explain the concept of scope in JavaScript.
+
+    <!-- Update here: /questions/explain-the-concept-of-scope-in-javascript/en-US.mdx -->
+
+    In JavaScript, scope determines the accessibility of variables and functions at different parts of the code. There are three main types of scope: global scope, function scope, and block scope. Global scope means the variable is accessible everywhere in the code. Function scope means the variable is accessible only within the function it is declared. Block scope, introduced with ES6, means the variable is accessible only within the block (e.g., within curly braces `{}`) it is declared.
+    
+    ```js
+    // Global scope
+    var globalVar = 'I am global';
+    
+    function myFunction() {
+      // Function scope
+      var functionVar = 'I am in a function';
+    
+      if (true) {
+        // Block scope
+        let blockVar = 'I am in a block';
+        console.log(blockVar); // Accessible here
+      }
+    
+      // console.log(blockVar); // Uncaught ReferenceError: blockVar is not defined
+    }
+    
+    console.log(globalVar); // Accessible here
+    // console.log(functionVar); // Uncaught ReferenceError: functionVar is not defined
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-scope-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-scope-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+22. ### Explain the concept of tagged templates.
+
+    <!-- Update here: /questions/explain-the-concept-of-tagged-templates/en-US.mdx -->
+
+    Tagged templates in JavaScript allow you to parse template literals with a function. The function receives the literal strings and the values as arguments, enabling custom processing of the template. For example:
+    
+    ```js
+    function tag(strings, ...values) {
+      return strings[0] + values[0] + strings[1] + values[1];
+    }
+    
+    const result = tag`Hello ${'world'}! How are ${'you'}?`;
+    console.log(result); // "Hello world! How are you?"
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-tagged-templates/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-tagged-templates/en-US.mdx)
+  
+    <br>
+    <br>
+
+23. ### Explain the concept of test-driven development (TDD).
+
+    <!-- Update here: /questions/explain-the-concept-of-test-driven-development-tdd/en-US.mdx -->
+
+    Test-driven development (TDD) is a software development approach where you write tests before writing the actual code. The process involves writing a failing test, writing the minimum code to pass the test, and then refactoring the code while keeping the tests passing. This ensures that the code is always tested and helps in maintaining high code quality.
+
+    <!-- Update here: /questions/explain-the-concept-of-test-driven-development-tdd/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-test-driven-development-tdd/en-US.mdx)
+  
+    <br>
+    <br>
+
+24. ### Explain the concept of the Prototype pattern.
+
+    <!-- Update here: /questions/explain-the-concept-of-the-prototype-pattern/en-US.mdx -->
+
+    The Prototype pattern is a creational design pattern used to create new objects by copying an existing object, known as the prototype. This pattern is useful when the cost of creating a new object is more expensive than cloning an existing one. In JavaScript, this can be achieved using the `Object.create` method or by using the `prototype` property of a constructor function.
+    
+    ```js
+    const prototypeObject = {
+      greet() {
+        console.log('Hello, world!');
+      },
+    };
+    
+    const newObject = Object.create(prototypeObject);
+    newObject.greet(); // Outputs: Hello, world!
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-the-prototype-pattern/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-the-prototype-pattern/en-US.mdx)
+  
+    <br>
+    <br>
+
+25. ### Explain the concept of the Singleton pattern.
+
+    <!-- Update here: /questions/explain-the-concept-of-the-singleton-pattern/en-US.mdx -->
+
+    The Singleton pattern ensures that a class has only one instance and provides a global point of access to that instance. This is useful when exactly one object is needed to coordinate actions across the system. In JavaScript, this can be implemented using closures or ES6 classes.
+    
+    ```js
+    class Singleton {
+      constructor() {
+        if (!Singleton.instance) {
+          Singleton.instance = this;
+        }
+        return Singleton.instance;
+      }
+    }
+    
+    const instance1 = new Singleton();
+    const instance2 = new Singleton();
+    
+    console.log(instance1 === instance2); // true
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-the-singleton-pattern/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-the-singleton-pattern/en-US.mdx)
+  
+    <br>
+    <br>
+
+26. ### Explain the concept of the spread operator and its uses.
+
+    <!-- Update here: /questions/explain-the-concept-of-the-spread-operator-and-its-uses/en-US.mdx -->
+
+    The spread operator (`...`) in JavaScript allows you to expand elements of an iterable (like an array or object) into individual elements. It is commonly used for copying arrays or objects, merging arrays or objects, and passing elements of an array as arguments to a function.
+    
+    ```js
+    // Copying an array
+    const arr1 = [1, 2, 3];
+    const arr2 = [...arr1];
+    
+    // Merging arrays
+    const arr3 = [4, 5, 6];
+    const mergedArray = [...arr1, ...arr3];
+    
+    // Copying an object
+    const obj1 = { a: 1, b: 2 };
+    const obj2 = { ...obj1 };
+    
+    // Merging objects
+    const obj3 = { c: 3, d: 4 };
+    const mergedObject = { ...obj1, ...obj3 };
+    
+    // Passing array elements as function arguments
+    const sum = (x, y, z) => x + y + z;
+    const numbers = [1, 2, 3];
+    console.log(sum(...numbers)); // Output: 6
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-the-spread-operator-and-its-uses/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-the-spread-operator-and-its-uses/en-US.mdx)
+  
+    <br>
+    <br>
+
+27. ### Explain the concept of the Strategy pattern.
+
+    <!-- Update here: /questions/explain-the-concept-of-the-strategy-pattern/en-US.mdx -->
+
+    The Strategy pattern is a behavioral design pattern that allows you to define a family of algorithms, encapsulate each one as a separate class, and make them interchangeable. This pattern lets the algorithm vary independently from the clients that use it. For example, if you have different sorting algorithms, you can define each one as a strategy and switch between them without changing the client code.
+    
+    ```js
+    class Context {
+      constructor(strategy) {
+        this.strategy = strategy;
+      }
+    
+      executeStrategy(data) {
+        return this.strategy.doAlgorithm(data);
+      }
+    }
+    
+    class ConcreteStrategyA {
+      doAlgorithm(data) {
+        // Implementation of algorithm A
+      }
+    }
+    
+    class ConcreteStrategyB {
+      doAlgorithm(data) {
+        // Implementation of algorithm B
+      }
+    }
+    
+    // Usage
+    const context = new Context(new ConcreteStrategyA());
+    context.executeStrategy(data);
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-the-strategy-pattern/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-the-strategy-pattern/en-US.mdx)
+  
+    <br>
+    <br>
+
+28. ### Explain the concept of the Web Socket API.
+
+    <!-- Update here: /questions/explain-the-concept-of-the-web-socket-api/en-US.mdx -->
+
+    The WebSocket API provides a way to open a persistent connection between a client and a server, allowing for real-time, two-way communication. Unlike HTTP, which is request-response based, WebSocket enables full-duplex communication, meaning both the client and server can send and receive messages independently. This is particularly useful for applications like chat apps, live updates, and online gaming.
+    
+    ```js
+    // Example of creating a WebSocket connection
+    const socket = new WebSocket('ws://example.com/socket');
+    
+    // Event listener for when the connection is open
+    socket.addEventListener('open', function (event) {
+      socket.send('Hello Server!');
+    });
+    
+    // Event listener for when a message is received from the server
+    socket.addEventListener('message', function (event) {
+      console.log('Message from server ', event.data);
+    });
+    ```
+
+    <!-- Update here: /questions/explain-the-concept-of-the-web-socket-api/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-the-web-socket-api/en-US.mdx)
+  
+    <br>
+    <br>
+
+29. ### Explain the concept of `this` binding in event handlers.
+
+    <!-- Update here: /questions/explain-the-concept-of-this-binding-in-event-handlers/en-US.mdx -->
+
+    In JavaScript, the `this` keyword refers to the object that is currently executing the code. In event handlers, `this` typically refers to the element that triggered the event. However, the value of `this` can change depending on how the event handler is defined and called. To ensure `this` refers to the desired object, you can use methods like `bind()`, arrow functions, or assign the context explicitly.
+
+    <!-- Update here: /questions/explain-the-concept-of-this-binding-in-event-handlers/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-this-binding-in-event-handlers/en-US.mdx)
+  
+    <br>
+    <br>
+
+30. ### Explain the concept of tree shaking in module bundling.
+
+    <!-- Update here: /questions/explain-the-concept-of-tree-shaking-in-module-bundling/en-US.mdx -->
+
+    Tree shaking is a technique used in module bundling to eliminate dead code, which is code that is never used or executed. This helps to reduce the final bundle size and improve application performance. It works by analyzing the dependency graph of the code and removing any unused exports. Tools like Webpack and Rollup support tree shaking when using ES6 module syntax (`import` and `export`).
+
+    <!-- Update here: /questions/explain-the-concept-of-tree-shaking-in-module-bundling/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-concept-of-tree-shaking-in-module-bundling/en-US.mdx)
+  
+    <br>
+    <br>
+
+31. ### Explain the difference between `&&` and `||` operators.
+
+    <!-- Update here: /questions/explain-the-difference-between--and--operators/en-US.mdx -->
+
+    The `&&` (logical AND) operator returns the first falsy value or the last value if none are found, while the `||` (logical OR) operator returns the first truthy value or the last value if none are found. For example, `true && false` returns `false`, and `true || false` returns `true`.
+
+    <!-- Update here: /questions/explain-the-difference-between--and--operators/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between--and--operators/en-US.mdx)
+  
+    <br>
+    <br>
+
+32. ### Explain the difference between classical inheritance and prototypal inheritance.
+
+    <!-- Update here: /questions/explain-the-difference-between-classical-inheritance-and-prototypal-inheritance/en-US.mdx -->
+
+    Classical inheritance is a model where classes inherit from other classes, typically seen in languages like Java and C++. Prototypal inheritance, used in JavaScript, involves objects inheriting directly from other objects. In classical inheritance, you define a class and create instances from it. In prototypal inheritance, you create an object and use it as a prototype for other objects.
+
+    <!-- Update here: /questions/explain-the-difference-between-classical-inheritance-and-prototypal-inheritance/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-classical-inheritance-and-prototypal-inheritance/en-US.mdx)
+  
+    <br>
+    <br>
+
+33. ### Explain the difference between CommonJS and ES modules.
+
+    <!-- Update here: /questions/explain-the-difference-between-commonjs-and-es-modules/en-US.mdx -->
+
+    CommonJS and ES modules are two different module systems in JavaScript. CommonJS is used primarily in Node.js and uses `require` and `module.exports` for importing and exporting modules. ES modules are the standard for JavaScript and use `import` and `export` statements. ES modules are statically analyzed, which allows for better optimization, while CommonJS modules are dynamically loaded.
+
+    <!-- Update here: /questions/explain-the-difference-between-commonjs-and-es-modules/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-commonjs-and-es-modules/en-US.mdx)
+  
+    <br>
+    <br>
+
+34. ### Explain the difference between `document.querySelector()` and `document.getElementById()`.
+
+    <!-- Update here: /questions/explain-the-difference-between-documentqueryselector-and-documentgetelementbyid/en-US.mdx -->
+
+    `document.querySelector()` and `document.getElementById()` are both methods used to select elements from the DOM, but they have key differences. `document.querySelector()` can select any element using a CSS selector and returns the first match, while `document.getElementById()` selects an element by its ID and returns the element with that specific ID.
+    
+    ```js
+    // Using document.querySelector()
+    const element = document.querySelector('.my-class');
+    
+    // Using document.getElementById()
+    const elementById = document.getElementById('my-id');
+    ```
+
+    <!-- Update here: /questions/explain-the-difference-between-documentqueryselector-and-documentgetelementbyid/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-documentqueryselector-and-documentgetelementbyid/en-US.mdx)
+  
+    <br>
+    <br>
+
+35. ### Explain the difference between dot notation and bracket notation for accessing object properties.
+
+    <!-- Update here: /questions/explain-the-difference-between-dot-notation-and-bracket-notation-for-accessing-object-properties/en-US.mdx -->
+
+    Dot notation and bracket notation are two ways to access properties of an object in JavaScript. Dot notation is more concise and readable but can only be used with valid JavaScript identifiers. Bracket notation is more flexible and can be used with property names that are not valid identifiers, such as those containing spaces or special characters.
+    
+    ```js
+    const obj = { name: 'Alice', 'favorite color': 'blue' };
+    
+    // Dot notation
+    console.log(obj.name); // Alice
+    
+    // Bracket notation
+    console.log(obj['favorite color']); // blue
+    ```
+
+    <!-- Update here: /questions/explain-the-difference-between-dot-notation-and-bracket-notation-for-accessing-object-properties/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-dot-notation-and-bracket-notation-for-accessing-object-properties/en-US.mdx)
+  
+    <br>
+    <br>
+
+36. ### Explain the difference between global scope, function scope, and block scope.
+
+    <!-- Update here: /questions/explain-the-difference-between-global-scope-function-scope-and-block-scope/en-US.mdx -->
+
+    Global scope means variables are accessible from anywhere in the code. Function scope means variables are accessible only within the function they are declared in. Block scope means variables are accessible only within the block (e.g., within `{}`) they are declared in.
+    
+    ```js
+    var globalVar = "I'm global"; // Global scope
+    
+    function myFunction() {
+      var functionVar = "I'm in a function"; // Function scope
+      if (true) {
+        let blockVar = "I'm in a block"; // Block scope
+        console.log(blockVar); // Accessible here
+      }
+      // console.log(blockVar); // Uncaught ReferenceError: blockVar is not defined
+    }
+    ```
+
+    <!-- Update here: /questions/explain-the-difference-between-global-scope-function-scope-and-block-scope/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-global-scope-function-scope-and-block-scope/en-US.mdx)
+  
+    <br>
+    <br>
+
+37. ### Explain the difference between shallow copy and deep copy.
+
+    <!-- Update here: /questions/explain-the-difference-between-shallow-copy-and-deep-copy/en-US.mdx -->
+
+    A shallow copy duplicates the top-level properties of an object, but nested objects are still referenced. A deep copy duplicates all levels of an object, creating entirely new instances of nested objects. For example, using `Object.assign()` creates a shallow copy, while using libraries like `Lodash` or `structuredClone()` in modern JavaScript can create deep copies.
+    
+    ```js
+    // Shallow copy example
+    let obj1 = { a: 1, b: { c: 2 } };
+    let shallowCopy = Object.assign({}, obj1);
+    shallowCopy.b.c = 3;
+    console.log(obj1.b.c); // Outputs: 3
+    
+    // Deep copy example
+    let deepCopy = JSON.parse(JSON.stringify(obj1));
+    deepCopy.b.c = 4;
+    console.log(obj1.b.c); // Outputs: 2
+    ```
+
+    <!-- Update here: /questions/explain-the-difference-between-shallow-copy-and-deep-copy/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-shallow-copy-and-deep-copy/en-US.mdx)
+  
+    <br>
+    <br>
+
+38. ### Explain the difference between the `==` and `===` operators.
+
+    <!-- Update here: /questions/explain-the-difference-between-the--and--operators/en-US.mdx -->
+
+    The `==` operator checks for equality with type coercion, meaning it converts the operands to the same type before making the comparison. The `===` operator checks for strict equality without type coercion, meaning both the value and the type must be the same for the comparison to return true. For example, `5 == '5'` returns true, but `5 === '5'` returns false.
+
+    <!-- Update here: /questions/explain-the-difference-between-the--and--operators/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-the--and--operators/en-US.mdx)
+  
+    <br>
+    <br>
+
+39. ### Explain the difference between unit testing, integration testing, and end-to-end testing.
+
+    <!-- Update here: /questions/explain-the-difference-between-unit-testing-integration-testing-and-end-to-end-testing/en-US.mdx -->
+
+    Unit testing focuses on testing individual components or functions in isolation to ensure they work as expected. Integration testing checks how different modules or services work together. End-to-end testing simulates real user scenarios to verify the entire application flow from start to finish.
+
+    <!-- Update here: /questions/explain-the-difference-between-unit-testing-integration-testing-and-end-to-end-testing/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-unit-testing-integration-testing-and-end-to-end-testing/en-US.mdx)
+  
+    <br>
+    <br>
+
+40. ### Explain the difference in hoisting between `var`, `let`, and `const`.
+
+    <!-- Update here: /questions/explain-the-difference-in-hoisting-between-var-let-and-const/en-US.mdx -->
+
+    `var` declarations are hoisted to the top of their scope and initialized with `undefined`, allowing them to be used before their declaration. `let` and `const` declarations are also hoisted but are not initialized, resulting in a `ReferenceError` if accessed before their declaration. `const` additionally requires an initial value at the time of declaration.
+
+    <!-- Update here: /questions/explain-the-difference-in-hoisting-between-var-let-and-const/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-in-hoisting-between-var-let-and-const/en-US.mdx)
+  
+    <br>
+    <br>
+
+41. ### Explain the different states of a Promise.
+
+    <!-- Update here: /questions/explain-the-different-states-of-a-promise/en-US.mdx -->
+
+    A `Promise` in JavaScript can be in one of three states: `pending`, `fulfilled`, or `rejected`. When a `Promise` is created, it starts in the `pending` state. If the operation completes successfully, the `Promise` transitions to the `fulfilled` state, and if it fails, it transitions to the `rejected` state. Here's a quick example:
+    
+    ```js
+    let promise = new Promise((resolve, reject) => {
+      // some asynchronous operation
+      if (success) {
+        resolve('Success!');
+      } else {
+        reject('Error!');
+      }
+    });
+    ```
+
+    <!-- Update here: /questions/explain-the-different-states-of-a-promise/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-different-states-of-a-promise/en-US.mdx)
+  
+    <br>
+    <br>
+
+42. ### Explain the different ways the `this` keyword can be bound.
+
+    <!-- Update here: /questions/explain-the-different-ways-the-this-keyword-can-be-bound/en-US.mdx -->
+
+    The `this` keyword in JavaScript can be bound in several ways:
+    
+    - Default binding: In non-strict mode, `this` refers to the global object (window in browsers). In strict mode, `this` is `undefined`.
+    - Implicit binding: When a function is called as a method of an object, `this` refers to the object.
+    - Explicit binding: Using `call`, `apply`, or `bind` methods to explicitly set `this`.
+    - New binding: When a function is used as a constructor with the `new` keyword, `this` refers to the newly created object.
+    - Arrow functions: Arrow functions do not have their own `this` and inherit `this` from the surrounding lexical context.
+
+    <!-- Update here: /questions/explain-the-different-ways-the-this-keyword-can-be-bound/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-different-ways-the-this-keyword-can-be-bound/en-US.mdx)
+  
+    <br>
+    <br>
+
+43. ### Explain the event phases in a browser
+
+    <!-- Update here: /questions/explain-the-event-phases-in-a-browser/en-US.mdx -->
+
+    In a browser, events go through three phases: capturing, target, and bubbling. During the capturing phase, the event travels from the root to the target element. In the target phase, the event reaches the target element. Finally, in the bubbling phase, the event travels back up from the target element to the root. You can control event handling using `addEventListener` with the `capture` option.
+
+    <!-- Update here: /questions/explain-the-event-phases-in-a-browser/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-event-phases-in-a-browser/en-US.mdx)
+  
+    <br>
+    <br>
+
+44. ### Explain the Observer pattern and its use cases.
+
+    <!-- Update here: /questions/explain-the-observer-pattern-and-its-use-cases/en-US.mdx -->
+
+    The Observer pattern is a design pattern where an object, known as the subject, maintains a list of its dependents, called observers, and notifies them of any state changes. This pattern is useful for implementing distributed event-handling systems, such as updating the user interface in response to data changes or implementing event-driven architectures.
+
+    <!-- Update here: /questions/explain-the-observer-pattern-and-its-use-cases/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-observer-pattern-and-its-use-cases/en-US.mdx)
+  
+    <br>
+    <br>
+
+45. ### Explain the purpose of the `localStorage`, `sessionStorage`, `IndexedDB` APIs.
+
+    <!-- Update here: /questions/explain-the-purpose-of-the-following-apis-localstorage-sessionstorage-indexeddb/en-US.mdx -->
+
+    `localStorage`, `sessionStorage`, and `IndexedDB` are all web storage APIs used to store data on the client side. `localStorage` stores data with no expiration date, `sessionStorage` stores data for the duration of the page session, and `IndexedDB` is a low-level API for storing large amounts of structured data.
+
+    <!-- Update here: /questions/explain-the-purpose-of-the-following-apis-localstorage-sessionstorage-indexeddb/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-purpose-of-the-following-apis-localstorage-sessionstorage-indexeddb/en-US.mdx)
+  
+    <br>
+    <br>
+
+46. ### How can closures be used to create private variables?
+
+    <!-- Update here: /questions/how-can-closures-be-used-to-create-private-variables/en-US.mdx -->
+
+    Closures in JavaScript can be used to create private variables by defining a function within another function. The inner function has access to the outer function's variables, but those variables are not accessible from outside the outer function. This allows you to encapsulate and protect the variables from being accessed or modified directly.
+    
+    ```js
+    function createCounter() {
+      let count = 0; // private variable
+    
+      return {
+        increment: function () {
+          count++;
+          return count;
+        },
+        decrement: function () {
+          count--;
+          return count;
+        },
+        getCount: function () {
+          return count;
+        },
+      };
+    }
+    
+    const counter = createCounter();
+    console.log(counter.increment()); // 1
+    console.log(counter.getCount()); // 1
+    console.log(counter.count); // undefined
+    ```
+
+    <!-- Update here: /questions/how-can-closures-be-used-to-create-private-variables/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-can-closures-be-used-to-create-private-variables/en-US.mdx)
+  
+    <br>
+    <br>
+
+47. ### How can you avoid problems related to hoisting?
+
+    <!-- Update here: /questions/how-can-you-avoid-problems-related-to-hoisting/en-US.mdx -->
+
+    To avoid problems related to hoisting, always declare variables at the top of their scope using `let` or `const` instead of `var`. This ensures that variables are block-scoped and not hoisted to the top of their containing function or global scope. Additionally, declare functions before they are called to avoid issues with function hoisting.
+    
+    ```js
+    // Use let or const
+    let x = 10;
+    const y = 20;
+    
+    // Declare functions before calling them
+    function myFunction() {
+      console.log('Hello, world!');
+    }
+    myFunction();
+    ```
+
+    <!-- Update here: /questions/how-can-you-avoid-problems-related-to-hoisting/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-can-you-avoid-problems-related-to-hoisting/en-US.mdx)
+  
+    <br>
+    <br>
+
+48. ### How can you create custom error objects?
+
+    <!-- Update here: /questions/how-can-you-create-custom-error-objects/en-US.mdx -->
+
+    To create custom error objects in JavaScript, you can extend the built-in `Error` class. This allows you to add custom properties and methods to your error objects. Here's a quick example:
+    
+    ```js
+    class CustomError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = 'CustomError';
+      }
+    }
+    
+    try {
+      throw new CustomError('This is a custom error message');
+    } catch (error) {
+      console.log(error.name); // CustomError
+      console.log(error.message); // This is a custom error message
+    }
+    ```
+
+    <!-- Update here: /questions/how-can-you-create-custom-error-objects/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-can-you-create-custom-error-objects/en-US.mdx)
+  
+    <br>
+    <br>
+
+49. ### How can you explicitly set the value of `this` using `call`, `apply`, and `bind`?
+
+    <!-- Update here: /questions/how-can-you-explicitly-set-the-value-of-this-using-call-apply-and-bind/en-US.mdx -->
+
+    You can explicitly set the value of `this` in JavaScript using the `call`, `apply`, and `bind` methods. `call` and `apply` immediately invoke the function with a specified `this` value, but `call` takes arguments individually while `apply` takes them as an array. `bind` returns a new function with a specified `this` value, which can be invoked later.
+    
+    ```js
+    function greet(greeting) {
+      console.log(greeting + ', ' + this.name);
+    }
+    
+    const person = { name: 'Alice' };
+    
+    greet.call(person, 'Hello'); // Hello, Alice
+    greet.apply(person, ['Hi']); // Hi, Alice
+    
+    const boundGreet = greet.bind(person);
+    boundGreet('Hey'); // Hey, Alice
+    ```
+
+    <!-- Update here: /questions/how-can-you-explicitly-set-the-value-of-this-using-call-apply-and-bind/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-can-you-explicitly-set-the-value-of-this-using-call-apply-and-bind/en-US.mdx)
+  
+    <br>
+    <br>
+
+50. ### How can you implement secure authentication and authorization in JavaScript applications?
+
+    <!-- Update here: /questions/how-can-you-implement-secure-authentication-and-authorization-in-javascript-applications/en-US.mdx -->
+
+    To implement secure authentication and authorization in JavaScript applications, use HTTPS to encrypt data in transit, and store sensitive data like tokens securely using `localStorage` or `sessionStorage`. Implement token-based authentication using JWTs, and validate tokens on the server side. Use libraries like OAuth for third-party authentication and ensure proper role-based access control (RBAC) for authorization.
+
+    <!-- Update here: /questions/how-can-you-implement-secure-authentication-and-authorization-in-javascript-applications/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-can-you-implement-secure-authentication-and-authorization-in-javascript-applications/en-US.mdx)
+  
+    <br>
+    <br>
+
+51. ### How can you optimize DOM manipulation for better performance?
+
+    <!-- Update here: /questions/how-can-you-optimize-dom-manipulation-for-better-performance/en-US.mdx -->
+
+    To optimize DOM manipulation for better performance, minimize direct DOM access and updates. Use techniques like batching DOM changes, using `documentFragment` for multiple elements, and leveraging virtual DOM libraries like React. Also, consider using `requestAnimationFrame` for animations and avoid layout thrashing by reading and writing DOM properties separately.
+
+    <!-- Update here: /questions/how-can-you-optimize-dom-manipulation-for-better-performance/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-can-you-optimize-dom-manipulation-for-better-performance/en-US.mdx)
+  
+    <br>
+    <br>
+
+52. ### How can you optimize network requests for better performance?
+
+    <!-- Update here: /questions/how-can-you-optimize-network-requests-for-better-performance/en-US.mdx -->
+
+    To optimize network requests for better performance, you can minimize the number of requests, use caching, compress data, and leverage modern web technologies like HTTP/2 and service workers. For example, you can combine multiple CSS files into one to reduce the number of requests, use `Cache-Control` headers to cache static assets, and enable Gzip compression on your server to reduce the size of the data being transferred.
+
+    <!-- Update here: /questions/how-can-you-optimize-network-requests-for-better-performance/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-can-you-optimize-network-requests-for-better-performance/en-US.mdx)
+  
+    <br>
+    <br>
+
+53. ### How can you prevent clickjacking attacks?
+
+    <!-- Update here: /questions/how-can-you-prevent-clickjacking-attacks/en-US.mdx -->
+
+    To prevent clickjacking attacks, you can use the `X-Frame-Options` HTTP header to control whether your site can be embedded in iframes. Set it to `DENY` to prevent all framing, or `SAMEORIGIN` to allow framing only from the same origin. Additionally, you can use the `Content-Security-Policy` (CSP) header with the `frame-ancestors` directive to specify which origins are allowed to frame your content.
+    
+    ```http
+    X-Frame-Options: DENY
+    ```
+    
+    ```http
+    Content-Security-Policy: frame-ancestors 'self'
+    ```
+
+    <!-- Update here: /questions/how-can-you-prevent-clickjacking-attacks/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-can-you-prevent-clickjacking-attacks/en-US.mdx)
+  
+    <br>
+    <br>
+
+54. ### How can you prevent SQL injection vulnerabilities in JavaScript applications?
+
+    <!-- Update here: /questions/how-can-you-prevent-sql-injection-vulnerabilities-in-javascript-applications/en-US.mdx -->
+
+    To prevent SQL injection vulnerabilities in JavaScript applications, always use parameterized queries or prepared statements instead of string concatenation to construct SQL queries. This ensures that user input is treated as data and not executable code. Additionally, use ORM libraries that handle SQL injection prevention for you, and always validate and sanitize user inputs.
+
+    <!-- Update here: /questions/how-can-you-prevent-sql-injection-vulnerabilities-in-javascript-applications/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-can-you-prevent-sql-injection-vulnerabilities-in-javascript-applications/en-US.mdx)
+  
+    <br>
+    <br>
+
+55. ### How can you test asynchronous code in JavaScript?
+
+    <!-- Update here: /questions/how-can-you-test-asynchronous-code-in-javascript/en-US.mdx -->
+
+    To test asynchronous code in JavaScript, you can use testing frameworks like Jest or Mocha. These frameworks provide built-in support for handling asynchronous operations. You can use `async`/`await` or return promises in your test functions. For example, in Jest, you can write:
+    
+    ```js
+    test('fetches data successfully', async () => {
+      const data = await fetchData();
+      expect(data).toBeDefined();
+    });
+    ```
+    
+    Alternatively, you can use callbacks and the `done` function to signal the end of an asynchronous test.
+
+    <!-- Update here: /questions/how-can-you-test-asynchronous-code-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-can-you-test-asynchronous-code-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+56. ### How do currying and partial application differ from each other?
+
+    <!-- Update here: /questions/how-do-currying-and-partial-application-differ-from-each-other/en-US.mdx -->
+
+    Currying transforms a function with multiple arguments into a sequence of functions, each taking a single argument. For example, a function `f(a, b, c)` becomes `f(a)(b)(c)`. Partial application, on the other hand, fixes a few arguments of a function and produces another function with a smaller number of arguments. For example, if you partially apply `f(a, b, c)` with `a`, you get a new function `f'(b, c)`.
+
+    <!-- Update here: /questions/how-do-currying-and-partial-application-differ-from-each-other/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-currying-and-partial-application-differ-from-each-other/en-US.mdx)
+  
+    <br>
+    <br>
+
+57. ### How do `<iframe>` on a page communicate?
+
+    <!-- Update here: /questions/how-do-iframe-on-a-page-communicate/en-US.mdx -->
+
+    `<iframe>` elements on a page can communicate using the `postMessage` API. This allows for secure cross-origin communication between the parent page and the iframe. The `postMessage` method sends a message, and the `message` event listener receives it. Here's a simple example:
+    
+    ```js
+    // In the parent page
+    const iframe = document.querySelector('iframe');
+    iframe.contentWindow.postMessage('Hello from parent', '*');
+    
+    // In the iframe
+    window.addEventListener('message', (event) => {
+      console.log(event.data); // 'Hello from parent'
+    });
+    ```
+
+    <!-- Update here: /questions/how-do-iframe-on-a-page-communicate/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-iframe-on-a-page-communicate/en-US.mdx)
+  
+    <br>
+    <br>
+
+58. ### How do `Map`s in JavaScript differ from `Object`s?
+
+    <!-- Update here: /questions/how-do-maps-in-javascript-differ-from-objects/en-US.mdx -->
+
+    Maps in JavaScript are collections of key-value pairs where keys can be of any data type, while objects are collections of properties where keys are always strings or symbols. Maps maintain the order of their elements, whereas objects do not guarantee order. Maps have built-in methods for iteration and size retrieval, making them more versatile for certain use cases.
+
+    <!-- Update here: /questions/how-do-maps-in-javascript-differ-from-objects/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-maps-in-javascript-differ-from-objects/en-US.mdx)
+  
+    <br>
+    <br>
+
+59. ### How do `Set`s and `Map`s handle equality checks for objects?
+
+    <!-- Update here: /questions/how-do-sets-and-maps-handle-equality-checks-for-objects/en-US.mdx -->
+
+    `Set`s and `Map`s in JavaScript handle equality checks for objects based on reference equality, not deep equality. This means that two objects are considered equal only if they reference the same memory location. For example, if you add two different object literals with the same properties to a `Set`, they will be treated as distinct entries.
+    
+    ```js
+    const set = new Set();
+    const obj1 = { a: 1 };
+    const obj2 = { a: 1 };
+    
+    set.add(obj1);
+    set.add(obj2);
+    
+    console.log(set.size); // Output: 2
+    ```
+
+    <!-- Update here: /questions/how-do-sets-and-maps-handle-equality-checks-for-objects/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-sets-and-maps-handle-equality-checks-for-objects/en-US.mdx)
+  
+    <br>
+    <br>
+
+60. ### How do you access the index of an element in an array during iteration?
+
+    <!-- Update here: /questions/how-do-you-access-the-index-of-an-element-in-an-array-during-iteration/en-US.mdx -->
+
+    To access the index of an element in an array during iteration, you can use methods like `forEach`, `map`, `for...of` with `entries`, or a traditional `for` loop. For example, using `forEach`:
+    
+    ```js
+    const array = ['a', 'b', 'c'];
+    array.forEach((element, index) => {
+      console.log(index, element);
+    });
+    ```
+
+    <!-- Update here: /questions/how-do-you-access-the-index-of-an-element-in-an-array-during-iteration/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-access-the-index-of-an-element-in-an-array-during-iteration/en-US.mdx)
+  
+    <br>
+    <br>
+
+61. ### How do you add, remove, and modify HTML elements using JavaScript?
+
+    <!-- Update here: /questions/how-do-you-add-remove-and-modify-html-elements-using-javascript/en-US.mdx -->
+
+    To add, remove, and modify HTML elements using JavaScript, you can use methods like `createElement`, `appendChild`, `removeChild`, and properties like `innerHTML` and `textContent`. For example, to add an element, you can create it using `document.createElement` and then append it to a parent element using `appendChild`. To remove an element, you can use `removeChild` on its parent. To modify an element, you can change its `innerHTML` or `textContent`.
+    
+    ```js
+    // Adding an element
+    const newElement = document.createElement('div');
+    newElement.textContent = 'Hello, World!';
+    document.body.appendChild(newElement);
+    
+    // Removing an element
+    const elementToRemove = document.getElementById('elementId');
+    elementToRemove.parentNode.removeChild(elementToRemove);
+    
+    // Modifying an element
+    const elementToModify = document.getElementById('elementId');
+    elementToModify.innerHTML = 'New Content';
+    ```
+
+    <!-- Update here: /questions/how-do-you-add-remove-and-modify-html-elements-using-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-add-remove-and-modify-html-elements-using-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+62. ### How do you add, remove, and update elements in an array?
+
+    <!-- Update here: /questions/how-do-you-add-remove-and-update-elements-in-an-array/en-US.mdx -->
+
+    To add elements to an array, you can use methods like `push`, `unshift`, or `splice`. To remove elements, you can use `pop`, `shift`, or `splice`. To update elements, you can directly access the array index and assign a new value.
+    
+    ```js
+    let arr = [1, 2, 3];
+    
+    // Add elements
+    arr.push(4); // [1, 2, 3, 4]
+    arr.unshift(0); // [0, 1, 2, 3, 4]
+    arr.splice(2, 0, 1.5); // [0, 1, 1.5, 2, 3, 4]
+    
+    // Remove elements
+    arr.pop(); // [0, 1, 1.5, 2, 3]
+    arr.shift(); // [1, 1.5, 2, 3]
+    arr.splice(1, 1); // [1, 2, 3]
+    
+    // Update elements
+    arr[1] = 5; // [1, 5, 3]
+    ```
+
+    <!-- Update here: /questions/how-do-you-add-remove-and-update-elements-in-an-array/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-add-remove-and-update-elements-in-an-array/en-US.mdx)
+  
+    <br>
+    <br>
+
+63. ### How do you cancel a `fetch` request?
+
+    <!-- Update here: /questions/how-do-you-cancel-a-fetch-request/en-US.mdx -->
+
+    To cancel a `fetch` request, you can use the `AbortController` API. Create an instance of `AbortController`, pass its `signal` property to the `fetch` request, and call the `abort` method on the controller to cancel the request.
+    
+    ```js
+    const controller = new AbortController();
+    const signal = controller.signal;
+    
+    fetch('https://example.com', { signal })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((err) => {
+        if (err.name === 'AbortError') {
+          console.log('Fetch aborted');
+        } else {
+          console.error('Fetch error:', err);
+        }
+      });
+    
+    // To cancel the request
+    controller.abort();
+    ```
+
+    <!-- Update here: /questions/how-do-you-cancel-a-fetch-request/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-cancel-a-fetch-request/en-US.mdx)
+  
+    <br>
+    <br>
+
+64. ### How do you check if an object has a specific property?
+
+    <!-- Update here: /questions/how-do-you-check-if-an-object-has-a-specific-property/en-US.mdx -->
+
+    To check if an object has a specific property, you can use the `in` operator or the `hasOwnProperty` method. The `in` operator checks for both own and inherited properties, while `hasOwnProperty` checks only for own properties.
+    
+    ```js
+    const obj = { key: 'value' };
+    
+    // Using the `in` operator
+    if ('key' in obj) {
+      console.log('Property exists');
+    }
+    
+    // Using `hasOwnProperty`
+    if (obj.hasOwnProperty('key')) {
+      console.log('Property exists');
+    }
+    ```
+
+    <!-- Update here: /questions/how-do-you-check-if-an-object-has-a-specific-property/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-check-if-an-object-has-a-specific-property/en-US.mdx)
+  
+    <br>
+    <br>
+
+65. ### How do you check the data type of a variable?
+
+    <!-- Update here: /questions/how-do-you-check-the-data-type-of-a-variable/en-US.mdx -->
+
+    To check the data type of a variable in JavaScript, you can use the `typeof` operator. For example, `typeof variableName` will return a string indicating the type of the variable, such as `"string"`, `"number"`, `"boolean"`, `"object"`, `"function"`, `"undefined"`, or `"symbol"`. For arrays and `null`, you can use `Array.isArray(variableName)` and `variableName === null`, respectively.
+
+    <!-- Update here: /questions/how-do-you-check-the-data-type-of-a-variable/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-check-the-data-type-of-a-variable/en-US.mdx)
+  
+    <br>
+    <br>
+
+66. ### How do you convert a `Set` to an array in JavaScript?
+
+    <!-- Update here: /questions/how-do-you-convert-a-set-to-an-array-in-javascript/en-US.mdx -->
+
+    To convert a `Set` to an array in JavaScript, you can use the `Array.from()` method or the spread operator. For example:
+    
+    ```js
+    const mySet = new Set([1, 2, 3]);
+    const myArray = Array.from(mySet);
+    // or
+    const myArray = [...mySet];
+    ```
+
+    <!-- Update here: /questions/how-do-you-convert-a-set-to-an-array-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-convert-a-set-to-an-array-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+67. ### How do you convert a string to a number in JavaScript?
+
+    <!-- Update here: /questions/how-do-you-convert-a-string-to-a-number-in-javascript/en-US.mdx -->
+
+    In JavaScript, you can convert a string to a number using several methods. The most common ones are `Number()`, `parseInt()`, `parseFloat()`, and the unary plus operator (`+`). For example, `Number("123")` converts the string `"123"` to the number `123`, and `parseInt("123.45")` converts the string `"123.45"` to the integer `123`.
+
+    <!-- Update here: /questions/how-do-you-convert-a-string-to-a-number-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-convert-a-string-to-a-number-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+68. ### How do you create a constructor function?
+
+    <!-- Update here: /questions/how-do-you-create-a-constructor-function/en-US.mdx -->
+
+    To create a constructor function in JavaScript, define a regular function with a capitalized name to indicate it's a constructor. Use the `this` keyword to set properties and methods. When creating an instance, use the `new` keyword.
+    
+    ```js
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    
+    const john = new Person('John', 30);
+    ```
+
+    <!-- Update here: /questions/how-do-you-create-a-constructor-function/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-create-a-constructor-function/en-US.mdx)
+  
+    <br>
+    <br>
+
+69. ### How do you detect if JavaScript is disabled on a page?
+
+    <!-- Update here: /questions/how-do-you-detect-if-javascript-is-disabled-on-a-page/en-US.mdx -->
+
+    To detect if JavaScript is disabled on a page, you can use the `<noscript>` HTML tag. This tag allows you to display content or messages to users who have JavaScript disabled in their browsers. For example, you can include a message within the `<noscript>` tag to inform users that JavaScript is required for the full functionality of the page.
+    
+    ```html
+    <noscript>
+      <p>JavaScript is disabled in your browser. Please enable JavaScript for the best experience.</p>
+    </noscript>
+    ```
+
+    <!-- Update here: /questions/how-do-you-detect-if-javascript-is-disabled-on-a-page/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-detect-if-javascript-is-disabled-on-a-page/en-US.mdx)
+  
+    <br>
+    <br>
+
+70. ### How do you get the query string values of the current page in JavaScript?
+
+    <!-- Update here: /questions/how-do-you-get-the-query-string-values-of-the-current-page-in-javascript/en-US.mdx -->
+
+    To get the query string values of the current page in JavaScript, you can use the `URLSearchParams` object. First, create a `URLSearchParams` instance with `window.location.search`, then use the `get` method to retrieve specific query parameters. For example:
+    
+    ```js
+    const params = new URLSearchParams(window.location.search);
+    const value = params.get('key');
+    ```
+    
+    This will give you the value of the query parameter named `key`.
+
+    <!-- Update here: /questions/how-do-you-get-the-query-string-values-of-the-current-page-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-get-the-query-string-values-of-the-current-page-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+71. ### How do you handle errors in asynchronous operations?
+
+    <!-- Update here: /questions/how-do-you-handle-errors-in-asynchronous-operations/en-US.mdx -->
+
+    To handle errors in asynchronous operations, you can use `try...catch` blocks with `async/await` syntax or `.catch()` method with Promises. For example, with `async/await`, you can wrap your code in a `try...catch` block to catch any errors:
+    
+    ```js
+    async function fetchData() {
+      try {
+        const response = await fetch('https://api.example.com/data');
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    ```
+    
+    With Promises, you can use the `.catch()` method:
+    
+    ```js
+    fetch('https://api.example.com/data')
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error('Error fetching data:', error));
+    ```
+
+    <!-- Update here: /questions/how-do-you-handle-errors-in-asynchronous-operations/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-handle-errors-in-asynchronous-operations/en-US.mdx)
+  
+    <br>
+    <br>
+
+72. ### How do you handle errors using `try...catch` blocks?
+
+    <!-- Update here: /questions/how-do-you-handle-errors-using-trycatch-blocks/en-US.mdx -->
+
+    To handle errors using `try...catch` blocks, you wrap the code that might throw an error inside a `try` block. If an error occurs, the control is transferred to the `catch` block where you can handle the error. Optionally, you can use a `finally` block to execute code regardless of whether an error occurred or not.
+    
+    ```js
+    try {
+      // Code that may throw an error
+    } catch (error) {
+      // Handle the error
+    } finally {
+      // Code that will run regardless of an error
+    }
+    ```
+
+    <!-- Update here: /questions/how-do-you-handle-errors-using-trycatch-blocks/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-handle-errors-using-trycatch-blocks/en-US.mdx)
+  
+    <br>
+    <br>
+
+73. ### How do you import and export modules in JavaScript?
+
+    <!-- Update here: /questions/how-do-you-import-and-export-modules-in-javascript/en-US.mdx -->
+
+    In JavaScript, you can import and export modules using the `import` and `export` statements. To export a module, you can use `export` before a function, variable, or class, or use `export default` for a single default export. To import a module, you use the `import` statement followed by the name of the exported module and the path to the module file.
+    
+    ```js
+    // Exporting a module
+    export const myFunction = () => {
+      /* ... */
+    };
+    export default myFunction;
+    
+    // Importing a module
+    import { myFunction } from './myModule';
+    import myFunction from './myModule';
+    ```
+
+    <!-- Update here: /questions/how-do-you-import-and-export-modules-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-import-and-export-modules-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+74. ### How do you make an HTTP request using the Fetch API?
+
+    <!-- Update here: /questions/how-do-you-make-an-http-request-using-the-fetch-api/en-US.mdx -->
+
+    To make an HTTP request using the Fetch API, you can use the `fetch` function, which returns a promise. You can handle the response using `.then()` and `.catch()` for error handling. Here's a basic example of a GET request:
+    
+    ```js
+    fetch('https://api.example.com/data')
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error('Error:', error));
+    ```
+    
+    For a POST request, you can pass an options object as the second argument to `fetch`:
+    
+    ```js
+    fetch('https://api.example.com/data', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ key: 'value' }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error('Error:', error));
+    ```
+
+    <!-- Update here: /questions/how-do-you-make-an-http-request-using-the-fetch-api/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-make-an-http-request-using-the-fetch-api/en-US.mdx)
+  
+    <br>
+    <br>
+
+75. ### How do you manipulate CSS styles using JavaScript?
+
+    <!-- Update here: /questions/how-do-you-manipulate-css-styles-using-javascript/en-US.mdx -->
+
+    You can manipulate CSS styles using JavaScript by accessing the `style` property of an HTML element. For example, to change the background color of a `div` element with the id `myDiv`, you can use:
+    
+    ```js
+    document.getElementById('myDiv').style.backgroundColor = 'blue';
+    ```
+    
+    You can also add, remove, or toggle CSS classes using the `classList` property:
+    
+    ```js
+    document.getElementById('myDiv').classList.add('newClass');
+    document.getElementById('myDiv').classList.remove('oldClass');
+    document.getElementById('myDiv').classList.toggle('toggleClass');
+    ```
+
+    <!-- Update here: /questions/how-do-you-manipulate-css-styles-using-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-manipulate-css-styles-using-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+76. ### How do you prevent the default behavior of an event?
+
+    <!-- Update here: /questions/how-do-you-prevent-the-default-behavior-of-an-event/en-US.mdx -->
+
+    To prevent the default behavior of an event in JavaScript, you can use the `preventDefault` method on the event object. For example, if you want to prevent a form from submitting, you can do the following:
+    
+    ```js
+    document.querySelector('form').addEventListener('submit', function (event) {
+      event.preventDefault();
+    });
+    ```
+    
+    This method stops the default action associated with the event from occurring.
+
+    <!-- Update here: /questions/how-do-you-prevent-the-default-behavior-of-an-event/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-prevent-the-default-behavior-of-an-event/en-US.mdx)
+  
+    <br>
+    <br>
+
+77. ### How do you redirect to a new page in JavaScript?
+
+    <!-- Update here: /questions/how-do-you-redirect-to-a-new-page-in-javascript/en-US.mdx -->
+
+    To redirect to a new page in JavaScript, you can use the `window.location` object. The most common methods are `window.location.href` and `window.location.replace()`. For example:
+    
+    ```js
+    // Using window.location.href
+    window.location.href = 'https://www.example.com';
+    
+    // Using window.location.replace()
+    window.location.replace('https://www.example.com');
+    ```
+
+    <!-- Update here: /questions/how-do-you-redirect-to-a-new-page-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-redirect-to-a-new-page-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+78. ### How do you reliably determine whether an object is empty?
+
+    <!-- Update here: /questions/how-do-you-reliably-determine-whether-an-object-is-empty/en-US.mdx -->
+
+    To reliably determine whether an object is empty, you can use `Object.keys()` to check if the object has any enumerable properties. If the length of the array returned by `Object.keys()` is zero, the object is empty.
+    
+    ```js
+    const isEmpty = (obj) => Object.keys(obj).length === 0;
+    
+    const obj = {};
+    console.log(isEmpty(obj)); // true
+    ```
+
+    <!-- Update here: /questions/how-do-you-reliably-determine-whether-an-object-is-empty/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-reliably-determine-whether-an-object-is-empty/en-US.mdx)
+  
+    <br>
+    <br>
+
+79. ### How do you use `window.history` API?
+
+    <!-- Update here: /questions/how-do-you-use-windowhistory-api/en-US.mdx -->
+
+    The `window.history` API allows you to manipulate the browser's session history. You can use `history.pushState()` to add a new entry to the history stack, `history.replaceState()` to modify the current entry, and `history.back()`, `history.forward()`, and `history.go()` to navigate through the history. For example, `history.pushState({page: 1}, "title 1", "?page=1")` adds a new entry to the history.
+
+    <!-- Update here: /questions/how-do-you-use-windowhistory-api/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-use-windowhistory-api/en-US.mdx)
+  
+    <br>
+    <br>
+
+80. ### How do you validate form elements using the Constraint Validation API?
+
+    <!-- Update here: /questions/how-do-you-validate-form-elements-using-the-constraint-validation-api/en-US.mdx -->
+
+    The Constraint Validation API provides a way to validate form elements in HTML. You can use properties like `validity`, `validationMessage`, and methods like `checkValidity()` and `setCustomValidity()`. For example, to check if an input is valid, you can use:
+    
+    ```js
+    const input = document.querySelector('input');
+    if (input.checkValidity()) {
+      console.log('Input is valid');
+    } else {
+      console.log(input.validationMessage);
+    }
+    ```
+
+    <!-- Update here: /questions/how-do-you-validate-form-elements-using-the-constraint-validation-api/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-validate-form-elements-using-the-constraint-validation-api/en-US.mdx)
+  
+    <br>
+    <br>
+
+81. ### How do you write unit tests for JavaScript code?
+
+    <!-- Update here: /questions/how-do-you-write-unit-tests-for-javascript-code/en-US.mdx -->
+
+    To write unit tests for JavaScript code, you typically use a testing framework like Jest or Mocha. First, you set up your testing environment by installing the necessary libraries. Then, you write test cases using functions like `describe`, `it`, or `test` to define your tests. Each test case should focus on a small, isolated piece of functionality. You use assertions to check if the output of your code matches the expected result.
+    
+    Example using Jest:
+    
+    ```js
+    // sum.js
+    function sum(a, b) {
+      return a + b;
+    }
+    module.exports = sum;
+    
+    // sum.test.js
+    const sum = require('./sum');
+    
+    test('adds 1 + 2 to equal 3', () => {
+      expect(sum(1, 2)).toBe(3);
+    });
+    ```
+
+    <!-- Update here: /questions/how-do-you-write-unit-tests-for-javascript-code/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-write-unit-tests-for-javascript-code/en-US.mdx)
+  
+    <br>
+    <br>
+
+82. ### How does hoisting affect function declarations and expressions?
+
+    <!-- Update here: /questions/how-does-hoisting-affect-function-declarations-and-expressions/en-US.mdx -->
+
+    Hoisting in JavaScript means that function declarations are moved to the top of their containing scope during the compile phase, making them available throughout the entire scope. This allows you to call a function before it is defined in the code. However, function expressions are not hoisted in the same way. If you try to call a function expression before it is defined, you will get an error because the variable holding the function is hoisted but not its assignment.
+    
+    ```js
+    // Function declaration
+    console.log(foo()); // Works fine
+    function foo() {
+      return 'Hello';
+    }
+    
+    // Function expression
+    console.log(bar()); // Throws TypeError: bar is not a function
+    var bar = function () {
+      return 'Hello';
+    };
+    ```
+
+    <!-- Update here: /questions/how-does-hoisting-affect-function-declarations-and-expressions/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-does-hoisting-affect-function-declarations-and-expressions/en-US.mdx)
+  
+    <br>
+    <br>
+
+83. ### How does the `this` keyword behave in arrow functions?
+
+    <!-- Update here: /questions/how-does-the-this-keyword-behave-in-arrow-functions/en-US.mdx -->
+
+    In arrow functions, the `this` keyword retains the value of the enclosing lexical context. Unlike regular functions, arrow functions do not have their own `this` context. Instead, they inherit `this` from the parent scope at the time they are defined. This makes arrow functions particularly useful for maintaining the correct `this` value in callbacks and event handlers.
+    
+    ```js
+    function Person() {
+      this.age = 0;
+    
+      setInterval(() => {
+        this.age++; // `this` refers to the Person instance
+      }, 1000);
+    }
+    
+    const person = new Person();
+    ```
+
+    <!-- Update here: /questions/how-does-the-this-keyword-behave-in-arrow-functions/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-does-the-this-keyword-behave-in-arrow-functions/en-US.mdx)
+  
+    <br>
+    <br>
+
+84. ### How is `Promise.all()` different from `Promise.allSettled()`?
+
+    <!-- Update here: /questions/how-is-promiseall-different-from-promiseallsettled/en-US.mdx -->
+
+    `Promise.all()` and `Promise.allSettled()` are both methods for handling multiple promises in JavaScript, but they behave differently. `Promise.all()` waits for all promises to resolve and fails fast if any promise rejects, returning a single rejected promise. `Promise.allSettled()`, on the other hand, waits for all promises to settle (either resolve or reject) and returns an array of objects describing the outcome of each promise.
+
+    <!-- Update here: /questions/how-is-promiseall-different-from-promiseallsettled/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-is-promiseall-different-from-promiseallsettled/en-US.mdx)
+  
+    <br>
+    <br>
+
+85. ### Provide some examples of how currying and partial application can be used.
+
+    <!-- Update here: /questions/provide-some-examples-of-how-currying-and-partial-application-can-be-used/en-US.mdx -->
+
+    Currying transforms a function with multiple arguments into a sequence of functions, each taking a single argument. Partial application fixes a few arguments of a function, producing another function with a smaller number of arguments. For example, currying a function `add(a, b)` would look like `add(a)(b)`, while partial application of `add(2, b)` would fix the first argument to 2, resulting in a function that only needs the second argument.
+    
+    ```js
+    // Currying example
+    const add = (a) => (b) => a + b;
+    const addTwo = add(2);
+    console.log(addTwo(3)); // 5
+    
+    // Partial application example
+    const add = (a, b) => a + b;
+    const addTwo = add.bind(null, 2);
+    console.log(addTwo(3)); // 5
+    ```
+
+    <!-- Update here: /questions/provide-some-examples-of-how-currying-and-partial-application-can-be-used/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/provide-some-examples-of-how-currying-and-partial-application-can-be-used/en-US.mdx)
+  
+    <br>
+    <br>
+
+86. ### What are arrow functions and how do they differ from regular functions?
+
+    <!-- Update here: /questions/what-are-arrow-functions-and-how-do-they-differ-from-regular-functions/en-US.mdx -->
+
+    Arrow functions are a concise way to write functions in JavaScript. They use the `=>` syntax and do not have their own `this` context, which means they inherit `this` from the surrounding code. This makes them particularly useful for callbacks and methods that need to maintain the context of `this`. Unlike regular functions, arrow functions cannot be used as constructors and do not have the `arguments` object.
+    
+    ```js
+    // Regular function
+    function add(a, b) {
+      return a + b;
+    }
+    
+    // Arrow function
+    const add = (a, b) => a + b;
+    ```
+
+    <!-- Update here: /questions/what-are-arrow-functions-and-how-do-they-differ-from-regular-functions/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-arrow-functions-and-how-do-they-differ-from-regular-functions/en-US.mdx)
+  
+    <br>
+    <br>
+
+87. ### What are callback functions and how are they used?
+
+    <!-- Update here: /questions/what-are-callback-functions-and-how-are-they-used/en-US.mdx -->
+
+    A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action. They are commonly used for asynchronous operations like handling events, making API calls, or reading files. For example:
+    
+    ```js
+    function fetchData(callback) {
+      setTimeout(() => {
+        const data = { name: 'John Doe' };
+        callback(data);
+      }, 1000);
+    }
+    
+    function handleData(data) {
+      console.log(data);
+    }
+    
+    fetchData(handleData);
+    ```
+
+    <!-- Update here: /questions/what-are-callback-functions-and-how-are-they-used/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-callback-functions-and-how-are-they-used/en-US.mdx)
+  
+    <br>
+    <br>
+
+88. ### What are closures and how are they used?
+
+    <!-- Update here: /questions/what-are-closures-and-how-are-they-used/en-US.mdx -->
+
+    Closures are a feature in JavaScript where an inner function has access to the outer (enclosing) function's variables. This includes access to the outer function's scope chain even after the outer function has returned. Closures are often used for data privacy and creating function factories.
+    
+    Example:
+    
+    ```js
+    function outerFunction() {
+      let outerVariable = 'I am outside!';
+    
+      function innerFunction() {
+        console.log(outerVariable);
+      }
+    
+      return innerFunction;
+    }
+    
+    const myClosure = outerFunction();
+    myClosure(); // Logs: 'I am outside!'
+    ```
+
+    <!-- Update here: /questions/what-are-closures-and-how-are-they-used/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-closures-and-how-are-they-used/en-US.mdx)
+  
+    <br>
+    <br>
+
+89. ### What are default parameters and how are they used?
+
+    <!-- Update here: /questions/what-are-default-parameters-and-how-are-they-used/en-US.mdx -->
+
+    Default parameters in JavaScript allow you to set default values for function parameters if no value or `undefined` is passed. This helps avoid `undefined` values and makes your code more robust. You can define default parameters by assigning a value to the parameter in the function definition.
+    
+    ```js
+    function greet(name = 'Guest') {
+      console.log(`Hello, ${name}!`);
+    }
+    
+    greet(); // Output: Hello, Guest!
+    greet('Alice'); // Output: Hello, Alice!
+    ```
+
+    <!-- Update here: /questions/what-are-default-parameters-and-how-are-they-used/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-default-parameters-and-how-are-they-used/en-US.mdx)
+  
+    <br>
+    <br>
+
+90. ### What are design patterns and why are they useful?
+
+    <!-- Update here: /questions/what-are-design-patterns-and-why-are-they-useful/en-US.mdx -->
+
+    Design patterns are reusable solutions to common problems in software design. They provide a template for how to solve a problem that can be used in many different situations. They are useful because they help developers avoid common pitfalls, improve code readability, and make it easier to maintain and scale applications.
+
+    <!-- Update here: /questions/what-are-design-patterns-and-why-are-they-useful/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-design-patterns-and-why-are-they-useful/en-US.mdx)
+  
+    <br>
+    <br>
+
+91. ### What are destructuring assignments and how are they used with objects and arrays?
+
+    <!-- Update here: /questions/what-are-destructuring-assignments-and-how-are-they-used-with-objects-and-arrays/en-US.mdx -->
+
+    Destructuring assignments in JavaScript allow you to unpack values from arrays or properties from objects into distinct variables. For arrays, you can extract elements by their position, and for objects, you can extract properties by their names.
+    
+    For arrays:
+    
+    ```js
+    const [a, b] = [1, 2];
+    console.log(a); // 1
+    console.log(b); // 2
+    ```
+    
+    For objects:
+    
+    ```js
+    const { name, age } = { name: 'John', age: 30 };
+    console.log(name); // John
+    console.log(age); // 30
+    ```
+
+    <!-- Update here: /questions/what-are-destructuring-assignments-and-how-are-they-used-with-objects-and-arrays/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-destructuring-assignments-and-how-are-they-used-with-objects-and-arrays/en-US.mdx)
+  
+    <br>
+    <br>
+
+92. ### What are event listeners and how are they used?
+
+    <!-- Update here: /questions/what-are-event-listeners-and-how-are-they-used/en-US.mdx -->
+
+    Event listeners are functions that wait for specific events to occur on elements, such as clicks or key presses. They are used to execute code in response to these events. You can add an event listener to an element using the `addEventListener` method. For example:
+    
+    ```js
+    document.getElementById('myButton').addEventListener('click', function () {
+      alert('Button was clicked!');
+    });
+    ```
+
+    <!-- Update here: /questions/what-are-event-listeners-and-how-are-they-used/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-event-listeners-and-how-are-they-used/en-US.mdx)
+  
+    <br>
+    <br>
+
+93. ### What are global variables and why are they generally avoided?
+
+    <!-- Update here: /questions/what-are-global-variables-and-why-are-they-generally-avoided/en-US.mdx -->
+
+    Global variables are variables that are declared outside of any function or block and are accessible from any part of the code. They are generally avoided because they can lead to code that is difficult to debug and maintain. This is due to the potential for name collisions, unintended side effects, and the difficulty in tracking the state of the variable throughout the application.
+
+    <!-- Update here: /questions/what-are-global-variables-and-why-are-they-generally-avoided/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-global-variables-and-why-are-they-generally-avoided/en-US.mdx)
+  
+    <br>
+    <br>
+
+94. ### What are mocks and stubs and how are they used in testing?
+
+    <!-- Update here: /questions/what-are-mocks-and-stubs-and-how-are-they-used-in-testing/en-US.mdx -->
+
+    Mocks and stubs are tools used in testing to simulate the behavior of real objects. Stubs provide predefined responses to function calls, while mocks are more complex and can verify interactions, such as whether a function was called and with what arguments. Stubs are used to isolate the code being tested from external dependencies, and mocks are used to ensure that the code interacts correctly with those dependencies.
+
+    <!-- Update here: /questions/what-are-mocks-and-stubs-and-how-are-they-used-in-testing/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-mocks-and-stubs-and-how-are-they-used-in-testing/en-US.mdx)
+  
+    <br>
+    <br>
+
+95. ### What are modules and why are they useful?
+
+    <!-- Update here: /questions/what-are-modules-and-why-are-they-useful/en-US.mdx -->
+
+    Modules are reusable pieces of code that can be imported and exported between different files in a project. They help in organizing code, making it more maintainable and scalable. By using modules, you can avoid global namespace pollution and manage dependencies more effectively. In JavaScript, you can use `import` and `export` statements to work with modules.
+    
+    ```js
+    // myModule.js
+    export const myFunction = () => {
+      console.log('Hello, World!');
+    };
+    
+    // main.js
+    import { myFunction } from './myModule.js';
+    myFunction(); // Outputs: Hello, World!
+    ```
+
+    <!-- Update here: /questions/what-are-modules-and-why-are-they-useful/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-modules-and-why-are-they-useful/en-US.mdx)
+  
+    <br>
+    <br>
+
+96. ### What are polyfills used for?
+
+    <!-- Update here: /questions/what-are-polyfills-used-for/en-US.mdx -->
+
+    Polyfills are used to provide modern functionality on older browsers that do not natively support it. They are essentially pieces of code (usually JavaScript) that replicate the behavior of newer features in older environments. For example, if you want to use `Array.prototype.includes` in an older browser that doesn't support it, you can use a polyfill to add this method.
+    
+    ```js
+    if (!Array.prototype.includes) {
+      Array.prototype.includes = function (searchElement, fromIndex) {
+        // Polyfill code here
+      };
+    }
+    ```
+
+    <!-- Update here: /questions/what-are-polyfills-used-for/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-polyfills-used-for/en-US.mdx)
+  
+    <br>
+    <br>
+
+97. ### What are Progressive Web Applications (PWAs)?
+
+    <!-- Update here: /questions/what-are-progressive-web-applications-pwas/en-US.mdx -->
+
+    Progressive Web Applications (PWAs) are web applications that use modern web capabilities to deliver an app-like experience to users. They are reliable, fast, and engaging. PWAs can work offline, send push notifications, and be installed on a user's home screen. They leverage technologies like service workers, web app manifests, and HTTPS to provide these features.
+
+    <!-- Update here: /questions/what-are-progressive-web-applications-pwas/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-progressive-web-applications-pwas/en-US.mdx)
+  
+    <br>
+    <br>
+
+98. ### What are Promises and how do they work?
+
+    <!-- Update here: /questions/what-are-promises-and-how-do-they-work/en-US.mdx -->
+
+    Promises in JavaScript are objects that represent the eventual completion (or failure) of an asynchronous operation and its resulting value. They have three states: `pending`, `fulfilled`, and `rejected`. You can handle the results of a promise using the `.then()` method for success and the `.catch()` method for errors.
+    
+    ```js
+    let promise = new Promise((resolve, reject) => {
+      // asynchronous operation
+      if (/* operation successful */) {
+        resolve('Success!');
+      } else {
+        reject('Error!');
+      }
+    });
+    
+    promise.then(result => {
+      console.log(result); // 'Success!'
+    }).catch(error => {
+      console.error(error); // 'Error!'
+    });
+    ```
+
+    <!-- Update here: /questions/what-are-promises-and-how-do-they-work/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-promises-and-how-do-they-work/en-US.mdx)
+  
+    <br>
+    <br>
+
+99. ### What are rest parameters and how are they used?
+
+    <!-- Update here: /questions/what-are-rest-parameters-and-how-are-they-used/en-US.mdx -->
+
+    Rest parameters in JavaScript allow a function to accept an indefinite number of arguments as an array. They are denoted by three dots (`...`) followed by the name of the array. This feature is useful for functions that need to handle multiple arguments without knowing the exact number in advance.
+    
+    ```js
+    function sum(...numbers) {
+      return numbers.reduce((acc, curr) => acc + curr, 0);
+    }
+    
+    console.log(sum(1, 2, 3, 4)); // Output: 10
+    ```
+
+    <!-- Update here: /questions/what-are-rest-parameters-and-how-are-they-used/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-rest-parameters-and-how-are-they-used/en-US.mdx)
+  
+    <br>
+    <br>
+
+100. ### What are `Set`s and `Map`s and how are they used?
+
+    <!-- Update here: /questions/what-are-sets-and-maps-and-how-are-they-used/en-US.mdx -->
+
+    `Set`s and `Map`s are built-in JavaScript objects that help manage collections of data. A `Set` is a collection of unique values, while a `Map` is a collection of key-value pairs where keys can be of any type. `Set`s are useful for storing unique items, and `Map`s are useful for associating values with keys.
+    
+    ```js
+    // Set example
+    let mySet = new Set([1, 2, 3, 3]);
+    mySet.add(4); // Set {1, 2, 3, 4}
+    
+    // Map example
+    let myMap = new Map();
+    myMap.set('key1', 'value1');
+    myMap.set('key2', 'value2');
+    console.log(myMap.get('key1')); // 'value1'
+    ```
+
+    <!-- Update here: /questions/what-are-sets-and-maps-and-how-are-they-used/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-sets-and-maps-and-how-are-they-used/en-US.mdx)
+  
+    <br>
+    <br>
+
+101. ### What are some best practices for handling sensitive data in JavaScript?
+
+    <!-- Update here: /questions/what-are-some-best-practices-for-handling-sensitive-data-in-javascript/en-US.mdx -->
+
+    Handling sensitive data in JavaScript requires careful attention to security practices. Avoid storing sensitive data in client-side storage like localStorage or sessionStorage. Use HTTPS to encrypt data in transit. Implement proper authentication and authorization mechanisms. Sanitize and validate all inputs to prevent injection attacks. Consider using environment variables for sensitive data in server-side code.
+
+    <!-- Update here: /questions/what-are-some-best-practices-for-handling-sensitive-data-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-some-best-practices-for-handling-sensitive-data-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+102. ### What are some best practices for writing maintainable and effective tests?
+
+    <!-- Update here: /questions/what-are-some-best-practices-for-writing-maintainable-and-effective-tests/en-US.mdx -->
+
+    To write maintainable and effective tests, ensure they are clear, concise, and focused on a single behavior. Use descriptive names for test cases and avoid hardcoding values. Mock external dependencies and keep tests isolated. Regularly review and refactor tests to keep them up-to-date with the codebase.
+
+    <!-- Update here: /questions/what-are-some-best-practices-for-writing-maintainable-and-effective-tests/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-some-best-practices-for-writing-maintainable-and-effective-tests/en-US.mdx)
+  
+    <br>
+    <br>
+
+103. ### What are some common performance bottlenecks in JavaScript applications?
+
+    <!-- Update here: /questions/what-are-some-common-performance-bottlenecks-in-javascript-applications/en-US.mdx -->
+
+    Common performance bottlenecks in JavaScript applications include inefficient DOM manipulation, excessive use of global variables, blocking the main thread with heavy computations, memory leaks, and improper use of asynchronous operations. To mitigate these issues, you can use techniques like debouncing and throttling, optimizing DOM updates, and leveraging web workers for heavy computations.
+
+    <!-- Update here: /questions/what-are-some-common-performance-bottlenecks-in-javascript-applications/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-some-common-performance-bottlenecks-in-javascript-applications/en-US.mdx)
+  
+    <br>
+    <br>
+
+104. ### What are some common security headers and their purpose?
+
+    <!-- Update here: /questions/what-are-some-common-security-headers-and-their-purpose/en-US.mdx -->
+
+    Security headers are HTTP response headers that help protect web applications from various attacks. Some common security headers include:
+    
+    - `Content-Security-Policy (CSP)`: Prevents cross-site scripting (XSS) and other code injection attacks by specifying allowed content sources.
+    - `X-Content-Type-Options`: Prevents MIME type sniffing by instructing the browser to follow the declared `Content-Type`.
+    - `Strict-Transport-Security (HSTS)`: Enforces secure (HTTPS) connections to the server.
+    - `X-Frame-Options`: Prevents clickjacking by controlling whether a page can be displayed in a frame.
+    - `X-XSS-Protection`: Enables the cross-site scripting (XSS) filter built into most browsers.
+    - `Referrer-Policy`: Controls how much referrer information is included with requests.
+
+    <!-- Update here: /questions/what-are-some-common-security-headers-and-their-purpose/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-some-common-security-headers-and-their-purpose/en-US.mdx)
+  
+    <br>
+    <br>
+
+105. ### What are some popular JavaScript testing frameworks?
+
+    <!-- Update here: /questions/what-are-some-popular-javascript-testing-frameworks/en-US.mdx -->
+
+    Some popular JavaScript testing frameworks include Jest, Mocha, Jasmine, and Cypress. Jest is known for its simplicity and integration with React. Mocha is highly flexible and often used with other libraries like Chai for assertions. Jasmine is a behavior-driven development framework that requires no additional libraries. Cypress is an end-to-end testing framework that provides a great developer experience.
+
+    <!-- Update here: /questions/what-are-some-popular-javascript-testing-frameworks/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-some-popular-javascript-testing-frameworks/en-US.mdx)
+  
+    <br>
+    <br>
+
+106. ### What are some techniques for reducing reflows and repaints?
+
+    <!-- Update here: /questions/what-are-some-techniques-for-reducing-reflows-and-repaints/en-US.mdx -->
+
+    To reduce reflows and repaints, you can minimize DOM manipulations, batch DOM changes, use CSS classes for style changes, avoid complex CSS selectors, and use `requestAnimationFrame` for animations. Additionally, consider using `will-change` for elements that will change frequently and avoid layout thrashing by reading and writing to the DOM separately.
+
+    <!-- Update here: /questions/what-are-some-techniques-for-reducing-reflows-and-repaints/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-some-techniques-for-reducing-reflows-and-repaints/en-US.mdx)
+  
+    <br>
+    <br>
+
+107. ### What are some tools and techniques for identifying security vulnerabilities in JavaScript code?
+
+    <!-- Update here: /questions/what-are-some-tools-and-techniques-for-identifying-security-vulnerabilities-in-javascript-code/en-US.mdx -->
+
+    To identify security vulnerabilities in JavaScript code, you can use static code analysis tools like ESLint with security plugins, dynamic analysis tools like OWASP ZAP, and dependency checkers like npm audit. Additionally, manual code reviews and adhering to secure coding practices are essential techniques.
+
+    <!-- Update here: /questions/what-are-some-tools-and-techniques-for-identifying-security-vulnerabilities-in-javascript-code/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-some-tools-and-techniques-for-identifying-security-vulnerabilities-in-javascript-code/en-US.mdx)
+  
+    <br>
+    <br>
+
+108. ### What are some tools that can be used for JavaScript testing?
+
+    <!-- Update here: /questions/what-are-some-tools-that-can-be-used-for-javascript-testing/en-US.mdx -->
+
+    For JavaScript testing, you can use tools like Jest, Mocha, Jasmine, and Cypress. Jest is popular for its ease of use and built-in features. Mocha is flexible and can be paired with other libraries. Jasmine is known for its simplicity and behavior-driven development (BDD) style. Cypress is great for end-to-end testing with a focus on real browser interactions.
+
+    <!-- Update here: /questions/what-are-some-tools-that-can-be-used-for-javascript-testing/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-some-tools-that-can-be-used-for-javascript-testing/en-US.mdx)
+  
+    <br>
+    <br>
+
+109. ### What are some tools that can be used to measure and analyze JavaScript performance?
+
+    <!-- Update here: /questions/what-are-some-tools-that-can-be-used-to-measure-and-analyze-javascript-performance/en-US.mdx -->
+
+    To measure and analyze JavaScript performance, you can use tools like Chrome DevTools, Lighthouse, WebPageTest, and JSPerf. Chrome DevTools provides a Performance panel for profiling, Lighthouse offers audits for performance metrics, WebPageTest allows for detailed performance testing, and JSPerf helps in comparing the performance of different JavaScript snippets.
+
+    <!-- Update here: /questions/what-are-some-tools-that-can-be-used-to-measure-and-analyze-javascript-performance/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-some-tools-that-can-be-used-to-measure-and-analyze-javascript-performance/en-US.mdx)
+  
+    <br>
+    <br>
+
+110. ### What are some use cases for using a `WeakSet` or `WeakMap` in JavaScript?
+
+    <!-- Update here: /questions/what-are-some-use-cases-for-using-a-weakset-or-weakmap-in-javascript/en-US.mdx -->
+
+    `WeakSet` and `WeakMap` in JavaScript are used for memory-efficient storage of objects where you don't want to prevent garbage collection. `WeakSet` is useful for tracking objects without preventing their garbage collection, while `WeakMap` is ideal for associating data with objects without creating strong references. Both are particularly useful in scenarios like caching, managing private data, and tracking object states.
+
+    <!-- Update here: /questions/what-are-some-use-cases-for-using-a-weakset-or-weakmap-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-some-use-cases-for-using-a-weakset-or-weakmap-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+111. ### What are static methods in classes?
+
+    <!-- Update here: /questions/what-are-static-methods-in-classes/en-US.mdx -->
+
+    Static methods in classes are methods that belong to the class itself rather than to instances of the class. They can be called without creating an instance of the class. You define a static method using the `static` keyword. For example:
+    
+    ```js
+    class MyClass {
+      static myStaticMethod() {
+        return 'Hello, World!';
+      }
+    }
+    
+    console.log(MyClass.myStaticMethod()); // Output: 'Hello, World!'
+    ```
+
+    <!-- Update here: /questions/what-are-static-methods-in-classes/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-static-methods-in-classes/en-US.mdx)
+  
+    <br>
+    <br>
+
+112. ### What are template literals and how are they used?
+
+    <!-- Update here: /questions/what-are-template-literals-and-how-are-they-used/en-US.mdx -->
+
+    Template literals are a feature in JavaScript that allow for easier string interpolation and multi-line strings. They are enclosed by backticks (`` ` ``) instead of single or double quotes. You can embed expressions within template literals using `${expression}` syntax.
+    
+    Example:
+    
+    ```js
+    const name = 'John';
+    const greeting = `Hello, ${name}!`;
+    console.log(greeting); // Output: Hello, John!
+    ```
+
+    <!-- Update here: /questions/what-are-template-literals-and-how-are-they-used/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-template-literals-and-how-are-they-used/en-US.mdx)
+  
+    <br>
+    <br>
+
+113. ### What are the advantages of using Promises over callbacks?
+
+    <!-- Update here: /questions/what-are-the-advantages-of-using-promises-over-callbacks/en-US.mdx -->
+
+    Promises provide a more readable and maintainable way to handle asynchronous operations compared to callbacks. They help avoid "callback hell" by allowing chaining of operations and provide better error handling through `.catch()`. Promises also integrate well with modern JavaScript features like `async`/`await`.
+
+    <!-- Update here: /questions/what-are-the-advantages-of-using-promises-over-callbacks/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-advantages-of-using-promises-over-callbacks/en-US.mdx)
+  
+    <br>
+    <br>
+
+114. ### What are the advantages of using the spread operator with arrays and objects?
+
+    <!-- Update here: /questions/what-are-the-advantages-of-using-the-spread-operator-with-arrays-and-objects/en-US.mdx -->
+
+    The spread operator (`...`) in JavaScript allows you to easily copy arrays and objects, merge them, and add new elements or properties. It simplifies syntax and improves readability. For arrays, it can be used to concatenate or clone arrays. For objects, it can be used to merge objects or add new properties.
+    
+    ```js
+    // Arrays
+    const arr1 = [1, 2, 3];
+    const arr2 = [...arr1, 4, 5]; // [1, 2, 3, 4, 5]
+    
+    // Objects
+    const obj1 = { a: 1, b: 2 };
+    const obj2 = { ...obj1, c: 3 }; // { a: 1, b: 2, c: 3 }
+    ```
+
+    <!-- Update here: /questions/what-are-the-advantages-of-using-the-spread-operator-with-arrays-and-objects/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-advantages-of-using-the-spread-operator-with-arrays-and-objects/en-US.mdx)
+  
+    <br>
+    <br>
+
+115. ### What are the benefits of using a module bundler?
+
+    <!-- Update here: /questions/what-are-the-benefits-of-using-a-module-bundler/en-US.mdx -->
+
+    Using a module bundler like Webpack, Rollup, or Parcel helps manage dependencies, optimize performance, and improve the development workflow. It combines multiple JavaScript files into a single file or a few files, which reduces the number of HTTP requests and can include features like code splitting, tree shaking, and hot module replacement.
+
+    <!-- Update here: /questions/what-are-the-benefits-of-using-a-module-bundler/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-benefits-of-using-a-module-bundler/en-US.mdx)
+  
+    <br>
+    <br>
+
+116. ### What are the benefits of using currying and partial application?
+
+    <!-- Update here: /questions/what-are-the-benefits-of-using-currying-and-partial-application/en-US.mdx -->
+
+    Currying transforms a function with multiple arguments into a sequence of functions, each taking a single argument. This allows for more flexible and reusable code. Partial application, on the other hand, allows you to fix a few arguments of a function and generate a new function. Both techniques help in creating more modular and maintainable code.
+
+    <!-- Update here: /questions/what-are-the-benefits-of-using-currying-and-partial-application/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-benefits-of-using-currying-and-partial-application/en-US.mdx)
+  
+    <br>
+    <br>
+
+117. ### What are the common pitfalls of using the `this` keyword?
+
+    <!-- Update here: /questions/what-are-the-common-pitfalls-of-using-the-this-keyword/en-US.mdx -->
+
+    The `this` keyword in JavaScript can be tricky because its value depends on how a function is called. Common pitfalls include losing the context of `this` when passing methods as callbacks, using `this` in nested functions, and misunderstanding `this` in arrow functions. To avoid these issues, you can use `.bind()`, arrow functions, or store the context in a variable.
+
+    <!-- Update here: /questions/what-are-the-common-pitfalls-of-using-the-this-keyword/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-common-pitfalls-of-using-the-this-keyword/en-US.mdx)
+  
+    <br>
+    <br>
+
+118. ### What are the different methods for iterating over an array?
+
+    <!-- Update here: /questions/what-are-the-different-methods-for-iterating-over-an-array/en-US.mdx -->
+
+    There are several methods to iterate over an array in JavaScript. The most common ones include `for` loops, `forEach`, `map`, `filter`, `reduce`, and `for...of`. Each method has its own use case. For example, `for` loops are versatile and can be used for any kind of iteration, while `forEach` is specifically for executing a function on each array element. `map` is used for transforming arrays, `filter` for filtering elements, `reduce` for accumulating values, and `for...of` for iterating over iterable objects.
+
+    <!-- Update here: /questions/what-are-the-different-methods-for-iterating-over-an-array/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-different-methods-for-iterating-over-an-array/en-US.mdx)
+  
+    <br>
+    <br>
+
+119. ### What are the different types of errors in JavaScript?
+
+    <!-- Update here: /questions/what-are-the-different-types-of-errors-in-javascript/en-US.mdx -->
+
+    In JavaScript, there are three main types of errors: syntax errors, runtime errors, and logical errors. Syntax errors occur when the code violates the language's grammar rules, such as missing a parenthesis. Runtime errors happen during code execution, like trying to access a property of `undefined`. Logical errors are mistakes in the code's logic that lead to incorrect results but don't throw an error.
+
+    <!-- Update here: /questions/what-are-the-different-types-of-errors-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-different-types-of-errors-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+120. ### What are the different types of loops in JavaScript?
+
+    <!-- Update here: /questions/what-are-the-different-types-of-loops-in-javascript/en-US.mdx -->
+
+    In JavaScript, there are several types of loops used to iterate over data structures or execute a block of code multiple times. The main types are `for`, `while`, `do...while`, `for...in`, and `for...of`. Each loop has its specific use case. For example, `for` loops are great for iterating a known number of times, while `for...of` is useful for iterating over iterable objects like arrays.
+
+    <!-- Update here: /questions/what-are-the-different-types-of-loops-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-different-types-of-loops-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+121. ### What are the different types of testing in software development?
+
+    <!-- Update here: /questions/what-are-the-different-types-of-testing-in-software-development/en-US.mdx -->
+
+    In software development, there are several types of testing to ensure the quality and functionality of the application. These include unit testing, integration testing, system testing, and acceptance testing. Unit testing focuses on individual components, integration testing checks the interaction between components, system testing evaluates the entire system, and acceptance testing ensures the software meets user requirements.
+
+    <!-- Update here: /questions/what-are-the-different-types-of-testing-in-software-development/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-different-types-of-testing-in-software-development/en-US.mdx)
+  
+    <br>
+    <br>
+
+122. ### What are the different ways to copy an object or an array?
+
+    <!-- Update here: /questions/what-are-the-different-ways-to-copy-an-object-or-an-array/en-US.mdx -->
+
+    To copy an object or an array in JavaScript, you can use several methods. For shallow copies, you can use the spread operator (`...`) or `Object.assign()`. For deep copies, you can use `JSON.parse(JSON.stringify())` or libraries like Lodash's `_.cloneDeep()`.
+    
+    ```js
+    // Shallow copy of an array
+    const originalArray = [1, 2, 3];
+    const shallowCopyArray = [...originalArray];
+    
+    // Shallow copy of an object
+    const originalObject = { a: 1, b: 2 };
+    const shallowCopyObject = { ...originalObject };
+    
+    // Deep copy using JSON methods
+    const deepCopyObject = JSON.parse(JSON.stringify(originalObject));
+    ```
+
+    <!-- Update here: /questions/what-are-the-different-ways-to-copy-an-object-or-an-array/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-different-ways-to-copy-an-object-or-an-array/en-US.mdx)
+  
+    <br>
+    <br>
+
+123. ### What are the different ways to create an object in JavaScript?
+
+    <!-- Update here: /questions/what-are-the-different-ways-to-create-an-object-in-javascript/en-US.mdx -->
+
+    In JavaScript, you can create objects in several ways. The most common methods are using object literals, the `Object` constructor, and constructor functions. You can also use `Object.create` for creating objects with a specific prototype and ES6 classes for a more structured approach.
+    
+    ```js
+    // Object literal
+    const obj1 = { key: 'value' };
+    
+    // Object constructor
+    const obj2 = new Object();
+    obj2.key = 'value';
+    
+    // Constructor function
+    function MyObject() {
+      this.key = 'value';
+    }
+    const obj3 = new MyObject();
+    
+    // Object.create
+    const obj4 = Object.create(null);
+    obj4.key = 'value';
+    
+    // ES6 class
+    class MyClass {
+      constructor() {
+        this.key = 'value';
+      }
+    }
+    const obj5 = new MyClass();
+    ```
+
+    <!-- Update here: /questions/what-are-the-different-ways-to-create-an-object-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-different-ways-to-create-an-object-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+124. ### What are the different ways to make an API call in JavaScript?
+
+    <!-- Update here: /questions/what-are-the-different-ways-to-make-an-api-call-in-javascript/en-US.mdx -->
+
+    In JavaScript, you can make API calls using several methods. The most common ones are `XMLHttpRequest`, `fetch`, and third-party libraries like `Axios`. `XMLHttpRequest` is the traditional way but is more verbose. `fetch` is modern and returns promises, making it easier to work with. `Axios` is a popular third-party library that simplifies API calls and provides additional features.
+
+    <!-- Update here: /questions/what-are-the-different-ways-to-make-an-api-call-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-different-ways-to-make-an-api-call-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+125. ### What are the metadata fields of a module?
+
+    <!-- Update here: /questions/what-are-the-metadata-fields-of-a-module/en-US.mdx -->
+
+    Metadata fields of a module typically include information such as the module's name, version, description, author, license, and dependencies. These fields are often found in a `package.json` file in JavaScript projects. For example:
+    
+    ```json
+    {
+      "name": "my-module",
+      "version": "1.0.0",
+      "description": "A sample module",
+      "author": "John Doe",
+      "license": "MIT",
+      "dependencies": {
+        "express": "^4.17.1"
+      }
+    }
+    ```
+
+    <!-- Update here: /questions/what-are-the-metadata-fields-of-a-module/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-metadata-fields-of-a-module/en-US.mdx)
+  
+    <br>
+    <br>
+
+126. ### What are the potential issues caused by hoisting?
+
+    <!-- Update here: /questions/what-are-the-potential-issues-caused-by-hoisting/en-US.mdx -->
+
+    Hoisting can lead to unexpected behavior in JavaScript because variable and function declarations are moved to the top of their containing scope during the compilation phase. This can result in `undefined` values for variables if they are used before their declaration and can cause confusion with function declarations and expressions. For example:
+    
+    ```js
+    console.log(a); // undefined
+    var a = 5;
+    
+    console.log(b); // ReferenceError: b is not defined
+    let b = 10;
+    ```
+
+    <!-- Update here: /questions/what-are-the-potential-issues-caused-by-hoisting/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-potential-issues-caused-by-hoisting/en-US.mdx)
+  
+    <br>
+    <br>
+
+127. ### What are the potential pitfalls of using closures?
+
+    <!-- Update here: /questions/what-are-the-potential-pitfalls-of-using-closures/en-US.mdx -->
+
+    Closures can lead to memory leaks if not managed properly, especially when they capture variables that are no longer needed. They can also make debugging more difficult due to the complexity of the scope chain. Additionally, closures can cause performance issues if they are overused or used inappropriately, as they keep references to variables in their scope, which can prevent garbage collection.
+
+    <!-- Update here: /questions/what-are-the-potential-pitfalls-of-using-closures/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-potential-pitfalls-of-using-closures/en-US.mdx)
+  
+    <br>
+    <br>
+
+128. ### What are the primitive data types in JavaScript?
+
+    <!-- Update here: /questions/what-are-the-primitive-data-types-in-javascript/en-US.mdx -->
+
+    JavaScript has seven primitive data types: `string`, `number`, `boolean`, `null`, `undefined`, `symbol`, and `bigint`. These types are immutable and are not objects. They represent the most basic forms of data in JavaScript.
+
+    <!-- Update here: /questions/what-are-the-primitive-data-types-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-primitive-data-types-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+129. ### What are Web Workers and how can they be used?
+
+    <!-- Update here: /questions/what-are-web-workers-and-how-can-they-be-used/en-US.mdx -->
+
+    Web Workers are a way to run JavaScript in the background, separate from the main execution thread of a web application. This helps in performing tasks like data processing or heavy computations without blocking the user interface. You can create a Web Worker by instantiating a new `Worker` object and passing it a JavaScript file. Communication between the main thread and the worker is done using the `postMessage` method and the `onmessage` event handler.
+    
+    ```js
+    // main.js
+    const worker = new Worker('worker.js');
+    worker.postMessage('Hello, worker!');
+    
+    worker.onmessage = function (event) {
+      console.log('Message from worker:', event.data);
+    };
+    
+    // worker.js
+    onmessage = function (event) {
+      console.log('Message from main thread:', event.data);
+      postMessage('Hello, main thread!');
+    };
+    ```
+
+    <!-- Update here: /questions/what-are-web-workers-and-how-can-they-be-used/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-web-workers-and-how-can-they-be-used/en-US.mdx)
+  
+    <br>
+    <br>
+
+130. ### What are Web Workers and how can they be used to improve performance?
+
+    <!-- Update here: /questions/what-are-web-workers-and-how-can-they-be-used-to-improve-performance/en-US.mdx -->
+
+    Web Workers are a way to run JavaScript in the background, separate from the main execution thread of a web application. This helps in performing heavy computations without blocking the user interface. You can create a Web Worker using the `Worker` constructor and communicate with it using the `postMessage` and `onmessage` methods.
+    
+    ```js
+    // main.js
+    const worker = new Worker('worker.js');
+    worker.postMessage('Hello, worker!');
+    
+    worker.onmessage = function (event) {
+      console.log('Message from worker:', event.data);
+    };
+    
+    // worker.js
+    onmessage = function (event) {
+      console.log('Message from main script:', event.data);
+      postMessage('Hello, main script!');
+    };
+    ```
+
+    <!-- Update here: /questions/what-are-web-workers-and-how-can-they-be-used-to-improve-performance/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-web-workers-and-how-can-they-be-used-to-improve-performance/en-US.mdx)
+  
+    <br>
+    <br>
+
+131. ### What is a closure and how does it work?
+
+    <!-- Update here: /questions/what-is-a-closure-and-how-does-it-work/en-US.mdx -->
+
+    A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) function's variables. This includes the outer function's scope, the global scope, and its own scope. Closures are created every time a function is created, at function creation time.
+    
+    ```js
+    function outerFunction() {
+      let outerVariable = 'I am outside!';
+    
+      function innerFunction() {
+        console.log(outerVariable); // Accesses outerVariable from outerFunction
+      }
+    
+      return innerFunction;
+    }
+    
+    const myClosure = outerFunction();
+    myClosure(); // Logs: 'I am outside!'
+    ```
+
+    <!-- Update here: /questions/what-is-a-closure-and-how-does-it-work/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-a-closure-and-how-does-it-work/en-US.mdx)
+  
+    <br>
+    <br>
+
+132. ### What is a function declaration and how does it differ from a function expression?
+
+    <!-- Update here: /questions/what-is-a-function-declaration-and-how-does-it-differ-from-a-function-expression/en-US.mdx -->
+
+    A function declaration defines a named function and is hoisted, meaning it can be called before it is defined in the code. A function expression defines a function as part of an expression and is not hoisted, so it cannot be called before it is defined.
+    
+    ```js
+    // Function declaration
+    function greet() {
+      console.log('Hello!');
+    }
+    
+    // Function expression
+    const greet = function () {
+      console.log('Hello!');
+    };
+    ```
+
+    <!-- Update here: /questions/what-is-a-function-declaration-and-how-does-it-differ-from-a-function-expression/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-a-function-declaration-and-how-does-it-differ-from-a-function-expression/en-US.mdx)
+  
+    <br>
+    <br>
+
+133. ### What is async/await and how does it simplify asynchronous code?
+
+    <!-- Update here: /questions/what-is-asyncawait-and-how-does-it-simplify-asynchronous-code/en-US.mdx -->
+
+    `async/await` is a modern syntax in JavaScript that simplifies working with promises. By using the `async` keyword before a function, you can use the `await` keyword inside that function to pause execution until a promise is resolved. This makes asynchronous code look and behave more like synchronous code, making it easier to read and maintain.
+    
+    ```js
+    async function fetchData() {
+      try {
+        const response = await fetch('https://api.example.com/data');
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    ```
+
+    <!-- Update here: /questions/what-is-asyncawait-and-how-does-it-simplify-asynchronous-code/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-asyncawait-and-how-does-it-simplify-asynchronous-code/en-US.mdx)
+  
+    <br>
+    <br>
+
+134. ### What is Cross-Site Scripting (XSS) and how can you prevent it?
+
+    <!-- Update here: /questions/what-is-cross-site-scripting-xss-and-how-can-you-prevent-it/en-US.mdx -->
+
+    Cross-Site Scripting (XSS) is a security vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users. This can lead to data theft, session hijacking, and other malicious activities. To prevent XSS, you should validate and sanitize user inputs, use Content Security Policy (CSP), and escape data before rendering it in the browser.
+
+    <!-- Update here: /questions/what-is-cross-site-scripting-xss-and-how-can-you-prevent-it/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-cross-site-scripting-xss-and-how-can-you-prevent-it/en-US.mdx)
+  
+    <br>
+    <br>
+
+135. ### What is currying and how does it work?
+
+    <!-- Update here: /questions/what-is-currying-and-how-does-it-work/en-US.mdx -->
+
+    Currying is a technique in functional programming where a function that takes multiple arguments is transformed into a series of functions that each take a single argument. This allows for partial application of functions. For example, a function `f(a, b, c)` can be curried into `f(a)(b)(c)`. Here's a simple example in JavaScript:
+    
+    ```js
+    function add(a) {
+      return function (b) {
+        return function (c) {
+          return a + b + c;
+        };
+      };
+    }
+    
+    const addOne = add(1);
+    const addOneAndTwo = addOne(2);
+    const result = addOneAndTwo(3); // result is 6
+    ```
+
+    <!-- Update here: /questions/what-is-currying-and-how-does-it-work/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-currying-and-how-does-it-work/en-US.mdx)
+  
+    <br>
+    <br>
+
+136. ### What is event bubbling and capturing?
+
+    <!-- Update here: /questions/what-is-event-bubbling-and-capturing/en-US.mdx -->
+
+    Event bubbling and capturing are two phases of event propagation in the DOM. In event bubbling, the event starts from the target element and bubbles up to the root. In event capturing, the event starts from the root and captures down to the target element. You can control these phases using the `addEventListener` method by setting the third parameter to `true` for capturing or `false` for bubbling.
+    
+    ```js
+    element.addEventListener('click', handler, true); // Capturing phase
+    element.addEventListener('click', handler, false); // Bubbling phase
+    ```
+
+    <!-- Update here: /questions/what-is-event-bubbling-and-capturing/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-event-bubbling-and-capturing/en-US.mdx)
+  
+    <br>
+    <br>
+
+137. ### What is hoisting in JavaScript?
+
+    <!-- Update here: /questions/what-is-hoisting-in-javascript/en-US.mdx -->
+
+    Hoisting in JavaScript is a behavior where variable and function declarations are moved to the top of their containing scope during the compile phase. This means you can use functions and variables before they are declared in the code. However, only the declarations are hoisted, not the initializations. For example:
+    
+    ```js
+    console.log(myVar); // undefined
+    var myVar = 5;
+    
+    myFunction(); // "Hello, world!"
+    function myFunction() {
+      console.log('Hello, world!');
+    }
+    ```
+
+    <!-- Update here: /questions/what-is-hoisting-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-hoisting-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+138. ### What is `Object.freeze()` for?
+
+    <!-- Update here: /questions/what-is-objectfreeze-for/en-US.mdx -->
+
+    `Object.freeze()` is used to make an object immutable. Once an object is frozen, you cannot add, remove, or modify its properties. This is useful for creating constants or ensuring that an object remains unchanged throughout the program.
+    
+    ```js
+    const obj = { name: 'John' };
+    Object.freeze(obj);
+    obj.name = 'Doe'; // This will not change the name property
+    ```
+
+    <!-- Update here: /questions/what-is-objectfreeze-for/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-objectfreeze-for/en-US.mdx)
+  
+    <br>
+    <br>
+
+139. ### What is `Object.preventExtensions()` for?
+
+    <!-- Update here: /questions/what-is-objectpreventextensions-for/en-US.mdx -->
+
+    `Object.preventExtensions()` is a method in JavaScript that prevents new properties from being added to an object. However, it does not affect the deletion or modification of existing properties. This method is useful when you want to ensure that an object remains in a certain shape and no additional properties can be added to it.
+    
+    ```js
+    const obj = { name: 'John' };
+    Object.preventExtensions(obj);
+    
+    obj.age = 30; // This will not work, as the object is not extensible
+    console.log(obj.age); // undefined
+    ```
+
+    <!-- Update here: /questions/what-is-objectpreventextensions-for/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-objectpreventextensions-for/en-US.mdx)
+  
+    <br>
+    <br>
+
+140. ### What is `Object.seal()` for?
+
+    <!-- Update here: /questions/what-is-objectseal-for/en-US.mdx -->
+
+    `Object.seal()` is used to prevent new properties from being added to an object and to mark all existing properties as non-configurable. This means you can still modify the values of existing properties, but you cannot delete them or add new ones.
+    
+    ```js
+    const obj = { name: 'John' };
+    Object.seal(obj);
+    
+    obj.name = 'Jane'; // Allowed
+    obj.age = 30; // Not allowed
+    delete obj.name; // Not allowed
+    ```
+
+    <!-- Update here: /questions/what-is-objectseal-for/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-objectseal-for/en-US.mdx)
+  
+    <br>
+    <br>
+
+141. ### What is recursion and how is it used in JavaScript?
+
+    <!-- Update here: /questions/what-is-recursion-and-how-is-it-used-in-javascript/en-US.mdx -->
+
+    Recursion is a programming technique where a function calls itself to solve a problem. In JavaScript, recursion is used to solve problems that can be broken down into smaller, similar sub-problems. A base case is essential to stop the recursive calls and prevent infinite loops. For example, calculating the factorial of a number can be done using recursion:
+    
+    ```js
+    function factorial(n) {
+      if (n === 0) {
+        return 1;
+      }
+      return n * factorial(n - 1);
+    }
+    ```
+
+    <!-- Update here: /questions/what-is-recursion-and-how-is-it-used-in-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-recursion-and-how-is-it-used-in-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+142. ### What is the Command pattern and how is it used?
+
+    <!-- Update here: /questions/what-is-the-command-pattern-and-how-is-it-used/en-US.mdx -->
+
+    The Command pattern is a behavioral design pattern that turns a request into a stand-alone object containing all information about the request. This transformation allows for parameterization of methods with different requests, queuing of requests, and logging of the requests. It also supports undoable operations. In JavaScript, it can be implemented by creating command objects with `execute` and `undo` methods.
+    
+    ```js
+    class Command {
+      execute() {}
+      undo() {}
+    }
+    
+    class LightOnCommand extends Command {
+      constructor(light) {
+        super();
+        this.light = light;
+      }
+      execute() {
+        this.light.on();
+      }
+      undo() {
+        this.light.off();
+      }
+    }
+    
+    class Light {
+      on() {
+        console.log('Light is on');
+      }
+      off() {
+        console.log('Light is off');
+      }
+    }
+    
+    const light = new Light();
+    const lightOnCommand = new LightOnCommand(light);
+    lightOnCommand.execute(); // Light is on
+    lightOnCommand.undo(); // Light is off
+    ```
+
+    <!-- Update here: /questions/what-is-the-command-pattern-and-how-is-it-used/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-command-pattern-and-how-is-it-used/en-US.mdx)
+  
+    <br>
+    <br>
+
+143. ### What is the Decorator pattern and how is it used?
+
+    <!-- Update here: /questions/what-is-the-decorator-pattern-and-how-is-it-used/en-US.mdx -->
+
+    The Decorator pattern is a structural design pattern that allows behavior to be added to individual objects, dynamically, without affecting the behavior of other objects from the same class. It is used to extend the functionalities of objects by wrapping them with additional behavior. In JavaScript, this can be achieved using higher-order functions or classes.
+    
+    For example, if you have a `Car` class and you want to add features like `GPS` or `Sunroof` without modifying the `Car` class itself, you can create decorators for these features.
+    
+    ```js
+    class Car {
+      drive() {
+        return 'Driving';
+      }
+    }
+    
+    class CarDecorator {
+      constructor(car) {
+        this.car = car;
+      }
+    
+      drive() {
+        return this.car.drive();
+      }
+    }
+    
+    class GPSDecorator extends CarDecorator {
+      drive() {
+        return `${super.drive()} with GPS`;
+      }
+    }
+    
+    const myCar = new Car();
+    const myCarWithGPS = new GPSDecorator(myCar);
+    console.log(myCarWithGPS.drive()); // "Driving with GPS"
+    ```
+
+    <!-- Update here: /questions/what-is-the-decorator-pattern-and-how-is-it-used/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-decorator-pattern-and-how-is-it-used/en-US.mdx)
+  
+    <br>
+    <br>
+
+144. ### What is the difference between a parameter and an argument?
+
+    <!-- Update here: /questions/what-is-the-difference-between-a-parameter-and-an-argument/en-US.mdx -->
+
+    A parameter is a variable in the declaration of a function, while an argument is the actual value passed to the function when it is called. For example, in the function `function add(a, b) { return a + b; }`, `a` and `b` are parameters. When you call `add(2, 3)`, `2` and `3` are arguments.
+
+    <!-- Update here: /questions/what-is-the-difference-between-a-parameter-and-an-argument/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-a-parameter-and-an-argument/en-US.mdx)
+  
+    <br>
+    <br>
+
+145. ### What is the difference between document `load` and `DOMContentLoaded` events
+
+    <!-- Update here: /questions/what-is-the-difference-between-document-load-and-domcontentloaded-events/en-US.mdx -->
+
+    The `DOMContentLoaded` event fires when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading. The `load` event, on the other hand, fires when the entire page, including all dependent resources such as stylesheets and images, has finished loading.
+    
+    ```js
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log('DOM fully loaded and parsed');
+    });
+    
+    window.addEventListener('load', function () {
+      console.log('Page fully loaded');
+    });
+    ```
+
+    <!-- Update here: /questions/what-is-the-difference-between-document-load-and-domcontentloaded-events/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-document-load-and-domcontentloaded-events/en-US.mdx)
+  
+    <br>
+    <br>
+
+146. ### What is the difference between `event.preventDefault()` and `event.stopPropagation()`?
+
+    <!-- Update here: /questions/what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation/en-US.mdx -->
+
+    `event.preventDefault()` is used to prevent the default action that belongs to the event, such as preventing a form from submitting. `event.stopPropagation()` is used to stop the event from bubbling up to parent elements, preventing any parent event handlers from being executed.
+
+    <!-- Update here: /questions/what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation/en-US.mdx)
+  
+    <br>
+    <br>
+
+147. ### What is the difference between `for...in` and `for...of` loops?
+
+    <!-- Update here: /questions/what-is-the-difference-between-forin-and-forof-loops/en-US.mdx -->
+
+    `for...in` loops iterate over the enumerable properties of an object, including inherited properties. It is best used for objects. `for...of` loops iterate over the values of an iterable object like arrays, strings, or NodeLists. It is best used for arrays and other iterable collections.
+    
+    ```js
+    // for...in example
+    const obj = { a: 1, b: 2, c: 3 };
+    for (let key in obj) {
+      console.log(key); // logs "a", "b", "c"
+    }
+    
+    // for...of example
+    const arr = [1, 2, 3];
+    for (let value of arr) {
+      console.log(value); // logs 1, 2, 3
+    }
+    ```
+
+    <!-- Update here: /questions/what-is-the-difference-between-forin-and-forof-loops/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-forin-and-forof-loops/en-US.mdx)
+  
+    <br>
+    <br>
+
+148. ### What is the difference between `innerHTML` and `textContent`?
+
+    <!-- Update here: /questions/what-is-the-difference-between-innerhtml-and-textcontent/en-US.mdx -->
+
+    `innerHTML` and `textContent` are both properties used to get or set the content of an HTML element, but they serve different purposes. `innerHTML` returns or sets the HTML markup contained within the element, which means it can parse and render HTML tags. On the other hand, `textContent` returns or sets the text content of the element, ignoring any HTML tags and rendering them as plain text.
+    
+    ```js
+    // Example of innerHTML
+    element.innerHTML = '<strong>Bold Text</strong>'; // Renders as bold text
+    
+    // Example of textContent
+    element.textContent = '<strong>Bold Text</strong>'; // Renders as plain text: <strong>Bold Text</strong>
+    ```
+
+    <!-- Update here: /questions/what-is-the-difference-between-innerhtml-and-textcontent/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-innerhtml-and-textcontent/en-US.mdx)
+  
+    <br>
+    <br>
+
+149. ### What is the difference between `null` and `undefined`?
+
+    <!-- Update here: /questions/what-is-the-difference-between-null-and-undefined/en-US.mdx -->
+
+    `null` is an assignment value that represents the intentional absence of any object value. It is explicitly set by the programmer. `undefined` means a variable has been declared but has not yet been assigned a value. It is the default value for uninitialized variables.
+    
+    ```js
+    let a;
+    console.log(a); // undefined
+    
+    let b = null;
+    console.log(b); // null
+    ```
+
+    <!-- Update here: /questions/what-is-the-difference-between-null-and-undefined/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-null-and-undefined/en-US.mdx)
+  
+    <br>
+    <br>
+
+150. ### What is the difference between `setTimeout()`, `setImmediate()`, and `process.nextTick()`?
+
+    <!-- Update here: /questions/what-is-the-difference-between-settimeout-setimmediate-and-processnexttick/en-US.mdx -->
+
+    `setTimeout()` schedules a callback to run after a minimum delay. `setImmediate()` schedules a callback to run after the current event loop completes. `process.nextTick()` schedules a callback to run before the next event loop iteration begins.
+    
+    ```js
+    setTimeout(() => console.log('setTimeout'), 0);
+    setImmediate(() => console.log('setImmediate'));
+    process.nextTick(() => console.log('nextTick'));
+    ```
+    
+    In this example, `process.nextTick()` will execute first, followed by either `setTimeout()` or `setImmediate()` depending on the environment.
+
+    <!-- Update here: /questions/what-is-the-difference-between-settimeout-setimmediate-and-processnexttick/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-settimeout-setimmediate-and-processnexttick/en-US.mdx)
+  
+    <br>
+    <br>
+
+151. ### What is the difference between synchronous and asynchronous code?
+
+    <!-- Update here: /questions/what-is-the-difference-between-synchronous-and-asynchronous-code/en-US.mdx -->
+
+    Synchronous code executes sequentially, meaning each operation must wait for the previous one to complete before it can start. Asynchronous code allows multiple operations to run concurrently, so tasks can start before others finish, improving efficiency and responsiveness. For example, in JavaScript, synchronous code might look like this:
+    
+    ```js
+    const result = doSomething();
+    console.log(result);
+    ```
+    
+    While asynchronous code might use callbacks, promises, or `async/await`:
+    
+    ```js
+    doSomethingAsync().then((result) => {
+      console.log(result);
+    });
+    ```
+
+    <!-- Update here: /questions/what-is-the-difference-between-synchronous-and-asynchronous-code/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-synchronous-and-asynchronous-code/en-US.mdx)
+  
+    <br>
+    <br>
+
+152. ### What is the difference between the Window object and the Document object?
+
+    <!-- Update here: /questions/what-is-the-difference-between-the-window-object-and-the-document-object/en-US.mdx -->
+
+    The `Window` object represents the browser window and provides methods to control it, such as opening new windows or accessing the browser history. The `Document` object represents the content of the web page loaded in the window and provides methods to manipulate the DOM, such as selecting elements or modifying their content.
+
+    <!-- Update here: /questions/what-is-the-difference-between-the-window-object-and-the-document-object/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-the-window-object-and-the-document-object/en-US.mdx)
+  
+    <br>
+    <br>
+
+153. ### What is the DOM and how is it structured?
+
+    <!-- Update here: /questions/what-is-the-dom-and-how-is-it-structured/en-US.mdx -->
+
+    The DOM, or Document Object Model, is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content. The DOM is structured as a tree of objects, where each node represents part of the document, such as elements, attributes, and text.
+
+    <!-- Update here: /questions/what-is-the-dom-and-how-is-it-structured/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-dom-and-how-is-it-structured/en-US.mdx)
+  
+    <br>
+    <br>
+
+154. ### What is the event loop and how does it relate to asynchronous JavaScript?
+
+    <!-- Update here: /questions/what-is-the-event-loop-and-how-does-it-relate-to-asynchronous-javascript/en-US.mdx -->
+
+    The event loop is a fundamental concept in JavaScript that allows for non-blocking asynchronous operations. It continuously checks the call stack to see if there's any function that needs to run. If the call stack is empty, it will look at the task queue to see if there are any pending tasks to execute. This mechanism enables JavaScript to handle asynchronous operations like `setTimeout`, `Promises`, and `async/await` without blocking the main thread.
+
+    <!-- Update here: /questions/what-is-the-event-loop-and-how-does-it-relate-to-asynchronous-javascript/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-event-loop-and-how-does-it-relate-to-asynchronous-javascript/en-US.mdx)
+  
+    <br>
+    <br>
+
+155. ### What is the Factory pattern and how is it used?
+
+    <!-- Update here: /questions/what-is-the-factory-pattern-and-how-is-it-used/en-US.mdx -->
+
+    The Factory pattern is a design pattern used to create objects without specifying the exact class of the object that will be created. It provides a way to encapsulate the instantiation logic and can be particularly useful when the creation process is complex or when the type of object to be created is determined at runtime.
+    
+    For example, in JavaScript, you can use a factory function to create different types of objects:
+    
+    ```js
+    function createAnimal(type) {
+      if (type === 'dog') {
+        return { sound: 'woof' };
+      } else if (type === 'cat') {
+        return { sound: 'meow' };
+      }
+    }
+    
+    const dog = createAnimal('dog');
+    const cat = createAnimal('cat');
+    ```
+
+    <!-- Update here: /questions/what-is-the-factory-pattern-and-how-is-it-used/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-factory-pattern-and-how-is-it-used/en-US.mdx)
+  
+    <br>
+    <br>
+
+156. ### What is the `Intl` namespace object for?
+
+    <!-- Update here: /questions/what-is-the-intl-namespace-object-for/en-US.mdx -->
+
+    The `Intl` namespace object in JavaScript is used for internationalization purposes. It provides language-sensitive string comparison, number formatting, and date and time formatting. For example, you can use `Intl.DateTimeFormat` to format dates according to a specific locale:
+    
+    ```js
+    const date = new Date();
+    const formatter = new Intl.DateTimeFormat('en-US');
+    console.log(formatter.format(date)); // Outputs date in 'MM/DD/YYYY' format
+    ```
+
+    <!-- Update here: /questions/what-is-the-intl-namespace-object-for/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-intl-namespace-object-for/en-US.mdx)
+  
+    <br>
+    <br>
+
+157. ### What is the Module pattern and how does it help with encapsulation?
+
+    <!-- Update here: /questions/what-is-the-module-pattern-and-how-does-it-help-with-encapsulation/en-US.mdx -->
+
+    The Module pattern in JavaScript is a design pattern used to create self-contained modules of code. It helps with encapsulation by allowing you to define private and public members within a module. Private members are not accessible from outside the module, while public members are exposed through a returned object. This pattern helps in organizing code, avoiding global namespace pollution, and maintaining a clean separation of concerns.
+    
+    ```js
+    var myModule = (function () {
+      var privateVar = 'I am private';
+    
+      function privateMethod() {
+        console.log(privateVar);
+      }
+    
+      return {
+        publicMethod: function () {
+          privateMethod();
+        },
+      };
+    })();
+    
+    myModule.publicMethod(); // Logs: I am private
+    ```
+
+    <!-- Update here: /questions/what-is-the-module-pattern-and-how-does-it-help-with-encapsulation/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-module-pattern-and-how-does-it-help-with-encapsulation/en-US.mdx)
+  
+    <br>
+    <br>
+
+158. ### What is the prototype chain and how does it work?
+
+    <!-- Update here: /questions/what-is-the-prototype-chain-and-how-does-it-work/en-US.mdx -->
+
+    The prototype chain is a mechanism in JavaScript that allows objects to inherit properties and methods from other objects. When you try to access a property on an object, JavaScript will first look for the property on the object itself. If it doesn't find it, it will look at the object's prototype, and then the prototype's prototype, and so on, until it either finds the property or reaches the end of the chain, which is `null`.
+    
+    ```js
+    function Person(name) {
+      this.name = name;
+    }
+    
+    Person.prototype.greet = function () {
+      console.log(`Hello, my name is ${this.name}`);
+    };
+    
+    const alice = new Person('Alice');
+    alice.greet(); // "Hello, my name is Alice"
+    ```
+    
+    In this example, `alice` inherits the `greet` method from `Person.prototype`.
+
+    <!-- Update here: /questions/what-is-the-prototype-chain-and-how-does-it-work/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-prototype-chain-and-how-does-it-work/en-US.mdx)
+  
+    <br>
+    <br>
+
+159. ### What is the purpose of the `break` and `continue` statements?
+
+    <!-- Update here: /questions/what-is-the-purpose-of-the-break-and-continue-statements/en-US.mdx -->
+
+    The `break` statement is used to exit a loop or switch statement prematurely, while the `continue` statement skips the current iteration of a loop and proceeds to the next iteration. For example, in a `for` loop, `break` will stop the loop entirely, and `continue` will skip to the next iteration.
+    
+    ```js
+    for (let i = 0; i < 10; i++) {
+      if (i === 5) break; // exits the loop when i is 5
+      console.log(i);
+    }
+    
+    for (let i = 0; i < 10; i++) {
+      if (i === 5) continue; // skips the iteration when i is 5
+      console.log(i);
+    }
+    ```
+
+    <!-- Update here: /questions/what-is-the-purpose-of-the-break-and-continue-statements/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-purpose-of-the-break-and-continue-statements/en-US.mdx)
+  
+    <br>
+    <br>
+
+160. ### What is the purpose of the `finally` block?
+
+    <!-- Update here: /questions/what-is-the-purpose-of-the-finally-block/en-US.mdx -->
+
+    The `finally` block in JavaScript is used to execute code after a `try` and `catch` block, regardless of whether an error was thrown or caught. It ensures that certain cleanup or finalization code runs no matter what. For example:
+    
+    ```js
+    try {
+      // Code that may throw an error
+    } catch (error) {
+      // Code to handle the error
+    } finally {
+      // Code that will always run
+    }
+    ```
+
+    <!-- Update here: /questions/what-is-the-purpose-of-the-finally-block/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-purpose-of-the-finally-block/en-US.mdx)
+  
+    <br>
+    <br>
+
+161. ### What is the purpose of the `new` keyword?
+
+    <!-- Update here: /questions/what-is-the-purpose-of-the-new-keyword/en-US.mdx -->
+
+    The `new` keyword in JavaScript is used to create an instance of a user-defined object type or one of the built-in object types that has a constructor function. When you use `new`, it does four things: it creates a new object, sets the prototype, binds `this` to the new object, and returns the new object.
+    
+    ```js
+    function Person(name) {
+      this.name = name;
+    }
+    
+    const person1 = new Person('Alice');
+    console.log(person1.name); // Alice
+    ```
+
+    <!-- Update here: /questions/what-is-the-purpose-of-the-new-keyword/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-purpose-of-the-new-keyword/en-US.mdx)
+  
+    <br>
+    <br>
+
+162. ### What is the purpose of the `switch` statement?
+
+    <!-- Update here: /questions/what-is-the-purpose-of-the-switch-statement/en-US.mdx -->
+
+    The `switch` statement is used to execute one block of code among many based on the value of an expression. It is an alternative to using multiple `if...else if` statements. The `switch` statement evaluates an expression, matches the expression's value to a `case` label, and executes the associated block of code. If no `case` matches, the `default` block is executed.
+    
+    ```js
+    switch (expression) {
+      case value1:
+        // code to be executed if expression === value1
+        break;
+      case value2:
+        // code to be executed if expression === value2
+        break;
+      default:
+      // code to be executed if no case matches
+    }
+    ```
+
+    <!-- Update here: /questions/what-is-the-purpose-of-the-switch-statement/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-purpose-of-the-switch-statement/en-US.mdx)
+  
+    <br>
+    <br>
+
+163. ### What is the spread operator and how is it used?
+
+    <!-- Update here: /questions/what-is-the-spread-operator-and-how-is-it-used/en-US.mdx -->
+
+    The spread operator, represented by three dots (`...`), is used in JavaScript to expand iterable objects like arrays or strings into individual elements. It can also be used to spread object properties. For example, you can use it to combine arrays, copy arrays, or pass array elements as arguments to a function.
+    
+    ```js
+    const arr1 = [1, 2, 3];
+    const arr2 = [4, 5, 6];
+    const combined = [...arr1, ...arr2]; // [1, 2, 3, 4, 5, 6]
+    
+    const obj1 = { a: 1, b: 2 };
+    const obj2 = { c: 3, d: 4 };
+    const combinedObj = { ...obj1, ...obj2 }; // { a: 1, b: 2, c: 3, d: 4 }
+    ```
+
+    <!-- Update here: /questions/what-is-the-spread-operator-and-how-is-it-used/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-spread-operator-and-how-is-it-used/en-US.mdx)
+  
+    <br>
+    <br>
+
+164. ### What is the ternary operator and how is it used?
+
+    <!-- Update here: /questions/what-is-the-ternary-operator-and-how-is-it-used/en-US.mdx -->
+
+    The ternary operator is a shorthand for an `if-else` statement in JavaScript. It takes three operands: a condition, a result for true, and a result for false. The syntax is `condition ? expr1 : expr2`. For example, `let result = (a > b) ? 'a is greater' : 'b is greater';` assigns `'a is greater'` to `result` if `a` is greater than `b`, otherwise it assigns `'b is greater'`.
+
+    <!-- Update here: /questions/what-is-the-ternary-operator-and-how-is-it-used/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-ternary-operator-and-how-is-it-used/en-US.mdx)
+  
+    <br>
+    <br>
+
+165. ### What is the `this` keyword and how does its context change?
+
+    <!-- Update here: /questions/what-is-the-this-keyword-and-how-does-its-context-change/en-US.mdx -->
+
+    The `this` keyword in JavaScript refers to the object it belongs to. Its value depends on how a function is called. In a method, `this` refers to the owner object. In a function, `this` refers to the global object (or `undefined` in strict mode). In an event, `this` refers to the element that received the event. Arrow functions do not have their own `this` and inherit it from the parent scope.
+    
+    ```js
+    const obj = {
+      method: function () {
+        console.log(this); // `this` refers to `obj`
+      },
+    };
+    
+    function regularFunction() {
+      console.log(this); // `this` refers to the global object or `undefined` in strict mode
+    }
+    
+    const arrowFunction = () => {
+      console.log(this); // `this` refers to the parent scope
+    };
+    ```
+
+    <!-- Update here: /questions/what-is-the-this-keyword-and-how-does-its-context-change/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-this-keyword-and-how-does-its-context-change/en-US.mdx)
+  
+    <br>
+    <br>
+
+166. ### What is the use of `Promise.all()`
+
+    <!-- Update here: /questions/what-is-the-use-of-promiseall/en-US.mdx -->
+
+    `Promise.all()` is a method in JavaScript that takes an array of promises and returns a single promise. This returned promise resolves when all the input promises have resolved, or it rejects if any of the input promises reject. It is useful for running multiple asynchronous operations in parallel and waiting for all of them to complete.
+    
+    ```js
+    const promise1 = Promise.resolve(3);
+    const promise2 = 42;
+    const promise3 = new Promise((resolve, reject) => {
+      setTimeout(resolve, 100, 'foo');
+    });
+    
+    Promise.all([promise1, promise2, promise3]).then((values) => {
+      console.log(values); // [3, 42, 'foo']
+    });
+    ```
+
+    <!-- Update here: /questions/what-is-the-use-of-promiseall/en-US.mdx -->
+
+    <br>
+    
+    [Back to top ↑](#table-of-contents-all) | [Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-use-of-promiseall/en-US.mdx)
+  
+    <br>
+    <br>
+
+
+<!-- QUESTIONS:ALL:END -->

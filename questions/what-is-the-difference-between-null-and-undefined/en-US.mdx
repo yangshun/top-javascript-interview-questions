@@ -6,7 +6,7 @@ title: What is the difference between `null` and `undefined`?
 
 `null` is an assignment value that represents the intentional absence of any object value. It is explicitly set by the programmer. `undefined` means a variable has been declared but has not yet been assigned a value. It is the default value for uninitialized variables.
 
-```javascript
+```js
 let a;
 console.log(a); // undefined
 
@@ -26,22 +26,22 @@ console.log(b); // null
 ### Type
 
 - `null`: It is of type `object`.
-  ```javascript
+  ```js
   console.log(typeof null); // "object"
   ```
 - `undefined`: It is of type `undefined`.
-  ```javascript
+  ```js
   console.log(typeof undefined); // "undefined"
   ```
 
 ### Usage
 
 - `null`: Used to explicitly indicate "no value".
-  ```javascript
+  ```js
   let user = null; // user is explicitly set to have no value
   ```
 - `undefined`: Used to indicate that a variable has been declared but not yet assigned a value.
-  ```javascript
+  ```js
   let user;
   console.log(user); // undefined
   ```
@@ -49,7 +49,7 @@ console.log(b); // null
 ### Comparison
 
 - `null` vs `undefined`:
-  ```javascript
+  ```js
   console.log(null == undefined); // true
   console.log(null === undefined); // false
   ```
@@ -58,13 +58,13 @@ console.log(b); // null
 
 - `null`:
   - When you want to reset or clear a variable.
-    ```javascript
-    let data = { name: "John" };
+    ```js
+    let data = { name: 'John' };
     data = null; // data is now explicitly set to have no value
     ```
 - `undefined`:
   - When a variable is declared but not initialized.
-    ```javascript
+    ```js
     let data;
     console.log(data); // undefined
     ```
@@ -74,4 +74,3 @@ console.log(b); // null
 - [MDN Web Docs: null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)
 - [MDN Web Docs: undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined)
 - [JavaScript.info: null and undefined](https://javascript.info/types#null-and-undefined)
-

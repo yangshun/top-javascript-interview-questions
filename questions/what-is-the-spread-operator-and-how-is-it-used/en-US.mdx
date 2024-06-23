@@ -6,7 +6,7 @@ title: What is the spread operator and how is it used?
 
 The spread operator, represented by three dots (`...`), is used in JavaScript to expand iterable objects like arrays or strings into individual elements. It can also be used to spread object properties. For example, you can use it to combine arrays, copy arrays, or pass array elements as arguments to a function.
 
-```javascript
+```js
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
 const combined = [...arr1, ...arr2]; // [1, 2, 3, 4, 5, 6]
@@ -24,7 +24,7 @@ const combinedObj = { ...obj1, ...obj2 }; // { a: 1, b: 2, c: 3, d: 4 }
 
 The spread operator can be used to expand elements of an array into individual elements. This is useful for combining arrays or copying arrays.
 
-```javascript
+```js
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
 const combined = [...arr1, ...arr2]; // [1, 2, 3, 4, 5, 6]
@@ -34,7 +34,7 @@ const combined = [...arr1, ...arr2]; // [1, 2, 3, 4, 5, 6]
 
 You can create a shallow copy of an array using the spread operator.
 
-```javascript
+```js
 const original = [1, 2, 3];
 const copy = [...original]; // [1, 2, 3]
 ```
@@ -43,7 +43,7 @@ const copy = [...original]; // [1, 2, 3]
 
 The spread operator can be used to pass elements of an array as arguments to a function.
 
-```javascript
+```js
 function sum(a, b, c) {
   return a + b + c;
 }
@@ -56,7 +56,7 @@ const result = sum(...numbers); // 6
 
 The spread operator can also be used to expand properties of an object. This is useful for combining objects or copying objects.
 
-```javascript
+```js
 const obj1 = { a: 1, b: 2 };
 const obj2 = { c: 3, d: 4 };
 const combinedObj = { ...obj1, ...obj2 }; // { a: 1, b: 2, c: 3, d: 4 }
@@ -66,7 +66,7 @@ const combinedObj = { ...obj1, ...obj2 }; // { a: 1, b: 2, c: 3, d: 4 }
 
 You can create a shallow copy of an object using the spread operator.
 
-```javascript
+```js
 const originalObj = { a: 1, b: 2 };
 const copyObj = { ...originalObj }; // { a: 1, b: 2 }
 ```
@@ -75,8 +75,8 @@ const copyObj = { ...originalObj }; // { a: 1, b: 2 }
 
 The spread operator can also be used to expand a string into individual characters.
 
-```javascript
-const str = "hello";
+```js
+const str = 'hello';
 const chars = [...str]; // ['h', 'e', 'l', 'l', 'o']
 ```
 
@@ -85,4 +85,3 @@ const chars = [...str]; // ['h', 'e', 'l', 'l', 'o']
 - [MDN Web Docs: Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 - [JavaScript.info: Spread operator](https://javascript.info/rest-parameters-spread-operator#spread-operator)
 - [FreeCodeCamp: The spread operator in JavaScript](https://www.freecodecamp.org/news/the-spread-operator-in-javascript/)
-

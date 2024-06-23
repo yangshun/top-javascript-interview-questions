@@ -6,9 +6,11 @@ title: How do you import and export modules in JavaScript?
 
 In JavaScript, you can import and export modules using the `import` and `export` statements. To export a module, you can use `export` before a function, variable, or class, or use `export default` for a single default export. To import a module, you use the `import` statement followed by the name of the exported module and the path to the module file.
 
-```javascript
+```js
 // Exporting a module
-export const myFunction = () => { /* ... */ };
+export const myFunction = () => {
+  /* ... */
+};
 export default myFunction;
 
 // Importing a module
@@ -24,7 +26,7 @@ import myFunction from './myModule';
 
 You can export multiple named items from a module. Use the `export` keyword before the function, variable, or class you want to export.
 
-```javascript
+```js
 // myModule.js
 export const myFunction = () => {
   console.log('This is my function');
@@ -37,7 +39,7 @@ export const myVariable = 42;
 
 A module can have one default export. Use the `export default` keyword to export a single item.
 
-```javascript
+```js
 // myModule.js
 const myFunction = () => {
   console.log('This is my function');
@@ -52,7 +54,7 @@ export default myFunction;
 
 To import named exports, use the `import` statement followed by curly braces containing the names of the exports.
 
-```javascript
+```js
 // main.js
 import { myFunction, myVariable } from './myModule';
 
@@ -64,7 +66,7 @@ console.log(myVariable); // 42
 
 To import a default export, use the `import` statement followed by a name of your choice.
 
-```javascript
+```js
 // main.js
 import myFunction from './myModule';
 
@@ -75,7 +77,7 @@ myFunction(); // This is my function
 
 You can import all named exports from a module using the `*` syntax and an alias.
 
-```javascript
+```js
 // main.js
 import * as myModule from './myModule';
 
@@ -88,4 +90,3 @@ console.log(myModule.myVariable); // 42
 - [MDN Web Docs: import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 - [MDN Web Docs: export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
 - [JavaScript Modules: A Beginner’s Guide](https://www.sitepoint.com/understanding-es6-modules/)
-

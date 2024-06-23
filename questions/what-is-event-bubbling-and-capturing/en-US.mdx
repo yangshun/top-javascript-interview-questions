@@ -6,7 +6,7 @@ title: What is event bubbling and capturing?
 
 Event bubbling and capturing are two phases of event propagation in the DOM. In event bubbling, the event starts from the target element and bubbles up to the root. In event capturing, the event starts from the root and captures down to the target element. You can control these phases using the `addEventListener` method by setting the third parameter to `true` for capturing or `false` for bubbling.
 
-```javascript
+```js
 element.addEventListener('click', handler, true); // Capturing phase
 element.addEventListener('click', handler, false); // Bubbling phase
 ```
@@ -29,10 +29,14 @@ In the capturing phase, also known as "trickling," the event starts from the roo
 
 To listen for events during the capturing phase, you can set the third parameter of the `addEventListener` method to `true`.
 
-```javascript
-document.getElementById('child').addEventListener('click', function(event) {
+```js
+document.getElementById('child').addEventListener(
+  'click',
+  function (event) {
     console.log('Capturing phase');
-}, true);
+  },
+  true,
+);
 ```
 
 ### Event bubbling
@@ -41,21 +45,29 @@ In the bubbling phase, the event starts from the target element and bubbles up t
 
 To listen for events during the bubbling phase, you can set the third parameter of the `addEventListener` method to `false` or omit it, as `false` is the default value.
 
-```javascript
-document.getElementById('child').addEventListener('click', function(event) {
+```js
+document.getElementById('child').addEventListener(
+  'click',
+  function (event) {
     console.log('Bubbling phase');
-}, false);
+  },
+  false,
+);
 ```
 
 ### Stopping event propagation
 
 You can stop the event from propagating further by using the `stopPropagation` method. This method can be called during either the capturing or bubbling phase.
 
-```javascript
-document.getElementById('child').addEventListener('click', function(event) {
+```js
+document.getElementById('child').addEventListener(
+  'click',
+  function (event) {
     event.stopPropagation();
     console.log('Event propagation stopped');
-}, false);
+  },
+  false,
+);
 ```
 
 ## Further reading
@@ -63,4 +75,3 @@ document.getElementById('child').addEventListener('click', function(event) {
 - [MDN Web Docs: Event bubbling and capturing](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_bubbling_and_capture)
 - [JavaScript.info: Bubbling and capturing](https://javascript.info/bubbling-and-capturing)
 - [W3Schools: JavaScript Event Propagation](https://www.w3schools.com/js/js_htmldom_eventlistener.asp)
-

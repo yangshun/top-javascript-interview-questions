@@ -6,10 +6,10 @@ title: What is currying and how does it work?
 
 Currying is a technique in functional programming where a function that takes multiple arguments is transformed into a series of functions that each take a single argument. This allows for partial application of functions. For example, a function `f(a, b, c)` can be curried into `f(a)(b)(c)`. Here's a simple example in JavaScript:
 
-```javascript
+```js
 function add(a) {
-  return function(b) {
-    return function(c) {
+  return function (b) {
+    return function (c) {
       return a + b + c;
     };
   };
@@ -37,7 +37,7 @@ Currying is a functional programming technique where a function with multiple ar
 
 Here's a simple example to illustrate currying in JavaScript:
 
-```javascript
+```js
 // Non-curried function
 function add(a, b, c) {
   return a + b + c;
@@ -45,8 +45,8 @@ function add(a, b, c) {
 
 // Curried version of the same function
 function curriedAdd(a) {
-  return function(b) {
-    return function(c) {
+  return function (b) {
+    return function (c) {
       return a + b + c;
     };
   };
@@ -68,15 +68,15 @@ const result = addOneAndTwo(3); // result is 6
 
 Consider a function that calculates the volume of a rectangular prism:
 
-```javascript
+```js
 function volume(length, width, height) {
   return length * width * height;
 }
 
 // Curried version
 function curriedVolume(length) {
-  return function(width) {
-    return function(height) {
+  return function (width) {
+    return function (height) {
       return length * width * height;
     };
   };
@@ -92,8 +92,8 @@ const result = volumeWithLength5AndWidth4(3); // result is 60
 
 You can also use arrow functions to make the syntax more concise:
 
-```javascript
-const curriedAdd = a => b => c => a + b + c;
+```js
+const curriedAdd = (a) => (b) => (c) => a + b + c;
 
 const addOne = curriedAdd(1);
 const addOneAndTwo = addOne(2);
@@ -105,4 +105,3 @@ const result = addOneAndTwo(3); // result is 6
 - [MDN Web Docs: Function currying](https://developer.mozilla.org/en-US/docs/Glossary/Currying)
 - [JavaScript.info: Currying](https://javascript.info/currying)
 - [Functional Programming in JavaScript: Currying](https://www.sitepoint.com/currying-in-functional-javascript/)
-
