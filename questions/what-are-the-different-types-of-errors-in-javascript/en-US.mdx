@@ -2,4 +2,52 @@
 title: What are the different types of errors in JavaScript?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+In JavaScript, there are three main types of errors: syntax errors, runtime errors, and logical errors. Syntax errors occur when the code violates the language's grammar rules, such as missing a parenthesis. Runtime errors happen during code execution, like trying to access a property of `undefined`. Logical errors are mistakes in the code's logic that lead to incorrect results but don't throw an error.
+
+---
+
+## Different types of errors in JavaScript
+
+### Syntax errors
+
+Syntax errors occur when the code does not follow the rules of the JavaScript language. These errors are detected by the JavaScript engine during the parsing stage before the code is executed.
+
+#### Example
+
+```javascript
+console.log("Hello, world!; // Missing closing quote and parenthesis
+```
+
+### Runtime errors
+
+Runtime errors, also known as exceptions, occur during the execution of the code. These errors happen when the code is syntactically correct but encounters an issue that prevents it from completing its task.
+
+#### Example
+
+```javascript
+let obj = null;
+console.log(obj.property); // TypeError: Cannot read property 'property' of null
+```
+
+### Logical errors
+
+Logical errors are mistakes in the code's logic that lead to incorrect results. These errors do not throw exceptions and are often the hardest to debug because the code runs without any issues but produces the wrong output.
+
+#### Example
+
+```javascript
+let total = 0;
+for (let i = 1; i <= 10; i++) {
+  total += i;
+}
+console.log(total); // Incorrectly expecting the sum of even numbers only
+```
+
+## Further reading
+
+- [MDN Web Docs: Errors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
+- [JavaScript.info: Error handling](https://javascript.info/error-handling)
+- [W3Schools: JavaScript Errors](https://www.w3schools.com/js/js_errors.asp)
+

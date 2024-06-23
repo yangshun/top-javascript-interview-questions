@@ -2,4 +2,54 @@
 title: What are mocks and stubs and how are they used in testing?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+Mocks and stubs are tools used in testing to simulate the behavior of real objects. Stubs provide predefined responses to function calls, while mocks are more complex and can verify interactions, such as whether a function was called and with what arguments. Stubs are used to isolate the code being tested from external dependencies, and mocks are used to ensure that the code interacts correctly with those dependencies.
+
+---
+
+## What are mocks and stubs and how are they used in testing?
+
+### Stubs
+
+Stubs are simple objects that provide predefined responses to function calls made during tests. They are used to isolate the code being tested from external dependencies, such as databases or APIs, by providing controlled responses.
+
+#### Example
+
+```javascript
+// A simple stub for a function that fetches user data
+const fetchUserDataStub = sinon.stub();
+fetchUserDataStub.returns({ id: 1, name: 'John Doe' });
+
+// Using the stub in a test
+const userData = fetchUserDataStub();
+console.log(userData); // { id: 1, name: 'John Doe' }
+```
+
+### Mocks
+
+Mocks are more complex than stubs. They not only provide predefined responses but also record information about how they were called. This allows you to verify interactions, such as whether a function was called, how many times it was called, and with what arguments.
+
+#### Example
+
+```javascript
+// A simple mock for a function that logs user data
+const logUserDataMock = sinon.mock();
+logUserDataMock.expects('log').once().withArgs({ id: 1, name: 'John Doe' });
+
+// Using the mock in a test
+logUserDataMock.log({ id: 1, name: 'John Doe' });
+logUserDataMock.verify(); // Verifies that the log method was called once with the specified arguments
+```
+
+### When to use stubs and mocks
+
+- **Stubs**: Use stubs when you need to isolate the code being tested from external dependencies and control the responses those dependencies provide.
+- **Mocks**: Use mocks when you need to verify that the code interacts correctly with external dependencies, such as ensuring that a function is called with the correct arguments.
+
+## Further reading
+
+- [Sinon.js documentation](https://sinonjs.org/releases/latest/)
+- [Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html) by Martin Fowler
+- [Testing JavaScript with Mocks and Stubs](https://www.sitepoint.com/testing-javascript-mocks-stubs/) on SitePoint
+

@@ -2,4 +2,86 @@
 title: How does the `this` keyword behave in arrow functions?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+In arrow functions, the `this` keyword retains the value of the enclosing lexical context. Unlike regular functions, arrow functions do not have their own `this` context. Instead, they inherit `this` from the parent scope at the time they are defined. This makes arrow functions particularly useful for maintaining the correct `this` value in callbacks and event handlers.
+
+```javascript
+function Person() {
+  this.age = 0;
+
+  setInterval(() => {
+    this.age++; // `this` refers to the Person instance
+  }, 1000);
+}
+
+const person = new Person();
+```
+
+---
+
+## How does the `this` keyword behave in arrow functions?
+
+### Lexical scoping
+
+Arrow functions do not have their own `this` context. Instead, they lexically bind `this`, meaning they inherit `this` from the parent scope in which they are defined. This is different from regular functions, which have their own `this` context.
+
+### Example
+
+Consider the following example to illustrate the behavior of `this` in arrow functions:
+
+```javascript
+function Person() {
+  this.age = 0;
+
+  setInterval(() => {
+    this.age++; // `this` refers to the Person instance
+    console.log(this.age);
+  }, 1000);
+}
+
+const person = new Person();
+```
+
+In this example, the arrow function inside `setInterval` inherits `this` from the `Person` function, which refers to the instance of `Person`. As a result, `this.age` correctly increments the `age` property of the `Person` instance.
+
+### Comparison with regular functions
+
+If we use a regular function instead of an arrow function, the behavior of `this` changes:
+
+```javascript
+function Person() {
+  this.age = 0;
+
+  setInterval(function() {
+    this.age++; // `this` refers to the global object or `undefined` in strict mode
+    console.log(this.age);
+  }, 1000);
+}
+
+const person = new Person();
+```
+
+In this case, `this` inside the regular function refers to the global object (or `undefined` in strict mode), not the `Person` instance. This can lead to unexpected behavior and bugs.
+
+### Use cases
+
+Arrow functions are particularly useful in scenarios where you want to maintain the correct `this` value, such as:
+
+- Event handlers
+- Callbacks
+- Methods that need to access the parent scope's `this`
+
+### Limitations
+
+While arrow functions provide a convenient way to handle `this`, they also come with some limitations:
+
+- They cannot be used as constructors and will throw an error if used with the `new` keyword.
+- They do not have their own `arguments` object, `super`, or `new.target` bindings.
+
+## Further reading
+
+- [MDN Web Docs: Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- [MDN Web Docs: this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+- [JavaScript.info: Arrow functions revisited](https://javascript.info/arrow-functions)
+

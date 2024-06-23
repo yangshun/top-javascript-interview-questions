@@ -2,4 +2,104 @@
 title: What are Promises and how do they work?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+Promises in JavaScript are objects that represent the eventual completion (or failure) of an asynchronous operation and its resulting value. They have three states: `pending`, `fulfilled`, and `rejected`. You can handle the results of a promise using the `.then()` method for success and the `.catch()` method for errors.
+
+```javascript
+let promise = new Promise((resolve, reject) => {
+  // asynchronous operation
+  if (/* operation successful */) {
+    resolve('Success!');
+  } else {
+    reject('Error!');
+  }
+});
+
+promise.then(result => {
+  console.log(result); // 'Success!'
+}).catch(error => {
+  console.error(error); // 'Error!'
+});
+```
+
+---
+
+## What are Promises and how do they work?
+
+### Definition
+
+Promises are a way to handle asynchronous operations in JavaScript. They provide a cleaner, more readable way to handle asynchronous code compared to traditional callback functions.
+
+### States of a Promise
+
+A promise can be in one of three states:
+
+- `Pending`: The initial state, neither fulfilled nor rejected.
+- `Fulfilled`: The operation completed successfully.
+- `Rejected`: The operation failed.
+
+### Creating a Promise
+
+You create a promise using the `Promise` constructor, which takes a function with two arguments: `resolve` and `reject`. These are callbacks that you call to change the state of the promise.
+
+```javascript
+let promise = new Promise((resolve, reject) => {
+  // asynchronous operation
+  if (/* operation successful */) {
+    resolve('Success!');
+  } else {
+    reject('Error!');
+  }
+});
+```
+
+### Handling a Promise
+
+To handle the result of a promise, you use the `.then()` method for a successful outcome and the `.catch()` method for an error.
+
+```javascript
+promise.then(result => {
+  console.log(result); // 'Success!'
+}).catch(error => {
+  console.error(error); // 'Error!'
+});
+```
+
+### Chaining Promises
+
+Promises can be chained to handle multiple asynchronous operations in sequence. Each `.then()` returns a new promise, allowing for further chaining.
+
+```javascript
+promise
+  .then(result => {
+    console.log(result);
+    return anotherPromise;
+  })
+  .then(anotherResult => {
+    console.log(anotherResult);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+```
+
+### Combining Promises
+
+You can use `Promise.all()` to run multiple promises in parallel and wait for all of them to complete.
+
+```javascript
+let promise1 = Promise.resolve('First');
+let promise2 = Promise.resolve('Second');
+
+Promise.all([promise1, promise2]).then(results => {
+  console.log(results); // ['First', 'Second']
+});
+```
+
+## Further reading
+
+- [MDN Web Docs: Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [JavaScript.info: Promises](https://javascript.info/promise-basics)
+- [You Don't Know JS: Promises](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/get-started/ch11.md#promises)
+

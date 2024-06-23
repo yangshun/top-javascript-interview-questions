@@ -2,4 +2,74 @@
 title: What is hoisting in JavaScript?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+Hoisting in JavaScript is a behavior where variable and function declarations are moved to the top of their containing scope during the compile phase. This means you can use functions and variables before they are declared in the code. However, only the declarations are hoisted, not the initializations. For example:
+
+```javascript
+console.log(myVar); // undefined
+var myVar = 5;
+
+myFunction(); // "Hello, world!"
+function myFunction() {
+  console.log("Hello, world!");
+}
+```
+
+---
+
+## What is hoisting in JavaScript?
+
+### Variable hoisting
+
+In JavaScript, variable declarations using `var` are hoisted to the top of their containing function or global scope. However, the initialization remains in place. This means that the variable is undefined until the line where it is initialized is executed.
+
+```javascript
+console.log(myVar); // undefined
+var myVar = 5;
+console.log(myVar); // 5
+```
+
+Variables declared with `let` and `const` are also hoisted but are not initialized. They are in a "temporal dead zone" from the start of the block until the declaration is encountered.
+
+```javascript
+console.log(myLet); // ReferenceError: Cannot access 'myLet' before initialization
+let myLet = 10;
+```
+
+### Function hoisting
+
+Function declarations are fully hoisted, meaning both the function name and the function body are moved to the top of their containing scope. This allows you to call the function before its declaration in the code.
+
+```javascript
+myFunction(); // "Hello, world!"
+function myFunction() {
+  console.log("Hello, world!");
+}
+```
+
+Function expressions, including those using `var`, `let`, or `const`, are not hoisted in the same way. Only the variable declaration is hoisted, not the function assignment.
+
+```javascript
+myFunction(); // TypeError: myFunction is not a function
+var myFunction = function() {
+  console.log("Hello, world!");
+};
+```
+
+### Class hoisting
+
+Classes in JavaScript are not hoisted. Trying to use a class before it is declared will result in a `ReferenceError`.
+
+```javascript
+const instance = new MyClass(); // ReferenceError: Cannot access 'MyClass' before initialization
+class MyClass {}
+```
+
+## Further reading
+
+- [MDN Web Docs: Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
+- [JavaScript.info: Hoisting](https://javascript.info/var#var-hoisting)
+- [MDN Web Docs: let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
+- [MDN Web Docs: const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+

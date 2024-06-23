@@ -2,4 +2,125 @@
 title: What are arrow functions and how do they differ from regular functions?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+Arrow functions are a concise way to write functions in JavaScript. They use the `=>` syntax and do not have their own `this` context, which means they inherit `this` from the surrounding code. This makes them particularly useful for callbacks and methods that need to maintain the context of `this`. Unlike regular functions, arrow functions cannot be used as constructors and do not have the `arguments` object.
+
+```javascript
+// Regular function
+function add(a, b) {
+  return a + b;
+}
+
+// Arrow function
+const add = (a, b) => a + b;
+```
+
+---
+
+## Arrow functions and how they differ from regular functions
+
+### Syntax
+
+Arrow functions provide a shorter syntax compared to regular functions. They use the `=>` syntax.
+
+```javascript
+// Regular function
+function add(a, b) {
+  return a + b;
+}
+
+// Arrow function
+const add = (a, b) => a + b;
+```
+
+### `this` context
+
+Arrow functions do not have their own `this` context. Instead, they inherit `this` from the surrounding lexical context. This is particularly useful in scenarios where you want to maintain the context of `this` inside a callback function.
+
+```javascript
+// Regular function
+function Person() {
+  this.age = 0;
+
+  setInterval(function growUp() {
+    this.age++;
+  }, 1000);
+}
+
+const p = new Person();
+// `this` inside growUp refers to the global object, not the Person instance
+
+// Arrow function
+function Person() {
+  this.age = 0;
+
+  setInterval(() => {
+    this.age++;
+  }, 1000);
+}
+
+const p = new Person();
+// `this` inside the arrow function refers to the Person instance
+```
+
+### `arguments` object
+
+Arrow functions do not have their own `arguments` object. If you need to access the `arguments` object, you should use a regular function.
+
+```javascript
+// Regular function
+function logArguments() {
+  console.log(arguments);
+}
+
+logArguments(1, 2, 3); // [1, 2, 3]
+
+// Arrow function
+const logArguments = () => {
+  console.log(arguments);
+};
+
+logArguments(1, 2, 3); // ReferenceError: arguments is not defined
+```
+
+### Constructors
+
+Arrow functions cannot be used as constructors and will throw an error if used with the `new` keyword.
+
+```javascript
+// Regular function
+function Person(name) {
+  this.name = name;
+}
+
+const p = new Person('John'); // Works fine
+
+// Arrow function
+const Person = (name) => {
+  this.name = name;
+};
+
+const p = new Person('John'); // TypeError: Person is not a constructor
+```
+
+### Implicit return
+
+Arrow functions allow for an implicit return when the function body consists of a single expression.
+
+```javascript
+// Regular function
+function add(a, b) {
+  return a + b;
+}
+
+// Arrow function with implicit return
+const add = (a, b) => a + b;
+```
+
+## Further reading
+
+- [MDN Web Docs: Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- [MDN Web Docs: this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+- [MDN Web Docs: arguments](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments)
+

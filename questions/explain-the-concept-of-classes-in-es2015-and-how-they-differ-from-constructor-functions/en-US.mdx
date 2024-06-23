@@ -2,4 +2,149 @@
 title: Explain the concept of classes in ES2015 and how they differ from constructor functions.
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+In ES2015, classes provide a more intuitive and cleaner syntax for creating objects and handling inheritance compared to constructor functions. Classes use the `class` keyword and include methods like `constructor` for initialization. Unlike constructor functions, classes support inheritance using the `extends` keyword and the `super` function to call parent class methods.
+
+```javascript
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+const dog = new Dog('Rex');
+dog.speak(); // Rex barks.
+```
+
+---
+
+## Classes in ES2015
+
+### Introduction to classes
+
+Classes in ES2015 (also known as ES6) provide a new syntax for creating objects and handling inheritance. They are syntactic sugar over JavaScript's existing prototype-based inheritance, making it easier to understand and work with.
+
+### Defining a class
+
+A class is defined using the `class` keyword followed by the class name. Inside the class, you can define a `constructor` method for initializing objects and other methods for behavior.
+
+```javascript
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
+}
+```
+
+### Creating an instance
+
+You can create an instance of a class using the `new` keyword.
+
+```javascript
+const animal = new Animal('Lion');
+animal.speak(); // Lion makes a noise.
+```
+
+### Inheritance
+
+Classes support inheritance using the `extends` keyword. The `super` function is used to call the parent class's constructor and methods.
+
+```javascript
+class Dog extends Animal {
+  speak() {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+const dog = new Dog('Rex');
+dog.speak(); // Rex barks.
+```
+
+## Constructor functions
+
+### Introduction to constructor functions
+
+Before ES2015, constructor functions were used to create objects and handle inheritance. A constructor function is a regular function that is used with the `new` keyword to create an instance.
+
+### Defining a constructor function
+
+A constructor function is defined like any other function but is intended to be used with the `new` keyword.
+
+```javascript
+function Animal(name) {
+  this.name = name;
+}
+
+Animal.prototype.speak = function() {
+  console.log(`${this.name} makes a noise.`);
+};
+```
+
+### Creating an instance
+
+You can create an instance of a constructor function using the `new` keyword.
+
+```javascript
+const animal = new Animal('Lion');
+animal.speak(); // Lion makes a noise.
+```
+
+### Inheritance
+
+Inheritance in constructor functions is achieved using `Object.create` and manually setting the prototype chain.
+
+```javascript
+function Dog(name) {
+  Animal.call(this, name);
+}
+
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+Dog.prototype.speak = function() {
+  console.log(`${this.name} barks.`);
+};
+
+const dog = new Dog('Rex');
+dog.speak(); // Rex barks.
+```
+
+## Differences between classes and constructor functions
+
+### Syntax
+
+- Classes use the `class` keyword and have a cleaner, more intuitive syntax.
+- Constructor functions are regular functions used with the `new` keyword.
+
+### Inheritance
+
+- Classes use the `extends` keyword and `super` function for inheritance.
+- Constructor functions use `Object.create` and manually set the prototype chain.
+
+### Method definitions
+
+- In classes, methods are defined directly within the class body.
+- In constructor functions, methods are added to the prototype.
+
+## Further reading
+
+- [MDN Web Docs: Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+- [MDN Web Docs: Inheritance and the prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+- [JavaScript.info: Class](https://javascript.info/class)
+- [JavaScript.info: Class inheritance](https://javascript.info/class-inheritance)
+

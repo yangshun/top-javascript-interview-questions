@@ -2,4 +2,63 @@
 title: How can you optimize network requests for better performance?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+To optimize network requests for better performance, you can minimize the number of requests, use caching, compress data, and leverage modern web technologies like HTTP/2 and service workers. For example, you can combine multiple CSS files into one to reduce the number of requests, use `Cache-Control` headers to cache static assets, and enable Gzip compression on your server to reduce the size of the data being transferred.
+
+---
+
+## How can you optimize network requests for better performance?
+
+### Minimize the number of requests
+
+Reducing the number of network requests can significantly improve performance. Here are some strategies:
+
+- **Combine files**: Merge multiple CSS or JavaScript files into a single file.
+- **Image sprites**: Combine multiple images into a single sprite sheet and use CSS to display the correct part of the image.
+- **Inline small assets**: Use data URIs to inline small images or fonts directly into your CSS or HTML.
+
+### Use caching
+
+Caching can reduce the need to make network requests for resources that have not changed:
+
+- **HTTP caching**: Use `Cache-Control` and `ETag` headers to control how and when resources are cached by the browser.
+- **Service workers**: Implement service workers to cache assets and API responses, allowing your app to work offline and load faster on subsequent visits.
+
+### Compress data
+
+Reducing the size of the data being transferred can speed up network requests:
+
+- **Gzip/Brotli compression**: Enable Gzip or Brotli compression on your server to compress HTML, CSS, and JavaScript files.
+- **Minification**: Minify CSS, JavaScript, and HTML files to remove unnecessary characters and reduce file size.
+
+### Leverage modern web technologies
+
+Modern web technologies can help optimize network performance:
+
+- **HTTP/2**: Use HTTP/2 to take advantage of multiplexing, header compression, and server push, which can reduce latency and improve load times.
+- **CDNs**: Use Content Delivery Networks (CDNs) to serve static assets from locations closer to the user, reducing latency.
+
+### Optimize images
+
+Images often account for a large portion of the data transferred:
+
+- **Responsive images**: Use the `srcset` attribute to serve different image sizes based on the user's device.
+- **Image formats**: Use modern image formats like WebP or AVIF, which offer better compression than traditional formats like JPEG or PNG.
+- **Lazy loading**: Implement lazy loading to defer loading images until they are needed.
+
+### Reduce payload size
+
+Reducing the amount of data sent in each request can improve performance:
+
+- **API optimization**: Optimize API responses to include only the necessary data.
+- **GraphQL**: Use GraphQL to request only the specific data needed by the client.
+
+## Further reading
+
+- [MDN Web Docs: HTTP caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
+- [Google Developers: Optimizing content efficiency](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/)
+- [Web.dev: Use HTTP/2](https://web.dev/http2/)
+- [MDN Web Docs: Service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
+- [Google Developers: Image optimization](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization)
+

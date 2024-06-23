@@ -2,4 +2,127 @@
 title: What are the common pitfalls of using the `this` keyword?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+The `this` keyword in JavaScript can be tricky because its value depends on how a function is called. Common pitfalls include losing the context of `this` when passing methods as callbacks, using `this` in nested functions, and misunderstanding `this` in arrow functions. To avoid these issues, you can use `.bind()`, arrow functions, or store the context in a variable.
+
+---
+
+## Common pitfalls of using the `this` keyword
+
+### Losing context in callbacks
+
+When you pass a method as a callback, the context of `this` can be lost. For example:
+
+```javascript
+const obj = {
+  value: 42,
+  getValue: function() {
+    return this.value;
+  }
+};
+
+const getValue = obj.getValue;
+console.log(getValue()); // undefined
+```
+
+In this case, `this` inside `getValue` is not bound to `obj`.
+
+### Using `this` in nested functions
+
+In nested functions, `this` does not refer to the outer function's context:
+
+```javascript
+const obj = {
+  value: 42,
+  getValue: function() {
+    function innerFunction() {
+      return this.value;
+    }
+    return innerFunction();
+  }
+};
+
+console.log(obj.getValue()); // undefined
+```
+
+Here, `this` inside `innerFunction` refers to the global object, not `obj`.
+
+### Misunderstanding `this` in arrow functions
+
+Arrow functions do not have their own `this` context; they inherit it from the enclosing scope:
+
+```javascript
+const obj = {
+  value: 42,
+  getValue: () => {
+    return this.value;
+  }
+};
+
+console.log(obj.getValue()); // undefined
+```
+
+In this example, `this` inside the arrow function refers to the global object, not `obj`.
+
+### Solutions
+
+#### Using `.bind()`
+
+You can use `.bind()` to explicitly set the context of `this`:
+
+```javascript
+const obj = {
+  value: 42,
+  getValue: function() {
+    return this.value;
+  }
+};
+
+const getValue = obj.getValue.bind(obj);
+console.log(getValue()); // 42
+```
+
+#### Using arrow functions
+
+Arrow functions inherit `this` from the enclosing scope, which can be useful:
+
+```javascript
+const obj = {
+  value: 42,
+  getValue: function() {
+    const innerFunction = () => {
+      return this.value;
+    };
+    return innerFunction();
+  }
+};
+
+console.log(obj.getValue()); // 42
+```
+
+#### Storing context in a variable
+
+You can store the context in a variable to maintain it in nested functions:
+
+```javascript
+const obj = {
+  value: 42,
+  getValue: function() {
+    const self = this;
+    function innerFunction() {
+      return self.value;
+    }
+    return innerFunction();
+  }
+};
+
+console.log(obj.getValue()); // 42
+```
+
+## Further reading
+
+- [MDN Web Docs: `this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+- [JavaScript.info: `this`](https://javascript.info/this)
+- [Eloquent JavaScript: `this`](https://eloquentjavascript.net/03_functions.html#h_jxlm9L8T4l)
+

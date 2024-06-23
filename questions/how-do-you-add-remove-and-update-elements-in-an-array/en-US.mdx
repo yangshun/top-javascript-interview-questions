@@ -2,4 +2,103 @@
 title: How do you add, remove, and update elements in an array?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+To add elements to an array, you can use methods like `push`, `unshift`, or `splice`. To remove elements, you can use `pop`, `shift`, or `splice`. To update elements, you can directly access the array index and assign a new value.
+
+```javascript
+let arr = [1, 2, 3];
+
+// Add elements
+arr.push(4); // [1, 2, 3, 4]
+arr.unshift(0); // [0, 1, 2, 3, 4]
+arr.splice(2, 0, 1.5); // [0, 1, 1.5, 2, 3, 4]
+
+// Remove elements
+arr.pop(); // [0, 1, 1.5, 2, 3]
+arr.shift(); // [1, 1.5, 2, 3]
+arr.splice(1, 1); // [1, 2, 3]
+
+// Update elements
+arr[1] = 5; // [1, 5, 3]
+```
+
+---
+
+## Adding elements to an array
+
+### Using `push`
+
+The `push` method adds one or more elements to the end of an array and returns the new length of the array.
+
+```javascript
+let arr = [1, 2, 3];
+arr.push(4); // arr is now [1, 2, 3, 4]
+```
+
+### Using `unshift`
+
+The `unshift` method adds one or more elements to the beginning of an array and returns the new length of the array.
+
+```javascript
+let arr = [1, 2, 3];
+arr.unshift(0); // arr is now [0, 1, 2, 3]
+```
+
+### Using `splice`
+
+The `splice` method can add elements at any position in the array. The first parameter specifies the index at which to start changing the array, the second parameter specifies the number of elements to remove, and the rest are the elements to add.
+
+```javascript
+let arr = [1, 2, 3];
+arr.splice(1, 0, 1.5); // arr is now [1, 1.5, 2, 3]
+```
+
+## Removing elements from an array
+
+### Using `pop`
+
+The `pop` method removes the last element from an array and returns that element.
+
+```javascript
+let arr = [1, 2, 3];
+arr.pop(); // arr is now [1, 2]
+```
+
+### Using `shift`
+
+The `shift` method removes the first element from an array and returns that element.
+
+```javascript
+let arr = [1, 2, 3];
+arr.shift(); // arr is now [2, 3]
+```
+
+### Using `splice`
+
+The `splice` method can also remove elements from any position in the array. The first parameter specifies the index at which to start changing the array, and the second parameter specifies the number of elements to remove.
+
+```javascript
+let arr = [1, 2, 3];
+arr.splice(1, 1); // arr is now [1, 3]
+```
+
+## Updating elements in an array
+
+### Direct assignment
+
+You can update elements in an array by directly accessing the index and assigning a new value.
+
+```javascript
+let arr = [1, 2, 3];
+arr[1] = 5; // arr is now [1, 5, 3]
+```
+
+## Further reading
+
+- [MDN Web Docs: Array.prototype.push](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+- [MDN Web Docs: Array.prototype.unshift](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift)
+- [MDN Web Docs: Array.prototype.splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
+- [MDN Web Docs: Array.prototype.pop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
+- [MDN Web Docs: Array.prototype.shift](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift)
+

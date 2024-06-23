@@ -2,4 +2,116 @@
 title: What are closures and how are they used?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+Closures are a feature in JavaScript where an inner function has access to the outer (enclosing) function's variables. This includes access to the outer function's scope chain even after the outer function has returned. Closures are often used for data privacy and creating function factories.
+
+Example:
+
+```javascript
+function outerFunction() {
+    let outerVariable = 'I am outside!';
+    
+    function innerFunction() {
+        console.log(outerVariable);
+    }
+    
+    return innerFunction;
+}
+
+const myClosure = outerFunction();
+myClosure(); // Logs: 'I am outside!'
+```
+
+---
+
+## What are closures and how are they used?
+
+### Definition
+
+A closure is a combination of a function and the lexical environment within which that function was declared. This environment consists of any local variables that were in-scope at the time the closure was created.
+
+### How closures work
+
+When a function is defined inside another function, the inner function has access to the variables and parameters of the outer function. This is because of the lexical scoping in JavaScript. Even after the outer function has finished executing, the inner function retains access to the outer function's scope.
+
+### Example
+
+Here's a simple example to illustrate closures:
+
+```javascript
+function outerFunction() {
+    let outerVariable = 'I am outside!';
+    
+    function innerFunction() {
+        console.log(outerVariable);
+    }
+    
+    return innerFunction;
+}
+
+const myClosure = outerFunction();
+myClosure(); // Logs: 'I am outside!'
+```
+
+In this example, `innerFunction` is a closure that captures the variable `outerVariable` from its outer scope. Even after `outerFunction` has returned, `innerFunction` retains access to `outerVariable`.
+
+### Use cases
+
+#### Data privacy
+
+Closures can be used to create private variables or methods. This is useful for encapsulating data and preventing it from being accessed or modified directly.
+
+```javascript
+function createCounter() {
+    let count = 0;
+    
+    return {
+        increment: function() {
+            count++;
+            return count;
+        },
+        decrement: function() {
+            count--;
+            return count;
+        },
+        getCount: function() {
+            return count;
+        }
+    };
+}
+
+const counter = createCounter();
+console.log(counter.increment()); // 1
+console.log(counter.getCount()); // 1
+console.log(counter.decrement()); // 0
+```
+
+In this example, the `count` variable is private and can only be accessed or modified through the methods provided by the closure.
+
+#### Function factories
+
+Closures can be used to create functions with preset parameters.
+
+```javascript
+function createGreeting(greeting) {
+    return function(name) {
+        console.log(`${greeting}, ${name}!`);
+    };
+}
+
+const sayHello = createGreeting('Hello');
+sayHello('Alice'); // Logs: 'Hello, Alice!'
+
+const sayHi = createGreeting('Hi');
+sayHi('Bob'); // Logs: 'Hi, Bob!'
+```
+
+In this example, `createGreeting` returns a new function that remembers the `greeting` parameter, allowing you to create customized greeting functions.
+
+## Further reading
+
+- [MDN Web Docs: Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+- [JavaScript.info: Closures](https://javascript.info/closure)
+- [Eloquent JavaScript: Functions and Closures](https://eloquentjavascript.net/03_functions.html#h_TcUD2vzyMe)
+

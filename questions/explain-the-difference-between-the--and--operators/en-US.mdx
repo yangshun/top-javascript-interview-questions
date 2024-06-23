@@ -2,4 +2,54 @@
 title: Explain the difference between the `==` and `===` operators.
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+The `==` operator checks for equality with type coercion, meaning it converts the operands to the same type before making the comparison. The `===` operator checks for strict equality without type coercion, meaning both the value and the type must be the same for the comparison to return true. For example, `5 == '5'` returns true, but `5 === '5'` returns false.
+
+---
+
+## Difference between the `==` and `===` operators
+
+### Type coercion
+
+The `==` operator performs type coercion, which means it converts the operands to the same type before making the comparison. This can lead to unexpected results if you're not careful.
+
+```javascript
+console.log(5 == '5'); // true
+console.log(true == 1); // true
+console.log(null == undefined); // true
+```
+
+### Strict equality
+
+The `===` operator, on the other hand, does not perform type coercion. It checks for both value and type equality. This makes it a safer choice for comparisons in most cases.
+
+```javascript
+console.log(5 === '5'); // false
+console.log(true === 1); // false
+console.log(null === undefined); // false
+```
+
+### Use cases
+
+- Use `==` when you want to compare values regardless of their type, but be cautious of unexpected type coercion.
+- Use `===` when you want to ensure both the value and type are the same, which is generally recommended for most comparisons to avoid bugs.
+
+### Common pitfalls
+
+- Comparing `null` and `undefined` with `==` returns true, but with `===` it returns false.
+- Comparing different types with `==` can lead to unexpected results due to type coercion.
+
+```javascript
+console.log(null == undefined); // true
+console.log(null === undefined); // false
+console.log('' == 0); // true
+console.log('' === 0); // false
+```
+
+## Further reading
+
+- [MDN Web Docs: Equality comparisons and sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
+- [JavaScript Equality Table](https://dorey.github.io/JavaScript-Equality-Table/)
+- [JavaScript: The Good Parts by Douglas Crockford](https://www.oreilly.com/library/view/javascript-the-good/9780596517748/)
+

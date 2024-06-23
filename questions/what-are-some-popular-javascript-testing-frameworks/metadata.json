@@ -4,7 +4,7 @@
   "companies": [],
   "premium": false,
   "duration": 5,
-  "published": false,
+  "published": true,
   "featured": false,
   "website": false,
   "topics": [

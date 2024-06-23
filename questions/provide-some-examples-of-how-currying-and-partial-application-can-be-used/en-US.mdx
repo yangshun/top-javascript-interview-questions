@@ -2,4 +2,90 @@
 title: Provide some examples of how currying and partial application can be used.
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+Currying transforms a function with multiple arguments into a sequence of functions, each taking a single argument. Partial application fixes a few arguments of a function, producing another function with a smaller number of arguments. For example, currying a function `add(a, b)` would look like `add(a)(b)`, while partial application of `add(2, b)` would fix the first argument to 2, resulting in a function that only needs the second argument.
+
+```javascript
+// Currying example
+const add = a => b => a + b;
+const addTwo = add(2);
+console.log(addTwo(3)); // 5
+
+// Partial application example
+const add = (a, b) => a + b;
+const addTwo = add.bind(null, 2);
+console.log(addTwo(3)); // 5
+```
+
+---
+
+## Currying and partial application
+
+### Currying
+
+Currying is a technique where a function with multiple arguments is transformed into a sequence of functions, each taking a single argument. This allows for more flexible function composition and reuse.
+
+#### Example
+
+Consider a simple function that adds two numbers:
+
+```javascript
+function add(a, b) {
+  return a + b;
+}
+```
+
+To curry this function, we transform it into a series of functions, each taking one argument:
+
+```javascript
+const add = a => b => a + b;
+```
+
+Now, you can use the curried function like this:
+
+```javascript
+const addTwo = add(2);
+console.log(addTwo(3)); // 5
+```
+
+### Partial application
+
+Partial application is a technique where you fix a few arguments of a function, producing another function with a smaller number of arguments. This is useful for creating specialized functions from more general ones.
+
+#### Example
+
+Consider the same `add` function:
+
+```javascript
+function add(a, b) {
+  return a + b;
+}
+```
+
+To partially apply this function, you can use the `bind` method to fix the first argument:
+
+```javascript
+const addTwo = add.bind(null, 2);
+console.log(addTwo(3)); // 5
+```
+
+Alternatively, you can create a custom partial application function:
+
+```javascript
+function partial(fn, ...fixedArgs) {
+  return function(...remainingArgs) {
+    return fn(...fixedArgs, ...remainingArgs);
+  };
+}
+
+const addTwo = partial(add, 2);
+console.log(addTwo(3)); // 5
+```
+
+## Further reading
+
+- [Currying on MDN](https://developer.mozilla.org/en-US/docs/Glossary/Currying)
+- [Partial application on MDN](https://developer.mozilla.org/en-US/docs/Glossary/Partial_application)
+- [Functional programming in JavaScript](https://eloquentjavascript.net/1st_edition/chapter6.html)
+

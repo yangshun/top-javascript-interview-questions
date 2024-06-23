@@ -1,5 +1,92 @@
 ---
-title: Explain the purpose of the following APIs: localStorage, sessionStorage, IndexedDB.
+title: Explain the purpose of the `localStorage`, `sessionStorage`, `IndexedDB` APIs.
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+`localStorage`, `sessionStorage`, and `IndexedDB` are all web storage APIs used to store data on the client side. `localStorage` stores data with no expiration date, `sessionStorage` stores data for the duration of the page session, and `IndexedDB` is a low-level API for storing large amounts of structured data.
+
+---
+
+## LocalStorage, sessionStorage, and IndexedDB
+
+### LocalStorage
+
+`localStorage` is a web storage API that allows you to store key-value pairs in a web browser with no expiration date. The data persists even when the browser is closed and reopened.
+
+#### Example usage
+
+```javascript
+// Store data
+localStorage.setItem('username', 'JohnDoe');
+
+// Retrieve data
+const username = localStorage.getItem('username');
+
+// Remove data
+localStorage.removeItem('username');
+
+// Clear all data
+localStorage.clear();
+```
+
+### SessionStorage
+
+`sessionStorage` is similar to `localStorage`, but the data is only available for the duration of the page session. The data is cleared when the page session ends, which typically happens when the browser or tab is closed.
+
+#### Example usage
+
+```javascript
+// Store data
+sessionStorage.setItem('sessionID', '123456');
+
+// Retrieve data
+const sessionID = sessionStorage.getItem('sessionID');
+
+// Remove data
+sessionStorage.removeItem('sessionID');
+
+// Clear all data
+sessionStorage.clear();
+```
+
+### IndexedDB
+
+`IndexedDB` is a low-level API for storing large amounts of structured data, including files and blobs. It is more complex than `localStorage` and `sessionStorage` but offers more powerful features, such as transactions and indexes.
+
+#### Example usage
+
+```javascript
+// Open a database
+const request = indexedDB.open('myDatabase', 1);
+
+request.onupgradeneeded = function (event) {
+  const db = event.target.result;
+  const objectStore = db.createObjectStore('users', { keyPath: 'id' });
+  objectStore.createIndex('name', 'name', { unique: false });
+};
+
+request.onsuccess = function (event) {
+  const db = event.target.result;
+
+  // Start a transaction
+  const transaction = db.transaction(['users'], 'readwrite');
+
+  // Get the object store
+  const objectStore = transaction.objectStore('users');
+
+  // Add data
+  const user = { id: 1, name: 'John Doe' };
+  objectStore.add(user);
+};
+
+request.onerror = function (event) {
+  console.error('Database error:', event.target.errorCode);
+};
+```
+
+## Further reading
+
+- [MDN Web Docs: localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+- [MDN Web Docs: sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
+- [MDN Web Docs: IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)

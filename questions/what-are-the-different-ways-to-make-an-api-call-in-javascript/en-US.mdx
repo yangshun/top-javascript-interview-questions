@@ -2,4 +2,76 @@
 title: What are the different ways to make an API call in JavaScript?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+In JavaScript, you can make API calls using several methods. The most common ones are `XMLHttpRequest`, `fetch`, and third-party libraries like `Axios`. `XMLHttpRequest` is the traditional way but is more verbose. `fetch` is modern and returns promises, making it easier to work with. `Axios` is a popular third-party library that simplifies API calls and provides additional features.
+
+---
+
+## Different ways to make an API call in JavaScript
+
+### XMLHttpRequest
+
+`XMLHttpRequest` is the traditional way to make API calls in JavaScript. It is more verbose and requires more code compared to modern methods.
+
+```javascript
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://api.example.com/data', true);
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    console.log(JSON.parse(xhr.responseText));
+  }
+};
+xhr.send();
+```
+
+### Fetch API
+
+`fetch` is a modern and more convenient way to make API calls. It returns a promise, making it easier to handle asynchronous operations.
+
+```javascript
+fetch('https://api.example.com/data')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => console.log(data))
+  .catch(error => console.error('There was a problem with the fetch operation:', error));
+```
+
+### Axios
+
+`Axios` is a popular third-party library that simplifies making API calls. It provides additional features like interceptors, automatic JSON transformation, and more.
+
+```javascript
+axios.get('https://api.example.com/data')
+  .then(response => console.log(response.data))
+  .catch(error => console.error('There was a problem with the Axios request:', error));
+```
+
+### jQuery AJAX
+
+`jQuery` also provides an `ajax` method to make API calls. This method is less common in modern development but still used in some legacy projects.
+
+```javascript
+$.ajax({
+  url: 'https://api.example.com/data',
+  method: 'GET',
+  success: function (data) {
+    console.log(data);
+  },
+  error: function (error) {
+    console.error('There was a problem with the jQuery AJAX request:', error);
+  }
+});
+```
+
+## Further reading
+
+- [MDN Web Docs: XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
+- [MDN Web Docs: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- [Axios GitHub Repository](https://github.com/axios/axios)
+- [jQuery AJAX Documentation](https://api.jquery.com/jquery.ajax/)
+

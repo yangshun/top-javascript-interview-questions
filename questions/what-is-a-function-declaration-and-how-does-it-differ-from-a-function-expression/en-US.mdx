@@ -2,4 +2,60 @@
 title: What is a function declaration and how does it differ from a function expression?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+A function declaration defines a named function and is hoisted, meaning it can be called before it is defined in the code. A function expression defines a function as part of an expression and is not hoisted, so it cannot be called before it is defined.
+
+```javascript
+// Function declaration
+function greet() {
+  console.log("Hello!");
+}
+
+// Function expression
+const greet = function() {
+  console.log("Hello!");
+};
+```
+
+---
+
+## Function declaration vs function expression
+
+### Function declaration
+
+A function declaration defines a named function. It is hoisted to the top of its scope, meaning you can call the function before it is defined in the code.
+
+```javascript
+// Function declaration
+function greet() {
+  console.log("Hello!");
+}
+
+greet(); // Output: Hello!
+```
+
+### Function expression
+
+A function expression defines a function as part of an expression. It can be anonymous or named, but it is not hoisted, so it cannot be called before it is defined.
+
+```javascript
+// Function expression
+const greet = function() {
+  console.log("Hello!");
+};
+
+greet(); // Output: Hello!
+```
+
+### Key differences
+
+- **Hoisting**: Function declarations are hoisted, while function expressions are not.
+- **Syntax**: Function declarations use the `function` keyword followed by the function name, while function expressions can be assigned to variables.
+- **Usage**: Function declarations are useful for defining functions that need to be available throughout the scope, while function expressions are useful for defining functions in a more flexible and modular way.
+
+## Further reading
+
+- [MDN Web Docs: Function declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+- [MDN Web Docs: Function expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function)
+

@@ -2,4 +2,80 @@
 title: What is Cross-Site Scripting (XSS) and how can you prevent it?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+Cross-Site Scripting (XSS) is a security vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users. This can lead to data theft, session hijacking, and other malicious activities. To prevent XSS, you should validate and sanitize user inputs, use Content Security Policy (CSP), and escape data before rendering it in the browser.
+
+---
+
+## What is Cross-Site Scripting (XSS) and how can you prevent it?
+
+### What is Cross-Site Scripting (XSS)?
+
+Cross-Site Scripting (XSS) is a type of security vulnerability typically found in web applications. It allows attackers to inject malicious scripts into content from otherwise trusted websites. These scripts can then be executed in the context of the user's browser, leading to various malicious activities such as:
+
+- Stealing cookies and session tokens
+- Defacing websites
+- Redirecting users to malicious sites
+- Logging keystrokes
+
+There are three main types of XSS attacks:
+
+1. **Stored XSS**: The malicious script is permanently stored on the target server, such as in a database, comment field, or forum post.
+2. **Reflected XSS**: The malicious script is reflected off a web server, such as in an error message, search result, or any other response that includes some or all of the input sent to the server.
+3. **DOM-based XSS**: The vulnerability exists in the client-side code rather than the server-side code. The malicious script is executed as a result of modifying the DOM environment in the victim's browser.
+
+### How can you prevent XSS?
+
+#### Validate and sanitize user inputs
+
+Always validate and sanitize user inputs to ensure they do not contain malicious code. Use libraries and frameworks that provide built-in functions for input validation and sanitization.
+
+```javascript
+const sanitizeHtml = require('sanitize-html');
+
+const cleanInput = sanitizeHtml(userInput);
+```
+
+#### Use Content Security Policy (CSP)
+
+A Content Security Policy (CSP) is a security feature that helps prevent XSS attacks by specifying which dynamic resources are allowed to load. This can be done by setting HTTP headers.
+
+```http
+Content-Security-Policy: default-src 'self'; script-src 'self' https://trusted.cdn.com;
+```
+
+#### Escape data before rendering
+
+Always escape data before rendering it in the browser to prevent the execution of malicious scripts. Use functions provided by your framework or library to escape HTML, JavaScript, and other content.
+
+```javascript
+const escapeHtml = (str) => {
+  return str.replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+};
+
+const safeOutput = escapeHtml(userInput);
+```
+
+#### Use HTTP-only cookies
+
+Set cookies to be HTTP-only to prevent client-side scripts from accessing them. This can help mitigate the risk of session hijacking.
+
+```http
+Set-Cookie: sessionId=abc123; HttpOnly;
+```
+
+#### Regularly update dependencies
+
+Keep your libraries and frameworks up to date to ensure you have the latest security patches and features.
+
+## Further reading
+
+- [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/XSS_Prevention_Cheat_Sheet.html)
+- [MDN Web Docs: Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+- [Google Web Fundamentals: Preventing XSS](https://developers.google.com/web/fundamentals/security/csp)
+

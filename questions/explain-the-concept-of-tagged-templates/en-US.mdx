@@ -2,4 +2,85 @@
 title: Explain the concept of tagged templates.
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+Tagged templates in JavaScript allow you to parse template literals with a function. The function receives the literal strings and the values as arguments, enabling custom processing of the template. For example:
+
+```javascript
+function tag(strings, ...values) {
+  return strings[0] + values[0] + strings[1] + values[1];
+}
+
+const result = tag`Hello ${'world'}! How are ${'you'}?`;
+console.log(result); // "Hello world! How are you?"
+```
+
+---
+
+## Tagged templates
+
+### What are tagged templates?
+
+Tagged templates are a feature in JavaScript that allows you to call a function (the "tag") with a template literal. The tag function can then process the template literal's parts (both the literal strings and the interpolated values) in a custom way.
+
+### Syntax
+
+The syntax for tagged templates involves placing a function name before a template literal:
+
+```javascript
+function tag(strings, ...values) {
+  // Custom processing
+}
+
+tag`template literal with ${values}`;
+```
+
+### How it works
+
+When a tagged template is invoked, the tag function receives:
+
+1. An array of literal strings (the parts of the template that are not interpolated)
+2. The interpolated values as additional arguments
+
+For example:
+
+```javascript
+function tag(strings, ...values) {
+  console.log(strings); // ["Hello ", "! How are ", "?"]
+  console.log(values);  // ["world", "you"]
+}
+
+tag`Hello ${'world'}! How are ${'you'}?`;
+```
+
+### Use cases
+
+Tagged templates can be used for various purposes, such as:
+
+- **String escaping**: Preventing XSS attacks by escaping user input
+- **Localization**: Translating template literals into different languages
+- **Custom formatting**: Applying custom formatting to the interpolated values
+
+### Example
+
+Here is a simple example of a tagged template that escapes HTML:
+
+```javascript
+function escapeHTML(strings, ...values) {
+  return strings.reduce((result, string, i) => {
+    const value = values[i - 1];
+    return result + (value ? String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') : '') + string;
+  });
+}
+
+const userInput = '<script>alert("XSS")</script>';
+const result = escapeHTML`User input: ${userInput}`;
+console.log(result); // "User input: &lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;"
+```
+
+## Further reading
+
+- [MDN Web Docs: Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates)
+- [JavaScript.info: Tagged templates](https://javascript.info/tagged-templates)
+- [Exploring JS: Template literals](http://exploringjs.com/es6/ch_template-literals.html#tagged-templates)
+

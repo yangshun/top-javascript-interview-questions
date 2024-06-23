@@ -2,4 +2,78 @@
 title: How do `Map`s in JavaScript differ from `Object`s?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+Maps in JavaScript are collections of key-value pairs where keys can be of any data type, while objects are collections of properties where keys are always strings or symbols. Maps maintain the order of their elements, whereas objects do not guarantee order. Maps have built-in methods for iteration and size retrieval, making them more versatile for certain use cases.
+
+---
+
+## Maps vs. objects in JavaScript
+
+### Key types
+
+- **Maps**: Keys can be of any data type, including objects, functions, and primitives.
+- **Objects**: Keys are always strings or symbols.
+
+```javascript
+const map = new Map();
+map.set(1, 'one'); // number as key
+map.set('1', 'one'); // string as key
+
+const obj = {};
+obj[1] = 'one'; // number key is converted to string
+obj['1'] = 'one';
+```
+
+### Order of elements
+
+- **Maps**: Maintain the order of elements based on insertion.
+- **Objects**: Do not guarantee the order of properties.
+
+```javascript
+const map = new Map();
+map.set('a', 1);
+map.set('b', 2);
+console.log([...map.keys()]); // ['a', 'b']
+
+const obj = { b: 2, a: 1 };
+console.log(Object.keys(obj)); // ['b', 'a'] (order is not guaranteed)
+```
+
+### Iteration
+
+- **Maps**: Provide built-in methods like `forEach`, `keys`, `values`, and `entries` for iteration.
+- **Objects**: Require manual iteration using `for...in` or `Object.keys`, `Object.values`, and `Object.entries`.
+
+```javascript
+const map = new Map([['a', 1], ['b', 2]]);
+map.forEach((value, key) => console.log(key, value)); // 'a' 1, 'b' 2
+
+const obj = { a: 1, b: 2 };
+Object.keys(obj).forEach(key => console.log(key, obj[key])); // 'a' 1, 'b' 2
+```
+
+### Size retrieval
+
+- **Maps**: Have a `size` property to get the number of elements.
+- **Objects**: Require manual calculation using `Object.keys`.
+
+```javascript
+const map = new Map([['a', 1], ['b', 2]]);
+console.log(map.size); // 2
+
+const obj = { a: 1, b: 2 };
+console.log(Object.keys(obj).length); // 2
+```
+
+### Performance
+
+- **Maps**: Generally offer better performance for frequent additions and removals of key-value pairs.
+- **Objects**: May be more performant for static key-value pairs or when using them as simple data structures.
+
+## Further reading
+
+- [MDN Web Docs: Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+- [MDN Web Docs: Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+- [JavaScript.info: Map and Set](https://javascript.info/map-set)
+

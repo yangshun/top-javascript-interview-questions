@@ -2,4 +2,99 @@
 title: What are polyfills used for?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+Polyfills are used to provide modern functionality on older browsers that do not natively support it. They are essentially pieces of code (usually JavaScript) that replicate the behavior of newer features in older environments. For example, if you want to use `Array.prototype.includes` in an older browser that doesn't support it, you can use a polyfill to add this method.
+
+```javascript
+if (!Array.prototype.includes) {
+  Array.prototype.includes = function(searchElement, fromIndex) {
+    // Polyfill code here
+  };
+}
+```
+
+---
+
+## What are polyfills used for?
+
+### Definition
+
+Polyfills are scripts that provide modern functionality on older browsers that do not natively support it. They essentially "fill in" the gaps in a browser's JavaScript implementation, allowing developers to use modern features without worrying about compatibility issues.
+
+### Why use polyfills?
+
+1. **Browser compatibility**: Different browsers and versions support different sets of features. Polyfills help ensure that your web application works consistently across all browsers.
+2. **Future-proofing**: By using polyfills, you can start using modern JavaScript features today, even if some of your users are on older browsers.
+3. **User experience**: Ensuring that all users have access to the same features and functionality improves the overall user experience.
+
+### Common use cases
+
+1. **Array methods**: Methods like `Array.prototype.includes`, `Array.prototype.find`, and `Array.prototype.flat` are not supported in older browsers.
+2. **Promises**: The `Promise` object is not available in older browsers, so a polyfill can be used to provide this functionality.
+3. **Fetch API**: The `fetch` API is a modern way to make network requests, but it is not supported in older browsers.
+4. **ES6 features**: Features like `Object.assign`, `String.prototype.startsWith`, and `Symbol` are not available in older environments.
+
+### Example
+
+Here is an example of a polyfill for `Array.prototype.includes`:
+
+```javascript
+if (!Array.prototype.includes) {
+  Array.prototype.includes = function(searchElement, fromIndex) {
+    if (this == null) {
+      throw new TypeError('"this" is null or not defined');
+    }
+
+    // 1. Let O be ? ToObject(this value).
+    var o = Object(this);
+
+    // 2. Let len be ? ToLength(? Get(O, "length")).
+    var len = o.length >>> 0;
+
+    // 3. If len is 0, return false.
+    if (len === 0) {
+      return false;
+    }
+
+    // 4. Let n be ? ToInteger(fromIndex).
+    //    (If fromIndex is undefined, this step produces the value 0.)
+    var n = fromIndex | 0;
+
+    // 5. If n ≥ 0, then
+    //  a. Let k be n.
+    // 6. Else n < 0,
+    //  a. Let k be len + n.
+    //  b. If k < 0, let k be 0.
+    var k = Math.max(n >= 0 ? n : len - Math.abs(n), 0);
+
+    // 7. Repeat, while k < len
+    while (k < len) {
+      // a. Let elementK be the result of ? Get(O, ! ToString(k)).
+      // b. If SameValueZero(searchElement, elementK) is true, return true.
+      // c. Increase k by 1.
+      // NOTE: === provides the correct "SameValueZero" comparison needed here.
+      if (o[k] === searchElement) {
+        return true;
+      }
+      k++;
+    }
+
+    // 8. Return false
+    return false;
+  };
+}
+```
+
+### How to include polyfills
+
+1. **Manual inclusion**: You can manually include polyfills in your project by adding the necessary scripts.
+2. **Polyfill services**: Services like [polyfill.io](https://polyfill.io/v3/) automatically provide the necessary polyfills based on the user's browser.
+3. **Build tools**: Tools like Babel can automatically include polyfills for the features you use in your code.
+
+## Further reading
+
+- [MDN Web Docs: Polyfill](https://developer.mozilla.org/en-US/docs/Glossary/Polyfill)
+- [Using polyfills](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes#polyfill)
+- [Polyfill.io](https://polyfill.io/v3/)
+

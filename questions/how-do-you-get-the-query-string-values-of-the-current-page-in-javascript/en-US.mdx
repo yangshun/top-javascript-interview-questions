@@ -2,4 +2,74 @@
 title: How do you get the query string values of the current page in JavaScript?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+To get the query string values of the current page in JavaScript, you can use the `URLSearchParams` object. First, create a `URLSearchParams` instance with `window.location.search`, then use the `get` method to retrieve specific query parameters. For example:
+
+```javascript
+const params = new URLSearchParams(window.location.search);
+const value = params.get('key');
+```
+
+This will give you the value of the query parameter named `key`.
+
+---
+
+## How do you get the query string values of the current page in JavaScript?
+
+### Using URLSearchParams
+
+The `URLSearchParams` interface provides an easy way to work with query strings. Here's how you can use it:
+
+1. **Create a `URLSearchParams` instance**: Use `window.location.search` to get the query string part of the URL.
+2. **Retrieve specific query parameters**: Use the `get` method to get the value of a specific query parameter.
+
+```javascript
+const params = new URLSearchParams(window.location.search);
+const value = params.get('key'); // Replace 'key' with the actual query parameter name
+```
+
+### Example
+
+Consider a URL like `https://example.com?page=2&sort=asc`. To get the values of `page` and `sort`:
+
+```javascript
+const params = new URLSearchParams(window.location.search);
+const page = params.get('page'); // '2'
+const sort = params.get('sort'); // 'asc'
+```
+
+### Handling multiple values
+
+If a query parameter appears multiple times, you can use the `getAll` method to retrieve all values:
+
+```javascript
+const params = new URLSearchParams(window.location.search);
+const values = params.getAll('key'); // Returns an array of values
+```
+
+### Checking for the existence of a parameter
+
+You can use the `has` method to check if a query parameter exists:
+
+```javascript
+const params = new URLSearchParams(window.location.search);
+const hasPage = params.has('page'); // true or false
+```
+
+### Iterating over all parameters
+
+You can iterate over all query parameters using the `forEach` method:
+
+```javascript
+const params = new URLSearchParams(window.location.search);
+params.forEach((value, key) => {
+  console.log(`${key}: ${value}`);
+});
+```
+
+## Further reading
+
+- [MDN Web Docs: URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
+- [MDN Web Docs: window.location](https://developer.mozilla.org/en-US/docs/Web/API/Window/location)
+

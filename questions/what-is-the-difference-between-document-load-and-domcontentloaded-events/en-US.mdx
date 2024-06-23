@@ -2,4 +2,57 @@
 title: What is the difference between document `load` and `DOMContentLoaded` events
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+The `DOMContentLoaded` event fires when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading. The `load` event, on the other hand, fires when the entire page, including all dependent resources such as stylesheets and images, has finished loading.
+
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded and parsed');
+});
+
+window.addEventListener('load', function() {
+    console.log('Page fully loaded');
+});
+```
+
+---
+
+## Difference between document `load` and `DOMContentLoaded` events
+
+### `DOMContentLoaded` event
+
+The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading. This event is useful when you want to execute JavaScript code as soon as the DOM is ready, without waiting for the entire page to load.
+
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded and parsed');
+});
+```
+
+### `load` event
+
+The `load` event is fired when the entire page, including all dependent resources such as stylesheets, images, and subframes, has finished loading. This event is useful when you need to ensure that all resources are fully loaded before executing your code.
+
+```javascript
+window.addEventListener('load', function() {
+    console.log('Page fully loaded');
+});
+```
+
+### Key differences
+
+- The `DOMContentLoaded` event fires after the HTML document has been loaded and parsed, but before external resources like images and stylesheets have finished loading.
+- The `load` event fires after the entire page, including all dependent resources, has finished loading.
+
+### Use cases
+
+- Use `DOMContentLoaded` when you need to manipulate the DOM as soon as it is ready.
+- Use `load` when you need to perform actions that require all resources to be fully loaded, such as measuring the size of images or initializing third-party libraries that depend on fully loaded resources.
+
+## Further reading
+
+- [MDN Web Docs: DOMContentLoaded](https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event)
+- [MDN Web Docs: load event](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event)
+- [JavaScript.info: DOMContentLoaded, load and beforeunload](https://javascript.info/onload-ondomcontentloaded)
+

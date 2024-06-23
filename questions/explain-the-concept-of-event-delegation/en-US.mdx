@@ -2,4 +2,72 @@
 title: Explain the concept of event delegation.
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+Event delegation is a technique in JavaScript where you add a single event listener to a parent element instead of multiple event listeners to individual child elements. This works because events bubble up from the target element to the parent elements. By using event delegation, you can manage events more efficiently and reduce memory usage.
+
+```javascript
+document.getElementById('parent').addEventListener('click', function(event) {
+  if (event.target && event.target.matches('button')) {
+    console.log('Button clicked:', event.target);
+  }
+});
+```
+
+---
+
+## Event delegation
+
+### What is event delegation?
+
+Event delegation is a technique in JavaScript that leverages the event bubbling mechanism to handle events efficiently. Instead of attaching event listeners to multiple child elements, you attach a single event listener to a common parent element. When an event occurs on a child element, it bubbles up to the parent, where the event listener can handle it.
+
+### How does event bubbling work?
+
+Event bubbling is a process where an event starts from the target element and propagates up through its ancestors in the DOM tree until it reaches the root element. This allows a parent element to listen for events that occur on its child elements.
+
+### Benefits of event delegation
+
+- **Performance improvement**: Reduces the number of event listeners, which can improve performance, especially with a large number of child elements.
+- **Memory efficiency**: Consumes less memory by using fewer event listeners.
+- **Dynamic content handling**: Easily handles events for dynamically added or removed child elements without needing to reattach event listeners.
+
+### Example of event delegation
+
+Consider a scenario where you have a list of buttons inside a parent container, and you want to handle click events for each button.
+
+#### Without event delegation
+
+```javascript
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => {
+  button.addEventListener('click', function() {
+    console.log('Button clicked:', this);
+  });
+});
+```
+
+#### With event delegation
+
+```javascript
+document.getElementById('parent').addEventListener('click', function(event) {
+  if (event.target && event.target.matches('button')) {
+    console.log('Button clicked:', event.target);
+  }
+});
+```
+
+In the event delegation example, a single event listener is added to the parent element. When a button is clicked, the event bubbles up to the parent, where the event listener checks if the target is a button and handles the event accordingly.
+
+### Practical use cases
+
+- Handling click events on a list of items
+- Managing form inputs dynamically added to a form
+- Implementing drag-and-drop functionality
+
+## Further reading
+
+- [MDN Web Docs: Event delegation](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_delegation)
+- [JavaScript.info: Event delegation](https://javascript.info/event-delegation)
+- [CSS-Tricks: An introduction to event delegation in JavaScript](https://css-tricks.com/an-introduction-to-event-delegation-in-javascript/)
+

@@ -2,4 +2,91 @@
 title: What is a closure and how does it work?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) function's variables. This includes the outer function's scope, the global scope, and its own scope. Closures are created every time a function is created, at function creation time.
+
+```javascript
+function outerFunction() {
+    let outerVariable = 'I am outside!';
+    
+    function innerFunction() {
+        console.log(outerVariable); // Accesses outerVariable from outerFunction
+    }
+    
+    return innerFunction;
+}
+
+const myClosure = outerFunction();
+myClosure(); // Logs: 'I am outside!'
+```
+
+---
+
+## What is a closure and how does it work?
+
+### Definition
+
+A closure is a combination of a function and the lexical environment within which that function was declared. This environment consists of any local variables that were in-scope at the time the closure was created.
+
+### How closures work
+
+Closures work by capturing the variables from their surrounding scope at the time they are created. This allows the inner function to access these variables even after the outer function has finished executing.
+
+### Example
+
+Consider the following example:
+
+```javascript
+function outerFunction() {
+    let outerVariable = 'I am outside!';
+    
+    function innerFunction() {
+        console.log(outerVariable); // Accesses outerVariable from outerFunction
+    }
+    
+    return innerFunction;
+}
+
+const myClosure = outerFunction();
+myClosure(); // Logs: 'I am outside!'
+```
+
+In this example:
+- `outerFunction` defines a local variable `outerVariable` and an inner function `innerFunction`.
+- `innerFunction` has access to `outerVariable` because it is within the same lexical scope.
+- When `outerFunction` is called, it returns `innerFunction`, which is then assigned to `myClosure`.
+- Even though `outerFunction` has finished executing, `myClosure` still has access to `outerVariable` because of the closure.
+
+### Practical uses of closures
+
+Closures are commonly used for:
+- **Data privacy**: Encapsulating data and exposing only the necessary parts.
+- **Function factories**: Creating functions with preset configurations.
+- **Event handlers**: Maintaining state between event handler calls.
+
+### Data privacy example
+
+```javascript
+function createCounter() {
+    let count = 0;
+    
+    return function() {
+        count++;
+        return count;
+    };
+}
+
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+```
+
+In this example, the `count` variable is private to the `createCounter` function and can only be accessed and modified through the returned inner function.
+
+## Further reading
+
+- [MDN Web Docs: Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+- [JavaScript.info: Closures](https://javascript.info/closure)
+- [Eloquent JavaScript: Functions and Closures](https://eloquentjavascript.net/03_functions.html#h_hOd+yVxaku)
+

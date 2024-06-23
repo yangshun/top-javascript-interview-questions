@@ -2,4 +2,109 @@
 title: How do you cancel a `fetch` request?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+To cancel a `fetch` request, you can use the `AbortController` API. Create an instance of `AbortController`, pass its `signal` property to the `fetch` request, and call the `abort` method on the controller to cancel the request.
+
+```javascript
+const controller = new AbortController();
+const signal = controller.signal;
+
+fetch('https://example.com', { signal })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(err => {
+    if (err.name === 'AbortError') {
+      console.log('Fetch aborted');
+    } else {
+      console.error('Fetch error:', err);
+    }
+  });
+
+// To cancel the request
+controller.abort();
+```
+
+---
+
+## How do you cancel a `fetch` request?
+
+### Using the `AbortController` API
+
+The `AbortController` API provides a way to abort web requests such as `fetch`. Here's a step-by-step guide on how to use it:
+
+1. **Create an instance of `AbortController`**:
+   ```javascript
+   const controller = new AbortController();
+   ```
+
+2. **Get the `signal` property from the controller**:
+   ```javascript
+   const signal = controller.signal;
+   ```
+
+3. **Pass the `signal` to the `fetch` request**:
+   ```javascript
+   fetch('https://example.com', { signal })
+     .then(response => response.json())
+     .then(data => console.log(data))
+     .catch(err => {
+       if (err.name === 'AbortError') {
+         console.log('Fetch aborted');
+       } else {
+         console.error('Fetch error:', err);
+       }
+     });
+   ```
+
+4. **Call the `abort` method to cancel the request**:
+   ```javascript
+   controller.abort();
+   ```
+
+### Handling the abort error
+
+When a fetch request is aborted, it throws an error with the name `AbortError`. You can handle this error in the `catch` block of the promise chain:
+
+```javascript
+fetch('https://example.com', { signal })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(err => {
+    if (err.name === 'AbortError') {
+      console.log('Fetch aborted');
+    } else {
+      console.error('Fetch error:', err);
+    }
+  });
+```
+
+### Example
+
+Here is a complete example that demonstrates how to cancel a `fetch` request:
+
+```javascript
+const controller = new AbortController();
+const signal = controller.signal;
+
+fetch('https://example.com', { signal })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(err => {
+    if (err.name === 'AbortError') {
+      console.log('Fetch aborted');
+    } else {
+      console.error('Fetch error:', err);
+    }
+  });
+
+// To cancel the request
+controller.abort();
+```
+
+## Further reading
+
+- [MDN Web Docs: AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+- [MDN Web Docs: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- [MDN Web Docs: AbortSignal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal)
+

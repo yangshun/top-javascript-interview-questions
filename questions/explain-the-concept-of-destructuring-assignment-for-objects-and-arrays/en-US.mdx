@@ -2,4 +2,117 @@
 title: Explain the concept of destructuring assignment for objects and arrays.
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+Destructuring assignment is a syntax in JavaScript that allows you to unpack values from arrays or properties from objects into distinct variables. For arrays, you use square brackets, and for objects, you use curly braces. For example:
+
+```javascript
+// Array destructuring
+const [a, b] = [1, 2];
+
+// Object destructuring
+const { name, age } = { name: 'John', age: 30 };
+```
+
+---
+
+## Destructuring assignment for objects and arrays
+
+Destructuring assignment is a convenient way to extract values from arrays and objects into separate variables. This can make your code more readable and concise.
+
+### Array destructuring
+
+Array destructuring allows you to unpack values from arrays into distinct variables using square brackets.
+
+#### Basic example
+
+```javascript
+const numbers = [1, 2, 3];
+const [first, second, third] = numbers;
+
+console.log(first); // 1
+console.log(second); // 2
+console.log(third); // 3
+```
+
+#### Skipping values
+
+You can skip values in the array by leaving an empty space between commas.
+
+```javascript
+const numbers = [1, 2, 3];
+const [first, , third] = numbers;
+
+console.log(first); // 1
+console.log(third); // 3
+```
+
+#### Default values
+
+You can assign default values in case the array does not have enough elements.
+
+```javascript
+const numbers = [1];
+const [first, second = 2] = numbers;
+
+console.log(first); // 1
+console.log(second); // 2
+```
+
+### Object destructuring
+
+Object destructuring allows you to unpack properties from objects into distinct variables using curly braces.
+
+#### Basic example
+
+```javascript
+const person = { name: 'John', age: 30 };
+const { name, age } = person;
+
+console.log(name); // John
+console.log(age); // 30
+```
+
+#### Renaming variables
+
+You can rename the variables while destructuring.
+
+```javascript
+const person = { name: 'John', age: 30 };
+const { name: personName, age: personAge } = person;
+
+console.log(personName); // John
+console.log(personAge); // 30
+```
+
+#### Default values
+
+You can assign default values in case the property does not exist in the object.
+
+```javascript
+const person = { name: 'John' };
+const { name, age = 25 } = person;
+
+console.log(name); // John
+console.log(age); // 25
+```
+
+#### Nested objects
+
+You can destructure nested objects as well.
+
+```javascript
+const person = { name: 'John', address: { city: 'New York', zip: '10001' } };
+const { name, address: { city, zip } } = person;
+
+console.log(name); // John
+console.log(city); // New York
+console.log(zip); // 10001
+```
+
+## Further reading
+
+- [MDN Web Docs: Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+- [JavaScript.info: Destructuring assignment](https://javascript.info/destructuring-assignment)
+- [FreeCodeCamp: Destructuring assignment](https://www.freecodecamp.org/news/destructuring-assignment-in-es6-30e398f21d10/)
+

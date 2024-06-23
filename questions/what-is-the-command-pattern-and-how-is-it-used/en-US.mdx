@@ -2,4 +2,157 @@
 title: What is the Command pattern and how is it used?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+The Command pattern is a behavioral design pattern that turns a request into a stand-alone object containing all information about the request. This transformation allows for parameterization of methods with different requests, queuing of requests, and logging of the requests. It also supports undoable operations. In JavaScript, it can be implemented by creating command objects with `execute` and `undo` methods.
+
+```javascript
+class Command {
+  execute() {}
+  undo() {}
+}
+
+class LightOnCommand extends Command {
+  constructor(light) {
+    super();
+    this.light = light;
+  }
+  execute() {
+    this.light.on();
+  }
+  undo() {
+    this.light.off();
+  }
+}
+
+class Light {
+  on() {
+    console.log('Light is on');
+  }
+  off() {
+    console.log('Light is off');
+  }
+}
+
+const light = new Light();
+const lightOnCommand = new LightOnCommand(light);
+lightOnCommand.execute(); // Light is on
+lightOnCommand.undo(); // Light is off
+```
+
+---
+
+## What is the Command pattern and how is it used?
+
+### Definition
+
+The Command pattern is a behavioral design pattern that encapsulates a request as an object, thereby allowing for the parameterization of clients with queues, requests, and operations. It also provides support for undoable operations.
+
+### Components
+
+1. **Command**: Declares an interface for executing an operation.
+2. **ConcreteCommand**: Implements the `execute` method by invoking the corresponding operation(s) on `Receiver`.
+3. **Receiver**: Knows how to perform the operations associated with carrying out a request.
+4. **Invoker**: Asks the command to carry out the request.
+5. **Client**: Creates a `ConcreteCommand` object and sets its receiver.
+
+### Implementation in JavaScript
+
+#### Step 1: Define the Command interface
+
+```javascript
+class Command {
+  execute() {}
+  undo() {}
+}
+```
+
+#### Step 2: Create ConcreteCommand classes
+
+```javascript
+class LightOnCommand extends Command {
+  constructor(light) {
+    super();
+    this.light = light;
+  }
+  execute() {
+    this.light.on();
+  }
+  undo() {
+    this.light.off();
+  }
+}
+
+class LightOffCommand extends Command {
+  constructor(light) {
+    super();
+    this.light = light;
+  }
+  execute() {
+    this.light.off();
+  }
+  undo() {
+    this.light.on();
+  }
+}
+```
+
+#### Step 3: Define the Receiver
+
+```javascript
+class Light {
+  on() {
+    console.log('Light is on');
+  }
+  off() {
+    console.log('Light is off');
+  }
+}
+```
+
+#### Step 4: Create the Invoker
+
+```javascript
+class RemoteControl {
+  setCommand(command) {
+    this.command = command;
+  }
+  pressButton() {
+    this.command.execute();
+  }
+  pressUndo() {
+    this.command.undo();
+  }
+}
+```
+
+#### Step 5: Client code
+
+```javascript
+const light = new Light();
+const lightOnCommand = new LightOnCommand(light);
+const lightOffCommand = new LightOffCommand(light);
+
+const remote = new RemoteControl();
+remote.setCommand(lightOnCommand);
+remote.pressButton(); // Light is on
+remote.pressUndo(); // Light is off
+
+remote.setCommand(lightOffCommand);
+remote.pressButton(); // Light is off
+remote.pressUndo(); // Light is on
+```
+
+### Use cases
+
+- **Undo/Redo functionality**: The Command pattern is ideal for implementing undo and redo operations.
+- **Macro commands**: It can be used to implement a sequence of commands.
+- **Logging changes**: It helps in logging changes and auditing them later.
+- **GUI buttons and menu items**: It is useful for implementing actions triggered by GUI elements.
+
+## Further reading
+
+- [Refactoring Guru: Command Pattern](https://refactoring.guru/design-patterns/command)
+- [JavaScript Design Patterns: Command](https://www.dofactory.com/javascript/design-patterns/command)
+- [MDN Web Docs: Command Pattern](https://developer.mozilla.org/en-US/docs/Glossary/Command_pattern)
+

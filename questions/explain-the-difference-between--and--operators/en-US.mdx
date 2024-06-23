@@ -2,4 +2,59 @@
 title: Explain the difference between `&&` and `||` operators.
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+The `&&` (logical AND) operator returns the first falsy value or the last value if none are found, while the `||` (logical OR) operator returns the first truthy value or the last value if none are found. For example, `true && false` returns `false`, and `true || false` returns `true`.
+
+---
+
+## Difference between `&&` and `||` operators
+
+### Logical AND (`&&`)
+
+The `&&` operator evaluates expressions from left to right and returns the first falsy value it encounters. If all values are truthy, it returns the last value.
+
+#### Example
+
+```javascript
+console.log(true && false); // Output: false
+console.log(1 && 0); // Output: 0
+console.log(1 && 2 && 3); // Output: 3
+```
+
+### Logical OR (`||`)
+
+The `||` operator evaluates expressions from left to right and returns the first truthy value it encounters. If all values are falsy, it returns the last value.
+
+#### Example
+
+```javascript
+console.log(true || false); // Output: true
+console.log(0 || 1); // Output: 1
+console.log(null || undefined || "Hello"); // Output: "Hello"
+```
+
+### Short-circuit evaluation
+
+Both `&&` and `||` operators use short-circuit evaluation, meaning they stop evaluating as soon as the result is determined.
+
+#### Example
+
+```javascript
+function logAndReturn(value) {
+  console.log(value);
+  return value;
+}
+
+console.log(logAndReturn(false) && logAndReturn(true)); // Output: false
+console.log(logAndReturn(true) || logAndReturn(false)); // Output: true
+```
+
+In the first example, `logAndReturn(true)` is not called because `logAndReturn(false)` returns `false`, which short-circuits the `&&` operation. In the second example, `logAndReturn(false)` is not called because `logAndReturn(true)` returns `true`, which short-circuits the `||` operation.
+
+## Further reading
+
+- [MDN Web Docs: Logical AND (&&)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND)
+- [MDN Web Docs: Logical OR (||)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR)
+- [JavaScript Info: Logical operators](https://javascript.info/logical-operators)
+

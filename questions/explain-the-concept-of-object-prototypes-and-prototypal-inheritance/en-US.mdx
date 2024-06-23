@@ -2,4 +2,99 @@
 title: Explain the concept of object prototypes and prototypal inheritance.
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+In JavaScript, every object has a prototype, which is another object it inherits properties and methods from. This is known as prototypal inheritance. When you try to access a property on an object, JavaScript will first look for the property on the object itself. If it doesn't find it, it will look at the object's prototype, and so on up the prototype chain until it either finds the property or reaches the end of the chain.
+
+```javascript
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.greet = function() {
+  console.log(`Hello, my name is ${this.name}`);
+};
+
+const alice = new Person('Alice');
+alice.greet(); // "Hello, my name is Alice"
+```
+
+---
+
+## Object prototypes and prototypal inheritance
+
+### What is a prototype?
+
+In JavaScript, a prototype is an object from which other objects inherit properties. Every JavaScript object has a prototype, which is accessible via the `__proto__` property (though it's recommended to use `Object.getPrototypeOf` instead).
+
+### Prototypal inheritance
+
+Prototypal inheritance is a feature in JavaScript where objects can inherit properties and methods from other objects. This is different from classical inheritance found in languages like Java or C++, where classes inherit from other classes.
+
+### How it works
+
+When you create a new object, it automatically gets a prototype. For instance, objects created using a constructor function will have the prototype of that constructor function.
+
+```javascript
+function Animal(name) {
+  this.name = name;
+}
+
+Animal.prototype.speak = function() {
+  console.log(`${this.name} makes a noise.`);
+};
+
+const dog = new Animal('Dog');
+dog.speak(); // "Dog makes a noise."
+```
+
+In this example, `dog` inherits the `speak` method from `Animal.prototype`.
+
+### Prototype chain
+
+When you try to access a property or method on an object, JavaScript will first look for it on the object itself. If it doesn't find it, it will look at the object's prototype, and then the prototype's prototype, and so on, until it either finds the property or reaches the end of the chain.
+
+```javascript
+console.log(dog.toString()); // Inherited from Object.prototype
+```
+
+### Setting prototypes
+
+You can set an object's prototype using `Object.create` or by setting the `prototype` property on a constructor function.
+
+```javascript
+const animal = {
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
+};
+
+const cat = Object.create(animal);
+cat.name = 'Cat';
+cat.speak(); // "Cat makes a noise."
+```
+
+### `Object.getPrototypeOf` and `Object.setPrototypeOf`
+
+To get or set the prototype of an object, you can use `Object.getPrototypeOf` and `Object.setPrototypeOf`.
+
+```javascript
+const proto = Object.getPrototypeOf(dog);
+console.log(proto === Animal.prototype); // true
+
+const newProto = {
+  speak() {
+    console.log('New prototype method');
+  }
+};
+
+Object.setPrototypeOf(dog, newProto);
+dog.speak(); // "New prototype method"
+```
+
+## Further reading
+
+- [MDN Web Docs: Inheritance and the prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+- [MDN Web Docs: Object prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
+- [JavaScript.info: Prototypal inheritance](https://javascript.info/prototype-inheritance)
+

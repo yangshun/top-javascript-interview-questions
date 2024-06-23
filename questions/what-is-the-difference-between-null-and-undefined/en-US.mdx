@@ -2,4 +2,76 @@
 title: What is the difference between `null` and `undefined`?
 ---
 
-TODO_REPLACE_BODY
+## TL;DR
+
+`null` is an assignment value that represents the intentional absence of any object value. It is explicitly set by the programmer. `undefined` means a variable has been declared but has not yet been assigned a value. It is the default value for uninitialized variables.
+
+```javascript
+let a;
+console.log(a); // undefined
+
+let b = null;
+console.log(b); // null
+```
+
+---
+
+## Difference between `null` and `undefined`
+
+### Definition
+
+- `null`: It is an assignment value that represents the intentional absence of any object value. It is explicitly set by the programmer.
+- `undefined`: It means a variable has been declared but has not yet been assigned a value. It is the default value for uninitialized variables.
+
+### Type
+
+- `null`: It is of type `object`.
+  ```javascript
+  console.log(typeof null); // "object"
+  ```
+- `undefined`: It is of type `undefined`.
+  ```javascript
+  console.log(typeof undefined); // "undefined"
+  ```
+
+### Usage
+
+- `null`: Used to explicitly indicate "no value".
+  ```javascript
+  let user = null; // user is explicitly set to have no value
+  ```
+- `undefined`: Used to indicate that a variable has been declared but not yet assigned a value.
+  ```javascript
+  let user;
+  console.log(user); // undefined
+  ```
+
+### Comparison
+
+- `null` vs `undefined`:
+  ```javascript
+  console.log(null == undefined); // true
+  console.log(null === undefined); // false
+  ```
+
+### Common scenarios
+
+- `null`:
+  - When you want to reset or clear a variable.
+    ```javascript
+    let data = { name: "John" };
+    data = null; // data is now explicitly set to have no value
+    ```
+- `undefined`:
+  - When a variable is declared but not initialized.
+    ```javascript
+    let data;
+    console.log(data); // undefined
+    ```
+
+## Further reading
+
+- [MDN Web Docs: null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)
+- [MDN Web Docs: undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined)
+- [JavaScript.info: null and undefined](https://javascript.info/types#null-and-undefined)
+
