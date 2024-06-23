@@ -1,4 +1,5 @@
 import { slug } from 'github-slugger';
+import { startCase } from 'lodash-es';
 import fs from 'fs';
 import path from 'path';
 import grayMatter from 'gray-matter';
@@ -95,10 +96,17 @@ async function processQuestionList(qns: string[]) {
 }
 
 function formatTableOfContents(qnList: QuestionItem[]) {
-  const tableOfContentsLines = ['| No. | Questions |', '| --- | --- |'];
+  const tableOfContentsLines = [
+    '| No. | Questions | Level |',
+    '| --- | --- | --- |',
+  ];
 
-  qnList.forEach(({ title, titleSlug }, index) =>
-    tableOfContentsLines.push(`| ${index + 1} | [${title}](#${titleSlug}) |`),
+  qnList.forEach(({ metadata, title, titleSlug }, index) =>
+    tableOfContentsLines.push(
+      `| ${index + 1} | [${title}](#${titleSlug}) | ${startCase(
+        metadata.level,
+      )} |`,
+    ),
   );
 
   return tableOfContentsLines.join('\n');
@@ -197,7 +205,10 @@ async function generateBulletList(
   );
 
   const qnAnswers = qnsItemListSorted
-    .map((qnItem) => `- [${qnItem.title}](#${qnItem.titleSlug})`)
+    .map(
+      (qnItem, index) =>
+        `${index + 1}. [${qnItem.title}](#${qnItem.titleSlug})`,
+    )
     .join('\n');
 
   const readmeFile = String(fs.readFileSync(README_PATH_EN));
