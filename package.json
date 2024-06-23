@@ -4,6 +4,7 @@
   "description": "List of top JavaScript interview questions",
   "main": "index.js",
   "scripts": {
+    "answer": "tsx scripts/answer.ts",
     "gen": "tsx scripts/gen.ts",
     "rank": "tsx scripts/rank.ts"
   },
@@ -15,7 +16,10 @@
   "author": "yangshun",
   "license": "ISC",
   "dependencies": {
+    "@ai-sdk/openai": "^0.0.33",
     "@types/node": "^20.14.2",
+    "ai": "^3.2.5",
+    "dotenv": "^16.4.5",
     "github-slugger": "^2.0.0",
     "globby": "^14.0.1",
     "gray-matter": "^4.0.3",
