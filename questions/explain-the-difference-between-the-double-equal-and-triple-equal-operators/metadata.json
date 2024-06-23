@@ -1,15 +1,14 @@
 {
-  "slug": "explain-the-difference-between-the--and--operators",
+  "slug": "explain-the-difference-between-the-double-equal-and-triple-equal-operators",
   "languages": [],
   "companies": [],
   "premium": false,
   "duration": 5,
   "published": true,
   "featured": false,
+  "level": "basic",
   "website": false,
-  "topics": [
-    "javascript"
-  ],
+  "topics": ["javascript"],
   "importance": "low",
   "ranking": 999,
   "difficulty": "easy",

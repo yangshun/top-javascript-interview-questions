@@ -1,4 +1,4 @@
-import GitHubSlugger from 'github-slugger';
+import { slug } from 'github-slugger';
 import fs from 'fs';
 import path from 'path';
 import grayMatter from 'gray-matter';
@@ -10,8 +10,6 @@ import questionsAll from '../data/questions.json';
 const README_PATH_EN = 'README.md';
 
 const readFileAsync = util.promisify(fs.readFile);
-
-const slugger = new GitHubSlugger();
 
 async function processQuestion(
   dirName: string,
@@ -55,7 +53,7 @@ async function processQuestion(
     metadata,
     href: `https://greatfrontend.com/questions/quiz/${metadata.slug}`,
     title,
-    titleSlug: slugger.slug(title),
+    titleSlug: slug(title),
     content: tlDrPart
       // Replace relative links with absolute links.
       .replace('](/', '](https://greatfrontend.com/')
@@ -100,9 +98,7 @@ function formatTableOfContents(qnList: QuestionItem[]) {
   const tableOfContentsLines = ['| No. | Questions |', '| --- | --- |'];
 
   qnList.forEach(({ title, titleSlug }, index) =>
-    tableOfContentsLines.push(
-      `| ${index + 1} | [${title}](#${index + 1}-${titleSlug}) |`,
-    ),
+    tableOfContentsLines.push(`| ${index + 1} | [${title}](#${titleSlug}) |`),
   );
 
   return tableOfContentsLines.join('\n');
@@ -114,7 +110,7 @@ function formatQuestion(
   tableOfContentsAnchor: string,
   onGFE: boolean = true,
 ) {
-  return `### ${index}. ${qn.title}
+  return `### ${qn.title}
 
 <!-- Update here: /questions/${qn.metadata.slug}/${qn.locale}.mdx -->
 
@@ -151,7 +147,7 @@ type Options = Readonly<{
   qnsEnd: string;
 }>;
 
-async function generate(qns: string[], options: Options) {
+async function generateList(qns: string[], options: Options) {
   const {
     tableOfContentsAnchor,
     tocStart,
@@ -187,10 +183,39 @@ async function generate(qns: string[], options: Options) {
   fs.writeFileSync(README_PATH_EN, updatedText);
 }
 
+async function generateBulletList(
+  qns: string[],
+  options: Readonly<{
+    qnsStart: string;
+    qnsEnd: string;
+  }>,
+) {
+  const { qnsStart, qnsEnd } = options;
+  const qnItemList = await processQuestionList(qns);
+  const qnsItemListSorted = qnItemList.sort(
+    (a, b) => a.metadata.ranking - b.metadata.ranking,
+  );
+
+  const qnAnswers = qnsItemListSorted
+    .map((qnItem) => `- [${qnItem.title}](#${qnItem.titleSlug})`)
+    .join('\n');
+
+  const readmeFile = String(fs.readFileSync(README_PATH_EN));
+
+  const qnsRegex = new RegExp(
+    `(<!-- ${qnsStart} -->)([\\s\\S]*?)(<!-- ${qnsEnd} -->)`,
+  );
+
+  const updatedText = readmeFile.replace(qnsRegex, `$1\n\n${qnAnswers}\n\n$3`);
+
+  fs.writeFileSync(README_PATH_EN, updatedText);
+}
+
 async function generateAll() {
   const qns = await readQuestionsList();
+
   const featuredQns = qns.filter((qn) => qn.featured);
-  await generate(
+  await generateList(
     featuredQns.map((qn) => qn.slug),
     {
       tocStart: 'TABLE_OF_CONTENTS:TOP:START',
@@ -203,8 +228,7 @@ async function generateAll() {
   );
 
   const nonFeaturedQns = Object.values(questionsAll).flat();
-
-  await generate(nonFeaturedQns, {
+  await generateList(nonFeaturedQns, {
     tocStart: 'TABLE_OF_CONTENTS:ALL:START',
     tocEnd: 'TABLE_OF_CONTENTS:ALL:END',
     qnsStart: 'QUESTIONS:ALL:START',
@@ -212,6 +236,33 @@ async function generateAll() {
     tableOfContentsAnchor: 'table-of-contents-all-questions',
     showLinkToGFE: false,
   });
+
+  const basicQns = qns.filter((qn) => qn.level === 'basic');
+  await generateBulletList(
+    basicQns.map((qn) => qn.slug),
+    {
+      qnsStart: 'QUESTIONS:BASIC:START',
+      qnsEnd: 'QUESTIONS:BASIC:END',
+    },
+  );
+
+  const intermediateQns = qns.filter((qn) => qn.level === 'intermediate');
+  await generateBulletList(
+    intermediateQns.map((qn) => qn.slug),
+    {
+      qnsStart: 'QUESTIONS:INTERMEDIATE:START',
+      qnsEnd: 'QUESTIONS:INTERMEDIATE:END',
+    },
+  );
+
+  const advancedQns = qns.filter((qn) => qn.level === 'advanced');
+  await generateBulletList(
+    advancedQns.map((qn) => qn.slug),
+    {
+      qnsStart: 'QUESTIONS:ADVANCED:START',
+      qnsEnd: 'QUESTIONS:ADVANCED:END',
+    },
+  );
 }
 
 generateAll();

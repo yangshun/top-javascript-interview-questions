@@ -2,6 +2,7 @@ export type QuestionMetadata = Readonly<{
   slug: string;
   published: boolean;
   ranking: number;
+  level: 'basic' | 'intermediate' | 'advanced';
   importance: string;
   featured: boolean;
 }>;

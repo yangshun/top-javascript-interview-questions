@@ -17,7 +17,7 @@
     "how-can-you-avoid-problems-related-to-hoisting"
   ],
   "Operators & Control Flow": [
-    "explain-the-difference-between-the--and--operators",
+    "explain-the-difference-between-the-double-equal-and-triple-equal-operators",
     "what-are-the-different-types-of-loops-in-javascript",
     "what-is-the-purpose-of-the-break-and-continue-statements",
     "what-is-the-ternary-operator-and-how-is-it-used",
