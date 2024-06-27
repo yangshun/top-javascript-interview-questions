@@ -75,102 +75,102 @@ This list contains a longer list of important JavaScript questions. Not all of t
 
 | No. | Questions | Level |
 | --- | --- | --- |
-| 1 | [Explain the concept of "hoisting" in JavaScript](#explain-the-concept-of-hoisting-in-javascript) | Basic |
-| 2 | [Explain event delegation in JavaScript](#explain-event-delegation-in-javascript) | Basic |
-| 3 | [Explain how `this` works in JavaScript](#explain-how-this-works-in-javascript) | Basic |
-| 4 | [Describe the difference between a cookie, `sessionStorage` and `localStorage` in browsers](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage-in-browsers) | Basic |
-| 5 | [Describe the difference between `<script>`, `<script async>` and `<script defer>`](#describe-the-difference-between-script-script-async-and-script-defer) | Basic |
-| 6 | [Explain how prototypal inheritance works in JavaScript](#explain-how-prototypal-inheritance-works-in-javascript) | Basic |
-| 7 | [Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()` in JavaScript?](#difference-between-function-person-const-person--person-and-const-person--new-person-in-javascript) | Basic |
-| 8 | [Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}` in JavaScript](#explain-the-differences-on-the-usage-of-foo-between-function-foo--and-var-foo--function--in-javascript) | Basic |
-| 9 | [What is a closure in JavaScript, and how/why would you use one?](#what-is-a-closure-in-javascript-and-howwhy-would-you-use-one) | Intermediate |
-| 10 | [Describe event bubbling in JavaScript and browsers](#describe-event-bubbling-in-javascript-and-browsers) | Basic |
-| 11 | [Describe event capturing in JavaScript and browsers](#describe-event-capturing-in-javascript-and-browsers) | Basic |
-| 12 | [Explain the difference between synchronous and asynchronous functions in JavaScript](#explain-the-difference-between-synchronous-and-asynchronous-functions-in-javascript) | Basic |
-| 13 | [What are the benefits of using spread syntax in JavaScript and how is it different from rest syntax?](#what-are-the-benefits-of-using-spread-syntax-in-javascript-and-how-is-it-different-from-rest-syntax) | Basic |
-| 14 | [Explain the difference between mutable and immutable objects in JavaScript](#explain-the-difference-between-mutable-and-immutable-objects-in-javascript) | Intermediate |
-| 15 | [What are JavaScript object property flags and descriptors?](#what-are-javascript-object-property-flags-and-descriptors) | Advanced |
-| 16 | [What are JavaScript object getters and setters for?](#what-are-javascript-object-getters-and-setters-for) | Intermediate |
-| 17 | [What are the primitive data types in JavaScript?](#what-are-the-primitive-data-types-in-javascript) | Basic |
-| 18 | [How do you check the data type of a variable?](#how-do-you-check-the-data-type-of-a-variable) | Basic |
-| 19 | [What are template literals and how are they used?](#what-are-template-literals-and-how-are-they-used) | Basic |
-| 20 | [Explain the concept of tagged templates](#explain-the-concept-of-tagged-templates) | Intermediate |
-| 21 | [What is the spread operator and how is it used?](#what-is-the-spread-operator-and-how-is-it-used) | Basic |
-| 22 | [What is the difference between `null` and `undefined`?](#what-is-the-difference-between-null-and-undefined) | Basic |
-| 23 | [How do you convert a string to a number in JavaScript?](#how-do-you-convert-a-string-to-a-number-in-javascript) | Basic |
-| 24 | [What are global variables and why are they generally avoided?](#what-are-global-variables-and-why-are-they-generally-avoided) | Intermediate |
-| 25 | [Explain the difference in hoisting between `var`, `let`, and `const`](#explain-the-difference-in-hoisting-between-var-let-and-const) | Basic |
-| 26 | [How does hoisting affect function declarations and expressions?](#how-does-hoisting-affect-function-declarations-and-expressions) | Advanced |
-| 27 | [What are the potential issues caused by hoisting?](#what-are-the-potential-issues-caused-by-hoisting) | Intermediate |
-| 28 | [How can you avoid problems related to hoisting?](#how-can-you-avoid-problems-related-to-hoisting) | Basic |
-| 29 | [Explain the difference between the `==` and `===` operators](#explain-the-difference-between-the--and--operators) | Basic |
-| 30 | [What are the different types of loops in JavaScript?](#what-are-the-different-types-of-loops-in-javascript) | Basic |
-| 31 | [What is the purpose of the `break` and `continue` statements?](#what-is-the-purpose-of-the-break-and-continue-statements) | Basic |
-| 32 | [What is the ternary operator and how is it used?](#what-is-the-ternary-operator-and-how-is-it-used) | Basic |
-| 33 | [What is the difference between `for...in` and `for...of` loops?](#what-is-the-difference-between-forin-and-forof-loops) | Basic |
-| 34 | [How do you access the index of an element in an array during iteration?](#how-do-you-access-the-index-of-an-element-in-an-array-during-iteration) | Basic |
-| 35 | [What is the purpose of the `switch` statement?](#what-is-the-purpose-of-the-switch-statement) | Basic |
-| 36 | [What are rest parameters and how are they used?](#what-are-rest-parameters-and-how-are-they-used) | Basic |
-| 37 | [Explain the concept of the spread operator and its uses](#explain-the-concept-of-the-spread-operator-and-its-uses) | Basic |
-| 38 | [Explain the difference between global scope, function scope, and block scope](#explain-the-difference-between-global-scope-function-scope-and-block-scope) | Basic |
-| 39 | [Explain the concept of scope in JavaScript](#explain-the-concept-of-scope-in-javascript) | Basic |
-| 40 | [What is the difference between a parameter and an argument?](#what-is-the-difference-between-a-parameter-and-an-argument) | Basic |
-| 41 | [Explain the concept of hoisting with regards to functions](#explain-the-concept-of-hoisting-with-regards-to-functions) | Basic |
-| 42 | [What are arrow functions and how do they differ from regular functions?](#what-are-arrow-functions-and-how-do-they-differ-from-regular-functions) | Basic |
-| 43 | [Explain the concept of higher-order functions](#explain-the-concept-of-higher-order-functions) | Basic |
-| 44 | [What are callback functions and how are they used?](#what-are-callback-functions-and-how-are-they-used) | Basic |
-| 45 | [What is recursion and how is it used in JavaScript?](#what-is-recursion-and-how-is-it-used-in-javascript) | Basic |
-| 46 | [What are default parameters and how are they used?](#what-are-default-parameters-and-how-are-they-used) | Basic |
-| 47 | [What are the different ways to create an object in JavaScript?](#what-are-the-different-ways-to-create-an-object-in-javascript) | Intermediate |
-| 48 | [Explain the difference between dot notation and bracket notation for accessing object properties](#explain-the-difference-between-dot-notation-and-bracket-notation-for-accessing-object-properties) | Basic |
-| 49 | [What are the different methods for iterating over an array?](#what-are-the-different-methods-for-iterating-over-an-array) | Basic |
-| 50 | [How do you add, remove, and update elements in an array?](#how-do-you-add-remove-and-update-elements-in-an-array) | Basic |
-| 51 | [What are the different ways to copy an object or an array?](#what-are-the-different-ways-to-copy-an-object-or-an-array) | Basic |
-| 52 | [Explain the difference between shallow copy and deep copy](#explain-the-difference-between-shallow-copy-and-deep-copy) | Basic |
-| 53 | [What are the advantages of using the spread operator with arrays and objects?](#what-are-the-advantages-of-using-the-spread-operator-with-arrays-and-objects) | Basic |
-| 54 | [How do you check if an object has a specific property?](#how-do-you-check-if-an-object-has-a-specific-property) | Basic |
-| 55 | [Explain the concept of destructuring assignment for objects and arrays](#explain-the-concept-of-destructuring-assignment-for-objects-and-arrays) | Basic |
-| 56 | [What is `Object.freeze()` for?](#what-is-objectfreeze-for) | Intermediate |
-| 57 | [What is `Object.seal()` for?](#what-is-objectseal-for) | Intermediate |
-| 58 | [What is `Object.preventExtensions()` for?](#what-is-objectpreventextensions-for) | Intermediate |
-| 59 | [How do you reliably determine whether an object is empty?](#how-do-you-reliably-determine-whether-an-object-is-empty) | Basic |
-| 60 | [Explain the concept of a callback function in asynchronous operations](#explain-the-concept-of-a-callback-function-in-asynchronous-operations) | Basic |
-| 61 | [What are Promises and how do they work?](#what-are-promises-and-how-do-they-work) | Basic |
-| 62 | [Explain the different states of a Promise](#explain-the-different-states-of-a-promise) | Intermediate |
-| 63 | [What are the advantages of using Promises over callbacks?](#what-are-the-advantages-of-using-promises-over-callbacks) | Intermediate |
-| 64 | [What is the use of `Promise.all()`](#what-is-the-use-of-promiseall) | Basic |
-| 65 | [How is `Promise.all()` different from `Promise.allSettled()`?](#how-is-promiseall-different-from-promiseallsettled) | Intermediate |
-| 66 | [What is async/await and how does it simplify asynchronous code?](#what-is-asyncawait-and-how-does-it-simplify-asynchronous-code) | Intermediate |
-| 67 | [How do you handle errors in asynchronous operations?](#how-do-you-handle-errors-in-asynchronous-operations) | Basic |
-| 68 | [What is the event loop and how does it relate to asynchronous JavaScript?](#what-is-the-event-loop-and-how-does-it-relate-to-asynchronous-javascript) | Intermediate |
-| 69 | [Explain the concept of a microtask queue](#explain-the-concept-of-a-microtask-queue) | Intermediate |
-| 70 | [What is the difference between `setTimeout()`, `setImmediate()`, and `process.nextTick()`?](#what-is-the-difference-between-settimeout-setimmediate-and-processnexttick) | Intermediate |
-| 71 | [What are the different ways to make an API call in JavaScript?](#what-are-the-different-ways-to-make-an-api-call-in-javascript) | Basic |
-| 72 | [What is the prototype chain and how does it work?](#what-is-the-prototype-chain-and-how-does-it-work) | Intermediate |
-| 73 | [Explain the difference between classical inheritance and prototypal inheritance](#explain-the-difference-between-classical-inheritance-and-prototypal-inheritance) | Basic |
-| 74 | [Explain the concept of inheritance in ES2015 classes](#explain-the-concept-of-inheritance-in-es2015-classes) | Basic |
-| 75 | [What is the purpose of the `new` keyword?](#what-is-the-purpose-of-the-new-keyword) | Basic |
-| 76 | [How do you create a constructor function?](#how-do-you-create-a-constructor-function) | Basic |
-| 77 | [Explain the concept of classes in ES2015 and how they differ from constructor functions](#explain-the-concept-of-classes-in-es2015-and-how-they-differ-from-constructor-functions) | Basic |
-| 78 | [What are static methods in classes?](#what-are-static-methods-in-classes) | Intermediate |
-| 79 | [Explain the concept of lexical scoping](#explain-the-concept-of-lexical-scoping) | Basic |
-| 80 | [How can closures be used to create private variables?](#how-can-closures-be-used-to-create-private-variables) | Basic |
-| 81 | [What are the potential pitfalls of using closures?](#what-are-the-potential-pitfalls-of-using-closures) | Intermediate |
-| 82 | [Explain the difference between global scope, function scope, and block scope](#explain-the-difference-between-global-scope-function-scope-and-block-scope) | Basic |
-| 83 | [Explain the different ways the `this` keyword can be bound](#explain-the-different-ways-the-this-keyword-can-be-bound) | Intermediate |
-| 84 | [How does the `this` keyword behave in arrow functions?](#how-does-the-this-keyword-behave-in-arrow-functions) | Intermediate |
-| 85 | [What are the common pitfalls of using the `this` keyword?](#what-are-the-common-pitfalls-of-using-the-this-keyword) | Basic |
-| 86 | [Explain the concept of `this` binding in event handlers](#explain-the-concept-of-this-binding-in-event-handlers) | Basic |
-| 87 | [What is the DOM and how is it structured?](#what-is-the-dom-and-how-is-it-structured) | Basic |
-| 88 | [Explain the difference between `document.querySelector()` and `document.getElementById()`](#explain-the-difference-between-documentqueryselector-and-documentgetelementbyid) | Basic |
-| 89 | [How do you add, remove, and modify HTML elements using JavaScript?](#how-do-you-add-remove-and-modify-html-elements-using-javascript) | Basic |
-| 90 | [What are event listeners and how are they used?](#what-are-event-listeners-and-how-are-they-used) | Basic |
-| 91 | [Explain the event phases in a browser](#explain-the-event-phases-in-a-browser) | Intermediate |
-| 92 | [How do you prevent the default behavior of an event?](#how-do-you-prevent-the-default-behavior-of-an-event) | Basic |
-| 93 | [What is the difference between `event.preventDefault()` and `event.stopPropagation()`?](#what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation) | Intermediate |
-| 94 | [What is the difference between `innerHTML` and `textContent`?](#what-is-the-difference-between-innerhtml-and-textcontent) | Intermediate |
-| 95 | [How do you manipulate CSS styles using JavaScript?](#how-do-you-manipulate-css-styles-using-javascript) | Basic |
-| 96 | [What is the difference between the Window object and the Document object?](#what-is-the-difference-between-the-window-object-and-the-document-object) | Intermediate |
+| 1 | [What are the primitive data types in JavaScript?](#what-are-the-primitive-data-types-in-javascript) | Basic |
+| 2 | [How do you check the data type of a variable?](#how-do-you-check-the-data-type-of-a-variable) | Basic |
+| 3 | [What are template literals and how are they used?](#what-are-template-literals-and-how-are-they-used) | Basic |
+| 4 | [Explain the concept of tagged templates](#explain-the-concept-of-tagged-templates) | Intermediate |
+| 5 | [What is the spread operator and how is it used?](#what-is-the-spread-operator-and-how-is-it-used) | Basic |
+| 6 | [What is the difference between `null` and `undefined`?](#what-is-the-difference-between-null-and-undefined) | Basic |
+| 7 | [How do you convert a string to a number in JavaScript?](#how-do-you-convert-a-string-to-a-number-in-javascript) | Basic |
+| 8 | [What are global variables and why are they generally avoided?](#what-are-global-variables-and-why-are-they-generally-avoided) | Intermediate |
+| 9 | [Explain the concept of "hoisting" in JavaScript](#explain-the-concept-of-hoisting-in-javascript) | Basic |
+| 10 | [Explain the difference in hoisting between `var`, `let`, and `const`](#explain-the-difference-in-hoisting-between-var-let-and-const) | Basic |
+| 11 | [How does hoisting affect function declarations and expressions?](#how-does-hoisting-affect-function-declarations-and-expressions) | Advanced |
+| 12 | [What are the potential issues caused by hoisting?](#what-are-the-potential-issues-caused-by-hoisting) | Intermediate |
+| 13 | [How can you avoid problems related to hoisting?](#how-can-you-avoid-problems-related-to-hoisting) | Basic |
+| 14 | [Explain the difference between the `==` and `===` operators](#explain-the-difference-between-the--and--operators) | Basic |
+| 15 | [What are the different types of loops in JavaScript?](#what-are-the-different-types-of-loops-in-javascript) | Basic |
+| 16 | [What is the purpose of the `break` and `continue` statements?](#what-is-the-purpose-of-the-break-and-continue-statements) | Basic |
+| 17 | [What is the ternary operator and how is it used?](#what-is-the-ternary-operator-and-how-is-it-used) | Basic |
+| 18 | [What is the difference between `for...in` and `for...of` loops?](#what-is-the-difference-between-forin-and-forof-loops) | Basic |
+| 19 | [How do you access the index of an element in an array during iteration?](#how-do-you-access-the-index-of-an-element-in-an-array-during-iteration) | Basic |
+| 20 | [What is the purpose of the `switch` statement?](#what-is-the-purpose-of-the-switch-statement) | Basic |
+| 21 | [What are rest parameters and how are they used?](#what-are-rest-parameters-and-how-are-they-used) | Basic |
+| 22 | [Explain the concept of the spread operator and its uses](#explain-the-concept-of-the-spread-operator-and-its-uses) | Basic |
+| 23 | [What are the benefits of using spread syntax in JavaScript and how is it different from rest syntax?](#what-are-the-benefits-of-using-spread-syntax-in-javascript-and-how-is-it-different-from-rest-syntax) | Basic |
+| 24 | [Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}` in JavaScript](#explain-the-differences-on-the-usage-of-foo-between-function-foo--and-var-foo--function--in-javascript) | Basic |
+| 25 | [Explain the difference between global scope, function scope, and block scope](#explain-the-difference-between-global-scope-function-scope-and-block-scope) | Basic |
+| 26 | [Explain the concept of scope in JavaScript](#explain-the-concept-of-scope-in-javascript) | Basic |
+| 27 | [What is the difference between a parameter and an argument?](#what-is-the-difference-between-a-parameter-and-an-argument) | Basic |
+| 28 | [Explain the concept of hoisting with regards to functions](#explain-the-concept-of-hoisting-with-regards-to-functions) | Basic |
+| 29 | [What are arrow functions and how do they differ from regular functions?](#what-are-arrow-functions-and-how-do-they-differ-from-regular-functions) | Basic |
+| 30 | [Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()` in JavaScript?](#difference-between-function-person-const-person--person-and-const-person--new-person-in-javascript) | Basic |
+| 31 | [Explain the concept of higher-order functions](#explain-the-concept-of-higher-order-functions) | Basic |
+| 32 | [What are callback functions and how are they used?](#what-are-callback-functions-and-how-are-they-used) | Basic |
+| 33 | [What is recursion and how is it used in JavaScript?](#what-is-recursion-and-how-is-it-used-in-javascript) | Basic |
+| 34 | [What are default parameters and how are they used?](#what-are-default-parameters-and-how-are-they-used) | Basic |
+| 35 | [What are the different ways to create an object in JavaScript?](#what-are-the-different-ways-to-create-an-object-in-javascript) | Intermediate |
+| 36 | [Explain the difference between dot notation and bracket notation for accessing object properties](#explain-the-difference-between-dot-notation-and-bracket-notation-for-accessing-object-properties) | Basic |
+| 37 | [What are the different methods for iterating over an array?](#what-are-the-different-methods-for-iterating-over-an-array) | Basic |
+| 38 | [How do you add, remove, and update elements in an array?](#how-do-you-add-remove-and-update-elements-in-an-array) | Basic |
+| 39 | [What are the different ways to copy an object or an array?](#what-are-the-different-ways-to-copy-an-object-or-an-array) | Basic |
+| 40 | [Explain the difference between shallow copy and deep copy](#explain-the-difference-between-shallow-copy-and-deep-copy) | Basic |
+| 41 | [What are the advantages of using the spread operator with arrays and objects?](#what-are-the-advantages-of-using-the-spread-operator-with-arrays-and-objects) | Basic |
+| 42 | [How do you check if an object has a specific property?](#how-do-you-check-if-an-object-has-a-specific-property) | Basic |
+| 43 | [Explain the difference between mutable and immutable objects in JavaScript](#explain-the-difference-between-mutable-and-immutable-objects-in-javascript) | Intermediate |
+| 44 | [Explain the concept of destructuring assignment for objects and arrays](#explain-the-concept-of-destructuring-assignment-for-objects-and-arrays) | Basic |
+| 45 | [What is `Object.freeze()` for?](#what-is-objectfreeze-for) | Intermediate |
+| 46 | [What is `Object.seal()` for?](#what-is-objectseal-for) | Intermediate |
+| 47 | [What is `Object.preventExtensions()` for?](#what-is-objectpreventextensions-for) | Intermediate |
+| 48 | [What are JavaScript object getters and setters for?](#what-are-javascript-object-getters-and-setters-for) | Intermediate |
+| 49 | [What are JavaScript object property flags and descriptors?](#what-are-javascript-object-property-flags-and-descriptors) | Advanced |
+| 50 | [How do you reliably determine whether an object is empty?](#how-do-you-reliably-determine-whether-an-object-is-empty) | Basic |
+| 51 | [Explain the difference between synchronous and asynchronous functions in JavaScript](#explain-the-difference-between-synchronous-and-asynchronous-functions-in-javascript) | Basic |
+| 52 | [Explain the concept of a callback function in asynchronous operations](#explain-the-concept-of-a-callback-function-in-asynchronous-operations) | Basic |
+| 53 | [What are Promises and how do they work?](#what-are-promises-and-how-do-they-work) | Basic |
+| 54 | [Explain the different states of a Promise](#explain-the-different-states-of-a-promise) | Intermediate |
+| 55 | [What are the advantages of using Promises over callbacks?](#what-are-the-advantages-of-using-promises-over-callbacks) | Intermediate |
+| 56 | [What is the use of `Promise.all()`](#what-is-the-use-of-promiseall) | Basic |
+| 57 | [How is `Promise.all()` different from `Promise.allSettled()`?](#how-is-promiseall-different-from-promiseallsettled) | Intermediate |
+| 58 | [What is async/await and how does it simplify asynchronous code?](#what-is-asyncawait-and-how-does-it-simplify-asynchronous-code) | Intermediate |
+| 59 | [How do you handle errors in asynchronous operations?](#how-do-you-handle-errors-in-asynchronous-operations) | Basic |
+| 60 | [What is the event loop and how does it relate to asynchronous JavaScript?](#what-is-the-event-loop-and-how-does-it-relate-to-asynchronous-javascript) | Intermediate |
+| 61 | [Explain the concept of a microtask queue](#explain-the-concept-of-a-microtask-queue) | Intermediate |
+| 62 | [What is the difference between `setTimeout()`, `setImmediate()`, and `process.nextTick()`?](#what-is-the-difference-between-settimeout-setimmediate-and-processnexttick) | Intermediate |
+| 63 | [What are the different ways to make an API call in JavaScript?](#what-are-the-different-ways-to-make-an-api-call-in-javascript) | Basic |
+| 64 | [Explain how prototypal inheritance works in JavaScript](#explain-how-prototypal-inheritance-works-in-javascript) | Basic |
+| 65 | [What is the prototype chain and how does it work?](#what-is-the-prototype-chain-and-how-does-it-work) | Intermediate |
+| 66 | [Explain the difference between classical inheritance and prototypal inheritance](#explain-the-difference-between-classical-inheritance-and-prototypal-inheritance) | Basic |
+| 67 | [Explain the concept of inheritance in ES2015 classes](#explain-the-concept-of-inheritance-in-es2015-classes) | Basic |
+| 68 | [What is the purpose of the `new` keyword?](#what-is-the-purpose-of-the-new-keyword) | Basic |
+| 69 | [How do you create a constructor function?](#how-do-you-create-a-constructor-function) | Basic |
+| 70 | [Explain the concept of classes in ES2015 and how they differ from constructor functions](#explain-the-concept-of-classes-in-es2015-and-how-they-differ-from-constructor-functions) | Basic |
+| 71 | [What are static methods in classes?](#what-are-static-methods-in-classes) | Intermediate |
+| 72 | [What is a closure in JavaScript, and how/why would you use one?](#what-is-a-closure-in-javascript-and-howwhy-would-you-use-one) | Intermediate |
+| 73 | [Explain the concept of lexical scoping](#explain-the-concept-of-lexical-scoping) | Basic |
+| 74 | [How can closures be used to create private variables?](#how-can-closures-be-used-to-create-private-variables) | Basic |
+| 75 | [What are the potential pitfalls of using closures?](#what-are-the-potential-pitfalls-of-using-closures) | Intermediate |
+| 76 | [Explain the difference between global scope, function scope, and block scope](#explain-the-difference-between-global-scope-function-scope-and-block-scope) | Basic |
+| 77 | [Explain how `this` works in JavaScript](#explain-how-this-works-in-javascript) | Basic |
+| 78 | [Explain the different ways the `this` keyword can be bound](#explain-the-different-ways-the-this-keyword-can-be-bound) | Intermediate |
+| 79 | [How does the `this` keyword behave in arrow functions?](#how-does-the-this-keyword-behave-in-arrow-functions) | Intermediate |
+| 80 | [What are the common pitfalls of using the `this` keyword?](#what-are-the-common-pitfalls-of-using-the-this-keyword) | Basic |
+| 81 | [Explain the concept of `this` binding in event handlers](#explain-the-concept-of-this-binding-in-event-handlers) | Basic |
+| 82 | [What is the DOM and how is it structured?](#what-is-the-dom-and-how-is-it-structured) | Basic |
+| 83 | [Explain the difference between `document.querySelector()` and `document.getElementById()`](#explain-the-difference-between-documentqueryselector-and-documentgetelementbyid) | Basic |
+| 84 | [How do you add, remove, and modify HTML elements using JavaScript?](#how-do-you-add-remove-and-modify-html-elements-using-javascript) | Basic |
+| 85 | [What are event listeners and how are they used?](#what-are-event-listeners-and-how-are-they-used) | Basic |
+| 86 | [Explain the event phases in a browser](#explain-the-event-phases-in-a-browser) | Intermediate |
+| 87 | [Describe event bubbling in JavaScript and browsers](#describe-event-bubbling-in-javascript-and-browsers) | Basic |
+| 88 | [Describe event capturing in JavaScript and browsers](#describe-event-capturing-in-javascript-and-browsers) | Basic |
+| 89 | [Explain event delegation in JavaScript](#explain-event-delegation-in-javascript) | Basic |
+| 90 | [How do you prevent the default behavior of an event?](#how-do-you-prevent-the-default-behavior-of-an-event) | Basic |
+| 91 | [What is the difference between `event.preventDefault()` and `event.stopPropagation()`?](#what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation) | Intermediate |
+| 92 | [What is the difference between `innerHTML` and `textContent`?](#what-is-the-difference-between-innerhtml-and-textcontent) | Intermediate |
+| 93 | [How do you manipulate CSS styles using JavaScript?](#how-do-you-manipulate-css-styles-using-javascript) | Basic |
+| 94 | [Describe the difference between `<script>`, `<script async>` and `<script defer>`](#describe-the-difference-between-script-script-async-and-script-defer) | Basic |
+| 95 | [What is the difference between the Window object and the Document object?](#what-is-the-difference-between-the-window-object-and-the-document-object) | Intermediate |
+| 96 | [Describe the difference between a cookie, `sessionStorage` and `localStorage` in browsers](#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage-in-browsers) | Basic |
 | 97 | [How do you make an HTTP request using the Fetch API?](#how-do-you-make-an-http-request-using-the-fetch-api) | Basic |
 | 98 | [What are Web Workers and how can they be used?](#what-are-web-workers-and-how-can-they-be-used) | Advanced |
 | 99 | [Explain the concept of the Web Socket API](#explain-the-concept-of-the-web-socket-api) | Intermediate |
@@ -2142,551 +2142,6 @@ Different JavaScript engines (differs according to browsers) implement different
 
 <!-- QUESTIONS:ALL:START -->
 
-### Explain the concept of "hoisting" in JavaScript
-
-<!-- Update here: /questions/explain-hoisting/en-US.mdx -->
-
-- **Variable declarations (`var`)**: Declarations are hoisted, but not initializations. The value of the variable is `undefined` if accessed before initialization.
-- **Variable declarations (`let` and `const`)**: Declarations are hoisted, but not initialized. Accessing them results in `ReferenceError` until the actual declaration is encountered.
-- **Function expressions (`var`)**: Declarations are hoisted, but not initializations. The value of the variable is `undefined` if accessed before initialization.
-- **Function declarations (`function`)**: Both declaration and definition are fully hoisted.
-- **Class declarations (`class`)**: Declarations are hoisted, but not initialized. Accessing them results in `ReferenceError` until the actual declaration is encountered.
-- **Import declarations (`import`)**: Declarations are hoisted, and side effects of importing the module are executed before the rest of the code.
-
-The following behavior summarizes the result of accessing the variables before they are declared.
-
-| Declaration                    | Accessing before declaration |
-| ------------------------------ | ---------------------------- |
-| `var foo`                      | `undefined`                  |
-| `let foo`                      | `ReferenceError`             |
-| `const foo`                    | `ReferenceError`             |
-| `class Foo`                    | `ReferenceError`             |
-| `var foo = function() { ... }` | `undefined`                  |
-| `function foo() { ... }`       | Normal                       |
-| `import`                       | Normal                       |
-
-<!-- Update here: /questions/explain-hoisting/en-US.mdx -->
-
-<br>
-    
-[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-hoisting/en-US.mdx)
-
-<br>
-
-### Explain event delegation in JavaScript
-
-<!-- Update here: /questions/explain-event-delegation/en-US.mdx -->
-
-Event delegation is a technique in JavaScript where a single event listener is attached to a parent element instead of attaching event listeners to multiple child elements. When an event occurs on a child element, the event bubbles up the DOM tree, and the parent element's event listener handles the event based on the target element.
-
-Event delegation provides the following benefits:
-
-- **Improved performance**: Attaching a single event listener is more efficient than attaching multiple event listeners to individual elements, especially for large or dynamic lists. This reduces memory usage and improves overall performance.
-- **Simplified event handling**: With event delegation, you only need to write the event handling logic once in the parent element's event listener. This makes the code more maintainable and easier to update.
-- **Dynamic element support**: Event delegation automatically handles events for dynamically added or removed elements within the parent element. There's no need to manually attach or remove event listeners when the DOM structure changes
-
-However, do note that:
-
-- It is important to identify the target element that triggered the event.
-- Not all events can be delegated because they are not bubbled. Non-bubbling events include: `focus`, `blur`, `scroll`, `mouseenter`, `mouseleave`, `resize`, etc.
-
-<!-- Update here: /questions/explain-event-delegation/en-US.mdx -->
-
-<br>
-    
-[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-event-delegation/en-US.mdx)
-
-<br>
-
-### Explain how `this` works in JavaScript
-
-<!-- Update here: /questions/explain-how-this-works-in-javascript/en-US.mdx -->
-
-There's no simple explanation for `this`; it is one of the most confusing concepts in JavaScript because it's behavior differs from many other programming languages. The one-liner explanation of the `this` keyword is that it is a dynamic reference to the context in which a function is executed.
-
-A longer explanation follows is that `this` follows these rules:
-
-1. If the `new` keyword is used when calling the function, meaning the function was used as a function constructor, the `this` inside the function is the newly-created object instance.
-2. If `this` is used in a `class` `constructor`, the `this` inside the `constructor` is the newly-created object instance.
-3. If `apply()`, `call()`, or `bind()` is used to call/create a function, `this` inside the function is the object that is passed in as the argument.
-4. If a function is called as a method (e.g. `obj.method()`) — `this` is the object that the function is a property of.
-5. If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, `this` is the global object. In the browser, the global object is the `window` object. If in strict mode (`'use strict';`), `this` will be `undefined` instead of the global object.
-6. If multiple of the above rules apply, the rule that is higher wins and will set the `this` value.
-7. If the function is an ES2015 arrow function, it ignores all the rules above and receives the `this` value of its surrounding scope at the time it is created.
-
-For an in-depth explanation, do check out [Arnav Aggrawal's article on Medium](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3).
-
-<!-- Update here: /questions/explain-how-this-works-in-javascript/en-US.mdx -->
-
-<br>
-    
-[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-how-this-works-in-javascript/en-US.mdx)
-
-<br>
-
-### Describe the difference between a cookie, `sessionStorage` and `localStorage` in browsers
-
-<!-- Update here: /questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/en-US.mdx -->
-
-All of the following are mechanisms of storing data on the client, the user's browser in this case. `localStorage` and `sessionStorage` both implement the [Web Storage API interface](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API).
-
-- **Cookies**: Suitable for server-client communication, small storage capacity, can be persistent or session-based, domain-specific. Sent to the server on every request.
-- **`localStorage`**: Suitable for long-term storage, data persists even after the browser is closed, accessible across all tabs and windows of the same origin, highest storage capacity among the three.
-- **`sessionStorage`**: Suitable for temporary data within a single page session, data is cleared when the tab or window is closed, has a higher storage capacity compared to cookies.
-
-Here's a table summarizing the 3 client storage mechanisms.
-
-| Property | Cookie | `localStorage` | `sessionStorage` |
-| --- | --- | --- | --- |
-| Initiator | Client or server. Server can use `Set-Cookie` header | Client | Client |
-| Lifespan | As specified | Until deleted | Until tab is closed |
-| Persistent across browser sessions | If a future expiry date is set | Yes | No |
-| Sent to server with every HTTP request | Yes, sent via `Cookie` header | No | No |
-| Total capacity (per domain) | 4kb | 5MB | 5MB |
-| Access | Across windows/tabs | Across windows/tabs | Same tab |
-| Security | JavaScript cannot access `HttpOnly` cookies | None | None |
-
-<!-- Update here: /questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/en-US.mdx -->
-
-<br>
-    
-[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/en-US.mdx)
-
-<br>
-
-### Describe the difference between `<script>`, `<script async>` and `<script defer>`
-
-<!-- Update here: /questions/describe-the-difference-between-script-async-and-script-defer/en-US.mdx -->
-
-All of these ways (`<script>`, `<script async>`, and `<script defer>`) are used to load and execute JavaScript files in an HTML document, but they differ in how the browser handles loading and execution of the script:
-
-- `<script>` is the default way of including JavaScript. The browser blocks HTML parsing while the script is being downloaded and executed. The browser will not continue rendering the page until the script has finished executing.
-- `<script async>` downloads the script asynchronously, in parallel with parsing the HTML. Executes the script as soon as it is available, potentially interrupting the HTML parsing. `<script async>` do not wait for each other and execute in no particular order.
-- `<script defer>` downloads the script asynchronously, in parallel with parsing the HTML. However, the execution of the script is deferred until HTML parsing is complete, in the order they appear in the HTML.
-
-Here's a table summarizing the 3 ways of loading `<script>`s in a HTML document.
-
-| Feature | `<script>` | `<script async>` | `<script defer>` |
-| --- | --- | --- | --- |
-| Parsing behavior | Blocks HTML parsing | Runs parallel to parsing | Runs parallel to parsing |
-| Execution order | In order of appearance | Not guaranteed | In order of appearance |
-| DOM dependency | No | No | Yes (waits for DOM) |
-
-<!-- Update here: /questions/describe-the-difference-between-script-async-and-script-defer/en-US.mdx -->
-
-<br>
-    
-[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-the-difference-between-script-async-and-script-defer/en-US.mdx)
-
-<br>
-
-### Explain how prototypal inheritance works in JavaScript
-
-<!-- Update here: /questions/explain-how-prototypal-inheritance-works/en-US.mdx -->
-
-Prototypical inheritance in JavaScript is a way for objects to inherit properties and methods from other objects. Every JavaScript object has a special hidden property called `[[Prototype]]` (commonly accessed via `__proto__` or using `Object.getPrototypeOf()`) that is a reference to another object, which is called the object's "prototype".
-
-When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `__proto__`, and the `__proto__`'s `__proto__` and so on, until it finds the property defined on one of the `__proto__`s or until it reaches the end of the prototype chain.
-
-This behavior simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
-
-Here's an example of prototypal inheritance:
-
-```js
-// Parent object constructor.
-function Animal(name) {
-  this.name = name;
-}
-
-// Add a method to the parent object's prototype.
-Animal.prototype.makeSound = function () {
-  console.log('The ' + this.constructor.name + ' makes a sound.');
-};
-
-// Child object constructor.
-function Dog(name) {
-  Animal.call(this, name); // Call the parent constructor.
-}
-
-// Set the child object's prototype to be the parent's prototype.
-Object.setPrototypeOf(Dog.prototype, Animal.prototype);
-
-// Add a method to the child object's prototype.
-Dog.prototype.bark = function () {
-  console.log('Woof!');
-};
-
-// Create a new instance of Dog.
-const bolt = new Dog('Bolt');
-
-// Call methods on the child object.
-console.log(bolt.name); // "Bolt"
-bolt.makeSound(); // "The Dog makes a sound."
-bolt.bark(); // "Woof!"
-```
-
-Things to note are:
-
-- `.makeSound` is not defined on `Dog`, so the JavaScript engine goes up the prototype chain and finds `.makeSound` on the inherited `Animal`.
-- Using `Object.create()` to build the inheritance chain is no longer recommended. Use `Object.setPrototypeOf()` instead.
-
-<!-- Update here: /questions/explain-how-prototypal-inheritance-works/en-US.mdx -->
-
-<br>
-    
-[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-how-prototypal-inheritance-works/en-US.mdx)
-
-<br>
-
-### Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()` in JavaScript?
-
-<!-- Update here: /questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx -->
-
-- `function Person(){}`: A function declaration in JavaScript. It can be used as a regular function or as a constructor.
-- `const person = Person()`: Calls `Person` as a regular function, not a constructor. If `Person` is intended to be a constructor, this will lead to unexpected behavior.
-- `const person = new Person()`: Creates a new instance of `Person`, correctly utilizing the constructor function to initialize the new object.
-
-| Aspect | `function Person(){}` | `const person = Person()` | `const person = new Person()` |
-| --- | --- | --- | --- |
-| Type | Function declaration | Function call | Constructor call |
-| Usage | Defines a function | Invokes `Person` as a regular function | Creates a new instance of `Person` |
-| Instance Creation | No instance created | No instance created | New instance created |
-| Common Mistake | N/A | Misusing as constructor leading to `undefined` | None (when used correctly) |
-
-<!-- Update here: /questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx -->
-
-<br>
-    
-[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx)
-
-<br>
-
-### Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}` in JavaScript
-
-<!-- Update here: /questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/en-US.mdx -->
-
-`function foo() {}` a function declaration while the `var foo = function() {}` is a function expression. The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behavior as `var`-declared variables).
-
-If you try to invoke a function expression before it is declared, you will get an `Uncaught TypeError: XXX is not a function` error.
-
-Function declarations can be called in the enclosing scope even before they are declared.
-
-```js
-foo(); // 'FOOOOO'
-function foo() {
-  console.log('FOOOOO');
-}
-```
-
-Function expressions if called before they are declared will result in an error.
-
-```js
-foo(); // Uncaught TypeError: foo is not a function
-var foo = function () {
-  console.log('FOOOOO');
-};
-```
-
-Another key difference is in the scope of the function name. Function expressions can be named by defining it after the `function` and before the parenthesis. However when using named function expressions, the function name is only accessible within the function itself. Trying to access it outside will result in an error or `undefined`.
-
-```js
-const myFunc = function namedFunc() {
-  console.log(namedFunc); // Works
-};
-console.log(namedFunc); // undefined
-```
-
-**Note**: The examples uses `var` due to legacy reasons. Function expressions can be defined using `let` and `const` and the key difference is in the hoisting behavior of those keywords.
-
-<!-- Update here: /questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/en-US.mdx -->
-
-<br>
-    
-[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/en-US.mdx)
-
-<br>
-
-### What is a closure in JavaScript, and how/why would you use one?
-
-<!-- Update here: /questions/what-is-a-closure-and-how-why-would-you-use-one/en-US.mdx -->
-
-In the book ["You Don't Know JS"](https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/scope-closures) (YDKJS) by Kyle Simpson, a closure is defined as follows:
-
-> Closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope
-
-In simple terms, functions have access to variables that were in their scope at the time of their creation. This is what we call the function's lexical scope. A closure is a function that retains access to these variables even after the outer function has finished executing. This is like the function has a memory of its original environment.
-
-```js
-function outerFunction() {
-  const outerVar = 'I am outside of innerFunction';
-
-  function innerFunction() {
-    console.log(outerVar); // `innerFunction` can still access `outerVar`.
-  }
-
-  return innerFunction;
-}
-
-const inner = outerFunction(); // `inner` now holds a reference to `innerFunction`.
-
-inner(); // "I am outside of innerFunction"
-// Even though `outerFunction` has completed execution, `inner` still has access to variables defined inside `outerFunction`.
-```
-
-Key points to remember:
-
-- Closure occurs when an inner function has access to variables in its outer (lexical) scope, even when the outer function has finished executing.
-- Closure allows a function to **remember** the environment in which it was created, even if that environment is no longer present.
-- Closures are used extensively in JavaScript, such as in callbacks, event handlers, and asynchronous functions.
-
-<!-- Update here: /questions/what-is-a-closure-and-how-why-would-you-use-one/en-US.mdx -->
-
-<br>
-    
-[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-a-closure-and-how-why-would-you-use-one/en-US.mdx)
-
-<br>
-
-### Describe event bubbling in JavaScript and browsers
-
-<!-- Update here: /questions/describe-event-bubbling/en-US.mdx -->
-
-Event bubbling is a DOM event propagation mechanism where an event (e.g. a click), starts at the target element and bubbles up to the root of the document. This allows ancestor elements to also respond to the event.
-
-Event bubbling is essential for event delegation, where a single event handler manages events for multiple child elements, enhancing performance and code simplicity. While convenient, failing to manage event propagation properly can lead to unintended behavior, such as multiple handlers firing for a single event.
-
-<!-- Update here: /questions/describe-event-bubbling/en-US.mdx -->
-
-<br>
-    
-[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-event-bubbling/en-US.mdx)
-
-<br>
-
-### Describe event capturing in JavaScript and browsers
-
-<!-- Update here: /questions/describe-event-capturing/en-US.mdx -->
-
-Event capturing is a lesser-used counterpart to [event bubbling](https://greatfrontend.com/questions/quiz/describe-event-bubbling) in the DOM event propagation mechanism. It follows the opposite order, where an event triggers first on the ancestor element and then travels down to the target element.
-
-Event capturing is rarely used as compared to event bubbling, but it can be used in specific scenarios where you need to intercept events at a higher level before they reach the target element. It is disabled by default but can be enabled through an option on `addEventListener()`.
-
-<!-- Update here: /questions/describe-event-capturing/en-US.mdx -->
-
-<br>
-    
-[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-event-capturing/en-US.mdx)
-
-<br>
-
-### Explain the difference between synchronous and asynchronous functions in JavaScript
-
-<!-- Update here: /questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx -->
-
-Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. As a result, programs containing only synchronous code are evaluated exactly in order of the statements. The execution of the program is paused if one of the statements take a very long time.
-
-```js
-function sum(a, b) {
-  console.log('Inside sum function');
-  return a + b;
-}
-
-const result = sum(2, 3); // The program waits for sum() to complete before assigning the result
-console.log('Result: ', result); // Output: 5
-
-// Console output:
-// Inside sum function
-// Result: 5
-```
-
-Asynchronous functions usually accept a callback as a parameter and execution continue on to the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
-
-```js
-function fetchData(callback) {
-  setTimeout(() => {
-    const data = { name: 'John', age: 30 };
-    callback(data); // Calling the callback function with data
-  }, 2000); // Simulating a 2-second delay
-}
-
-console.log('Fetching data...');
-fetchData((data) => {
-  console.log(data); // Output: { name: 'John', age: 30 } (after 2 seconds)
-});
-
-console.log('Call made to fetch data'); // Output: This will be printed first
-
-// Console output:
-// Fetching data...
-// Call made to fetch data
-// { name: 'John', age: 30 }
-```
-
-<!-- Update here: /questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx -->
-
-<br>
-    
-[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx)
-
-<br>
-
-### What are the benefits of using spread syntax in JavaScript and how is it different from rest syntax?
-
-<!-- Update here: /questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/en-US.mdx -->
-
-**Spread syntax** (`...`) allows an iterable (like an array or string) to be expanded into individual elements. This is often used as a convenient and modern way to create new arrays or objects by combining existing ones.
-
-| Operation      | Traditional                     | Spread                 |
-| -------------- | ------------------------------- | ---------------------- |
-| Array cloning  | `arr.slice()`                   | `[...arr]`             |
-| Array merging  | `arr1.concat(arr2)`             | `[...arr1, ...arr2]`   |
-| Object cloning | `Object.assign({}, obj)`        | `{ ...obj }`           |
-| Object merging | `Object.assign({}, obj1, obj2)` | `{ ...obj1, ...obj2 }` |
-
-**Rest syntax** is the opposite of what spread syntax does. It collects a variable number of arguments into an array. This is often used in function parameters to handle a dynamic number of arguments.
-
-```js
-// Using rest syntax in a function
-function sum(...numbers) {
-  return numbers.reduce((total, num) => total + num, 0);
-}
-
-console.log(sum(1, 2, 3)); // Output: 6
-```
-
-<!-- Update here: /questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/en-US.mdx -->
-
-<br>
-    
-[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/en-US.mdx)
-
-<br>
-
-### Explain the difference between mutable and immutable objects in JavaScript
-
-<!-- Update here: /questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx -->
-
-**Mutable objects** allow for modification of properties and values after creation, which is the default behavior for most objects.
-
-```js
-const mutableObject = {
-  name: 'John',
-  age: 30,
-};
-
-// Modify the object
-mutableObject.name = 'Jane';
-
-// The object has been modified
-console.log(mutableObject); // Output: { name: 'Jane', age: 30 }
-```
-
-**Immutable objects** cannot be directly modified after creation. Its content cannot be changed without creating an entirely new value.
-
-```js
-const immutableObject = Object.freeze({
-  name: 'John',
-  age: 30,
-});
-
-// Attempt to modify the object
-immutableObject.name = 'Jane';
-
-// The object remains unchanged
-console.log(immutableObject); // Output: { name: 'John', age: 30 }
-```
-
-The key difference between mutable and immutable objects is modifiability. Immutable objects cannot be modified after they are created, while mutable objects can be.
-
-<!-- Update here: /questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx -->
-
-<br>
-    
-[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx)
-
-<br>
-
-### What are JavaScript object property flags and descriptors?
-
-<!-- Update here: /questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx -->
-
-In JavaScript, property flags and descriptors manage the behavior and attributes of object properties.
-
-**Property flags**
-
-Property flags are used to specify the behavior of a property on an object. Here are the available flags:
-
-- `writable`: Specifies whether the property can be written to. Defaults to `true`.
-- `enumerable`: Specifies whether the property is enumerable. Defaults to `true`.
-- `configurable`: Specifies whether the property can be deleted or its attributes changed. Default is `true`.
-
-**Property descriptors**
-
-These provide detailed information about an object's property, including its value and flags. They are retrieved using `Object.getOwnPropertyDescriptor()` and set using `Object.defineProperty()`.
-
-The use cases of property descriptors are as follows:
-
-- Making a property non-writable by setting `writable: false` to ensure data consistency.
-- Hiding a property from enumeration by setting `enumerable: false`.
-- Preventing property deletion and modification by setting `configurable: false`.
-- Freezing or sealing objects to prevent modifications globally.
-
-<!-- Update here: /questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx -->
-
-<br>
-    
-[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx)
-
-<br>
-
-### What are JavaScript object getters and setters for?
-
-<!-- Update here: /questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx -->
-
-JavaScript object getters and setters are used to control access to an object's properties. They provide a way to encapsulate the implementation details of a property and define custom behavior when getting or setting its value.
-
-Getters and setters are defined using the `get` and `set` keywords, respectively, followed by a function that is executed when the property is accessed or assigned a new value.
-
-Here's a code example demonstrating the use of getters and setters:
-
-```js
-const person = {
-  _name: 'John Doe', // Private property
-
-  get name() {
-    // Getter
-    return this._name;
-  },
-
-  set name(newName) {
-    // Setter
-    if (newName.trim().length > 0) {
-      this._name = newName;
-    } else {
-      console.log('Invalid name');
-    }
-  },
-};
-
-// Accessing the name property using the getter
-console.log(person.name); // Output: 'John Doe'
-
-// Setting the name property using the setter
-person.name = 'Jane Smith'; // Setter is called
-console.log(person.name); // Output: 'Jane Smith'
-
-person.name = ''; // Setter is called, but the value is not set due to validation
-console.log(person.name); // Output: 'Jane Smith'
-```
-
-<!-- Update here: /questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx -->
-
-<br>
-    
-[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx)
-
-<br>
-
 ### What are the primitive data types in JavaScript?
 
 <!-- Update here: /questions/what-are-the-primitive-data-types-in-javascript/en-US.mdx -->
@@ -2831,6 +2286,37 @@ Global variables are variables that are declared outside of any function or bloc
 <br>
     
 [Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-global-variables-and-why-are-they-generally-avoided/en-US.mdx)
+
+<br>
+
+### Explain the concept of "hoisting" in JavaScript
+
+<!-- Update here: /questions/explain-hoisting/en-US.mdx -->
+
+- **Variable declarations (`var`)**: Declarations are hoisted, but not initializations. The value of the variable is `undefined` if accessed before initialization.
+- **Variable declarations (`let` and `const`)**: Declarations are hoisted, but not initialized. Accessing them results in `ReferenceError` until the actual declaration is encountered.
+- **Function expressions (`var`)**: Declarations are hoisted, but not initializations. The value of the variable is `undefined` if accessed before initialization.
+- **Function declarations (`function`)**: Both declaration and definition are fully hoisted.
+- **Class declarations (`class`)**: Declarations are hoisted, but not initialized. Accessing them results in `ReferenceError` until the actual declaration is encountered.
+- **Import declarations (`import`)**: Declarations are hoisted, and side effects of importing the module are executed before the rest of the code.
+
+The following behavior summarizes the result of accessing the variables before they are declared.
+
+| Declaration                    | Accessing before declaration |
+| ------------------------------ | ---------------------------- |
+| `var foo`                      | `undefined`                  |
+| `let foo`                      | `ReferenceError`             |
+| `const foo`                    | `ReferenceError`             |
+| `class Foo`                    | `ReferenceError`             |
+| `var foo = function() { ... }` | `undefined`                  |
+| `function foo() { ... }`       | Normal                       |
+| `import`                       | Normal                       |
+
+<!-- Update here: /questions/explain-hoisting/en-US.mdx -->
+
+<br>
+    
+[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-hoisting/en-US.mdx)
 
 <br>
 
@@ -3127,6 +2613,83 @@ console.log(sum(...numbers)); // Output: 6
 
 <br>
 
+### What are the benefits of using spread syntax in JavaScript and how is it different from rest syntax?
+
+<!-- Update here: /questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/en-US.mdx -->
+
+**Spread syntax** (`...`) allows an iterable (like an array or string) to be expanded into individual elements. This is often used as a convenient and modern way to create new arrays or objects by combining existing ones.
+
+| Operation      | Traditional                     | Spread                 |
+| -------------- | ------------------------------- | ---------------------- |
+| Array cloning  | `arr.slice()`                   | `[...arr]`             |
+| Array merging  | `arr1.concat(arr2)`             | `[...arr1, ...arr2]`   |
+| Object cloning | `Object.assign({}, obj)`        | `{ ...obj }`           |
+| Object merging | `Object.assign({}, obj1, obj2)` | `{ ...obj1, ...obj2 }` |
+
+**Rest syntax** is the opposite of what spread syntax does. It collects a variable number of arguments into an array. This is often used in function parameters to handle a dynamic number of arguments.
+
+```js
+// Using rest syntax in a function
+function sum(...numbers) {
+  return numbers.reduce((total, num) => total + num, 0);
+}
+
+console.log(sum(1, 2, 3)); // Output: 6
+```
+
+<!-- Update here: /questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/en-US.mdx -->
+
+<br>
+    
+[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/en-US.mdx)
+
+<br>
+
+### Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}` in JavaScript
+
+<!-- Update here: /questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/en-US.mdx -->
+
+`function foo() {}` a function declaration while the `var foo = function() {}` is a function expression. The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behavior as `var`-declared variables).
+
+If you try to invoke a function expression before it is declared, you will get an `Uncaught TypeError: XXX is not a function` error.
+
+Function declarations can be called in the enclosing scope even before they are declared.
+
+```js
+foo(); // 'FOOOOO'
+function foo() {
+  console.log('FOOOOO');
+}
+```
+
+Function expressions if called before they are declared will result in an error.
+
+```js
+foo(); // Uncaught TypeError: foo is not a function
+var foo = function () {
+  console.log('FOOOOO');
+};
+```
+
+Another key difference is in the scope of the function name. Function expressions can be named by defining it after the `function` and before the parenthesis. However when using named function expressions, the function name is only accessible within the function itself. Trying to access it outside will result in an error or `undefined`.
+
+```js
+const myFunc = function namedFunc() {
+  console.log(namedFunc); // Works
+};
+console.log(namedFunc); // undefined
+```
+
+**Note**: The examples uses `var` due to legacy reasons. Function expressions can be defined using `let` and `const` and the key difference is in the hoisting behavior of those keywords.
+
+<!-- Update here: /questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/en-US.mdx -->
+
+<br>
+    
+[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/en-US.mdx)
+
+<br>
+
 ### Explain the difference between global scope, function scope, and block scope
 
 <!-- Update here: /questions/explain-the-difference-between-global-scope-function-scope-and-block-scope/en-US.mdx -->
@@ -3252,6 +2815,29 @@ const add = (a, b) => a + b;
 <br>
     
 [Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-arrow-functions-and-how-do-they-differ-from-regular-functions/en-US.mdx)
+
+<br>
+
+### Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()` in JavaScript?
+
+<!-- Update here: /questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx -->
+
+- `function Person(){}`: A function declaration in JavaScript. It can be used as a regular function or as a constructor.
+- `const person = Person()`: Calls `Person` as a regular function, not a constructor. If `Person` is intended to be a constructor, this will lead to unexpected behavior.
+- `const person = new Person()`: Creates a new instance of `Person`, correctly utilizing the constructor function to initialize the new object.
+
+| Aspect | `function Person(){}` | `const person = Person()` | `const person = new Person()` |
+| --- | --- | --- | --- |
+| Type | Function declaration | Function call | Constructor call |
+| Usage | Defines a function | Invokes `Person` as a regular function | Creates a new instance of `Person` |
+| Instance Creation | No instance created | No instance created | New instance created |
+| Common Mistake | N/A | Misusing as constructor leading to `undefined` | None (when used correctly) |
+
+<!-- Update here: /questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx -->
+
+<br>
+    
+[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx)
 
 <br>
 
@@ -3565,6 +3151,50 @@ if (obj.hasOwnProperty('key')) {
 
 <br>
 
+### Explain the difference between mutable and immutable objects in JavaScript
+
+<!-- Update here: /questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx -->
+
+**Mutable objects** allow for modification of properties and values after creation, which is the default behavior for most objects.
+
+```js
+const mutableObject = {
+  name: 'John',
+  age: 30,
+};
+
+// Modify the object
+mutableObject.name = 'Jane';
+
+// The object has been modified
+console.log(mutableObject); // Output: { name: 'Jane', age: 30 }
+```
+
+**Immutable objects** cannot be directly modified after creation. Its content cannot be changed without creating an entirely new value.
+
+```js
+const immutableObject = Object.freeze({
+  name: 'John',
+  age: 30,
+});
+
+// Attempt to modify the object
+immutableObject.name = 'Jane';
+
+// The object remains unchanged
+console.log(immutableObject); // Output: { name: 'John', age: 30 }
+```
+
+The key difference between mutable and immutable objects is modifiability. Immutable objects cannot be modified after they are created, while mutable objects can be.
+
+<!-- Update here: /questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx -->
+
+<br>
+    
+[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx)
+
+<br>
+
 ### Explain the concept of destructuring assignment for objects and arrays
 
 <!-- Update here: /questions/explain-the-concept-of-destructuring-assignment-for-objects-and-arrays/en-US.mdx -->
@@ -3652,6 +3282,87 @@ console.log(obj.age); // undefined
 
 <br>
 
+### What are JavaScript object getters and setters for?
+
+<!-- Update here: /questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx -->
+
+JavaScript object getters and setters are used to control access to an object's properties. They provide a way to encapsulate the implementation details of a property and define custom behavior when getting or setting its value.
+
+Getters and setters are defined using the `get` and `set` keywords, respectively, followed by a function that is executed when the property is accessed or assigned a new value.
+
+Here's a code example demonstrating the use of getters and setters:
+
+```js
+const person = {
+  _name: 'John Doe', // Private property
+
+  get name() {
+    // Getter
+    return this._name;
+  },
+
+  set name(newName) {
+    // Setter
+    if (newName.trim().length > 0) {
+      this._name = newName;
+    } else {
+      console.log('Invalid name');
+    }
+  },
+};
+
+// Accessing the name property using the getter
+console.log(person.name); // Output: 'John Doe'
+
+// Setting the name property using the setter
+person.name = 'Jane Smith'; // Setter is called
+console.log(person.name); // Output: 'Jane Smith'
+
+person.name = ''; // Setter is called, but the value is not set due to validation
+console.log(person.name); // Output: 'Jane Smith'
+```
+
+<!-- Update here: /questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx -->
+
+<br>
+    
+[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx)
+
+<br>
+
+### What are JavaScript object property flags and descriptors?
+
+<!-- Update here: /questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx -->
+
+In JavaScript, property flags and descriptors manage the behavior and attributes of object properties.
+
+**Property flags**
+
+Property flags are used to specify the behavior of a property on an object. Here are the available flags:
+
+- `writable`: Specifies whether the property can be written to. Defaults to `true`.
+- `enumerable`: Specifies whether the property is enumerable. Defaults to `true`.
+- `configurable`: Specifies whether the property can be deleted or its attributes changed. Default is `true`.
+
+**Property descriptors**
+
+These provide detailed information about an object's property, including its value and flags. They are retrieved using `Object.getOwnPropertyDescriptor()` and set using `Object.defineProperty()`.
+
+The use cases of property descriptors are as follows:
+
+- Making a property non-writable by setting `writable: false` to ensure data consistency.
+- Hiding a property from enumeration by setting `enumerable: false`.
+- Preventing property deletion and modification by setting `configurable: false`.
+- Freezing or sealing objects to prevent modifications globally.
+
+<!-- Update here: /questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx -->
+
+<br>
+    
+[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx)
+
+<br>
+
 ### How do you reliably determine whether an object is empty?
 
 <!-- Update here: /questions/how-do-you-reliably-determine-whether-an-object-is-empty/en-US.mdx -->
@@ -3670,6 +3381,57 @@ console.log(isEmpty(obj)); // true
 <br>
     
 [Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-reliably-determine-whether-an-object-is-empty/en-US.mdx)
+
+<br>
+
+### Explain the difference between synchronous and asynchronous functions in JavaScript
+
+<!-- Update here: /questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx -->
+
+Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. As a result, programs containing only synchronous code are evaluated exactly in order of the statements. The execution of the program is paused if one of the statements take a very long time.
+
+```js
+function sum(a, b) {
+  console.log('Inside sum function');
+  return a + b;
+}
+
+const result = sum(2, 3); // The program waits for sum() to complete before assigning the result
+console.log('Result: ', result); // Output: 5
+
+// Console output:
+// Inside sum function
+// Result: 5
+```
+
+Asynchronous functions usually accept a callback as a parameter and execution continue on to the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
+
+```js
+function fetchData(callback) {
+  setTimeout(() => {
+    const data = { name: 'John', age: 30 };
+    callback(data); // Calling the callback function with data
+  }, 2000); // Simulating a 2-second delay
+}
+
+console.log('Fetching data...');
+fetchData((data) => {
+  console.log(data); // Output: { name: 'John', age: 30 } (after 2 seconds)
+});
+
+console.log('Call made to fetch data'); // Output: This will be printed first
+
+// Console output:
+// Fetching data...
+// Call made to fetch data
+// { name: 'John', age: 30 }
+```
+
+<!-- Update here: /questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx -->
+
+<br>
+    
+[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx)
 
 <br>
 
@@ -3935,6 +3697,64 @@ In JavaScript, you can make API calls using several methods. The most common one
 
 <br>
 
+### Explain how prototypal inheritance works in JavaScript
+
+<!-- Update here: /questions/explain-how-prototypal-inheritance-works/en-US.mdx -->
+
+Prototypical inheritance in JavaScript is a way for objects to inherit properties and methods from other objects. Every JavaScript object has a special hidden property called `[[Prototype]]` (commonly accessed via `__proto__` or using `Object.getPrototypeOf()`) that is a reference to another object, which is called the object's "prototype".
+
+When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `__proto__`, and the `__proto__`'s `__proto__` and so on, until it finds the property defined on one of the `__proto__`s or until it reaches the end of the prototype chain.
+
+This behavior simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
+
+Here's an example of prototypal inheritance:
+
+```js
+// Parent object constructor.
+function Animal(name) {
+  this.name = name;
+}
+
+// Add a method to the parent object's prototype.
+Animal.prototype.makeSound = function () {
+  console.log('The ' + this.constructor.name + ' makes a sound.');
+};
+
+// Child object constructor.
+function Dog(name) {
+  Animal.call(this, name); // Call the parent constructor.
+}
+
+// Set the child object's prototype to be the parent's prototype.
+Object.setPrototypeOf(Dog.prototype, Animal.prototype);
+
+// Add a method to the child object's prototype.
+Dog.prototype.bark = function () {
+  console.log('Woof!');
+};
+
+// Create a new instance of Dog.
+const bolt = new Dog('Bolt');
+
+// Call methods on the child object.
+console.log(bolt.name); // "Bolt"
+bolt.makeSound(); // "The Dog makes a sound."
+bolt.bark(); // "Woof!"
+```
+
+Things to note are:
+
+- `.makeSound` is not defined on `Dog`, so the JavaScript engine goes up the prototype chain and finds `.makeSound` on the inherited `Animal`.
+- Using `Object.create()` to build the inheritance chain is no longer recommended. Use `Object.setPrototypeOf()` instead.
+
+<!-- Update here: /questions/explain-how-prototypal-inheritance-works/en-US.mdx -->
+
+<br>
+    
+[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-how-prototypal-inheritance-works/en-US.mdx)
+
+<br>
+
 ### What is the prototype chain and how does it work?
 
 <!-- Update here: /questions/what-is-the-prototype-chain-and-how-does-it-work/en-US.mdx -->
@@ -4123,6 +3943,47 @@ console.log(MyClass.myStaticMethod()); // Output: 'Hello, World!'
 
 <br>
 
+### What is a closure in JavaScript, and how/why would you use one?
+
+<!-- Update here: /questions/what-is-a-closure-and-how-why-would-you-use-one/en-US.mdx -->
+
+In the book ["You Don't Know JS"](https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/scope-closures) (YDKJS) by Kyle Simpson, a closure is defined as follows:
+
+> Closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope
+
+In simple terms, functions have access to variables that were in their scope at the time of their creation. This is what we call the function's lexical scope. A closure is a function that retains access to these variables even after the outer function has finished executing. This is like the function has a memory of its original environment.
+
+```js
+function outerFunction() {
+  const outerVar = 'I am outside of innerFunction';
+
+  function innerFunction() {
+    console.log(outerVar); // `innerFunction` can still access `outerVar`.
+  }
+
+  return innerFunction;
+}
+
+const inner = outerFunction(); // `inner` now holds a reference to `innerFunction`.
+
+inner(); // "I am outside of innerFunction"
+// Even though `outerFunction` has completed execution, `inner` still has access to variables defined inside `outerFunction`.
+```
+
+Key points to remember:
+
+- Closure occurs when an inner function has access to variables in its outer (lexical) scope, even when the outer function has finished executing.
+- Closure allows a function to **remember** the environment in which it was created, even if that environment is no longer present.
+- Closures are used extensively in JavaScript, such as in callbacks, event handlers, and asynchronous functions.
+
+<!-- Update here: /questions/what-is-a-closure-and-how-why-would-you-use-one/en-US.mdx -->
+
+<br>
+    
+[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-a-closure-and-how-why-would-you-use-one/en-US.mdx)
+
+<br>
+
 ### Explain the concept of lexical scoping
 
 <!-- Update here: /questions/explain-the-concept-of-lexical-scoping/en-US.mdx -->
@@ -4230,6 +4091,32 @@ function myFunction() {
 <br>
     
 [Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-global-scope-function-scope-and-block-scope/en-US.mdx)
+
+<br>
+
+### Explain how `this` works in JavaScript
+
+<!-- Update here: /questions/explain-how-this-works-in-javascript/en-US.mdx -->
+
+There's no simple explanation for `this`; it is one of the most confusing concepts in JavaScript because it's behavior differs from many other programming languages. The one-liner explanation of the `this` keyword is that it is a dynamic reference to the context in which a function is executed.
+
+A longer explanation follows is that `this` follows these rules:
+
+1. If the `new` keyword is used when calling the function, meaning the function was used as a function constructor, the `this` inside the function is the newly-created object instance.
+2. If `this` is used in a `class` `constructor`, the `this` inside the `constructor` is the newly-created object instance.
+3. If `apply()`, `call()`, or `bind()` is used to call/create a function, `this` inside the function is the object that is passed in as the argument.
+4. If a function is called as a method (e.g. `obj.method()`) — `this` is the object that the function is a property of.
+5. If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, `this` is the global object. In the browser, the global object is the `window` object. If in strict mode (`'use strict';`), `this` will be `undefined` instead of the global object.
+6. If multiple of the above rules apply, the rule that is higher wins and will set the `this` value.
+7. If the function is an ES2015 arrow function, it ignores all the rules above and receives the `this` value of its surrounding scope at the time it is created.
+
+For an in-depth explanation, do check out [Arnav Aggrawal's article on Medium](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3).
+
+<!-- Update here: /questions/explain-how-this-works-in-javascript/en-US.mdx -->
+
+<br>
+    
+[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-how-this-works-in-javascript/en-US.mdx)
 
 <br>
 
@@ -4406,6 +4293,63 @@ In a browser, events go through three phases: capturing, target, and bubbling. D
 
 <br>
 
+### Describe event bubbling in JavaScript and browsers
+
+<!-- Update here: /questions/describe-event-bubbling/en-US.mdx -->
+
+Event bubbling is a DOM event propagation mechanism where an event (e.g. a click), starts at the target element and bubbles up to the root of the document. This allows ancestor elements to also respond to the event.
+
+Event bubbling is essential for event delegation, where a single event handler manages events for multiple child elements, enhancing performance and code simplicity. While convenient, failing to manage event propagation properly can lead to unintended behavior, such as multiple handlers firing for a single event.
+
+<!-- Update here: /questions/describe-event-bubbling/en-US.mdx -->
+
+<br>
+    
+[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-event-bubbling/en-US.mdx)
+
+<br>
+
+### Describe event capturing in JavaScript and browsers
+
+<!-- Update here: /questions/describe-event-capturing/en-US.mdx -->
+
+Event capturing is a lesser-used counterpart to [event bubbling](https://greatfrontend.com/questions/quiz/describe-event-bubbling) in the DOM event propagation mechanism. It follows the opposite order, where an event triggers first on the ancestor element and then travels down to the target element.
+
+Event capturing is rarely used as compared to event bubbling, but it can be used in specific scenarios where you need to intercept events at a higher level before they reach the target element. It is disabled by default but can be enabled through an option on `addEventListener()`.
+
+<!-- Update here: /questions/describe-event-capturing/en-US.mdx -->
+
+<br>
+    
+[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-event-capturing/en-US.mdx)
+
+<br>
+
+### Explain event delegation in JavaScript
+
+<!-- Update here: /questions/explain-event-delegation/en-US.mdx -->
+
+Event delegation is a technique in JavaScript where a single event listener is attached to a parent element instead of attaching event listeners to multiple child elements. When an event occurs on a child element, the event bubbles up the DOM tree, and the parent element's event listener handles the event based on the target element.
+
+Event delegation provides the following benefits:
+
+- **Improved performance**: Attaching a single event listener is more efficient than attaching multiple event listeners to individual elements, especially for large or dynamic lists. This reduces memory usage and improves overall performance.
+- **Simplified event handling**: With event delegation, you only need to write the event handling logic once in the parent element's event listener. This makes the code more maintainable and easier to update.
+- **Dynamic element support**: Event delegation automatically handles events for dynamically added or removed elements within the parent element. There's no need to manually attach or remove event listeners when the DOM structure changes
+
+However, do note that:
+
+- It is important to identify the target element that triggered the event.
+- Not all events can be delegated because they are not bubbled. Non-bubbling events include: `focus`, `blur`, `scroll`, `mouseenter`, `mouseleave`, `resize`, etc.
+
+<!-- Update here: /questions/explain-event-delegation/en-US.mdx -->
+
+<br>
+    
+[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-event-delegation/en-US.mdx)
+
+<br>
+
 ### How do you prevent the default behavior of an event?
 
 <!-- Update here: /questions/how-do-you-prevent-the-default-behavior-of-an-event/en-US.mdx -->
@@ -4490,6 +4434,32 @@ document.getElementById('myDiv').classList.toggle('toggleClass');
 
 <br>
 
+### Describe the difference between `<script>`, `<script async>` and `<script defer>`
+
+<!-- Update here: /questions/describe-the-difference-between-script-async-and-script-defer/en-US.mdx -->
+
+All of these ways (`<script>`, `<script async>`, and `<script defer>`) are used to load and execute JavaScript files in an HTML document, but they differ in how the browser handles loading and execution of the script:
+
+- `<script>` is the default way of including JavaScript. The browser blocks HTML parsing while the script is being downloaded and executed. The browser will not continue rendering the page until the script has finished executing.
+- `<script async>` downloads the script asynchronously, in parallel with parsing the HTML. Executes the script as soon as it is available, potentially interrupting the HTML parsing. `<script async>` do not wait for each other and execute in no particular order.
+- `<script defer>` downloads the script asynchronously, in parallel with parsing the HTML. However, the execution of the script is deferred until HTML parsing is complete, in the order they appear in the HTML.
+
+Here's a table summarizing the 3 ways of loading `<script>`s in a HTML document.
+
+| Feature | `<script>` | `<script async>` | `<script defer>` |
+| --- | --- | --- | --- |
+| Parsing behavior | Blocks HTML parsing | Runs parallel to parsing | Runs parallel to parsing |
+| Execution order | In order of appearance | Not guaranteed | In order of appearance |
+| DOM dependency | No | No | Yes (waits for DOM) |
+
+<!-- Update here: /questions/describe-the-difference-between-script-async-and-script-defer/en-US.mdx -->
+
+<br>
+    
+[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-the-difference-between-script-async-and-script-defer/en-US.mdx)
+
+<br>
+
 ### What is the difference between the Window object and the Document object?
 
 <!-- Update here: /questions/what-is-the-difference-between-the-window-object-and-the-document-object/en-US.mdx -->
@@ -4501,6 +4471,36 @@ The `Window` object represents the browser window and provides methods to contro
 <br>
     
 [Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-the-window-object-and-the-document-object/en-US.mdx)
+
+<br>
+
+### Describe the difference between a cookie, `sessionStorage` and `localStorage` in browsers
+
+<!-- Update here: /questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/en-US.mdx -->
+
+All of the following are mechanisms of storing data on the client, the user's browser in this case. `localStorage` and `sessionStorage` both implement the [Web Storage API interface](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API).
+
+- **Cookies**: Suitable for server-client communication, small storage capacity, can be persistent or session-based, domain-specific. Sent to the server on every request.
+- **`localStorage`**: Suitable for long-term storage, data persists even after the browser is closed, accessible across all tabs and windows of the same origin, highest storage capacity among the three.
+- **`sessionStorage`**: Suitable for temporary data within a single page session, data is cleared when the tab or window is closed, has a higher storage capacity compared to cookies.
+
+Here's a table summarizing the 3 client storage mechanisms.
+
+| Property | Cookie | `localStorage` | `sessionStorage` |
+| --- | --- | --- | --- |
+| Initiator | Client or server. Server can use `Set-Cookie` header | Client | Client |
+| Lifespan | As specified | Until deleted | Until tab is closed |
+| Persistent across browser sessions | If a future expiry date is set | Yes | No |
+| Sent to server with every HTTP request | Yes, sent via `Cookie` header | No | No |
+| Total capacity (per domain) | 4kb | 5MB | 5MB |
+| Access | Across windows/tabs | Across windows/tabs | Same tab |
+| Security | JavaScript cannot access `HttpOnly` cookies | None | None |
+
+<!-- Update here: /questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/en-US.mdx -->
+
+<br>
+    
+[Back to top ↑](#table-of-contents-all-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/en-US.mdx)
 
 <br>
 

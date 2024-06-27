@@ -147,6 +147,7 @@ ${qn.content
 }
 
 type Options = Readonly<{
+  sortByRanking: boolean;
   showLinkToGFE: boolean;
   tableOfContentsAnchor: string;
   tocStart: string;
@@ -163,13 +164,16 @@ async function generateList(qns: string[], options: Options) {
     qnsStart,
     qnsEnd,
     showLinkToGFE,
+    sortByRanking,
   } = options;
-  const qnItemList = await processQuestionList(qns);
-  const qnsItemListSorted = qnItemList.sort(
-    (a, b) => a.metadata.ranking - b.metadata.ranking,
-  );
-  const qnTableOfContents = formatTableOfContents(qnsItemListSorted);
-  const qnAnswers = qnsItemListSorted
+  const qnItemListValue = await processQuestionList(qns);
+  const qnItemList = qnItemListValue.slice();
+
+  if (sortByRanking) {
+    qnItemList.sort((a, b) => a.metadata.ranking - b.metadata.ranking);
+  }
+  const qnTableOfContents = formatTableOfContents(qnItemList);
+  const qnAnswers = qnItemList
     .map((qnItem, index) =>
       formatQuestion(qnItem, index + 1, tableOfContentsAnchor, showLinkToGFE),
     )
@@ -235,6 +239,7 @@ async function generateAll() {
       qnsEnd: 'QUESTIONS:TOP:END',
       tableOfContentsAnchor: 'table-of-contents-top-questions',
       showLinkToGFE: true,
+      sortByRanking: true,
     },
   );
 
@@ -246,6 +251,7 @@ async function generateAll() {
     qnsEnd: 'QUESTIONS:ALL:END',
     tableOfContentsAnchor: 'table-of-contents-all-questions',
     showLinkToGFE: false,
+    sortByRanking: false,
   });
 
   const basicQns = qns.filter((qn) => qn.level === 'basic');
