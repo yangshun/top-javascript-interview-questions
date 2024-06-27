@@ -10,7 +10,7 @@
     "what-are-global-variables-and-why-are-they-generally-avoided"
   ],
   "Hoisting": [
-    "what-is-hoisting-in-javascript",
+    "explain-hoisting",
     "explain-the-difference-in-hoisting-between-var-let-and-const",
     "how-does-hoisting-affect-function-declarations-and-expressions",
     "what-are-the-potential-issues-caused-by-hoisting",
@@ -25,16 +25,17 @@
     "how-do-you-access-the-index-of-an-element-in-an-array-during-iteration",
     "what-is-the-purpose-of-the-switch-statement",
     "what-are-rest-parameters-and-how-are-they-used",
-    "explain-the-concept-of-the-spread-operator-and-its-uses"
+    "explain-the-concept-of-the-spread-operator-and-its-uses",
+    "what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax"
   ],
   "Functions": [
-    "what-is-a-function-declaration-and-how-does-it-differ-from-a-function-expression",
+    "explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function",
+    "explain-the-difference-between-global-scope-function-scope-and-block-scope",
     "explain-the-concept-of-scope-in-javascript",
-    "what-are-closures-and-how-are-they-used",
     "what-is-the-difference-between-a-parameter-and-an-argument",
     "explain-the-concept-of-hoisting-with-regards-to-functions",
     "what-are-arrow-functions-and-how-do-they-differ-from-regular-functions",
-    "what-is-the-this-keyword-and-how-does-its-context-change",
+    "difference-between-function-person-var-person-person-and-var-person-new-person",
     "explain-the-concept-of-higher-order-functions",
     "what-are-callback-functions-and-how-are-they-used",
     "what-is-recursion-and-how-is-it-used-in-javascript",
@@ -49,16 +50,17 @@
     "explain-the-difference-between-shallow-copy-and-deep-copy",
     "what-are-the-advantages-of-using-the-spread-operator-with-arrays-and-objects",
     "how-do-you-check-if-an-object-has-a-specific-property",
-    "what-are-destructuring-assignments-and-how-are-they-used-with-objects-and-arrays",
-    "explain-the-concept-of-object-prototypes-and-prototypal-inheritance",
+    "explain-the-difference-between-mutable-and-immutable-objects",
     "explain-the-concept-of-destructuring-assignment-for-objects-and-arrays",
     "what-is-objectfreeze-for",
     "what-is-objectseal-for",
     "what-is-objectpreventextensions-for",
+    "what-are-javascript-object-getters-and-setters-for",
+    "what-are-javascript-object-property-flags-and-descriptors",
     "how-do-you-reliably-determine-whether-an-object-is-empty"
   ],
   "Asynchronous JavaScript": [
-    "what-is-the-difference-between-synchronous-and-asynchronous-code",
+    "explain-the-difference-between-synchronous-and-asynchronous-functions",
     "explain-the-concept-of-a-callback-function-in-asynchronous-operations",
     "what-are-promises-and-how-do-they-work",
     "explain-the-different-states-of-a-promise",
@@ -73,27 +75,27 @@
     "what-are-the-different-ways-to-make-an-api-call-in-javascript"
   ],
   "Prototypes & Inheritance": [
-    "explain-the-concept-of-prototypal-inheritance-in-javascript",
+    "explain-how-prototypal-inheritance-works",
     "what-is-the-prototype-chain-and-how-does-it-work",
-    "how-do-you-create-a-constructor-function",
-    "what-is-the-purpose-of-the-new-keyword",
     "explain-the-difference-between-classical-inheritance-and-prototypal-inheritance",
-    "what-are-static-methods-in-classes",
     "explain-the-concept-of-inheritance-in-es2015-classes",
-    "explain-the-concept-of-classes-in-es2015-and-how-they-differ-from-constructor-functions"
+    "what-is-the-purpose-of-the-new-keyword",
+    "how-do-you-create-a-constructor-function",
+    "explain-the-concept-of-classes-in-es2015-and-how-they-differ-from-constructor-functions",
+    "what-are-static-methods-in-classes"
   ],
   "Closures & Scope": [
-    "what-is-a-closure-and-how-does-it-work",
+    "what-is-a-closure-and-how-why-would-you-use-one",
     "explain-the-concept-of-lexical-scoping",
     "how-can-closures-be-used-to-create-private-variables",
     "what-are-the-potential-pitfalls-of-using-closures",
     "explain-the-difference-between-global-scope-function-scope-and-block-scope"
   ],
   "This Keyword": [
+    "explain-how-this-works-in-javascript",
     "explain-the-different-ways-the-this-keyword-can-be-bound",
     "how-does-the-this-keyword-behave-in-arrow-functions",
     "what-are-the-common-pitfalls-of-using-the-this-keyword",
-    "how-can-you-explicitly-set-the-value-of-this-using-call-apply-and-bind",
     "explain-the-concept-of-this-binding-in-event-handlers"
   ],
   "DOM Manipulation & Events": [
@@ -102,16 +104,18 @@
     "how-do-you-add-remove-and-modify-html-elements-using-javascript",
     "what-are-event-listeners-and-how-are-they-used",
     "explain-the-event-phases-in-a-browser",
-    "what-is-event-bubbling-and-capturing",
-    "explain-the-concept-of-event-delegation",
+    "describe-event-bubbling",
+    "describe-event-capturing",
+    "explain-event-delegation",
     "how-do-you-prevent-the-default-behavior-of-an-event",
     "what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation",
     "what-is-the-difference-between-innerhtml-and-textcontent",
     "how-do-you-manipulate-css-styles-using-javascript"
   ],
   "Web APIs & Browser APIs": [
+    "describe-the-difference-between-script-async-and-script-defer",
     "what-is-the-difference-between-the-window-object-and-the-document-object",
-    "explain-the-purpose-of-the-following-apis-localstorage-sessionstorage-indexeddb",
+    "describe-the-difference-between-a-cookie-sessionstorage-and-localstorage",
     "how-do-you-make-an-http-request-using-the-fetch-api",
     "what-are-web-workers-and-how-can-they-be-used",
     "explain-the-concept-of-the-web-socket-api",
@@ -122,7 +126,7 @@
     "how-do-you-use-windowhistory-api",
     "how-do-iframe-on-a-page-communicate",
     "how-do-you-cancel-a-fetch-request",
-    "what-is-the-difference-between-document-load-and-domcontentloaded-events",
+    "difference-between-document-load-event-and-document-domcontentloaded-event",
     "how-do-you-redirect-to-a-new-page-in-javascript",
     "how-do-you-get-the-query-string-values-of-the-current-page-in-javascript",
     "what-are-progressive-web-applications-pwas"
