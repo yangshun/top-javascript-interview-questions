@@ -236,7 +236,7 @@ This list contains a longer list of important JavaScript questions. Not all of t
 | 159 | [Explain the concept of test-driven development (TDD)](#explain-the-concept-of-test-driven-development-tdd) | Intermediate |
 | 160 | [What are mocks and stubs and how are they used in testing?](#what-are-mocks-and-stubs-and-how-are-they-used-in-testing) | Advanced |
 | 161 | [How can you test asynchronous code in JavaScript?](#how-can-you-test-asynchronous-code-in-javascript) | Intermediate |
-| 162 | [What are some best practices for writing maintainable and effective tests?](#what-are-some-best-practices-for-writing-maintainable-and-effective-tests) | Intermediate |
+| 162 | [What are some best practices for writing maintainable and effective tests in JavaScript?](#what-are-some-best-practices-for-writing-maintainable-and-effective-tests-in-javascript) | Intermediate |
 | 163 | [Explain the concept of code coverage and how it can be used to assess test quality](#explain-the-concept-of-code-coverage-and-how-it-can-be-used-to-assess-test-quality) | Intermediate |
 | 164 | [What are some tools that can be used for JavaScript testing?](#what-are-some-tools-that-can-be-used-for-javascript-testing) | Basic |
 | 165 | [What are design patterns and why are they useful?](#what-are-design-patterns-and-why-are-they-useful) | Basic |
@@ -6357,7 +6357,7 @@ Alternatively, you can use callbacks and the `done` function to signal the end o
 
 <br>
 
-### What are some best practices for writing maintainable and effective tests?
+### What are some best practices for writing maintainable and effective tests in JavaScript?
 
 <!-- Update here: /questions/what-are-some-best-practices-for-writing-maintainable-and-effective-tests/en-US.mdx -->
 
@@ -7227,7 +7227,7 @@ JavaScript interview questions categorized by difficulty.
 42. [How is `Promise.all()` different from `Promise.allSettled()`?](#how-is-promiseall-different-from-promiseallsettled)
 43. [What are Progressive Web Applications (PWAs)?](#what-are-progressive-web-applications-pwas)
 44. [What are some best practices for handling sensitive data in JavaScript?](#what-are-some-best-practices-for-handling-sensitive-data-in-javascript)
-45. [What are some best practices for writing maintainable and effective tests?](#what-are-some-best-practices-for-writing-maintainable-and-effective-tests)
+45. [What are some best practices for writing maintainable and effective tests in JavaScript?](#what-are-some-best-practices-for-writing-maintainable-and-effective-tests-in-javascript)
 46. [What are some common performance bottlenecks in JavaScript applications?](#what-are-some-common-performance-bottlenecks-in-javascript-applications)
 47. [What are some common security headers and their purpose?](#what-are-some-common-security-headers-and-their-purpose)
 48. [What are some tools and techniques for identifying security vulnerabilities in JavaScript code?](#what-are-some-tools-and-techniques-for-identifying-security-vulnerabilities-in-javascript-code)
