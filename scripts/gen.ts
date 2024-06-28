@@ -98,7 +98,7 @@ async function processQuestionList(qns: string[]) {
 function formatTableOfContents(qnList: QuestionItem[]) {
   const tableOfContentsLines = [
     '| No. | Questions | Level |',
-    '| --- | --- | --- |',
+    '| --- | :-- | :-- |',
   ];
 
   qnList.forEach(({ metadata, title, titleSlug }, index) =>

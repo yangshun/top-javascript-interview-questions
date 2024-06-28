@@ -13,7 +13,7 @@ This list contains the top essential questions that are frequently-asked during 
 <!-- TABLE_OF_CONTENTS:TOP:START -->
 
 | No. | Questions | Level |
-| --- | --- | --- |
+| --- | :-- | :-- |
 | 1 | [Explain the concept of "hoisting" in JavaScript](#explain-the-concept-of-hoisting-in-javascript) | Basic |
 | 2 | [What are the differences between JavaScript variables created using `let`, `var` or `const`?](#what-are-the-differences-between-javascript-variables-created-using-let-var-or-const) | Basic |
 | 3 | [What is the difference between `==` and `===` in JavaScript?](#what-is-the-difference-between--and--in-javascript) | Basic |
@@ -74,7 +74,7 @@ This list contains a longer list of important JavaScript questions. Not all of t
 <!-- TABLE_OF_CONTENTS:ALL:START -->
 
 | No. | Questions | Level |
-| --- | --- | --- |
+| --- | :-- | :-- |
 | 1 | [What are the various data types in JavaScript?](#what-are-the-various-data-types-in-javascript) | Basic |
 | 2 | [How do you check the data type of a variable?](#how-do-you-check-the-data-type-of-a-variable) | Basic |
 | 3 | [What's the difference between a JavaScript variable that is: `null`, `undefined` or undeclared?](#whats-the-difference-between-a-javascript-variable-that-is-null-undefined-or-undeclared) | Basic |
@@ -1976,7 +1976,6 @@ const person = {
     // Getter
     return this._name;
   },
-
   set name(newName) {
     // Setter
     if (newName.trim().length > 0) {
@@ -3600,7 +3599,6 @@ const person = {
     // Getter
     return this._name;
   },
-
   set name(newName) {
     // Setter
     if (newName.trim().length > 0) {
