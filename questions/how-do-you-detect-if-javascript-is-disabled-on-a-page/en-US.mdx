@@ -8,7 +8,10 @@ To detect if JavaScript is disabled on a page, you can use the `<noscript>` HTML
 
 ```html
 <noscript>
-  <p>JavaScript is disabled in your browser. Please enable JavaScript for the best experience.</p>
+  <p>
+    JavaScript is disabled in your browser. Please enable JavaScript for the
+    best experience.
+  </p>
 </noscript>
 ```
 
@@ -25,20 +28,23 @@ The `<noscript>` tag is an HTML element that provides an alternative content for
 Here is an example of how to use the `<noscript>` tag to display a message to users with JavaScript disabled:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JavaScript Detection</title>
-</head>
-<body>
-  <h1>Welcome to our website</h1>
-  <noscript>
-    <p>JavaScript is disabled in your browser. Please enable JavaScript for the best experience.</p>
-  </noscript>
-  <p>This content is visible to all users.</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Detection</title>
+  </head>
+  <body>
+    <h1>Welcome to our website</h1>
+    <noscript>
+      <p>
+        JavaScript is disabled in your browser. Please enable JavaScript for the
+        best experience.
+      </p>
+    </noscript>
+    <p>This content is visible to all users.</p>
+  </body>
 </html>
 ```
 
@@ -56,7 +62,10 @@ You can also style the content inside the `<noscript>` tag using CSS to make it 
       font-weight: bold;
     }
   </style>
-  <p class="noscript-message">JavaScript is disabled in your browser. Please enable JavaScript for the best experience.</p>
+  <p class="noscript-message">
+    JavaScript is disabled in your browser. Please enable JavaScript for the
+    best experience.
+  </p>
 </noscript>
 ```
 
@@ -67,4 +76,3 @@ In this example, the message will be styled with red text and bold font to make 
 - [MDN Web Docs: `<noscript>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript)
 - [W3Schools: HTML `<noscript>` Tag](https://www.w3schools.com/tags/tag_noscript.asp)
 - [Can I use: `<noscript>`](https://caniuse.com/?search=noscript)
-

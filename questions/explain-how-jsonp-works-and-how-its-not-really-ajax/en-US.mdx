@@ -2,28 +2,73 @@
 title: Explain how JSONP works (and how it's not really Ajax)
 ---
 
-JSONP (JSON with Padding) is a method commonly used to bypass the cross-domain policies in web browsers because Ajax requests from the current page to a cross-origin domain is not allowed.
+## TL;DR
 
-JSONP works by making a request to a cross-origin domain via a `<script>` tag and usually with a `callback` query parameter, for example: `https://example.com?callback=printData`. The server will then wrap the data within a function called `printData` and return it to the client.
+JSONP (JSON with Padding) is a technique used to overcome the same-origin policy in web browsers, allowing you to request data from a server in a different domain. It works by dynamically creating a `<script>` tag and setting its `src` attribute to the URL of the data source. The server responds with a script that calls a predefined callback function with the data as its argument. Unlike Ajax, JSONP does not use the XMLHttpRequest object and is limited to GET requests.
+
+---
+
+## How JSONP works (and how it's not really Ajax)
+
+### What is JSONP?
+
+JSONP stands for JSON with Padding. It is a technique used to bypass the same-origin policy in web browsers, which restricts web pages from making requests to a different domain than the one that served the web page.
+
+### How JSONP works
+
+1. **Dynamic script tag creation**: A `<script>` tag is dynamically created and its `src` attribute is set to the URL of the data source, including a callback function name as a query parameter.
+2. **Server response**: The server responds with a script that calls the callback function, passing the data as an argument.
+3. **Callback execution**: The browser executes the script, invoking the callback function with the data.
+
+Here is a simple example:
 
 ```html
-<!-- https://mydomain.com -->
-<script>
-  function printData(data) {
-    console.log(`My name is ${data.name}!`);
-  }
-</script>
+<!doctype html>
+<html>
+  <head>
+    <title>JSONP Example</title>
+    <script>
+      function handleResponse(data) {
+        console.log(data);
+      }
 
-<script src="https://example.com?callback=printData"></script>
+      function fetchData() {
+        var script = document.createElement('script');
+        script.src = 'https://example.com/data?callback=handleResponse';
+        document.body.appendChild(script);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="fetchData()">Fetch Data</button>
+  </body>
+</html>
 ```
 
-```js
-// File loaded from https://example.com?callback=printData
-printData({ name: 'John Doe' });
+In this example, when the button is clicked, a `<script>` tag is created with the `src` attribute set to `https://example.com/data?callback=handleResponse`. The server at `example.com` responds with a script like this:
+
+```javascript
+handleResponse({
+  name: 'John',
+  age: 30,
+});
 ```
 
-The client has to have the `printData` function in its global scope and the function will be executed by the client when the response from the cross-origin domain is received.
+### How JSONP is different from Ajax
 
-JSONP can be unsafe and has some security implications. As JSONP is really JavaScript, it can do everything else JavaScript can do, so you need to trust the provider of the JSONP data.
+- **Transport mechanism**: JSONP uses the `<script>` tag to fetch data, whereas Ajax uses the XMLHttpRequest object.
+- **Request type**: JSONP is limited to GET requests, while Ajax can use various HTTP methods like GET, POST, PUT, DELETE, etc.
+- **Same-origin policy**: JSONP can bypass the same-origin policy, while Ajax requests are subject to it unless CORS (Cross-Origin Resource Sharing) is used.
+- **Error handling**: JSONP has limited error handling capabilities compared to Ajax.
 
-These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is the recommended approach and JSONP is seen as a hack.
+### Limitations of JSONP
+
+- **Security risks**: JSONP can expose your application to cross-site scripting (XSS) attacks if the external server is compromised or malicious.
+- **Limited to GET requests**: JSONP cannot be used for POST requests or other HTTP methods.
+- **Error handling**: JSONP lacks robust error handling mechanisms compared to Ajax.
+
+## Further reading
+
+- [MDN Web Docs: JSONP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/JSONP)
+- [Same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
+- [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)

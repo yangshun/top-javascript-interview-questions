@@ -2,8 +2,99 @@
 title: What do you think of AMD vs CommonJS?
 ---
 
-Both are ways to implement a module system, which was not natively present in JavaScript until ES2015 came along. CommonJS is synchronous while AMD (Asynchronous Module Definition) is obviously asynchronous. CommonJS is designed with server-side development in mind while AMD, with its support for asynchronous loading of modules, is more intended for browsers.
+## TL;DR
 
-AMD syntax can be quite verbose and CommonJS is closer to the style you would write import statements in other languages. Most of the time, AMD is unnecessary, because if you served all your JavaScript into one concatenated bundle file, you wouldn't benefit from the async loading properties. Also, CommonJS syntax is closer to Node.js style of writing/importing modules and there is less context-switching overhead when switching between client-side and server-side JavaScript development.
+AMD (Asynchronous Module Definition) and CommonJS are two JavaScript module systems. AMD is designed for asynchronous loading of modules, making it suitable for browsers. CommonJS is designed for synchronous loading, making it more suitable for server-side environments like Node.js. AMD uses `define` and `require` for defining and loading modules, while CommonJS uses `module.exports` and `require`.
 
-The future standard, ES modules (ESM) has support for both synchronous and asynchronous loading and is supported by both browsers and server-side runtimes. We can finally just stick to one approach (barring upgrading legacy applications).
+---
+
+## AMD vs CommonJS
+
+### Overview
+
+Both AMD and CommonJS are module systems used in JavaScript to manage dependencies and organize code. They serve different purposes and are suited to different environments.
+
+### AMD (Asynchronous Module Definition)
+
+#### Characteristics
+
+- Designed for asynchronous loading of modules
+- Primarily used in browser environments
+- Uses `define` and `require` for defining and loading modules
+
+#### Example
+
+```javascript
+// Defining a module in AMD
+define(['dependency1', 'dependency2'], function (dep1, dep2) {
+  return {
+    // Module code here
+  };
+});
+
+// Loading a module in AMD
+require(['module1', 'module2'], function (mod1, mod2) {
+  // Code that uses mod1 and mod2
+});
+```
+
+### CommonJS
+
+#### Characteristics
+
+- Designed for synchronous loading of modules
+- Primarily used in server-side environments like Node.js
+- Uses `module.exports` and `require` for defining and loading modules
+
+#### Example
+
+```javascript
+// Defining a module in CommonJS
+const dep1 = require('dependency1');
+const dep2 = require('dependency2');
+
+module.exports = {
+  // Module code here
+};
+
+// Loading a module in CommonJS
+const mod1 = require('module1');
+const mod2 = require('module2');
+
+// Code that uses mod1 and mod2
+```
+
+### Key differences
+
+#### Loading mechanism
+
+- **AMD**: Asynchronous, suitable for browsers where non-blocking operations are crucial.
+- **CommonJS**: Synchronous, suitable for server-side environments where modules are loaded before execution.
+
+#### Environment suitability
+
+- **AMD**: Better for client-side applications.
+- **CommonJS**: Better for server-side applications.
+
+#### Syntax
+
+- **AMD**: Uses `define` and `require`.
+- **CommonJS**: Uses `module.exports` and `require`.
+
+### Use cases
+
+#### AMD
+
+- Suitable for web applications where you need to load modules asynchronously to avoid blocking the UI.
+- Often used with module loaders like RequireJS.
+
+#### CommonJS
+
+- Suitable for server-side applications where modules are loaded once at the start.
+- The standard module system for Node.js.
+
+## Further reading
+
+- [RequireJS documentation](https://requirejs.org/docs/api.html)
+- [Node.js modules documentation](https://nodejs.org/api/modules.html)
+- [MDN Web Docs on JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)

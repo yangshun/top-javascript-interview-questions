@@ -2,18 +2,120 @@
 title: Explain what a single page app is and how to make one SEO-friendly
 ---
 
-Web developers these days refer to the products they build as web apps, rather than websites. While there is no strict difference between the two terms, web apps tend to be highly interactive and dynamic, allowing the user to perform actions and receive a response to their action. Traditionally, the browser receives HTML from the server and renders it. When the user navigates to another URL, a full-page refresh is required and the server sends fresh new HTML to the new page. This is called server-side rendering.
+## TL;DR
 
-However, in modern SPAs, client-side rendering is used instead. The browser loads the initial page from the server, along with the scripts (frameworks, libraries, app code) and stylesheets required for the whole app. When the user navigates to other pages, a page refresh is not triggered. The URL of the page is updated via the [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API). New data required for the new page, usually in JSON format, is retrieved by the browser via [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) requests to the server. The SPA then dynamically updates the page with the data via JavaScript, which it has already downloaded in the initial page load. This model is similar to how native mobile apps work.
+A single page application (SPA) is a web application that loads a single HTML page and dynamically updates content as the user interacts with the app. This approach provides a more fluid user experience but can be challenging for SEO because search engines may not execute JavaScript to render content. To make an SPA SEO-friendly, you can use server-side rendering (SSR) or static site generation (SSG) to ensure that search engines can index your content. Tools like Next.js for React or Nuxt.js for Vue.js can help achieve this.
 
-## Pros
+---
 
-- The app feels more responsive and users do not see the flash between page navigations due to full-page refreshes.
-- Fewer HTTP requests are made to the server, as the same assets do not have to be downloaded again for each page load.
-- Clear separation of the concerns between the client and the server; you can easily build new clients for different platforms (e.g. mobile, chatbots, smart watches) without having to modify the server code. You can also modify the technology stack on the client and server independently, as long as the API contract is not broken.
+## What is a single page app?
 
-## Cons
+### Definition
 
-- Heavier initial page load due to the loading of framework, app code, and assets required for multiple pages.
-- There's an additional step to be done on your server which is to configure it to route all requests to a single entry point and allow client-side routing to take over from there.
-- SPAs are reliant on JavaScript to render content, but not all search engines execute JavaScript during crawling, and they may see empty content on your page. This inadvertently hurts the Search Engine Optimization (SEO) of your app. However, most of the time, when you are building apps, SEO is not the most important factor, as not all the content needs to be indexable by search engines. To overcome this, you can either server-side render your app or use services such as [Prerender](https://prerender.io/) to "render your javascript in a browser, save the static HTML, and return that to the crawlers".
+A single page application (SPA) is a web application that interacts with the user by dynamically rewriting the current page rather than loading entire new pages from the server. This results in a more fluid user experience, similar to a desktop application.
+
+### Key characteristics
+
+- The application loads a single HTML page and dynamically updates it as the user interacts with the app
+- Uses AJAX or Fetch API to communicate with the server and update the page without a full reload
+- Often relies on client-side routing to manage different views or states within the app
+
+### Benefits
+
+- Faster interactions after the initial load
+- Reduced server load due to fewer full-page requests
+- Improved user experience with smoother transitions
+
+## How to make an SPA SEO-friendly
+
+### Challenges
+
+SPAs can be challenging for SEO because search engines may not execute JavaScript to render content. This can result in search engines indexing an empty or incomplete page.
+
+### Solutions
+
+#### Server-side rendering (SSR)
+
+Server-side rendering involves rendering the initial HTML of the page on the server before sending it to the client. This ensures that search engines can index the fully rendered content.
+
+- **React**: Use Next.js, which provides built-in support for SSR
+- **Vue.js**: Use Nuxt.js, which also supports SSR out of the box
+
+Example with Next.js:
+
+```javascript
+import React from 'react';
+import { GetServerSideProps } from 'next';
+
+const Page = ({ data }) => {
+  return (
+    <div>
+      <h1>{data.title}</h1>
+      <p>{data.content}</p>
+    </div>
+  );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const res = await fetch('https://api.example.com/data');
+  const data = await res.json();
+
+  return {
+    props: {
+      data,
+    },
+  };
+};
+
+export default Page;
+```
+
+#### Static site generation (SSG)
+
+Static site generation involves generating the HTML for each page at build time. This approach is suitable for content that doesn't change frequently.
+
+- **React**: Use Next.js with its static generation capabilities
+- **Vue.js**: Use Nuxt.js with its static site generation feature
+
+Example with Next.js:
+
+```javascript
+import React from 'react';
+import { GetStaticProps } from 'next';
+
+const Page = ({ data }) => {
+  return (
+    <div>
+      <h1>{data.title}</h1>
+      <p>{data.content}</p>
+    </div>
+  );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch('https://api.example.com/data');
+  const data = await res.json();
+
+  return {
+    props: {
+      data,
+    },
+  };
+};
+
+export default Page;
+```
+
+#### Pre-rendering with tools
+
+Some tools can pre-render your SPA and serve the pre-rendered HTML to search engines.
+
+- **Prerender.io**: A service that pre-renders your JavaScript application and serves the static HTML to search engines
+- **Rendertron**: A headless Chrome rendering solution that can be used to pre-render your SPA
+
+## Further reading
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Nuxt.js Documentation](https://nuxtjs.org/docs)
+- [Prerender.io](https://prerender.io/)
+- [Rendertron](https://github.com/GoogleChrome/rendertron)

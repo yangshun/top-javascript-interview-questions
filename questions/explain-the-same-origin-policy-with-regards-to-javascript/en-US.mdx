@@ -2,4 +2,68 @@
 title: Explain the same-origin policy with regards to JavaScript
 ---
 
-The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
+## TL;DR
+
+The same-origin policy is a security measure implemented in web browsers to prevent malicious scripts on one page from accessing data on another page. It ensures that web pages can only make requests to the same origin, where the origin is defined by the combination of the protocol, domain, and port. For example, a script from `http://example.com` cannot access data from `http://anotherdomain.com`.
+
+---
+
+## What is the same-origin policy?
+
+The same-origin policy is a critical security concept for web applications. It restricts how documents or scripts loaded from one origin can interact with resources from another origin. This policy helps to prevent malicious activities such as cross-site scripting (XSS) and cross-site request forgery (CSRF).
+
+### Definition of origin
+
+An origin is defined by the scheme (protocol), host (domain), and port of a URL. For example, the origin of `http://example.com:80/page` is:
+
+- Scheme: `http`
+- Host: `example.com`
+- Port: `80`
+
+Two URLs have the same origin if and only if all three components (scheme, host, and port) are identical.
+
+### How it works
+
+When a web page makes a request to another URL, the browser checks if the request is to the same origin. If the request is to a different origin, the browser blocks the request unless the server explicitly allows it using mechanisms like Cross-Origin Resource Sharing (CORS).
+
+### Example
+
+Consider the following example:
+
+- `http://example.com/page1` can access `http://example.com/page2` because they share the same origin.
+- `http://example.com/page1` cannot access `http://anotherdomain.com/page` because they have different origins.
+
+### Exceptions
+
+There are some exceptions to the same-origin policy, such as:
+
+- Cross-Origin Resource Sharing (CORS): A mechanism that allows servers to specify who can access their resources.
+- JSONP: A technique used to request data from a server residing in a different domain.
+- WebSockets: A protocol that allows for full-duplex communication channels over a single TCP connection.
+
+### Code example
+
+Here is a simple example demonstrating the same-origin policy:
+
+```html
+<!-- index.html -->
+<script>
+  // This will work because the request is to the same origin
+  fetch('/api/data')
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+
+  // This will be blocked by the browser because the request is to a different origin
+  fetch('http://anotherdomain.com/api/data')
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error('Error:', error));
+</script>
+```
+
+## Further reading
+
+- [MDN Web Docs: Same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
+- [MDN Web Docs: Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+- [OWASP: Cross-Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/)
+- [OWASP: Cross-Site Request Forgery (CSRF)](https://owasp.org/www-community/attacks/csrf/)

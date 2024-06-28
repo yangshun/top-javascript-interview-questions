@@ -3,8 +3,73 @@ title: How do you organize your code?
 subtitle: Do you use module pattern, classical inheritance, something else?
 ---
 
-In the past, developers used Backbone for my models which encourages a more OOP approach, creating Backbone models and attaching methods to them.
+## TL;DR
 
-The module pattern is still great, but these days, developers prefer using React/Redux which utilize a single-directional data flow based on Flux architecture. It is common now to represent an app's data model using plain objects and write utility pure functions to manipulate these objects. State is manipulated using actions and reducers like in any other Redux application.
+I organize my code by following a modular approach, using a clear folder structure, and adhering to coding standards and best practices. I separate concerns by dividing code into different layers such as components, services, and utilities. I also use naming conventions and documentation to ensure code readability and maintainability.
 
-Avoid using classical inheritance where possible. When and if you do, stick to [these rules](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
+---
+
+## How do you organize your code?
+
+### Modular approach
+
+I follow a modular approach to break down the application into smaller, reusable pieces. This helps in managing the codebase more efficiently and makes it easier to maintain and scale.
+
+### Folder structure
+
+I use a clear and consistent folder structure to organize my code. Here is a common structure for a React project:
+
+```
+src/
+|-- components/
+|   |-- Header/
+|   |   |-- Header.js
+|   |   |-- Header.css
+|   |-- Footer/
+|   |   |-- Footer.js
+|   |   |-- Footer.css
+|-- services/
+|   |-- apiService.js
+|-- utils/
+|   |-- helpers.js
+|-- App.js
+|-- index.js
+```
+
+### Separation of concerns
+
+I separate concerns by dividing the code into different layers:
+
+- **Components**: UI elements that are reusable and self-contained
+- **Services**: Functions that handle data fetching and business logic
+- **Utilities**: Helper functions and constants that can be used across the application
+
+### Naming conventions
+
+I use consistent naming conventions to improve code readability:
+
+- **Files and folders**: Use camelCase or kebab-case for file and folder names
+- **Components**: Use PascalCase for React component names
+- **Variables and functions**: Use camelCase for variable and function names
+
+### Documentation
+
+I document my code to make it easier for others (and myself) to understand:
+
+- **Comments**: Add comments to explain complex logic or important sections of the code
+- **README**: Include a README file with instructions on how to set up and run the project
+
+### Coding standards and best practices
+
+I adhere to coding standards and best practices to ensure code quality:
+
+- **Linting**: Use tools like ESLint to enforce coding standards
+- **Formatting**: Use tools like Prettier to maintain consistent code formatting
+- **Testing**: Write unit tests and integration tests to ensure code reliability
+
+## Further reading
+
+- [React Folder Structure](https://reactjs.org/docs/faq-structure.html)
+- [JavaScript Coding Standards](https://github.com/airbnb/javascript)
+- [Writing Clean Code](https://www.freecodecamp.org/news/writing-clean-code-6a8e2889b9f8/)
+- [Effective JavaScript Documentation](https://jsdoc.app/)

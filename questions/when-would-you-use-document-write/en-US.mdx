@@ -2,6 +2,66 @@
 title: When would you use `document.write()`?
 ---
 
-`document.write()` writes a string of text to a document stream opened by `document.open()`. When `document.write()` is executed after the page has loaded, it will call `document.open` which clears the whole document (`<head>` and `<body>` removed!) and replaces the contents with the given parameter value. Hence it is usually considered dangerous and prone to misuse.
+## TL;DR
 
-There are some answers online that explain `document.write()` is being used in analytics code or [when you want to include styles that should only work if JavaScript is enabled](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html). It is even being used in HTML5 boilerplate to [load scripts in parallel and preserve execution order](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)! However, these reasons might be outdated and in this age, they can be achieved without using `document.write()`.
+`document.write()` is rarely used in modern web development because it can overwrite the entire document if called after the page has loaded. It is mainly used for simple tasks like writing content during the initial page load, such as for educational purposes or quick debugging. However, it is generally recommended to use other methods like `innerHTML`, `appendChild()`, or modern frameworks for manipulating the DOM.
+
+---
+
+## When would you use `document.write()`?
+
+### Initial page load
+
+`document.write()` can be used to write content directly to the document during the initial page load. This is one of the few scenarios where it might be appropriate, as it can be simpler and faster for very basic tasks.
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>Document Write Example</title>
+  </head>
+  <body>
+    <script>
+      document.write('<h1>Hello, World!</h1>');
+    </script>
+  </body>
+</html>
+```
+
+### Educational purposes
+
+`document.write()` is sometimes used in educational contexts to demonstrate basic JavaScript concepts. It provides a straightforward way to show how JavaScript can manipulate the DOM.
+
+### Quick debugging
+
+For quick and dirty debugging, `document.write()` can be used to output variables or messages directly to the document. However, this is not recommended for production code.
+
+```javascript
+var debugMessage = 'Debugging message';
+document.write(debugMessage);
+```
+
+### Legacy code
+
+In some older codebases, you might encounter `document.write()`. While it's not recommended to use it in new projects, understanding it can be useful for maintaining or refactoring legacy code.
+
+### Why not use `document.write()`?
+
+- **Overwrites the document**: If called after the page has loaded, `document.write()` will overwrite the entire document, which can lead to loss of content and a poor user experience.
+- **Better alternatives**: Modern methods like `innerHTML`, `appendChild()`, and frameworks like React or Vue provide more control and are safer to use.
+
+```javascript
+// Using innerHTML
+document.getElementById('content').innerHTML = '<h1>Hello, World!</h1>';
+
+// Using appendChild
+var newElement = document.createElement('h1');
+newElement.textContent = 'Hello, World!';
+document.getElementById('content').appendChild(newElement);
+```
+
+## Further reading
+
+- [MDN Web Docs on document.write()](https://developer.mozilla.org/en-US/docs/Web/API/Document/write)
+- [Why is document.write() considered harmful?](https://stackoverflow.com/questions/802854/why-is-document-write-considered-a-bad-practice)
+- [Modern DOM manipulation methods](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction#modifying_the_document)
