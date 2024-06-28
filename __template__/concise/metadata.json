@@ -6,7 +6,6 @@
   "duration": 5,
   "published": false,
   "featured": false,
-  "website": false,
   "topics": ["javascript"],
   "importance": "low",
   "ranking": 999,

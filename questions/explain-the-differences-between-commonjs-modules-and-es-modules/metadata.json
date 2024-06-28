@@ -6,7 +6,6 @@
   "duration": 5,
   "published": true,
   "level": "intermediate",
-  "website": true,
   "featured": true,
   "topics": ["javascript"],
   "importance": "mid",

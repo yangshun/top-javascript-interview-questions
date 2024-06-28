@@ -18,7 +18,6 @@ const person = {
     // Getter
     return this._name;
   },
-
   set name(newName) {
     // Setter
     if (newName.trim().length > 0) {
@@ -53,11 +52,9 @@ In JavaScript, getters and setters are special methods that allow you to control
 const person = {
   _firstName: 'John',
   _lastName: 'Doe',
-
   get fullName() {
     return `${this._firstName} ${this._lastName}`;
   },
-
   set fullName(value) {
     const parts = value.split(' ');
     this._firstName = parts[0];

@@ -6,7 +6,6 @@
   "duration": 5,
   "published": true,
   "level": "basic",
-  "website": true,
   "featured": true,
   "topics": ["javascript", "network"],
   "importance": "low",
