@@ -1486,8 +1486,8 @@ const obj = {
 };
 
 for (const key in obj) {
-  // Optional: to avoid iterating over inherited properties
-  if (obj.hasOwn(obj, key)) {
+  // To avoid iterating over inherited properties
+  if (Object.hasOwn(obj, key)) {
     console.log(`${key}: ${obj[key]}`);
   }
 }
@@ -2605,8 +2605,8 @@ const obj = {
 };
 
 for (const key in obj) {
-  // Optional: to avoid iterating over inherited properties
-  if (obj.hasOwn(obj, key)) {
+  // To avoid iterating over inherited properties
+  if (Object.hasOwn(obj, key)) {
     console.log(`${key}: ${obj[key]}`);
   }
 }
