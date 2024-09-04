@@ -8,7 +8,7 @@
   "level": "basic",
   "featured": false,
   "topics": ["javascript"],
-  "importance": "mid",
+  "importance": "medium",
   "ranking": 999,
   "difficulty": "medium"
 }

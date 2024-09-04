@@ -8,7 +8,7 @@
   "level": "intermediate",
   "featured": true,
   "topics": ["javascript", "network"],
-  "importance": "mid",
+  "importance": "medium",
   "ranking": 300,
   "difficulty": "hard"
 }
