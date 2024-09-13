@@ -71,7 +71,7 @@ document.cookie = 'auth_token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
 
 It is a pain to read/write to cookies. `document.cookie` returns a single string containing all the key/value pairs delimited by `;` and you have to parse the string yourself. The [`js-cookie`](https://github.com/js-cookie/js-cookie) npm library provides a simple and lightweight API for reading/writing cookies in JavaScript.
 
-A modern native way of accessing cookies is via the the [Cookie Store API](https://developer.mozilla.org/en-US/docs/Web/API/Cookie_Store_API) which is only available on HTTPS pages.
+A modern native way of accessing cookies is via the [Cookie Store API](https://developer.mozilla.org/en-US/docs/Web/API/Cookie_Store_API) which is only available on HTTPS pages.
 
 ```js
 // Set a cookie. More options are available too.

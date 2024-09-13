@@ -226,10 +226,12 @@ for (const number of range) {
 Generators are well-suited for iterating over data streams, such as fetching data from an API or reading files. This example demonstrates using a generator to fetch data from an API in batches:
 
 ```js
-function* fetchDataInBatches(url, batchSize = 10) {
+async function* fetchDataInBatches(url, batchSize = 10) {
   let startIndex = 0;
   while (true) {
-    const response = await fetch(`${url}?start=${startIndex}&limit=${batchSize}`);
+    const response = await fetch(
+      `${url}?start=${startIndex}&limit=${batchSize}`,
+    );
     const data = await response.json();
     if (data.length === 0) break;
     yield data;
