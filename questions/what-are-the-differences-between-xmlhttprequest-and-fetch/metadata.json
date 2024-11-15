@@ -7,7 +7,7 @@
   "published": true,
   "level": "basic",
   "featured": true,
-  "topics": ["javascript", "network"],
+  "topics": ["javascript", "networking"],
   "importance": "medium",
   "ranking": 290,
   "difficulty": "hard"

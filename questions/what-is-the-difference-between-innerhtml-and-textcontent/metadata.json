@@ -7,7 +7,7 @@
   "published": true,
   "featured": false,
   "level": "intermediate",
-  "topics": ["javascript", "html"],
+  "topics": ["web-api", "html", "javascript"],
   "importance": "low",
   "ranking": 999,
   "difficulty": "easy",

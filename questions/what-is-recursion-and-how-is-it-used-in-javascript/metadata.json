@@ -7,7 +7,7 @@
   "published": true,
   "featured": false,
   "level": "basic",
-  "topics": ["javascript"],
+  "topics": ["javascript", "recursion"],
   "importance": "low",
   "ranking": 999,
   "difficulty": "easy",

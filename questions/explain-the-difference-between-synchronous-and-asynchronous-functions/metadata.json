@@ -7,7 +7,7 @@
   "published": true,
   "level": "basic",
   "featured": true,
-  "topics": ["javascript"],
+  "topics": ["async", "javascript"],
   "importance": "high",
   "ranking": 250,
   "difficulty": "medium"
