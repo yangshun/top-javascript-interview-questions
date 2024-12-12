@@ -153,11 +153,12 @@ In this example:
 - The service worker first checks if the requested resource is cached using `caches.match(event.request)`.
 - If it is, it returns the cached response. Otherwise, it fetches the resource from the network using `fetch(event.request)`.
 
-## Shared workers
+## Bonus: Shared workers
 
 - Can be accessed from multiple scripts in different windows/tabs/iframes.
 - Allow data sharing between browser contexts via a messaging interface.
 - Similar to dedicated web workers but with a broader scope.
+- **Browser support**: Limited support, especially [not available on Android browsers](https://issues.chromium.org/issues/40290702)
 
 ### Use cases for shared workers:
 
