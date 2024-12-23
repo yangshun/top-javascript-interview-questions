@@ -8,7 +8,7 @@ Tagged templates in JavaScript allow you to parse template literals with a funct
 
 ```js
 function tag(strings, ...values) {
-  return strings[0] + values[0] + strings[1] + values[1];
+  return strings[0] + values[0] + strings[1] + values[1] + strings[2];
 }
 
 const result = tag`Hello ${'world'}! How are ${'you'}?`;
