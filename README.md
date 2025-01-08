@@ -293,6 +293,8 @@ This list contains a longer list of important JavaScript questions. Not all of t
 
 <!-- Update here: /questions/explain-hoisting/en-US.mdx -->
 
+Hoisting is a JavaScript mechanism where variable and function declarations are moved ("hoisted") to the top of their containing scope during the compile phase.
+
 - **Variable declarations (`var`)**: Declarations are hoisted, but not initializations. The value of the variable is `undefined` if accessed before initialization.
 - **Variable declarations (`let` and `const`)**: Declarations are hoisted, but not initialized. Accessing them results in `ReferenceError` until the actual declaration is encountered.
 - **Function expressions (`var`)**: Declarations are hoisted, but not initializations. The value of the variable is `undefined` if accessed before initialization.
@@ -2463,6 +2465,8 @@ Use cases include:
 ### Explain the concept of "hoisting" in JavaScript
 
 <!-- Update here: /questions/explain-hoisting/en-US.mdx -->
+
+Hoisting is a JavaScript mechanism where variable and function declarations are moved ("hoisted") to the top of their containing scope during the compile phase.
 
 - **Variable declarations (`var`)**: Declarations are hoisted, but not initializations. The value of the variable is `undefined` if accessed before initialization.
 - **Variable declarations (`let` and `const`)**: Declarations are hoisted, but not initialized. Accessing them results in `ReferenceError` until the actual declaration is encountered.
