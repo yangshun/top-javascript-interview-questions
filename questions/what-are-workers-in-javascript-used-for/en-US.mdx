@@ -96,7 +96,7 @@ In this example:
 - After processing the message, the worker posts a message back to the main script using `postMessage()`.
 - The main script listens for messages from the worker using `onmessage` on the `Worker` instance.
 
-## Service workers
+### Service workers
 
 - Act as a network proxy between web app, browser, and network.
 - Can intercept and handle network requests, cache resources.
@@ -148,19 +148,18 @@ self.addEventListener('fetch', function (event) {
 
 In this example:
 
-- The main script registers a service worker at `/service-worker.js`.
-- The service worker listens for the `fetch()` event, which is fired whenever the browser makes a network request.
-- The service worker first checks if the requested resource is cached using `caches.match(event.request)`.
-- If it is, it returns the cached response. Otherwise, it fetches the resource from the network using `fetch(event.request)`.
+- The main script registers a service worker at `/service-worker.js`
+- The service worker listens for the `fetch()` event, which is fired whenever the browser makes a network request
+- The service worker first checks if the requested resource is cached using `caches.match(event.request)`
+- If it is, it returns the cached response. Otherwise, it fetches the resource from the network using `fetch(event.request)`
 
-## Bonus: Shared workers
+### Bonus: Shared workers
 
-- Can be accessed from multiple scripts in different windows/tabs/iframes.
-- Allow data sharing between browser contexts via a messaging interface.
-- Similar to dedicated web workers but with a broader scope.
+- **Scope**: Can be accessed from multiple scripts in different windows/tabs/iframes
+- **Sharing of data**: Allow data sharing between browser contexts via a messaging interface
 - **Browser support**: Limited support, especially [not available on Android browsers](https://issues.chromium.org/issues/40290702)
 
-### Use cases for shared workers:
+#### Use cases for shared workers:
 
 - State sharing across multiple windows.
 
@@ -172,10 +171,10 @@ You are not expected to know about worklets, so it won't be covered in great det
 
 ## Considerations and limitations
 
-- **Same-Origin policy**: Workers must comply with the same-origin policy, meaning the script that creates the worker and the worker script itself must be from the same origin.
-- **No DOM access**: Workers do not have direct access to the DOM. They can communicate with the main thread through messages.
-- **Performance**: Creating and managing workers incurs overhead. They should be used judiciously for tasks that truly benefit from parallel execution.
-- **Error handling**: Proper error handling mechanisms should be in place to handle any issues within the worker scripts.
+- **Same-Origin policy**: Workers must comply with the same-origin policy, meaning the script that creates the worker and the worker script itself must be from the same origin
+- **No DOM access**: Workers do not have direct access to the DOM. They can communicate with the main thread through messages
+- **Performance**: Creating and managing workers incurs overhead. They should be used judiciously for tasks that truly benefit from parallel execution
+- **Error handling**: Proper error handling mechanisms should be in place to handle any issues within the worker scripts
 
 ## Further reading
 
