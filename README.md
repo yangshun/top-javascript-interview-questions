@@ -374,7 +374,7 @@ In JavaScript, `let`, `var`, and `const` are all keywords used to declare variab
 
 <!-- Update here: /questions/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue/en-US.mdx -->
 
-The event loop is concept within the browser runtime environment regarding how asynchronous operations are executed within JavaScript engines. It works as such:
+The event loop is concept within the JavaScript runtime environment regarding how asynchronous operations are executed within JavaScript engines. It works as such:
 
 1. The JavaScript engine starts executing scripts, placing synchronous operations on the call stack.
 2. When an asynchronous operation is encountered (e.g., `setTimeout()`, HTTP request), it is offloaded to the respective Web API or Node.js API to handle the operation in the background.
@@ -3704,7 +3704,7 @@ console.log(isEmpty(obj)); // true
 
 <!-- Update here: /questions/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue/en-US.mdx -->
 
-The event loop is concept within the browser runtime environment regarding how asynchronous operations are executed within JavaScript engines. It works as such:
+The event loop is concept within the JavaScript runtime environment regarding how asynchronous operations are executed within JavaScript engines. It works as such:
 
 1. The JavaScript engine starts executing scripts, placing synchronous operations on the call stack.
 2. When an asynchronous operation is encountered (e.g., `setTimeout()`, HTTP request), it is offloaded to the respective Web API or Node.js API to handle the operation in the background.
