@@ -5,7 +5,7 @@ subtitle: What is the difference between call stack and task queue?
 
 ## TL;DR
 
-The event loop is concept within the browser runtime environment regarding how asynchronous operations are executed within JavaScript engines. It works as such:
+The event loop is concept within the JavaScript runtime environment regarding how asynchronous operations are executed within JavaScript engines. It works as such:
 
 1. The JavaScript engine starts executing scripts, placing synchronous operations on the call stack.
 2. When an asynchronous operation is encountered (e.g., `setTimeout()`, HTTP request), it is offloaded to the respective Web API or Node.js API to handle the operation in the background.
@@ -29,7 +29,7 @@ We recommend watching [Lydia's video](https://www.youtube.com/watch?v=eiC58R16hb
 
 ## Event loop in JavaScript
 
-The event loop is the heart of JavaScript's asynchronous operation. It is a mechanism in browsers that handles the execution of code, allowing for asynchronous operations and ensuring that the single-threaded nature of JavaScript engines does not block the execution of the program.
+The event loop is the heart of JavaScript's asynchronous operation. It is a mechanism that handles the execution of code, allowing for asynchronous operations and ensuring that the single-threaded nature of JavaScript engines does not block the execution of the program.
 
 ### Parts of the event loop
 
