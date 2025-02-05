@@ -2049,8 +2049,8 @@ const proxiedObject = new Proxy(myObject, handler);
 console.log(proxiedObject.name); // 'John'
 // Someone accessed property "name"
 
-console.log(proxiedObject.value); // 42
-// Someone accessed property "value"
+console.log(proxiedObject.age); // 42
+// Someone accessed property "age"
 ```
 
 Use cases include:
@@ -2439,8 +2439,8 @@ const proxiedObject = new Proxy(myObject, handler);
 console.log(proxiedObject.name); // 'John'
 // Someone accessed property "name"
 
-console.log(proxiedObject.value); // 42
-// Someone accessed property "value"
+console.log(proxiedObject.age); // 42
+// Someone accessed property "age"
 ```
 
 Use cases include:
