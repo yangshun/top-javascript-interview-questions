@@ -4528,6 +4528,7 @@ function myFunction() {
   }
   // console.log(blockVar); // Uncaught ReferenceError: blockVar is not defined
 }
+// console.log(functionVar); // Uncaught ReferenceError: functionVar is not defined
 ```
 
 <!-- Update here: /questions/explain-the-difference-between-global-scope-function-scope-and-block-scope/en-US.mdx -->
