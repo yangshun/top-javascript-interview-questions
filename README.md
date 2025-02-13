@@ -10,13 +10,13 @@
 
 <div>
 <p align="center">
-  <a href="https://www.greatfrontend.com/questions/js?utm_source=github&utm_medium=referral&utm_campaign=top-js-qns&gnrs=yangshun">
+  <a href="https://www.greatfrontend.com/questions/javascript-interview-questions?utm_source=github&utm_medium=referral&utm_campaign=top-js-qns&gnrs=yangshun">
     <img src="./images/greatfrontend-js-banner4x.png" alt="GreatFrontEnd JavaScript Interview Questions" width="100%">
   </a>
 </p>
 </div>
 
-> 💡 Nail JavaScript interviews with questions and solutions from ex-interviewers! [Try GreatFrontEnd →](https://www.greatfrontend.com/questions/js?utm_source=github&utm_medium=referral&utm_campaign=top-js-qns&gnrs=yangshun) 💡
+> 💡 Nail JavaScript interviews with questions and solutions from ex-interviewers! [Try GreatFrontEnd →](https://www.greatfrontend.com/questions/javascript-interview-questions?utm_source=github&utm_medium=referral&utm_campaign=top-js-qns&gnrs=yangshun) 💡
 
 ---
 
@@ -318,7 +318,7 @@ The following behavior summarizes the result of accessing the variables before t
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-hoisting) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https:///questions/quiz/explain-hoisting) on [GreatFrontEnd](https:///) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-hoisting/en-US.mdx)
 
@@ -342,7 +342,7 @@ In JavaScript, `let`, `var`, and `const` are all keywords used to declare variab
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-variables-created-using-let-var-or-const) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https:///questions/quiz/what-are-the-differences-between-variables-created-using-let-var-or-const) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-differences-between-variables-created-using-let-var-or-const/en-US.mdx)
 
