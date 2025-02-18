@@ -41,7 +41,7 @@ const newArray = [...array];
 console.log(newArray); // Output: [1, 2, 3]
 
 // Copying objects
-const obj = { name: 'John', age: 30 };
+const person = { name: 'John', age: 30 };
 const newObj = { ...person, city: 'New York' };
 console.log(newObj); // Output: { name: 'John', age: 30, city: 'New York' }
 ```
@@ -66,8 +66,8 @@ const obj2 = {
   qux: 'baz',
 };
 
-const merged = { ...obj1, ...obj2 };
-console.log(copyOfTodd); // Output: { foo: "bar", qux: "baz" }
+const mergedObj = { ...obj1, ...obj2 };
+console.log(mergedObj); // Output: { foo: "bar", qux: "baz" }
 ```
 
 ### Passing arguments to functions
