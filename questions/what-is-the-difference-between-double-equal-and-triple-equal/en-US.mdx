@@ -18,28 +18,28 @@ title: What is the difference between `==` and `===` in JavaScript?
 
 The `==` operator checks for equality between two values but performs type coercion if the values are of different types. This means that JavaScript will attempt to convert the values to a common type before making the comparison.
 
-```js
-42 == '42'; // true
-0 == false; // true
-null == undefined; // true
-[] == false; // true
-'' == false; // true
+```js live
+console.log(42 == '42'); // true
+console.log(0 == false); // true
+console.log(null == undefined); // true
+console.log([] == false); // true
+console.log('' == false); // true
 ```
 
 In these examples, JavaScript converts the operands to the same type before making the comparison. For example, `42 == '42'` is true because the string `'42'` is converted to the number `42` before comparison.
 
 However, when using `==`, unintuitive results can happen:
 
-```js
-1 == [1]; // true
-0 == ''; // true
-0 == '0'; // true
-'' == '0'; // false
+```js live
+console.log(1 == [1]); // true
+console.log(0 == ''); // true
+console.log(0 == '0'); // true
+console.log('' == '0'); // false
 ```
 
 As a general rule of thumb, never use the `==` operator, except for convenience when comparing against `null` or `undefined`, where `a == null` will return `true` if `a` is `null` or `undefined`.
 
-```js
+```js live
 var a = null;
 console.log(a == null); // true
 console.log(a == undefined); // true
@@ -49,7 +49,7 @@ console.log(a == undefined); // true
 
 The `===` operator, also known as the strict equality operator, checks for equality between two values without performing type coercion. This means that both the value and the type must be the same for the comparison to return true.
 
-```js
+```js live
 console.log(42 === '42'); // false
 console.log(0 === false); // false
 console.log(null === undefined); // false
@@ -59,7 +59,7 @@ console.log('' === false); // false
 
 For these comparisons, no type conversion is performed, so the statement returns `false` if the types are different. For instance, `42 === '42'` is `false` because the types (number and string) are different.
 
-```js
+```js live
 // Comparison with type coercion (==)
 console.log(42 == '42'); // true
 console.log(0 == false); // true
