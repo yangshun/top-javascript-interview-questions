@@ -24,7 +24,7 @@ Let's look at the difference in behavior between `var`, `let`, and `const`.
 
 Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
 
-```js
+```js live
 function foo() {
   // All variables are accessible within functions.
   var bar = 1;
@@ -36,6 +36,7 @@ function foo() {
   console.log(qux); // 3
 }
 
+foo(); // Prints each variable successfully
 console.log(bar); // ReferenceError: bar is not defined
 console.log(baz); // ReferenceError: baz is not defined
 console.log(qux); // ReferenceError: qux is not defined
@@ -43,7 +44,7 @@ console.log(qux); // ReferenceError: qux is not defined
 
 In the following example, `bar` is accessible outside of the `if` block but `baz` and `quz` are not.
 
-```js
+```js live
 if (true) {
   var bar = 1;
   let baz = 2;
@@ -61,7 +62,7 @@ console.log(qux); // ReferenceError: qux is not defined
 
 `var` and `let` variables can be initialized without a value but `const` declarations must be initialized.
 
-```js
+```js live
 var foo; // Ok
 let bar; // Ok
 const baz; // SyntaxError: Missing initializer in const declaration
@@ -71,10 +72,10 @@ const baz; // SyntaxError: Missing initializer in const declaration
 
 Redeclaring a variable with `var` will not throw an error, but `let` and `const` will.
 
-```js
+```js live
 var foo = 1;
-var foo = 2;
-console.log(foo); // 2
+var foo = 2; // Ok
+console.log(foo); // Should print 2, but SyntaxError from baz prevents the code executing.
 
 let baz = 3;
 let baz = 4; // Uncaught SyntaxError: Identifier 'baz' has already been declared
@@ -84,7 +85,7 @@ let baz = 4; // Uncaught SyntaxError: Identifier 'baz' has already been declared
 
 `let` and `const` differ in that `var` and `let` allow reassigning the variable's value while `const` does not.
 
-```js
+```js live
 var foo = 1;
 foo = 2; // This is fine.
 
@@ -99,14 +100,14 @@ baz = 6; // Uncaught TypeError: Assignment to constant variable.
 
 `var` ,`let` and `const` declared variables are all hoisted. `var` declared variables are auto-initialized with an `undefined` value. However, `let` and `const` variables are not initialized and accessing them before the declaration will result in a `ReferenceError` exception because they are in a "temporal dead zone" from the start of the block until the declaration is processed.
 
-```js
+```js live
 console.log(foo); // undefined
 var foo = 'foo';
 
-console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
+console.log(baz); // ReferenceError: Cannot access 'baz' before initialization
 let baz = 'baz';
 
-console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
+console.log(bar); // ReferenceError: Cannot access 'baz' before initialization
 const bar = 'bar';
 ```
 
