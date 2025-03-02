@@ -6,7 +6,7 @@ title: What is the purpose of the `break` and `continue` statements?
 
 The `break` statement is used to exit a loop or switch statement prematurely, while the `continue` statement skips the current iteration of a loop and proceeds to the next iteration. For example, in a `for` loop, `break` will stop the loop entirely, and `continue` will skip to the next iteration.
 
-```js
+```js live
 for (let i = 0; i < 10; i++) {
   if (i === 5) break; // exits the loop when i is 5
   console.log(i);
@@ -28,7 +28,7 @@ The `break` statement is used to exit a loop or a switch statement before it has
 
 #### Example in a loop
 
-```js
+```js live
 for (let i = 0; i < 10; i++) {
   if (i === 5) break; // exits the loop when i is 5
   console.log(i);
@@ -38,18 +38,22 @@ for (let i = 0; i < 10; i++) {
 
 #### Example in a switch statement
 
-```js
-switch (day) {
-  case 1:
-    console.log('Monday');
-    break;
-  case 2:
-    console.log('Tuesday');
-    break;
-  // other cases
-  default:
-    console.log('Invalid day');
+```js live
+function printDayOfWeek(day) {
+  switch (day) {
+    case 1:
+      console.log('Monday');
+      break;
+    case 2:
+      console.log('Tuesday');
+      break;
+    // other cases
+    default:
+      console.log('Invalid day');
+  }
 }
+printDayOfWeek(2); // Tuesday
+printDayOfWeek('myDay'); // Invalid day
 ```
 
 ### `continue` statement
@@ -58,7 +62,7 @@ The `continue` statement is used to skip the current iteration of a loop and pro
 
 #### Example in a loop
 
-```js
+```js live
 for (let i = 0; i < 10; i++) {
   if (i === 5) continue; // skips the iteration when i is 5
   console.log(i);
