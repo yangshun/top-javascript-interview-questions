@@ -14,7 +14,7 @@ title: Explain the difference in hoisting between `var`, `let`, and `const`
 
 `var` declarations are hoisted to the top of their containing function or global scope. This means the variable is available throughout the entire function or script, even before the line where it is declared. However, the variable is initialized with `undefined` until the actual declaration is encountered.
 
-```js
+```js live
 console.log(a); // Output: undefined
 var a = 10;
 console.log(a); // Output: 10
@@ -24,7 +24,7 @@ console.log(a); // Output: 10
 
 `let` declarations are also hoisted to the top of their block scope, but they are not initialized. This creates a "temporal dead zone" (TDZ) from the start of the block until the declaration is encountered. Accessing the variable in the TDZ results in a `ReferenceError`.
 
-```js
+```js live
 console.log(b); // ReferenceError: Cannot access 'b' before initialization
 let b = 20;
 console.log(b); // Output: 20
@@ -34,7 +34,7 @@ console.log(b); // Output: 20
 
 `const` declarations behave similarly to `let` in terms of hoisting. They are hoisted to the top of their block scope but are not initialized, resulting in a TDZ. Additionally, `const` requires an initial value at the time of declaration and cannot be reassigned.
 
-```js
+```js live
 console.log(c); // ReferenceError: Cannot access 'c' before initialization
 const c = 30;
 console.log(c); // Output: 30
