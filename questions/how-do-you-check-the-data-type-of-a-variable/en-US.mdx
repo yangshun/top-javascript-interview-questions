@@ -14,7 +14,7 @@ To check the data type of a variable in JavaScript, you can use the `typeof` ope
 
 The `typeof` operator is the most common way to check the data type of a variable in JavaScript. It returns a string indicating the type of the operand.
 
-```js
+```js live
 let str = 'Hello, world!';
 console.log(typeof str); // "string"
 
@@ -41,7 +41,7 @@ console.log(typeof sym); // "symbol"
 
 The `typeof` operator returns `"object"` for `null`, which can be misleading. To specifically check for `null`, you should use a strict equality comparison.
 
-```js
+```js live
 let n = null;
 console.log(n === null); // true
 ```
@@ -50,7 +50,7 @@ console.log(n === null); // true
 
 Arrays are a special type of object in JavaScript. To check if a variable is an array, you can use the `Array.isArray` method.
 
-```js
+```js live
 let arr = [1, 2, 3];
 console.log(Array.isArray(arr)); // true
 ```
@@ -59,7 +59,7 @@ console.log(Array.isArray(arr)); // true
 
 `NaN` (Not-a-Number) is a special numeric value in JavaScript. To check if a value is `NaN`, you can use the `Number.isNaN` method.
 
-```js
+```js live
 let notANumber = NaN;
 console.log(Number.isNaN(notANumber)); // true
 ```
@@ -68,7 +68,7 @@ console.log(Number.isNaN(notANumber)); // true
 
 To check if a variable is either `null` or `undefined`, you can use a combination of the `==` operator and the `typeof` operator.
 
-```js
+```js live
 let value = null;
 console.log(value == null); // true
 
