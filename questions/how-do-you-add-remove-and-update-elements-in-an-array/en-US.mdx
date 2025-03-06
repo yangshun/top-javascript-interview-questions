@@ -6,7 +6,7 @@ title: How do you add, remove, and update elements in an array?
 
 To add elements to an array, you can use methods like `push`, `unshift`, or `splice`. To remove elements, you can use `pop`, `shift`, or `splice`. To update elements, you can directly access the array index and assign a new value.
 
-```js
+```js live
 let arr = [1, 2, 3];
 
 // Add elements
@@ -21,7 +21,10 @@ arr.splice(1, 1); // [1, 2, 3]
 
 // Update elements
 arr[1] = 5; // [1, 5, 3]
+console.log(arr); // Final state: [1, 5, 3]
 ```
+
+_Note:_ If you try to `console.log(arr)` after each operation in some environments (like Chrome DevTools), you may only see the final state of arr. This happens because the console sometimes keeps a live reference to the array instead of logging its state at the exact moment. To see intermediate states properly, store snapshots using console.log([...arr]) or print values immediately after each operation.
 
 ---
 
@@ -31,27 +34,30 @@ arr[1] = 5; // [1, 5, 3]
 
 The `push` method adds one or more elements to the end of an array and returns the new length of the array.
 
-```js
+```js live
 let arr = [1, 2, 3];
-arr.push(4); // arr is now [1, 2, 3, 4]
+console.log(arr.push(4)); // Output: 4 (new length of array)
+console.log(arr); // [1, 2, 3, 4]
 ```
 
 ### Using `unshift`
 
 The `unshift` method adds one or more elements to the beginning of an array and returns the new length of the array.
 
-```js
+```js live
 let arr = [1, 2, 3];
-arr.unshift(0); // arr is now [0, 1, 2, 3]
+console.log(arr.unshift(0)); // Output: 4 (new length of array)
+console.log(arr); // [0, 1, 2, 3]
 ```
 
 ### Using `splice`
 
 The `splice` method can add elements at any position in the array. The first parameter specifies the index at which to start changing the array, the second parameter specifies the number of elements to remove, and the rest are the elements to add.
 
-```js
+```js live
 let arr = [1, 2, 3];
-arr.splice(1, 0, 1.5); // arr is now [1, 1.5, 2, 3]
+arr.splice(1, 0, 1.5); // Removes no element, but adds 1.5
+console.log(arr); // [1, 1.5, 2, 3]
 ```
 
 ## Removing elements from an array
@@ -60,27 +66,30 @@ arr.splice(1, 0, 1.5); // arr is now [1, 1.5, 2, 3]
 
 The `pop` method removes the last element from an array and returns that element.
 
-```js
+```js live
 let arr = [1, 2, 3];
-arr.pop(); // arr is now [1, 2]
+console.log(arr.pop()); // Output: 3
+console.log(arr); // [1, 2]
 ```
 
 ### Using `shift`
 
 The `shift` method removes the first element from an array and returns that element.
 
-```js
+```js live
 let arr = [1, 2, 3];
-arr.shift(); // arr is now [2, 3]
+console.log(arr.shift()); // Output: 1
+console.log(arr); // [2, 3]
 ```
 
 ### Using `splice`
 
 The `splice` method can also remove elements from any position in the array. The first parameter specifies the index at which to start changing the array, and the second parameter specifies the number of elements to remove.
 
-```js
-let arr = [1, 2, 3];
-arr.splice(1, 1); // arr is now [1, 3]
+```js live
+let arr = [1, 2, 3, 4];
+console.log(arr.splice(1, 2)); // Output: [2, 3]
+console.log(arr); // [1, 4]
 ```
 
 ## Updating elements in an array
@@ -89,9 +98,10 @@ arr.splice(1, 1); // arr is now [1, 3]
 
 You can update elements in an array by directly accessing the index and assigning a new value.
 
-```js
+```js live
 let arr = [1, 2, 3];
-arr[1] = 5; // arr is now [1, 5, 3]
+arr[1] = 5;
+console.log(arr); // [1, 5, 3]
 ```
 
 ## Further reading
