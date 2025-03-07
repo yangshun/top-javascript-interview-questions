@@ -550,7 +550,7 @@ Here's a table summarizing the 3 ways of loading `<script>`s in a HTML document.
 
 Assuming we have a function `add`, the function can be invoked using `.call` and `.apply` in the following manner:
 
-```js
+```js live
 function add(a, b) {
   return a + b;
 }
@@ -599,7 +599,7 @@ The main advantage of using an arrow function as a method inside a constructor i
 
 For example, let's say we have a `Person` constructor that takes a first name as an argument has two methods to `console.log()` that name, one as a regular function and one as an arrow function:
 
-```js
+```js live
 const Person = function (name) {
   this.name = name;
   this.sayName1 = function () {
@@ -657,7 +657,7 @@ This behavior simulates classical inheritance, but it is really more of [delegat
 
 Here's an example of prototypal inheritance:
 
-```js
+```js live
 // Parent object constructor.
 function Animal(name) {
   this.name = name;
@@ -740,7 +740,7 @@ If you try to invoke a function expression before it is declared, you will get a
 
 Function declarations can be called in the enclosing scope even before they are declared.
 
-```js
+```js live
 foo(); // 'FOOOOO'
 function foo() {
   console.log('FOOOOO');
@@ -749,7 +749,7 @@ function foo() {
 
 Function expressions if called before they are declared will result in an error.
 
-```js
+```js live
 foo(); // Uncaught TypeError: foo is not a function
 var foo = function () {
   console.log('FOOOOO');
@@ -758,11 +758,13 @@ var foo = function () {
 
 Another key difference is in the scope of the function name. Function expressions can be named by defining it after the `function` and before the parenthesis. However when using named function expressions, the function name is only accessible within the function itself. Trying to access it outside will result in an error or `undefined`.
 
-```js
+```js live
 const myFunc = function namedFunc() {
   console.log(namedFunc); // Works
 };
-console.log(namedFunc); // undefined
+
+myFunc(); // Runs the function and logs the function reference
+console.log(namedFunc); // ReferenceError: namedFunc is not defined
 ```
 
 **Note**: The examples uses `var` due to legacy reasons. Function expressions can be defined using `let` and `const` and the key difference is in the hoisting behavior of those keywords.
@@ -892,15 +894,11 @@ A higher-order function is any function that takes one or more functions as argu
 
 Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `Array.prototype.map()`, which takes an array and a function as arguments. `Array.prototype.map()` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `Array.prototype.forEach()`, `Array.prototype.filter()`, and `Array.prototype.reduce()`. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Function.prototype.bind()` is an example that returns another function.
 
-Imagine a scenario where we have an array of names that we need to transform to uppercase.
+Imagine a scenario where we have an array of names that we need to transform to uppercase. The imperative way will be as such:
 
-```js
+```js live
 const names = ['irish', 'daisy', 'anna'];
-```
 
-The imperative way will be as such:
-
-```js
 function transformNamesToUppercase(names) {
   const results = [];
   for (let i = 0; i < names.length; i++) {
@@ -909,17 +907,19 @@ function transformNamesToUppercase(names) {
   return results;
 }
 
-transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
+console.log(transformNamesToUppercase(names)); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
 Using `Array.prototype.map(transformerFn)` makes the code shorter and more declarative.
 
-```js
+```js live
+const names = ['irish', 'daisy', 'anna'];
+
 function transformNamesToUppercase(names) {
   return names.map((name) => name.toUpperCase());
 }
 
-transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
+console.log(transformNamesToUppercase(names)); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
 <!-- Update here: /questions/what-is-the-definition-of-a-higher-order-function/en-US.mdx -->
@@ -952,28 +952,47 @@ class Person {
 }
 ```
 
-For simple constructors, they look pretty similar. The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
+For simple constructors, they look pretty similar. The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do.
 
-```js
-// ES5 function constructor
-function Student(name, studentId) {
+```js live
+// ES5 inheritance
+// Superclass
+function Person1(name) {
+  this.name = name;
+}
+
+// Subclass
+function Student1(name, studentId) {
   // Call constructor of superclass to initialize superclass-derived members.
-  Person.call(this, name);
+  Person1.call(this, name);
 
   // Initialize subclass's own members.
   this.studentId = studentId;
 }
+Student1.prototype = Object.create(Person1.prototype);
+Student1.prototype.constructor = Student1;
 
-Student.prototype = Object.create(Person.prototype);
-Student.prototype.constructor = Student;
+const student1 = new Student1('John', 1234);
+console.log(student1.name, student1.studentId); // "John" 1234
 
-// ES2015 Class
-class Student extends Person {
+// ES2015 inheritance
+// Superclass
+class Person2 {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+// Subclass
+class Student2 extends Person2 {
   constructor(name, studentId) {
     super(name);
     this.studentId = studentId;
   }
 }
+
+const student2 = new Student2('Alice', 5678);
+console.log(student2.name, student2.studentId); // "Alice" 5678
 ```
 
 It's much more verbose to use inheritance in ES5 and the ES2015 version is easier to understand and remember.
@@ -1100,7 +1119,7 @@ Overall, the benefits outweigh the disadvantages and there is not really a need 
 
 Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. As a result, programs containing only synchronous code are evaluated exactly in order of the statements. The execution of the program is paused if one of the statements take a very long time.
 
-```js
+```js live
 function sum(a, b) {
   console.log('Inside sum function');
   return a + b;
@@ -1588,7 +1607,7 @@ There are also other inbuilt methods available which are suitable for specific s
 
 **Rest syntax** is the opposite of what spread syntax does. It collects a variable number of arguments into an array. This is often used in function parameters to handle a dynamic number of arguments.
 
-```js
+```js live
 // Using rest syntax in a function
 function sum(...numbers) {
   return numbers.reduce((total, num) => total + num, 0);
@@ -2861,7 +2880,7 @@ console.log(sum(...numbers)); // Output: 6
 
 **Rest syntax** is the opposite of what spread syntax does. It collects a variable number of arguments into an array. This is often used in function parameters to handle a dynamic number of arguments.
 
-```js
+```js live
 // Using rest syntax in a function
 function sum(...numbers) {
   return numbers.reduce((total, num) => total + num, 0);
@@ -2957,7 +2976,7 @@ If you try to invoke a function expression before it is declared, you will get a
 
 Function declarations can be called in the enclosing scope even before they are declared.
 
-```js
+```js live
 foo(); // 'FOOOOO'
 function foo() {
   console.log('FOOOOO');
@@ -2966,7 +2985,7 @@ function foo() {
 
 Function expressions if called before they are declared will result in an error.
 
-```js
+```js live
 foo(); // Uncaught TypeError: foo is not a function
 var foo = function () {
   console.log('FOOOOO');
@@ -2975,11 +2994,13 @@ var foo = function () {
 
 Another key difference is in the scope of the function name. Function expressions can be named by defining it after the `function` and before the parenthesis. However when using named function expressions, the function name is only accessible within the function itself. Trying to access it outside will result in an error or `undefined`.
 
-```js
+```js live
 const myFunc = function namedFunc() {
   console.log(namedFunc); // Works
 };
-console.log(namedFunc); // undefined
+
+myFunc(); // Runs the function and logs the function reference
+console.log(namedFunc); // ReferenceError: namedFunc is not defined
 ```
 
 **Note**: The examples uses `var` due to legacy reasons. Function expressions can be defined using `let` and `const` and the key difference is in the hoisting behavior of those keywords.
@@ -3045,7 +3066,7 @@ var nonHoistedFunction = function () {
 
 Assuming we have a function `add`, the function can be invoked using `.call` and `.apply` in the following manner:
 
-```js
+```js live
 function add(a, b) {
   return a + b;
 }
@@ -3068,7 +3089,7 @@ console.log(add.apply(null, [1, 2])); // 3
 
 Arrow functions provide a concise syntax for writing functions in JavaScript. They are particularly useful for maintaining the `this` context within methods and callbacks. For example, in an event handler or array method like `map`, arrow functions can simplify the code and avoid issues with `this` binding.
 
-```javascript
+```js live
 const numbers = [1, 2, 3];
 const doubled = numbers.map((n) => n * 2);
 console.log(doubled); // [2, 4, 6]
@@ -3113,15 +3134,11 @@ A higher-order function is any function that takes one or more functions as argu
 
 Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `Array.prototype.map()`, which takes an array and a function as arguments. `Array.prototype.map()` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `Array.prototype.forEach()`, `Array.prototype.filter()`, and `Array.prototype.reduce()`. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Function.prototype.bind()` is an example that returns another function.
 
-Imagine a scenario where we have an array of names that we need to transform to uppercase.
+Imagine a scenario where we have an array of names that we need to transform to uppercase. The imperative way will be as such:
 
-```js
+```js live
 const names = ['irish', 'daisy', 'anna'];
-```
 
-The imperative way will be as such:
-
-```js
 function transformNamesToUppercase(names) {
   const results = [];
   for (let i = 0; i < names.length; i++) {
@@ -3130,17 +3147,19 @@ function transformNamesToUppercase(names) {
   return results;
 }
 
-transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
+console.log(transformNamesToUppercase(names)); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
 Using `Array.prototype.map(transformerFn)` makes the code shorter and more declarative.
 
-```js
+```js live
+const names = ['irish', 'daisy', 'anna'];
+
 function transformNamesToUppercase(names) {
   return names.map((name) => name.toUpperCase());
 }
 
-transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
+console.log(transformNamesToUppercase(names)); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
 <!-- Update here: /questions/what-is-the-definition-of-a-higher-order-function/en-US.mdx -->
@@ -3157,12 +3176,11 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action. They are commonly used for asynchronous operations like handling events, making API calls, or reading files. For example:
 
-```js
+```js live
 function fetchData(callback) {
-  setTimeout(() => {
-    const data = { name: 'John Doe' };
-    callback(data);
-  }, 1000);
+  // assume an asynchronous operation to fetch data
+  const data = { name: 'John Doe' };
+  callback(data);
 }
 
 function handleData(data) {
@@ -3226,13 +3244,15 @@ console.log(double); // [2, 4, 6]
 
 Recursion is a programming technique where a function calls itself to solve a problem. In JavaScript, recursion is used to solve problems that can be broken down into smaller, similar sub-problems. A base case is essential to stop the recursive calls and prevent infinite loops. For example, calculating the factorial of a number can be done using recursion:
 
-```js
+```js live
 function factorial(n) {
   if (n === 0) {
     return 1;
   }
   return n * factorial(n - 1);
 }
+
+console.log(factorial(4)); // Output: 24
 ```
 
 <!-- Update here: /questions/what-is-recursion-and-how-is-it-used-in-javascript/en-US.mdx -->
@@ -3249,7 +3269,7 @@ function factorial(n) {
 
 Default parameters in JavaScript allow you to set default values for function parameters if no value or `undefined` is passed. This helps avoid `undefined` values and makes your code more robust. You can define default parameters by assigning a value to the parameter in the function definition.
 
-```js
+```js live
 function greet(name = 'Guest') {
   console.log(`Hello, ${name}!`);
 }
@@ -3306,7 +3326,7 @@ Creating objects in JavaScript offers several methods:
 
 Dot notation and bracket notation are two ways to access properties of an object in JavaScript. Dot notation is more concise and readable but can only be used with valid JavaScript identifiers. Bracket notation is more flexible and can be used with property names that are not valid identifiers, such as those containing spaces or special characters.
 
-```js
+```js live
 const obj = { name: 'Alice', 'favorite color': 'blue' };
 
 // Dot notation
@@ -3344,7 +3364,7 @@ There are several methods to iterate over an array in JavaScript. The most commo
 
 To add elements to an array, you can use methods like `push`, `unshift`, or `splice`. To remove elements, you can use `pop`, `shift`, or `splice`. To update elements, you can directly access the array index and assign a new value.
 
-```js
+```js live
 let arr = [1, 2, 3];
 
 // Add elements
@@ -3359,7 +3379,10 @@ arr.splice(1, 1); // [1, 2, 3]
 
 // Update elements
 arr[1] = 5; // [1, 5, 3]
+console.log(arr); // Final state: [1, 5, 3]
 ```
+
+_Note:_ If you try to `console.log(arr)` after each operation in some environments (like Chrome DevTools), you may only see the final state of arr. This happens because the console sometimes keeps a live reference to the array instead of logging its state at the exact moment. To see intermediate states properly, store snapshots using console.log([...arr]) or print values immediately after each operation.
 
 <!-- Update here: /questions/how-do-you-add-remove-and-update-elements-in-an-array/en-US.mdx -->
 
@@ -3375,17 +3398,20 @@ arr[1] = 5; // [1, 5, 3]
 
 To copy an object or an array in JavaScript, you can use several methods. For shallow copies, you can use the spread operator (`...`) or `Object.assign()`. For deep copies, you can use `JSON.parse(JSON.stringify())` or libraries like Lodash's `_.cloneDeep()`.
 
-```js
+```js live
 // Shallow copy of an array
 const originalArray = [1, 2, 3];
 const shallowCopyArray = [...originalArray];
+console.log(shallowCopyArray); // [1, 2, 3]
 
 // Shallow copy of an object
 const originalObject = { a: 1, b: 2 };
 const shallowCopyObject = { ...originalObject };
+console.log(shallowCopyObject); // { a: 1, b: 2 };
 
 // Deep copy using JSON methods
 const deepCopyObject = JSON.parse(JSON.stringify(originalObject));
+console.log(deepCopyObject); // { a: 1, b: 2 };
 ```
 
 <!-- Update here: /questions/what-are-the-different-ways-to-copy-an-object-or-an-array/en-US.mdx -->
@@ -3402,17 +3428,20 @@ const deepCopyObject = JSON.parse(JSON.stringify(originalObject));
 
 A shallow copy duplicates the top-level properties of an object, but nested objects are still referenced. A deep copy duplicates all levels of an object, creating entirely new instances of nested objects. For example, using `Object.assign()` creates a shallow copy, while using libraries like `Lodash` or `structuredClone()` in modern JavaScript can create deep copies.
 
-```js
+```js live
 // Shallow copy example
 let obj1 = { a: 1, b: { c: 2 } };
 let shallowCopy = Object.assign({}, obj1);
 shallowCopy.b.c = 3;
-console.log(obj1.b.c); // Outputs: 3
+console.log(shallowCopy.b.c); // Output: 3
+console.log(obj1.b.c); // Output: 3 (original nested object changed too!)
 
 // Deep copy example
-let deepCopy = JSON.parse(JSON.stringify(obj1));
+let obj2 = { a: 1, b: { c: 2 } };
+let deepCopy = JSON.parse(JSON.stringify(obj2));
 deepCopy.b.c = 4;
-console.log(obj1.b.c); // Outputs: 2
+console.log(deepCopy.b.c); // Output: 4
+console.log(obj2.b.c); // Output: 2 (original nested object remains unchanged)
 ```
 
 <!-- Update here: /questions/explain-the-difference-between-shallow-copy-and-deep-copy/en-US.mdx -->
@@ -3429,14 +3458,16 @@ console.log(obj1.b.c); // Outputs: 2
 
 The spread operator (`...`) in JavaScript allows you to easily copy arrays and objects, merge them, and add new elements or properties. It simplifies syntax and improves readability. For arrays, it can be used to concatenate or clone arrays. For objects, it can be used to merge objects or add new properties.
 
-```js
+```js live
 // Arrays
 const arr1 = [1, 2, 3];
-const arr2 = [...arr1, 4, 5]; // [1, 2, 3, 4, 5]
+const arr2 = [...arr1, 4, 5];
+console.log(arr2); // [1, 2, 3, 4, 5]
 
 // Objects
 const obj1 = { a: 1, b: 2 };
-const obj2 = { ...obj1, c: 3 }; // { a: 1, b: 2, c: 3 }
+const obj2 = { ...obj1, c: 3 };
+console.log(obj2); // { a: 1, b: 2, c: 3 }
 ```
 
 <!-- Update here: /questions/what-are-the-advantages-of-using-the-spread-operator-with-arrays-and-objects/en-US.mdx -->
@@ -3453,7 +3484,7 @@ const obj2 = { ...obj1, c: 3 }; // { a: 1, b: 2, c: 3 }
 
 To check if an object has a specific property, you can use the `in` operator or the `hasOwnProperty` method. The `in` operator checks for both own and inherited properties, while `hasOwnProperty` checks only for own properties.
 
-```js
+```js live
 const obj = { key: 'value' };
 
 // Using the `in` operator
@@ -3525,7 +3556,7 @@ The key difference between mutable and immutable objects is modifiability. Immut
 
 Destructuring assignment is a syntax in JavaScript that allows you to unpack values from arrays or properties from objects into distinct variables. For arrays, you use square brackets, and for objects, you use curly braces. For example:
 
-```js
+```js live
 // Array destructuring
 const [a, b] = [1, 2];
 
@@ -3692,7 +3723,7 @@ The use cases of property descriptors are as follows:
 
 To reliably determine whether an object is empty, you can use `Object.keys()` to check if the object has any enumerable properties. If the length of the array returned by `Object.keys()` is zero, the object is empty.
 
-```js
+```js live
 const isEmpty = (obj) => Object.keys(obj).length === 0;
 
 const obj = {};
@@ -3745,7 +3776,7 @@ We recommend watching [Lydia's video](https://www.youtube.com/watch?v=eiC58R16hb
 
 Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. As a result, programs containing only synchronous code are evaluated exactly in order of the statements. The execution of the program is paused if one of the statements take a very long time.
 
-```js
+```js live
 function sum(a, b) {
   console.log('Inside sum function');
   return a + b;
@@ -3826,18 +3857,21 @@ Promises in JavaScript are objects that represent the eventual completion (or fa
 ```js
 let promise = new Promise((resolve, reject) => {
   // asynchronous operation
-  if (/* operation successful */) {
+  const success = true;
+  if (success) {
     resolve('Success!');
   } else {
     reject('Error!');
   }
 });
 
-promise.then(result => {
-  console.log(result); // 'Success!'
-}).catch(error => {
-  console.error(error); // 'Error!'
-});
+promise
+  .then((result) => {
+    console.log(result); // 'Success!' (this will print)
+  })
+  .catch((error) => {
+    console.error(error); // 'Error!'
+  });
 ```
 
 <!-- Update here: /questions/what-are-promises-and-how-do-they-work/en-US.mdx -->
@@ -4036,7 +4070,7 @@ This behavior simulates classical inheritance, but it is really more of [delegat
 
 Here's an example of prototypal inheritance:
 
-```js
+```js live
 // Parent object constructor.
 function Animal(name) {
   this.name = name;
@@ -4131,7 +4165,7 @@ Classical inheritance is a model where classes inherit from other classes, typic
 
 Inheritance in ES2015 classes allows one class to extend another, enabling the child class to inherit properties and methods from the parent class. This is done using the `extends` keyword. The `super` keyword is used to call the constructor and methods of the parent class. Here's a quick example:
 
-```js
+```js live
 class Animal {
   constructor(name) {
     this.name = name;
@@ -4171,7 +4205,7 @@ dog.speak(); // Rex barks.
 
 The `new` keyword in JavaScript is used to create an instance of a user-defined object type or one of the built-in object types that has a constructor function. When you use `new`, it does four things: it creates a new object, sets the prototype, binds `this` to the new object, and returns the new object.
 
-```js
+```js live
 function Person(name) {
   this.name = name;
 }
@@ -4194,13 +4228,14 @@ console.log(person1.name); // Alice
 
 To create a constructor function in JavaScript, define a regular function with a capitalized name to indicate it's a constructor. Use the `this` keyword to set properties and methods. When creating an instance, use the `new` keyword.
 
-```js
+```js live
 function Person(name, age) {
   this.name = name;
   this.age = age;
 }
 
 const john = new Person('John', 30);
+console.log(john.age); // 30
 ```
 
 <!-- Update here: /questions/how-do-you-create-a-constructor-function/en-US.mdx -->
@@ -4231,28 +4266,47 @@ class Person {
 }
 ```
 
-For simple constructors, they look pretty similar. The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
+For simple constructors, they look pretty similar. The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do.
 
-```js
-// ES5 function constructor
-function Student(name, studentId) {
+```js live
+// ES5 inheritance
+// Superclass
+function Person1(name) {
+  this.name = name;
+}
+
+// Subclass
+function Student1(name, studentId) {
   // Call constructor of superclass to initialize superclass-derived members.
-  Person.call(this, name);
+  Person1.call(this, name);
 
   // Initialize subclass's own members.
   this.studentId = studentId;
 }
+Student1.prototype = Object.create(Person1.prototype);
+Student1.prototype.constructor = Student1;
 
-Student.prototype = Object.create(Person.prototype);
-Student.prototype.constructor = Student;
+const student1 = new Student1('John', 1234);
+console.log(student1.name, student1.studentId); // "John" 1234
 
-// ES2015 Class
-class Student extends Person {
+// ES2015 inheritance
+// Superclass
+class Person2 {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+// Subclass
+class Student2 extends Person2 {
   constructor(name, studentId) {
     super(name);
     this.studentId = studentId;
   }
 }
+
+const student2 = new Student2('Alice', 5678);
+console.log(student2.name, student2.studentId); // "Alice" 5678
 ```
 
 It's much more verbose to use inheritance in ES5 and the ES2015 version is easier to understand and remember.
@@ -4284,7 +4338,7 @@ The main advantage of using an arrow function as a method inside a constructor i
 
 For example, let's say we have a `Person` constructor that takes a first name as an argument has two methods to `console.log()` that name, one as a regular function and one as an arrow function:
 
-```js
+```js live
 const Person = function (name) {
   this.name = name;
   this.sayName1 = function () {
@@ -4406,7 +4460,7 @@ Key points to remember:
 
 Lexical scoping means that the scope of a variable is determined by its location within the source code, and nested functions have access to variables declared in their outer scope. For example:
 
-```js
+```js live
 function outerFunction() {
   let outerVariable = 'I am outside!';
 
@@ -4436,25 +4490,33 @@ In this example, `innerFunction` can access `outerVariable` because of lexical s
 
 In JavaScript, scope determines the accessibility of variables and functions at different parts of the code. There are three main types of scope: global scope, function scope, and block scope. Global scope means the variable is accessible everywhere in the code. Function scope means the variable is accessible only within the function it is declared. Block scope, introduced with ES6, means the variable is accessible only within the block (e.g., within curly braces `{}`) it is declared.
 
-```js
-// Global scope
-var globalVar = 'I am global';
+```js live
+var globalVar = 'I am a global var';
 
 function myFunction() {
-  // Function scope
-  var functionVar = 'I am in a function';
+  var functionVar = 'I am a function-scoped var';
 
   if (true) {
-    // Block scope
-    let blockVar = 'I am in a block';
-    console.log(blockVar); // Accessible here
+    let blockVar = 'I am a block-scoped var';
+
+    console.log('Inside block:');
+    console.log(globalVar); // Accessible
+    console.log(functionVar); // Accessible
+    console.log(blockVar); // Accessible
   }
 
-  // console.log(blockVar); // Uncaught ReferenceError: blockVar is not defined
+  console.log('Inside function:');
+  console.log(globalVar); // Accessible
+  console.log(functionVar); // Accessible
+  // console.log(blockVar); // Uncaught ReferenceError
 }
 
-console.log(globalVar); // Accessible here
-// console.log(functionVar); // Uncaught ReferenceError: functionVar is not defined
+myFunction();
+
+console.log('In global scope:');
+console.log(globalVar); // Accessible
+// console.log(functionVar); // Uncaught ReferenceError
+// console.log(blockVar); // Uncaught ReferenceError
 ```
 
 <!-- Update here: /questions/explain-the-concept-of-scope-in-javascript/en-US.mdx -->
@@ -4471,7 +4533,7 @@ console.log(globalVar); // Accessible here
 
 Closures in JavaScript can be used to create private variables by defining a function within another function. The inner function has access to the outer function's variables, but those variables are not accessible from outside the outer function. This allows you to encapsulate and protect the variables from being accessed or modified directly.
 
-```js
+```js live
 function createCounter() {
   let count = 0; // private variable
 
@@ -4524,7 +4586,7 @@ Closures can lead to memory leaks if not managed properly, especially when they 
 
 Global scope means variables are accessible from anywhere in the code. Function scope means variables are accessible only within the function they are declared in. Block scope means variables are accessible only within the block (e.g., within `{}`) they are declared in.
 
-```js
+```js live
 var globalVar = "I'm global"; // Global scope
 
 function myFunction() {
@@ -4536,6 +4598,7 @@ function myFunction() {
   // console.log(blockVar); // Uncaught ReferenceError: blockVar is not defined
 }
 // console.log(functionVar); // Uncaught ReferenceError: functionVar is not defined
+myFunction();
 ```
 
 <!-- Update here: /questions/explain-the-difference-between-global-scope-function-scope-and-block-scope/en-US.mdx -->
