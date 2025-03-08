@@ -6,11 +6,11 @@ title: What are the potential issues caused by hoisting?
 
 Hoisting can lead to unexpected behavior in JavaScript because variable and function declarations are moved to the top of their containing scope during the compilation phase. This can result in `undefined` values for variables if they are used before their declaration and can cause confusion with function declarations and expressions. For example:
 
-```js
+```js live
 console.log(a); // undefined
 var a = 5;
 
-console.log(b); // ReferenceError: b is not defined
+console.log(b); // ReferenceError: Cannot access 'b' before initialization
 let b = 10;
 ```
 
@@ -22,7 +22,7 @@ let b = 10;
 
 When using `var`, the variable is hoisted to the top of its scope but not initialized. This means you can reference the variable before its declaration, but it will be `undefined` until the assignment is executed.
 
-```js
+```js live
 console.log(a); // undefined
 var a = 5;
 ```
@@ -31,8 +31,8 @@ var a = 5;
 
 Variables declared with `let` and `const` are also hoisted, but they are not initialized. Accessing them before their declaration results in a `ReferenceError` due to the temporal dead zone.
 
-```js
-console.log(b); // ReferenceError: b is not defined
+```js live
+console.log(b); // ReferenceError: Cannot access 'b' before initialization
 let b = 10;
 ```
 
@@ -40,7 +40,7 @@ let b = 10;
 
 Function declarations are hoisted entirely, meaning you can call the function before its declaration. However, function expressions are not hoisted in the same way, leading to potential `TypeError` if called before they are defined.
 
-```js
+```js live
 foo(); // Works fine
 function foo() {
   console.log('Hello');
@@ -56,7 +56,7 @@ var bar = function () {
 
 Using `var` can lead to unintentional redeclarations, which can cause bugs that are hard to track down.
 
-```js
+```js live
 var x = 1;
 if (true) {
   var x = 2; // Same variable as above
