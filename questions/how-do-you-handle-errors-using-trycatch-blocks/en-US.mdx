@@ -38,7 +38,12 @@ try {
 
 Here is an example of using `try...catch` to handle errors:
 
-```js
+```js live
+function riskyOperation() {
+  const invalidJsonString = '{"name": "John}'; // Try changing this to a valid JSON string
+  return JSON.parse(invalidJsonString);
+}
+
 try {
   let result = riskyOperation();
   console.log(result);
@@ -59,15 +64,21 @@ try {
 
 You can nest `try...catch` blocks to handle different levels of errors:
 
-```js
+```js live
+function anotherRiskyOperation() {
+  const person = undefined;
+  console.log(person.name);
+}
+
 try {
   try {
-    let result = anotherRiskyOperation();
-    console.log(result);
+    anotherRiskyOperation();
   } catch (innerError) {
+    // Error (if any) for anotherRiskyOperation caught here
     console.error('Inner error:', innerError.message);
   }
 } catch (outerError) {
+  // Inner error does not reach here
   console.error('Outer error:', outerError.message);
 }
 ```
@@ -76,11 +87,21 @@ try {
 
 You can re-throw an error from the `catch` block if you want it to be handled by an outer `try...catch` block:
 
-```js
+```js live
+function yetAnotherRiskyOperation() {
+  const numerator = 10;
+  const denominator = 0;
+  if (denominator === 0) {
+    throw new Error('Cannot divide by zero');
+  }
+
+  return numerator / denominator;
+}
+
 try {
   try {
-    let result = yetAnotherRiskyOperation();
-    console.log(result);
+    const result = yetAnotherRiskyOperation();
+    console.log('Divisinon result:', result);
   } catch (innerError) {
     console.error('Inner error:', innerError.message);
     throw innerError; // Re-throw the error
@@ -95,6 +116,7 @@ try {
 The `finally` block is useful for cleanup tasks, such as closing a file or releasing resources:
 
 ```js
+// openFile() and closeFile() are custom implementations
 try {
   let file = openFile('example.txt');
   // Perform operations on the file
