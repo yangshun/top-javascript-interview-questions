@@ -6,7 +6,7 @@ title: Explain the concept of the Prototype pattern
 
 The Prototype pattern is a creational design pattern used to create new objects by copying an existing object, known as the prototype. This pattern is useful when the cost of creating a new object is more expensive than cloning an existing one. In JavaScript, this can be achieved using the `Object.create` method or by using the `prototype` property of a constructor function.
 
-```js
+```js live
 const prototypeObject = {
   greet() {
     console.log('Hello, world!');
@@ -35,7 +35,7 @@ In JavaScript, the Prototype pattern can be implemented using the `Object.create
 
 The `Object.create` method creates a new object with the specified prototype object and properties.
 
-```js
+```js live
 const prototypeObject = {
   greet() {
     console.log('Hello, world!');
@@ -52,7 +52,7 @@ In this example, `newObject` is created with `prototypeObject` as its prototype.
 
 Another way to implement the Prototype pattern in JavaScript is by using constructor functions and the `prototype` property.
 
-```js
+```js live
 function Person(name) {
   this.name = name;
 }
