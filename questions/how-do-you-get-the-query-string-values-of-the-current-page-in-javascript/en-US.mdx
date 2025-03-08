@@ -6,12 +6,13 @@ title: How do you get the query string values of the current page in JavaScript?
 
 To get the query string values of the current page in JavaScript, you can use the `URLSearchParams` object. First, create a `URLSearchParams` instance with `window.location.search`, then use the `get` method to retrieve specific query parameters. For example:
 
-```js
+```js live
 const params = new URLSearchParams(window.location.search);
-const value = params.get('key');
+const value = params.get('language');
+console.log(value);
 ```
 
-This will give you the value of the query parameter named `key`.
+This will give you the value of the query parameter named `language`. If you look at the URL of this page, you can see that the `language` parameter is set to 'js'.
 
 ---
 
@@ -24,10 +25,13 @@ The `URLSearchParams` interface provides an easy way to work with query strings.
 1. **Create a `URLSearchParams` instance**: Use `window.location.search` to get the query string part of the URL.
 2. **Retrieve specific query parameters**: Use the `get` method to get the value of a specific query parameter.
 
-```js
+```js live
 const params = new URLSearchParams(window.location.search);
-const value = params.get('key'); // Replace 'key' with the actual query parameter name
+const value = params.get('key'); // Replace 'key' with the actual query parameter name (try 'language' or 'tab' for this page)
+console.log(value);
 ```
+
+If the query parameter does not exist, the `get` method returns `null`.
 
 ### Example
 
@@ -50,22 +54,26 @@ const values = params.getAll('key'); // Returns an array of values
 
 ### Checking for the existence of a parameter
 
-You can use the `has` method to check if a query parameter exists:
+You can use the `has` method to check if a query parameter exists. Try to check for the query parameters present in the URL of this page.
 
-```js
+```js live
 const params = new URLSearchParams(window.location.search);
-const hasPage = params.has('page'); // true or false
+console.log(params.has('page')); // false
+console.log(params.has('language')); // true
+console.log(params.has('tab')); // true
 ```
 
 ### Iterating over all parameters
 
 You can iterate over all query parameters using the `forEach` method:
 
-```js
+```js live
 const params = new URLSearchParams(window.location.search);
 params.forEach((value, key) => {
   console.log(`${key}: ${value}`);
 });
+// language: js
+// tab: quiz
 ```
 
 ## Further reading
