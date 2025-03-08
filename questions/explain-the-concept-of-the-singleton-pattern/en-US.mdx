@@ -6,7 +6,7 @@ title: Explain the concept of the Singleton pattern
 
 The Singleton pattern ensures that a class has only one instance and provides a global point of access to that instance. This is useful when exactly one object is needed to coordinate actions across the system. In JavaScript, this can be implemented using closures or ES6 classes.
 
-```js
+```js live
 class Singleton {
   constructor() {
     if (!Singleton.instance) {
@@ -40,7 +40,7 @@ There are several ways to implement the Singleton pattern in JavaScript. Here ar
 
 #### Using closures
 
-```js
+```js live
 const Singleton = (function () {
   let instance;
 
@@ -67,7 +67,7 @@ console.log(instance1 === instance2); // true
 
 #### Using ES6 classes
 
-```js
+```js live
 class Singleton {
   constructor() {
     if (!Singleton.instance) {
