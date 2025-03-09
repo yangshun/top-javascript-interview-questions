@@ -6,13 +6,15 @@ title: What is recursion and how is it used in JavaScript?
 
 Recursion is a programming technique where a function calls itself to solve a problem. In JavaScript, recursion is used to solve problems that can be broken down into smaller, similar sub-problems. A base case is essential to stop the recursive calls and prevent infinite loops. For example, calculating the factorial of a number can be done using recursion:
 
-```js
+```js live
 function factorial(n) {
   if (n === 0) {
     return 1;
   }
   return n * factorial(n - 1);
 }
+
+console.log(factorial(4)); // Output: 24
 ```
 
 ---
@@ -35,7 +37,7 @@ The factorial of a number `n` (denoted as `n!`) is the product of all positive i
 
 Here is how you can implement this in JavaScript:
 
-```js
+```js live
 function factorial(n) {
   if (n === 0) {
     // base case
@@ -43,6 +45,8 @@ function factorial(n) {
   }
   return n * factorial(n - 1); // recursive case
 }
+
+console.log(factorial(4)); // Output: 24
 ```
 
 ### Example: Fibonacci sequence
@@ -55,7 +59,7 @@ The Fibonacci sequence is another classic example of recursion. Each number in t
 
 Here is how you can implement this in JavaScript:
 
-```js
+```js live
 function fibonacci(n) {
   if (n === 0) {
     // base case
@@ -67,19 +71,23 @@ function fibonacci(n) {
   }
   return fibonacci(n - 1) + fibonacci(n - 2); // recursive case
 }
+
+console.log(fibonacci(6)); // Output: 8
 ```
 
 ### Tail recursion
 
 Tail recursion is a special form of recursion where the recursive call is the last operation in the function. This can be optimized by some JavaScript engines to improve performance and prevent stack overflow. Here is an example of a tail-recursive factorial function:
 
-```js
+```js live
 function factorial(n, acc = 1) {
   if (n === 0) {
     return acc;
   }
   return factorial(n - 1, n * acc);
 }
+
+console.log(factorial(4)); // Output: 24
 ```
 
 ### Use cases for recursion

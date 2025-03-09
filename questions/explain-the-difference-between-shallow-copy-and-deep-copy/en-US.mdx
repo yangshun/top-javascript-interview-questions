@@ -6,17 +6,20 @@ title: Explain the difference between shallow copy and deep copy
 
 A shallow copy duplicates the top-level properties of an object, but nested objects are still referenced. A deep copy duplicates all levels of an object, creating entirely new instances of nested objects. For example, using `Object.assign()` creates a shallow copy, while using libraries like `Lodash` or `structuredClone()` in modern JavaScript can create deep copies.
 
-```js
+```js live
 // Shallow copy example
 let obj1 = { a: 1, b: { c: 2 } };
 let shallowCopy = Object.assign({}, obj1);
 shallowCopy.b.c = 3;
-console.log(obj1.b.c); // Outputs: 3
+console.log(shallowCopy.b.c); // Output: 3
+console.log(obj1.b.c); // Output: 3 (original nested object changed too!)
 
 // Deep copy example
-let deepCopy = JSON.parse(JSON.stringify(obj1));
+let obj2 = { a: 1, b: { c: 2 } };
+let deepCopy = JSON.parse(JSON.stringify(obj2));
 deepCopy.b.c = 4;
-console.log(obj1.b.c); // Outputs: 2
+console.log(deepCopy.b.c); // Output: 4
+console.log(obj2.b.c); // Output: 2 (original nested object remains unchanged)
 ```
 
 ---
@@ -29,11 +32,12 @@ A shallow copy creates a new object and copies the values of the original object
 
 #### Example
 
-```js
+```js live
 let obj1 = { a: 1, b: { c: 2 } };
 let shallowCopy = Object.assign({}, obj1);
 shallowCopy.b.c = 3;
-console.log(obj1.b.c); // Outputs: 3
+console.log(shallowCopy.b.c); // Output: 3
+console.log(obj1.b.c); // Output: 3 (original nested object changed too!)
 ```
 
 In this example, `shallowCopy` is a shallow copy of `obj1`. Changing `shallowCopy.b.c` also changes `obj1.b.c` because `b` is a reference to the same object in both `obj1` and `shallowCopy`.
@@ -44,11 +48,12 @@ A deep copy creates a new object and recursively copies all properties and neste
 
 #### Example
 
-```js
+```js live
 let obj1 = { a: 1, b: { c: 2 } };
 let deepCopy = JSON.parse(JSON.stringify(obj1));
 deepCopy.b.c = 4;
-console.log(obj1.b.c); // Outputs: 2
+console.log(deepCopy.b.c); // Output: 4
+console.log(obj1.b.c); // Output: 2 (original nested object remains unchanged)
 ```
 
 In this example, `deepCopy` is a deep copy of `obj1`. Changing `deepCopy.b.c` does not affect `obj1.b.c` because `b` is a completely new object in `deepCopy`.

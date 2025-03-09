@@ -6,7 +6,7 @@ title: What is the purpose of the `new` keyword?
 
 The `new` keyword in JavaScript is used to create an instance of a user-defined object type or one of the built-in object types that has a constructor function. When you use `new`, it does four things: it creates a new object, sets the prototype, binds `this` to the new object, and returns the new object.
 
-```js
+```js live
 function Person(name) {
   this.name = name;
 }
@@ -23,7 +23,7 @@ console.log(person1.name); // Alice
 
 The `new` keyword is used to create a new instance of an object. When you call a constructor function with `new`, it creates a new object.
 
-```js
+```js live
 function Car(model) {
   this.model = model;
 }
@@ -36,7 +36,7 @@ console.log(myCar.model); // Toyota
 
 The new object’s internal `[[Prototype]]` property is set to the constructor function’s `prototype` property. This allows the new object to inherit properties and methods from the constructor’s prototype.
 
-```js
+```js live
 function Animal(type) {
   this.type = type;
 }
@@ -53,7 +53,7 @@ dog.speak(); // Dog makes a sound
 
 Inside the constructor function, `this` refers to the new object that is being created. This allows you to add properties and methods to the new object.
 
-```js
+```js live
 function Book(title) {
   this.title = title;
 }
@@ -66,7 +66,7 @@ console.log(myBook.title); // JavaScript Essentials
 
 The `new` keyword implicitly returns the new object created by the constructor function. If the constructor function explicitly returns an object, that object will be returned instead.
 
-```js
+```js live
 function Gadget(name) {
   this.name = name;
   return { type: 'Electronic' };

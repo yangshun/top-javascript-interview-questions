@@ -9,18 +9,21 @@ Promises in JavaScript are objects that represent the eventual completion (or fa
 ```js
 let promise = new Promise((resolve, reject) => {
   // asynchronous operation
-  if (/* operation successful */) {
+  const success = true;
+  if (success) {
     resolve('Success!');
   } else {
     reject('Error!');
   }
 });
 
-promise.then(result => {
-  console.log(result); // 'Success!'
-}).catch(error => {
-  console.error(error); // 'Error!'
-});
+promise
+  .then((result) => {
+    console.log(result); // 'Success!' (this will print)
+  })
+  .catch((error) => {
+    console.error(error); // 'Error!'
+  });
 ```
 
 ---
@@ -46,7 +49,8 @@ You create a promise using the `Promise` constructor, which takes a function wit
 ```js
 let promise = new Promise((resolve, reject) => {
   // asynchronous operation
-  if (/* operation successful */) {
+  const success = true;
+  if (success) {
     resolve('Success!');
   } else {
     reject('Error!');
@@ -59,12 +63,22 @@ let promise = new Promise((resolve, reject) => {
 To handle the result of a promise, you use the `.then()` method for a successful outcome and the `.catch()` method for an error.
 
 ```js
+let promise = new Promise((resolve, reject) => {
+  // asynchronous operation
+  const success = false;
+  if (success) {
+    resolve('Success!');
+  } else {
+    reject('Error!');
+  }
+});
+
 promise
   .then((result) => {
     console.log(result); // 'Success!'
   })
   .catch((error) => {
-    console.error(error); // 'Error!'
+    console.error(error); // 'Error!' (this will print)
   });
 ```
 

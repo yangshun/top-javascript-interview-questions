@@ -6,7 +6,7 @@ title: Explain the difference between dot notation and bracket notation for acce
 
 Dot notation and bracket notation are two ways to access properties of an object in JavaScript. Dot notation is more concise and readable but can only be used with valid JavaScript identifiers. Bracket notation is more flexible and can be used with property names that are not valid identifiers, such as those containing spaces or special characters.
 
-```js
+```js live
 const obj = { name: 'Alice', 'favorite color': 'blue' };
 
 // Dot notation
@@ -32,7 +32,7 @@ object.property;
 
 #### Example
 
-```js
+```js live
 const person = {
   name: 'Alice',
   age: 30,
@@ -59,7 +59,7 @@ object['property'];
 
 #### Example
 
-```js
+```js live
 const person = {
   name: 'Alice',
   'favorite color': 'blue',
@@ -78,7 +78,12 @@ console.log(person[1]); // one
 
 #### Example with dynamic property names
 
-```js
+```js live
+const person = {
+  name: 'Alice',
+  age: 30,
+};
+
 const property = 'name';
 console.log(person[property]); // Alice
 ```

@@ -6,7 +6,7 @@ title: Explain the concept of hoisting with regards to functions
 
 Hoisting in JavaScript is a behavior where function declarations are moved to the top of their containing scope during the compile phase. This means you can call a function before it is defined in the code. However, this does not apply to function expressions or arrow functions, which are not hoisted in the same way.
 
-```js
+```js live
 // Function declaration
 hoistedFunction(); // Works fine
 function hoistedFunction() {
@@ -30,7 +30,7 @@ Hoisting is a JavaScript mechanism where variables and function declarations are
 
 Function declarations are fully hoisted. This means you can call a function before its declaration in the code.
 
-```js
+```js live
 hoistedFunction(); // Works fine
 
 function hoistedFunction() {
@@ -42,7 +42,7 @@ function hoistedFunction() {
 
 Function expressions, including arrow functions, are not hoisted in the same way. They are treated as variable assignments and are only hoisted as undefined.
 
-```js
+```js live
 nonHoistedFunction(); // Throws an error: TypeError: nonHoistedFunction is not a function
 
 var nonHoistedFunction = function () {
@@ -54,7 +54,7 @@ var nonHoistedFunction = function () {
 
 Arrow functions behave similarly to function expressions in terms of hoisting.
 
-```js
+```js live
 arrowFunction(); // Throws an error: TypeError: arrowFunction is not a function
 
 var arrowFunction = () => {

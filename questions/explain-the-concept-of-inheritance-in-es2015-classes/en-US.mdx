@@ -6,7 +6,7 @@ title: Explain the concept of inheritance in ES2015 classes
 
 Inheritance in ES2015 classes allows one class to extend another, enabling the child class to inherit properties and methods from the parent class. This is done using the `extends` keyword. The `super` keyword is used to call the constructor and methods of the parent class. Here's a quick example:
 
-```js
+```js live
 class Animal {
   constructor(name) {
     this.name = name;
@@ -44,7 +44,7 @@ Inheritance in ES2015 classes allows a class (child class) to inherit properties
 
 The `extends` keyword is used to create a class that is a child of another class. The child class inherits all the properties and methods of the parent class.
 
-```js
+```js live
 class ParentClass {
   constructor() {
     this.parentProperty = 'I am a parent property';
@@ -75,7 +75,7 @@ child.parentMethod(); // This is a parent method
 
 The `super` keyword is used to call the constructor of the parent class and to access its methods. This is necessary when you want to initialize the parent class properties in the child class.
 
-```js
+```js live
 class Animal {
   constructor(name) {
     this.name = name;
@@ -108,7 +108,7 @@ dog.speak();
 
 Child classes can override methods from the parent class. This allows the child class to provide a specific implementation of a method that is already defined in the parent class.
 
-```js
+```js live
 class Animal {
   speak() {
     console.log('Animal makes a noise.');

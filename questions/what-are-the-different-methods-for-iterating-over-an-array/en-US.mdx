@@ -14,7 +14,7 @@ There are several methods to iterate over an array in JavaScript. The most commo
 
 The `for` loop is one of the most basic and versatile ways to iterate over an array. It allows you to control the iteration process completely.
 
-```js
+```js live
 const array = [1, 2, 3, 4, 5];
 for (let i = 0; i < array.length; i++) {
   console.log(array[i]);
@@ -25,7 +25,7 @@ for (let i = 0; i < array.length; i++) {
 
 The `for...of` loop is a more modern and readable way to iterate over arrays and other iterable objects.
 
-```js
+```js live
 const array = [1, 2, 3, 4, 5];
 for (const element of array) {
   console.log(element);
@@ -36,7 +36,7 @@ for (const element of array) {
 
 The `forEach` method executes a provided function once for each array element.
 
-```js
+```js live
 const array = [1, 2, 3, 4, 5];
 array.forEach((element) => {
   console.log(element);
@@ -47,7 +47,7 @@ array.forEach((element) => {
 
 The `map` method creates a new array populated with the results of calling a provided function on every element in the calling array.
 
-```js
+```js live
 const array = [1, 2, 3, 4, 5];
 const newArray = array.map((element) => element * 2);
 console.log(newArray); // [2, 4, 6, 8, 10]
@@ -57,7 +57,7 @@ console.log(newArray); // [2, 4, 6, 8, 10]
 
 The `filter` method creates a new array with all elements that pass the test implemented by the provided function.
 
-```js
+```js live
 const array = [1, 2, 3, 4, 5];
 const filteredArray = array.filter((element) => element > 2);
 console.log(filteredArray); // [3, 4, 5]
@@ -67,7 +67,7 @@ console.log(filteredArray); // [3, 4, 5]
 
 The `reduce` method executes a reducer function on each element of the array, resulting in a single output value.
 
-```js
+```js live
 const array = [1, 2, 3, 4, 5];
 const sum = array.reduce(
   (accumulator, currentValue) => accumulator + currentValue,

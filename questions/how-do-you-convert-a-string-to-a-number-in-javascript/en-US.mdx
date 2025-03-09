@@ -14,60 +14,68 @@ In JavaScript, you can convert a string to a number using several methods. The m
 
 The `Number()` function converts a string to a number. It can handle both integer and floating-point numbers.
 
-```js
+```js live
 let str = '123';
-let num = Number(str); // 123
+let num = Number(str);
+console.log(num); // 123
 
 let floatStr = '123.45';
-let floatNum = Number(floatStr); // 123.45
+let floatNum = Number(floatStr);
+console.log(floatNum); // 123.45
 ```
 
 ### Using the `parseInt()` function
 
 The `parseInt()` function parses a string and returns an integer. It can also take a second argument, the radix (base) of the numeral system to be used.
 
-```js
+```js live
 let str = '123';
-let num = parseInt(str); // 123
+let num = parseInt(str);
+console.log(num); // 123
 
-let floatStr = '123.45';
-let floatNum = parseInt(floatStr); // 123
+let floatStr = '120.45';
+let floatNum = parseInt(floatStr);
+console.log(floatNum); // 120
 
 let binaryStr = '1010';
-let binaryNum = parseInt(binaryStr, 2); // 10
+let binaryNum = parseInt(binaryStr, 2);
+console.log(binaryNum); // 10
 ```
 
 ### Using the `parseFloat()` function
 
 The `parseFloat()` function parses a string and returns a floating-point number.
 
-```js
+```js live
 let floatStr = '123.45';
-let floatNum = parseFloat(floatStr); // 123.45
+let floatNum = parseFloat(floatStr);
+console.log(floatNum); // 123.45
 ```
 
 ### Using the unary plus operator (`+`)
 
 The unary plus operator can be used to convert a string to a number. It is a shorthand method and works for both integers and floating-point numbers.
 
-```js
+```js live
 let str = '123';
-let num = +str; // 123
+let num = +str;
+console.log(num); // 123
 
 let floatStr = '123.45';
-let floatNum = +floatStr; // 123.45
+let floatNum = +floatStr;
+console.log(floatNum); // 123.45
 ```
 
 ### Handling non-numeric strings
 
 If the string cannot be converted to a number, these methods will return `NaN` (Not-a-Number).
 
-```js
+```js live
 let invalidStr = 'abc';
-let num = Number(invalidStr); // NaN
-let intNum = parseInt(invalidStr); // NaN
-let floatNum = parseFloat(invalidStr); // NaN
-let unaryNum = +invalidStr; // NaN
+console.log(Number(invalidStr)); // NaN
+console.log(parseInt(invalidStr)); // NaN
+console.log(parseFloat(invalidStr)); // NaN
+console.log(+invalidStr); // NaN
 ```
 
 ## Further reading
