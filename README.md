@@ -10,13 +10,13 @@
 
 <div>
 <p align="center">
-  <a href="https://www.greatfrontend.com/questions/js?utm_source=github&utm_medium=referral&utm_campaign=top-js-qns&gnrs=yangshun">
+  <a href="https://www.greatfrontend.com/questions/javascript-interview-questions?utm_source=github&utm_medium=referral&utm_campaign=top-js-qns&gnrs=yangshun">
     <img src="./images/greatfrontend-js-banner4x.png" alt="GreatFrontEnd JavaScript Interview Questions" width="100%">
   </a>
 </p>
 </div>
 
-> 💡 Nail JavaScript interviews with questions and solutions from ex-interviewers! [Try GreatFrontEnd →](https://www.greatfrontend.com/questions/js?utm_source=github&utm_medium=referral&utm_campaign=top-js-qns&gnrs=yangshun) 💡
+> 💡 Nail JavaScript interviews with questions and solutions from ex-interviewers! [Try GreatFrontEnd →](https://www.greatfrontend.com/questions/javascript-interview-questions?utm_source=github&utm_medium=referral&utm_campaign=top-js-qns&gnrs=yangshun) 💡
 
 ---
 
@@ -318,7 +318,7 @@ The following behavior summarizes the result of accessing the variables before t
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-hoisting) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/explain-hoisting?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-hoisting/en-US.mdx)
 
@@ -342,7 +342,7 @@ In JavaScript, `let`, `var`, and `const` are all keywords used to declare variab
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-variables-created-using-let-var-or-const) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-the-differences-between-variables-created-using-let-var-or-const?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-differences-between-variables-created-using-let-var-or-const/en-US.mdx)
 
@@ -364,7 +364,7 @@ In JavaScript, `let`, `var`, and `const` are all keywords used to declare variab
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-the-difference-between-double-equal-and-triple-equal) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-is-the-difference-between-double-equal-and-triple-equal?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-double-equal-and-triple-equal/en-US.mdx)
 
@@ -398,7 +398,7 @@ We recommend watching [Lydia's video](https://www.youtube.com/watch?v=eiC58R16hb
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue/en-US.mdx)
 
@@ -425,7 +425,7 @@ However, do note that:
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-event-delegation) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/explain-event-delegation?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-event-delegation/en-US.mdx)
 
@@ -453,7 +453,7 @@ For an in-depth explanation, do check out [Arnav Aggrawal's article on Medium](h
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-how-this-works-in-javascript) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/explain-how-this-works-in-javascript?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-how-this-works-in-javascript/en-US.mdx)
 
@@ -485,7 +485,7 @@ Here's a table summarizing the 3 client storage mechanisms.
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/en-US.mdx)
 
@@ -513,7 +513,7 @@ Here's a table summarizing the 3 ways of loading `<script>`s in a HTML document.
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/describe-the-difference-between-script-async-and-script-defer) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/describe-the-difference-between-script-async-and-script-defer?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-the-difference-between-script-async-and-script-defer/en-US.mdx)
 
@@ -533,7 +533,7 @@ Here's a table summarizing the 3 ways of loading `<script>`s in a HTML document.
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states/en-US.mdx)
 
@@ -550,7 +550,7 @@ Here's a table summarizing the 3 ways of loading `<script>`s in a HTML document.
 
 Assuming we have a function `add`, the function can be invoked using `.call` and `.apply` in the following manner:
 
-```js
+```js live
 function add(a, b) {
   return a + b;
 }
@@ -563,7 +563,7 @@ console.log(add.apply(null, [1, 2])); // 3
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/whats-the-difference-between-call-and-apply) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/whats-the-difference-between-call-and-apply?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/whats-the-difference-between-call-and-apply/en-US.mdx)
 
@@ -585,7 +585,7 @@ The `bind` method is particularly useful in scenarios where you need to ensure t
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-function-prototype-bind) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/explain-function-prototype-bind?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-function-prototype-bind/en-US.mdx)
 
@@ -599,7 +599,7 @@ The main advantage of using an arrow function as a method inside a constructor i
 
 For example, let's say we have a `Person` constructor that takes a first name as an argument has two methods to `console.log()` that name, one as a regular function and one as an arrow function:
 
-```js
+```js live
 const Person = function (name) {
   this.name = name;
   this.sayName1 = function () {
@@ -639,7 +639,7 @@ The main takeaway here is that `this` can be changed for a normal function, but 
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor/en-US.mdx)
 
@@ -657,7 +657,7 @@ This behavior simulates classical inheritance, but it is really more of [delegat
 
 Here's an example of prototypal inheritance:
 
-```js
+```js live
 // Parent object constructor.
 function Animal(name) {
   this.name = name;
@@ -699,7 +699,7 @@ Things to note are:
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-how-prototypal-inheritance-works) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/explain-how-prototypal-inheritance-works?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-how-prototypal-inheritance-works/en-US.mdx)
 
@@ -724,7 +724,7 @@ Things to note are:
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/difference-between-function-person-var-person-person-and-var-person-new-person) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/difference-between-function-person-var-person-person-and-var-person-new-person?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx)
 
@@ -740,7 +740,7 @@ If you try to invoke a function expression before it is declared, you will get a
 
 Function declarations can be called in the enclosing scope even before they are declared.
 
-```js
+```js live
 foo(); // 'FOOOOO'
 function foo() {
   console.log('FOOOOO');
@@ -749,7 +749,7 @@ function foo() {
 
 Function expressions if called before they are declared will result in an error.
 
-```js
+```js live
 foo(); // Uncaught TypeError: foo is not a function
 var foo = function () {
   console.log('FOOOOO');
@@ -758,11 +758,13 @@ var foo = function () {
 
 Another key difference is in the scope of the function name. Function expressions can be named by defining it after the `function` and before the parenthesis. However when using named function expressions, the function name is only accessible within the function itself. Trying to access it outside will result in an error or `undefined`.
 
-```js
+```js live
 const myFunc = function namedFunc() {
   console.log(namedFunc); // Works
 };
-console.log(namedFunc); // undefined
+
+myFunc(); // Runs the function and logs the function reference
+console.log(namedFunc); // ReferenceError: namedFunc is not defined
 ```
 
 **Note**: The examples uses `var` due to legacy reasons. Function expressions can be defined using `let` and `const` and the key difference is in the hoisting behavior of those keywords.
@@ -771,7 +773,7 @@ console.log(namedFunc); // undefined
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/en-US.mdx)
 
@@ -813,7 +815,7 @@ console.log(double); // [2, 4, 6]
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/whats-a-typical-use-case-for-anonymous-functions) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/whats-a-typical-use-case-for-anonymous-functions?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/whats-a-typical-use-case-for-anonymous-functions/en-US.mdx)
 
@@ -835,7 +837,7 @@ Creating objects in JavaScript offers several methods:
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-various-ways-to-create-objects-in-javascript) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-the-various-ways-to-create-objects-in-javascript?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-various-ways-to-create-objects-in-javascript/en-US.mdx)
 
@@ -878,7 +880,7 @@ Key points to remember:
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-a-closure-and-how-why-would-you-use-one) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-is-a-closure-and-how-why-would-you-use-one?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-a-closure-and-how-why-would-you-use-one/en-US.mdx)
 
@@ -892,15 +894,11 @@ A higher-order function is any function that takes one or more functions as argu
 
 Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `Array.prototype.map()`, which takes an array and a function as arguments. `Array.prototype.map()` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `Array.prototype.forEach()`, `Array.prototype.filter()`, and `Array.prototype.reduce()`. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Function.prototype.bind()` is an example that returns another function.
 
-Imagine a scenario where we have an array of names that we need to transform to uppercase.
+Imagine a scenario where we have an array of names that we need to transform to uppercase. The imperative way will be as such:
 
-```js
+```js live
 const names = ['irish', 'daisy', 'anna'];
-```
 
-The imperative way will be as such:
-
-```js
 function transformNamesToUppercase(names) {
   const results = [];
   for (let i = 0; i < names.length; i++) {
@@ -909,24 +907,26 @@ function transformNamesToUppercase(names) {
   return results;
 }
 
-transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
+console.log(transformNamesToUppercase(names)); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
 Using `Array.prototype.map(transformerFn)` makes the code shorter and more declarative.
 
-```js
+```js live
+const names = ['irish', 'daisy', 'anna'];
+
 function transformNamesToUppercase(names) {
   return names.map((name) => name.toUpperCase());
 }
 
-transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
+console.log(transformNamesToUppercase(names)); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
 <!-- Update here: /questions/what-is-the-definition-of-a-higher-order-function/en-US.mdx -->
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-the-definition-of-a-higher-order-function) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-is-the-definition-of-a-higher-order-function?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-definition-of-a-higher-order-function/en-US.mdx)
 
@@ -952,28 +952,47 @@ class Person {
 }
 ```
 
-For simple constructors, they look pretty similar. The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
+For simple constructors, they look pretty similar. The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do.
 
-```js
-// ES5 function constructor
-function Student(name, studentId) {
+```js live
+// ES5 inheritance
+// Superclass
+function Person1(name) {
+  this.name = name;
+}
+
+// Subclass
+function Student1(name, studentId) {
   // Call constructor of superclass to initialize superclass-derived members.
-  Person.call(this, name);
+  Person1.call(this, name);
 
   // Initialize subclass's own members.
   this.studentId = studentId;
 }
+Student1.prototype = Object.create(Person1.prototype);
+Student1.prototype.constructor = Student1;
 
-Student.prototype = Object.create(Person.prototype);
-Student.prototype.constructor = Student;
+const student1 = new Student1('John', 1234);
+console.log(student1.name, student1.studentId); // "John" 1234
 
-// ES2015 Class
-class Student extends Person {
+// ES2015 inheritance
+// Superclass
+class Person2 {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+// Subclass
+class Student2 extends Person2 {
   constructor(name, studentId) {
     super(name);
     this.studentId = studentId;
   }
 }
+
+const student2 = new Student2('Alice', 5678);
+console.log(student2.name, student2.studentId); // "Alice" 5678
 ```
 
 It's much more verbose to use inheritance in ES5 and the ES2015 version is easier to understand and remember.
@@ -993,7 +1012,7 @@ It's much more verbose to use inheritance in ES5 and the ES2015 version is easie
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-es6-class-and-es5-function-constructors) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-the-differences-between-es6-class-and-es5-function-constructors?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-differences-between-es6-class-and-es5-function-constructors/en-US.mdx)
 
@@ -1011,7 +1030,7 @@ Event bubbling is essential for event delegation, where a single event handler m
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/describe-event-bubbling) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/describe-event-bubbling?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-event-bubbling/en-US.mdx)
 
@@ -1029,7 +1048,7 @@ Event capturing is rarely used as compared to event bubbling, but it can be used
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/describe-event-capturing) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/describe-event-capturing?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/describe-event-capturing/en-US.mdx)
 
@@ -1054,7 +1073,7 @@ The main difference lies in the bubbling behavior of `mouseenter` and `mouseover
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-the-difference-between-mouseenter-and-mouseover-event) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-is-the-difference-between-mouseenter-and-mouseover-event?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-mouseenter-and-mouseover-event/en-US.mdx)
 
@@ -1088,7 +1107,7 @@ Overall, the benefits outweigh the disadvantages and there is not really a need 
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it/en-US.mdx)
 
@@ -1100,7 +1119,7 @@ Overall, the benefits outweigh the disadvantages and there is not really a need 
 
 Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. As a result, programs containing only synchronous code are evaluated exactly in order of the statements. The execution of the program is paused if one of the statements take a very long time.
 
-```js
+```js live
 function sum(a, b) {
   console.log('Inside sum function');
   return a + b;
@@ -1141,7 +1160,7 @@ console.log('Call made to fetch data'); // Output: This will be printed first
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-the-difference-between-synchronous-and-asynchronous-functions) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/explain-the-difference-between-synchronous-and-asynchronous-functions?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx)
 
@@ -1157,7 +1176,7 @@ Promises offer a cleaner alternative to callbacks, helping to avoid callback hel
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks/en-US.mdx)
 
@@ -1204,7 +1223,7 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-ajax-in-as-much-detail-as-possible) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/explain-ajax-in-as-much-detail-as-possible?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-ajax-in-as-much-detail-as-possible/en-US.mdx)
 
@@ -1233,7 +1252,7 @@ AJAX (Asynchronous JavaScript and XML) is a technique in JavaScript that allows 
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-advantages-and-disadvantages-of-using-ajax/en-US.mdx)
 
@@ -1259,7 +1278,7 @@ These days `fetch()` is preferred for its cleaner syntax and modern features.
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-xmlhttprequest-and-fetch) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-the-differences-between-xmlhttprequest-and-fetch?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-differences-between-xmlhttprequest-and-fetch/en-US.mdx)
 
@@ -1301,7 +1320,7 @@ Aborting web requests is useful for:
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/how-do-you-abort-a-web-request-using-abortcontrollers) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/how-do-you-abort-a-web-request-using-abortcontrollers?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-do-you-abort-a-web-request-using-abortcontrollers/en-US.mdx)
 
@@ -1340,7 +1359,7 @@ Libraries and services for polyfills:
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-javascript-polyfills-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-javascript-polyfills-for?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-javascript-polyfills-for/en-US.mdx)
 
@@ -1358,7 +1377,7 @@ The only time you may want to extend a native object is when you want to create 
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/why-is-extending-built-in-javascript-objects-not-a-good-idea) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/why-is-extending-built-in-javascript-objects-not-a-good-idea?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/en-US.mdx)
 
@@ -1388,7 +1407,7 @@ Follow these best practices to avoid global scope pollution:
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it/en-US.mdx)
 
@@ -1440,7 +1459,7 @@ console.log(value); // 42
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-the-differences-between-commonjs-modules-and-es-modules) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/explain-the-differences-between-commonjs-modules-and-es-modules?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-differences-between-commonjs-modules-and-es-modules/en-US.mdx)
 
@@ -1478,7 +1497,7 @@ The primitive types store a single value, while non-primitive types can store co
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-various-data-types-in-javascript) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-the-various-data-types-in-javascript?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-various-data-types-in-javascript/en-US.mdx)
 
@@ -1494,7 +1513,7 @@ There are multiple ways to iterate over object properties as well as arrays in J
 
 The `for...in` loop iterates over all enumerable properties of an object, including inherited enumerable properties. So it is important to have a check if you only want to iterate over object's own properties
 
-```js
+```js live
 const obj = {
   a: 1,
   b: 2,
@@ -1513,7 +1532,7 @@ for (const key in obj) {
 
 `Object.keys()` returns an array of the object's own enumerable property names. You can then use a for...of loop or forEach to iterate over this array.
 
-```js
+```js live
 const obj = {
   a: 1,
   b: 2,
@@ -1529,7 +1548,7 @@ Most common ways to iterate over array are using `for` loop and `Array.prototype
 
 **Using `for` loop**
 
-```js
+```js live
 let array = [1, 2, 3, 4, 5, 6];
 for (let index = 0; index < array.length; index++) {
   console.log(array[index]);
@@ -1538,7 +1557,7 @@ for (let index = 0; index < array.length; index++) {
 
 **Using `Array.prototype.forEach` method**
 
-```js
+```js live
 let array = [1, 2, 3, 4, 5, 6];
 array.forEach((number, index) => {
   console.log(`${number} at index ${index}`);
@@ -1549,7 +1568,7 @@ array.forEach((number, index) => {
 
 This method is the newest and most convenient way to iterate over arrays. It automatically iterates over each element without requiring you to manage the index.
 
-```js
+```js live
 const numbers = [1, 2, 3, 4, 5];
 
 for (const number of numbers) {
@@ -1567,7 +1586,7 @@ There are also other inbuilt methods available which are suitable for specific s
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items/en-US.mdx)
 
@@ -1588,7 +1607,7 @@ There are also other inbuilt methods available which are suitable for specific s
 
 **Rest syntax** is the opposite of what spread syntax does. It collects a variable number of arguments into an array. This is often used in function parameters to handle a dynamic number of arguments.
 
-```js
+```js live
 // Using rest syntax in a function
 function sum(...numbers) {
   return numbers.reduce((total, num) => total + num, 0);
@@ -1601,7 +1620,7 @@ console.log(sum(1, 2, 3)); // Output: 6
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/en-US.mdx)
 
@@ -1672,7 +1691,7 @@ Generators are powerful for creating iterators on-demand, especially for infinit
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-iterators-and-generators-and-what-are-they-used-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-iterators-and-generators-and-what-are-they-used-for?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-iterators-and-generators-and-what-are-they-used-for/en-US.mdx)
 
@@ -1718,7 +1737,7 @@ The key difference between mutable and immutable objects is modifiability. Immut
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/explain-the-difference-between-mutable-and-immutable-objects) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/explain-the-difference-between-mutable-and-immutable-objects?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/explain-the-difference-between-mutable-and-immutable-objects/en-US.mdx)
 
@@ -1744,7 +1763,7 @@ Both `Map` objects and plain objects in JavaScript can store key-value pairs, bu
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript/en-US.mdx)
 
@@ -1791,7 +1810,7 @@ On the other hand, `WeakSet` only allows objects as elements, and these object e
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-the-differences-between-map-set-and-weakmap-weakset) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-the-differences-between-map-set-and-weakmap-weakset?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-the-differences-between-map-set-and-weakmap-weakset/en-US.mdx)
 
@@ -1824,7 +1843,7 @@ Static members are useful under the following scenarios:
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/why-you-might-want-to-create-static-class-members) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/why-you-might-want-to-create-static-class-members?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/why-you-might-want-to-create-static-class-members/en-US.mdx)
 
@@ -1856,7 +1875,7 @@ console.log(obj[sym]); // "value"
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-symbols-used-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-symbols-used-for?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-symbols-used-for/en-US.mdx)
 
@@ -1933,7 +1952,7 @@ In this example, the server sends a "Hello from server" message initially, and t
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-server-sent-events) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-server-sent-events?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-server-sent-events/en-US.mdx)
 
@@ -1968,7 +1987,7 @@ The use cases of property descriptors are as follows:
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-javascript-object-property-flags-and-descriptors) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-javascript-object-property-flags-and-descriptors?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx)
 
@@ -2017,7 +2036,7 @@ console.log(person.name); // Output: 'Jane Smith'
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-javascript-object-getters-and-setters-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-javascript-object-getters-and-setters-for?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx)
 
@@ -2049,8 +2068,8 @@ const proxiedObject = new Proxy(myObject, handler);
 console.log(proxiedObject.name); // 'John'
 // Someone accessed property "name"
 
-console.log(proxiedObject.value); // 42
-// Someone accessed property "value"
+console.log(proxiedObject.age); // 42
+// Someone accessed property "age"
 ```
 
 Use cases include:
@@ -2068,7 +2087,7 @@ Use cases include:
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-proxies-in-javascript-used-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-proxies-in-javascript-used-for?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-proxies-in-javascript-used-for/en-US.mdx)
 
@@ -2102,7 +2121,7 @@ Some of the most commonly used tools and techniques for debugging JavaScript:
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-tools-and-techniques-do-you-use-for-debugging-javascript-code) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-tools-and-techniques-do-you-use-for-debugging-javascript-code?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-tools-and-techniques-do-you-use-for-debugging-javascript-code/en-US.mdx)
 
@@ -2138,7 +2157,7 @@ There are three main types of workers in JavaScript:
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/what-are-workers-in-javascript-used-for) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/what-are-workers-in-javascript-used-for?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/what-are-workers-in-javascript-used-for/en-US.mdx)
 
@@ -2169,7 +2188,7 @@ Different JavaScript engines (differs according to browsers) implement different
 
 <br>
     
-> Read the [detailed answer](https://greatfrontend.com/questions/quiz/how-does-javascript-garbage-collection-work) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](https://www.greatfrontend.com/questions/quiz/how-does-javascript-garbage-collection-work?language=js&tab=quiz) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
 
 [Back to top ↑](#table-of-contents-top-questions) &nbsp;&nbsp;/&nbsp;&nbsp; [✏️ Edit answer](https://github.com/yangshun/top-javascript-interview-questions/edit/main/questions/how-does-javascript-garbage-collection-work/en-US.mdx)
 
@@ -2322,9 +2341,9 @@ Template literals are a feature in JavaScript that allow for easier string inter
 
 Example:
 
-```js
-const name = 'John';
-const greeting = `Hello, ${name}!`;
+```js live
+const myName = 'John';
+const greeting = `Hello, ${myName}!`;
 console.log(greeting); // Output: Hello, John!
 ```
 
@@ -2365,14 +2384,16 @@ console.log(result); // "Hello world! How are you?"
 
 The spread operator, represented by three dots (`...`), is used in JavaScript to expand iterable objects like arrays or strings into individual elements. It can also be used to spread object properties. For example, you can use it to combine arrays, copy arrays, or pass array elements as arguments to a function.
 
-```js
+```js live
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
-const combined = [...arr1, ...arr2]; // [1, 2, 3, 4, 5, 6]
+const combined = [...arr1, ...arr2];
+console.log(combined); // [1, 2, 3, 4, 5, 6]
 
 const obj1 = { a: 1, b: 2 };
 const obj2 = { c: 3, d: 4 };
-const combinedObj = { ...obj1, ...obj2 }; // { a: 1, b: 2, c: 3, d: 4 }
+const combinedObj = { ...obj1, ...obj2 };
+console.log(combinedObj); // { a: 1, b: 2, c: 3, d: 4 }
 ```
 
 <!-- Update here: /questions/what-is-the-spread-operator-and-how-is-it-used/en-US.mdx -->
@@ -2439,8 +2460,8 @@ const proxiedObject = new Proxy(myObject, handler);
 console.log(proxiedObject.name); // 'John'
 // Someone accessed property "name"
 
-console.log(proxiedObject.value); // 42
-// Someone accessed property "value"
+console.log(proxiedObject.age); // 42
+// Someone accessed property "age"
 ```
 
 Use cases include:
@@ -2565,16 +2586,17 @@ let b = 10;
 
 To avoid problems related to hoisting, always declare variables at the top of their scope using `let` or `const` instead of `var`. This ensures that variables are block-scoped and not hoisted to the top of their containing function or global scope. Additionally, declare functions before they are called to avoid issues with function hoisting.
 
-```js
+```js live
 // Use let or const
 let x = 10;
 const y = 20;
+console.log(x, y); // Output: 10 20
 
 // Declare functions before calling them
 function myFunction() {
   console.log('Hello, world!');
 }
-myFunction();
+myFunction(); // Output: 'Hello, world!'
 ```
 
 <!-- Update here: /questions/how-can-you-avoid-problems-related-to-hoisting/en-US.mdx -->
@@ -2615,7 +2637,7 @@ There are multiple ways to iterate over object properties as well as arrays in J
 
 The `for...in` loop iterates over all enumerable properties of an object, including inherited enumerable properties. So it is important to have a check if you only want to iterate over object's own properties
 
-```js
+```js live
 const obj = {
   a: 1,
   b: 2,
@@ -2634,7 +2656,7 @@ for (const key in obj) {
 
 `Object.keys()` returns an array of the object's own enumerable property names. You can then use a for...of loop or forEach to iterate over this array.
 
-```js
+```js live
 const obj = {
   a: 1,
   b: 2,
@@ -2650,7 +2672,7 @@ Most common ways to iterate over array are using `for` loop and `Array.prototype
 
 **Using `for` loop**
 
-```js
+```js live
 let array = [1, 2, 3, 4, 5, 6];
 for (let index = 0; index < array.length; index++) {
   console.log(array[index]);
@@ -2659,7 +2681,7 @@ for (let index = 0; index < array.length; index++) {
 
 **Using `Array.prototype.forEach` method**
 
-```js
+```js live
 let array = [1, 2, 3, 4, 5, 6];
 array.forEach((number, index) => {
   console.log(`${number} at index ${index}`);
@@ -2670,7 +2692,7 @@ array.forEach((number, index) => {
 
 This method is the newest and most convenient way to iterate over arrays. It automatically iterates over each element without requiring you to manage the index.
 
-```js
+```js live
 const numbers = [1, 2, 3, 4, 5];
 
 for (const number of numbers) {
@@ -2698,7 +2720,7 @@ There are also other inbuilt methods available which are suitable for specific s
 
 The `break` statement is used to exit a loop or switch statement prematurely, while the `continue` statement skips the current iteration of a loop and proceeds to the next iteration. For example, in a `for` loop, `break` will stop the loop entirely, and `continue` will skip to the next iteration.
 
-```js
+```js live
 for (let i = 0; i < 10; i++) {
   if (i === 5) break; // exits the loop when i is 5
   console.log(i);
@@ -2738,7 +2760,7 @@ The ternary operator is a shorthand for an `if-else` statement in JavaScript. It
 
 To access the index of an element in an array during iteration, you can use methods like `forEach`, `map`, `for...of` with `entries`, or a traditional `for` loop. For example, using `forEach`:
 
-```js
+```js live
 const array = ['a', 'b', 'c'];
 array.forEach((element, index) => {
   console.log(index, element);
@@ -2786,7 +2808,7 @@ switch (expression) {
 
 Rest parameters in JavaScript allow a function to accept an indefinite number of arguments as an array. They are denoted by three dots (`...`) followed by the name of the array. This feature is useful for functions that need to handle multiple arguments without knowing the exact number in advance.
 
-```js
+```js live
 function sum(...numbers) {
   return numbers.reduce((acc, curr) => acc + curr, 0);
 }
@@ -2808,22 +2830,26 @@ console.log(sum(1, 2, 3, 4)); // Output: 10
 
 The spread operator (`...`) in JavaScript allows you to expand elements of an iterable (like an array or object) into individual elements. It is commonly used for copying arrays or objects, merging arrays or objects, and passing elements of an array as arguments to a function.
 
-```js
+```js live
 // Copying an array
 const arr1 = [1, 2, 3];
 const arr2 = [...arr1];
+console.log(arr2); // Output: [1, 2, 3]
 
 // Merging arrays
 const arr3 = [4, 5, 6];
 const mergedArray = [...arr1, ...arr3];
+console.log(mergedArray); // Output: [1, 2, 3, 4, 5, 6]
 
 // Copying an object
 const obj1 = { a: 1, b: 2 };
 const obj2 = { ...obj1 };
+console.log(obj2); // Output: { a: 1, b: 2 }
 
 // Merging objects
 const obj3 = { c: 3, d: 4 };
 const mergedObject = { ...obj1, ...obj3 };
+console.log(mergedObject); // Output: { a: 1, b: 2, c: 3, d: 4 }
 
 // Passing array elements as function arguments
 const sum = (x, y, z) => x + y + z;
@@ -2854,7 +2880,7 @@ console.log(sum(...numbers)); // Output: 6
 
 **Rest syntax** is the opposite of what spread syntax does. It collects a variable number of arguments into an array. This is often used in function parameters to handle a dynamic number of arguments.
 
-```js
+```js live
 // Using rest syntax in a function
 function sum(...numbers) {
   return numbers.reduce((total, num) => total + num, 0);
@@ -2950,7 +2976,7 @@ If you try to invoke a function expression before it is declared, you will get a
 
 Function declarations can be called in the enclosing scope even before they are declared.
 
-```js
+```js live
 foo(); // 'FOOOOO'
 function foo() {
   console.log('FOOOOO');
@@ -2959,7 +2985,7 @@ function foo() {
 
 Function expressions if called before they are declared will result in an error.
 
-```js
+```js live
 foo(); // Uncaught TypeError: foo is not a function
 var foo = function () {
   console.log('FOOOOO');
@@ -2968,11 +2994,13 @@ var foo = function () {
 
 Another key difference is in the scope of the function name. Function expressions can be named by defining it after the `function` and before the parenthesis. However when using named function expressions, the function name is only accessible within the function itself. Trying to access it outside will result in an error or `undefined`.
 
-```js
+```js live
 const myFunc = function namedFunc() {
   console.log(namedFunc); // Works
 };
-console.log(namedFunc); // undefined
+
+myFunc(); // Runs the function and logs the function reference
+console.log(namedFunc); // ReferenceError: namedFunc is not defined
 ```
 
 **Note**: The examples uses `var` due to legacy reasons. Function expressions can be defined using `let` and `const` and the key difference is in the hoisting behavior of those keywords.
@@ -3005,7 +3033,7 @@ A parameter is a variable in the declaration of a function, while an argument is
 
 Hoisting in JavaScript is a behavior where function declarations are moved to the top of their containing scope during the compile phase. This means you can call a function before it is defined in the code. However, this does not apply to function expressions or arrow functions, which are not hoisted in the same way.
 
-```js
+```js live
 // Function declaration
 hoistedFunction(); // Works fine
 function hoistedFunction() {
@@ -3038,7 +3066,7 @@ var nonHoistedFunction = function () {
 
 Assuming we have a function `add`, the function can be invoked using `.call` and `.apply` in the following manner:
 
-```js
+```js live
 function add(a, b) {
   return a + b;
 }
@@ -3061,7 +3089,7 @@ console.log(add.apply(null, [1, 2])); // 3
 
 Arrow functions provide a concise syntax for writing functions in JavaScript. They are particularly useful for maintaining the `this` context within methods and callbacks. For example, in an event handler or array method like `map`, arrow functions can simplify the code and avoid issues with `this` binding.
 
-```javascript
+```js live
 const numbers = [1, 2, 3];
 const doubled = numbers.map((n) => n * 2);
 console.log(doubled); // [2, 4, 6]
@@ -3106,15 +3134,11 @@ A higher-order function is any function that takes one or more functions as argu
 
 Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `Array.prototype.map()`, which takes an array and a function as arguments. `Array.prototype.map()` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `Array.prototype.forEach()`, `Array.prototype.filter()`, and `Array.prototype.reduce()`. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Function.prototype.bind()` is an example that returns another function.
 
-Imagine a scenario where we have an array of names that we need to transform to uppercase.
+Imagine a scenario where we have an array of names that we need to transform to uppercase. The imperative way will be as such:
 
-```js
+```js live
 const names = ['irish', 'daisy', 'anna'];
-```
 
-The imperative way will be as such:
-
-```js
 function transformNamesToUppercase(names) {
   const results = [];
   for (let i = 0; i < names.length; i++) {
@@ -3123,17 +3147,19 @@ function transformNamesToUppercase(names) {
   return results;
 }
 
-transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
+console.log(transformNamesToUppercase(names)); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
 Using `Array.prototype.map(transformerFn)` makes the code shorter and more declarative.
 
-```js
+```js live
+const names = ['irish', 'daisy', 'anna'];
+
 function transformNamesToUppercase(names) {
   return names.map((name) => name.toUpperCase());
 }
 
-transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
+console.log(transformNamesToUppercase(names)); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
 <!-- Update here: /questions/what-is-the-definition-of-a-higher-order-function/en-US.mdx -->
@@ -3150,12 +3176,11 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action. They are commonly used for asynchronous operations like handling events, making API calls, or reading files. For example:
 
-```js
+```js live
 function fetchData(callback) {
-  setTimeout(() => {
-    const data = { name: 'John Doe' };
-    callback(data);
-  }, 1000);
+  // assume an asynchronous operation to fetch data
+  const data = { name: 'John Doe' };
+  callback(data);
 }
 
 function handleData(data) {
@@ -3219,13 +3244,15 @@ console.log(double); // [2, 4, 6]
 
 Recursion is a programming technique where a function calls itself to solve a problem. In JavaScript, recursion is used to solve problems that can be broken down into smaller, similar sub-problems. A base case is essential to stop the recursive calls and prevent infinite loops. For example, calculating the factorial of a number can be done using recursion:
 
-```js
+```js live
 function factorial(n) {
   if (n === 0) {
     return 1;
   }
   return n * factorial(n - 1);
 }
+
+console.log(factorial(4)); // Output: 24
 ```
 
 <!-- Update here: /questions/what-is-recursion-and-how-is-it-used-in-javascript/en-US.mdx -->
@@ -3242,7 +3269,7 @@ function factorial(n) {
 
 Default parameters in JavaScript allow you to set default values for function parameters if no value or `undefined` is passed. This helps avoid `undefined` values and makes your code more robust. You can define default parameters by assigning a value to the parameter in the function definition.
 
-```js
+```js live
 function greet(name = 'Guest') {
   console.log(`Hello, ${name}!`);
 }
@@ -3299,7 +3326,7 @@ Creating objects in JavaScript offers several methods:
 
 Dot notation and bracket notation are two ways to access properties of an object in JavaScript. Dot notation is more concise and readable but can only be used with valid JavaScript identifiers. Bracket notation is more flexible and can be used with property names that are not valid identifiers, such as those containing spaces or special characters.
 
-```js
+```js live
 const obj = { name: 'Alice', 'favorite color': 'blue' };
 
 // Dot notation
@@ -3337,7 +3364,7 @@ There are several methods to iterate over an array in JavaScript. The most commo
 
 To add elements to an array, you can use methods like `push`, `unshift`, or `splice`. To remove elements, you can use `pop`, `shift`, or `splice`. To update elements, you can directly access the array index and assign a new value.
 
-```js
+```js live
 let arr = [1, 2, 3];
 
 // Add elements
@@ -3352,7 +3379,10 @@ arr.splice(1, 1); // [1, 2, 3]
 
 // Update elements
 arr[1] = 5; // [1, 5, 3]
+console.log(arr); // Final state: [1, 5, 3]
 ```
+
+**Note**: If you try to `console.log(arr)` after each operation in some environments (like Chrome DevTools), you may only see the final state of `arr`. This happens because the console sometimes keeps a live reference to the array instead of logging its state at the exact moment. To see intermediate states properly, store snapshots using `console.log([...arr])` or print values immediately after each operation.
 
 <!-- Update here: /questions/how-do-you-add-remove-and-update-elements-in-an-array/en-US.mdx -->
 
@@ -3368,17 +3398,20 @@ arr[1] = 5; // [1, 5, 3]
 
 To copy an object or an array in JavaScript, you can use several methods. For shallow copies, you can use the spread operator (`...`) or `Object.assign()`. For deep copies, you can use `JSON.parse(JSON.stringify())` or libraries like Lodash's `_.cloneDeep()`.
 
-```js
+```js live
 // Shallow copy of an array
 const originalArray = [1, 2, 3];
 const shallowCopyArray = [...originalArray];
+console.log(shallowCopyArray); // [1, 2, 3]
 
 // Shallow copy of an object
 const originalObject = { a: 1, b: 2 };
 const shallowCopyObject = { ...originalObject };
+console.log(shallowCopyObject); // { a: 1, b: 2 };
 
 // Deep copy using JSON methods
 const deepCopyObject = JSON.parse(JSON.stringify(originalObject));
+console.log(deepCopyObject); // { a: 1, b: 2 };
 ```
 
 <!-- Update here: /questions/what-are-the-different-ways-to-copy-an-object-or-an-array/en-US.mdx -->
@@ -3395,17 +3428,20 @@ const deepCopyObject = JSON.parse(JSON.stringify(originalObject));
 
 A shallow copy duplicates the top-level properties of an object, but nested objects are still referenced. A deep copy duplicates all levels of an object, creating entirely new instances of nested objects. For example, using `Object.assign()` creates a shallow copy, while using libraries like `Lodash` or `structuredClone()` in modern JavaScript can create deep copies.
 
-```js
+```js live
 // Shallow copy example
 let obj1 = { a: 1, b: { c: 2 } };
 let shallowCopy = Object.assign({}, obj1);
 shallowCopy.b.c = 3;
-console.log(obj1.b.c); // Outputs: 3
+console.log(shallowCopy.b.c); // Output: 3
+console.log(obj1.b.c); // Output: 3 (original nested object changed too!)
 
 // Deep copy example
-let deepCopy = JSON.parse(JSON.stringify(obj1));
+let obj2 = { a: 1, b: { c: 2 } };
+let deepCopy = JSON.parse(JSON.stringify(obj2));
 deepCopy.b.c = 4;
-console.log(obj1.b.c); // Outputs: 2
+console.log(deepCopy.b.c); // Output: 4
+console.log(obj2.b.c); // Output: 2 (original nested object remains unchanged)
 ```
 
 <!-- Update here: /questions/explain-the-difference-between-shallow-copy-and-deep-copy/en-US.mdx -->
@@ -3422,14 +3458,16 @@ console.log(obj1.b.c); // Outputs: 2
 
 The spread operator (`...`) in JavaScript allows you to easily copy arrays and objects, merge them, and add new elements or properties. It simplifies syntax and improves readability. For arrays, it can be used to concatenate or clone arrays. For objects, it can be used to merge objects or add new properties.
 
-```js
+```js live
 // Arrays
 const arr1 = [1, 2, 3];
-const arr2 = [...arr1, 4, 5]; // [1, 2, 3, 4, 5]
+const arr2 = [...arr1, 4, 5];
+console.log(arr2); // [1, 2, 3, 4, 5]
 
 // Objects
 const obj1 = { a: 1, b: 2 };
-const obj2 = { ...obj1, c: 3 }; // { a: 1, b: 2, c: 3 }
+const obj2 = { ...obj1, c: 3 };
+console.log(obj2); // { a: 1, b: 2, c: 3 }
 ```
 
 <!-- Update here: /questions/what-are-the-advantages-of-using-the-spread-operator-with-arrays-and-objects/en-US.mdx -->
@@ -3446,7 +3484,7 @@ const obj2 = { ...obj1, c: 3 }; // { a: 1, b: 2, c: 3 }
 
 To check if an object has a specific property, you can use the `in` operator or the `hasOwnProperty` method. The `in` operator checks for both own and inherited properties, while `hasOwnProperty` checks only for own properties.
 
-```js
+```js live
 const obj = { key: 'value' };
 
 // Using the `in` operator
@@ -3518,7 +3556,7 @@ The key difference between mutable and immutable objects is modifiability. Immut
 
 Destructuring assignment is a syntax in JavaScript that allows you to unpack values from arrays or properties from objects into distinct variables. For arrays, you use square brackets, and for objects, you use curly braces. For example:
 
-```js
+```js live
 // Array destructuring
 const [a, b] = [1, 2];
 
@@ -3685,7 +3723,7 @@ The use cases of property descriptors are as follows:
 
 To reliably determine whether an object is empty, you can use `Object.keys()` to check if the object has any enumerable properties. If the length of the array returned by `Object.keys()` is zero, the object is empty.
 
-```js
+```js live
 const isEmpty = (obj) => Object.keys(obj).length === 0;
 
 const obj = {};
@@ -3738,7 +3776,7 @@ We recommend watching [Lydia's video](https://www.youtube.com/watch?v=eiC58R16hb
 
 Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. As a result, programs containing only synchronous code are evaluated exactly in order of the statements. The execution of the program is paused if one of the statements take a very long time.
 
-```js
+```js live
 function sum(a, b) {
   console.log('Inside sum function');
   return a + b;
@@ -3819,18 +3857,21 @@ Promises in JavaScript are objects that represent the eventual completion (or fa
 ```js
 let promise = new Promise((resolve, reject) => {
   // asynchronous operation
-  if (/* operation successful */) {
+  const success = true;
+  if (success) {
     resolve('Success!');
   } else {
     reject('Error!');
   }
 });
 
-promise.then(result => {
-  console.log(result); // 'Success!'
-}).catch(error => {
-  console.error(error); // 'Error!'
-});
+promise
+  .then((result) => {
+    console.log(result); // 'Success!' (this will print)
+  })
+  .catch((error) => {
+    console.error(error); // 'Error!'
+  });
 ```
 
 <!-- Update here: /questions/what-are-promises-and-how-do-they-work/en-US.mdx -->
@@ -4029,7 +4070,7 @@ This behavior simulates classical inheritance, but it is really more of [delegat
 
 Here's an example of prototypal inheritance:
 
-```js
+```js live
 // Parent object constructor.
 function Animal(name) {
   this.name = name;
@@ -4124,7 +4165,7 @@ Classical inheritance is a model where classes inherit from other classes, typic
 
 Inheritance in ES2015 classes allows one class to extend another, enabling the child class to inherit properties and methods from the parent class. This is done using the `extends` keyword. The `super` keyword is used to call the constructor and methods of the parent class. Here's a quick example:
 
-```js
+```js live
 class Animal {
   constructor(name) {
     this.name = name;
@@ -4164,7 +4205,7 @@ dog.speak(); // Rex barks.
 
 The `new` keyword in JavaScript is used to create an instance of a user-defined object type or one of the built-in object types that has a constructor function. When you use `new`, it does four things: it creates a new object, sets the prototype, binds `this` to the new object, and returns the new object.
 
-```js
+```js live
 function Person(name) {
   this.name = name;
 }
@@ -4187,13 +4228,14 @@ console.log(person1.name); // Alice
 
 To create a constructor function in JavaScript, define a regular function with a capitalized name to indicate it's a constructor. Use the `this` keyword to set properties and methods. When creating an instance, use the `new` keyword.
 
-```js
+```js live
 function Person(name, age) {
   this.name = name;
   this.age = age;
 }
 
 const john = new Person('John', 30);
+console.log(john.age); // 30
 ```
 
 <!-- Update here: /questions/how-do-you-create-a-constructor-function/en-US.mdx -->
@@ -4224,28 +4266,47 @@ class Person {
 }
 ```
 
-For simple constructors, they look pretty similar. The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
+For simple constructors, they look pretty similar. The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do.
 
-```js
-// ES5 function constructor
-function Student(name, studentId) {
+```js live
+// ES5 inheritance
+// Superclass
+function Person1(name) {
+  this.name = name;
+}
+
+// Subclass
+function Student1(name, studentId) {
   // Call constructor of superclass to initialize superclass-derived members.
-  Person.call(this, name);
+  Person1.call(this, name);
 
   // Initialize subclass's own members.
   this.studentId = studentId;
 }
+Student1.prototype = Object.create(Person1.prototype);
+Student1.prototype.constructor = Student1;
 
-Student.prototype = Object.create(Person.prototype);
-Student.prototype.constructor = Student;
+const student1 = new Student1('John', 1234);
+console.log(student1.name, student1.studentId); // "John" 1234
 
-// ES2015 Class
-class Student extends Person {
+// ES2015 inheritance
+// Superclass
+class Person2 {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+// Subclass
+class Student2 extends Person2 {
   constructor(name, studentId) {
     super(name);
     this.studentId = studentId;
   }
 }
+
+const student2 = new Student2('Alice', 5678);
+console.log(student2.name, student2.studentId); // "Alice" 5678
 ```
 
 It's much more verbose to use inheritance in ES5 and the ES2015 version is easier to understand and remember.
@@ -4277,7 +4338,7 @@ The main advantage of using an arrow function as a method inside a constructor i
 
 For example, let's say we have a `Person` constructor that takes a first name as an argument has two methods to `console.log()` that name, one as a regular function and one as an arrow function:
 
-```js
+```js live
 const Person = function (name) {
   this.name = name;
   this.sayName1 = function () {
@@ -4399,7 +4460,7 @@ Key points to remember:
 
 Lexical scoping means that the scope of a variable is determined by its location within the source code, and nested functions have access to variables declared in their outer scope. For example:
 
-```js
+```js live
 function outerFunction() {
   let outerVariable = 'I am outside!';
 
@@ -4429,25 +4490,33 @@ In this example, `innerFunction` can access `outerVariable` because of lexical s
 
 In JavaScript, scope determines the accessibility of variables and functions at different parts of the code. There are three main types of scope: global scope, function scope, and block scope. Global scope means the variable is accessible everywhere in the code. Function scope means the variable is accessible only within the function it is declared. Block scope, introduced with ES6, means the variable is accessible only within the block (e.g., within curly braces `{}`) it is declared.
 
-```js
-// Global scope
-var globalVar = 'I am global';
+```js live
+var globalVar = 'I am a global var';
 
 function myFunction() {
-  // Function scope
-  var functionVar = 'I am in a function';
+  var functionVar = 'I am a function-scoped var';
 
   if (true) {
-    // Block scope
-    let blockVar = 'I am in a block';
-    console.log(blockVar); // Accessible here
+    let blockVar = 'I am a block-scoped var';
+
+    console.log('Inside block:');
+    console.log(globalVar); // Accessible
+    console.log(functionVar); // Accessible
+    console.log(blockVar); // Accessible
   }
 
-  // console.log(blockVar); // Uncaught ReferenceError: blockVar is not defined
+  console.log('Inside function:');
+  console.log(globalVar); // Accessible
+  console.log(functionVar); // Accessible
+  // console.log(blockVar); // Uncaught ReferenceError
 }
 
-console.log(globalVar); // Accessible here
-// console.log(functionVar); // Uncaught ReferenceError: functionVar is not defined
+myFunction();
+
+console.log('In global scope:');
+console.log(globalVar); // Accessible
+// console.log(functionVar); // Uncaught ReferenceError
+// console.log(blockVar); // Uncaught ReferenceError
 ```
 
 <!-- Update here: /questions/explain-the-concept-of-scope-in-javascript/en-US.mdx -->
@@ -4464,7 +4533,7 @@ console.log(globalVar); // Accessible here
 
 Closures in JavaScript can be used to create private variables by defining a function within another function. The inner function has access to the outer function's variables, but those variables are not accessible from outside the outer function. This allows you to encapsulate and protect the variables from being accessed or modified directly.
 
-```js
+```js live
 function createCounter() {
   let count = 0; // private variable
 
@@ -4517,7 +4586,7 @@ Closures can lead to memory leaks if not managed properly, especially when they 
 
 Global scope means variables are accessible from anywhere in the code. Function scope means variables are accessible only within the function they are declared in. Block scope means variables are accessible only within the block (e.g., within `{}`) they are declared in.
 
-```js
+```js live
 var globalVar = "I'm global"; // Global scope
 
 function myFunction() {
@@ -4528,6 +4597,8 @@ function myFunction() {
   }
   // console.log(blockVar); // Uncaught ReferenceError: blockVar is not defined
 }
+// console.log(functionVar); // Uncaught ReferenceError: functionVar is not defined
+myFunction();
 ```
 
 <!-- Update here: /questions/explain-the-difference-between-global-scope-function-scope-and-block-scope/en-US.mdx -->

@@ -6,7 +6,7 @@ title: Explain the difference between synchronous and asynchronous functions in 
 
 Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. As a result, programs containing only synchronous code are evaluated exactly in order of the statements. The execution of the program is paused if one of the statements take a very long time.
 
-```js
+```js live
 function sum(a, b) {
   console.log('Inside sum function');
   return a + b;
@@ -70,7 +70,7 @@ Synchronous functions execute in a sequential order, one after the other. Each o
 
 2. **Looping over large datasets**: Iterating over a large array or dataset synchronously can freeze the user interface or browser tab until the operation completes, leading to an unresponsive application.
 
-   ```js
+   ```js live
    const largeArray = new Array(1_000_000).fill(0);
    // Blocks the main thread until the million operations are completed.
    const result = largeArray.map((num) => num * 2);

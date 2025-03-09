@@ -7,6 +7,7 @@ import util from 'util';
 import { QuestionFrontmatter, QuestionItem, QuestionMetadata } from './types';
 import { GITHUB_ORG, GITHUB_REPO } from './constants';
 import questionsAll from '../data/questions.json';
+import url from 'node:url';
 
 const README_PATH_EN = 'README.md';
 
@@ -52,7 +53,15 @@ async function processQuestion(
   return {
     locale,
     metadata,
-    href: `https://greatfrontend.com/questions/quiz/${metadata.slug}`,
+    href:
+      'https://www.greatfrontend.com' +
+      url.format({
+        pathname: `/questions/quiz/${metadata.slug}`,
+        query: {
+          language: 'js',
+          tab: 'quiz',
+        },
+      }),
     title,
     titleSlug: slug(title),
     content: tlDrPart

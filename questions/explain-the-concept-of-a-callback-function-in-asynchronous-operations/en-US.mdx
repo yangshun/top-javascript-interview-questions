@@ -32,7 +32,7 @@ A callback function is a function that is passed as an argument to another funct
 
 ### Example of a synchronous callback
 
-```js
+```js live
 function greet(name, callback) {
   console.log('Hello ' + name);
   callback();
@@ -76,13 +76,11 @@ fetchData((data) => {
 
 When dealing with asynchronous operations, it's important to handle errors properly. A common pattern is to use the first argument of the callback function to pass an error object, if any.
 
-```js
+```js live
 function fetchData(callback) {
-  setTimeout(() => {
-    const error = null;
-    const data = { name: 'John', age: 30 };
-    callback(error, data);
-  }, 1000);
+  // assume asynchronous operation to fetch data
+  const { data, error } = { data: { name: 'John', age: 30 }, error: null };
+  callback(error, data);
 }
 
 fetchData((error, data) => {

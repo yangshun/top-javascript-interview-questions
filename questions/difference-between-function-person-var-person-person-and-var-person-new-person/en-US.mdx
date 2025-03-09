@@ -33,12 +33,12 @@ This code defines a function named `Person` that takes a parameter `name` and as
 
 `const person = Person()` simply invoke the function's code. When you invoke `Person` as a regular function (i.e., without the `new` keyword), the function does not behave as a constructor. Instead, it executes its code and returns `undefined` if no return value is specified and that gets assigned to the variable intended as the instance. Invoking as such is a common mistake if the function is intended to be used as a constructor.
 
-```js
+```js live
 function Person(name) {
   this.name = name;
 }
 
-const person = Person('John');
+const person = Person('John'); // Throws error in strict mode
 console.log(person); // undefined
 console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of undefined
 ```
@@ -49,7 +49,7 @@ In this case, `Person('John')` does not create a new object. The `person` variab
 
 `const person = new Person()` creates an instance of the `Person` object using the new operator, which inherits from `Person.prototype`. An alternative would be to use `Object.create`, such as: `Object.create(Person.prototype)` and `Person.call(person, 'John')` initializes the object.
 
-```js
+```js live
 function Person(name) {
   this.name = name;
 }

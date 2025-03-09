@@ -15,7 +15,7 @@ title: What are the benefits of using spread syntax in JavaScript and how is it 
 
 **Rest syntax** is the opposite of what spread syntax does. It collects a variable number of arguments into an array. This is often used in function parameters to handle a dynamic number of arguments.
 
-```js
+```js live
 // Using rest syntax in a function
 function sum(...numbers) {
   return numbers.reduce((total, num) => total + num, 0);
@@ -34,7 +34,7 @@ ES2015's spread syntax is very useful when coding in a functional paradigm as we
 
 The spread syntax provides a concise way to create copies of arrays or objects without modifying the originals. This is useful for creating immutable data structures. However do note that arrays copied via the spread operator are shallowly-copied.
 
-```js
+```js live
 // Copying arrays
 const array = [1, 2, 3];
 const newArray = [...array];
@@ -50,7 +50,7 @@ console.log(newObj); // Output: { name: 'John', age: 30, city: 'New York' }
 
 The spread syntax allows you to merge arrays or objects by spreading their elements/properties into a new array or object.
 
-```js
+```js live
 // Merging arrays
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
@@ -74,9 +74,10 @@ console.log(mergedObj); // Output: { foo: "bar", qux: "baz" }
 
 Use the spread syntax to pass an array of values as individual arguments to a function, avoiding the need for `apply()`.
 
-```js
+```js live
 const numbers = [1, 2, 3];
-Math.max(...numbers); // Same as Math.max(1, 2, 3)
+const max = Math.max(...numbers); // Same as Math.max(1, 2, 3)
+console.log(max); // Output: 3
 ```
 
 ### Array vs object spreads
@@ -85,7 +86,7 @@ Only iterable values like `Array`s and `String`s can be spread in an array. Tryi
 
 Spreading object into array:
 
-```js
+```js live
 const person = {
   name: 'Todd',
   age: 29,
@@ -95,9 +96,10 @@ const array = [...person]; // Error: Uncaught TypeError: person is not iterable
 
 On the other hand, arrays can be spread into objects.
 
-```js
+```js live
 const array = [1, 2, 3];
-const obj = { ...array }; // { 0: 1, 1: 2, 2: 3 }
+const obj = { ...array };
+console.log(obj); // { 0: 1, 1: 2, 2: 3 }
 ```
 
 ## Rest syntax
@@ -108,7 +110,7 @@ The rest syntax (`...`) in JavaScript allows you to represent an indefinite numb
 
 The rest syntax can be used in function parameters to collect all remaining arguments into an array. This is particularly useful when you don't know how many arguments will be passed to the function.
 
-```js
+```js live
 function addFiveToABunchOfNumbers(...numbers) {
   return numbers.map((x) => x + 5);
 }
@@ -119,7 +121,7 @@ console.log(result); // Output: [9, 10, 11, 12, 13, 14, 15]
 
 Provides a cleaner syntax than using the `arguments` object, which is unsupported for arrow functions and represents **all** arguments whereas the usage of the rest syntax below allows `remaining` to represent the 3rd argument and beyond.
 
-```js
+```js live
 const [first, second, ...remaining] = [1, 2, 3, 4, 5];
 console.log(first); // Output: 1
 console.log(second); // Output: 2
@@ -128,9 +130,9 @@ console.log(remaining); // Output: [3, 4, 5]
 
 Note that the rest parameters must be at the end. The rest parameters gather all remaining arguments, so the following does not make sense and causes an error:
 
-```js
+```js live
 function addFiveToABunchOfNumbers(arg1, ...numbers, arg2) {
-  // Error: Uncaught Rest element must be last element.
+  // Error: Rest parameter must be last formal parameter.
 }
 ```
 
@@ -138,21 +140,27 @@ function addFiveToABunchOfNumbers(arg1, ...numbers, arg2) {
 
 The rest syntax can be used in array destructuring to collect the remaining elements into a new array.
 
-```js
-const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
+```js live
+const [a, b, ...rest] = [1, 2, 3, 4];
+console.log(a); // Output: 1
+console.log(b); // Output: 2
+console.log(rest); // Output: [3, 4]
 ```
 
 ### Object destructuring
 
 The rest syntax can be used in object destructuring to collect the remaining properties into a new object.
 
-```js
+```js live
 const { e, f, ...others } = {
   e: 1,
   f: 2,
   g: 3,
   h: 4,
-}; // e: 1, f: 2, others: { g: 3, h: 4 }
+};
+console.log(e); // Output: 1
+console.log(f); // Output: 2
+console.log(others); // Output: { g: 3, h: 4 }
 ```
 
 ## Further Reading

@@ -6,16 +6,17 @@ title: How can you avoid problems related to hoisting?
 
 To avoid problems related to hoisting, always declare variables at the top of their scope using `let` or `const` instead of `var`. This ensures that variables are block-scoped and not hoisted to the top of their containing function or global scope. Additionally, declare functions before they are called to avoid issues with function hoisting.
 
-```js
+```js live
 // Use let or const
 let x = 10;
 const y = 20;
+console.log(x, y); // Output: 10 20
 
 // Declare functions before calling them
 function myFunction() {
   console.log('Hello, world!');
 }
-myFunction();
+myFunction(); // Output: 'Hello, world!'
 ```
 
 ---
@@ -30,7 +31,11 @@ Hoisting is JavaScript's default behavior of moving declarations to the top of t
 
 `let` and `const` are block-scoped, meaning they are only accessible within the block they are defined. This prevents them from being hoisted to the top of the function or global scope, reducing the risk of unexpected behavior.
 
-```js
+```js live
+console.log(x); // undefined. (Hoisted but uninitialized, risk of unexpected behavior)
+console.log(y); // ReferenceError: Cannot access 'y' before initialization. (Not hoisted)
+console.log(z); // ReferenceError: Cannot access 'z' before initialization. (Not hoisted)
+
 // Avoid using var
 var x = 10; // Hoisted to the top of the function or global scope
 
@@ -43,7 +48,7 @@ const z = 30; // Block-scoped, not hoisted to the top
 
 To avoid confusion and potential errors, always declare your variables at the top of their scope. This makes it clear where the variables are coming from and ensures they are initialized before use.
 
-```js
+```js live
 function example() {
   let a = 1;
   const b = 2;
@@ -51,13 +56,14 @@ function example() {
   // Now use a and b
   console.log(a + b);
 }
+example();
 ```
 
 ### Declare functions before calling them
 
 Function declarations are hoisted, but function expressions are not. To avoid issues, always declare functions before calling them.
 
-```js
+```js live
 // Function declaration (hoisted)
 function myFunction() {
   console.log('Hello, world!');
@@ -75,10 +81,10 @@ anotherFunction(); // No issues here
 
 Using undeclared variables can lead to unexpected behavior due to hoisting. Always declare your variables before using them.
 
-```js
+```js live
 // Avoid this
 function badExample() {
-  x = 10; // x is not declared
+  x = 10; // ReferenceError in strict mode
   console.log(x);
 }
 
@@ -87,6 +93,9 @@ function goodExample() {
   let x = 10; // x is declared
   console.log(x);
 }
+
+goodExample();
+badExample();
 ```
 
 ## Further reading

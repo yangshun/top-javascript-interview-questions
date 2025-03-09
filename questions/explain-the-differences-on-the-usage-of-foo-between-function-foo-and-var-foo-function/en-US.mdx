@@ -10,7 +10,7 @@ If you try to invoke a function expression before it is declared, you will get a
 
 Function declarations can be called in the enclosing scope even before they are declared.
 
-```js
+```js live
 foo(); // 'FOOOOO'
 function foo() {
   console.log('FOOOOO');
@@ -19,7 +19,7 @@ function foo() {
 
 Function expressions if called before they are declared will result in an error.
 
-```js
+```js live
 foo(); // Uncaught TypeError: foo is not a function
 var foo = function () {
   console.log('FOOOOO');
@@ -28,11 +28,13 @@ var foo = function () {
 
 Another key difference is in the scope of the function name. Function expressions can be named by defining it after the `function` and before the parenthesis. However when using named function expressions, the function name is only accessible within the function itself. Trying to access it outside will result in an error or `undefined`.
 
-```js
+```js live
 const myFunc = function namedFunc() {
   console.log(namedFunc); // Works
 };
-console.log(namedFunc); // undefined
+
+myFunc(); // Runs the function and logs the function reference
+console.log(namedFunc); // ReferenceError: namedFunc is not defined
 ```
 
 **Note**: The examples uses `var` due to legacy reasons. Function expressions can be defined using `let` and `const` and the key difference is in the hoisting behavior of those keywords.
@@ -43,20 +45,22 @@ console.log(namedFunc); // undefined
 
 A function declaration is a statement that defines a function with a name. It is typically used to declare a function that can be called multiple times throughout the enclosing scope.
 
-```js
+```js live
 function foo() {
   console.log('FOOOOO');
 }
+foo(); // 'FOOOOO'
 ```
 
 ## Function expressions
 
 A function expression is an expression that defines a function and assigns it to a variable. It is often used when a function is needed only once or in a specific context.
 
-```js
+```js live
 var foo = function () {
   console.log('FOOOOO');
 };
+foo(); // 'FOOOOO'
 ```
 
 **Note**: The examples uses `var` due to legacy reasons. Function expressions can be defined using `let` and `const` and the key difference is in the hoisting behavior of those keywords.
@@ -69,7 +73,7 @@ The key difference is that function declarations have its body hoisted but the b
 
 Function declarations:
 
-```js
+```js live
 foo(); // 'FOOOOO'
 function foo() {
   console.log('FOOOOO');
@@ -78,7 +82,7 @@ function foo() {
 
 Function expressions:
 
-```js
+```js live
 foo(); // Uncaught TypeError: foo is not a function
 var foo = function () {
   console.log('FOOOOO');
@@ -89,11 +93,13 @@ var foo = function () {
 
 Function expressions can be named by defining it after the `function` and before the parenthesis. However when using named function expressions, the function name is only accessible within the function itself. Trying to access it outside will result in `undefined` and calling it will result in an error.
 
-```js
+```js live
 const myFunc = function namedFunc() {
   console.log(namedFunc); // Works
 };
-console.log(namedFunc); // undefined
+
+myFunc(); // Runs the function and logs the function reference
+console.log(namedFunc); // ReferenceError: namedFunc is not defined
 ```
 
 ## When to use each

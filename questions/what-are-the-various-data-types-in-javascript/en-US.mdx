@@ -38,73 +38,86 @@ JavaScript, like many programming languages, has a variety of data types to repr
 
 1. **Number**: Represents both integer and floating-point numbers. JavaScript only has one type of number.
 
-```js
+```js live
 let age = 25;
 let price = 99.99;
+console.log(price); // 99.99
 ```
 
 2. **String**: Represents sequences of characters. `Strings` can be enclosed in single quotes, double quotes, or backticks (for template literals).
 
-```js
-let name = 'John Doe';
+```js live
+let myName = 'John Doe';
 let greeting = 'Hello, world!';
-let message = `Welcome, ${name}!`;
+let message = `Welcome, ${myName}!`;
+console.log(message); // "Welcome, John Doe!"
 ```
 
 3. **Boolean**: Represents logical entities and can have two values: `true` or `false`.
 
-```js
+```js live
 let isActive = true;
 let isOver18 = false;
+console.log(isOver18); // false
 ```
 
 4. **Undefined**: A variable that has been declared but not assigned a value is of type `undefined`.
 
-```js
+```js live
 let user;
 console.log(user); // undefined
 ```
 
 5. **Null**: Represents the intentional absence of any object value. It is a primitive value and is treated as a falsy value.
 
-```js
+```js live
 let user = null;
+console.log(user); // null
+if (!user) {
+  console.log('user is a falsy value');
+}
 ```
 
 6. **Symbol**: A unique and immutable `primitive` value, typically used as the key of an object property.
 
-```js
+```js live
 let sym1 = Symbol();
 let sym2 = Symbol('description');
+console.log(sym1); // Symbol()
+console.log(sym2); // Symbol(description)
 ```
 
 7. **BigInt**: Used for representing integers with arbitrary precision, useful for working with very large numbers.
 
-```js
+```js live
 let bigNumber = BigInt(9007199254740991);
 let anotherBigNumber = 1234567890123456789012345678901234567890n;
+console.log(bigNumber); // 9007199254740991n
+console.log(anotherBigNumber); // 1234567890123456789012345678901234567890n
 ```
 
 ### Non-primitive (reference) data types
 
 1. **Object**: It is used to store collections of data and more complex entities. `Objects` are created using curly braces `{}`.
 
-```js
+```js live
 let person = {
   name: 'Alice',
   age: 30,
 };
+console.log(person); // {name: "Alice", age: 30}
 ```
 
 2. **Array**: A special type of object used for storing ordered collections of data. `Arrays` are created using square brackets `[]`.
 
-```js
+```js live
 let numbers = [1, 2, 3, 4, 5];
+console.log(numbers);
 ```
 
 3. **Function**: `Functions` in JavaScript are `objects`. They can be defined using function declarations or expressions.
 
-```js
+```js live
 function greet() {
   console.log('Hello!');
 }
@@ -112,40 +125,47 @@ function greet() {
 let add = function (a, b) {
   return a + b;
 };
+
+greet(); // "Hello!"
+console.log(add(2, 3)); // 5
 ```
 
 4. **Date**: Represents dates and times. The `Date` object is used to work with dates.
 
-```js
+```js live
 let today = new Date();
+console.log(today);
 ```
 
 5. **RegExp**: Represents regular expressions, which are patterns used to match character combinations in strings.
 
-```js
+```js live
 let pattern = /abc/;
+console.log(pattern);
 ```
 
 6. **Map**: A collection of keyed data items, similar to an `object` but allows keys of any type.
 
-```js
+```js live
 let map = new Map();
 map.set('key1', 'value1');
+console.log(map);
 ```
 
 7. **Set**: A collection of unique values.
 
-```js
+```js live
 let set = new Set();
 set.add(1);
 set.add(2);
+console.log(set);
 ```
 
 ## Determining data types
 
 JavaScript is a dynamically-typed language, which means variables can hold values of different data types over time. The `typeof` operator can be used to determine the data type of a value or variable.
 
-```js
+```js live
 console.log(typeof 42); // "number"
 console.log(typeof 'hello'); // "string"
 console.log(typeof true); // "boolean"
@@ -164,9 +184,12 @@ console.log(typeof function () {}); // "function"
 
 JavaScript often performs type coercion, converting values from one type to another, which can lead to unexpected results.
 
-```js
-let result = '5' + 2; // '52' (string concatenation)
-let difference = '5' - 2; // 3 (numeric subtraction)
+```js live
+let result = '5' + 2;
+console.log(result, typeof result); // "52 string" (string concatenation)
+
+let difference = '5' - 2;
+console.log(difference, typeof difference); // 3 "number" (numeric subtraction)
 ```
 
 In the first example, since strings can be concatenated with the `+` operator, the number is converted into a string and the two strings are concatenated together. In the second example, strings cannot work with the minus operator (`-`), but two numbers can be minused, so the string is first converted into a number and the result is the difference.

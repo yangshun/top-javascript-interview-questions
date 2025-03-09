@@ -22,30 +22,34 @@ Creating objects in JavaScript involves several methods. Here are the various wa
 
 This is the simplest and most popular way to create objects in JavaScript. It involves defining a collection of key-value pairs within curly braces (`{}`). It can be used when you need to create a single object with a fixed set of properties.
 
-```js
+```js live
 const person = {
   firstName: 'John',
   lastName: 'Doe',
   age: 50,
   eyeColor: 'blue',
 };
+
+console.log(person); // {firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue"}
 ```
 
 ## `Object()` constructor
 
 This method involves using the `new` keyword with the built-in `Object` constructor to create an object. You can then add properties to the object using dot notation. It can be used when you need to create an object from a primitive value or to create an empty object.
 
-```js
+```js live
 const person = new Object();
 person.firstName = 'John';
 person.lastName = 'Doe';
+
+console.log(person); // {firstName: "John", lastName: "Doe"}
 ```
 
 ## `Object.create()` Method
 
 This method allows you to create a new object using an existing object as a prototype. The new object inherits properties and methods from the prototype object. It can be used when you need to create a new object with a specific prototype.
 
-```js
+```js live
 // Object.create() Method
 const personPrototype = {
   greet() {
@@ -68,7 +72,7 @@ An object without a prototype can be created by doing `Object.create(null)`.
 
 Classes provide a more structured and familiar syntax (similar to other programming languages) for creating objects. They define a blueprint and use methods to interact with the object's properties. It can be used when you need to create complex objects with inheritance and encapsulation.
 
-```js
+```js live
 class Person {
   constructor(name, age) {
     this.name = name;
@@ -94,7 +98,7 @@ Constructor functions are used to create reusable blueprints for objects. They d
 
 However, now that ES2015 classes are readily supported in modern browsers, there's little reason to use constructor functions to create objects.
 
-```js
+```js live
 // Constructor function
 function Person(name, age) {
   this.name = name;
