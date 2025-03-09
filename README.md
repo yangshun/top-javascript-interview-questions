@@ -3382,7 +3382,7 @@ arr[1] = 5; // [1, 5, 3]
 console.log(arr); // Final state: [1, 5, 3]
 ```
 
-_Note:_ If you try to `console.log(arr)` after each operation in some environments (like Chrome DevTools), you may only see the final state of arr. This happens because the console sometimes keeps a live reference to the array instead of logging its state at the exact moment. To see intermediate states properly, store snapshots using console.log([...arr]) or print values immediately after each operation.
+**Note**: If you try to `console.log(arr)` after each operation in some environments (like Chrome DevTools), you may only see the final state of `arr`. This happens because the console sometimes keeps a live reference to the array instead of logging its state at the exact moment. To see intermediate states properly, store snapshots using `console.log([...arr])` or print values immediately after each operation.
 
 <!-- Update here: /questions/how-do-you-add-remove-and-update-elements-in-an-array/en-US.mdx -->
 
