@@ -14,7 +14,7 @@ The `this` keyword in JavaScript can be tricky because its value depends on how 
 
 When you pass a method as a callback, the context of `this` can be lost. For example:
 
-```js
+```js live
 const obj = {
   value: 42,
   getValue: function () {
@@ -32,7 +32,7 @@ In this case, `this` inside `getValue` is not bound to `obj`.
 
 In nested functions, `this` does not refer to the outer function's context:
 
-```js
+```js live
 const obj = {
   value: 42,
   getValue: function () {
@@ -52,7 +52,7 @@ Here, `this` inside `innerFunction` refers to the global object, not `obj`.
 
 Arrow functions do not have their own `this` context; they inherit it from the enclosing scope:
 
-```js
+```js live
 const obj = {
   value: 42,
   getValue: () => {
@@ -71,7 +71,7 @@ In this example, `this` inside the arrow function refers to the global object, n
 
 You can use `.bind()` to explicitly set the context of `this`:
 
-```js
+```js live
 const obj = {
   value: 42,
   getValue: function () {
@@ -87,7 +87,7 @@ console.log(getValue()); // 42
 
 Arrow functions inherit `this` from the enclosing scope, which can be useful:
 
-```js
+```js live
 const obj = {
   value: 42,
   getValue: function () {
@@ -105,7 +105,7 @@ console.log(obj.getValue()); // 42
 
 You can store the context in a variable to maintain it in nested functions:
 
-```js
+```js live
 const obj = {
   value: 42,
   getValue: function () {

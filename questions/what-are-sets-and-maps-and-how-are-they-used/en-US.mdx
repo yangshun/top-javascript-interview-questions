@@ -6,10 +6,11 @@ title: What are `Set`s and `Map`s and how are they used?
 
 `Set`s and `Map`s are built-in JavaScript objects that help manage collections of data. A `Set` is a collection of unique values, while a `Map` is a collection of key-value pairs where keys can be of any type. `Set`s are useful for storing unique items, and `Map`s are useful for associating values with keys.
 
-```js
+```js live
 // Set example
-let mySet = new Set([1, 2, 3, 3]);
-mySet.add(4); // Set {1, 2, 3, 4}
+let mySet = new Set([1, 2, 3, 3]); // Set {1, 2, 3} (duplicate values are not added)
+mySet.add(4);
+console.log(mySet); // Set {1, 2, 3, 4}
 
 // Map example
 let myMap = new Map();
@@ -30,7 +31,7 @@ A `Set` is a collection of values where each value must be unique. It is similar
 
 You can create a `Set` using the `Set` constructor:
 
-```js
+```js live
 let mySet = new Set([1, 2, 3, 3]);
 console.log(mySet); // Set {1, 2, 3}
 ```
@@ -45,7 +46,7 @@ console.log(mySet); // Set {1, 2, 3}
 
 ### Example usage
 
-```js
+```js live
 let mySet = new Set();
 mySet.add(1);
 mySet.add(2);
@@ -68,10 +69,11 @@ A `Map` is a collection of key-value pairs where keys can be of any type, includ
 
 You can create a `Map` using the `Map` constructor:
 
-```js
+```js live
 let myMap = new Map();
 myMap.set('key1', 'value1');
 myMap.set('key2', 'value2');
+console.log(myMap); // Map { key1: "value1", key2: "value2" }
 ```
 
 ### Common methods
@@ -85,7 +87,7 @@ myMap.set('key2', 'value2');
 
 ### Example usage
 
-```js
+```js live
 let myMap = new Map();
 myMap.set('key1', 'value1');
 myMap.set('key2', 'value2');

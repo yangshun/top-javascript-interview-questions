@@ -6,7 +6,7 @@ title: What are `Symbol`s used for in JavaScript?
 
 `Symbol`s in JavaScript are a new primitive data type introduced in ES6 (ECMAScript 2015). They are unique and immutable identifiers that is primarily for object property keys to avoid name collisions. These values can be created using `Symbol(...)` function, and each `Symbol` value is guaranteed to be unique, even if they have the same key/description. `Symbol` properties are not enumerable in `for...in` loops or `Object.keys()`, making them suitable for creating private/internal object state.
 
-```js
+```js live
 let sym1 = Symbol();
 let sym2 = Symbol('myKey');
 
@@ -38,7 +38,7 @@ Symbols in JavaScript are a unique and immutable data type used primarily for ob
 
 `Symbol`s can be created using the `Symbol()` function:
 
-```js
+```js live
 const sym1 = Symbol();
 const sym2 = Symbol('uniqueKey');
 
@@ -52,7 +52,7 @@ console.log(sym1 === sym2); // false, because each symbol is unique
 
 `Symbol`s can be used to add properties to an object without risk of name collision:
 
-```js
+```js live
 const obj = {};
 const sym = Symbol('uniqueKey');
 
@@ -66,7 +66,7 @@ console.log(obj[sym]); // "value"
 - This makes them suitable for creating private/internal object state.
 - Use` Object.getOwnPropertySymbols(obj)` to get all symbol properties on an object.
 
-```js
+```js live
 const mySymbol = Symbol('privateProperty');
 const obj = {
   name: 'John',
@@ -81,7 +81,7 @@ console.log(obj[mySymbol]); // Output: 42
 
 You can create global `Symbol`s using `Symbol.for('key')`, which creates a new `Symbol` in the global registry if it doesn't exist, or returns the existing one. This allows you to reuse `Symbol`s across different parts of your code base or even across different code bases.
 
-```js
+```js live
 const globalSym1 = Symbol.for('globalKey');
 const globalSym2 = Symbol.for('globalKey');
 
@@ -101,7 +101,7 @@ JavaScript includes several built-in `Symbol`s, referred as well-known `Symbol`s
 
 ### `Symbol.iterator`
 
-```js
+```js live
 let iterable = {
   [Symbol.iterator]() {
     let step = 0;
@@ -124,7 +124,7 @@ for (let value of iterable) {
 
 ### `Symbol.toStringTag`
 
-```js
+```js live
 let myObj = {
   [Symbol.toStringTag]: 'MyCustomObject',
 };

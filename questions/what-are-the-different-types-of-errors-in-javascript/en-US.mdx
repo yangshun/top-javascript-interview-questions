@@ -16,7 +16,7 @@ Syntax errors occur when the code does not follow the rules of the JavaScript la
 
 #### Example
 
-```js
+```js live
 console.log("Hello, world!; // Missing closing quote and parenthesis
 ```
 
@@ -26,9 +26,9 @@ Runtime errors, also known as exceptions, occur during the execution of the code
 
 #### Example
 
-```js
+```js live
 let obj = null;
-console.log(obj.property); // TypeError: Cannot read property 'property' of null
+console.log(obj.property); // TypeError: Cannot read properties of null (reading 'property')
 ```
 
 ### Logical errors
@@ -37,12 +37,15 @@ Logical errors are mistakes in the code's logic that lead to incorrect results. 
 
 #### Example
 
-```js
-let total = 0;
-for (let i = 1; i <= 10; i++) {
-  total += i;
+```js live
+let isAdmin = false;
+
+if ((isAdmin = true)) {
+  // Wrong: Assignment instead of comparison
+  console.log('Access granted'); // Access granted even though isAdmin was falsy
+} else {
+  console.log('Access denied');
 }
-console.log(total); // Incorrectly expecting the sum of even numbers only
 ```
 
 ## Further reading

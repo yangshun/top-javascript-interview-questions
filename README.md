@@ -853,7 +853,7 @@ In the book ["You Don't Know JS"](https://github.com/getify/You-Dont-Know-JS/tre
 
 In simple terms, functions have access to variables that were in their scope at the time of their creation. This is what we call the function's lexical scope. A closure is a function that retains access to these variables even after the outer function has finished executing. This is like the function has a memory of its original environment.
 
-```js
+```js live
 function outerFunction() {
   const outerVar = 'I am outside of innerFunction';
 
@@ -1822,7 +1822,7 @@ On the other hand, `WeakSet` only allows objects as elements, and these object e
 
 Static class members (properties/methods) has a `static` keyword prepended. Such members cannot be directly accessed on instances of the class. Instead, they're accessed on the class itself.
 
-```js
+```js live
 class Car {
   static noOfWheels = 4;
   static compare() {
@@ -1855,7 +1855,7 @@ Static members are useful under the following scenarios:
 
 `Symbol`s in JavaScript are a new primitive data type introduced in ES6 (ECMAScript 2015). They are unique and immutable identifiers that is primarily for object property keys to avoid name collisions. These values can be created using `Symbol(...)` function, and each `Symbol` value is guaranteed to be unique, even if they have the same key/description. `Symbol` properties are not enumerable in `for...in` loops or `Object.keys()`, making them suitable for creating private/internal object state.
 
-```js
+```js live
 let sym1 = Symbol();
 let sym2 = Symbol('myKey');
 
@@ -2003,7 +2003,7 @@ Getters and setters are defined using the `get` and `set` keywords, respectively
 
 Here's a code example demonstrating the use of getters and setters:
 
-```js
+```js live
 const person = {
   _name: 'John Doe', // Private property
 
@@ -2410,7 +2410,7 @@ console.log(combinedObj); // { a: 1, b: 2, c: 3, d: 4 }
 
 `Symbol`s in JavaScript are a new primitive data type introduced in ES6 (ECMAScript 2015). They are unique and immutable identifiers that is primarily for object property keys to avoid name collisions. These values can be created using `Symbol(...)` function, and each `Symbol` value is guaranteed to be unique, even if they have the same key/description. `Symbol` properties are not enumerable in `for...in` loops or `Object.keys()`, making them suitable for creating private/internal object state.
 
-```js
+```js live
 let sym1 = Symbol();
 let sym2 = Symbol('myKey');
 
@@ -2564,11 +2564,11 @@ var bar = function () {
 
 Hoisting can lead to unexpected behavior in JavaScript because variable and function declarations are moved to the top of their containing scope during the compilation phase. This can result in `undefined` values for variables if they are used before their declaration and can cause confusion with function declarations and expressions. For example:
 
-```js
+```js live
 console.log(a); // undefined
 var a = 5;
 
-console.log(b); // ReferenceError: b is not defined
+console.log(b); // ReferenceError: Cannot access 'b' before initialization
 let b = 10;
 ```
 
@@ -3647,7 +3647,7 @@ Getters and setters are defined using the `get` and `set` keywords, respectively
 
 Here's a code example demonstrating the use of getters and setters:
 
-```js
+```js live
 const person = {
   _name: 'John Doe', // Private property
 
@@ -4122,7 +4122,7 @@ Things to note are:
 
 The prototype chain is a mechanism in JavaScript that allows objects to inherit properties and methods from other objects. When you try to access a property on an object, JavaScript will first look for the property on the object itself. If it doesn't find it, it will look at the object's prototype, and then the prototype's prototype, and so on, until it either finds the property or reaches the end of the chain, which is `null`.
 
-```js
+```js live
 function Person(name) {
   this.name = name;
 }
@@ -4388,7 +4388,7 @@ The main takeaway here is that `this` can be changed for a normal function, but 
 
 Static class members (properties/methods) has a `static` keyword prepended. Such members cannot be directly accessed on instances of the class. Instead, they're accessed on the class itself.
 
-```js
+```js live
 class Car {
   static noOfWheels = 4;
   static compare() {
@@ -4423,7 +4423,7 @@ In the book ["You Don't Know JS"](https://github.com/getify/You-Dont-Know-JS/tre
 
 In simple terms, functions have access to variables that were in their scope at the time of their creation. This is what we call the function's lexical scope. A closure is a function that retains access to these variables even after the outer function has finished executing. This is like the function has a memory of its original environment.
 
-```js
+```js live
 function outerFunction() {
   const outerVar = 'I am outside of innerFunction';
 
@@ -5507,12 +5507,13 @@ window.location.replace('https://www.example.com');
 
 To get the query string values of the current page in JavaScript, you can use the `URLSearchParams` object. First, create a `URLSearchParams` instance with `window.location.search`, then use the `get` method to retrieve specific query parameters. For example:
 
-```js
+```js live
 const params = new URLSearchParams(window.location.search);
-const value = params.get('key');
+const value = params.get('language');
+console.log(value);
 ```
 
-This will give you the value of the query parameter named `key`.
+This will give you the value of the query parameter named `language`. If you look at the URL of this page, you can see that the `language` parameter is set to 'js'.
 
 <!-- Update here: /questions/how-do-you-get-the-query-string-values-of-the-current-page-in-javascript/en-US.mdx -->
 
@@ -5849,7 +5850,7 @@ try {
 
 To create custom error objects in JavaScript, you can extend the built-in `Error` class. This allows you to add custom properties and methods to your error objects. Here's a quick example:
 
-```js
+```js live
 class CustomError extends Error {
   constructor(message) {
     super(message);
@@ -5909,7 +5910,7 @@ try {
 
 Currying is a technique in functional programming where a function that takes multiple arguments is transformed into a series of functions that each take a single argument. This allows for partial application of functions. For example, a function `f(a, b, c)` can be curried into `f(a)(b)(c)`. Here's a simple example in JavaScript:
 
-```js
+```js live
 function add(a) {
   return function (b) {
     return function (c) {
@@ -5919,8 +5920,13 @@ function add(a) {
 }
 
 const addOne = add(1);
+console.log(addOne); // function object
+
 const addOneAndTwo = addOne(2);
-const result = addOneAndTwo(3); // result is 6
+console.log(addOneAndTwo); // function object
+
+const result = addOneAndTwo(3);
+console.log(result); // Output: 6
 ```
 
 <!-- Update here: /questions/what-is-currying-and-how-does-it-work/en-US.mdx -->
@@ -6014,10 +6020,11 @@ Currying transforms a function with multiple arguments into a sequence of functi
 
 `Set`s and `Map`s are built-in JavaScript objects that help manage collections of data. A `Set` is a collection of unique values, while a `Map` is a collection of key-value pairs where keys can be of any type. `Set`s are useful for storing unique items, and `Map`s are useful for associating values with keys.
 
-```js
+```js live
 // Set example
-let mySet = new Set([1, 2, 3, 3]);
-mySet.add(4); // Set {1, 2, 3, 4}
+let mySet = new Set([1, 2, 3, 3]); // Set {1, 2, 3} (duplicate values are not added)
+mySet.add(4);
+console.log(mySet); // Set {1, 2, 3, 4}
 
 // Map example
 let myMap = new Map();
@@ -6130,7 +6137,7 @@ Both `Map` objects and plain objects in JavaScript can store key-value pairs, bu
 
 `Set`s and `Map`s in JavaScript handle equality checks for objects based on reference equality, not deep equality. This means that two objects are considered equal only if they reference the same memory location. For example, if you add two different object literals with the same properties to a `Set`, they will be treated as distinct entries.
 
-```js
+```js live
 const set = new Set();
 const obj1 = { a: 1 };
 const obj2 = { a: 1 };
@@ -6508,7 +6515,7 @@ Design patterns are reusable solutions to common problems in software design. Th
 
 The Singleton pattern ensures that a class has only one instance and provides a global point of access to that instance. This is useful when exactly one object is needed to coordinate actions across the system. In JavaScript, this can be implemented using closures or ES6 classes.
 
-```js
+```js live
 class Singleton {
   constructor() {
     if (!Singleton.instance) {
@@ -6613,7 +6620,7 @@ myModule.publicMethod(); // Logs: I am private
 
 The Prototype pattern is a creational design pattern used to create new objects by copying an existing object, known as the prototype. This pattern is useful when the cost of creating a new object is more expensive than cloning an existing one. In JavaScript, this can be achieved using the `Object.create` method or by using the `prototype` property of a constructor function.
 
-```js
+```js live
 const prototypeObject = {
   greet() {
     console.log('Hello, world!');

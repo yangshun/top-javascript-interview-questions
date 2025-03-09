@@ -57,7 +57,7 @@ The key differences between `Map`/`Set` and `WeakMap`/`WeakSet` in JavaScript ar
 
 In a chat application, you might want to track which user objects are currently active without preventing garbage collection when the user logs out or the session expires. We use a `WeakSet` to track active user objects. When a user logs out or their session expires, the user object can be garbage-collected if there are no other references to it.
 
-```js
+```js live
 const activeUsers = new WeakSet();
 
 // Function to mark a user as active
@@ -91,7 +91,7 @@ console.log(isUserActive(user1)); // false
 
 `WeakSet` is provides a way of guarding against circular data structures by tracking which objects have already been processed.
 
-```js
+```js live
 // Create a WeakSet to track visited objects
 const visited = new WeakSet();
 

@@ -26,20 +26,22 @@ In JavaScript, `Map` objects and a plain object (also known as a "POJO" or "plai
 
 A plain object is a basic JavaScript object created using the `{}` syntax. It is a collection of key-value pairs, where each key is a string (or a symbol, in modern JavaScript) and each value can be any type of value, including strings, numbers, booleans, arrays, objects, and more.
 
-```js
+```js live
 const person = { name: 'John', age: 30, occupation: 'Developer' };
+console.log(person);
 ```
 
 ### `Map` objects
 
 A `Map` object, introduced in ECMAScript 2015 (ES6), is a more advanced data structure that allows you to store key-value pairs with additional features. A `Map` is an iterable, which means you can use it with `for...of` loops, and it provides methods for common operations like `get`, `set`, `has`, and `delete`.
 
-```js
+```js live
 const person = new Map([
   ['name', 'John'],
   ['age', 30],
   ['occupation', 'Developer'],
 ]);
+console.log(person);
 ```
 
 ## Key differences

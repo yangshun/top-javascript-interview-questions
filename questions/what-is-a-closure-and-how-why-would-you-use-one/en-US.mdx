@@ -10,7 +10,7 @@ In the book ["You Don't Know JS"](https://github.com/getify/You-Dont-Know-JS/tre
 
 In simple terms, functions have access to variables that were in their scope at the time of their creation. This is what we call the function's lexical scope. A closure is a function that retains access to these variables even after the outer function has finished executing. This is like the function has a memory of its original environment.
 
-```js
+```js live
 function outerFunction() {
   const outerVar = 'I am outside of innerFunction';
 
@@ -49,7 +49,7 @@ Here's how closures work:
 
 With ES6, closures can be created using arrow functions, which provide a more concise syntax and lexically bind the `this` value. Here's an example:
 
-```js
+```js live
 const createCounter = () => {
   let count = 0;
   return () => {

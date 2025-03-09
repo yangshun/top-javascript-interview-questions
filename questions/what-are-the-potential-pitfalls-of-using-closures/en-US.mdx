@@ -14,7 +14,7 @@ Closures can lead to memory leaks if not managed properly, especially when they 
 
 Closures can cause memory leaks if they capture variables that are no longer needed. This happens because closures keep references to the variables in their scope, preventing the garbage collector from freeing up memory.
 
-```js
+```js live
 function createClosure() {
   let largeArray = new Array(1000000).fill('some data');
   return function () {
@@ -24,13 +24,14 @@ function createClosure() {
 
 let closure = createClosure();
 // The largeArray is still in memory because the closure keeps a reference to it
+closure(); // Output: 'some data'
 ```
 
 ### Debugging complexity
 
 Closures can make debugging more difficult due to the complexity of the scope chain. When a bug occurs, it can be challenging to trace the source of the problem through multiple layers of nested functions and scopes.
 
-```js
+```js live
 function outerFunction() {
   let outerVar = 'I am outside!';
 
@@ -42,14 +43,14 @@ function outerFunction() {
 }
 
 let myFunction = outerFunction();
-myFunction();
+myFunction(); // Output: 'I am outside!'
 ```
 
 ### Performance issues
 
 Overusing closures or using them inappropriately can lead to performance issues. Since closures keep references to variables in their scope, they can prevent garbage collection, leading to increased memory usage and potential slowdowns.
 
-```js
+```js live
 function createManyClosures() {
   let counter = 0;
 
@@ -57,6 +58,8 @@ function createManyClosures() {
     (function () {
       counter++;
     })();
+    // The closure is executed immediately, but it still holds onto the reference to the `counter` variable
+    // This prevents the counter from being garbage collected
   }
 
   console.log(counter); // This can be inefficient
@@ -69,7 +72,7 @@ createManyClosures();
 
 Closures can lead to unintended variable sharing, especially in loops. This happens when all closures share the same reference to a variable, leading to unexpected behavior.
 
-```js
+```js live
 function createFunctions() {
   let functions = [];
 
@@ -90,7 +93,7 @@ funcs[2](); // 3
 
 To avoid this, use `let` instead of `var` to create a new binding for each iteration:
 
-```js
+```js live
 function createFunctions() {
   let functions = [];
 
