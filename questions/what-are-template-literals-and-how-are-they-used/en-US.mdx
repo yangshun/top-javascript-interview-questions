@@ -8,9 +8,9 @@ Template literals are a feature in JavaScript that allow for easier string inter
 
 Example:
 
-```js
-const name = 'John';
-const greeting = `Hello, ${name}!`;
+```js live
+const myName = 'John';
+const greeting = `Hello, ${myName}!`;
 console.log(greeting); // Output: Hello, John!
 ```
 
@@ -32,10 +32,10 @@ One of the most powerful features of template literals is string interpolation. 
 
 Example:
 
-```js
-const name = 'John';
+```js live
+const myName = 'John';
 const age = 30;
-const greeting = `Hello, my name is ${name} and I am ${age} years old.`;
+const greeting = `Hello, my name is ${myName} and I am ${age} years old.`;
 console.log(greeting); // Output: Hello, my name is John and I am 30 years old.
 ```
 
@@ -45,7 +45,7 @@ Template literals make it easy to create multi-line strings without the need for
 
 Example:
 
-```js
+```js live
 const multiLineString = `This is a string
 that spans multiple
 lines.`;
@@ -62,16 +62,16 @@ Tagged templates allow you to parse template literals with a function. The funct
 
 Example:
 
-```js
+```js live
 function tag(strings, ...values) {
-  console.log(strings); // Array of string literals
-  console.log(values); // Array of values
-  return 'Tagged template result';
+  console.log(strings); // Array of string literals: ["Hello, ", "!"]
+  console.log(values); // Array of values: ["John"]
+  return 'Custom tagged template result';
 }
 
-const name = 'John';
-const result = tag`Hello, ${name}!`;
-console.log(result); // Output: Tagged template result
+const myName = 'John';
+const result = tag`Hello, ${myName}!`;
+console.log(result); // Output: Custom tagged template result
 ```
 
 ### Nesting template literals
@@ -80,10 +80,10 @@ You can nest template literals within each other for more complex string constru
 
 Example:
 
-```js
-const name = 'John';
+```js live
+const myName = 'John';
 const age = 30;
-const nestedTemplate = `Name: ${name}, Age: ${age}, Info: ${`Name: ${name}, Age: ${age}`}`;
+const nestedTemplate = `Name: ${myName}, Age: ${age}, Info: ${`Name: ${myName}, Age: ${age}`}`;
 console.log(nestedTemplate);
 // Output: Name: John, Age: 30, Info: Name: John, Age: 30
 ```

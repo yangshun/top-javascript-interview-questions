@@ -10,7 +10,7 @@ There are multiple ways to iterate over object properties as well as arrays in J
 
 The `for...in` loop iterates over all enumerable properties of an object, including inherited enumerable properties. So it is important to have a check if you only want to iterate over object's own properties
 
-```js
+```js live
 const obj = {
   a: 1,
   b: 2,
@@ -29,7 +29,7 @@ for (const key in obj) {
 
 `Object.keys()` returns an array of the object's own enumerable property names. You can then use a for...of loop or forEach to iterate over this array.
 
-```js
+```js live
 const obj = {
   a: 1,
   b: 2,
@@ -45,7 +45,7 @@ Most common ways to iterate over array are using `for` loop and `Array.prototype
 
 **Using `for` loop**
 
-```js
+```js live
 let array = [1, 2, 3, 4, 5, 6];
 for (let index = 0; index < array.length; index++) {
   console.log(array[index]);
@@ -54,7 +54,7 @@ for (let index = 0; index < array.length; index++) {
 
 **Using `Array.prototype.forEach` method**
 
-```js
+```js live
 let array = [1, 2, 3, 4, 5, 6];
 array.forEach((number, index) => {
   console.log(`${number} at index ${index}`);
@@ -65,7 +65,7 @@ array.forEach((number, index) => {
 
 This method is the newest and most convenient way to iterate over arrays. It automatically iterates over each element without requiring you to manage the index.
 
-```js
+```js live
 const numbers = [1, 2, 3, 4, 5];
 
 for (const number of numbers) {
@@ -89,7 +89,12 @@ Iterating over object properties and array is very common in JavaScript and we h
 
 This loop iterates over all **enumerable** properties of an object, including those inherited from its prototype chain.
 
-```js
+```js live
+const obj = {
+  status: 'working',
+  hoursWorked: 3,
+};
+
 for (const property in obj) {
   console.log(property);
 }
@@ -97,7 +102,12 @@ for (const property in obj) {
 
 Since `for...in` statement iterates over all the object's **enumerable** properties (including inherited enumerable properties). Hence most of the time you should check whether the property exists on directly on the object via `Object.hasOwn(object, property)` before using it.
 
-```js
+```js live
+const obj = {
+  status: 'working',
+  hoursWorked: 3,
+};
+
 for (const property in obj) {
   if (Object.hasOwn(obj, property)) {
     console.log(property);
@@ -111,7 +121,12 @@ Note that `obj.hasOwnProperty()` is not recommended because it doesn't work for 
 
 `Object.keys()` is a static method that will return an array of all the enumerable property names of the object that you pass it. Since `Object.keys()` returns an array, you can also use the array iteration approaches listed below to iterate through it.
 
-```js
+```js live
+const obj = {
+  status: 'working',
+  hoursWorked: 3,
+};
+
 Object.keys(obj).forEach((property) => {
   console.log(property);
 });
@@ -121,7 +136,7 @@ Object.keys(obj).forEach((property) => {
 
 This method returns an array of an object's enumerable properties in `[key, value]` pairs.
 
-```js
+```js live
 const obj = { a: 1, b: 2, c: 3 };
 Object.entries(obj).forEach(([key, value]) => {
   console.log(`${key}: ${value}`);
@@ -130,7 +145,8 @@ Object.entries(obj).forEach(([key, value]) => {
 
 ### `Object.getOwnPropertyNames()`
 
-```js
+```js live
+const obj = { a: 1, b: 2, c: 3 };
 Object.getOwnPropertyNames(obj).forEach((property) => {
   console.log(property);
 });
@@ -142,7 +158,8 @@ Object.getOwnPropertyNames(obj).forEach((property) => {
 
 ### `for` loop
 
-```js
+```js live
+const arr = [1, 2, 3, 4, 5];
 for (var i = 0; i < arr.length; i++) {
   console.log(arr[i]);
 }
@@ -150,7 +167,8 @@ for (var i = 0; i < arr.length; i++) {
 
 A common pitfall here is that `var` is in the function scope and not the block scope and most of the time you would want block scoped iterator variable. ES2015 introduces `let` which has block scope and it is recommended to use `let` over `var`.
 
-```js
+```js live
+const arr = [1, 2, 3, 4, 5];
 for (let i = 0; i < arr.length; i++) {
   console.log(arr[i]);
 }
@@ -158,9 +176,10 @@ for (let i = 0; i < arr.length; i++) {
 
 ### `Array.prototype.forEach()`
 
-```js
+```js live
+const arr = [1, 2, 3, 4, 5];
 arr.forEach((element, index) => {
-  console.log(element, index);
+  console.log(`${element} at index ${index}`);
 });
 ```
 
@@ -168,7 +187,8 @@ The `Array.prototype.forEach()` method can be more convenient at times if you do
 
 ### `for...of` statement
 
-```js
+```js live
+const arr = [1, 2, 3, 4, 5];
 for (let element of arr) {
   console.log(element);
 }
@@ -180,11 +200,11 @@ Most of the time, prefer the `.forEach` method, but it really depends on what yo
 
 Also, when using the `for...of` statement, if you need to access both the index and value of each array element, you can do so with ES2015 `Array.prototype.entries()` method:
 
-```js
+```js live
 const arr = ['a', 'b', 'c'];
 
 for (let [index, elem] of arr.entries()) {
-  console.log(index, ': ', elem);
+  console.log(index, elem);
 }
 ```
 

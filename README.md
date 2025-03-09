@@ -1494,7 +1494,7 @@ There are multiple ways to iterate over object properties as well as arrays in J
 
 The `for...in` loop iterates over all enumerable properties of an object, including inherited enumerable properties. So it is important to have a check if you only want to iterate over object's own properties
 
-```js
+```js live
 const obj = {
   a: 1,
   b: 2,
@@ -1513,7 +1513,7 @@ for (const key in obj) {
 
 `Object.keys()` returns an array of the object's own enumerable property names. You can then use a for...of loop or forEach to iterate over this array.
 
-```js
+```js live
 const obj = {
   a: 1,
   b: 2,
@@ -1529,7 +1529,7 @@ Most common ways to iterate over array are using `for` loop and `Array.prototype
 
 **Using `for` loop**
 
-```js
+```js live
 let array = [1, 2, 3, 4, 5, 6];
 for (let index = 0; index < array.length; index++) {
   console.log(array[index]);
@@ -1538,7 +1538,7 @@ for (let index = 0; index < array.length; index++) {
 
 **Using `Array.prototype.forEach` method**
 
-```js
+```js live
 let array = [1, 2, 3, 4, 5, 6];
 array.forEach((number, index) => {
   console.log(`${number} at index ${index}`);
@@ -1549,7 +1549,7 @@ array.forEach((number, index) => {
 
 This method is the newest and most convenient way to iterate over arrays. It automatically iterates over each element without requiring you to manage the index.
 
-```js
+```js live
 const numbers = [1, 2, 3, 4, 5];
 
 for (const number of numbers) {
@@ -2322,9 +2322,9 @@ Template literals are a feature in JavaScript that allow for easier string inter
 
 Example:
 
-```js
-const name = 'John';
-const greeting = `Hello, ${name}!`;
+```js live
+const myName = 'John';
+const greeting = `Hello, ${myName}!`;
 console.log(greeting); // Output: Hello, John!
 ```
 
@@ -2365,14 +2365,16 @@ console.log(result); // "Hello world! How are you?"
 
 The spread operator, represented by three dots (`...`), is used in JavaScript to expand iterable objects like arrays or strings into individual elements. It can also be used to spread object properties. For example, you can use it to combine arrays, copy arrays, or pass array elements as arguments to a function.
 
-```js
+```js live
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
-const combined = [...arr1, ...arr2]; // [1, 2, 3, 4, 5, 6]
+const combined = [...arr1, ...arr2];
+console.log(combined); // [1, 2, 3, 4, 5, 6]
 
 const obj1 = { a: 1, b: 2 };
 const obj2 = { c: 3, d: 4 };
-const combinedObj = { ...obj1, ...obj2 }; // { a: 1, b: 2, c: 3, d: 4 }
+const combinedObj = { ...obj1, ...obj2 };
+console.log(combinedObj); // { a: 1, b: 2, c: 3, d: 4 }
 ```
 
 <!-- Update here: /questions/what-is-the-spread-operator-and-how-is-it-used/en-US.mdx -->
@@ -2565,16 +2567,17 @@ let b = 10;
 
 To avoid problems related to hoisting, always declare variables at the top of their scope using `let` or `const` instead of `var`. This ensures that variables are block-scoped and not hoisted to the top of their containing function or global scope. Additionally, declare functions before they are called to avoid issues with function hoisting.
 
-```js
+```js live
 // Use let or const
 let x = 10;
 const y = 20;
+console.log(x, y); // Output: 10 20
 
 // Declare functions before calling them
 function myFunction() {
   console.log('Hello, world!');
 }
-myFunction();
+myFunction(); // Output: 'Hello, world!'
 ```
 
 <!-- Update here: /questions/how-can-you-avoid-problems-related-to-hoisting/en-US.mdx -->
@@ -2615,7 +2618,7 @@ There are multiple ways to iterate over object properties as well as arrays in J
 
 The `for...in` loop iterates over all enumerable properties of an object, including inherited enumerable properties. So it is important to have a check if you only want to iterate over object's own properties
 
-```js
+```js live
 const obj = {
   a: 1,
   b: 2,
@@ -2634,7 +2637,7 @@ for (const key in obj) {
 
 `Object.keys()` returns an array of the object's own enumerable property names. You can then use a for...of loop or forEach to iterate over this array.
 
-```js
+```js live
 const obj = {
   a: 1,
   b: 2,
@@ -2650,7 +2653,7 @@ Most common ways to iterate over array are using `for` loop and `Array.prototype
 
 **Using `for` loop**
 
-```js
+```js live
 let array = [1, 2, 3, 4, 5, 6];
 for (let index = 0; index < array.length; index++) {
   console.log(array[index]);
@@ -2659,7 +2662,7 @@ for (let index = 0; index < array.length; index++) {
 
 **Using `Array.prototype.forEach` method**
 
-```js
+```js live
 let array = [1, 2, 3, 4, 5, 6];
 array.forEach((number, index) => {
   console.log(`${number} at index ${index}`);
@@ -2670,7 +2673,7 @@ array.forEach((number, index) => {
 
 This method is the newest and most convenient way to iterate over arrays. It automatically iterates over each element without requiring you to manage the index.
 
-```js
+```js live
 const numbers = [1, 2, 3, 4, 5];
 
 for (const number of numbers) {
@@ -2698,7 +2701,7 @@ There are also other inbuilt methods available which are suitable for specific s
 
 The `break` statement is used to exit a loop or switch statement prematurely, while the `continue` statement skips the current iteration of a loop and proceeds to the next iteration. For example, in a `for` loop, `break` will stop the loop entirely, and `continue` will skip to the next iteration.
 
-```js
+```js live
 for (let i = 0; i < 10; i++) {
   if (i === 5) break; // exits the loop when i is 5
   console.log(i);
@@ -2738,7 +2741,7 @@ The ternary operator is a shorthand for an `if-else` statement in JavaScript. It
 
 To access the index of an element in an array during iteration, you can use methods like `forEach`, `map`, `for...of` with `entries`, or a traditional `for` loop. For example, using `forEach`:
 
-```js
+```js live
 const array = ['a', 'b', 'c'];
 array.forEach((element, index) => {
   console.log(index, element);
@@ -2786,7 +2789,7 @@ switch (expression) {
 
 Rest parameters in JavaScript allow a function to accept an indefinite number of arguments as an array. They are denoted by three dots (`...`) followed by the name of the array. This feature is useful for functions that need to handle multiple arguments without knowing the exact number in advance.
 
-```js
+```js live
 function sum(...numbers) {
   return numbers.reduce((acc, curr) => acc + curr, 0);
 }
@@ -2808,22 +2811,26 @@ console.log(sum(1, 2, 3, 4)); // Output: 10
 
 The spread operator (`...`) in JavaScript allows you to expand elements of an iterable (like an array or object) into individual elements. It is commonly used for copying arrays or objects, merging arrays or objects, and passing elements of an array as arguments to a function.
 
-```js
+```js live
 // Copying an array
 const arr1 = [1, 2, 3];
 const arr2 = [...arr1];
+console.log(arr2); // Output: [1, 2, 3]
 
 // Merging arrays
 const arr3 = [4, 5, 6];
 const mergedArray = [...arr1, ...arr3];
+console.log(mergedArray); // Output: [1, 2, 3, 4, 5, 6]
 
 // Copying an object
 const obj1 = { a: 1, b: 2 };
 const obj2 = { ...obj1 };
+console.log(obj2); // Output: { a: 1, b: 2 }
 
 // Merging objects
 const obj3 = { c: 3, d: 4 };
 const mergedObject = { ...obj1, ...obj3 };
+console.log(mergedObject); // Output: { a: 1, b: 2, c: 3, d: 4 }
 
 // Passing array elements as function arguments
 const sum = (x, y, z) => x + y + z;
@@ -3005,7 +3012,7 @@ A parameter is a variable in the declaration of a function, while an argument is
 
 Hoisting in JavaScript is a behavior where function declarations are moved to the top of their containing scope during the compile phase. This means you can call a function before it is defined in the code. However, this does not apply to function expressions or arrow functions, which are not hoisted in the same way.
 
-```js
+```js live
 // Function declaration
 hoistedFunction(); // Works fine
 function hoistedFunction() {
