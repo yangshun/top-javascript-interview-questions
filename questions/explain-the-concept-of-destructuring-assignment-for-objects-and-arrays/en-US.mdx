@@ -6,7 +6,7 @@ title: Explain the concept of destructuring assignment for objects and arrays
 
 Destructuring assignment is a syntax in JavaScript that allows you to unpack values from arrays or properties from objects into distinct variables. For arrays, you use square brackets, and for objects, you use curly braces. For example:
 
-```js
+```js live
 // Array destructuring
 const [a, b] = [1, 2];
 
@@ -26,7 +26,7 @@ Array destructuring allows you to unpack values from arrays into distinct variab
 
 #### Basic example
 
-```js
+```js live
 const numbers = [1, 2, 3];
 const [first, second, third] = numbers;
 
@@ -39,7 +39,7 @@ console.log(third); // 3
 
 You can skip values in the array by leaving an empty space between commas.
 
-```js
+```js live
 const numbers = [1, 2, 3];
 const [first, , third] = numbers;
 
@@ -51,7 +51,7 @@ console.log(third); // 3
 
 You can assign default values in case the array does not have enough elements.
 
-```js
+```js live
 const numbers = [1];
 const [first, second = 2] = numbers;
 
@@ -65,7 +65,7 @@ Object destructuring allows you to unpack properties from objects into distinct 
 
 #### Basic example
 
-```js
+```js live
 const person = { name: 'John', age: 30 };
 const { name, age } = person;
 
@@ -77,7 +77,7 @@ console.log(age); // 30
 
 You can rename the variables while destructuring.
 
-```js
+```js live
 const person = { name: 'John', age: 30 };
 const { name: personName, age: personAge } = person;
 
@@ -89,7 +89,7 @@ console.log(personAge); // 30
 
 You can assign default values in case the property does not exist in the object.
 
-```js
+```js live
 const person = { name: 'John' };
 const { name, age = 25 } = person;
 
@@ -101,7 +101,7 @@ console.log(age); // 25
 
 You can destructure nested objects as well.
 
-```js
+```js live
 const person = { name: 'John', address: { city: 'New York', zip: '10001' } };
 const {
   name,

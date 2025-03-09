@@ -6,14 +6,16 @@ title: What are the advantages of using the spread operator with arrays and obje
 
 The spread operator (`...`) in JavaScript allows you to easily copy arrays and objects, merge them, and add new elements or properties. It simplifies syntax and improves readability. For arrays, it can be used to concatenate or clone arrays. For objects, it can be used to merge objects or add new properties.
 
-```js
+```js live
 // Arrays
 const arr1 = [1, 2, 3];
-const arr2 = [...arr1, 4, 5]; // [1, 2, 3, 4, 5]
+const arr2 = [...arr1, 4, 5];
+console.log(arr2); // [1, 2, 3, 4, 5]
 
 // Objects
 const obj1 = { a: 1, b: 2 };
-const obj2 = { ...obj1, c: 3 }; // { a: 1, b: 2, c: 3 }
+const obj2 = { ...obj1, c: 3 };
+console.log(obj2); // { a: 1, b: 2, c: 3 }
 ```
 
 ---
@@ -26,28 +28,31 @@ const obj2 = { ...obj1, c: 3 }; // { a: 1, b: 2, c: 3 }
 
 The spread operator allows you to create a shallow copy of an array easily.
 
-```js
+```js live
 const originalArray = [1, 2, 3];
-const clonedArray = [...originalArray]; // [1, 2, 3]
+const clonedArray = [...originalArray];
+console.log(clonedArray); // [1, 2, 3]
 ```
 
 #### Merging arrays
 
 You can concatenate multiple arrays into one.
 
-```js
+```js live
 const array1 = [1, 2];
 const array2 = [3, 4];
-const mergedArray = [...array1, ...array2]; // [1, 2, 3, 4]
+const mergedArray = [...array1, ...array2];
+console.log(mergedArray); // [1, 2, 3, 4]
 ```
 
 #### Adding elements
 
 You can add new elements to an array without mutating the original array.
 
-```js
+```js live
 const array = [1, 2, 3];
-const newArray = [...array, 4, 5]; // [1, 2, 3, 4, 5]
+const newArray = [...array, 4, 5];
+console.log(newArray); // [1, 2, 3, 4, 5]
 ```
 
 ### Objects
@@ -56,28 +61,31 @@ const newArray = [...array, 4, 5]; // [1, 2, 3, 4, 5]
 
 The spread operator allows you to create a shallow copy of an object.
 
-```js
+```js live
 const originalObject = { a: 1, b: 2 };
-const clonedObject = { ...originalObject }; // { a: 1, b: 2 }
+const clonedObject = { ...originalObject };
+console.log(clonedObject); // { a: 1, b: 2 }
 ```
 
 #### Merging objects
 
 You can merge multiple objects into one.
 
-```js
+```js live
 const object1 = { a: 1 };
 const object2 = { b: 2 };
-const mergedObject = { ...object1, ...object2 }; // { a: 1, b: 2 }
+const mergedObject = { ...object1, ...object2 };
+console.log(mergedObject); // { a: 1, b: 2 }
 ```
 
 #### Adding properties
 
 You can add new properties to an object without mutating the original object.
 
-```js
+```js live
 const object = { a: 1, b: 2 };
-const newObject = { ...object, c: 3 }; // { a: 1, b: 2, c: 3 }
+const newObject = { ...object, c: 3 };
+console.log(newObject); // { a: 1, b: 2, c: 3 }
 ```
 
 ## Further reading

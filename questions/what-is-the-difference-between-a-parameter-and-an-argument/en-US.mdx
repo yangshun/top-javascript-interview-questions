@@ -30,8 +30,11 @@ Arguments are the actual values that are passed to the function when it is invok
 
 Example:
 
-```js
-greet('Alice');
+```js live
+function greet(name) {
+  console.log('Hello, ' + name);
+}
+greet('Alice'); // Output: "Hello, Alice"
 ```
 
 In this example, `"Alice"` is an argument.
@@ -43,14 +46,14 @@ In this example, `"Alice"` is an argument.
 
 ### Example combining both
 
-```js
+```js live
 function add(a, b) {
   // a and b are parameters
   return a + b;
 }
 
 const result = add(2, 3); // 2 and 3 are arguments
-console.log(result); // Outputs: 5
+console.log(result); // Output: 5
 ```
 
 ## Further reading

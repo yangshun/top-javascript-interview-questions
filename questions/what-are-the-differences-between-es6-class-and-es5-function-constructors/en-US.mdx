@@ -20,28 +20,47 @@ class Person {
 }
 ```
 
-For simple constructors, they look pretty similar. The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
+For simple constructors, they look pretty similar. The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do.
 
-```js
-// ES5 function constructor
-function Student(name, studentId) {
+```js live
+// ES5 inheritance
+// Superclass
+function Person1(name) {
+  this.name = name;
+}
+
+// Subclass
+function Student1(name, studentId) {
   // Call constructor of superclass to initialize superclass-derived members.
-  Person.call(this, name);
+  Person1.call(this, name);
 
   // Initialize subclass's own members.
   this.studentId = studentId;
 }
+Student1.prototype = Object.create(Person1.prototype);
+Student1.prototype.constructor = Student1;
 
-Student.prototype = Object.create(Person.prototype);
-Student.prototype.constructor = Student;
+const student1 = new Student1('John', 1234);
+console.log(student1.name, student1.studentId); // "John" 1234
 
-// ES2015 Class
-class Student extends Person {
+// ES2015 inheritance
+// Superclass
+class Person2 {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+// Subclass
+class Student2 extends Person2 {
   constructor(name, studentId) {
     super(name);
     this.studentId = studentId;
   }
 }
+
+const student2 = new Student2('Alice', 5678);
+console.log(student2.name, student2.studentId); // "Alice" 5678
 ```
 
 It's much more verbose to use inheritance in ES5 and the ES2015 version is easier to understand and remember.
@@ -67,7 +86,7 @@ ES5 function constructors and ES2015 classes are two different ways of defining 
 
 In ES5, you define a class-like structure using a function constructor and prototypes. Here's an example:
 
-```js
+```js live
 // ES5 function constructor
 function Person(name, age) {
   this.name = name;
@@ -89,7 +108,7 @@ person1.greet(); // Hello, my name is John and I am 30 years old.
 
 ES2015 introduced the `class` syntax, which simplifies the definition of classes and supports more features such as static methods and subclassing. Here's the same example using ES2015:
 
-```js
+```js live
 // ES2015 Class
 class Person {
   constructor(name, age) {
@@ -121,26 +140,26 @@ person1.greet(); // Hello, my name is John and I am 30 years old.
    - **ES5**: Static methods are added directly to the constructor function.
    - **ES2015**: Static methods are defined within the class using the `static` keyword.
 
-   ```js
+   ```js live
    // ES5
-   function Person(name, age) {
+   function Person1(name, age) {
      this.name = name;
      this.age = age;
    }
 
-   Person.sayHi = function () {
-     console.log('Hi!');
+   Person1.sayHi = function () {
+     console.log('Hi from ES5!');
    };
 
-   Person.sayHi(); // Hi!
+   Person1.sayHi(); // Hi from ES5!
 
    // ES2015
-   class Person {
+   class Person2 {
      static sayHi() {
-       console.log('Hi!');
+       console.log('Hi from ES2015!');
      }
    }
-   Person.sayHi(); // Hi!
+   Person2.sayHi(); // Hi from ES2015!
    ```
 
 3. **Inheritance**
@@ -148,45 +167,41 @@ person1.greet(); // Hello, my name is John and I am 30 years old.
    - **ES5**: Inheritance is achieved using `Object.create()` and manually setting the prototype chain.
    - **ES2015**: Inheritance is much simpler and more intuitive with the extends keyword.
 
-   ```js
+   ```js live
    // ES5 Inheritance
 
    // ES5 function constructor
-   function Person(name, age) {
+   function Person1(name, age) {
      this.name = name;
      this.age = age;
    }
 
-   Person.prototype.greet = function () {
+   Person1.prototype.greet = function () {
      console.log(
-       'Hello, my name is ' +
-         this.name +
-         ' and I am ' +
-         this.age +
-         ' years old.',
+       `Hello, my name is ${this.name} and I am ${this.age} years old.`,
      );
    };
 
-   function Student(name, age, grade) {
-     Person.call(this, name, age);
+   function Student1(name, age, grade) {
+     Person1.call(this, name, age);
      this.grade = grade;
    }
 
-   Student.prototype = Object.create(Person.prototype);
-   Student.prototype.constructor = Student;
+   Student1.prototype = Object.create(Person1.prototype);
+   Student1.prototype.constructor = Student1;
 
-   Student.prototype.study = function () {
+   Student1.prototype.study = function () {
      console.log(this.name + ' is studying.');
    };
 
-   var student1 = new Student('Alice', 20, 'A');
-   student1.greet(); // Hello, my name is Alice and I am 20 years old.
-   student1.study(); // Alice is studying.
+   var student1 = new Student1('John', 22, 'B+');
+   student1.greet(); // Hello, my name is John and I am 22 years old.
+   student1.study(); // John is studying.
 
    // ES2015 Inheritance
 
    // ES2015 Class
-   class Person {
+   class Person2 {
      constructor(name, age) {
        this.name = name;
        this.age = age;
@@ -199,7 +214,7 @@ person1.greet(); // Hello, my name is John and I am 30 years old.
      }
    }
 
-   class Student extends Person {
+   class Student2 extends Person2 {
      constructor(name, age, grade) {
        super(name, age);
        this.grade = grade;
@@ -210,9 +225,9 @@ person1.greet(); // Hello, my name is John and I am 30 years old.
      }
    }
 
-   const student1 = new Student('Alice', 20, 'A');
-   student1.greet(); // Hello, my name is Alice and I am 20 years old.
-   student1.study(); // Alice is studying.
+   const student2 = new Student2('Alice', 20, 'A');
+   student2.greet(); // Hello, my name is Alice and I am 20 years old.
+   student2.study(); // Alice is studying.
    ```
 
 4. `super` calls:

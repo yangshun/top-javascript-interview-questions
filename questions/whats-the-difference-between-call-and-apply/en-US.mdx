@@ -11,7 +11,7 @@ title: What's the difference between `.call` and `.apply` in JavaScript?
 
 Assuming we have a function `add`, the function can be invoked using `.call` and `.apply` in the following manner:
 
-```js
+```js live
 function add(a, b) {
   return a + b;
 }
@@ -28,7 +28,7 @@ Both `.call` and `.apply` are used to invoke functions and the first parameter w
 
 An easy way to remember this is C for `call` and comma-separated and A for `apply` and an array of arguments.
 
-```js
+```js live
 function add(a, b) {
   return a + b;
 }
@@ -39,7 +39,7 @@ console.log(add.apply(null, [1, 2])); // 3
 
 With ES6 syntax, we can invoke `call` using an array along with the spread operator for the arguments.
 
-```js
+```js live
 function add(a, b) {
   return a + b;
 }
@@ -53,7 +53,7 @@ console.log(add.call(null, ...[1, 2])); // 3
 
 `.call` and `.apply` can set the `this` context explicitly when invoking methods on different objects.
 
-```js
+```js live
 const person = {
   name: 'John',
   greet() {
@@ -71,7 +71,7 @@ person.greet.apply(anotherPerson); // Hello, my name is Alice
 
 Both `.call` and `.apply` allow borrowing methods from one object and using them in the context of another. This is useful when passing functions as arguments (callbacks) and the original `this` context is lost. `.call` and `.apply` allow the function to be invoked with the intended `this` value.
 
-```js
+```js live
 function greet() {
   console.log(`Hello, my name is ${this.name}`);
 }
@@ -87,7 +87,7 @@ greet.call(person2); // Hello, my name is Alice
 
 `.apply` can be used with object methods by passing the object as the first argument followed by the usual parameters.
 
-```js
+```js live
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
 

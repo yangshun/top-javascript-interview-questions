@@ -6,7 +6,7 @@ title: Explain the concept of lexical scoping
 
 Lexical scoping means that the scope of a variable is determined by its location within the source code, and nested functions have access to variables declared in their outer scope. For example:
 
-```js
+```js live
 function outerFunction() {
   let outerVariable = 'I am outside!';
 
@@ -36,7 +36,7 @@ When a function is defined, it captures the scope in which it was created. This 
 
 Consider the following example:
 
-```js
+```js live
 function outerFunction() {
   let outerVariable = 'I am outside!';
 
@@ -60,7 +60,7 @@ In this example:
 
 Lexical scoping is closely related to closures. A closure is created when a function retains access to its lexical scope, even when the function is executed outside that scope.
 
-```js
+```js live
 function outerFunction() {
   let outerVariable = 'I am outside!';
 

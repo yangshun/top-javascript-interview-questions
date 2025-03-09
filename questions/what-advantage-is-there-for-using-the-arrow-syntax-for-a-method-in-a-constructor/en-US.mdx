@@ -8,7 +8,7 @@ The main advantage of using an arrow function as a method inside a constructor i
 
 For example, let's say we have a `Person` constructor that takes a first name as an argument has two methods to `console.log()` that name, one as a regular function and one as an arrow function:
 
-```js
+```js live
 const Person = function (name) {
   this.name = name;
   this.sayName1 = function () {
@@ -68,12 +68,14 @@ const myFunction = (arg1, arg2, ...argN) => expression;
 
 ### Examples
 
-```js
+```js live
 // Arrow function with parameters
 const multiply = (x, y) => x * y;
+console.log(multiply(2, 3)); // Output: 6
 
 // Arrow function with no parameters
 const sayHello = () => 'Hello, World!';
+console.log(sayHello()); // Output: 'Hello, World!'
 ```
 
 ### Advantages
@@ -86,7 +88,7 @@ const sayHello = () => 'Hello, World!';
 
 Arrow functions cannot be used as constructors and will throw an error when used with the `new` keyword.
 
-```js
+```js live
 const Foo = () => {};
 const foo = new Foo(); // TypeError: Foo is not a constructor
 ```
@@ -104,7 +106,7 @@ arrowFunction(1, 2, 3);
 
 Since arrow functions do not have their own `this`, they are not suitable for defining methods in an object. Traditional function expressions or function declarations should be used instead.
 
-```js
+```js live
 const obj = {
   value: 42,
   getValue: () => this.value, // `this` does not refer to `obj`
@@ -119,7 +121,7 @@ One of the most notable features of arrow functions is their behavior with `this
 
 ### Arrow functions inside function constructors
 
-```js
+```js live
 const Person = function (name) {
   this.name = name;
   this.sayName1 = function () {
