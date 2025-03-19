@@ -3578,10 +3578,12 @@ const { name, age } = { name: 'John', age: 30 };
 
 `Object.freeze()` is used to make an object immutable. Once an object is frozen, you cannot add, remove, or modify its properties. This is useful for creating constants or ensuring that an object remains unchanged throughout the program.
 
-```js
+```js live
 const obj = { name: 'John' };
 Object.freeze(obj);
 obj.name = 'Doe'; // This will not change the name property
+
+console.log(obj); // { name: 'John' }
 ```
 
 <!-- Update here: /questions/what-is-objectfreeze-for/en-US.mdx -->
@@ -5056,8 +5058,8 @@ Here's a table summarizing the 3 client storage mechanisms.
 
 To make an HTTP request using the Fetch API, you can use the `fetch` function, which returns a promise. You can handle the response using `.then()` and `.catch()` for error handling. Here's a basic example of a GET request:
 
-```js
-fetch('https://api.example.com/data')
+```js live
+fetch('https://jsonplaceholder.typicode.com/todos/1')
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error:', error));
@@ -5065,13 +5067,17 @@ fetch('https://api.example.com/data')
 
 For a POST request, you can pass an options object as the second argument to `fetch`:
 
-```js
-fetch('https://api.example.com/data', {
+```js live
+fetch('https://jsonplaceholder.typicode.com/posts', {
   method: 'POST',
+  body: JSON.stringify({
+    title: 'foo',
+    body: 'bar',
+    userId: 1,
+  }),
   headers: {
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json; charset=UTF-8',
   },
-  body: JSON.stringify({ key: 'value' }),
 })
   .then((response) => response.json())
   .then((data) => console.log(data))
