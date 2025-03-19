@@ -67,12 +67,15 @@ JavaScript can be used to access and manipulate the DOM. Here are some common me
 
 Example:
 
-```js
-// Select the <h1> element
-const heading = document.querySelector('h1');
+```js live
+// Create an <h1> element and add it to the DOM
+const newElement = document.createElement('h1');
+document.body.appendChild(newElement);
 
-// Change its text content
+// Get the h1 element using querySelector
+const heading = document.querySelector('h1');
 heading.textContent = 'Hello, DOM!';
+console.log(heading); // <h1>Hello, DOM!</h1>
 ```
 
 ## Further reading
