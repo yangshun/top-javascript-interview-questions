@@ -97,7 +97,10 @@ function add(a, b) {
 }
 
 const loggedAdd = withLogging(add);
-console.log(loggedAdd(2, 3)); // Output: Calling add with arguments [2, 3] 5
+console.log(loggedAdd(2, 3));
+// Output:
+// Calling add with arguments [2, 3]
+// 5
 ```
 
 The `withLogging` function is a higher-order function that takes a function fn as an argument and returns a new function that logs the function call before executing the original function
