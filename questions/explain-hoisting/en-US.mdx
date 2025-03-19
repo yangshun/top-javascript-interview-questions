@@ -41,7 +41,7 @@ Let's explain with a few code samples. Note that the code for these examples sho
 
 Hoisting is seen in action here as even though `foo` is declared and initialized after the first `console.log()`, the first `console.log()` prints the value of `foo` as `undefined`.
 
-```js
+```js live
 console.log(foo); // undefined
 var foo = 1;
 console.log(foo); // 1
@@ -49,7 +49,7 @@ console.log(foo); // 1
 
 You can visualize the code as:
 
-```js
+```js live
 var foo;
 console.log(foo); // undefined
 foo = 1;
@@ -60,17 +60,17 @@ console.log(foo); // 1
 
 Variables declared via `let`, `const`, and `class` are hoisted as well. However, unlike `var` and `function`, they are not initialized and accessing them before the declaration will result in a `ReferenceError` exception. The variable is in a "temporal dead zone" from the start of the block until the declaration is processed.
 
-```js
+```js live
 y; // ReferenceError: Cannot access 'y' before initialization
 let y = 'local';
 ```
 
-```js
+```js live
 z; // ReferenceError: Cannot access 'z' before initialization
 const z = 'local';
 ```
 
-```js
+```js live
 Foo; // ReferenceError: Cannot access 'Foo' before initialization
 
 class Foo {
@@ -82,7 +82,7 @@ class Foo {
 
 Function expressions are functions written in the form of variable declarations. Since they are also declared using `var`, only the variable declaration is hoisted.
 
-```js
+```js live
 console.log(bar); // undefined
 bar(); // Uncaught TypeError: bar is not a function
 
@@ -95,7 +95,7 @@ var bar = function () {
 
 Function declarations use the `function` keyword. Unlike function expressions, function declarations have both the declaration and definition hoisted, thus they can be called even before they are declared.
 
-```js
+```js live
 console.log(foo); // [Function: foo]
 foo(); // 'FOOOOO'
 
