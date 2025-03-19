@@ -18,10 +18,17 @@ In JavaScript, the `this` keyword is a reference to the object that is currently
 
 In the context of event handlers, `this` usually refers to the DOM element that triggered the event. For example:
 
-```js
+```js live
+// Create a button element and append it to the DOM
+const button = document.createElement('button');
+button.id = 'myButton';
+document.body.appendChild(button);
+
 document.getElementById('myButton').addEventListener('click', function () {
-  console.log(this); // Logs the button element
+  console.log(this); // `this` refers to the 'myButton' element
 });
+
+button.click(); // Logs the button element
 ```
 
 In this example, `this` inside the event handler refers to the button element that was clicked.
@@ -34,7 +41,12 @@ There are several ways to change the value of `this` in event handlers:
 
 The `bind()` method creates a new function that, when called, has its `this` keyword set to the provided value:
 
-```js
+```js live
+// Create a button element and append it to the DOM
+const button = document.createElement('button');
+button.id = 'myButton';
+document.body.appendChild(button);
+
 function handleClick() {
   console.log(this); // Logs the object passed to bind()
 }
@@ -43,6 +55,8 @@ const obj = { name: 'MyObject' };
 document
   .getElementById('myButton')
   .addEventListener('click', handleClick.bind(obj));
+
+button.click(); // Logs obj because handleClick was bound to obj using bind()
 ```
 
 In this example, `this` inside `handleClick` refers to `obj`.
@@ -51,7 +65,12 @@ In this example, `this` inside `handleClick` refers to `obj`.
 
 Arrow functions do not have their own `this` context; they inherit `this` from the surrounding lexical context:
 
-```js
+```js live
+// Create a button element and append it to the DOM
+const button = document.createElement('button');
+button.id = 'myButton';
+document.body.appendChild(button);
+
 const obj = {
   name: 'MyObject',
   handleClick: function () {
@@ -62,6 +81,7 @@ const obj = {
 };
 
 obj.handleClick();
+button.click(); // This will log obj
 ```
 
 In this example, `this` inside the arrow function refers to `obj`.
@@ -70,7 +90,12 @@ In this example, `this` inside the arrow function refers to `obj`.
 
 You can also assign the context explicitly by using a variable:
 
-```js
+```js live
+// Create a button element and append it to the DOM
+const button = document.createElement('button');
+button.id = 'myButton';
+document.body.appendChild(button);
+
 const obj = {
   name: 'MyObject',
   handleClick: function () {
@@ -82,6 +107,7 @@ const obj = {
 };
 
 obj.handleClick();
+button.click(); // This will log obj
 ```
 
 In this example, `self` is used to capture the value of `this` from the outer function.
