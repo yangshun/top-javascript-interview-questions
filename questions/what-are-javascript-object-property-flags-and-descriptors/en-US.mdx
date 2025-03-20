@@ -43,7 +43,7 @@ Property flags are used to specify the behavior of a property. They are set usin
 
 Property descriptors provide detailed information about an object's property, encapsulating its value and flags. They are retrieved using `Object.getOwnPropertyDescriptor()` and set using `Object.defineProperty()`
 
-```js
+```js live
 let user = { name: 'John Doe' };
 let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
 
@@ -56,7 +56,7 @@ console.log(descriptor); // {value: "John Doe", writable: true, enumerable: true
 
 The `writable` flag specifies whether a property can be written to. When `writable` is `false`, trying to assign value to the property fails silently in non-strict mode, and it throws a `TypeError` in strict mode.
 
-```js
+```js live
 const obj = {};
 
 Object.defineProperty(obj, 'name', {
@@ -65,14 +65,15 @@ Object.defineProperty(obj, 'name', {
 });
 
 console.log(obj.name); // Output: John Doe
-obj.name = 'Jane Doe'; // TypeError: Cannot assign to read only property 'name' of object '#<Object>'
+obj.name = 'Jane Doe'; // This does not change name. Generates TypeError in strict mode
+console.log(obj.name); // Output: John Doe (unchanged)
 ```
 
 ### `enumerable` flag
 
 The `enumerable` flag specifies whether a property is enumerable. The `enumerable flag` is set to `true`, which means the property is visible in a `for...in` loop.
 
-```js
+```js live
 const obj = {};
 
 Object.defineProperty(obj, 'name', {
@@ -100,7 +101,7 @@ for (const prop in obj1) {
 
 The `configurable` flag specifies whether a property can be deleted or its attributes changed. When `configurable` is `false`, trying to delete or change the property fails silently in non-strict mode, and it throws a `TypeError` in strict mode.
 
-```js
+```js live
 const obj = {};
 
 Object.defineProperty(obj, 'name', {
@@ -108,7 +109,8 @@ Object.defineProperty(obj, 'name', {
   value: 'John Doe',
 });
 
-delete obj.name; // Output: TypeError: Cannot delete property 'name' of #<Object>
+delete obj.name; // Does not delete property. Generates TypeError in strict mode
+console.log(obj.name); // Output: John Doe (not deleted)
 ```
 
 ## `Object.seal()`
