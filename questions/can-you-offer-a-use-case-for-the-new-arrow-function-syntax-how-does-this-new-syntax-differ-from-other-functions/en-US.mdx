@@ -76,7 +76,7 @@ console.log(doubled); // [2, 4, 6, 8, 10]
 
 Arrow functions can be used in event handlers to maintain the `this` context of the class or object.
 
-```js
+```js live
 class Button {
   constructor() {
     this.count = 0;
@@ -84,13 +84,15 @@ class Button {
     this.button.innerText = 'Click me';
     this.button.addEventListener('click', () => {
       this.count++;
-      console.log(this.count);
+      console.log('count:', this.count);
     });
     document.body.appendChild(this.button);
   }
 }
 
-const button = new Button();
+const myButton = new Button();
+myButton.button.click(); // count: 1
+myButton.button.click(); // count: 2
 ```
 
 ## Further reading

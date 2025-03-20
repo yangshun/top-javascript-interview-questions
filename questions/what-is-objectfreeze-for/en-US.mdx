@@ -6,10 +6,12 @@ title: What is `Object.freeze()` for?
 
 `Object.freeze()` is used to make an object immutable. Once an object is frozen, you cannot add, remove, or modify its properties. This is useful for creating constants or ensuring that an object remains unchanged throughout the program.
 
-```js
+```js live
 const obj = { name: 'John' };
 Object.freeze(obj);
 obj.name = 'Doe'; // This will not change the name property
+
+console.log(obj); // { name: 'John' }
 ```
 
 ---
@@ -22,7 +24,7 @@ obj.name = 'Doe'; // This will not change the name property
 
 To use `Object.freeze()`, simply pass the object you want to freeze as an argument to the method. Here is a basic example:
 
-```js
+```js live
 const obj = {
   name: 'John',
   age: 30,
@@ -54,7 +56,7 @@ console.log(obj); // Output: { name: "John", age: 30 }
 - `Object.freeze()` only makes the object itself immutable. If the object contains nested objects, those nested objects are not frozen and can still be modified.
 - To deeply freeze an object, you would need to recursively apply `Object.freeze()` to all nested objects.
 
-```js
+```js live
 const deepFreeze = (obj) => {
   Object.keys(obj).forEach((key) => {
     if (typeof obj[key] === 'object' && obj[key] !== null) {

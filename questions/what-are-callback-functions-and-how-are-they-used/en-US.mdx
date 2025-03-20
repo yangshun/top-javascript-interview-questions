@@ -52,7 +52,7 @@ greet('Alice', sayGoodbye);
 
 Asynchronous callbacks are used for operations that take some time to complete, such as reading files, making HTTP requests, or handling events. These callbacks are executed after the asynchronous operation has finished.
 
-```js
+```js live
 function fetchData(callback) {
   setTimeout(() => {
     const data = { name: 'John Doe' };
@@ -65,6 +65,7 @@ function handleData(data) {
 }
 
 fetchData(handleData);
+// Output: { name: 'John Doe' } after 1 second
 ```
 
 ### Common use cases
@@ -73,19 +74,25 @@ fetchData(handleData);
 
 Callbacks are often used in event handling. For example, in JavaScript, you can pass a callback function to an event listener.
 
-```js
-document.getElementById('myButton').addEventListener('click', function () {
-  console.log('Button clicked!');
+```js live
+const button = document.createElement('button');
+
+button.addEventListener('click', () => {
+  setTimeout(() => {
+    console.log('Button clicked after 1s');
+  }, 1000);
 });
+
+button.click();
 ```
 
 #### API calls
 
 Callbacks are frequently used in making API calls to handle the response data.
 
-```js
+```js live
 function getUserData(userId, callback) {
-  fetch(`https://api.example.com/users/${userId}`)
+  fetch(`https://jsonplaceholder.typicode.com/todos/2`)
     .then((response) => response.json())
     .then((data) => callback(data))
     .catch((error) => console.error('Error:', error));
@@ -102,7 +109,7 @@ getUserData(1, displayUserData);
 
 Callbacks are also used with timers like `setTimeout` and `setInterval`.
 
-```js
+```js live
 function sayHello() {
   console.log('Hello, world!');
 }
