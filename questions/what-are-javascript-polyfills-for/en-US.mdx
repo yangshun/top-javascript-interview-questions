@@ -41,7 +41,7 @@ Polyfills detect if a feature or API is missing in a browser and provide a custo
 
 For example, let's consider the `Array.prototype.includes()` method, which determines if an array includes a specific element. This method is not supported in older browsers like Internet Explorer 11. To address this, we can use a polyfill:
 
-```js
+```js live
 // Polyfill for Array.prototype.includes()
 if (!Array.prototype.includes) {
   Array.prototype.includes = function (searchElement) {
@@ -54,6 +54,9 @@ if (!Array.prototype.includes) {
     return false;
   };
 }
+
+console.log([1, 2, 3].includes(2)); // true
+console.log([1, 2, 3].includes(4)); // false
 ```
 
 By including this polyfill, we can safely use `Array.prototype.includes()` even in browsers that don't support it natively.
