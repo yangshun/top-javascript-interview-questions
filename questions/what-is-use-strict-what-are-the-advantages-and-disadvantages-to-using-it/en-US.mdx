@@ -37,7 +37,7 @@ When you use "use strict", it helps you to write cleaner code, like preventing y
 
 1. **Global Scope**: To enable strict mode globally, add the directive at the beginning of the JavaScript file:
 
-   ```js
+   ```js live
    'use strict';
    // any code in this file will be run in strict mode
    function add(a, b) {
@@ -47,7 +47,7 @@ When you use "use strict", it helps you to write cleaner code, like preventing y
 
 2. **Local Scope**: To enable strict mode within a function, add the directive at the beginning of the function:
 
-   ```js
+   ```js live
    function myFunction() {
      'use strict';
      // this will tell JavaScript engine to use strict mode only for the `myFunction`
@@ -73,7 +73,7 @@ When you use "use strict", it helps you to write cleaner code, like preventing y
 
 1. Preventing accidental creation of global variables:
 
-   ```js
+   ```js live
    // Without strict mode
 
    function defineNumber() {
@@ -83,7 +83,7 @@ When you use "use strict", it helps you to write cleaner code, like preventing y
    console.log(count); // logs: 123
    ```
 
-   ```js
+   ```js live
    'use strict'; // With strict mode
 
    function strictFunc() {
@@ -96,25 +96,25 @@ When you use "use strict", it helps you to write cleaner code, like preventing y
 
 2. Making assignments which would otherwise silently fail to throw an exception:
 
-   ```js
+   ```js live
    // Without strict mode
    NaN = 'foo'; // This fails silently
    console.log(NaN); // logs: NaN
    ```
 
-   ```js
+   ```js live
    'use strict'; // With strict mode
-   NaN = 'foo'; // TypeError: Assignment to read-only properties is not allowed in strict mode
+   NaN = 'foo'; // Uncaught TypeError: Cannot assign to read only property 'NaN' of object '#<Window>'
    ```
 
 3. Making attempts to delete undeletable properties throw an error in strict mode:
 
-   ```js
+   ```js live
    // Without strict mode
    delete Object.prototype; // This fails silently
    ```
 
-   ```js
+   ```js live
    'use strict'; // With strict mode
    delete Object.prototype; // TypeError: Cannot delete property 'prototype' of function Object() { [native code] }
    ```
