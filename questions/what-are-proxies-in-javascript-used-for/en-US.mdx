@@ -8,7 +8,7 @@ In JavaScript, a proxy is an object that acts as an intermediary between an obje
 
 Here's a basic example of using a `Proxy` to log every property access:
 
-```js
+```js live
 const myObject = {
   name: 'John',
   age: 42,
@@ -23,11 +23,13 @@ const handler = {
 
 const proxiedObject = new Proxy(myObject, handler);
 
-console.log(proxiedObject.name); // 'John'
+console.log(proxiedObject.name);
 // Someone accessed property "name"
+// 'John'
 
-console.log(proxiedObject.age); // 42
+console.log(proxiedObject.age);
 // Someone accessed property "age"
+// 42
 ```
 
 Use cases include:
@@ -53,7 +55,7 @@ Here are some common use cases and examples of how proxies can be used in JavaSc
 
 Proxies can be used to intercept and customize property access on an object.
 
-```js
+```js live
 const target = {
   message: 'Hello, world!',
 };
@@ -78,7 +80,7 @@ console.log(proxy.nonExistentProperty); // Property nonExistentProperty does not
 
 This is useful for creating wrappers for logging and debugging interactions with an object.
 
-```js
+```js live
 const target = {
   name: 'Alice',
   age: 30,
@@ -109,7 +111,7 @@ console.log(proxy.age); // Output: Getting property age
 
 Proxies can be used to validate property values before they are set on the target object.
 
-```js
+```js live
 const target = {
   age: 25,
 };
@@ -136,7 +138,7 @@ Proxies are often used to trigger updates in other parts of your application whe
 
 A practical example is JavaScript frameworks like [Vue.js](https://vuejs.org/), where proxies are used to [create reactive systems that automatically update the UI when data changes](https://vuejs.org/guide/extras/reactivity-in-depth.html).
 
-```js
+```js live
 const target = {
   firstName: 'John',
   lastName: 'Doe',
@@ -164,7 +166,7 @@ Other use cases for access interception include:
 
 Proxies can intercept and customize function calls.
 
-```js
+```js live
 const target = function (name) {
   return `Hello, ${name}!`;
 };
@@ -188,7 +190,7 @@ This interception can be used to cache and return the result of frequently acces
 
 Proxies can be used to dynamically create properties or methods on an object. This is useful for defining properties on-the-fly with default values and avoid storing redundant data in objects.
 
-```js
+```js live
 const target = {};
 
 const handler = {
