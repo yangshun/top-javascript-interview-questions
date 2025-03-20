@@ -8,7 +8,7 @@ The Factory pattern is a design pattern used to create objects without specifyin
 
 For example, in JavaScript, you can use a factory function to create different types of objects:
 
-```js
+```js live
 function createAnimal(type) {
   if (type === 'dog') {
     return { sound: 'woof' };
@@ -43,7 +43,7 @@ In JavaScript, the Factory pattern can be implemented using factory functions or
 
 A factory function is a simple function that returns an object. It can contain logic to decide which type of object to create.
 
-```js
+```js live
 function createAnimal(type) {
   if (type === 'dog') {
     return { sound: 'woof' };
@@ -64,7 +64,7 @@ console.log(cat.sound); // Output: meow
 
 A factory class can be used to encapsulate the creation logic within a class structure.
 
-```js
+```js live
 class AnimalFactory {
   createAnimal(type) {
     if (type === 'dog') {
