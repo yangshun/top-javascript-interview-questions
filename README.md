@@ -1190,7 +1190,7 @@ AJAX (Asynchronous JavaScript and XML) facilitates asynchronous communication be
 
 **Using `XMLHttpRequest`**
 
-```js
+```js live
 let xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function () {
   if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -1207,7 +1207,7 @@ xhr.send();
 
 **Using `fetch()`**
 
-```js
+```js live
 fetch('https://jsonplaceholder.typicode.com/todos/1')
   .then((response) => {
     if (!response.ok) {
@@ -1290,7 +1290,7 @@ These days `fetch()` is preferred for its cleaner syntax and modern features.
 
 `AbortController` is used to cancel ongoing asynchronous operations like fetch requests.
 
-```js
+```js live
 const controller = new AbortController();
 const signal = controller.signal;
 
@@ -1641,7 +1641,7 @@ In JavaScript, iterators and generators are powerful tools for managing sequence
 
 Here's an example of an object implementing the iterator interface.
 
-```js
+```js live
 const iterator = {
   current: 0,
   last: 5,
@@ -1663,7 +1663,7 @@ while (!result.done) {
 
 **Generators** are a special functions that **can pause execution and resume at a later point**. It uses the `function*` syntax and the `yield` keyword to control the flow of execution. When you call a generator function, it doesn't execute completely like a regular function. Instead, it returns an iterator object. Calling the `next()` method on the returned iterator advances the generator to the next `yield` statement, and the value after `yield` becomes the return value of `next()`.
 
-```js
+```js live
 function* numberGenerator() {
   let num = 0;
   while (num <= 5) {
@@ -1703,7 +1703,7 @@ Generators are powerful for creating iterators on-demand, especially for infinit
 
 **Mutable objects** allow for modification of properties and values after creation, which is the default behavior for most objects.
 
-```js
+```js live
 const mutableObject = {
   name: 'John',
   age: 30,
@@ -1718,7 +1718,7 @@ console.log(mutableObject); // Output: { name: 'Jane', age: 30 }
 
 **Immutable objects** cannot be directly modified after creation. Its content cannot be changed without creating an entirely new value.
 
-```js
+```js live
 const immutableObject = Object.freeze({
   name: 'John',
   age: 30,
@@ -2003,7 +2003,7 @@ Getters and setters are defined using the `get` and `set` keywords, respectively
 
 Here's a code example demonstrating the use of getters and setters:
 
-```js
+```js live
 const person = {
   _name: 'John Doe', // Private property
 
@@ -2050,7 +2050,7 @@ In JavaScript, a proxy is an object that acts as an intermediary between an obje
 
 Here's a basic example of using a `Proxy` to log every property access:
 
-```js
+```js live
 const myObject = {
   name: 'John',
   age: 42,
@@ -2065,11 +2065,13 @@ const handler = {
 
 const proxiedObject = new Proxy(myObject, handler);
 
-console.log(proxiedObject.name); // 'John'
+console.log(proxiedObject.name);
 // Someone accessed property "name"
+// 'John'
 
-console.log(proxiedObject.age); // 42
+console.log(proxiedObject.age);
 // Someone accessed property "age"
+// 42
 ```
 
 Use cases include:
@@ -2442,7 +2444,7 @@ In JavaScript, a proxy is an object that acts as an intermediary between an obje
 
 Here's a basic example of using a `Proxy` to log every property access:
 
-```js
+```js live
 const myObject = {
   name: 'John',
   age: 42,
@@ -2457,11 +2459,13 @@ const handler = {
 
 const proxiedObject = new Proxy(myObject, handler);
 
-console.log(proxiedObject.name); // 'John'
+console.log(proxiedObject.name);
 // Someone accessed property "name"
+// 'John'
 
-console.log(proxiedObject.age); // 42
+console.log(proxiedObject.age);
 // Someone accessed property "age"
+// 42
 ```
 
 Use cases include:
@@ -2536,7 +2540,7 @@ The following behavior summarizes the result of accessing the variables before t
 
 Hoisting in JavaScript means that function declarations are moved to the top of their containing scope during the compile phase, making them available throughout the entire scope. This allows you to call a function before it is defined in the code. However, function expressions are not hoisted in the same way. If you try to call a function expression before it is defined, you will get an error because the variable holding the function is hoisted but not its assignment.
 
-```js
+```js live
 // Function declaration
 console.log(foo()); // Works fine
 function foo() {
@@ -2912,7 +2916,7 @@ In JavaScript, iterators and generators are powerful tools for managing sequence
 
 Here's an example of an object implementing the iterator interface.
 
-```js
+```js live
 const iterator = {
   current: 0,
   last: 5,
@@ -2934,7 +2938,7 @@ while (!result.done) {
 
 **Generators** are a special functions that **can pause execution and resume at a later point**. It uses the `function*` syntax and the `yield` keyword to control the flow of execution. When you call a generator function, it doesn't execute completely like a regular function. Instead, it returns an iterator object. Calling the `next()` method on the returned iterator advances the generator to the next `yield` statement, and the value after `yield` becomes the return value of `next()`.
 
-```js
+```js live
 function* numberGenerator() {
   let num = 0;
   while (num <= 5) {
@@ -3512,7 +3516,7 @@ if (obj.hasOwnProperty('key')) {
 
 **Mutable objects** allow for modification of properties and values after creation, which is the default behavior for most objects.
 
-```js
+```js live
 const mutableObject = {
   name: 'John',
   age: 30,
@@ -3527,7 +3531,7 @@ console.log(mutableObject); // Output: { name: 'Jane', age: 30 }
 
 **Immutable objects** cannot be directly modified after creation. Its content cannot be changed without creating an entirely new value.
 
-```js
+```js live
 const immutableObject = Object.freeze({
   name: 'John',
   age: 30,
@@ -3598,15 +3602,19 @@ console.log(obj); // { name: 'John' }
 
 <!-- Update here: /questions/what-is-objectseal-for/en-US.mdx -->
 
-`Object.seal()` is used to prevent new properties from being added to an object and to mark all existing properties as non-configurable. This means you can still modify the values of existing properties, but you cannot delete them or add new ones.
+`Object.seal()` is used to prevent new properties from being added to an object and to mark all existing properties as non-configurable. This means you can still modify the values of existing properties, but you cannot delete them or add new ones. Doing so will throw errors in strict mode but fail silently in non-strict mode. In the following examples, you can uncomment the 'use strict' comment to see this.
 
-```js
+```js live
+// 'use strict'
+
 const obj = { name: 'John' };
 Object.seal(obj);
 
 obj.name = 'Jane'; // Allowed
-obj.age = 30; // Not allowed
-delete obj.name; // Not allowed
+obj.age = 30; // Not allowed, throws an error in strict mode
+delete obj.name; // Not allowed, throws an error in strict mode
+
+console.log(obj); // { name: 'Jane } (unchanged)
 ```
 
 <!-- Update here: /questions/what-is-objectseal-for/en-US.mdx -->
@@ -3623,7 +3631,7 @@ delete obj.name; // Not allowed
 
 `Object.preventExtensions()` is a method in JavaScript that prevents new properties from being added to an object. However, it does not affect the deletion or modification of existing properties. This method is useful when you want to ensure that an object remains in a certain shape and no additional properties can be added to it.
 
-```js
+```js live
 const obj = { name: 'John' };
 Object.preventExtensions(obj);
 
@@ -3649,7 +3657,7 @@ Getters and setters are defined using the `get` and `set` keywords, respectively
 
 Here's a code example demonstrating the use of getters and setters:
 
-```js
+```js live
 const person = {
   _name: 'John Doe', // Private property
 
@@ -3969,16 +3977,19 @@ Promise.all([promise1, promise2, promise3]).then((values) => {
 
 `async/await` is a modern syntax in JavaScript that simplifies working with promises. By using the `async` keyword before a function, you can use the `await` keyword inside that function to pause execution until a promise is resolved. This makes asynchronous code look and behave more like synchronous code, making it easier to read and maintain.
 
-```js
+```js live
 async function fetchData() {
   try {
-    const response = await fetch('https://api.example.com/data');
+    const response = await fetch(
+      'https://jsonplaceholder.typicode.com/posts/1',
+    );
     const data = await response.json();
     console.log(data);
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 }
+fetchData();
 ```
 
 <!-- Update here: /questions/what-is-asyncawait-and-how-does-it-simplify-asynchronous-code/en-US.mdx -->
@@ -5114,7 +5125,7 @@ AJAX (Asynchronous JavaScript and XML) facilitates asynchronous communication be
 
 **Using `XMLHttpRequest`**
 
-```js
+```js live
 let xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function () {
   if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -5131,7 +5142,7 @@ xhr.send();
 
 **Using `fetch()`**
 
-```js
+```js live
 fetch('https://jsonplaceholder.typicode.com/todos/1')
   .then((response) => {
     if (!response.ok) {
@@ -5208,7 +5219,7 @@ These days `fetch()` is preferred for its cleaner syntax and modern features.
 
 `AbortController` is used to cancel ongoing asynchronous operations like fetch requests.
 
-```js
+```js live
 const controller = new AbortController();
 const signal = controller.signal;
 
@@ -5296,13 +5307,15 @@ There are three main types of workers in JavaScript:
 
 The WebSocket API provides a way to open a persistent connection between a client and a server, allowing for real-time, two-way communication. Unlike HTTP, which is request-response based, WebSocket enables full-duplex communication, meaning both the client and server can send and receive messages independently. This is particularly useful for applications like chat apps, live updates, and online gaming.
 
-```js
-// Example of creating a WebSocket connection
-const socket = new WebSocket('ws://example.com/socket');
+The following example uses Postman's WebSocket echo service to demonstrate how web sockets work.
+
+```js live
+// Postman's echo server that will echo back messages you send
+const socket = new WebSocket('wss://ws.postman-echo.com/raw');
 
 // Event listener for when the connection is open
 socket.addEventListener('open', function (event) {
-  socket.send('Hello Server!');
+  socket.send('Hello Server!'); // Sends the message to the Postman WebSocket server
 });
 
 // Event listener for when a message is received from the server
@@ -5385,7 +5398,7 @@ To detect if JavaScript is disabled on a page, you can use the `<noscript>` HTML
 
 The `Intl` namespace object in JavaScript is used for internationalization purposes. It provides language-sensitive string comparison, number formatting, and date and time formatting. For example, you can use `Intl.DateTimeFormat` to format dates according to a specific locale:
 
-```js
+```js live
 const date = new Date();
 const formatter = new Intl.DateTimeFormat('en-US');
 console.log(formatter.format(date)); // Outputs date in 'MM/DD/YYYY' format
@@ -6546,7 +6559,7 @@ The Factory pattern is a design pattern used to create objects without specifyin
 
 For example, in JavaScript, you can use a factory function to create different types of objects:
 
-```js
+```js live
 function createAnimal(type) {
   if (type === 'dog') {
     return { sound: 'woof' };
@@ -6587,7 +6600,7 @@ The Observer pattern is a design pattern where an object, known as the subject, 
 
 The Module pattern in JavaScript is a design pattern used to create self-contained modules of code. It helps with encapsulation by allowing you to define private and public members within a module. Private members are not accessible from outside the module, while public members are exposed through a returned object. This pattern helps in organizing code, avoiding global namespace pollution, and maintaining a clean separation of concerns.
 
-```js
+```js live
 var myModule = (function () {
   var privateVar = 'I am private';
 
@@ -6646,7 +6659,7 @@ The Decorator pattern is a structural design pattern that allows behavior to be 
 
 For example, if you have a `Car` class and you want to add features like `GPS` or `Sunroof` without modifying the `Car` class itself, you can create decorators for these features.
 
-```js
+```js live
 class Car {
   drive() {
     return 'Driving';
