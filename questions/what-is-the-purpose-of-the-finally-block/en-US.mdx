@@ -24,24 +24,33 @@ try {
 
 The `finally` block is often used to ensure that certain cleanup code runs regardless of whether an error occurred or not. This is useful for tasks like closing files, releasing resources, or resetting states.
 
-```js
-try {
-  // Attempt to execute code that may throw an error
-  let data = fetchData();
-} catch (error) {
-  // Handle any errors that occur
-  console.error('An error occurred:', error);
-} finally {
-  // Always execute this code
-  console.log('Cleanup code runs here');
+```js live
+async function fetchData() {
+  try {
+    const response = await fetch(
+      'https://jsonplaceholder.typicode.com/posts/1',
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log('Fetched data:', data);
+  } catch (error) {
+    console.error('An error occurred:', error);
+  } finally {
+    console.log('Cleanup code runs here');
+  }
 }
+
+fetchData();
+// Try creating a typo in the URL to see error handling.
 ```
 
 ### Guaranteeing execution
 
 The `finally` block guarantees that the code within it will execute after the `try` and `catch` blocks have finished. This is true even if a `return` statement is encountered in the `try` or `catch` blocks.
 
-```js
+```js live
 function exampleFunction() {
   try {
     return 'Try block';
@@ -59,9 +68,10 @@ console.log(exampleFunction()); // Output: 'Finally block' followed by 'Try bloc
 
 When dealing with asynchronous code, the `finally` block can be used to ensure that certain actions are taken after a promise is settled, regardless of its outcome.
 
-```js
-fetch('https://api.example.com/data')
+```js live
+fetch('https://jsonplaceholder.typicode.com/todos/1')
   .then((response) => response.json())
+  .then((res) => console.log(res))
   .catch((error) => console.error('Fetch error:', error))
   .finally(() => console.log('Fetch attempt finished'));
 ```

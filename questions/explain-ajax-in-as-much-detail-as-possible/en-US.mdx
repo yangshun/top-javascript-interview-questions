@@ -8,7 +8,7 @@ AJAX (Asynchronous JavaScript and XML) facilitates asynchronous communication be
 
 **Using `XMLHttpRequest`**
 
-```js
+```js live
 let xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function () {
   if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -25,7 +25,7 @@ xhr.send();
 
 **Using `fetch()`**
 
-```js
+```js live
 fetch('https://jsonplaceholder.typicode.com/todos/1')
   .then((response) => {
     if (!response.ok) {
@@ -49,7 +49,7 @@ Traditionally, AJAX was implemented using the `XMLHttpRequest` API, but the `fet
 
 Here's a basic example of how it can be used:
 
-```js
+```js live
 let xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function () {
   if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -70,7 +70,7 @@ Alternatively, the `fetch()` API provides a modern, promise-based approach to ma
 
 Here's how you can use it:
 
-```js
+```js live
 fetch('https://jsonplaceholder.typicode.com/todos/1')
   .then((response) => {
     if (!response.ok) {
@@ -100,8 +100,8 @@ In modern browsers, AJAX is done using the `fetch()` API instead of `XMLHTTPRequ
 2. **Return a promise**: The `fetch()` function returns a `Promise` that resolves to a [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response) object representing the response from the server. This `Promise needs` to be handled using `.then()` or `async/await`.
 3. **Handling the response**: The `Response` object provides methods to define how the body content should be handled, such as `.json()` for parsing JSON data, `.text()` for plain text, `.blob()` for binary data, etc.
 
-   ```js
-   fetch('https://api.example.com/data')
+   ```js live
+   fetch('https://jsonplaceholder.typicode.com/todos/1')
      .then((response) => response.json())
      .then((data) => console.log(data))
      .catch((error) => console.error('Error:', error));

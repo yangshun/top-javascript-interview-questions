@@ -6,13 +6,15 @@ title: Explain the concept of the Web Socket API
 
 The WebSocket API provides a way to open a persistent connection between a client and a server, allowing for real-time, two-way communication. Unlike HTTP, which is request-response based, WebSocket enables full-duplex communication, meaning both the client and server can send and receive messages independently. This is particularly useful for applications like chat apps, live updates, and online gaming.
 
-```js
-// Example of creating a WebSocket connection
-const socket = new WebSocket('ws://example.com/socket');
+The following example uses Postman's WebSocket echo service to demonstrate how web sockets work.
+
+```js live
+// Postman's echo server that will echo back messages you send
+const socket = new WebSocket('wss://ws.postman-echo.com/raw');
 
 // Event listener for when the connection is open
 socket.addEventListener('open', function (event) {
-  socket.send('Hello Server!');
+  socket.send('Hello Server!'); // Sends the message to the Postman WebSocket server
 });
 
 // Event listener for when a message is received from the server
@@ -42,16 +44,16 @@ The WebSocket API is a technology that provides a way to establish a persistent,
 
 ### Example usage
 
-Here is a basic example of how to use the WebSocket API in JavaScript:
+Here is a basic example of how to use the WebSocket API in JavaScript, using Postman's WebSocket Echo Service.
 
-```js
-// Create a new WebSocket connection
-const socket = new WebSocket('ws://example.com/socket');
+```js live
+// Postman's echo server that will echo back messages you send
+const socket = new WebSocket('wss://ws.postman-echo.com/raw');
 
 // Event listener for when the connection is open
 socket.addEventListener('open', function (event) {
   console.log('Connection opened');
-  socket.send('Hello Server!');
+  socket.send('Hello Server!'); // Sends the message to the Postman WebSocket server
 });
 
 // Event listener for when a message is received from the server

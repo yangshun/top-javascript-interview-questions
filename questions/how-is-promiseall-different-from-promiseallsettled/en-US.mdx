@@ -16,7 +16,7 @@ title: How is `Promise.all()` different from `Promise.allSettled()`?
 
 #### Example
 
-```js
+```js live
 const promise1 = Promise.resolve(3);
 const promise2 = 42;
 const promise3 = new Promise((resolve, reject) => {
@@ -36,7 +36,7 @@ In this example, `Promise.all()` resolves with an array of results `[3, 42, 'foo
 
 #### Failure case
 
-```js
+```js live
 const promise1 = Promise.resolve(3);
 const promise2 = Promise.reject('error');
 const promise3 = new Promise((resolve, reject) => {
@@ -60,7 +60,7 @@ In this example, `Promise.all()` rejects immediately with the reason `'error'` b
 
 #### Example
 
-```js
+```js live
 const promise1 = Promise.resolve(3);
 const promise2 = 42;
 const promise3 = new Promise((resolve, reject) => {
@@ -79,7 +79,7 @@ In this example, `Promise.allSettled()` resolves with an array of result objects
 
 #### Failure case
 
-```js
+```js live
 const promise1 = Promise.resolve(3);
 const promise2 = Promise.reject('error');
 const promise3 = new Promise((resolve, reject) => {

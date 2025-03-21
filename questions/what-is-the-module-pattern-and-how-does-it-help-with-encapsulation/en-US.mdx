@@ -6,7 +6,7 @@ title: What is the Module pattern and how does it help with encapsulation?
 
 The Module pattern in JavaScript is a design pattern used to create self-contained modules of code. It helps with encapsulation by allowing you to define private and public members within a module. Private members are not accessible from outside the module, while public members are exposed through a returned object. This pattern helps in organizing code, avoiding global namespace pollution, and maintaining a clean separation of concerns.
 
-```js
+```js live
 var myModule = (function () {
   var privateVar = 'I am private';
 
@@ -40,7 +40,7 @@ The Module pattern typically involves an immediately-invoked function expression
 
 Here is a simple example of the Module pattern:
 
-```js
+```js live
 var myModule = (function () {
   // Private members
   var privateVar = 'I am private';

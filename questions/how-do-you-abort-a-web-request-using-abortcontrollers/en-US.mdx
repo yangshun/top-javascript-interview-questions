@@ -6,7 +6,7 @@ title: How do you abort a web request using `AbortController` in JavaScript?
 
 `AbortController` is used to cancel ongoing asynchronous operations like fetch requests.
 
-```js
+```js live
 const controller = new AbortController();
 const signal = controller.signal;
 
@@ -48,7 +48,7 @@ Using `AbortController`s involve the following steps:
 
 Here is an example of how to use `AbortController`s with the `fetch()` API:
 
-```js
+```js live
 const controller = new AbortController();
 const signal = controller.signal;
 
@@ -74,11 +74,12 @@ controller.abort();
 
 Cancel requests that take too long or are no longer relevant due to user interactions (e.g., user cancels uploading of a huge file).
 
-```js
-// HTML:
-// <div>
-//   <button id="cancel-button">Cancel upload</button>
-// </div>
+```js live
+// HTML: <button id='cancel-button'>Cancel upload</button>
+const btn = document.createElement('button');
+btn.id = 'cancel-button';
+btn.innerHTML = 'Cancel upload';
+document.body.appendChild(btn);
 
 const controller = new AbortController();
 const signal = controller.signal;
@@ -98,6 +99,7 @@ fetch('https://jsonplaceholder.typicode.com/todos/1', { signal })
 document.getElementById('cancel-button').addEventListener('click', () => {
   controller.abort();
 });
+document.getElementById('cancel-button').click(); // Simulate clicking the cancel button
 ```
 
 When you click the "Cancel upload" button, in-flight request will be aborted.
@@ -106,7 +108,7 @@ When you click the "Cancel upload" button, in-flight request will be aborted.
 
 In scenarios where multiple requests are initiated for the same data, use `AbortController` to prioritize the latest request and abort earlier ones.
 
-```js
+```js live
 let latestController = null; // Keeps track of the latest controller
 
 function fetchData(url) {
@@ -119,9 +121,8 @@ function fetchData(url) {
   const signal = controller.signal;
 
   fetch(url, { signal })
-    .then((response) => {
-      // Handle successful response
-    })
+    .then((response) => response.json())
+    .then((data) => console.log('Fetched data:', data))
     .catch((error) => {
       if (error.name === 'AbortError') {
         console.log('Request canceled');
@@ -130,6 +131,17 @@ function fetchData(url) {
       }
     });
 }
+
+fetchData('https://jsonplaceholder.typicode.com/posts/1');
+
+// Simulate race conditions with new requests that quickly cancel the previous one
+setTimeout(() => {
+  fetchData('https://jsonplaceholder.typicode.com/posts/2');
+}, 5);
+setTimeout(() => {
+  fetchData('https://jsonplaceholder.typicode.com/posts/3');
+}, 5);
+// Only the last request should (posts/3) will be allowed to complete
 ```
 
 In this example, when the `fetchData()` function is called multiple times triggering multiple fetch requests, `AbortController`s will cancel all the previous requests except the latest request. This is common in scenarios like type-ahead search or infinite scrolling, where new requests are triggered frequently.

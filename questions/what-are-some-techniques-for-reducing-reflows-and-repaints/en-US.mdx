@@ -28,8 +28,11 @@ Grouping multiple DOM changes together can reduce the number of reflows and repa
 
 Instead of changing styles directly via JavaScript, use CSS classes:
 
-```js
-element.classList.add('new-class');
+```js live
+const element = document.createElement('h1');
+element.classList.add('text-center');
+
+console.log(element); // Notice that the class has been added.
 ```
 
 ### Avoid complex CSS selectors
@@ -65,9 +68,14 @@ The `will-change` property can hint to the browser about which elements will cha
 
 Reading and writing to the DOM separately can prevent layout thrashing:
 
-```js
+```js live
+// Mock div element
+const element = document.createElement('div');
+
 const height = element.offsetHeight; // Read
 element.style.height = `${height + 10}px`; // Write
+
+console.log(element);
 ```
 
 ## Further reading

@@ -14,9 +14,9 @@ In JavaScript, you can make API calls using several methods. The most common one
 
 `XMLHttpRequest` is the traditional way to make API calls in JavaScript. It is more verbose and requires more code compared to modern methods.
 
-```js
+```js live
 const xhr = new XMLHttpRequest();
-xhr.open('GET', 'https://api.example.com/data', true);
+xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1', true);
 xhr.onreadystatechange = function () {
   if (xhr.readyState === 4 && xhr.status === 200) {
     console.log(JSON.parse(xhr.responseText));
@@ -29,8 +29,8 @@ xhr.send();
 
 `fetch` is a modern and more convenient way to make API calls. It returns a promise, making it easier to handle asynchronous operations.
 
-```js
-fetch('https://api.example.com/data')
+```js live
+fetch('https://jsonplaceholder.typicode.com/todos/1')
   .then((response) => {
     if (!response.ok) {
       throw new Error('Network response was not ok');

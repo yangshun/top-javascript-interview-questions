@@ -14,33 +14,50 @@ To optimize DOM manipulation for better performance, minimize direct DOM access 
 
 Accessing the DOM is relatively slow, so try to minimize the number of times you read from or write to the DOM. Instead, store references to elements in variables and work with those.
 
-```js
-const element = document.getElementById('myElement');
+```js live
+// Creating an element for the example below
+const newElement = document.createElement('div');
+newElement.id = 'myElement';
+document.body.appendChild(newElement);
+
+const element = document.getElementById('myElement'); // Access once
+// Then use the reference to edit style
 element.style.color = 'red';
 element.style.backgroundColor = 'blue';
+
+console.log(document.body); // Notice the edits
 ```
 
 ### Batch DOM changes
 
 Instead of making multiple changes to the DOM one at a time, batch them together. This reduces the number of reflows and repaints.
 
-```js
+```js live
+// Creating an element for the example below
+const newElement = document.createElement('div');
+newElement.id = 'myElement';
+document.body.appendChild(newElement);
+
 const element = document.getElementById('myElement');
 element.style.cssText = 'color: red; background-color: blue;';
+
+console.log(document.body); // Notice the edits
 ```
 
 ### Use `documentFragment`
 
 When adding multiple elements to the DOM, use a `documentFragment` to minimize reflows and repaints.
 
-```js
+```js live
 const fragment = document.createDocumentFragment();
 for (let i = 0; i < 100; i++) {
   const newElement = document.createElement('div');
   newElement.textContent = `Item ${i}`;
   fragment.appendChild(newElement);
 }
-document.getElementById('container').appendChild(fragment);
+document.body.appendChild(fragment);
+
+console.log(document.body); // Notice that the divs have been added
 ```
 
 ### Leverage virtual DOM libraries
@@ -76,7 +93,12 @@ requestAnimationFrame(animate);
 
 Layout thrashing occurs when you read and write to the DOM repeatedly in a way that forces the browser to recalculate styles and layout multiple times. To avoid this, separate read and write operations.
 
-```js
+```js live
+// Creating an element for the example below
+const newElement = document.createElement('div');
+newElement.id = 'myElement';
+document.body.appendChild(newElement);
+
 const element = document.getElementById('myElement');
 const height = element.clientHeight; // Read
 element.style.height = `${height + 10}px`; // Write

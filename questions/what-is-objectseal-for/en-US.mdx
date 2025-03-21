@@ -4,15 +4,19 @@ title: What is `Object.seal()` for?
 
 ## TL;DR
 
-`Object.seal()` is used to prevent new properties from being added to an object and to mark all existing properties as non-configurable. This means you can still modify the values of existing properties, but you cannot delete them or add new ones.
+`Object.seal()` is used to prevent new properties from being added to an object and to mark all existing properties as non-configurable. This means you can still modify the values of existing properties, but you cannot delete them or add new ones. Doing so will throw errors in strict mode but fail silently in non-strict mode. In the following examples, you can uncomment the 'use strict' comment to see this.
 
-```js
+```js live
+// 'use strict'
+
 const obj = { name: 'John' };
 Object.seal(obj);
 
 obj.name = 'Jane'; // Allowed
-obj.age = 30; // Not allowed
-delete obj.name; // Not allowed
+obj.age = 30; // Not allowed, throws an error in strict mode
+delete obj.name; // Not allowed, throws an error in strict mode
+
+console.log(obj); // { name: 'Jane } (unchanged)
 ```
 
 ---
@@ -37,7 +41,9 @@ Object.seal(obj);
 
 ### Example
 
-```js
+```js live
+// 'use strict'
+
 const person = {
   name: 'Alice',
   age: 25,
@@ -51,7 +57,7 @@ person.age = 30; // Allowed
 person.gender = 'female'; // Not allowed, throws an error in strict mode
 delete person.name; // Not allowed, throws an error in strict mode
 
-console.log(person); // { name: 'Bob', age: 30 }
+console.log(person); // { name: 'Bob', age: 30 } (unchanged)
 ```
 
 ### Use cases
@@ -63,7 +69,7 @@ console.log(person); // { name: 'Bob', age: 30 }
 
 You can check if an object is sealed using the `Object.isSealed()` method.
 
-```js
+```js live
 const obj = { name: 'John' };
 Object.seal(obj);
 

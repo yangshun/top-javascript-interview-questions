@@ -14,7 +14,7 @@ The only time you may want to extend a native object is when you want to create 
 
 In JavaScript it's very easy to extend a built-in/native object. You can simply extend a built-in object by adding properties and functions to its `prototype`.
 
-```js
+```js live
 String.prototype.reverseString = function () {
   return this.split('').reverse().join('');
 };

@@ -20,7 +20,7 @@ The `bind` method is particularly useful in scenarios where you need to ensure t
 
 `bind` was frequently used on legacy React class component methods which were not defined using arrow functions.
 
-```js
+```js live
 const john = {
   age: 42,
   getAge: function () {
@@ -53,28 +53,28 @@ Here are some common scenarios where `bind` is frequently used:
 
 When you pass a function as a callback, the `this` value inside the function can be unpredictable because it is determined by the execution context. Using `bind()` helps ensure that the correct `this` value is maintained.
 
-```js
+```js live
 class Person {
-  constructor(name) {
-    this.name = name;
+  constructor(firstName) {
+    this.firstName = firstName;
   }
   greet() {
-    console.log(`Hello, my name is ${this.name}`);
-  },
-};
+    console.log(`Hello, my name is ${this.firstName}`);
+  }
+}
 
-const john = new Person('John Doe');
+const john = new Person('John');
 
 // Without bind(), `this` inside the callback will be the global object
 setTimeout(john.greet, 1000); // Output: "Hello, my name is undefined"
 
 // Using bind() to fix the `this` value
-setTimeout(john.greet.bind(john), 2000); // Output: "Hello, my name is John Doe"
+setTimeout(john.greet.bind(john), 2000); // Output: "Hello, my name is John"
 ```
 
 You can also use [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) to define class methods for this purpose instead of using `bind`. Arrow functions have the `this` value bound to its lexical context.
 
-```js
+```js live
 class Person {
   constructor(name) {
     this.name = name;
@@ -92,7 +92,7 @@ setTimeout(john.greet, 1000); // Output: "Hello, my name is John Doe"
 
 `bind` can be used to create a new function with some arguments pre-set. This is known as partial application or currying.
 
-```js
+```js live
 function multiply(a, b) {
   return a * b;
 }
@@ -106,7 +106,7 @@ console.log(multiplyBy5(3)); // Output: 15
 
 `bind` allows you to borrow methods from one object and apply them to another object, even if they were not originally designed to work with that object. This can be handy when you need to reuse functionality across different objects
 
-```js
+```js live
 const person = {
   name: 'John',
   greet: function () {

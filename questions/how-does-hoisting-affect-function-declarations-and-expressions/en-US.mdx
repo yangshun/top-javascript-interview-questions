@@ -6,7 +6,7 @@ title: How does hoisting affect function declarations and expressions?
 
 Hoisting in JavaScript means that function declarations are moved to the top of their containing scope during the compile phase, making them available throughout the entire scope. This allows you to call a function before it is defined in the code. However, function expressions are not hoisted in the same way. If you try to call a function expression before it is defined, you will get an error because the variable holding the function is hoisted but not its assignment.
 
-```js
+```js live
 // Function declaration
 console.log(foo()); // Works fine
 function foo() {
@@ -28,7 +28,7 @@ var bar = function () {
 
 Function declarations are hoisted to the top of their containing scope. This means you can call the function before it is defined in the code.
 
-```js
+```js live
 console.log(foo()); // Works fine
 function foo() {
   return 'Hello';
@@ -41,7 +41,7 @@ In the example above, the function `foo` is hoisted to the top of its scope, so 
 
 Function expressions, on the other hand, are not hoisted in the same way. The variable that holds the function is hoisted, but its assignment is not. This means that if you try to call a function expression before it is defined, you will get an error.
 
-```js
+```js live
 console.log(bar()); // Throws TypeError: bar is not a function
 var bar = function () {
   return 'Hello';
@@ -57,7 +57,7 @@ It's also important to note the differences in hoisting behavior between `var`, 
 - `var`: The variable is hoisted and initialized with `undefined`.
 - `let` and `const`: The variables are hoisted but not initialized, leading to a `ReferenceError` if accessed before initialization.
 
-```js
+```js live
 console.log(baz); // undefined
 var baz = function () {
   return 'Hello';

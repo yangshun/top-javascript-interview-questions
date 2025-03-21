@@ -8,7 +8,7 @@ The Decorator pattern is a structural design pattern that allows behavior to be 
 
 For example, if you have a `Car` class and you want to add features like `GPS` or `Sunroof` without modifying the `Car` class itself, you can create decorators for these features.
 
-```js
+```js live
 class Car {
   drive() {
     return 'Driving';
@@ -56,7 +56,7 @@ The Decorator pattern is a structural design pattern that allows you to dynamica
 
 In JavaScript, the Decorator pattern can be implemented using classes. Here is an example:
 
-```js
+```js live
 class Car {
   drive() {
     return 'Driving';
@@ -96,7 +96,7 @@ console.log(myCarWithGPSAndSunroof.drive()); // "Driving with GPS with Sunroof"
 
 Another way to implement the Decorator pattern in JavaScript is by using higher-order functions:
 
-```js
+```js live
 function car() {
   return {
     drive: () => 'Driving',
