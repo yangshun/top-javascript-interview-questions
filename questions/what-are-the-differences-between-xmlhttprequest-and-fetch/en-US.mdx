@@ -26,7 +26,7 @@ Both `XMLHttpRequest` (XHR) and `fetch()` are ways to make asynchronous HTTP req
 
 `XMLHttpRequest` is event-driven and requires attaching event listeners to handle response/error states. The basic syntax for creating an `XMLHttpRequest` object and sending a request is as follows:
 
-```js
+```js live
 const xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1', true);
 xhr.responseType = 'json';
@@ -42,7 +42,7 @@ xhr.send();
 
 `fetch()` provides a more straightforward and intuitive way of making HTTP requests. It is `Promise`-based and returns a promise that resolves with the response or rejects with an error. The basic syntax for making a GET request using `fetch()` is as follows:
 
-```js
+```js live
 fetch('https://jsonplaceholder.typicode.com/todos/1')
   .then((response) => response.text())
   .then((data) => console.log(data));
@@ -111,10 +111,10 @@ fetch('https://jsonplaceholder.typicode.com/todos/1', {
 
 `XMLHttpRequest` provides a `responseType` property to set the response format that we are expecting. `responseType` is `'text'` by default but it support types likes `'text'`, `'arraybuffer'`, `'blob'`, `'document'` and `'json'`.
 
-```js
+```js live
 const xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1', true);
-xhr.responseType = 'json';
+xhr.responseType = 'json'; // or 'text', 'blob', 'arraybuffer'
 xhr.onload = function () {
   if (xhr.status === 200) {
     console.log(xhr.response);
@@ -125,7 +125,7 @@ xhr.send();
 
 On the other hand, `fetch()` provides a unified `Response` object with `then` method for accessing data.
 
-```js
+```js live
 // JSON data
 fetch('https://jsonplaceholder.typicode.com/todos/1')
   .then((response) => response.json())
@@ -143,19 +143,28 @@ Both support error handling but `fetch()` provides more flexibility in terms of 
 
 `XMLHttpRequest` supports error handling using the `onerror` event:
 
-```js
-xhr.onerror = function () {
-  console.log('Error occurred');
+```js live
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://jsonplaceholder.typicod.com/todos/1', true); // Typo in URL
+xhr.responseType = 'json';
+xhr.onload = function () {
+  if (xhr.status === 200) {
+    console.log(xhr.response);
+  }
 };
+xhr.onerror = function () {
+  console.error('Error occurred');
+};
+xhr.send();
 ```
 
 `fetch()` supports error handling using the `catch()` method on the returned `Promise`:
 
-```js
-fetch('https://jsonplaceholder.typicode.com/todos/1')
+```js live
+fetch('https://jsonplaceholder.typicod.com/todos/1') // Typo in URL
   .then((response) => response.json())
   .then((data) => console.log(data))
-  .catch((error) => console.log('Error occurred: ' + error));
+  .catch((error) => console.error('Error occurred: ' + error));
 ```
 
 ## Caching control
@@ -171,11 +180,11 @@ const res = await fetch('https://jsonplaceholder.typicode.com/todos/1', {
 
 Other values for the [`cache` option](https://developer.mozilla.org/en-US/docs/Web/API/Request/cache) include `default`, `no-store`, `reload`, `no-cache`, `force-cache`, and `only-if-cached`.
 
-## cancelation
+## Cancelation
 
 In-flight `XMLHttpRequest`s can be canceled by running the `XMLHttpRequest`'s `abort()` method. An `abort` handler can be attached by assigning to the `.onabort` property if necessary:
 
-```js
+```js live
 const xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1');
 xhr.send();
@@ -186,14 +195,14 @@ xhr.abort();
 
 Aborting a `fetch()` requires creating an [`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) object and passing it to as the `signal` property of the `options` object when calling `fetch()`.
 
-```js
+```js live
 const controller = new AbortController();
 const signal = controller.signal;
 
 fetch('https://jsonplaceholder.typicode.com/todos/1', { signal })
   .then((response) => response.json())
   .then((data) => console.log(data))
-  .catch((error) => console.log('Error occurred: ' + error));
+  .catch((error) => console.error('Error occurred: ' + error));
 
 // Abort request.
 controller.abort();
