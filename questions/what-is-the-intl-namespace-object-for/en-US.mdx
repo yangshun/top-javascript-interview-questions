@@ -6,7 +6,7 @@ title: What is the `Intl` namespace object for?
 
 The `Intl` namespace object in JavaScript is used for internationalization purposes. It provides language-sensitive string comparison, number formatting, and date and time formatting. For example, you can use `Intl.DateTimeFormat` to format dates according to a specific locale:
 
-```js
+```js live
 const date = new Date();
 const formatter = new Intl.DateTimeFormat('en-US');
 console.log(formatter.format(date)); // Outputs date in 'MM/DD/YYYY' format
@@ -22,7 +22,7 @@ The `Intl` namespace object in JavaScript is a part of the ECMAScript Internatio
 
 The `Intl.Collator` object is used for comparing strings in a locale-aware manner. This is useful for sorting strings in a way that is consistent with the conventions of a particular language.
 
-```js
+```js live
 const collator = new Intl.Collator('de-DE');
 console.log(collator.compare('ä', 'z')); // Outputs a negative number because 'ä' comes before 'z' in German
 ```
@@ -31,7 +31,7 @@ console.log(collator.compare('ä', 'z')); // Outputs a negative number because '
 
 The `Intl.NumberFormat` object is used for formatting numbers according to the conventions of a specific locale. This includes formatting for currency, percentages, and plain numbers.
 
-```js
+```js live
 const number = 1234567.89;
 const formatter = new Intl.NumberFormat('de-DE', {
   style: 'currency',
@@ -44,7 +44,7 @@ console.log(formatter.format(number)); // Outputs '1.234.567,89 €'
 
 The `Intl.DateTimeFormat` object is used for formatting dates and times according to the conventions of a specific locale.
 
-```js
+```js live
 const date = new Date();
 const formatter = new Intl.DateTimeFormat('en-GB', {
   year: 'numeric',
@@ -58,7 +58,7 @@ console.log(formatter.format(date)); // Outputs date in 'DD Month YYYY' format
 
 The `Intl.PluralRules` object is used to get the plural form of a number in a specific locale. This is useful for correctly pluralizing words in different languages.
 
-```js
+```js live
 const pluralRules = new Intl.PluralRules('en-US');
 console.log(pluralRules.select(1)); // Outputs 'one'
 console.log(pluralRules.select(2)); // Outputs 'other'
