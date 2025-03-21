@@ -39,7 +39,62 @@ console.log('' == '0'); // false
 
 As a general rule of thumb, never use the `==` operator, except for convenience when comparing against `null` or `undefined`, where `a == null` will return `true` if `a` is `null` or `undefined`.
 
-```js live
+
+Let's break down each of the comparisons:
+
+1. `null == undefined` → true
+Why?
+`null` and `undefined` are loosely equal (`==`) but not strictly equal (`===`).
+JavaScript defines a special rule:
+`null == undefined; // true`
+
+However:
+`null === undefined; // false`
+(because `===` checks both type and value).
+
+```js
+console.log(null == undefined); // true
+console.log(null === undefined); // false
+```
+
+Key Rule: null and undefined are only equal to each other but not to anything else.
+
+[] == false → true Why? [] (empty array) is truthy, but when compared with false, it gets coerced into a primitive value. JavaScript converts false to a number (0). Then, it converts [] to a string ('') → and an empty string is also 0 when converted to a number. 
+So, the comparison becomes:
+Number(
+
+]) == Number(false);
+0 == 0; // true
+
+```js
+console.log([] == false); // true
+console.log([] == 0); // true
+console.log(Number([])); // 0
+```
+
+Key Rule: An empty array [] converts to 0 in numeric comparison.
+
+'' == false → true Why? JavaScript converts false to 0. An empty string '' also converts to 0 in numeric comparisons.
+So the comparison becomes: Number('') == Number(false); 0 == 0; // true
+
+```js
+console.log('' == false); // true
+console.log('' == 0); // true
+console.log(Number('')); // 0
+```
+
+Key Rule: An empty string '' converts to 0 in numeric comparison.
+
+Summary of Type Coercion Rules:
+
+null == undefined - Special case in JS - true
+[] == false - [] → '' → 0, false → 0, so 0 == 0 - true
+'' == false - '' → 0, false → 0, so 0 == 0 - true
+Important Note: These type coercion behaviors can be confusing, which is why it's recommended to use === (strict equality) to avoid unexpected results.
+
+
+
+```js
 var a = null;
 console.log(a == null); // true
 console.log(a == undefined); // true
