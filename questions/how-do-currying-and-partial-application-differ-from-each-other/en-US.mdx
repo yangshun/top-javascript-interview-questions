@@ -16,7 +16,7 @@ Currying is a technique where a function with multiple arguments is transformed 
 
 #### Example
 
-```js
+```js live
 function add(a) {
   return function (b) {
     return function (c) {
@@ -25,7 +25,8 @@ function add(a) {
   };
 }
 
-const result = add(1)(2)(3); // 6
+const result = add(1)(2)(3);
+console.log(result); // 6
 ```
 
 In this example, `add` is a curried function that takes three arguments one at a time.
@@ -36,13 +37,14 @@ Partial application is a technique where you fix a few arguments of a function, 
 
 #### Example
 
-```js
+```js live
 function add(a, b, c) {
   return a + b + c;
 }
 
 const addOne = add.bind(null, 1);
-const result = addOne(2, 3); // 6
+const result = addOne(2, 3);
+console.log(result); // 6
 ```
 
 In this example, `addOne` is a partially applied function that fixes the first argument of `add` to `1`.
