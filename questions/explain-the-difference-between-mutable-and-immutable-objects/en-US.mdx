@@ -6,7 +6,7 @@ title: Explain the difference between mutable and immutable objects in JavaScrip
 
 **Mutable objects** allow for modification of properties and values after creation, which is the default behavior for most objects.
 
-```js
+```js live
 const mutableObject = {
   name: 'John',
   age: 30,
@@ -21,7 +21,7 @@ console.log(mutableObject); // Output: { name: 'Jane', age: 30 }
 
 **Immutable objects** cannot be directly modified after creation. Its content cannot be changed without creating an entirely new value.
 
-```js
+```js live
 const immutableObject = Object.freeze({
   name: 'John',
   age: 30,
@@ -46,7 +46,7 @@ Immutability is a core principle in functional programming but it has lots to of
 
 Mutability refers to the ability of an object to have its properties or elements changed after it's created. A mutable object is an object whose state can be modified after it is created. In JavaScript, objects and arrays are mutable by default. They store references to their data in memory. Changing a property or element modifies the original object. Here is an example of a mutable object:
 
-```js
+```js live
 const mutableObject = {
   name: 'John',
   age: 30,
@@ -63,7 +63,7 @@ console.log(mutableObject); // Output: { name: 'Jane', age: 30 }
 
 An immutable object is an object whose state cannot be modified after it is created. Here is an example of an immutable object:
 
-```js
+```js live
 const immutableObject = Object.freeze({
   name: 'John',
   age: 30,
@@ -78,7 +78,7 @@ console.log(immutableObject); // Output: { name: 'John', age: 30 }
 
 Primitive data types like numbers, strings, booleans, `null`, and `undefined` are inherently immutable. Once assigned a value, you cannot directly modify them.
 
-```js
+```js live
 let name = 'Alice';
 name.toUpperCase(); // This won't modify the original name variable
 console.log(name); // Still prints "Alice"
@@ -101,7 +101,7 @@ A common confusion / misunderstanding is that declaring a variable using `const`
 
 On the other hand, an immutable object is an object whose state (properties and values) cannot be modified after it is created. This is achieved by using methods like `Object.freeze()` which makes the object immutable by preventing any changes to its properties.
 
-```js
+```js live
 // Using const
 const person = { name: 'John' };
 person = { name: 'Jane' }; // Error: Assignment to constant variable
@@ -127,7 +127,7 @@ Here are a few ways to add/simulate different forms of immutability in plain Jav
 
 By combining `writable: false` and `configurable: false`, you can essentially create a constant (cannot be changed, redefined or deleted) as an object property, like:
 
-```js
+```js live
 const myObject = {};
 Object.defineProperty(myObject, 'number', {
   value: 42,
@@ -143,7 +143,7 @@ console.log(myObject.number); // 42
 
 If you want to prevent an object from having new properties added to it, but otherwise leave the rest of the object's properties alone, call `Object.preventExtensions(...)`:
 
-```js
+```js live
 let myObject = {
   a: 2,
 };
@@ -151,7 +151,7 @@ let myObject = {
 Object.preventExtensions(myObject);
 
 myObject.b = 3;
-myObject.b; // undefined
+console.log(myObject.b); // undefined
 ```
 
 In non-strict mode, the creation of `b` fails silently. In strict mode, it throws a `TypeError`.
@@ -160,7 +160,7 @@ In non-strict mode, the creation of `b` fails silently. In strict mode, it throw
 
 `Object.seal()` creates a "sealed" object, which means it takes an existing object and essentially calls `Object.preventExtensions()` on it, but also marks all its existing properties as `configurable: false`. Therefore, not only can you not add any more properties, but you also cannot reconfigure or delete any existing properties, though you can still modify their values.
 
-```js
+```js live
 // Create an object
 const person = {
   name: 'John Doe',
@@ -181,8 +181,8 @@ person.age = 35;
 
 console.log(person); // Output: { name: 'John Doe', age: 35 }
 
-// Try to re-configure an existing property descriptor (this will fail)
-Object.defineProperty(person, 'name', { writable: false }); // TypeError: Cannot redefine property: name
+// Try to re-configure an existing property descriptor (this will fail silently)
+Object.defineProperty(person, 'name', { writable: false }); // Fails silently in non strict mode
 
 // Check if the object is sealed
 console.log(Object.isSealed(person)); // Output: true
@@ -202,7 +202,7 @@ Freezing an object does not allow new properties to be added to an object and pr
 
 `Object.freeze()` makes the object immutable. However, it is not necessarily constant. `Object.freeze` prevents modifications to the object itself and its direct properties, nested objects within the frozen object can still be modified.
 
-```js
+```js live
 let obj = {
   user: {},
 };
