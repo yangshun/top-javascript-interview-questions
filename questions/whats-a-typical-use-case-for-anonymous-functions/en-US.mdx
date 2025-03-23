@@ -6,14 +6,16 @@ title: What's a typical use case for anonymous functions in JavaScript?
 
 Anonymous function in Javascript is a function that does not have any name associated with it. They are typically used as arguments to other functions or assigned to variables.
 
-```js
+```js live
+const arr = [-1, 0, 5, 6];
+
 // The filter method is passed an anonymous function.
-arr.filter((x) => x > 1);
+arr.filter((x) => x > 1); // [5, 6]
 ```
 
 They are often used as arguments to other functions, known as higher-order functions, which can take functions as input and return a function as output. Anonymous functions can access variables from the outer scope, a concept known as closures, allowing them to "close over" and remember the environment in which they were created.
 
-```js
+```js live
 // Encapsulating Code
 (function () {
   // Some code here.
@@ -42,7 +44,7 @@ Anonymous functions provide a more concise way to define functions, especially f
 
 Anonymous functions are commonly used in Immediately Invoked Function Expressions (IIFEs) to encapsulate code within a local scope. This prevents variables declared within the function from leaking to the global scope and polluting the global namespace.
 
-```js
+```js live
 // This is an IIFE
 (function () {
   var x = 10;
@@ -59,7 +61,7 @@ In the above example, the IIFE creates a local scope for the variable `x`. As a 
 
 Anonymous functions can be used as callbacks that are used once and do not need to be used anywhere else. The code will seem more self-contained and readable when handlers are defined right inside the code calling them, rather than having to search elsewhere to find the function body.
 
-```js
+```js live
 setTimeout(() => {
   console.log('Hello world!');
 }, 1000);
@@ -69,7 +71,7 @@ setTimeout(() => {
 
 It is used as arguments to functional programming constructs like Higher-order functions or Lodash (similar to callbacks). Higher-order functions take other functions as arguments or return them as results. Anonymous functions are often used with higher-order functions like `map()`, `filter()`, and `reduce()`.
 
-```js
+```js live
 const arr = [1, 2, 3];
 const double = arr.map((el) => {
   return el * 2;
