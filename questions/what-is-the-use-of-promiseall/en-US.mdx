@@ -6,7 +6,7 @@ title: What is the use of `Promise.all()`
 
 `Promise.all()` is a method in JavaScript that takes an array of promises and returns a single promise. This returned promise resolves when all the input promises have resolved, or it rejects if any of the input promises reject. It is useful for running multiple asynchronous operations in parallel and waiting for all of them to complete.
 
-```js
+```js live
 const promise1 = Promise.resolve(3);
 const promise2 = 42;
 const promise3 = new Promise((resolve, reject) => {
@@ -45,7 +45,7 @@ When you pass an array of promises to `Promise.all()`, it returns a new promise.
 
 Here is an example to illustrate how `Promise.all()` works:
 
-```js
+```js live
 const promise1 = new Promise((resolve, reject) => {
   setTimeout(resolve, 100, 'one');
 });
@@ -69,7 +69,7 @@ In this example, `Promise.all()` waits for both `promise1` and `promise2` to res
 
 If any of the promises passed to `Promise.all()` reject, the returned promise will immediately reject with the reason of the first promise that rejects.
 
-```js
+```js live
 const promise1 = new Promise((resolve, reject) => {
   setTimeout(resolve, 100, 'one');
 });
