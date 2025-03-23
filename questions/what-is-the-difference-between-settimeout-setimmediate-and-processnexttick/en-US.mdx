@@ -22,10 +22,10 @@ In this example, `process.nextTick()` will execute first, followed by either `se
 
 `setTimeout()` is a function that schedules a callback to be executed after a specified delay in milliseconds. The minimum delay is approximately 4ms in modern browsers and Node.js.
 
-```js
+```js live
 setTimeout(() => {
-  console.log('Executed after at least 0 milliseconds');
-}, 0);
+  console.log('Executed after at least 1000 milliseconds');
+}, 1000);
 ```
 
 ### `setImmediate()`
