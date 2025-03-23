@@ -8,7 +8,7 @@ Debouncing and throttling are techniques used to control the rate at which a fun
 
 Debouncing delays the execution of a function until a certain amount of time has passed since it was last called. This is useful for scenarios like search input fields where you want to wait until the user has stopped typing before making an API call.
 
-```js
+```js live
 function debounce(func, delay) {
   let timeoutId;
   return function (...args) {
@@ -16,11 +16,14 @@ function debounce(func, delay) {
     timeoutId = setTimeout(() => func.apply(this, args), delay);
   };
 }
+
+const debouncedHello = debounce(() => console.log('Hello world!'), 2000);
+debouncedHello(); // Prints 'Hello world!' after 2 seconds
 ```
 
 Throttling ensures that a function is called at most once in a specified time interval. This is useful for scenarios like window resizing or scrolling where you want to limit the number of times a function is called.
 
-```js
+```js live
 function throttle(func, limit) {
   let inThrottle;
   return function (...args) {
@@ -31,6 +34,17 @@ function throttle(func, limit) {
     }
   };
 }
+
+const handleResize = throttle(() => {
+  // Update element positions
+  console.log('Window resized at', new Date().toLocaleTimeString());
+}, 2000);
+
+// Simulate rapid calls to handleResize every 100ms
+let intervalId = setInterval(() => {
+  handleResize();
+}, 100);
+// 'Window resized' is outputted only every 2 seconds due to throttling
 ```
 
 ---
@@ -77,7 +91,7 @@ Imagine you have a function that updates the position of elements on the screen 
 
 #### Code example
 
-```js
+```js live
 function throttle(func, limit) {
   let inThrottle;
   return function (...args) {
