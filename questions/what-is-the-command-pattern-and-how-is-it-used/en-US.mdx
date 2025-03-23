@@ -6,7 +6,7 @@ title: What is the Command pattern and how is it used?
 
 The Command pattern is a behavioral design pattern that turns a request into a stand-alone object containing all information about the request. This transformation allows for parameterization of methods with different requests, queuing of requests, and logging of the requests. It also supports undoable operations. In JavaScript, it can be implemented by creating command objects with `execute` and `undo` methods.
 
-```js
+```js live
 class Command {
   execute() {}
   undo() {}
@@ -58,18 +58,16 @@ The Command pattern is a behavioral design pattern that encapsulates a request a
 
 ### Implementation in JavaScript
 
-#### Step 1: Define the Command interface
+```js live
+// Step 1: Define the Command interface
 
-```js
 class Command {
   execute() {}
   undo() {}
 }
-```
 
-#### Step 2: Create ConcreteCommand classes
+// Step 2: Create ConcreteCommand classes
 
-```js
 class LightOnCommand extends Command {
   constructor(light) {
     super();
@@ -95,11 +93,9 @@ class LightOffCommand extends Command {
     this.light.on();
   }
 }
-```
 
-#### Step 3: Define the Receiver
+// Step 3: Define the Receiver
 
-```js
 class Light {
   on() {
     console.log('Light is on');
@@ -108,11 +104,9 @@ class Light {
     console.log('Light is off');
   }
 }
-```
 
-#### Step 4: Create the Invoker
+// Step 4: Create the Invoker
 
-```js
 class RemoteControl {
   setCommand(command) {
     this.command = command;
@@ -124,11 +118,9 @@ class RemoteControl {
     this.command.undo();
   }
 }
-```
 
-#### Step 5: Client code
+// Step 5: Client code
 
-```js
 const light = new Light();
 const lightOnCommand = new LightOnCommand(light);
 const lightOffCommand = new LightOffCommand(light);
