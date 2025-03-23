@@ -6,9 +6,10 @@ title: How do you handle errors in asynchronous operations?
 
 To handle errors in asynchronous operations, you can use `try...catch` blocks with `async/await` syntax or `.catch()` method with Promises. For example, with `async/await`, you can wrap your code in a `try...catch` block to catch any errors:
 
-```js
+```js live
 async function fetchData() {
   try {
+    // Invalid URl
     const response = await fetch('https://api.example.com/data');
     const data = await response.json();
     console.log(data);
@@ -16,12 +17,14 @@ async function fetchData() {
     console.error('Error fetching data:', error);
   }
 }
+
+fetchData(); // Error fetching data: ....
 ```
 
 With Promises, you can use the `.catch()` method:
 
-```js
-fetch('https://api.example.com/data')
+```js live
+fetch('https://api.example.com/data') // Invalid URl
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -35,9 +38,10 @@ fetch('https://api.example.com/data')
 
 When using `async/await`, you can handle errors by wrapping your asynchronous code in a `try...catch` block. This allows you to catch any errors that occur during the execution of the `await` statement.
 
-```js
+```js live
 async function fetchData() {
   try {
+    // Invalid URl
     const response = await fetch('https://api.example.com/data');
     const data = await response.json();
     console.log(data);
@@ -45,15 +49,18 @@ async function fetchData() {
     console.error('Error fetching data:', error);
   }
 }
+
+fetchData(); // Error fetching data: ....
 ```
 
 ### Nested asynchronous operations
 
 If you have multiple asynchronous operations, you can nest `try...catch` blocks to handle errors at different levels.
 
-```js
+```js live
 async function fetchData() {
   try {
+    // Invalid URl
     const response = await fetch('https://api.example.com/data');
     const data = await response.json();
     console.log(data);
@@ -66,10 +73,13 @@ async function processData() {
   try {
     await fetchData();
     // Additional processing
+    console.log(arr); // Trying to reference an undefined variable will throw an error
   } catch (error) {
     console.error('Error processing data:', error);
   }
 }
+
+processData();
 ```
 
 ## Using `.catch()` with Promises
@@ -78,7 +88,7 @@ async function processData() {
 
 When working with Promises, you can handle errors using the `.catch()` method. This method is called if the Promise is rejected.
 
-```js
+```js live
 fetch('https://api.example.com/data')
   .then((response) => response.json())
   .then((data) => console.log(data))
@@ -89,7 +99,7 @@ fetch('https://api.example.com/data')
 
 If you have multiple Promises chained together, you can use a single `.catch()` at the end to handle any errors that occur in any of the Promises.
 
-```js
+```js live
 fetch('https://api.example.com/data')
   .then((response) => response.json())
   .then((data) => {

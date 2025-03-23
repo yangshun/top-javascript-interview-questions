@@ -100,7 +100,7 @@ The CookieStore API is relatively new and may not be supported in all browsers (
 - **Access**: Data is accessible within all tabs and windows of the same origin.
 - **Security**: All JavaScript on the page have access to values within `localStorage`.
 
-```js live
+```js
 // Set a value in localStorage.
 localStorage.setItem('key', 'value');
 
@@ -123,7 +123,7 @@ localStorage.clear();
 - **Access**: Data is only accessible within the current tab or window. Different tabs or windows with the same page will have different `sessionStorage` objects.
 - **Security**: All JavaScript on the same page have access to values within `sessionStorage` for that page.
 
-```js live
+```js
 // Set a value in sessionStorage.
 sessionStorage.setItem('key', 'value');
 

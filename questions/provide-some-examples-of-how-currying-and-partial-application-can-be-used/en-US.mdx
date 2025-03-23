@@ -6,13 +6,17 @@ title: Provide some examples of how currying and partial application can be used
 
 Currying transforms a function with multiple arguments into a sequence of functions, each taking a single argument. Partial application fixes a few arguments of a function, producing another function with a smaller number of arguments. For example, currying a function `add(a, b)` would look like `add(a)(b)`, while partial application of `add(2, b)` would fix the first argument to 2, resulting in a function that only needs the second argument.
 
-```js
-// Currying example
+### Currying example
+
+```js live
 const add = (a) => (b) => a + b;
 const addTwo = add(2);
 console.log(addTwo(3)); // 5
+```
 
-// Partial application example
+### Partial application example
+
+```js live
 const add = (a, b) => a + b;
 const addTwo = add.bind(null, 2);
 console.log(addTwo(3)); // 5
@@ -28,24 +32,18 @@ Currying is a technique where a function with multiple arguments is transformed 
 
 #### Example
 
-Consider a simple function that adds two numbers:
-
-```js
+```js live
+// Consider a simple function that adds two numbers:
 function add(a, b) {
   return a + b;
 }
-```
 
-To curry this function, we transform it into a series of functions, each taking one argument:
+// To curry this function, we transform it into a series of functions,
+// each taking one argument:
+const curriedAdd = (a) => (b) => a + b;
 
-```js
-const add = (a) => (b) => a + b;
-```
-
-Now, you can use the curried function like this:
-
-```js
-const addTwo = add(2);
+// Now, you can use the curried function like this:
+const addTwo = curriedAdd(2);
 console.log(addTwo(3)); // 5
 ```
 
@@ -55,32 +53,26 @@ Partial application is a technique where you fix a few arguments of a function, 
 
 #### Example
 
-Consider the same `add` function:
-
-```js
+```js live
+// Consider the same add function:
 function add(a, b) {
   return a + b;
 }
-```
 
-To partially apply this function, you can use the `bind` method to fix the first argument:
-
-```js
+// To partially apply this function
+// you can use the `bind` method to fix the first argument:
 const addTwo = add.bind(null, 2);
 console.log(addTwo(3)); // 5
-```
 
-Alternatively, you can create a custom partial application function:
-
-```js
+// Alternatively, you can create a custom partial application function:
 function partial(fn, ...fixedArgs) {
   return function (...remainingArgs) {
     return fn(...fixedArgs, ...remainingArgs);
   };
 }
 
-const addTwo = partial(add, 2);
-console.log(addTwo(3)); // 5
+const addTwoCustom = partial(add, 2);
+console.log(addTwoCustom(3)); // 5
 ```
 
 ## Further reading

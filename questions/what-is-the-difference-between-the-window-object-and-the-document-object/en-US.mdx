@@ -41,12 +41,18 @@ The `Document` object represents the HTML or XML document loaded in the browser 
 
 Example:
 
-```js
-// Select an element by its ID
-const element = document.getElementById('myElement');
+```js live
+// Create a new element and append it to the document body
+const newElement = document.createElement('div');
+newElement.id = 'myDiv';
+newElement.textContent = 'Hello world';
+document.body.appendChild(newElement);
 
-// Change the content of the selected element
-element.textContent = 'New content';
+// Select that element by its ID
+const element = document.getElementById('myDiv');
+
+console.log(element);
+console.log(document.body);
 ```
 
 ### Key differences

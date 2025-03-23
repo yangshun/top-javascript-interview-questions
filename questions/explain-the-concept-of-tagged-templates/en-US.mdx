@@ -6,7 +6,7 @@ title: Explain the concept of tagged templates
 
 Tagged templates in JavaScript allow you to parse template literals with a function. The function receives the literal strings and the values as arguments, enabling custom processing of the template. For example:
 
-```js
+```js live
 function tag(strings, ...values) {
   return strings[0] + values[0] + strings[1] + values[1] + strings[2];
 }
@@ -44,7 +44,7 @@ When a tagged template is invoked, the tag function receives:
 
 For example:
 
-```js
+```js live
 function tag(strings, ...values) {
   console.log(strings); // ["Hello ", "! How are ", "?"]
   console.log(values); // ["world", "you"]
@@ -65,7 +65,7 @@ Tagged templates can be used for various purposes, such as:
 
 Here is a simple example of a tagged template that escapes HTML:
 
-```js
+```js live
 function escapeHTML(strings, ...values) {
   return strings.reduce((result, string, i) => {
     const value = values[i - 1];

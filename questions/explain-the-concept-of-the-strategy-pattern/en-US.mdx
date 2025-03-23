@@ -6,7 +6,7 @@ title: Explain the concept of the Strategy pattern
 
 The Strategy pattern is a behavioral design pattern that allows you to define a family of algorithms, encapsulate each one as a separate class, and make them interchangeable. This pattern lets the algorithm vary independently from the clients that use it. For example, if you have different sorting algorithms, you can define each one as a strategy and switch between them without changing the client code.
 
-```js
+```js live
 class Context {
   constructor(strategy) {
     this.strategy = strategy;
@@ -20,18 +20,20 @@ class Context {
 class ConcreteStrategyA {
   doAlgorithm(data) {
     // Implementation of algorithm A
+    return 'Algorithm A was run on ' + data;
   }
 }
 
 class ConcreteStrategyB {
   doAlgorithm(data) {
     // Implementation of algorithm B
+    return 'Algorithm B was run on ' + data;
   }
 }
 
 // Usage
 const context = new Context(new ConcreteStrategyA());
-context.executeStrategy(data);
+context.executeStrategy('someData'); // Output: Algorithm A was run on someData
 ```
 
 ---
@@ -52,7 +54,7 @@ The Strategy pattern is a behavioral design pattern that enables selecting an al
 
 Consider a scenario where you have different sorting algorithms and you want to switch between them without changing the client code.
 
-```js
+```js live
 // Strategy interface
 class Strategy {
   doAlgorithm(data) {
@@ -92,10 +94,10 @@ class Context {
 // Usage
 const data = [3, 1, 4, 1, 5, 9];
 const context = new Context(new ConcreteStrategyA());
-console.log(context.executeStrategy(data)); // Output: [1, 1, 3, 4, 5, 9]
+console.log(context.executeStrategy([...data])); // Output: [1, 1, 3, 4, 5, 9]
 
 context.setStrategy(new ConcreteStrategyB());
-console.log(context.executeStrategy(data)); // Output: [9, 5, 4, 3, 1, 1]
+console.log(context.executeStrategy([...data])); // Output: [9, 5, 4, 3, 1, 1]
 ```
 
 ### Benefits

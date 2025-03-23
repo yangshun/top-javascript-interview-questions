@@ -22,11 +22,17 @@ During the bubbling phase, the event starts at the target element and bubbles up
 
 Here's an example using modern ES6 syntax to demonstrate event bubbling:
 
-```js
+```js live
 // HTML:
 // <div id="parent">
 //   <button id="child">Click me!</button>
 // </div>
+const parentDiv = document.createElement('div');
+parentDiv.id = 'parent';
+const button = document.createElement('button');
+button.id = 'child';
+parentDiv.appendChild(button);
+document.body.appendChild(parentDiv);
 
 const parent = document.getElementById('parent');
 const child = document.getElementById('child');
@@ -38,6 +44,9 @@ parent.addEventListener('click', () => {
 child.addEventListener('click', () => {
   console.log('Child element clicked');
 });
+
+// Simulate clicking the button:
+child.click();
 ```
 
 When you click the "Click me!" button, both the child and parent event handlers will be triggered due to the event bubbling.
@@ -46,11 +55,32 @@ When you click the "Click me!" button, both the child and parent event handlers 
 
 Event bubbling can be stopped during the bubbling phase using the `stopPropagation()` method. If an event handler calls `stopPropagation()`, it prevents the event from further bubbling up the DOM tree, ensuring that only the handlers of the elements up to that point in the hierarchy are executed.
 
-```js
+```js live
+// HTML:
+// <div id="parent">
+//   <button id="child">Click me!</button>
+// </div>
+const parentDiv = document.createElement('div');
+parentDiv.id = 'parent';
+const button = document.createElement('button');
+button.id = 'child';
+parentDiv.appendChild(button);
+document.body.appendChild(parentDiv);
+
+const parent = document.getElementById('parent');
+const child = document.getElementById('child');
+
+parent.addEventListener('click', () => {
+  console.log('Parent element clicked');
+});
+
 child.addEventListener('click', (event) => {
   console.log('Child element clicked');
-  event.stopPropagation();
+  event.stopPropagation(); // Stops propagation to parent
 });
+
+// Simulate clicking the button:
+child.click();
 ```
 
 ## Event delegation

@@ -14,15 +14,11 @@ function sum(a, b) {
 
 const result = sum(2, 3); // The program waits for sum() to complete before assigning the result
 console.log('Result: ', result); // Output: 5
-
-// Console output:
-// Inside sum function
-// Result: 5
 ```
 
 Asynchronous functions usually accept a callback as a parameter and execution continue on to the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
 
-```js
+```js live
 function fetchData(callback) {
   setTimeout(() => {
     const data = { name: 'John', age: 30 };
@@ -31,16 +27,12 @@ function fetchData(callback) {
 }
 
 console.log('Fetching data...');
+
 fetchData((data) => {
   console.log(data); // Output: { name: 'John', age: 30 } (after 2 seconds)
 });
 
-console.log('Call made to fetch data'); // Output: This will be printed first
-
-// Console output:
-// Fetching data...
-// Call made to fetch data
-// { name: 'John', age: 30 }
+console.log('Call made to fetch data'); // This will print before the data is fetched
 ```
 
 ---
@@ -89,10 +81,10 @@ Asynchronous functions do not block the execution of the program. They allow oth
 
 1. **Network requests**: Making network requests, such as fetching data from an API or sending data to a server, is typically done asynchronously. This allows the application to remain responsive while waiting for the response, preventing the user interface from freezing
 
-   ```js
+   ```js live
    console.log('Start of the program'); // This will be printed first as program starts here
 
-   fetch('https://api.example.com/data')
+   fetch('https://jsonplaceholder.typicode.com/todos/1')
      .then((response) => response.json())
      .then((data) => {
        console.log(data);
@@ -102,7 +94,7 @@ Asynchronous functions do not block the execution of the program. They allow oth
      })
      .catch((error) => console.error(error));
 
-   console.log('End of program'); // This will be printed next before the fetch callback
+   console.log('End of program'); // This will be printed before the fetch callback
    ```
 
 2. **User input and events**: Handling user input events, such as clicks, key presses, or mouse movements, is inherently asynchronous. The application needs to respond to these events without blocking the main thread, ensuring a smooth user experience.
@@ -117,12 +109,14 @@ Asynchronous functions do not block the execution of the program. They allow oth
 
 3. **Timers and Animations**: Timers (`setTimeout()`, `setInterval()`) and animations (e.g., `requestAnimationFrame()`) are asynchronous operations that allow the application to schedule tasks or update animations without blocking the main thread.
 
-   ```js
+   ```js live
    setTimeout(() => {
      console.log('This message is delayed by 2 seconds');
    }, 2000);
 
-   const animationId = requestAnimationFrame(updateAnimation);
+   setInterval(() => {
+     console.log('Current time:', new Date().toLocaleString());
+   }, 2000); // Interval runs every 2 seconds
    ```
 
 By using asynchronous functions and operations, JavaScript can handle time-consuming tasks without freezing the user interface or blocking the main thread.

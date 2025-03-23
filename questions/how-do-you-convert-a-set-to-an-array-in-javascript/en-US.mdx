@@ -6,11 +6,12 @@ title: How do you convert a `Set` to an array in JavaScript?
 
 To convert a `Set` to an array in JavaScript, you can use the `Array.from()` method or the spread operator. For example:
 
-```js
+```js live
 const mySet = new Set([1, 2, 3]);
 const myArray = Array.from(mySet);
-// or
-const myArray = [...mySet];
+// OR const myArray = [...mySet];
+
+console.log(myArray); // Output: [1, 2, 3]
 ```
 
 ---
@@ -21,7 +22,7 @@ const myArray = [...mySet];
 
 The `Array.from()` method creates a new, shallow-copied array instance from an array-like or iterable object, such as a `Set`.
 
-```js
+```js live
 const mySet = new Set([1, 2, 3]);
 const myArray = Array.from(mySet);
 console.log(myArray); // Output: [1, 2, 3]
@@ -31,7 +32,7 @@ console.log(myArray); // Output: [1, 2, 3]
 
 The spread operator (`...`) can be used to expand the elements of a `Set` into an array.
 
-```js
+```js live
 const mySet = new Set([1, 2, 3]);
 const myArray = [...mySet];
 console.log(myArray); // Output: [1, 2, 3]

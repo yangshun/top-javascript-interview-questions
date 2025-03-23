@@ -6,7 +6,7 @@ title: Explain the concept of error propagation in JavaScript
 
 Error propagation in JavaScript refers to how errors are passed through the call stack. When an error occurs in a function, it can be caught and handled using `try...catch` blocks. If not caught, the error propagates up the call stack until it is either caught or causes the program to terminate. For example:
 
-```js
+```js live
 function a() {
   throw new Error('An error occurred');
 }
@@ -36,7 +36,7 @@ When an error occurs in a function, it can either be caught and handled within t
 
 To handle errors and prevent them from propagating further, you can use `try...catch` blocks. Here is an example:
 
-```js
+```js live
 function a() {
   throw new Error('An error occurred');
 }
@@ -58,7 +58,7 @@ In this example, the error thrown in function `a` propagates to function `b`, an
 
 Error propagation works differently with asynchronous code, such as promises and `async/await`. For promises, you can use `.catch()` to handle errors:
 
-```js
+```js live
 function a() {
   return Promise.reject(new Error('An error occurred'));
 }
@@ -74,7 +74,7 @@ b().catch((e) => {
 
 For `async/await`, you can use `try...catch` blocks:
 
-```js
+```js live
 async function a() {
   throw new Error('An error occurred');
 }

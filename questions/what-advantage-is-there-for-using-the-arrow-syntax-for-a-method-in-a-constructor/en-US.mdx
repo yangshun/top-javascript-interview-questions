@@ -10,12 +10,12 @@ For example, let's say we have a `Person` constructor that takes a first name as
 
 ```js live
 const Person = function (name) {
-  this.name = name;
+  this.firstName = name;
   this.sayName1 = function () {
-    console.log(this.name);
+    console.log(this.firstName);
   };
   this.sayName2 = () => {
-    console.log(this.name);
+    console.log(this.firstName);
   };
 };
 
@@ -95,9 +95,9 @@ const foo = new Foo(); // TypeError: Foo is not a constructor
 
 They also do not have `arguments` keyword; the arguments have to be obtained from using the rest operator (`...`) in the arguments.
 
-```js
+```js live
 const arrowFunction = (...args) => {
-  console.log(arguments); // Throws a TypeError
+  console.log(arguments); // Throws a ReferenceError
   console.log(args); // [1, 2, 3]
 };
 
@@ -123,12 +123,12 @@ One of the most notable features of arrow functions is their behavior with `this
 
 ```js live
 const Person = function (name) {
-  this.name = name;
+  this.firstName = name;
   this.sayName1 = function () {
-    console.log(this.name);
+    console.log(this.firstName);
   };
   this.sayName2 = () => {
-    console.log(this.name);
+    console.log(this.firstName);
   };
 };
 

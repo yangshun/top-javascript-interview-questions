@@ -6,7 +6,7 @@ title: What are Promises and how do they work?
 
 Promises in JavaScript are objects that represent the eventual completion (or failure) of an asynchronous operation and its resulting value. They have three states: `pending`, `fulfilled`, and `rejected`. You can handle the results of a promise using the `.then()` method for success and the `.catch()` method for errors.
 
-```js
+```js live
 let promise = new Promise((resolve, reject) => {
   // asynchronous operation
   const success = true;
@@ -46,7 +46,7 @@ A promise can be in one of three states:
 
 You create a promise using the `Promise` constructor, which takes a function with two arguments: `resolve` and `reject`. These are callbacks that you call to change the state of the promise.
 
-```js
+```js live
 let promise = new Promise((resolve, reject) => {
   // asynchronous operation
   const success = true;
@@ -62,7 +62,7 @@ let promise = new Promise((resolve, reject) => {
 
 To handle the result of a promise, you use the `.then()` method for a successful outcome and the `.catch()` method for an error.
 
-```js
+```js live
 let promise = new Promise((resolve, reject) => {
   // asynchronous operation
   const success = false;
@@ -86,11 +86,15 @@ promise
 
 Promises can be chained to handle multiple asynchronous operations in sequence. Each `.then()` returns a new promise, allowing for further chaining.
 
-```js
-promise
+```js live
+new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Promise 1 resolved after 1 second');
+  }, 1000);
+})
   .then((result) => {
     console.log(result);
-    return anotherPromise;
+    return 'Another promise';
   })
   .then((anotherResult) => {
     console.log(anotherResult);
@@ -104,14 +108,21 @@ promise
 
 You can use `Promise.all()` to run multiple promises in parallel and wait for all of them to complete.
 
-```js
+```js live
 let promise1 = Promise.resolve('First');
 let promise2 = Promise.resolve('Second');
+let promise3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Third');
+  }, 2000);
+});
 
-Promise.all([promise1, promise2]).then((results) => {
-  console.log(results); // ['First', 'Second']
+Promise.all([promise1, promise2, promise3]).then((results) => {
+  console.log(results); // ['First', 'Second', 'Third']
 });
 ```
+
+In the above example, while `promise1` and `promise2` resolve instantly, `Promise.all` waits for `promise3`, which takes 2 seconds, before logging the results.
 
 ## Further reading
 
