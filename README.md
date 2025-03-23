@@ -601,12 +601,12 @@ For example, let's say we have a `Person` constructor that takes a first name as
 
 ```js live
 const Person = function (name) {
-  this.name = name;
+  this.firstName = name;
   this.sayName1 = function () {
-    console.log(this.name);
+    console.log(this.firstName);
   };
   this.sayName2 = () => {
-    console.log(this.name);
+    console.log(this.firstName);
   };
 };
 
@@ -785,14 +785,16 @@ console.log(namedFunc); // ReferenceError: namedFunc is not defined
 
 Anonymous function in Javascript is a function that does not have any name associated with it. They are typically used as arguments to other functions or assigned to variables.
 
-```js
+```js live
+const arr = [-1, 0, 5, 6];
+
 // The filter method is passed an anonymous function.
-arr.filter((x) => x > 1);
+arr.filter((x) => x > 1); // [5, 6]
 ```
 
 They are often used as arguments to other functions, known as higher-order functions, which can take functions as input and return a function as output. Anonymous functions can access variables from the outer scope, a concept known as closures, allowing them to "close over" and remember the environment in which they were created.
 
-```js
+```js live
 // Encapsulating Code
 (function () {
   // Some code here.
@@ -1127,15 +1129,11 @@ function sum(a, b) {
 
 const result = sum(2, 3); // The program waits for sum() to complete before assigning the result
 console.log('Result: ', result); // Output: 5
-
-// Console output:
-// Inside sum function
-// Result: 5
 ```
 
 Asynchronous functions usually accept a callback as a parameter and execution continue on to the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
 
-```js
+```js live
 function fetchData(callback) {
   setTimeout(() => {
     const data = { name: 'John', age: 30 };
@@ -1144,16 +1142,12 @@ function fetchData(callback) {
 }
 
 console.log('Fetching data...');
+
 fetchData((data) => {
   console.log(data); // Output: { name: 'John', age: 30 } (after 2 seconds)
 });
 
-console.log('Call made to fetch data'); // Output: This will be printed first
-
-// Console output:
-// Fetching data...
-// Call made to fetch data
-// { name: 'John', age: 30 }
+console.log('Call made to fetch data'); // This will print before the data is fetched
 ```
 
 <!-- Update here: /questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx -->
@@ -2363,7 +2357,7 @@ console.log(greeting); // Output: Hello, John!
 
 Tagged templates in JavaScript allow you to parse template literals with a function. The function receives the literal strings and the values as arguments, enabling custom processing of the template. For example:
 
-```js
+```js live
 function tag(strings, ...values) {
   return strings[0] + values[0] + strings[1] + values[1] + strings[2];
 }
@@ -3208,14 +3202,16 @@ fetchData(handleData);
 
 Anonymous function in Javascript is a function that does not have any name associated with it. They are typically used as arguments to other functions or assigned to variables.
 
-```js
+```js live
+const arr = [-1, 0, 5, 6];
+
 // The filter method is passed an anonymous function.
-arr.filter((x) => x > 1);
+arr.filter((x) => x > 1); // [5, 6]
 ```
 
 They are often used as arguments to other functions, known as higher-order functions, which can take functions as input and return a function as output. Anonymous functions can access variables from the outer scope, a concept known as closures, allowing them to "close over" and remember the environment in which they were created.
 
-```js
+```js live
 // Encapsulating Code
 (function () {
   // Some code here.
@@ -3794,15 +3790,11 @@ function sum(a, b) {
 
 const result = sum(2, 3); // The program waits for sum() to complete before assigning the result
 console.log('Result: ', result); // Output: 5
-
-// Console output:
-// Inside sum function
-// Result: 5
 ```
 
 Asynchronous functions usually accept a callback as a parameter and execution continue on to the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
 
-```js
+```js live
 function fetchData(callback) {
   setTimeout(() => {
     const data = { name: 'John', age: 30 };
@@ -3811,16 +3803,12 @@ function fetchData(callback) {
 }
 
 console.log('Fetching data...');
+
 fetchData((data) => {
   console.log(data); // Output: { name: 'John', age: 30 } (after 2 seconds)
 });
 
-console.log('Call made to fetch data'); // Output: This will be printed first
-
-// Console output:
-// Fetching data...
-// Call made to fetch data
-// { name: 'John', age: 30 }
+console.log('Call made to fetch data'); // This will print before the data is fetched
 ```
 
 <!-- Update here: /questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx -->
@@ -3837,7 +3825,7 @@ console.log('Call made to fetch data'); // Output: This will be printed first
 
 A callback function is a function passed as an argument to another function, which is then invoked inside the outer function to complete some kind of routine or action. In asynchronous operations, callbacks are used to handle tasks that take time to complete, such as network requests or file I/O, without blocking the execution of the rest of the code. For example:
 
-```js
+```js live
 function fetchData(callback) {
   setTimeout(() => {
     const data = { name: 'John', age: 30 };
@@ -3864,7 +3852,7 @@ fetchData((data) => {
 
 Promises in JavaScript are objects that represent the eventual completion (or failure) of an asynchronous operation and its resulting value. They have three states: `pending`, `fulfilled`, and `rejected`. You can handle the results of a promise using the `.then()` method for success and the `.catch()` method for errors.
 
-```js
+```js live
 let promise = new Promise((resolve, reject) => {
   // asynchronous operation
   const success = true;
@@ -3937,7 +3925,7 @@ Promises offer a cleaner alternative to callbacks, helping to avoid callback hel
 
 `Promise.all()` is a method in JavaScript that takes an array of promises and returns a single promise. This returned promise resolves when all the input promises have resolved, or it rejects if any of the input promises reject. It is useful for running multiple asynchronous operations in parallel and waiting for all of them to complete.
 
-```js
+```js live
 const promise1 = Promise.resolve(3);
 const promise2 = 42;
 const promise3 = new Promise((resolve, reject) => {
@@ -4006,9 +3994,10 @@ fetchData();
 
 To handle errors in asynchronous operations, you can use `try...catch` blocks with `async/await` syntax or `.catch()` method with Promises. For example, with `async/await`, you can wrap your code in a `try...catch` block to catch any errors:
 
-```js
+```js live
 async function fetchData() {
   try {
+    // Invalid URl
     const response = await fetch('https://api.example.com/data');
     const data = await response.json();
     console.log(data);
@@ -4016,12 +4005,14 @@ async function fetchData() {
     console.error('Error fetching data:', error);
   }
 }
+
+fetchData(); // Error fetching data: ....
 ```
 
 With Promises, you can use the `.catch()` method:
 
-```js
-fetch('https://api.example.com/data')
+```js live
+fetch('https://api.example.com/data') // Invalid URl
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error('Error fetching data:', error));
@@ -4353,12 +4344,12 @@ For example, let's say we have a `Person` constructor that takes a first name as
 
 ```js live
 const Person = function (name) {
-  this.name = name;
+  this.firstName = name;
   this.sayName1 = function () {
-    console.log(this.name);
+    console.log(this.firstName);
   };
   this.sayName2 = () => {
-    console.log(this.name);
+    console.log(this.firstName);
   };
 };
 
@@ -5526,13 +5517,11 @@ window.location.replace('https://www.example.com');
 
 To get the query string values of the current page in JavaScript, you can use the `URLSearchParams` object. First, create a `URLSearchParams` instance with `window.location.search`, then use the `get` method to retrieve specific query parameters. For example:
 
-```js live
+```js
 const params = new URLSearchParams(window.location.search);
 const value = params.get('language');
 console.log(value);
 ```
-
-This will give you the value of the query parameter named `language`. If you look at the URL of this page, you can see that the `language` parameter is set to 'js'.
 
 <!-- Update here: /questions/how-do-you-get-the-query-string-values-of-the-current-page-in-javascript/en-US.mdx -->
 
@@ -5899,7 +5888,7 @@ try {
 
 Error propagation in JavaScript refers to how errors are passed through the call stack. When an error occurs in a function, it can be caught and handled using `try...catch` blocks. If not caught, the error propagates up the call stack until it is either caught or causes the program to terminate. For example:
 
-```js
+```js live
 function a() {
   throw new Error('An error occurred');
 }
@@ -5962,7 +5951,7 @@ console.log(result); // Output: 6
 
 Partial application is a technique in functional programming where a function is applied to some of its arguments, producing a new function that takes the remaining arguments. This allows you to create more specific functions from general ones. For example, if you have a function `add(a, b)`, you can partially apply it to create a new function `add5` that always adds 5 to its argument.
 
-```js
+```js live
 function add(a, b) {
   return a + b;
 }
@@ -5999,13 +5988,17 @@ Currying transforms a function with multiple arguments into a sequence of functi
 
 Currying transforms a function with multiple arguments into a sequence of functions, each taking a single argument. Partial application fixes a few arguments of a function, producing another function with a smaller number of arguments. For example, currying a function `add(a, b)` would look like `add(a)(b)`, while partial application of `add(2, b)` would fix the first argument to 2, resulting in a function that only needs the second argument.
 
-```js
-// Currying example
+Currying example:
+
+```js live
 const add = (a) => (b) => a + b;
 const addTwo = add(2);
 console.log(addTwo(3)); // 5
+```
 
-// Partial application example
+Partial application example:
+
+```js live
 const add = (a, b) => a + b;
 const addTwo = add.bind(null, 2);
 console.log(addTwo(3)); // 5
@@ -6111,11 +6104,12 @@ On the other hand, `WeakSet` only allows objects as elements, and these object e
 
 To convert a `Set` to an array in JavaScript, you can use the `Array.from()` method or the spread operator. For example:
 
-```js
+```js live
 const mySet = new Set([1, 2, 3]);
 const myArray = Array.from(mySet);
-// or
-const myArray = [...mySet];
+// OR const myArray = [...mySet];
+
+console.log(myArray); // Output: [1, 2, 3]
 ```
 
 <!-- Update here: /questions/how-do-you-convert-a-set-to-an-array-in-javascript/en-US.mdx -->
@@ -6197,7 +6191,7 @@ Debouncing and throttling are techniques used to control the rate at which a fun
 
 Debouncing delays the execution of a function until a certain amount of time has passed since it was last called. This is useful for scenarios like search input fields where you want to wait until the user has stopped typing before making an API call.
 
-```js
+```js live
 function debounce(func, delay) {
   let timeoutId;
   return function (...args) {
@@ -6205,11 +6199,14 @@ function debounce(func, delay) {
     timeoutId = setTimeout(() => func.apply(this, args), delay);
   };
 }
+
+const debouncedHello = debounce(() => console.log('Hello world!'), 2000);
+debouncedHello(); // Prints 'Hello world!' after 2 seconds
 ```
 
 Throttling ensures that a function is called at most once in a specified time interval. This is useful for scenarios like window resizing or scrolling where you want to limit the number of times a function is called.
 
-```js
+```js live
 function throttle(func, limit) {
   let inThrottle;
   return function (...args) {
@@ -6220,6 +6217,17 @@ function throttle(func, limit) {
     }
   };
 }
+
+const handleResize = throttle(() => {
+  // Update element positions
+  console.log('Window resized at', new Date().toLocaleTimeString());
+}, 2000);
+
+// Simulate rapid calls to handleResize every 100ms
+let intervalId = setInterval(() => {
+  handleResize();
+}, 100);
+// 'Window resized' is outputted only every 2 seconds due to throttling
 ```
 
 <!-- Update here: /questions/explain-the-concept-of-debouncing-and-throttling/en-US.mdx -->
@@ -6708,7 +6716,7 @@ console.log(myCarWithGPS.drive()); // "Driving with GPS"
 
 The Strategy pattern is a behavioral design pattern that allows you to define a family of algorithms, encapsulate each one as a separate class, and make them interchangeable. This pattern lets the algorithm vary independently from the clients that use it. For example, if you have different sorting algorithms, you can define each one as a strategy and switch between them without changing the client code.
 
-```js
+```js live
 class Context {
   constructor(strategy) {
     this.strategy = strategy;
@@ -6722,18 +6730,20 @@ class Context {
 class ConcreteStrategyA {
   doAlgorithm(data) {
     // Implementation of algorithm A
+    return 'Algorithm A was run on ' + data;
   }
 }
 
 class ConcreteStrategyB {
   doAlgorithm(data) {
     // Implementation of algorithm B
+    return 'Algorithm B was run on ' + data;
   }
 }
 
 // Usage
 const context = new Context(new ConcreteStrategyA());
-context.executeStrategy(data);
+context.executeStrategy('someData'); // Output: Algorithm A was run on someData
 ```
 
 <!-- Update here: /questions/explain-the-concept-of-the-strategy-pattern/en-US.mdx -->
@@ -6750,7 +6760,7 @@ context.executeStrategy(data);
 
 The Command pattern is a behavioral design pattern that turns a request into a stand-alone object containing all information about the request. This transformation allows for parameterization of methods with different requests, queuing of requests, and logging of the requests. It also supports undoable operations. In JavaScript, it can be implemented by creating command objects with `execute` and `undo` methods.
 
-```js
+```js live
 class Command {
   execute() {}
   undo() {}

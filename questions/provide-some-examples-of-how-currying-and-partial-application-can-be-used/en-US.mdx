@@ -6,7 +6,7 @@ title: Provide some examples of how currying and partial application can be used
 
 Currying transforms a function with multiple arguments into a sequence of functions, each taking a single argument. Partial application fixes a few arguments of a function, producing another function with a smaller number of arguments. For example, currying a function `add(a, b)` would look like `add(a)(b)`, while partial application of `add(2, b)` would fix the first argument to 2, resulting in a function that only needs the second argument.
 
-### Currying example
+Currying example:
 
 ```js live
 const add = (a) => (b) => a + b;
@@ -14,7 +14,7 @@ const addTwo = add(2);
 console.log(addTwo(3)); // 5
 ```
 
-### Partial application example
+Partial application example:
 
 ```js live
 const add = (a, b) => a + b;
