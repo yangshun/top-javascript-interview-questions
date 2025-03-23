@@ -30,7 +30,7 @@ For example:
 
 ```js
 // Assuming this is run in the global scope and not within a module.
-const globalVariable = 'I am global';
+var globalVariable = 'I am global';
 function globalFunction() {
   console.log('I am a global function');
 }
@@ -54,7 +54,7 @@ In general, it's a good software engineering practice to not pollute the global 
 
 Here's an example of global scope being used.
 
-```js
+```js live
 // Assuming this is run in the global scope, not within a module.
 let count = 0;
 
@@ -83,7 +83,7 @@ By now we hope that you're convinced that it's not a good idea to define variabl
 - **Use modules**: Utilize module systems to encapsulate your code and prevent global scope pollution. Each module has its own scope, making it easier to manage and maintain your code.
 - **Use immediately invoked function expressions (IIFE)**: If modules are not available, wrap your code in an IIFE to create a new scope, preventing variables from being added to the global scope unless you explicitly expose them.
 
-```js
+```js live
 // Assuming this is run in the global scope, not within a module.
 (function () {
   let count = 0;
