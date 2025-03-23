@@ -29,7 +29,7 @@ elementToModify.innerHTML = 'New Content';
 
 To add an HTML element, you can use the `document.createElement` method to create a new element and then append it to a parent element using `appendChild`.
 
-```js
+```js live
 // Create a new div element
 const newDiv = document.createElement('div');
 
@@ -38,6 +38,9 @@ newDiv.textContent = 'Hello, World!';
 
 // Append the new element to the body
 document.body.appendChild(newDiv);
+
+// See the changed document by running the code
+console.log(document.body);
 ```
 
 You can also use `insertBefore` to insert the new element before an existing child element.
@@ -73,9 +76,8 @@ elementToRemove.remove();
 
 To modify an HTML element, you can change its properties such as `innerHTML`, `textContent`, or attributes.
 
-```js
-// Select the element to be modified
-const elementToModify = document.getElementById('elementId');
+```js live
+const elementToModify = document.createElement('div');
 
 // Change its inner HTML
 elementToModify.innerHTML = 'New Content';
@@ -85,6 +87,8 @@ elementToModify.textContent = 'New Text Content';
 
 // Change an attribute
 elementToModify.setAttribute('class', 'new-class');
+
+console.log(elementToModify);
 ```
 
 You can also use methods like `classList.add`, `classList.remove`, and `classList.toggle` to modify the element's classes.
