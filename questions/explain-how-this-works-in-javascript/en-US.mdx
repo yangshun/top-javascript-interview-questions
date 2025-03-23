@@ -48,7 +48,7 @@ showThis(); // In non-strict mode: Window (global object). In strict mode: undef
 
 When a function is called as a method of an object, `this` refers to the object that the method is called on.
 
-```js
+```js live
 const obj = {
   name: 'John',
   showThis: function () {
@@ -77,7 +77,7 @@ showThisStandalone(); // In non-strict mode: Window (global object). In strict m
 
 When a function is used as a constructor (called with the `new` keyword), `this` refers to the newly-created instance. In the following example, `this` refers to the `Person` object being created, and the `name` property is set on that object.
 
-```js
+```js live
 function Person(name) {
   this.name = name;
 }
@@ -90,7 +90,7 @@ console.log(person.name); // "John"
 
 In ES2015 classes, `this` behaves as it does in object methods. It refers to the instance of the class.
 
-```js
+```js live
 class Person {
   constructor(name) {
     this.name = name;
@@ -114,7 +114,7 @@ You can use `bind()`, `call()`, or `apply()` to explicitly set the value of `thi
 
 Using the `call()` and `apply()` methods allow you to explicitly set the value of `this` when calling the function.
 
-```js
+```js live
 function showThis() {
   console.log(this);
 }
@@ -126,7 +126,7 @@ showThis.apply(obj); // { name: 'John' }
 
 The `bind()` method creates a new function with `this` bound to the specified value.
 
-```js
+```js live
 function showThis() {
   console.log(this);
 }
@@ -142,11 +142,11 @@ Arrow functions do not have their own `this` context. Instead, the `this` is lex
 
 In this example, `this` refers to the global object (window or global), because the arrow function is not bound to the `person` object.
 
-```js
+```js live
 const person = {
-  name: 'John',
+  firstName: 'John',
   sayHello: () => {
-    console.log(`Hello, my name is ${this.name}!`);
+    console.log(`Hello, my name is ${this.firstName}!`);
   },
 };
 
