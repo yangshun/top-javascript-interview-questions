@@ -30,7 +30,7 @@ showThis(); // In non-strict mode: window, in strict mode: undefined
 
 When a function is called as a method of an object, `this` refers to the object.
 
-```js
+```js live
 const obj = {
   name: 'Alice',
   greet: function () {
@@ -47,7 +47,7 @@ Using `call`, `apply`, or `bind` methods, you can explicitly set `this`.
 
 ### Using `call`
 
-```js
+```js live
 function greet() {
   console.log(this.name);
 }
@@ -59,7 +59,7 @@ greet.call(person); // 'Bob'
 
 ### Using `apply`
 
-```js
+```js live
 function greet(greeting) {
   console.log(greeting + ', ' + this.name);
 }
@@ -71,7 +71,7 @@ greet.apply(person, ['Hello']); // 'Hello, Charlie'
 
 ### Using `bind`
 
-```js
+```js live
 function greet() {
   console.log(this.name);
 }
@@ -86,7 +86,7 @@ boundGreet(); // 'Dave'
 
 When a function is used as a constructor with the `new` keyword, `this` refers to the newly created object.
 
-```js
+```js live
 function Person(name) {
   this.name = name;
 }
@@ -99,11 +99,11 @@ console.log(person.name); // 'Eve'
 
 Arrow functions do not have their own `this` and inherit `this` from the surrounding lexical context.
 
-```js
+```js live
 const obj = {
-  name: 'Frank',
+  firstName: 'Frank',
   greet: () => {
-    console.log(this.name);
+    console.log(this.firstName);
   },
 };
 
