@@ -80,7 +80,7 @@ if (!user) {
 
 6. **Symbol**: A unique and immutable `primitive` value, typically used as the key of an object property.
 
-```js live
+```js
 let sym1 = Symbol();
 let sym2 = Symbol('description');
 console.log(sym1); // Symbol()
@@ -89,7 +89,7 @@ console.log(sym2); // Symbol(description)
 
 7. **BigInt**: Used for representing integers with arbitrary precision, useful for working with very large numbers.
 
-```js live
+```js
 let bigNumber = BigInt(9007199254740991);
 let anotherBigNumber = 1234567890123456789012345678901234567890n;
 console.log(bigNumber); // 9007199254740991n
@@ -133,7 +133,7 @@ console.log(add(2, 3)); // 5
 4. **Date**: Represents dates and times. The `Date` object is used to work with dates.
 
 ```js live
-let today = new Date();
+let today = new Date().toLocaleTimeString();
 console.log(today);
 ```
 
@@ -141,7 +141,9 @@ console.log(today);
 
 ```js live
 let pattern = /abc/;
-console.log(pattern);
+let str = '123abc456';
+
+console.log(pattern.test(str)); // true
 ```
 
 6. **Map**: A collection of keyed data items, similar to an `object` but allows keys of any type.
@@ -154,11 +156,11 @@ console.log(map);
 
 7. **Set**: A collection of unique values.
 
-```js live
+```js
 let set = new Set();
 set.add(1);
 set.add(2);
-console.log(set);
+console.log(set); // { 1, 2 }
 ```
 
 ## Determining data types
