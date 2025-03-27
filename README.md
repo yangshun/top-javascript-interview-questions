@@ -437,7 +437,7 @@ However, do note that:
 
 There's no simple explanation for `this`; it is one of the most confusing concepts in JavaScript because it's behavior differs from many other programming languages. The one-liner explanation of the `this` keyword is that it is a dynamic reference to the context in which a function is executed.
 
-A longer explanation follows is that `this` follows these rules:
+A longer explanation is that `this` follows these rules:
 
 1. If the `new` keyword is used when calling the function, meaning the function was used as a function constructor, the `this` inside the function is the newly-created object instance.
 2. If `this` is used in a `class` `constructor`, the `this` inside the `constructor` is the newly-created object instance.
@@ -4619,7 +4619,7 @@ myFunction();
 
 There's no simple explanation for `this`; it is one of the most confusing concepts in JavaScript because it's behavior differs from many other programming languages. The one-liner explanation of the `this` keyword is that it is a dynamic reference to the context in which a function is executed.
 
-A longer explanation follows is that `this` follows these rules:
+A longer explanation is that `this` follows these rules:
 
 1. If the `new` keyword is used when calling the function, meaning the function was used as a function constructor, the `this` inside the function is the newly-created object instance.
 2. If `this` is used in a `class` `constructor`, the `this` inside the `constructor` is the newly-created object instance.
