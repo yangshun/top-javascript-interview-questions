@@ -1,0 +1,84 @@
+---
+title: 在 JavaScript 中处理敏感数据的一些最佳实践是什么？
+---
+
+## TL;DR
+
+在 JavaScript 中处理敏感数据需要特别注意安全实践。 避免将敏感数据存储在客户端存储中，如 localStorage 或 sessionStorage。 使用 HTTPS 加密传输中的数据。 实施适当的身份验证和授权机制。 净化和验证所有输入以防止注入攻击。 考虑在服务器端代码中使用环境变量来存储敏感数据。
+
+***
+
+## 在 JavaScript 中处理敏感数据的最佳实践
+
+### 避免将敏感数据存储在客户端
+
+将敏感数据（如令牌、密码或个人信息）存储在客户端存储（如 `localStorage` 或 `sessionStorage`）中存在风险，因为恶意脚本可以轻松访问它。 而是使用带有 `HttpOnly` 和 `Secure` 标志的安全 cookie。
+
+```js
+// Example of setting a secure cookie in an Express.js server
+res.cookie('token', token, { httpOnly: true, secure: true });
+```
+
+### 使用 HTTPS
+
+始终使用 HTTPS 加密客户端和服务器之间传输的数据。 这可确保敏感数据不会暴露给窃听者。
+
+### 实施适当的身份验证和授权
+
+确保您的应用程序具有强大的身份验证和授权机制。 使用经过充分测试和维护的库和框架。
+
+```js
+// Example of using JSON Web Tokens (JWT) for authentication
+const jwt = require('jsonwebtoken');
+
+const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
+  expiresIn: '1h',
+});
+```
+
+### 净化和验证输入
+
+始终净化和验证用户输入，以防止注入攻击，例如 SQL 注入和跨站点脚本 (XSS)。
+
+```js
+// Example of input validation using the express-validator library
+const { body, validationResult } = require('express-validator');
+
+app.post(
+  '/submit',
+  [body('email').isEmail(), body('password').isLength({ min: 5 })],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    // Proceed with handling the request
+  },
+);
+```
+
+### 使用环境变量
+
+将敏感数据（如 API 密钥和数据库凭据）存储在环境变量中，而不是在源代码中对其进行硬编码。
+
+```js
+// Example of accessing environment variables in Node.js
+const dbPassword = process.env.DB_PASSWORD;
+```
+
+### 定期更新依赖项
+
+保持您的依赖项为最新，以确保您拥有最新的安全补丁。使用 `npm audit` 等工具来识别和修复漏洞。
+
+```bash
+# Example of running npm audit
+npm audit fix
+```
+
+## 延伸阅读
+
+* [OWASP 十大安全风险](https://owasp.org/www-project-top-ten/)
+* [MDN Web 文档：HTTPS](https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security)
+* [Express.js 安全最佳实践](https://expressjs.com/en/advanced/best-practice-security.html)
+* [JSON Web Tokens (JWT) 简介](https://jwt.io/introduction/)
+* [express-validator 文档](https://express-validator.github.io/docs/)

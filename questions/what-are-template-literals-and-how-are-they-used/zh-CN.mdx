@@ -1,0 +1,95 @@
+---
+title: 什么是模板字面量以及如何使用它们？
+---
+
+## TL;DR
+
+模板字面量是 JavaScript 中的一个特性，它允许更轻松的字符串插值和多行字符串。它们用反引号 (`` ` ``) 而不是单引号或双引号括起来。您可以使用 `${expression}` 语法在模板字面量中嵌入表达式。
+
+示例：
+
+```js live
+const myName = 'John';
+const greeting = `Hello, ${myName}!`;
+console.log(greeting); // Output: Hello, John!
+```
+
+***
+
+## 什么是模板字面量以及如何使用它们？
+
+### 模板字面量简介
+
+模板字面量是 ES6 (ECMAScript 2015) 中引入的一个特性，它提供了一种更简单、更易读的方式来处理 JavaScript 中的字符串。它们允许字符串插值、多行字符串和嵌入表达式。
+
+### 语法
+
+模板字面量用反引号 (`` ` ``) 而不是单引号或双引号括起来。这允许更灵活的字符串格式化。
+
+### 字符串插值
+
+模板字面量最强大的功能之一是字符串插值。您可以使用 `${expression}` 语法在字符串中嵌入表达式。
+
+示例：
+
+```js live
+const myName = 'John';
+const age = 30;
+const greeting = `Hello, my name is ${myName} and I am ${age} years old.`;
+console.log(greeting); // Output: Hello, my name is John and I am 30 years old.
+```
+
+### 多行字符串
+
+模板字面量可以轻松创建多行字符串，而无需转义字符。
+
+示例：
+
+```js live
+const multiLineString = `This is a string
+that spans multiple
+lines.`;
+console.log(multiLineString);
+// Output:
+// This is a string
+// that spans multiple
+// lines.
+```
+
+### 标记模板
+
+标记模板允许您使用函数解析模板字面量。然后，该函数可以在输出模板字面量的内容之前对其进行操作。
+
+示例：
+
+```js live
+function tag(strings, ...values) {
+  console.log(strings); // Array of string literals: ["Hello, ", "!"]
+  console.log(values); // Array of values: ["John"]
+  return 'Custom tagged template result';
+}
+
+const myName = 'John';
+const result = tag`Hello, ${myName}!`;
+console.log(result); // Output: Custom tagged template result
+```
+
+### 嵌套模板字面量
+
+您可以在彼此之间嵌套模板字面量，以构建更复杂的字符串。
+
+示例：
+
+```js live
+const myName = 'John';
+const age = 30;
+const nestedTemplate = `Name: ${myName}, Age: ${age}, Info: ${`Name: ${myName}, Age: ${age}`}`;
+console.log(nestedTemplate);
+// Output: Name: John, Age: 30, Info: Name: John, Age: 30
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+* [JavaScript.info: Template literals](https://javascript.info/template-literals)
+* [ES6 Features: Template literals](http://es6-features.org/#StringInterpolation)

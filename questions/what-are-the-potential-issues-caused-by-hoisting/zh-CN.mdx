@@ -1,0 +1,71 @@
+---
+title: Hoisting 带来的潜在问题是什么？
+---
+
+## TL;DR
+
+Hoisting 可能会导致 JavaScript 中出现意外行为，因为变量和函数声明在编译阶段被移至其包含范围的顶部。如果变量在其声明之前被使用，这可能导致变量值为 `undefined`，并且可能导致函数声明和表达式的混淆。例如：
+
+```js live
+console.log(a); // undefined
+var a = 5;
+
+console.log(b); // ReferenceError: Cannot access 'b' before initialization
+let b = 10;
+```
+
+***
+
+## Hoisting 带来的潜在问题
+
+### 变量为 `undefined`
+
+使用 `var` 时，变量会被提升到其作用域的顶部，但未被初始化。这意味着您可以在变量声明之前引用该变量，但在赋值执行之前，它将是 `undefined`。
+
+```js live
+console.log(a); // undefined
+var a = 5;
+```
+
+### `let` 和 `const` 的暂时性死区
+
+使用 `let` 和 `const` 声明的变量也会被提升，但它们没有被初始化。在声明之前访问它们会导致 `ReferenceError`，这是由于暂时性死区造成的。
+
+```js live
+console.log(b); // ReferenceError: Cannot access 'b' before initialization
+let b = 10;
+```
+
+### 函数声明 vs. 函数表达式
+
+函数声明被完全提升，这意味着您可以在函数声明之前调用该函数。但是，函数表达式不会以相同的方式被提升，如果在定义之前调用它们，则会导致潜在的 `TypeError`。
+
+```js live
+foo(); // Works fine
+function foo() {
+  console.log('Hello');
+}
+
+bar(); // TypeError: bar is not a function
+var bar = function () {
+  console.log('Hello');
+};
+```
+
+### `var` 的重新声明问题
+
+使用 `var` 可能会导致意外的重新声明，这可能会导致难以追踪的错误。
+
+```js live
+var x = 1;
+if (true) {
+  var x = 2; // Same variable as above
+}
+console.log(x); // 2
+```
+
+## 延伸阅读
+
+* [MDN Web Docs on Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
+* [JavaScript.info on Hoisting](https://javascript.info/var)
+* [Understanding the Temporal Dead Zone](https://medium.com/@rajeshnaroth/understanding-temporal-dead-zone-in-javascript-let-and-const-5c3d2f8e0e68)

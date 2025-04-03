@@ -1,0 +1,103 @@
+---
+title: Promise.all() 与 Promise.allSettled() 有什么区别？
+---
+
+## TL;DR
+
+Promise.all() 和 Promise.allSettled() 都是用于处理 JavaScript 中多个 Promise 的方法，但它们的行为有所不同。Promise.all() 等待所有 Promise 都被解决，如果任何一个 Promise 被拒绝，它会快速失败，返回一个被拒绝的 Promise。另一方面，Promise.allSettled() 等待所有 Promise 都被确定（解决或拒绝），并返回一个描述每个 Promise 结果的对象数组。
+
+***
+
+## Promise.all() 与 Promise.allSettled() 有什么区别？
+
+### Promise.all()
+
+Promise.all() 接受一个可迭代的 Promise，并返回一个 Promise，当所有输入的 Promise 都已解决时，该 Promise 将被解决。如果任何一个输入的 Promise 被拒绝，则返回的 Promise 会立即被拒绝，并带有第一个被拒绝的 Promise 的原因。
+
+#### 示例
+
+```js live
+const promise1 = Promise.resolve(3);
+const promise2 = 42;
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'foo');
+});
+
+Promise.all([promise1, promise2, promise3])
+  .then((values) => {
+    console.log(values); // [3, 42, 'foo']
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+在此示例中，Promise.all() 使用结果数组 `[3, 42, 'foo']` 进行解析，因为所有 Promise 都成功解析。
+
+#### 失败情况
+
+```js live
+const promise1 = Promise.resolve(3);
+const promise2 = Promise.reject('error');
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'foo');
+});
+
+Promise.all([promise1, promise2, promise3])
+  .then((values) => {
+    console.log(values);
+  })
+  .catch((error) => {
+    console.error(error); // 'error'
+  });
+```
+
+在此示例中，Promise.all() 立即拒绝，原因是 `'error'`，因为 `promise2` 被拒绝。
+
+### Promise.allSettled()
+
+Promise.allSettled() 接受一个可迭代的 Promise，并返回一个 Promise，当所有输入的 Promise 都已确定（已解决或已拒绝）时，该 Promise 将被解决。返回的 Promise 使用一个对象数组进行解析，每个对象描述每个 Promise 的结果。
+
+#### 示例
+
+```js live
+const promise1 = Promise.resolve(3);
+const promise2 = 42;
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'foo');
+});
+
+Promise.allSettled([promise1, promise2, promise3]).then((results) => {
+  results.forEach((result) => console.log(result));
+  // { status: 'fulfilled', value: 3 }
+  // { status: 'fulfilled', value: 42 }
+  // { status: 'fulfilled', value: 'foo' }
+});
+```
+
+在此示例中，Promise.allSettled() 使用结果对象数组进行解析，每个对象指示 Promise 的状态和值。
+
+#### 失败情况
+
+```js live
+const promise1 = Promise.resolve(3);
+const promise2 = Promise.reject('error');
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'foo');
+});
+
+Promise.allSettled([promise1, promise2, promise3]).then((results) => {
+  results.forEach((result) => console.log(result));
+  // { status: 'fulfilled', value: 3 }
+  // { status: 'rejected', reason: 'error' }
+  // { status: 'fulfilled', value: 'foo' }
+});
+```
+
+在此示例中，Promise.allSettled() 使用结果对象数组进行解析，包括被拒绝的 Promise 及其原因。
+
+## 延伸阅读
+
+* [MDN Web 文档：Promise.all()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+* [MDN Web 文档：Promise.allSettled()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)
+* [JavaScript.info：Promise API](https://zh.javascript.info/promise-api)

@@ -1,0 +1,119 @@
+---
+title: 解释防抖和节流的概念
+---
+
+## 总结
+
+防抖和节流是用于控制函数执行速率的技术。防抖确保函数仅在自上次调用后经过指定的延迟后才被调用。节流确保函数在一个指定的时间间隔内最多被调用一次。
+
+防抖会延迟函数的执行，直到自上次调用后经过一定的时间。这对于搜索输入框等场景非常有用，在这些场景中，您希望在用户停止输入后才进行 API 调用。
+
+```js live
+function debounce(func, delay) {
+  let timeoutId;
+  return function (...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+
+const debouncedHello = debounce(() => console.log('Hello world!'), 2000);
+debouncedHello(); // Prints 'Hello world!' after 2 seconds
+```
+
+节流确保函数在一个指定的时间间隔内最多被调用一次。这对于窗口调整大小或滚动等场景非常有用，在这些场景中，您希望限制函数被调用的次数。
+
+```js live
+function throttle(func, limit) {
+  let inThrottle;
+  return function (...args) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+}
+
+const handleResize = throttle(() => {
+  // Update element positions
+  console.log('Window resized at', new Date().toLocaleTimeString());
+}, 2000);
+
+// Simulate rapid calls to handleResize every 100ms
+let intervalId = setInterval(() => {
+  handleResize();
+}, 100);
+// 'Window resized' is outputted only every 2 seconds due to throttling
+```
+
+***
+
+## 防抖和节流
+
+### 防抖
+
+防抖是一种技术，用于确保函数仅在自上次调用后经过一定时间后才执行。这在您希望限制函数被调用次数的场景中特别有用，例如处理用户输入事件（如按键或鼠标移动）。
+
+#### 使用案例
+
+想象一下，您有一个搜索输入框，并且您想进行 API 调用来获取搜索结果。如果没有防抖，每次用户输入一个字符时都会进行 API 调用，这可能会导致大量不必要的调用。防抖确保仅在用户停止输入指定时间后才进行 API 调用。
+
+#### 代码示例
+
+```js
+function debounce(func, delay) {
+  let timeoutId;
+  return function (...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+
+// Usage
+const handleSearch = debounce((query) => {
+  // Make API call
+  console.log('API call with query:', query);
+}, 300);
+
+document.getElementById('searchInput').addEventListener('input', (event) => {
+  handleSearch(event.target.value);
+});
+```
+
+### 节流
+
+节流是一种技术，用于确保函数在一个指定的时间间隔内最多被调用一次。这在您希望限制函数被调用次数的场景中很有用，例如处理窗口调整大小或滚动等事件。
+
+#### 使用案例
+
+想象一下，您有一个函数，该函数根据窗口大小更新屏幕上元素的位置。如果没有节流，此函数可能会在用户调整窗口大小时每秒被调用多次，从而导致性能问题。节流确保该函数在一个指定的时间间隔内最多被调用一次。
+
+#### 代码示例
+
+```js live
+function throttle(func, limit) {
+  let inThrottle;
+  return function (...args) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+}
+
+// Usage
+const handleResize = throttle(() => {
+  // Update element positions
+  console.log('Window resized');
+}, 100);
+
+window.addEventListener('resize', handleResize);
+```
+
+## 延伸阅读
+
+* [通过示例解释防抖和节流](https://css-tricks.com/debouncing-throttling-explained-examples/)
+* [了解防抖和节流之间的区别](https://www.freecodecamp.org/news/javascript-debounce-example/)
+* [Lodash 防抖和节流文档](https://lodash.com/docs/4.17.15#debounce)

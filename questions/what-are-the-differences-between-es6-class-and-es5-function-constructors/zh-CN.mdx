@@ -1,11 +1,13 @@
 ---
-title: ES2015类和 ES5 函数构造函数之间有什么区别？
+title: JavaScript ES2015 类和 ES5 函数构造函数之间有什么区别？
 ---
 
-让我们首先看看每个例子：
+## TL;DR
+
+ES2015 引入了一种创建类的新方法，与 ES5 函数构造函数语法相比，它提供了一种更直观、更简洁的方式来定义和使用对象和继承。以下是每个的示例：
 
 ```js
-// ES5 Function Constructor
+// ES5 function constructor
 function Person(name) {
   this.name = name;
 }
@@ -18,30 +20,228 @@ class Person {
 }
 ```
 
-对简单的构造函数来说，它们看起来相当相似。
+对于简单的构造函数，它们看起来非常相似。构造函数的主要区别在于使用继承时。如果我们想创建一个 `Student` 类，该类是 `Person` 的子类，并添加一个 `studentId` 字段，这就是我们必须做的。
 
-构造函数中的主要差异是在使用继承时。 如果我们想创建一个`Person` 的子类 `Student` 类，并添加一个 "studentId "字段，这就是我们在上述基础上所要做的事情。
+```js live
+// ES5 inheritance
+// Superclass
+function Person1(name) {
+  this.name = name;
+}
 
-```js
-// ES5 Function Constructor
-function Student(name, studentId) {
+// Subclass
+function Student1(name, studentId) {
   // Call constructor of superclass to initialize superclass-derived members.
-  Person.call(this, name);
+  Person1.call(this, name);
 
   // Initialize subclass's own members.
   this.studentId = studentId;
 }
+Student1.prototype = Object.create(Person1.prototype);
+Student1.prototype.constructor = Student1;
 
-Student.prototype = Object.create(Person.prototype);
-Student.prototype.constructor = Student;
+const student1 = new Student1('John', 1234);
+console.log(student1.name, student1.studentId); // "John" 1234
 
-// ES2015 Class
-class Student extends Person {
+// ES2015 inheritance
+// Superclass
+class Person2 {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+// Subclass
+class Student2 extends Person2 {
   constructor(name, studentId) {
     super(name);
     this.studentId = studentId;
   }
 }
+
+const student2 = new Student2('Alice', 5678);
+console.log(student2.name, student2.studentId); // "Alice" 5678
 ```
 
-在 ES5 中使用继承要啰嗦得多，ES2015 版本更容易理解和记忆。
+在 ES5 中使用继承要冗长得多，而 ES2015 版本更容易理解和记忆。
+
+**ES5 函数构造函数与 ES2015 类的比较**
+
+| 特性 | ES5 函数构造函数 | ES2015 类 |
+| --- | --- | --- |
+| 语法 | 使用函数构造函数和原型 | 使用 `class` 关键字 |
+| 构造函数 | 使用 `this` 分配属性的函数 | 类中的 `constructor` 方法 |
+| 方法定义 | 在原型上定义 | 在类主体内定义 |
+| 静态方法 | 直接添加到构造函数 | 使用 `static` 关键字定义 |
+| 继承 | 使用 `Object.create()` 并手动设置原型链 | 使用 `extends` 关键字和 `super` 函数 |
+| 可读性 | 不太直观，更冗长 | 更简洁直观 |
+
+***
+
+## ES5 函数构造函数 vs ES2015 类
+
+ES5 函数构造函数和 ES2015 类是 JavaScript 中定义类的两种不同方式。它们都服务于相同的目的，但它们具有不同的语法和行为。
+
+### ES5 函数构造函数
+
+在 ES5 中，您可以使用函数构造函数和原型定义类似类的结构。这是一个例子：
+
+```js live
+// ES5 function constructor
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+Person.prototype.greet = function () {
+  console.log(
+    'Hello, my name is ' + this.name + ' and I am ' + this.age + ' years old.',
+  );
+};
+
+// Creating an instance
+var person1 = new Person('John', 30);
+person1.greet(); // Hello, my name is John and I am 30 years old.
+```
+
+### ES2015 类
+
+ES2015 引入了 `class` 语法，它简化了类的定义，并支持更多功能，例如静态方法和子类化。以下是使用 ES2015 的相同示例：
+
+```js live
+// ES2015 Class
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`,
+    );
+  }
+}
+
+// Creating an instance
+const person1 = new Person('John', 30);
+person1.greet(); // Hello, my name is John and I am 30 years old.
+```
+
+### 主要区别
+
+1. **语法和可读性**：
+
+   * **ES5**：使用函数构造函数和原型，这不太直观，也更难阅读。
+   * **ES2015**：使用 `class` 关键字，使代码更简洁，更容易理解。
+
+2. **静态方法**：
+
+   * **ES5**：静态方法直接添加到构造函数中。
+   * **ES2015**：静态方法使用 `static` 关键字在类中定义。
+
+   ```js live
+   // ES5
+   function Person1(name, age) {
+     this.name = name;
+     this.age = age;
+   }
+
+   Person1.sayHi = function () {
+     console.log('Hi from ES5!');
+   };
+
+   Person1.sayHi(); // Hi from ES5!
+
+   // ES2015
+   class Person2 {
+     static sayHi() {
+       console.log('Hi from ES2015!');
+     }
+   }
+   Person2.sayHi(); // Hi from ES2015!
+   ```
+
+3. **继承**
+
+   * **ES5**：继承是使用 `Object.create()` 并手动设置原型链来实现的。
+   * **ES2015**：使用 extends 关键字，继承更加简单直观。
+
+   ```js live
+   // ES5 Inheritance
+
+   // ES5 function constructor
+   function Person1(name, age) {
+     this.name = name;
+     this.age = age;
+   }
+
+   Person1.prototype.greet = function () {
+     console.log(
+       `Hello, my name is ${this.name} and I am ${this.age} years old.`,
+     );
+   };
+
+   function Student1(name, age, grade) {
+     Person1.call(this, name, age);
+     this.grade = grade;
+   }
+
+   Student1.prototype = Object.create(Person1.prototype);
+   Student1.prototype.constructor = Student1;
+
+   Student1.prototype.study = function () {
+     console.log(this.name + ' is studying.');
+   };
+
+   var student1 = new Student1('John', 22, 'B+');
+   student1.greet(); // Hello, my name is John and I am 22 years old.
+   student1.study(); // John is studying.
+
+   // ES2015 Inheritance
+
+   // ES2015 Class
+   class Person2 {
+     constructor(name, age) {
+       this.name = name;
+       this.age = age;
+     }
+
+     greet() {
+       console.log(
+         `Hello, my name is ${this.name} and I am ${this.age} years old.`,
+       );
+     }
+   }
+
+   class Student2 extends Person2 {
+     constructor(name, age, grade) {
+       super(name, age);
+       this.grade = grade;
+     }
+
+     study() {
+       console.log(`${this.name} is studying.`);
+     }
+   }
+
+   const student2 = new Student2('Alice', 20, 'A');
+   student2.greet(); // Hello, my name is Alice and I am 20 years old.
+   student2.study(); // Alice is studying.
+   ```
+
+4. `super` 调用：
+
+   * **ES5**：手动调用父构造函数。
+   * **ES2015**：使用 `super` 关键字调用父类的构造函数和方法。
+
+### 结论
+
+虽然 ES5 和 ES2015 方法都可以实现相同的功能，但 ES2015 类提供了一种更清晰、更简洁的方式来定义和使用 JavaScript 中的面向对象结构，这使得代码更容易编写、阅读和维护。 如果您正在使用现代 JavaScript，通常建议使用 ES2015 类而不是 ES5 函数构造函数。
+
+## 资源
+
+* [类 - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+* [继承 - MDN ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#inheritance)
+* [对象的秘密生活](https://eloquentjavascript.net/06_object.html)
+* [ES2015 vs ES5](https://www.educative.io/courses/learn-object-oriented-programming-in-javascript/es2015-vs-es5)

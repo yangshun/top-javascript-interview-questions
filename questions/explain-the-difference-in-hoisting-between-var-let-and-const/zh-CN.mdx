@@ -1,0 +1,48 @@
+---
+title: 解释 `var`、`let` 和 `const` 之间的变量提升区别
+---
+
+## 总结
+
+`var` 声明会被提升到其作用域的顶部并使用 `undefined` 初始化，允许它们在其声明之前被使用。`let` 和 `const` 声明也会被提升，但不会被初始化，如果在声明之前访问它们，则会导致 `ReferenceError`。`const` 声明在声明时还需要一个初始值。
+
+***
+
+## `var`、`let` 和 `const` 之间的变量提升区别
+
+### `var` 的变量提升
+
+`var` 声明会被提升到其包含的函数或全局作用域的顶部。这意味着变量可以在整个函数或脚本中使用，即使在声明它的行之前也是如此。但是，在遇到实际声明之前，变量会被初始化为 `undefined`。
+
+```js live
+console.log(a); // Output: undefined
+var a = 10;
+console.log(a); // Output: 10
+```
+
+### `let` 的变量提升
+
+`let` 声明也会被提升到其块级作用域的顶部，但它们不会被初始化。这会在块的开始到声明被遇到之间创建一个“暂时性死区”（TDZ）。在 TDZ 中访问变量会导致 `ReferenceError`。
+
+```js live
+console.log(b); // ReferenceError: Cannot access 'b' before initialization
+let b = 20;
+console.log(b); // Output: 20
+```
+
+### `const` 的变量提升
+
+`const` 声明在变量提升方面与 `let` 类似。它们被提升到其块级作用域的顶部，但未被初始化，从而导致 TDZ。此外，`const` 在声明时需要一个初始值，并且不能被重新赋值。
+
+```js live
+console.log(c); // ReferenceError: Cannot access 'c' before initialization
+const c = 30;
+console.log(c); // Output: 30
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: var](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var)
+* [MDN Web Docs: let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
+* [MDN Web Docs: const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+* [JavaScript.info: Variable scope, closure](https://javascript.info/closure#var)

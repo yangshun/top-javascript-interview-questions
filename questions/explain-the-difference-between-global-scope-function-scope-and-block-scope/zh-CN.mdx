@@ -1,0 +1,80 @@
+---
+title: 解释全局作用域、函数作用域和块级作用域的区别
+---
+
+## TL;DR
+
+全局作用域意味着变量可以在代码中的任何地方访问。函数作用域意味着变量只能在其声明的函数内部访问。块级作用域意味着变量只能在其声明的块（例如，在 `{}` 内）中访问。
+
+```js live
+var globalVar = "I'm global"; // 全局作用域
+
+function myFunction() {
+  var functionVar = "I'm in a function"; // 函数作用域
+  if (true) {
+    let blockVar = "I'm in a block"; // 块级作用域
+    console.log(blockVar); // 可以在这里访问
+  }
+  // console.log(blockVar); // Uncaught ReferenceError: blockVar is not defined
+}
+// console.log(functionVar); // Uncaught ReferenceError: functionVar is not defined
+myFunction();
+```
+
+***
+
+## 全局作用域、函数作用域和块级作用域
+
+### 全局作用域
+
+在全局作用域中声明的变量可以在代码中的任何地方访问。在浏览器环境中，这些变量会成为 `window` 对象的属性。
+
+```js live
+var globalVar = "I'm global";
+
+function checkGlobal() {
+  console.log(globalVar); // Accessible here
+}
+
+checkGlobal(); // Output: "I'm global"
+console.log(globalVar); // Output: "I'm global"
+```
+
+### 函数作用域
+
+在函数内声明的变量只能在该函数内部访问。这对于使用 `var`、`let` 或 `const` 声明的变量都是正确的。
+
+```js live
+function myFunction() {
+  var functionVar = "I'm in a function";
+  console.log(functionVar); // 可以在这里访问
+}
+
+myFunction(); // Output: "I'm in a function"
+console.log(functionVar); // Uncaught ReferenceError: functionVar is not defined
+```
+
+### 块级作用域
+
+使用 `let` 或 `const` 在块（例如，在 `{}` 内）中声明的变量只能在该块内访问。这对于 `var` 来说是不成立的，`var` 是函数作用域的。
+
+```js live
+if (true) {
+  let blockVar = "I'm in a block";
+  console.log(blockVar); // 可以在这里访问
+}
+// console.log(blockVar); // Uncaught ReferenceError: blockVar is not defined
+
+if (true) {
+  var blockVarVar = "I'm in a block but declared with var";
+  console.log(blockVarVar); // 可以在这里访问
+}
+console.log(blockVarVar); // Output: "I'm in a block but declared with var"
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: JavaScript scoping](https://developer.mozilla.org/en-US/docs/Glossary/Scope)
+* [MDN Web Docs: var](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var)
+* [MDN Web Docs: let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
+* [MDN Web Docs: const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)

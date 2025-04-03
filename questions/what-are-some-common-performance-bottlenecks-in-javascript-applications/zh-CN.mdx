@@ -1,0 +1,185 @@
+---
+title: JavaScript 应用程序中常见的一些性能瓶颈是什么？
+---
+
+## TL;DR
+
+JavaScript 应用程序中常见的性能瓶颈包括低效的 DOM 操作、过度使用全局变量、使用繁重的计算阻塞主线程、内存泄漏以及不正确地使用异步操作。为了缓解这些问题，您可以使用诸如防抖和节流之类的技术、优化 DOM 更新以及利用 Web Worker 进行繁重的计算。
+
+***
+
+## 低效的 DOM 操作
+
+### 频繁的 DOM 更新
+
+频繁的 DOM 更新可能代价高昂，因为每次 DOM 更改时，浏览器都必须重新渲染页面。将 DOM 更新批量处理在一起，以最大限度地减少回流和重绘。
+
+```js
+// Inefficient
+for (let i = 0; i < 1000; i++) {
+  const div = document.createElement('div');
+  div.textContent = i;
+  document.body.appendChild(div);
+}
+
+// Efficient
+const fragment = document.createDocumentFragment();
+for (let i = 0; i < 1000; i++) {
+  const div = document.createElement('div');
+  div.textContent = i;
+  fragment.appendChild(div);
+}
+document.body.appendChild(fragment);
+```
+
+### 布局抖动
+
+当您反复读取和写入 DOM 时，就会发生布局抖动，从而导致多次回流和重绘。通过分别批量处理读取和写入来最大限度地减少布局抖动。
+
+```js
+// Inefficient
+for (let i = 0; i < 1000; i++) {
+  const height = element.clientHeight;
+  element.style.height = `${height + 10}px`;
+}
+
+// Efficient
+const height = element.clientHeight;
+for (let i = 0; i < 1000; i++) {
+  element.style.height = `${height + 10}px`;
+}
+```
+
+## 过度使用全局变量
+
+全局变量可能导致内存泄漏，并使代码更难维护。使用局部变量和闭包来限制变量的范围。
+
+```js
+// Inefficient
+var globalVar = 'I am global';
+
+// Efficient
+function myFunction() {
+  let localVar = 'I am local';
+}
+```
+
+## 阻塞主线程
+
+### 繁重的计算
+
+繁重的计算会阻塞主线程，从而导致 UI 无响应。使用 Web Worker 将繁重的计算分流到后台线程。
+
+```js
+// Main thread
+const worker = new Worker('worker.js');
+worker.postMessage('start');
+
+// worker.js
+self.onmessage = function (e) {
+  if (e.data === 'start') {
+    // Perform heavy computation
+    self.postMessage('done');
+  }
+};
+```
+
+### 同步操作
+
+避免使用 `alert`、`prompt` 等同步操作以及同步 XHR 请求，因为它们会阻塞主线程。
+
+```js
+// Inefficient
+alert('This blocks the main thread');
+
+// Efficient
+console.log('This does not block the main thread');
+```
+
+## 内存泄漏
+
+当不再需要的内存未被释放时，就会发生内存泄漏。常见原因包括循环引用和未移除的事件监听器。
+
+### 循环引用
+
+```js
+// Inefficient
+function createCircularReference() {
+  const obj1 = {};
+  const obj2 = {};
+  obj1.ref = obj2;
+  obj2.ref = obj1;
+}
+
+// Efficient
+function createNonCircularReference() {
+  const obj1 = {};
+  const obj2 = {};
+  obj1.ref = obj2;
+}
+```
+
+### 未移除的事件监听器
+
+```js
+// Inefficient
+element.addEventListener('click', handleClick);
+
+// Efficient
+element.removeEventListener('click', handleClick);
+```
+
+## 异步操作使用不当
+
+### 未优化的 Promise
+
+正确地链式调用 Promise，以避免阻塞主线程。
+
+```js
+// Inefficient
+fetch('url')
+  .then((response) => response.json())
+  .then((data) => {
+    // Process data
+  });
+
+// Efficient
+async function fetchData() {
+  const response = await fetch('url');
+  const data = await response.json();
+  // Process data
+}
+fetchData();
+```
+
+### Debouncing 和 throttling
+
+使用 debouncing 和 throttling 来限制函数执行的速率，尤其是在处理事件处理程序时。
+
+```js
+// Debouncing
+function debounce(func, wait) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+}
+
+// Throttling
+function throttle(func, limit) {
+  let inThrottle;
+  return function (...args) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+}
+```
+
+## 延伸阅读
+
+* [MDN Web 文档：性能](https://developer.mozilla.org/zh-CN/docs/Web/Performance)
+* [Google Developers：Web 性能优化](https://developers.google.com/web/fundamentals/performance)

@@ -1,0 +1,61 @@
+---
+title: 解释内容安全策略 (CSP) 的概念以及它如何增强安全性
+---
+
+## 总结
+
+内容安全策略 (CSP) 是一项安全功能，通过指定受信任的内容来源，帮助防止各种类型的攻击，例如跨站点脚本 (XSS) 和数据注入攻击。它的工作原理是允许开发人员定义一个受信任的脚本、样式和图像等内容来源的白名单。这通过 HTTP 标头或 meta 标签完成。例如，您可以使用 `Content-Security-Policy` 标头来指定仅应执行来自您自己域的脚本：
+
+```http
+Content-Security-Policy: script-src 'self'
+```
+
+***
+
+## 什么是内容安全策略 (CSP)？
+
+内容安全策略 (CSP) 是一项安全标准，旨在缓解一系列攻击，包括跨站点脚本 (XSS) 和数据注入攻击。CSP 允许 Web 开发人员控制用户代理允许为给定页面加载的资源。通过指定受信任内容来源的白名单，CSP 有助于防止恶意内容的执行。
+
+### CSP 的工作原理
+
+CSP 的工作原理是允许开发人员定义一组规则，用于指定哪些内容来源被认为是可信的。这些规则通过 HTTP 标头或 meta 标签传递给浏览器。当浏览器加载页面时，它会检查 CSP 规则并阻止任何与指定来源不匹配的内容。
+
+### CSP 标头的示例
+
+以下是一个简单的 CSP 标头的示例，该标头仅允许来自同一来源的脚本：
+
+```http
+Content-Security-Policy: script-src 'self'
+```
+
+此策略告诉浏览器仅执行从与页面本身相同的来源加载的脚本。
+
+### 常用指令
+
+* `object-src`：指定 Flash 等插件的有效来源。
+
+### 使用 CSP 的好处
+
+* **提高安全态势**：实施 CSP 是一项积极措施，可增强 Web 应用程序的整体安全性。
+
+### 实施 CSP
+
+可以使用 HTTP 标头或 meta 标签来实现 CSP。通常首选 HTTP 标头方法，因为它更安全，并且不易被攻击者覆盖。
+
+#### 使用 HTTP 标头
+
+```http
+Content-Security-Policy: default-src 'self'; script-src 'self' https://trusted.cdn.com
+```
+
+#### 使用 meta 标签
+
+```html
+<meta
+  http-equiv="Content-Security-Policy"
+  content="default-src 'self'; script-src 'self' https://trusted.cdn.com" />
+```
+
+## 延伸阅读
+
+* [Google Developers: CSP: Content Security Policy](https://developers.google.com/web/fundamentals/security/csp)

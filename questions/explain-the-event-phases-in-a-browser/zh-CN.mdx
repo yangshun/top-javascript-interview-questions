@@ -1,0 +1,51 @@
+---
+title: 解释浏览器中的事件阶段
+---
+
+## TL;DR
+
+在浏览器中，事件经历三个阶段：捕获、目标和冒泡。在捕获阶段，事件从根节点传递到目标元素。在目标阶段，事件到达目标元素。最后，在冒泡阶段，事件从目标元素传递回根节点。您可以使用带有 `capture` 选项的 `addEventListener` 来控制事件处理。
+
+***
+
+## 浏览器中的事件阶段
+
+### 捕获阶段
+
+捕获阶段，也称为渗透阶段，是事件传播的第一个阶段。在此阶段，事件从 DOM 树的根开始，向下传递到目标元素。在此阶段注册的事件监听器将按照从最外层祖先到目标元素的顺序触发。
+
+```js
+element.addEventListener('click', handler, true); // true indicates capturing phase
+```
+
+### 目标阶段
+
+目标阶段是事件传播的第二个阶段。在此阶段，事件已到达目标元素本身。直接在目标元素上注册的事件监听器将在此阶段触发。
+
+```js
+element.addEventListener('click', handler); // default is target phase
+```
+
+### 冒泡阶段
+
+冒泡阶段是事件传播的最后一个阶段。在此阶段，事件从目标元素传递回 DOM 树的根。在此阶段注册的事件监听器将按照从目标元素到最外层祖先的顺序触发。
+
+```js
+element.addEventListener('click', handler, false); // false indicates bubbling phase
+```
+
+### 控制事件传播
+
+您可以使用 `stopPropagation` 和 `stopImmediatePropagation` 等方法来控制事件传播。这些方法可以在事件处理程序中调用，以阻止事件进一步传播。
+
+```js
+element.addEventListener('click', function (event) {
+  event.stopPropagation(); // Stops the event from propagating further
+});
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Event bubbling and capturing](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_bubbling_and_capture)
+* [JavaScript.info: Bubbling and capturing](https://javascript.info/bubbling-and-capturing)
+* [W3C: DOM Level 3 Events Specification](https://www.w3.org/TR/DOM-Level-3-Events/#event-flow)

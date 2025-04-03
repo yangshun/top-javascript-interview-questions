@@ -1,18 +1,72 @@
 ---
-title: '"attribute" 和 "property" 之间有什么区别？'
+title: DOM 中“attribute”和“property”有什么区别？
 ---
 
-"attribute"定义在 HTML 标记上，但"property"定义在 DOM 上。 为了说明不同之处，请想象我们在 HTML 中有这个 Input：`<input type="text" value="Hello">`.
+## TL;DR
 
-```js
-const input = document.querySelector('input');
-console.log(input.getAttribute('value')); // Hello
-console.log(input.value); // Hello
+Attributes 在 HTML 中定义，为属性提供初始值。属性是 DOM 的一部分，表示元素的当前状态。例如，`<input>` 元素的 `value` 属性设置其初始值，而 `value` 属性反映用户与之交互时的当前值。
+
+***
+
+## DOM 中“attribute”和“property”有什么区别
+
+### Attributes
+
+Attributes 在 HTML 标记中定义，为元素提供初始值。它们是静态的，一旦页面加载后就不会改变，除非使用 JavaScript 显式修改。
+
+#### 示例
+
+```html
+<input type="text" value="initial value" />
 ```
 
-但在你通过添加 "World!" 来改变文本字段的值后，这就变成了：
+在此示例中，`value="initial value"` 是一个 attribute。
 
-```js
-console.log(input.getAttribute('value')); // Hello
-console.log(input.value); // Hello World!
+### Properties
+
+Properties 是 DOM 的一部分，表示元素的当前状态。它们是动态的，可以随着用户与页面交互或通过 JavaScript 而改变。
+
+#### 示例
+
+```javascript
+const inputElement = document.querySelector('input');
+console.log(inputElement.value); // 记录输入元素的当前值
+inputElement.value = 'new value'; // 更改输入元素的当前值
 ```
+
+在此示例中，`value` 是 `inputElement` 对象的属性。
+
+### 关键区别
+
+* **初始化**：Attributes 初始化 DOM 属性。
+* **状态**：Attributes 是静态的，而属性是动态的。
+* **访问**：可以使用 `getAttribute` 和 `setAttribute` 方法访问 Attributes，而可以直接在 DOM 对象上访问属性。
+
+#### 示例
+
+```html
+<input id="myInput" type="text" value="initial value" />
+```
+
+```javascript
+const inputElement = document.getElementById('myInput');
+
+// 访问 attribute
+console.log(inputElement.getAttribute('value')); // "initial value"
+
+// 访问 property
+console.log(inputElement.value); // "initial value"
+
+// 更改 property
+inputElement.value = 'new value';
+console.log(inputElement.value); // "new value"
+console.log(inputElement.getAttribute('value')); // "initial value"
+```
+
+在此示例中，更改 `value` 属性不会影响 `value` attribute。
+
+## 延伸阅读
+
+* [MDN Web 文档：Element.getAttribute()](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getAttribute)
+* [MDN Web 文档：Element.setAttribute()](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/setAttribute)
+* [MDN Web 文档：HTML 属性与 DOM 属性](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Attributes#html_attributes_vs_dom_properties)

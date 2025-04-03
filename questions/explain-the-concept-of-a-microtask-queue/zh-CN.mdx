@@ -1,0 +1,70 @@
+---
+title: 解释微任务队列的概念
+---
+
+## TL;DR
+
+微任务队列是一个任务队列，需要在当前执行的脚本之后和任何其他任务之前执行。微任务通常用于需要紧接在当前操作之后执行的任务，例如 promise 回调。微任务队列在宏任务队列之前处理，确保微任务尽快执行。
+
+***
+
+## 微任务队列的概念
+
+### 什么是微任务队列？
+
+微任务队列是 JavaScript 事件循环机制的一部分。它是一个队列，用于保存需要在当前执行的脚本之后和宏任务队列中的任何其他任务之前执行的任务。微任务通常用于需要尽快执行的操作，例如 promise 回调和 `MutationObserver` 回调。
+
+### 微任务队列如何工作？
+
+1. **执行顺序**：微任务队列在当前执行的脚本之后和宏任务队列之前处理。这意味着微任务的优先级高于宏任务。
+2. **事件循环**：在事件循环的每次迭代期间，JavaScript 引擎首先处理微任务队列中的所有微任务，然后再转到宏任务队列。
+3. **添加微任务**：可以使用 `Promise.resolve().then()` 和 `queueMicrotask()` 等方法将微任务添加到微任务队列中。
+
+### 例子
+
+这里有一个例子来说明微任务队列的工作原理：
+
+```js live
+console.log('Script start');
+
+setTimeout(() => {
+  console.log('setTimeout');
+}, 0);
+
+Promise.resolve()
+  .then(() => {
+    console.log('Promise 1');
+  })
+  .then(() => {
+    console.log('Promise 2');
+  });
+
+console.log('Script end');
+```
+
+输出：
+
+```
+Script start
+Script end
+Promise 1
+Promise 2
+setTimeout
+```
+
+在这个例子中：
+
+* 同步代码（`console.log('Script start')` 和 `console.log('Script end')`）首先执行。
+* promise 回调（`Promise 1` 和 `Promise 2`）被添加到微任务队列中，然后执行。
+* `setTimeout` 回调被添加到宏任务队列中，最后执行。
+
+### 用例
+
+1. **Promise 回调**：微任务通常用于 promise 回调，以确保它们在当前操作之后尽快执行。
+2. **MutationObserver**：`MutationObserver` API 使用微任务来通知 DOM 中的更改。
+
+## 延伸阅读
+
+* [MDN Web 文档：微任务](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide)
+* [JavaScript 事件循环解释](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
+* [理解 JavaScript 微任务队列](https://javascript.info/microtask-queue)

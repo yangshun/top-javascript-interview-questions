@@ -1,0 +1,102 @@
+---
+title: 什么是模块以及它们为什么有用？
+---
+
+## TL;DR
+
+模块是可重用的代码片段，可以在项目中的不同文件之间导入和导出。它们有助于组织代码，使其更易于维护和扩展。通过使用模块，您可以避免全局命名空间污染并更有效地管理依赖关系。在 JavaScript 中，您可以使用 `import` 和 `export` 语句来处理模块。
+
+```js
+// myModule.js
+export const myFunction = () => {
+  console.log('Hello, World!');
+};
+
+// main.js
+import { myFunction } from './myModule.js';
+myFunction(); // Outputs: Hello, World!
+```
+
+***
+
+## 什么是模块以及它们为什么有用？
+
+### 模块的定义
+
+模块是自包含的代码单元，封装了功能，可以在应用程序的不同部分之间导入和导出。它们允许开发人员将复杂的应用程序分解成更小、更易于管理的部分。
+
+### 使用模块的好处
+
+#### 代码组织
+
+模块通过将相关功能组合在一起，帮助组织代码。这使得代码库更易于导航和理解。
+
+#### 可维护性
+
+通过将代码分解成更小的模块，更容易维护和更新。一个模块中的更改不太可能影响应用程序的其他部分。
+
+#### 可重用性
+
+模块可以在应用程序的不同部分甚至不同项目中重复使用。这减少了代码重复，并促进了 DRY（不要重复自己）原则。
+
+#### 避免全局命名空间污染
+
+模块通过将变量和函数封装在其自己的作用域内，有助于避免全局命名空间污染。这降低了命名冲突的风险，并使代码更健壮。
+
+#### 依赖管理
+
+模块使管理应用程序不同部分之间的依赖关系更容易。您可以显式声明一个模块依赖于什么以及它导出什么，使代码更可预测且更易于调试。
+
+### 在 JavaScript 中使用模块
+
+#### 从模块导出
+
+您可以使用 `export` 关键字从模块中导出变量、函数或类。
+
+```js
+// myModule.js
+export const myVariable = 42;
+export function myFunction() {
+  console.log('Hello, World!');
+}
+export class MyClass {
+  constructor() {
+    console.log('MyClass instance created');
+  }
+}
+```
+
+#### 导入到模块中
+
+您可以使用 `import` 关键字从另一个模块导入变量、函数或类。
+
+```js
+// main.js
+import { myVariable, myFunction, MyClass } from './myModule.js';
+
+console.log(myVariable); // Outputs: 42
+myFunction(); // Outputs: Hello, World!
+const myClassInstance = new MyClass(); // Outputs: MyClass instance created
+```
+
+#### 默认导出
+
+一个模块可以有一个默认导出，可以在不使用大括号的情况下导入。
+
+```js
+// myModule.js
+const myDefaultFunction = () => {
+  console.log('Default export function');
+};
+export default myDefaultFunction;
+
+// main.js
+import myDefaultFunction from './myModule.js';
+myDefaultFunction(); // Outputs: Default export function
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+* [MDN Web Docs: Export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
+* [JavaScript Modules: A Beginner’s Guide](https://www.sitepoint.com/understanding-es6-modules/)

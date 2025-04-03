@@ -1,0 +1,119 @@
+---
+title: 什么是柯里化以及它如何工作？
+---
+
+## TL;DR
+
+柯里化是函数式编程中的一种技术，它将接受多个参数的函数转换为一系列只接受单个参数的函数。这允许函数的局部应用。例如，函数 `f(a, b, c)` 可以柯里化为 `f(a)(b)(c)`。以下是 JavaScript 中的一个简单示例：
+
+```js live
+function add(a) {
+  return function (b) {
+    return function (c) {
+      return a + b + c;
+    };
+  };
+}
+
+const addOne = add(1);
+console.log(addOne); // function object
+
+const addOneAndTwo = addOne(2);
+console.log(addOneAndTwo); // function object
+
+const result = addOneAndTwo(3);
+console.log(result); // Output: 6
+```
+
+***
+
+## 什么是柯里化以及它如何工作？
+
+### 定义
+
+柯里化是一种函数式编程技术，其中具有多个参数的函数被分解为一系列函数，每个函数接受一个参数。这允许函数的局部应用，从而实现更灵活和可重用的代码。
+
+### 工作原理
+
+1. **转换**：接受多个参数的函数被转换为一系列嵌套函数，每个函数接受一个参数。
+2. **局部应用**：你可以使用比预期更少的参数来调用柯里化函数，它将返回一个接受剩余参数的新函数。
+
+### JavaScript 示例
+
+这是一个简单的例子，说明了 JavaScript 中的柯里化：
+
+```js live
+// Non-curried function
+function add(a, b, c) {
+  return a + b + c;
+}
+
+// Curried version of the same function
+function curriedAdd(a) {
+  return function (b) {
+    return function (c) {
+      return a + b + c;
+    };
+  };
+}
+
+// Using the curried function
+const addOne = curriedAdd(1);
+console.log(addOne); // function object
+
+const addOneAndTwo = addOne(2);
+console.log(addOneAndTwo); // function object
+
+const result = addOneAndTwo(3);
+console.log(result); // Output: 6
+```
+
+### 柯里化的好处
+
+1. **可重用性**：柯里化函数可以与不同的参数集一起重用。
+2. **局部应用**：你可以通过修复原始函数的某些参数来创建新函数。
+3. **函数组合**：柯里化使组合函数更容易，从而使代码更具可读性和可维护性。
+
+### 实际例子
+
+考虑一个计算长方体体积的函数：
+
+```js live
+function volume(length, width, height) {
+  return length * width * height;
+}
+
+// Curried version
+function curriedVolume(length) {
+  return function (width) {
+    return function (height) {
+      return length * width * height;
+    };
+  };
+}
+
+// Using the curried function
+const volumeWithLength5 = curriedVolume(5);
+const volumeWithLength5AndWidth4 = volumeWithLength5(4);
+const result = volumeWithLength5AndWidth4(3);
+console.log(result); // Output: 60
+```
+
+### 使用箭头函数的柯里化
+
+你也可以使用箭头函数使语法更简洁：
+
+```js live
+const curriedAdd = (a) => (b) => (c) => a + b + c;
+
+const addOne = curriedAdd(1);
+const addOneAndTwo = addOne(2);
+const result = addOneAndTwo(3);
+console.log(result); // Output: 6
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Function currying](https://developer.mozilla.org/en-US/docs/Glossary/Currying)
+* [JavaScript.info: Currying](https://javascript.info/currying)
+* [Functional Programming in JavaScript: Currying](https://www.sitepoint.com/currying-in-functional-javascript/)

@@ -1,0 +1,81 @@
+---
+title: 使用模块打包器的好处是什么？
+---
+
+## TL;DR
+
+使用 Webpack、Rollup 或 Parcel 等模块打包器有助于管理依赖关系、优化性能并改进开发工作流程。它将多个 JavaScript 文件合并成一个或几个文件，从而减少 HTTP 请求的数量，并且可以包含代码拆分、tree shaking 和热模块替换等功能。
+
+***
+
+## 使用模块打包器的优点
+
+### 依赖管理
+
+模块打包器通过允许您以清晰和有组织的方式导入和导出模块来帮助管理依赖关系。这使得维护和理解代码库更容易。
+
+```js
+// Importing a module
+import { myFunction } from './myModule.js';
+
+// Using the imported function
+myFunction();
+```
+
+### 性能优化
+
+模块打包器可以通过减少 HTTP 请求的数量来优化性能。它们将多个 JavaScript 文件合并成一个或几个文件，这可以显著提高加载时间。
+
+### 代码拆分
+
+代码拆分允许您将代码拆分成更小的块，这些块可以按需加载。这可以通过仅加载必要的代码来改善应用程序的初始加载时间。
+
+```js
+// Example of dynamic import for code splitting
+import('./myModule.js').then((module) => {
+  module.myFunction();
+});
+```
+
+### Tree shaking
+
+Tree shaking 是一项从最终 bundle 中删除未使用的代码的功能。这有助于减小 bundle 大小并提高性能。
+
+```js
+// Only the used function will be included in the final bundle
+import { usedFunction } from './myModule.js';
+usedFunction();
+```
+
+### 热模块替换
+
+热模块替换 (HMR) 允许您实时更新模块，而无需刷新整个页面。这可以通过提供即时反馈来显着加快开发过程。
+
+```js
+if (module.hot) {
+  module.hot.accept('./myModule.js', function () {
+    // Handle the updated module
+    const updatedModule = require('./myModule.js');
+    updatedModule.myFunction();
+  });
+}
+```
+
+### 资源管理
+
+模块打包器还可以处理 CSS、图像和字体等其他资源。这允许您将这些资源直接导入到 JavaScript 文件中，从而更易于管理和优化它们。
+
+```js
+// Importing a CSS file
+import './styles.css';
+
+// Importing an image
+import myImage from './image.png';
+```
+
+## 延伸阅读
+
+* [Webpack documentation](https://webpack.js.org/concepts/)
+* [Rollup documentation](https://rollupjs.org/guide/en/)
+* [Parcel documentation](https://parceljs.org/getting_started.html)
+* [MDN Web Docs: JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)

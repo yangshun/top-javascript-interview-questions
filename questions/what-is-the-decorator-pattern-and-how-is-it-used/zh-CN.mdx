@@ -1,0 +1,140 @@
+---
+title: 什么是装饰器模式以及如何使用它？
+---
+
+## TL;DR
+
+装饰器模式是一种结构型设计模式，它允许将行为动态地添加到单个对象中，而不会影响来自同一类的其他对象的行为。它用于通过用附加行为包装对象来扩展对象的功能。在 JavaScript 中，这可以使用高阶函数或类来实现。
+
+例如，如果您有一个 `Car` 类，并且您想添加 `GPS` 或 `Sunroof` 等功能，而无需修改 `Car` 类本身，您可以为这些功能创建装饰器。
+
+```js live
+class Car {
+  drive() {
+    return 'Driving';
+  }
+}
+
+class CarDecorator {
+  constructor(car) {
+    this.car = car;
+  }
+
+  drive() {
+    return this.car.drive();
+  }
+}
+
+class GPSDecorator extends CarDecorator {
+  drive() {
+    return `${super.drive()} with GPS`;
+  }
+}
+
+const myCar = new Car();
+const myCarWithGPS = new GPSDecorator(myCar);
+console.log(myCarWithGPS.drive()); // "Driving with GPS"
+```
+
+***
+
+## 什么是装饰器模式以及如何使用它？
+
+### 定义
+
+装饰器模式是一种结构型设计模式，它允许您动态地向对象添加行为和责任，而无需修改其代码。此模式创建一组用于包装具体组件的装饰器类。
+
+### 用例
+
+* **添加功能**: 当您需要向对象添加功能而不更改其结构时。
+* **灵活且可重用的代码**: 当您希望通过组合行为来创建灵活且可重用的代码时。
+* **单一责任原则**: 当您希望通过将功能划分为不同的类来遵守单一责任原则时。
+
+### 在 JavaScript 中的实现
+
+#### 使用类
+
+在 JavaScript 中，可以使用类来实现装饰器模式。 这是一个例子：
+
+```js live
+class Car {
+  drive() {
+    return 'Driving';
+  }
+}
+
+class CarDecorator {
+  constructor(car) {
+    this.car = car;
+  }
+
+  drive() {
+    return this.car.drive();
+  }
+}
+
+class GPSDecorator extends CarDecorator {
+  drive() {
+    return `${super.drive()} with GPS`;
+  }
+}
+
+class SunroofDecorator extends CarDecorator {
+  drive() {
+    return `${super.drive()} with Sunroof`;
+  }
+}
+
+const myCar = new Car();
+const myCarWithGPS = new GPSDecorator(myCar);
+const myCarWithGPSAndSunroof = new SunroofDecorator(myCarWithGPS);
+
+console.log(myCarWithGPSAndSunroof.drive()); // "Driving with GPS with Sunroof"
+```
+
+#### 使用高阶函数
+
+在 JavaScript 中实现装饰器模式的另一种方法是使用高阶函数：
+
+```js live
+function car() {
+  return {
+    drive: () => 'Driving',
+  };
+}
+
+function gpsDecorator(car) {
+  return {
+    drive: () => `${car.drive()} with GPS`,
+  };
+}
+
+function sunroofDecorator(car) {
+  return {
+    drive: () => `${car.drive()} with Sunroof`,
+  };
+}
+
+let myCar = car();
+myCar = gpsDecorator(myCar);
+myCar = sunroofDecorator(myCar);
+
+console.log(myCar.drive()); // "Driving with GPS with Sunroof"
+```
+
+### 优点
+
+* **开闭原则**：类对扩展开放，对修改关闭。
+* **灵活**：允许动态组合行为。
+* **可重用**：装饰器可以在不同的对象之间重用。
+
+### 缺点
+
+* **复杂性**：可能导致大量的小类或函数。
+* **调试**：由于增加了抽象层，可能更难调试。
+
+## 延伸阅读
+
+* [维基百科上的装饰器模式](https://en.wikipedia.org/wiki/Decorator_pattern)
+* [MDN Web Docs：装饰器](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#class_decorators)
+* [Refactoring Guru：装饰器模式](https://refactoring.guru/design-patterns/decorator)

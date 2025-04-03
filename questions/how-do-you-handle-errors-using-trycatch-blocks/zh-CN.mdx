@@ -1,0 +1,134 @@
+---
+title: 如何使用 `try...catch` 块处理错误？
+---
+
+## TL;DR
+
+要使用 `try...catch` 块处理错误，您需要将可能抛出错误的代码包装在 `try` 块中。如果发生错误，控制权将转移到 `catch` 块，您可以在其中处理错误。或者，您可以使用 `finally` 块来执行代码，无论是否发生错误。
+
+```js
+try {
+  // Code that may throw an error
+} catch (error) {
+  // Handle the error
+} finally {
+  // Code that will run regardless of an error
+}
+```
+
+***
+
+## 如何使用 `try...catch` 块处理错误？
+
+### 基本结构
+
+`try...catch` 语句由 `try` 块、`catch` 块和可选的 `finally` 块组成。
+
+```js
+try {
+  // Code that may throw an error
+} catch (error) {
+  // Handle the error
+} finally {
+  // Code that will run regardless of an error
+}
+```
+
+### 示例
+
+以下是使用 `try...catch` 处理错误的示例：
+
+```js live
+function riskyOperation() {
+  const invalidJsonString = '{"name": "John}'; // Try changing this to a valid JSON string
+  return JSON.parse(invalidJsonString);
+}
+
+try {
+  let result = riskyOperation();
+  console.log(result);
+} catch (error) {
+  console.error('An error occurred:', error.message);
+} finally {
+  console.log('This will run regardless of an error');
+}
+```
+
+### 解释
+
+* **`try` 块**：包含可能抛出错误的代码。如果发生错误，控制权将转移到 `catch` 块。
+* **`catch` 块**：包含处理错误的代码。`error` 对象包含有关错误的信息。
+* **`finally` 块**：包含无论是否发生错误都将运行的代码。这对于清理任务很有用。
+
+### 嵌套 `try...catch` 块
+
+您可以嵌套 `try...catch` 块来处理不同级别的错误：
+
+```js live
+function anotherRiskyOperation() {
+  const person = undefined;
+  console.log(person.name);
+}
+
+try {
+  try {
+    anotherRiskyOperation();
+  } catch (innerError) {
+    // Error (if any) for anotherRiskyOperation caught here
+    console.error('Inner error:', innerError.message);
+  }
+} catch (outerError) {
+  // Inner error does not reach here
+  console.error('Outer error:', outerError.message);
+}
+```
+
+### 重新抛出错误
+
+如果希望由外部 `try...catch` 块处理错误，您可以从 `catch` 块重新抛出错误：
+
+```js live
+function yetAnotherRiskyOperation() {
+  const numerator = 10;
+  const denominator = 0;
+  if (denominator === 0) {
+    throw new Error('Cannot divide by zero');
+  }
+
+  return numerator / denominator;
+}
+
+try {
+  try {
+    const result = yetAnotherRiskyOperation();
+    console.log('Divisinon result:', result);
+  } catch (innerError) {
+    console.error('Inner error:', innerError.message);
+    throw innerError; // Re-throw the error
+  }
+} catch (outerError) {
+  console.error('Outer error:', outerError.message);
+}
+```
+
+### 使用 `finally` 进行清理
+
+`finally` 块对于清理任务很有用，例如关闭文件或释放资源：
+
+```js
+// openFile() 和 closeFile() 是自定义实现
+try {
+  let file = openFile('example.txt');
+  // 对文件执行操作
+} catch (error) {
+  console.error('发生错误:', error.message);
+} finally {
+  closeFile(file); // 确保文件已关闭
+}
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: try...catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)
+* [JavaScript.info: Error handling, "try...catch"](https://javascript.info/try-catch)
+* [MDN Web Docs: Error object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)

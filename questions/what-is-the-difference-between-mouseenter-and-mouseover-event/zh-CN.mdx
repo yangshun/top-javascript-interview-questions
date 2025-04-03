@@ -1,0 +1,107 @@
+---
+title: JavaScript 和浏览器中 `mouseenter` 和 `mouseover` 事件有什么区别？
+---
+
+## TL;DR
+
+主要区别在于 `mouseenter` 和 `mouseover` 事件的冒泡行为。`mouseenter` 不冒泡，而 `mouseover` 冒泡。
+
+`mouseenter` 事件不冒泡。`mouseenter` 事件仅在鼠标指针进入元素本身时触发，而不是其后代元素。如果父元素有子元素，并且鼠标指针进入子元素，则不会再次在父元素上触发 `mouseenter` 事件，它仅在进入父元素时触发一次，而不考虑其内容。如果父元素和子元素都附加了 `mouseenter` 侦听器，并且鼠标指针从父元素移动到子元素，则 `mouseenter` 将仅为子元素触发。
+
+`mouseover` 事件会冒泡到 DOM 树。当鼠标指针进入元素或其后代元素之一时，将触发 `mouseover` 事件。如果父元素有子元素，并且鼠标指针进入子元素，则也会再次在父元素上触发 `mouseover` 事件。如果父元素有多个子元素，这可能导致多次触发事件回调。如果存在子元素，并且鼠标指针从父元素移动到子元素，则 `mouseover` 将同时为父元素和子元素触发。
+
+| 属性 | `mouseenter` | `mouseover` |
+| --- | --- | --- |
+| 冒泡 | 否 | 是 |
+| 触发 | 仅在进入自身时 | 进入自身和进入后代时 |
+
+***
+
+### `mouseenter` 事件：
+
+* **不冒泡**：`mouseenter` 事件不冒泡。它仅在鼠标指针进入附加了事件侦听器的元素时触发，而不是进入任何子元素时触发。
+* **触发一次**：当鼠标指针进入元素时，`mouseenter` 事件仅触发一次，这使得它在某些情况下更可预测且更易于管理。
+
+`mouseenter` 的一个用例是，当您希望检测鼠标进入元素而无需担心子元素多次触发事件时。
+
+### `mouseover` 事件：
+
+* **在 DOM 中冒泡**：`mouseover` 事件通过 DOM 冒泡。这意味着，如果您在父元素上有一个事件侦听器，当鼠标指针移动到任何子元素上时，它也会触发。
+* **多次触发**：每次鼠标指针移动到元素或其任何子元素上时，都会触发 `mouseover` 事件。如果您有嵌套元素，这可能导致多次触发。
+
+`mouseover` 的一个用例是，当您希望检测鼠标进入元素或其任何子元素，并且可以接受事件多次触发时。
+
+### 示例
+
+这是一个演示 `mouseover` 和 `mouseenter` 事件之间区别的示例：
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse Events Example</title>
+    <style>
+      .parent {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        padding: 20px;
+      }
+      .child {
+        width: 100px;
+        height: 100px;
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      Parent Element
+      <div class="child">Child Element</div>
+    </div>
+
+    <script>
+      const parent = document.querySelector('.parent');
+      const child = document.querySelector('.child');
+
+      // Mouseover event on parent.
+      parent.addEventListener('mouseover', () => {
+        console.log('Mouseover on parent');
+      });
+
+      // Mouseenter event on parent.
+      parent.addEventListener('mouseenter', () => {
+        console.log('Mouseenter on parent');
+      });
+
+      // Mouseover event on child.
+      child.addEventListener('mouseover', () => {
+        console.log('Mouseover on child');
+      });
+
+      // Mouseenter event on child.
+      child.addEventListener('mouseenter', () => {
+        console.log('Mouseenter on child');
+      });
+    </script>
+  </body>
+</html>
+```
+
+**预期行为**
+
+* 当鼠标进入父元素时：
+  * 父元素上的 `mouseover` 事件将触发。
+  * 父元素上的 `mouseenter` 事件将触发。
+* 当鼠标进入子元素时：
+  * 父元素上的 `mouseover` 事件将再次触发，因为 `mouseover` 从子元素冒泡。
+  * 子元素上的 `mouseover` 事件将触发。
+  * 子元素上的 `mouseenter` 事件将触发。
+  * 父元素上的 `mouseenter` 事件将**不会**再次触发，因为 `mouseenter` 不冒泡。
+
+## 延伸阅读
+
+* [Element: mouseenter event - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event)
+* [Element: mouseover event - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event)

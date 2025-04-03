@@ -1,0 +1,124 @@
+---
+title: 什么是回调函数以及如何使用它们？
+---
+
+## TL;DR
+
+回调函数是作为参数传递给另一个函数的函数，然后在外部函数中调用该函数以完成某种例程或操作。它们通常用于异步操作，例如处理事件、进行 API 调用或读取文件。例如：
+
+```js live
+function fetchData(callback) {
+  // assume an asynchronous operation to fetch data
+  const data = { name: 'John Doe' };
+  callback(data);
+}
+
+function handleData(data) {
+  console.log(data);
+}
+
+fetchData(handleData);
+```
+
+***
+
+## 什么是回调函数以及如何使用它们？
+
+### 定义
+
+回调函数是作为参数传递给另一个函数并在完成某些操作后执行的函数。这允许其他代码同时运行并防止阻塞。
+
+### 同步回调
+
+同步回调在传递给它们的函数中立即执行。它们通常用于需要在进入下一行代码之前完成的任务。
+
+```js live
+function greet(name, callback) {
+  console.log('Hello ' + name);
+  callback();
+}
+
+function sayGoodbye() {
+  console.log('Goodbye!');
+}
+
+greet('Alice', sayGoodbye);
+// Output:
+// Hello Alice
+// Goodbye!
+```
+
+### 异步回调
+
+异步回调用于需要一些时间才能完成的操作，例如读取文件、发出 HTTP 请求或处理事件。这些回调在异步操作完成后执行。
+
+```js live
+function fetchData(callback) {
+  setTimeout(() => {
+    const data = { name: 'John Doe' };
+    callback(data);
+  }, 1000);
+}
+
+function handleData(data) {
+  console.log(data);
+}
+
+fetchData(handleData);
+// Output: { name: 'John Doe' } after 1 second
+```
+
+### 常见用例
+
+#### 事件处理
+
+回调通常用于事件处理。例如，在 JavaScript 中，您可以将回调函数传递给事件侦听器。
+
+```js live
+const button = document.createElement('button');
+
+button.addEventListener('click', () => {
+  setTimeout(() => {
+    console.log('Button clicked after 1s');
+  }, 1000);
+});
+
+button.click();
+```
+
+#### API 调用
+
+回调经常用于进行 API 调用以处理响应数据。
+
+```js live
+function getUserData(userId, callback) {
+  fetch(`https://jsonplaceholder.typicode.com/todos/2`)
+    .then((response) => response.json())
+    .then((data) => callback(data))
+    .catch((error) => console.error('Error:', error));
+}
+
+function displayUserData(data) {
+  console.log(data);
+}
+
+getUserData(1, displayUserData);
+```
+
+#### 定时器
+
+回调函数也用于计时器，如 `setTimeout` 和 `setInterval`。
+
+```js live
+function sayHello() {
+  console.log('Hello, world!');
+}
+
+setTimeout(sayHello, 2000); // 2 秒后，sayHello 回调函数被调用
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
+* [JavaScript.info: Callbacks](https://javascript.info/callbacks)
+* [Eloquent JavaScript: Asynchronous Programming](https://eloquentjavascript.net/11_async.html)

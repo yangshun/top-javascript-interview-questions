@@ -1,0 +1,86 @@
+---
+title: 如何在 JavaScript 中将字符串转换为数字？
+---
+
+## TL;DR
+
+在 JavaScript 中，您可以使用多种方法将字符串转换为数字。最常见的方法是 `Number()`、`parseInt()`、`parseFloat()` 和一元加运算符 (`+`)。例如，`Number("123")` 将字符串 `"123"` 转换为数字 `123`，而 `parseInt("123.45")` 将字符串 `"123.45"` 转换为整数 `123`。
+
+***
+
+## 如何在 JavaScript 中将字符串转换为数字？
+
+### 使用 `Number()` 函数
+
+`Number()` 函数将字符串转换为数字。它可以处理整数和浮点数。
+
+```js live
+let str = '123';
+let num = Number(str);
+console.log(num); // 123
+
+let floatStr = '123.45';
+let floatNum = Number(floatStr);
+console.log(floatNum); // 123.45
+```
+
+### 使用 `parseInt()` 函数
+
+`parseInt()` 函数解析一个字符串并返回一个整数。它还可以接受第二个参数，即要使用的数字系统的基数（底数）。
+
+```js live
+let str = '123';
+let num = parseInt(str);
+console.log(num); // 123
+
+let floatStr = '120.45';
+let floatNum = parseInt(floatStr);
+console.log(floatNum); // 120
+
+let binaryStr = '1010';
+let binaryNum = parseInt(binaryStr, 2);
+console.log(binaryNum); // 10
+```
+
+### 使用 `parseFloat()` 函数
+
+`parseFloat()` 函数解析一个字符串并返回一个浮点数。
+
+```js live
+let floatStr = '123.45';
+let floatNum = parseFloat(floatStr);
+console.log(floatNum); // 123.45
+```
+
+### 使用一元加运算符 (`+`)
+
+一元加运算符可用于将字符串转换为数字。这是一种简写方法，适用于整数和浮点数。
+
+```js live
+let str = '123';
+let num = +str;
+console.log(num); // 123
+
+let floatStr = '123.45';
+let floatNum = +floatStr;
+console.log(floatNum); // 123.45
+```
+
+### 处理非数字字符串
+
+如果字符串无法转换为数字，这些方法将返回 `NaN` (非数字)。
+
+```js live
+let invalidStr = 'abc';
+console.log(Number(invalidStr)); // NaN
+console.log(parseInt(invalidStr)); // NaN
+console.log(parseFloat(invalidStr)); // NaN
+console.log(+invalidStr); // NaN
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Number()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [MDN Web Docs: parseInt()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
+* [MDN Web Docs: parseFloat()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseFloat)
+* [MDN Web Docs: Unary plus (+)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Unary_plus)

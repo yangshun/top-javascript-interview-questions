@@ -1,0 +1,85 @@
+---
+title: 什么是默认参数以及如何使用它们？
+---
+
+## TL;DR
+
+JavaScript 中的默认参数允许您为函数参数设置默认值，如果没有传递任何值或 `undefined`。这有助于避免 `undefined` 值，并使您的代码更健壮。您可以通过在函数定义中为参数赋值来定义默认参数。
+
+```js live
+function greet(name = 'Guest') {
+  console.log(`Hello, ${name}!`);
+}
+
+greet(); // Output: Hello, Guest!
+greet('Alice'); // Output: Hello, Alice!
+```
+
+***
+
+## 默认参数
+
+JavaScript 中的默认参数提供了一种为函数参数设置默认值的方法。此功能是在 ECMAScript 2015 (ES6) 中引入的，通过避免未传递任何参数时出现 `undefined` 值，有助于使函数更健壮且更易于使用。
+
+### 语法
+
+您可以通过在函数定义中为参数赋值来定义默认参数。如果未传递该参数的值或 `undefined`，则将使用默认值。
+
+```js
+function functionName(parameter1 = defaultValue1, parameter2 = defaultValue2) {
+  // function body
+}
+```
+
+### 示例
+
+这是一个简单的示例，说明默认参数的工作原理：
+
+```js live
+function greet(name = 'Guest') {
+  console.log(`Hello, ${name}!`);
+}
+
+greet(); // Output: Hello, Guest!
+greet('Alice'); // Output: Hello, Alice!
+```
+
+在此示例中，`greet` 函数有一个默认参数 `name`，其默认值为 `'Guest'`。当不带任何参数调用该函数时，它使用默认值。当提供参数时，它会覆盖默认值。
+
+### 多个默认参数
+
+您还可以在一个函数中定义多个默认参数：
+
+```js live
+function createUser(username = 'Anonymous', age = 18) {
+  console.log(`Username: ${username}, Age: ${age}`);
+}
+
+createUser(); // Output: Username: Anonymous, Age: 18
+createUser('John'); // Output: Username: John, Age: 18
+createUser('John', 25); // Output: Username: John, Age: 25
+```
+
+在此示例中，`createUser` 函数有两个默认参数：`username` 和 `age`。如果未传递任何参数，则使用两个默认值。如果仅传递一个参数，则第二个参数使用其默认值。
+
+### 使用表达式作为默认值
+
+您还可以使用表达式作为参数的默认值：
+
+```js live
+function add(a = 0, b = a + 1) {
+  return a + b;
+}
+
+console.log(add()); // Output: 1
+console.log(add(5)); // Output: 11
+console.log(add(5, 10)); // Output: 15
+```
+
+在这个例子中，`b` 的默认值是一个依赖于 `a` 值的表达式。如果没有传递参数，`a` 是 `0`，`b` 是 `1`。如果只传递了 `a`，`b` 是 `a + 1`。如果同时传递了 `a` 和 `b`，则使用提供的值。
+
+## 延伸阅读
+
+* [MDN Web 文档：默认参数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Default_parameters)
+* [JavaScript.info：默认参数](https://javascript.info/function-basics#default-values)
+* [ECMAScript 2015 (ES6) 规范](https://www.ecma-international.org/ecma-262/6.0/#sec-function-definitions)

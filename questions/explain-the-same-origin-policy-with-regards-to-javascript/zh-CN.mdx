@@ -1,5 +1,69 @@
 ---
-title: 解释与JavaScript有关的同源策略。
+title: 解释 JavaScript 方面相同的来源策略
 ---
 
-同源策略阻止 JavaScript 跨域发出请求。 一个源被定义为 URI 协议、主机名和端口号的组合。 这项政策防止一个页面上的恶意脚本通过该页面的文档对象模型访问另一个网页上的敏感数据。
+## TL;DR
+
+同源策略是 Web 浏览器中实施的一项安全措施，旨在防止一个页面上的恶意脚本访问另一个页面上的数据。它确保网页只能向同一来源发出请求，其中来源由协议、域和端口的组合定义。例如，来自 `http://example.com` 的脚本无法访问来自 `http://anotherdomain.com` 的数据。
+
+***
+
+## 什么是同源策略？
+
+同源策略是 Web 应用程序的一个关键安全概念。它限制了从一个来源加载的文档或脚本与来自另一个来源的资源交互的方式。此策略有助于防止恶意活动，例如跨站点脚本 (XSS) 和跨站点请求伪造 (CSRF)。
+
+### 来源的定义
+
+来源由 URL 的方案（协议）、主机（域）和端口定义。例如，`http://example.com:80/page` 的来源是：
+
+* 方案：`http`
+* 主机：`example.com`
+* 端口：`80`
+
+当且仅当所有三个组件（方案、主机和端口）都相同时，两个 URL 具有相同的来源。
+
+### 它是如何工作的
+
+当网页向另一个 URL 发出请求时，浏览器会检查该请求是否来自同一来源。如果该请求来自不同的来源，浏览器会阻止该请求，除非服务器使用跨域资源共享 (CORS) 等机制明确允许该请求。
+
+### 例子
+
+考虑以下示例：
+
+* `http://example.com/page1` 可以访问 `http://example.com/page2`，因为它们共享相同的来源。
+* `http://example.com/page1` 无法访问 `http://anotherdomain.com/page`，因为它们具有不同的来源。
+
+### 异常
+
+同源策略有一些例外，例如：
+
+* 跨域资源共享 (CORS)：一种允许服务器指定谁可以访问其资源的机制。
+* JSONP：一种用于从位于不同域中的服务器请求数据的技术。
+* WebSockets：一种允许通过单个 TCP 连接进行全双工通信通道的协议。
+
+### 代码示例
+
+这是一个简单的示例，演示了同源策略：
+
+```html
+<!-- index.html -->
+<script>
+  // This will work because the request is to the same origin
+  fetch('/api/data')
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+
+  // This will be blocked by the browser because the request is to a different origin
+  fetch('http://anotherdomain.com/api/data')
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error('Error:', error));
+</script>
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
+* [MDN Web Docs: Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+* [OWASP: Cross-Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/)
+* [OWASP: Cross-Site Request Forgery (CSRF)](https://owasp.org/www-community/attacks/csrf/)

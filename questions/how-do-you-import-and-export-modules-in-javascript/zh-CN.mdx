@@ -1,0 +1,92 @@
+---
+title: 如何在 JavaScript 中导入和导出模块？
+---
+
+## TL;DR
+
+在 JavaScript 中，您可以使用 `import` 和 `export` 语句导入和导出模块。要导出模块，您可以在函数、变量或类之前使用 `export`，或者对单个默认导出使用 `export default`。要导入模块，您可以使用 `import` 语句，后跟已导出模块的名称和模块文件的路径。
+
+```js
+// Exporting a module
+export const myFunction = () => {
+  /* ... */
+};
+export default myFunction;
+
+// Importing a module
+import { myFunction } from './myModule';
+import myFunction from './myModule';
+```
+
+***
+
+## 导出模块
+
+### 命名导出
+
+您可以从模块中导出多个已命名的项目。在要导出的函数、变量或类之前使用 `export` 关键字。
+
+```js
+// myModule.js
+export const myFunction = () => {
+  console.log('This is my function');
+};
+
+export const myVariable = 42;
+```
+
+### 默认导出
+
+一个模块可以有一个默认导出。使用 `export default` 关键字导出一个项目。
+
+```js
+// myModule.js
+const myFunction = () => {
+  console.log('This is my function');
+};
+
+export default myFunction;
+```
+
+## 导入模块
+
+### 导入命名导出
+
+要导入命名导出，请使用 `import` 语句，后跟包含导出名称的括号。
+
+```js
+// main.js
+import { myFunction, myVariable } from './myModule';
+
+myFunction(); // This is my function
+console.log(myVariable); // 42
+```
+
+### 导入默认导出
+
+要导入默认导出，请使用 `import` 语句，后跟您选择的名称。
+
+```js
+// main.js
+import myFunction from './myModule';
+
+myFunction(); // This is my function
+```
+
+### 导入所有导出
+
+您可以使用 `*` 语法和别名从模块导入所有已命名的导出。
+
+```js
+// main.js
+import * as myModule from './myModule';
+
+myModule.myFunction(); // This is my function
+console.log(myModule.myVariable); // 42
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+* [MDN Web Docs: export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
+* [JavaScript Modules: A Beginner’s Guide](https://www.sitepoint.com/understanding-es6-modules/)

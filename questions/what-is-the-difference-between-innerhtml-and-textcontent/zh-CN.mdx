@@ -1,0 +1,65 @@
+---
+title: innerHTML 和 textContent 有什么区别？
+---
+
+## TL;DR
+
+ `innerHTML` 和 `textContent` 都是用于获取或设置 HTML 元素内容的属性，但它们的作用不同。 `innerHTML` 返回或设置元素中包含的 HTML 标记，这意味着它可以解析和呈现 HTML 标签。 另一方面，`textContent` 返回或设置元素的文本内容，忽略任何 HTML 标签并将它们呈现为纯文本。
+
+```js
+// Example of innerHTML
+element.innerHTML = '<strong>Bold Text</strong>'; // Renders as bold text
+
+// Example of textContent
+element.textContent = '<strong>Bold Text</strong>'; // Renders as plain text: <strong>Bold Text</strong>
+```
+
+***
+
+## `innerHTML` 和 `textContent` 的区别
+
+### `innerHTML`
+
+`innerHTML` 是一种属性，允许您获取或设置元素中包含的 HTML 标记。 它可以解析和呈现 HTML 标签，使其可用于动态更新网页的结构。
+
+#### 示例
+
+```js
+const element = document.getElementById('example');
+element.innerHTML = '<strong>Bold Text</strong>'; // This will render as bold text
+```
+
+#### 用例
+
+* 动态添加或更新 HTML 内容
+* 渲染 HTML 标签和元素
+
+#### 安全注意事项
+
+如果插入不受信任的内容，使用 `innerHTML` 可能会使您的应用程序暴露于跨站点脚本 (XSS) 攻击。 在将任何用户输入设置为 `innerHTML` 之前，请务必对其进行清理。
+
+### `textContent`
+
+`textContent` 是一种属性，允许您获取或设置元素的文本内容。 它会忽略任何 HTML 标签并将它们呈现为纯文本，这使得它更安全地插入用户生成的内容。
+
+#### 示例
+
+```js
+const element = document.getElementById('example');
+element.textContent = '<strong>Bold Text</strong>'; // This will render as plain text: <strong>Bold Text</strong>
+```
+
+#### 用例
+
+* 安全地插入用户生成的内容
+* 从字符串中删除 HTML 标签
+
+#### 性能注意事项
+
+`textContent` 通常比 `innerHTML` 快，因为它不会解析和呈现 HTML 标签。 它只是更新元素的文本内容。
+
+## 延伸阅读
+
+* [MDN Web 文档：innerHTML](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/innerHTML)
+* [MDN Web 文档：textContent](https://developer.mozilla.org/zh-CN/docs/Web/API/Node/textContent)
+* [跨站脚本 (XSS)](https://owasp.org/www-community/attacks/xss/)

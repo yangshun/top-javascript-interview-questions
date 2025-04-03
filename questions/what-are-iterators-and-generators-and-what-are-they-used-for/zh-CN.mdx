@@ -1,0 +1,306 @@
+---
+title: JavaScript 中的迭代器和生成器是什么，它们有什么用途？
+---
+
+## TL;DR
+
+在 JavaScript 中，迭代器和生成器是用于管理数据序列和以更灵活的方式控制执行流程的强大工具。
+
+**迭代器**是定义序列并可能在其终止时返回值的对象。它遵循一个特定的接口：
+
+* 迭代器对象必须实现一个 `next()` 方法。
+* `next()` 方法返回一个具有两个属性的对象：
+  * `value`：序列中的下一个值。
+  * `done`：一个布尔值，如果迭代器已完成其序列，则为 `true`，否则为 `false`。
+
+这是一个实现迭代器接口的对象的示例。
+
+```js live
+const iterator = {
+  current: 0,
+  last: 5,
+  next() {
+    if (this.current <= this.last) {
+      return { value: this.current++, done: false };
+    } else {
+      return { value: undefined, done: true };
+    }
+  },
+};
+
+let result = iterator.next();
+while (!result.done) {
+  console.log(result.value); // Logs 0, 1, 2, 3, 4, 5
+  result = iterator.next();
+}
+```
+
+**生成器**是一种特殊的函数，**可以暂停执行并在稍后恢复**。它使用 `function*` 语法和 `yield` 关键字来控制执行流程。当您调用生成器函数时，它不会像普通函数一样完全执行。相反，它返回一个迭代器对象。在返回的迭代器上调用 `next()` 方法会将生成器推进到下一个 `yield` 语句，并且 `yield` 之后的值将成为 `next()` 的返回值。
+
+```js live
+function* numberGenerator() {
+  let num = 0;
+  while (num <= 5) {
+    yield num++;
+  }
+}
+
+const gen = numberGenerator();
+console.log(gen.next()); // { value: 0, done: false }
+console.log(gen.next()); // { value: 1, done: false }
+console.log(gen.next()); // { value: 2, done: false }
+console.log(gen.next()); // { value: 3, done: false }
+console.log(gen.next()); // { value: 4, done: false }
+console.log(gen.next()); // { value: 5, done: false }
+console.log(gen.next()); // { value: undefined, done: true }
+```
+
+生成器对于按需创建迭代器非常强大，尤其适用于无限序列或复杂的迭代逻辑。它们可用于：
+
+* 惰性求值 – 仅在需要时处理元素，提高大型数据集的内存效率。
+* 为自定义数据结构实现迭代器。
+* 创建异步迭代器以处理数据流。
+
+***
+
+## 迭代器
+
+迭代器是定义序列并提供 `next()` 方法以访问序列中下一个值的对象。它们用于迭代 `数组`、`字符串` 和自定义 `对象` 等数据结构。迭代器的主要用例包括：
+
+* 实现迭代器协议以使自定义对象可迭代，允许它们与 `for...of` 循环和其他期望可迭代对象的语言结构一起使用。
+* 提供一种标准方式来迭代不同的数据结构，使代码更具可重用性和可维护性。
+
+### 为数字范围创建自定义迭代器
+
+在 JavaScript 中，我们可以通过在任何自定义对象中实现 `[Symbol.iterator]()` 来为迭代器提供默认实现。
+
+```js live
+// 定义一个名为 Range 的类
+class Range {
+  // 构造函数接受两个参数：start 和 end
+  constructor(start, end) {
+    // 将 start 和 end 值分配给实例
+    this.start = start;
+    this.end = end;
+  }
+
+  // 定义对象的默认迭代器
+  [Symbol.iterator]() {
+    // 将当前值初始化为起始值
+    let current = this.start;
+    const end = this.end;
+
+    // 返回一个带有 next 方法的对象
+    return {
+      // next 方法返回迭代中的下一个值
+      next() {
+        // 如果当前值小于或等于结束值...
+        if (current <= end) {
+          // ...返回一个带有当前值和 done 设置为 false 的对象
+          return { value: current++, done: false };
+        }
+
+        // ...否则，返回一个 value 设置为 undefined 且 done 设置为 true 的对象
+        return { value: undefined, done: true };
+      },
+    };
+  }
+}
+
+// 创建一个 start = 1 且 end = 3 的新 Range 对象
+const range = new Range(1, 3);
+// 迭代 range 对象
+for (const number of range) {
+  // 将每个数字记录到控制台
+  console.log(number); // 1, 2, 3
+}
+```
+
+### 使用迭代器协议的内置对象
+
+在 JavaScript 中，几个内置对象实现了迭代器协议，这意味着它们具有默认的 `@@iterator` 方法。这使得它们可以在 `for...of` 循环和扩展运算符等结构中使用。以下是实现迭代器的一些关键内置对象：
+
+1. **数组**：数组具有内置的迭代器，允许您遍历其元素。
+
+   ```js live
+   const array = [1, 2, 3];
+   const iterator = array[Symbol.iterator]();
+
+   console.log(iterator.next()); // { value: 1, done: false }
+   console.log(iterator.next()); // { value: 2, done: false }
+   console.log(iterator.next()); // { value: 3, done: false }
+   console.log(iterator.next()); // { value: undefined, done: true }
+
+   for (const value of array) {
+     console.log(value); // Logs 1, 2, 3
+   }
+   ```
+
+2. **字符串**：字符串具有内置的迭代器，允许您遍历其字符。
+
+   ```js live
+   const string = 'hello';
+   const iterator = string[Symbol.iterator]();
+
+   console.log(iterator.next()); // { value: "h", done: false }
+   console.log(iterator.next()); // { value: "e", done: false }
+   console.log(iterator.next()); // { value: "l", done: false }
+   console.log(iterator.next()); // { value: "l", done: false }
+   console.log(iterator.next()); // { value: "o", done: false }
+   console.log(iterator.next()); // { value: undefined, done: true }
+
+   for (const char of string) {
+     console.log(char); // Logs h, e, l, l, o
+   }
+   ```
+
+3. **DOM NodeLists**
+
+   ```js live
+   // Create a new div and append it to the DOM
+   const newDiv = document.createElement('div');
+   newDiv.id = 'div1';
+   document.body.appendChild(newDiv);
+
+   const nodeList = document.querySelectorAll('div');
+   const iterator = nodeList[Symbol.iterator]();
+
+   console.log(iterator.next()); // { value: HTMLDivElement, done: false }
+   console.log(iterator.next()); // { value: undefined, done: true }
+
+   for (const node of nodeList) {
+     console.log(node); // Logs each <div> element, in this case only div1
+   }
+   ```
+
+`Map` 和 `Set` 也有内置的迭代器。
+
+## 生成器
+
+生成器是一种特殊的函数，可以暂停和恢复其执行，允许它们动态生成一系列值。它们通常用于创建迭代器，但也有其他应用。生成器的主要用例包括：
+
+* 创建迭代器比手动实现迭代器协议更简洁易读。
+* 实现惰性求值，仅在需要时生成值，从而节省内存和计算时间。
+* 通过使用 `yield` 和 `await` 允许以同步风格编写代码，从而简化异步编程。
+
+生成器提供了一些好处：
+
+* **惰性求值**：它们动态生成值，并且仅在需要时才生成，这可以提高内存效率。
+* **暂停和恢复**：生成器可以暂停执行（通过 `yield`），并且可以在恢复时接收新数据。
+* **异步迭代**：随着 `async/await` 的出现，生成器可用于管理异步数据流。
+
+### 使用生成器函数创建迭代器
+
+我们可以重写我们的 `Range` 示例以使用生成器函数：
+
+```js live
+// Define a class named Range
+class Range {
+  // The constructor takes two parameters: start and end
+  constructor(start, end) {
+    // Assign the start and end values to the instance
+    this.start = start;
+    this.end = end;
+  }
+
+  // Define the default iterator for the object using a generator
+  *[Symbol.iterator]() {
+    // Initialize the current value to the start value
+    let current = this.start;
+
+    // While the current value is less than or equal to the end value...
+    while (current <= this.end) {
+      // ...yield the current value
+      yield current++;
+    }
+  }
+}
+
+// Create a new Range object with start = 1 and end = 3
+const range = new Range(1, 3);
+// Iterate over the range object
+for (const number of range) {
+  // Log each number to the console
+  console.log(number); // 1, 2, 3
+}
+```
+
+### 迭代数据流
+
+生成器非常适合迭代数据流，例如从 API 获取数据或读取文件。此示例演示了如何使用生成器分批从 API 获取数据：
+
+```js live
+async function* fetchDataInBatches(url, numBatches = 5, batchSize = 10) {
+  let startIndex = 0;
+  let currBatch = 0;
+
+  while (currBatch < numBatches) {
+    const response = await fetch(
+      `${url}?_start=${startIndex}&_limit=${batchSize}`,
+    );
+    const data = await response.json();
+    if (data.length === 0) break;
+    yield data;
+    startIndex += batchSize;
+    currBatch += 1;
+  }
+}
+
+async function fetchAndLogData() {
+  const dataGenerator = fetchDataInBatches(
+    'https://jsonplaceholder.typicode.com/todos',
+  );
+
+  for await (const batch of dataGenerator) {
+    console.log(batch);
+  }
+}
+fetchAndLogData();
+```
+
+此生成器函数 `fetchDataInBatches` 以指定大小的批次从 API 获取数据。它产生每批数据，允许您在获取下一批数据之前对其进行处理。这种方法可以比一次获取所有数据更节省内存。
+
+#### 实现异步迭代器
+
+生成器可用于实现异步迭代器，这对于处理异步数据源很有用。此示例演示了用于从 API 获取数据的异步迭代器：
+
+```js live
+async function* fetchDataAsyncIterator(url, pagesToFetch = 3) {
+  let currPage = 1;
+
+  while (currPage <= pagesToFetch) {
+    const response = await fetch(`${url}?_page=${currPage}`);
+    const data = await response.json();
+    if (data.length === 0) break;
+    yield data;
+    currPage++;
+  }
+}
+
+async function fetchAndLogData() {
+  const asyncIterator = fetchDataAsyncIterator(
+    'https://jsonplaceholder.typicode.com/todos',
+  );
+
+  for await (const chunk of asyncIterator) {
+    console.log(chunk);
+  }
+}
+fetchAndLogData();
+```
+
+生成器函数 `fetchDataAsyncIterator` 是一个异步迭代器，它从 API 中分页获取数据。它产生每页数据，允许您在获取下一页之前对其进行处理。这种方法对于处理大型数据集或长时间运行的操作很有用。
+
+生成器也广泛用于 JavaScript 库和框架中，例如 [Redux-Saga](https://redux-saga.js.org/) 和 [RxJS](https://rxjs.dev/)，用于处理异步操作和响应式编程。
+
+## 总结
+
+迭代器和生成器提供了一种强大而灵活的方式来处理 JavaScript 中的数据集合。 迭代器定义了一种遍历数据序列的标准化方式，而生成器提供了一种更具表现力和效率的方式来创建迭代器、处理异步操作以及组合复杂的数据管道。
+
+## 延伸阅读
+
+* [迭代器和生成器](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators)
+* [异步迭代和生成器](https://javascript.info/async-iterators-generators)
+* [可迭代对象](https://javascript.info/iterable)
+* [探索 JavaScript 中的迭代器和生成器](https://blog.bitsrc.io/explore-iterators-and-generators-in-javascript-ea4102015377)
+* [JavaScript 中的迭代器和生成器](https://syntactic-sugar.dev/blog/nested-route/iterators-and-generators)

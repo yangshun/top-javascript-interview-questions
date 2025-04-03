@@ -1,0 +1,120 @@
+---
+title: 如何防止在 JavaScript 应用程序中发生 SQL 注入漏洞？
+---
+
+## TL;DR
+
+为了防止 JavaScript 应用程序中出现 SQL 注入漏洞，请始终使用参数化查询或预处理语句，而不是使用字符串连接来构造 SQL 查询。这可确保用户输入被视为数据而不是可执行代码。此外，使用处理 SQL 注入预防的 ORM 库，并始终验证和清理用户输入。
+
+***
+
+## 如何防止在 JavaScript 应用程序中发生 SQL 注入漏洞？
+
+### 使用参数化查询或预处理语句
+
+参数化查询或预处理语句可确保用户输入被视为数据而不是可执行代码。这是防止 SQL 注入的最有效方法。
+
+#### 使用 Node.js 和 `mysql` 库的示例：
+
+```js
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'password',
+  database: 'test',
+});
+
+const userId = 1;
+const query = 'SELECT * FROM users WHERE id = ?';
+
+connection.query(query, [userId], (error, results) => {
+  if (error) throw error;
+  console.log(results);
+});
+```
+
+### 使用 ORM 库
+
+对象关系映射 (ORM) 库（如 Sequelize、TypeORM 或 Mongoose (用于 MongoDB)）抽象了 SQL 查询，并在内部处理 SQL 注入预防。
+
+#### 使用 Sequelize 的示例：
+
+```js
+const { Sequelize, DataTypes } = require('sequelize');
+const sequelize = new Sequelize('database', 'username', 'password', {
+  host: 'localhost',
+  dialect: 'mysql',
+});
+
+const User = sequelize.define('User', {
+  username: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+});
+
+User.findAll({
+  where: {
+    id: 1,
+  },
+}).then((users) => {
+  console.log(users);
+});
+```
+
+### 验证和清理用户输入
+
+始终验证和清理用户输入，以确保它们符合预期格式，并且不包含恶意代码。
+
+#### 使用 `validator` 库的示例：
+
+```js
+const validator = require('validator');
+
+const userInput = 'someUserInput';
+if (validator.isAlphanumeric(userInput)) {
+  // Proceed with using the input
+} else {
+  // Handle invalid input
+}
+```
+
+### 使用存储过程
+
+存储过程是存储在数据库中的预编译 SQL 语句。它们可以通过将 SQL 逻辑与用户输入分开来帮助防止 SQL 注入。
+
+#### 示例：
+
+```sql
+CREATE PROCEDURE GetUserById(IN userId INT)
+BEGIN
+  SELECT * FROM users WHERE id = userId;
+END;
+```
+
+### 使用安全库和框架
+
+利用提供内置 SQL 注入保护的安全库和框架。
+
+#### 使用 Express.js 和 `express-validator` 的示例：
+
+```js
+const { body, validationResult } = require('express-validator');
+
+app.post(
+  '/user',
+  [body('username').isAlphanumeric(), body('email').isEmail()],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    // Proceed with safe input
+  },
+);
+```
+
+## 延伸阅读
+
+* [Validator.js 文档](https://github.com/validatorjs/validator.js)

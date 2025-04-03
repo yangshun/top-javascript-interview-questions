@@ -1,23 +1,119 @@
 ---
-title: 解释`function foo() {}` 和 `var foo = function() {}` 之间在`foo` 使用方法上的差异
+title: '解释 JavaScript 中 `function foo() {}` 和 `var foo = function() {}` 之间 `foo` 的用法差异'
 ---
 
-前者是一个函数声明，而后者是一个函数表达式。 关键的区别是，函数声明会使它的主体被提升，但函数表达式的主体没有被提升（它们有和变量一样的提升行为）。 想要了解更多关于提升的解释，请参阅 [提升](/questions/quiz/explanin-hoisting)。 如果你试图在定义之前调用函数表达式，你将会得到一个 `Uncaught TypeError: XXX is not a function` 。
+## 总结
 
-## 函数声明
+`function foo() {}` 是一个函数声明，而 `var foo = function() {}` 是一个函数表达式。 关键区别在于函数声明具有函数体提升，但函数表达式的函数体没有（它们具有与 `var` 声明的变量相同的提升行为）。
 
-```js
+如果尝试在函数表达式声明之前调用它，将会得到一个 `Uncaught TypeError: XXX is not a function` 错误。
+
+即使在函数声明之前，也可以在封闭范围内调用函数声明。
+
+```js live
 foo(); // 'FOOOOO'
 function foo() {
   console.log('FOOOOO');
 }
 ```
 
-## 函数表达式
+如果函数表达式在声明之前被调用，将会导致错误。
 
-```js
+```js live
 foo(); // Uncaught TypeError: foo is not a function
 var foo = function () {
   console.log('FOOOOO');
 };
 ```
+
+另一个关键区别在于函数名称的范围。 函数表达式可以通过在 `function` 之后和括号之前定义它来命名。 但是，当使用命名函数表达式时，函数名称只能在函数本身内部访问。 尝试在外部访问它将导致错误或 `undefined`。
+
+```js live
+const myFunc = function namedFunc() {
+  console.log(namedFunc); // Works
+};
+
+myFunc(); // Runs the function and logs the function reference
+console.log(namedFunc); // ReferenceError: namedFunc is not defined
+```
+
+**注意**：由于历史原因，示例使用 `var`。 函数表达式可以使用 `let` 和 `const` 定义，关键区别在于这些关键字的提升行为。
+
+***
+
+## 函数声明
+
+函数声明是一个使用名称定义函数的语句。 它通常用于声明可以在封闭范围内多次调用的函数。
+
+```js live
+function foo() {
+  console.log('FOOOOO');
+}
+foo(); // 'FOOOOO'
+```
+
+## 函数表达式
+
+函数表达式是一个定义函数并将其分配给变量的表达式。 当只需要一次或在特定上下文中使用函数时，通常使用它。
+
+```js live
+var foo = function () {
+  console.log('FOOOOO');
+};
+foo(); // 'FOOOOO'
+```
+
+**注意**：由于历史原因，示例使用 `var`。 函数表达式可以使用 `let` 和 `const` 定义，关键区别在于这些关键字的提升行为。
+
+## 关键区别
+
+### 提升
+
+关键的区别在于函数声明有函数体提升，但函数表达式的函数体没有（它们具有与`var`声明的变量相同的提升行为）。有关提升的更多说明，请参阅关于[提升](/questions/quiz/explain-hoisting)的测验问题。如果尝试在函数表达式定义之前调用它，将会得到一个`Uncaught TypeError: XXX is not a function`错误。
+
+函数声明：
+
+```js live
+foo(); // 'FOOOOO'
+function foo() {
+  console.log('FOOOOO');
+}
+```
+
+函数表达式：
+
+```js live
+foo(); // Uncaught TypeError: foo is not a function
+var foo = function () {
+  console.log('FOOOOO');
+};
+```
+
+### 命名范围
+
+函数表达式可以通过在`function`之后和括号之前定义它来命名。但是，当使用命名函数表达式时，函数名称只能在函数本身内部访问。尝试在外部访问它将导致`undefined`，调用它将导致错误。
+
+```js live
+const myFunc = function namedFunc() {
+  console.log(namedFunc); // Works
+};
+
+myFunc(); // Runs the function and logs the function reference
+console.log(namedFunc); // ReferenceError: namedFunc is not defined
+```
+
+## 何时使用
+
+* 函数声明：
+  * 当您想在全局范围内创建一个函数，并在整个封闭范围内使用它时。
+  * 如果一个函数是可重用的，并且需要多次调用。
+* 函数表达式：
+  * 如果一个函数只需要一次或在特定上下文中。
+  * 用于将函数可用性限制为后续代码，并保持封闭范围的清洁。
+
+总的来说，最好使用函数声明来避免确定是否可以调用函数的精神负担。函数表达式的实际用法非常罕见。
+
+## 延伸阅读
+
+* [函数声明 | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+* [函数表达式 | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function)

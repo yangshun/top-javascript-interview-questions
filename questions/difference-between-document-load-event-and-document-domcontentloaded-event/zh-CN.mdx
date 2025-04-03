@@ -1,7 +1,52 @@
 ---
-title: Document `load` 事件和 `DOMContentLoaded` 事件之间的区别？
+title: document `load` 事件和 document `DOMContentLoaded` 事件的区别？
 ---
 
-当初始的 HTML 文档被完全加载并解析时，`DOMContentLoaded` 事件将被触发。 无需等待样式表、图片和子帧来完成加载。
+## TL;DR
 
-`window` 上的 `load` 事件只在 DOM 和所有依赖的资源和资产加载后才能触发。
+`DOMContentLoaded` 事件在初始 HTML 文档完全加载和解析后触发，而无需等待样式表、图像和子框架完成加载。另一方面，`load` 事件在整个页面（包括所有依赖资源，如样式表和图像）完成加载后触发。
+
+```javascript
+document.addEventListener('DOMContentLoaded', function () {
+  console.log('DOM fully loaded and parsed');
+});
+
+window.addEventListener('load', function () {
+  console.log('Page fully loaded');
+});
+```
+
+***
+
+## document `load` 事件和 document `DOMContentLoaded` 事件的区别
+
+### `DOMContentLoaded` 事件
+
+`DOMContentLoaded` 事件在初始 HTML 文档完全加载和解析后触发，而无需等待样式表、图像和子框架完成加载。当您希望在 DOM 准备就绪后立即执行 JavaScript 代码，而无需等待所有资源完全加载时，此事件非常有用。
+
+```javascript
+document.addEventListener('DOMContentLoaded', function () {
+  console.log('DOM fully loaded and parsed');
+});
+```
+
+### `load` 事件
+
+`load` 事件在整个页面（包括所有依赖资源，如样式表、图像和子框架）完成加载后触发。当您需要执行需要所有资源完全加载的操作时，此事件非常有用，例如初始化幻灯片或执行依赖于图像大小的布局计算。
+
+```javascript
+window.addEventListener('load', function () {
+  console.log('Page fully loaded');
+});
+```
+
+### 关键区别
+
+*   **时序**：`DOMContentLoaded` 比 `load` 提前触发。`DOMContentLoaded` 在 HTML 完全解析后发生，而 `load` 等待所有资源加载完毕。
+*   **用例**：将 `DOMContentLoaded` 用于仅需要 DOM 就绪的任务，例如附加事件侦听器或操作 DOM。将 `load` 用于依赖所有资源完全加载的任务，例如依赖于图像的布局计算。
+
+## 延伸阅读
+
+*   [MDN Web Docs: DOMContentLoaded](https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event)
+*   [MDN Web Docs: load event](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event)
+*   [JavaScript.info: DOMContentLoaded, load, beforeunload, unload](https://javascript.info/onload-ondomcontentloaded)

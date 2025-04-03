@@ -1,0 +1,96 @@
+---
+title: 如何使用闭包创建私有变量？
+---
+
+## TL;DR
+
+JavaScript 中的闭包可以通过在另一个函数中定义一个函数来创建私有变量。内部函数可以访问外部函数的变量，但这些变量无法从外部函数外部访问。这允许您封装和保护变量，防止它们被直接访问或修改。
+
+```js live
+function createCounter() {
+  let count = 0; // private variable
+
+  return {
+    increment: function () {
+      count++;
+      return count;
+    },
+    decrement: function () {
+      count--;
+      return count;
+    },
+    getCount: function () {
+      return count;
+    },
+  };
+}
+
+const counter = createCounter();
+console.log(counter.increment()); // 1
+console.log(counter.getCount()); // 1
+console.log(counter.count); // undefined
+```
+
+***
+
+## 如何使用闭包创建私有变量？
+
+### 了解闭包
+
+闭包是 JavaScript 中的一个特性，其中内部函数可以访问外部（封闭）函数的变量。这包括：
+
+* 在外部函数作用域内声明的变量
+* 外部函数的参数
+* 来自全局作用域的变量
+
+### 创建私有变量
+
+要使用闭包创建私有变量，您可以定义一个返回包含方法的对象的函数。这些方法可以访问和修改私有变量，但变量本身无法从函数外部访问。
+
+### 示例
+
+这是一个详细的示例，说明如何使用闭包创建私有变量：
+
+```js live
+function createCounter() {
+  let count = 0; // private variable
+
+  return {
+    increment: function () {
+      count++;
+      return count;
+    },
+    decrement: function () {
+      count--;
+      return count;
+    },
+    getCount: function () {
+      return count;
+    },
+  };
+}
+
+const counter = createCounter();
+console.log(counter.increment()); // 1
+console.log(counter.increment()); // 2
+console.log(counter.decrement()); // 1
+console.log(counter.getCount()); // 1
+console.log(counter.count); // undefined
+```
+
+### 解释
+
+1. **外部函数**：`createCounter` 是定义私有变量 `count` 的外部函数。
+2. **内部函数**：`createCounter` 返回的对象包含形成闭包的方法（`increment`、`decrement` 和 `getCount`）。这些方法可以访问 `count` 变量。
+3. **封装**：`count` 变量无法直接从 `createCounter` 函数外部访问。它只能通过提供的方法进行访问和修改。
+
+### 优点
+
+* **封装**：私有变量有助于封装对象的状态和行为，防止意外干扰。
+* **数据完整性**：通过限制对变量的直接访问，您可以确保它们仅通过受控方法进行修改。
+
+## 延伸阅读
+
+* [MDN Web Docs: Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+* [JavaScript.info: Closures](https://javascript.info/closure)
+* [Eloquent JavaScript: Functions and Closures](https://eloquentjavascript.net/03_functions.html#h_jxlmhe5yFI)

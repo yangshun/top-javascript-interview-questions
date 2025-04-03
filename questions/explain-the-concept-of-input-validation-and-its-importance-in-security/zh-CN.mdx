@@ -1,0 +1,84 @@
+---
+title: 解释输入验证的概念及其在安全中的重要性
+---
+
+## TL;DR
+
+输入验证是确保用户输入正确、安全并满足应用程序要求的过程。它对安全至关重要，因为它有助于防止 SQL 注入、跨站点脚本 (XSS) 和其他形式的数据操纵等攻击。通过验证输入，您可以确保只有格式正确的数据才能进入您的系统，从而降低恶意数据造成损害的风险。
+
+***
+
+## 输入验证及其在安全中的重要性
+
+### 什么是输入验证？
+
+输入验证是验证用户或其他外部来源提供的数据在应用程序处理之前是否满足预期格式、类型和约束的过程。这可以包括检查：
+
+* 正确的数据类型（例如，字符串、数字）
+* 适当的格式（例如，电子邮件地址、电话号码）
+* 可接受的数值范围（例如，年龄在 0 到 120 岁之间）
+* 必填字段已填写
+
+### 输入验证的类型
+
+1. **客户端验证**：这发生在用户将数据发送到服务器之前，在用户的浏览器中进行。它向用户提供即时反馈，并可以改善用户体验。但是，不应仅依赖它来实现安全目的，因为它很容易被绕过。
+
+   ```html
+   <form>
+     <input type="text" id="username" required pattern="[A-Za-z0-9]{5,}" />
+     <input type="submit" />
+   </form>
+   ```
+
+2. **服务器端验证**：这发生在数据提交到服务器之后。它对于安全至关重要，因为它确保所有数据都经过验证，而不管客户端的行为如何。
+
+   ```js
+   const express = require('express');
+   const app = express();
+
+   app.post('/submit', (req, res) => {
+     const username = req.body.username;
+     if (!/^[A-Za-z0-9]{5,}$/.test(username)) {
+       return res.status(400).send('Invalid username');
+     }
+     // Proceed with processing the valid input
+   });
+   ```
+
+### 输入验证在安全中的重要性
+
+1. **防止 SQL 注入**：通过验证和清理输入，您可以防止攻击者将恶意 SQL 代码注入到您的数据库查询中。
+
+   ```js
+   const username = req.body.username;
+   const query = 'SELECT * FROM users WHERE username = ?';
+   db.query(query, [username], (err, results) => {
+     // Handle results
+   });
+   ```
+
+2. **防止跨站点脚本 (XSS)**：输入验证有助于确保用户输入不包含可能在浏览器中执行的恶意脚本。
+
+   ```js
+   const sanitizeHtml = require('sanitize-html');
+   const userInput = req.body.comment;
+   const sanitizedInput = sanitizeHtml(userInput);
+   ```
+
+3. **防止缓冲区溢出攻击**：通过验证输入数据的长度，您可以防止攻击者发送过大的输入，从而导致缓冲区溢出并使您的应用程序崩溃。
+
+4. **确保数据完整性**：输入验证通过确保仅处理和存储格式正确且预期的数据来帮助维护数据的完整性。
+
+### 输入验证的最佳实践
+
+* 始终在服务器端验证输入，即使您也在客户端进行验证
+* 尽可能使用内置验证函数和库
+* 清理输入以删除或转义潜在的有害字符
+* 实施白名单（仅允许已知的良好输入）而不是黑名单（阻止已知的错误输入）
+* 定期更新和审查您的验证规则以应对新的安全威胁
+
+## 延伸阅读
+
+* [OWASP 输入验证备忘单](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
+* [MDN Web 文档：客户端表单验证](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation)
+* [Sanitize-html 库](https://www.npmjs.com/package/sanitize-html)

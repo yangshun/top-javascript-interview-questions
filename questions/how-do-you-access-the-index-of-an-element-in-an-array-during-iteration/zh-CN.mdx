@@ -1,0 +1,67 @@
+---
+title: 如何在迭代过程中访问数组中元素的索引？
+---
+
+## TL;DR
+
+要在迭代过程中访问数组中元素的索引，可以使用 `forEach`、`map`、`for...of` 与 `entries` 或传统的 `for` 循环等方法。例如，使用 `forEach`：
+
+```js live
+const array = ['a', 'b', 'c'];
+array.forEach((element, index) => {
+  console.log(index, element);
+});
+```
+
+***
+
+## 使用 `forEach`
+
+`forEach` 方法为数组的每个元素执行一次提供的函数。回调函数接受三个参数：当前元素、当前元素的索引和数组本身。
+
+```js live
+const array = ['a', 'b', 'c'];
+array.forEach((element, index) => {
+  console.log(index, element);
+});
+```
+
+### 使用 `map`
+
+`map` 方法创建一个新数组，其中填充了在调用数组的每个元素上调用提供的函数的结果。回调函数也接受三个参数：当前元素、当前元素的索引和数组本身。
+
+```js live
+const array = ['a', 'b', 'c'];
+array.map((element, index) => {
+  console.log(index, element);
+});
+```
+
+### 使用 `for...of` 与 `entries`
+
+`for...of` 循环可以与 `entries` 方法结合使用，以访问索引和元素。
+
+```js live
+const array = ['a', 'b', 'c'];
+for (const [index, element] of array.entries()) {
+  console.log(index, element);
+}
+```
+
+### 使用传统的 `for` 循环
+
+传统的 `for` 循环使您可以直接访问索引。
+
+```js live
+const array = ['a', 'b', 'c'];
+for (let index = 0; index < array.length; index++) {
+  console.log(index, array[index]);
+}
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Array.prototype.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+* [MDN Web Docs: Array.prototype.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+* [MDN Web Docs: for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+* [MDN Web Docs: Array.prototype.entries](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries)

@@ -1,0 +1,132 @@
+---
+title: 解释 ES2015 类中的继承概念
+---
+
+## TL;DR
+
+ES2015 类中的继承允许一个类扩展另一个类，使子类能够从父类继承属性和方法。这是使用 `extends` 关键字完成的。`super` 关键字用于调用父类的构造函数和方法。这是一个快速示例：
+
+```js live
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, breed) {
+    super(name);
+    this.breed = breed;
+  }
+
+  speak() {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+const dog = new Dog('Rex', 'German Shepherd');
+dog.speak(); // Rex barks.
+```
+
+***
+
+## ES2015 类中的继承
+
+### 基本概念
+
+ES2015 类中的继承允许一个类（子类）从另一个类（父类）继承属性和方法。这促进了代码重用和分层类结构。
+
+### 使用 `extends` 关键字
+
+使用 `extends` 关键字可以创建一个作为另一个类子类的类。子类继承父类的所有属性和方法。
+
+```js live
+class ParentClass {
+  constructor() {
+    this.parentProperty = 'I am a parent property';
+  }
+
+  parentMethod() {
+    console.log('This is a parent method');
+  }
+}
+
+class ChildClass extends ParentClass {
+  constructor() {
+    super(); // Calls the parent class constructor
+    this.childProperty = 'I am a child property';
+  }
+
+  childMethod() {
+    console.log('This is a child method');
+  }
+}
+
+const child = new ChildClass();
+console.log(child.parentProperty); // I am a parent property
+child.parentMethod(); // This is a parent method
+```
+
+### 使用 `super` 关键字
+
+`super` 关键字用于调用父类的构造函数并访问其方法。当您想在子类中初始化父类属性时，这是必需的。
+
+```js live
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, breed) {
+    super(name); // Calls the parent class constructor
+    this.breed = breed;
+  }
+
+  speak() {
+    super.speak(); // Calls the parent class method
+    console.log(`${this.name} barks.`);
+  }
+}
+
+const dog = new Dog('Rex', 'German Shepherd');
+dog.speak();
+// Rex makes a noise.
+// Rex barks.
+```
+
+### 方法重写
+
+子类可以重写父类中的方法。这允许子类提供已经在父类中定义的方法的特定实现。
+
+```js live
+class Animal {
+  speak() {
+    console.log('Animal makes a noise.');
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log('Dog barks.');
+  }
+}
+
+const dog = new Dog();
+dog.speak(); // Dog barks.
+```
+
+## 延伸阅读
+
+* [MDN Web 文档：类](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes)
+* [MDN Web 文档：继承](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+* [JavaScript.info：类继承](https://zh.javascript.info/class-inheritance)

@@ -1,0 +1,85 @@
+---
+title: JavaScript 对象 getter 和 setter 有什么用？
+---
+
+## TL;DR
+
+JavaScript 对象 getter 和 setter 用于控制对对象属性的访问。它们提供了一种封装属性的实现细节，并在获取或设置其值时定义自定义行为的方法。
+
+Getters 和 setters 分别使用 `get` 和 `set` 关键字定义，后跟一个在访问属性或为其分配新值时执行的函数。
+
+以下是一个代码示例，演示了 getter 和 setter 的用法：
+
+```js live
+const person = {
+  _name: 'John Doe', // 私有属性
+
+  get name() {
+    // Getter
+    return this._name;
+  },
+  set name(newName) {
+    // Setter
+    if (newName.trim().length > 0) {
+      this._name = newName;
+    } else {
+      console.log('Invalid name');
+    }
+  },
+};
+
+// 使用 getter 访问 name 属性
+console.log(person.name); // 输出：'John Doe'
+
+// 使用 setter 设置 name 属性
+person.name = 'Jane Smith'; // 调用 Setter
+console.log(person.name); // 输出：'Jane Smith'
+
+person.name = ''; // 调用 Setter，但由于验证，该值未设置
+console.log(person.name); // 输出：'Jane Smith'
+```
+
+***
+
+## JavaScript 对象 getter 和 setter
+
+在 JavaScript 中，getter 和 setter 是特殊的方法，允许您控制如何访问和修改对象的属性。
+
+* **Getters**：每当您尝试使用点表示法（例如，`obj.name`）访问属性时调用的函数。它们提供了一种自定义在读取属性时返回的值的方法。
+* **Setters**：当您尝试使用点表示法和赋值运算符（例如，`obj.name = "John"`）为属性赋值时调用的函数。它们允许您在将实际值存储在对象中之前执行数据验证、格式化或副作用等操作。
+
+```js live
+const person = {
+  _firstName: 'John',
+  _lastName: 'Doe',
+  get fullName() {
+    return `${this._firstName} ${this._lastName}`;
+  },
+  set fullName(value) {
+    const parts = value.split(' ');
+    this._firstName = parts[0];
+    this._lastName = parts[1];
+  },
+};
+
+console.log(person.fullName); // 输出：John Doe
+person.fullName = 'Jane Smith';
+console.log(person.fullName); // 输出：Jane Smith
+```
+
+在此示例中，`fullName` 属性没有直接存储在对象中的值。getter 函数通过组合 `_firstName` 和 `_lastName` 属性来计算它。setter 将分配的值拆分为名字和姓氏，并相应地更新内部属性。
+
+## 优点
+
+Getters 和 setters 提供了几个好处：
+
+1. **封装**：它们允许您封装属性的实现细节，从而更容易更改内部表示，而不会影响使用该属性的外部代码。
+2. **数据验证**：Setters 可用于验证分配给属性的值，确保数据完整性和一致性。
+3. **计算属性**：Getters 可用于计算并返回基于其他属性或计算的派生值。
+4. **副作用**：当属性更改时，Setters 可用于执行副作用。例如，您可能更新相关属性或在分配/修改特定值时触发操作，例如日志记录或调试。
+
+## 延伸阅读
+
+* [Object.defineProperty() | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+* [Property flags and descriptors | Javascript.info](https://javascript.info/property-descriptors)
+* [Object.seal() | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/seal)

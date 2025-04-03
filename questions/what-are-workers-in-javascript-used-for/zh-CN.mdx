@@ -1,0 +1,185 @@
+---
+title: JavaScript 中的 Worker 有什么作用？
+---
+
+## TL;DR
+
+JavaScript 中的 Worker 是后台线程，允许您与主执行线程并行运行脚本，而不会阻塞或干扰用户界面。 它们的主要特点包括：
+
+* **并行处理**：Worker 在与主线程不同的线程中运行，允许您的网页在 worker 执行其任务时保持对用户交互的响应。 这对于将 CPU 密集型工作从主线程中移出并摆脱 JavaScript 单线程的特性非常有用。
+* **通信**：使用 `postMessage()` 和 `onmessage`/ `'message'` 事件进行消息传递。
+* **访问 Web API**：Worker 可以访问各种 Web API，包括 `fetch()`、IndexedDB 和 Web Storage，允许它们独立执行数据获取和持久化数据等任务。
+* **无法访问 DOM**：Worker 无法直接操作 DOM，因此无法与 UI 交互，确保它们不会意外干扰主线程的操作。
+
+JavaScript 中有三种主要的 worker 类型：
+
+* **Web worker / 专用 worker**
+  * 在后台线程中运行脚本，与主 UI 线程分开。
+  * 适用于 CPU 密集型任务，如数据处理、计算等。
+  * 无法直接访问或操作 DOM。
+* **Service worker**
+  * 充当网络代理，处理应用程序和网络之间的请求。
+  * 启用离线功能、缓存和推送通知。
+  * 独立于网页运行，即使网页已关闭。
+* **共享 worker**
+  * 只要它们在同一域中，就可以由在不同窗口或框架中运行的多个脚本共享。
+  * 脚本通过发送和接收消息与共享 worker 通信。
+  * 适用于协调网页不同部分的任务。
+
+***
+
+## JavaScript 中的 Worker
+
+JavaScript 中的 Worker 是一种在后台线程中运行脚本的方式，与网页的主执行线程分开。 这允许将长时间运行或计算密集型任务从主线程中卸载，防止用户界面变得无响应或卡顿。
+
+## Web worker / 专用 worker
+
+* 在与主 UI 线程分开的后台线程中运行脚本。
+* 专为 CPU 密集型任务而设计，如数据处理、数学计算等。 通常是非异步工作。
+* 出于安全原因，无法直接访问 DOM 或其他主线程资源。
+* 通过异步消息传递进行与主线程的通信 – `postMessage()` 和 `onmessage`/ `'message'`。
+* 当主脚本被卸载或显式终止时终止。
+
+Web worker 可用于：
+
+* 图像/视频处理
+* 数据压缩
+* 复杂数学
+
+### 创建一个 web worker
+
+要创建一个 web worker，您需要一个单独的 JavaScript 文件，其中包含 worker 的代码。 这是一个例子：
+
+**`main.js` (主脚本)**
+
+```js
+// 检查浏览器是否支持 worker
+if (window.Worker) {
+  // 创建一个新的 Worker
+  const myWorker = new Worker('worker.js');
+
+  // 向 worker 发送消息
+  myWorker.postMessage('Hello, Worker!');
+
+  // 监听来自 worker 的消息
+  myWorker.onmessage = function (event) {
+    console.log('来自 Worker 的消息：', event.data);
+  };
+
+  // 错误处理
+  myWorker.onerror = function (error) {
+    console.error('来自 Worker 的错误：', error);
+  };
+}
+```
+
+**`worker.js` (worker 脚本)**
+
+```js
+// 监听来自主脚本的消息
+onmessage = function (event) {
+  console.log('来自主脚本的消息：', event.data);
+
+  // 执行一个任务（例如，一些计算）
+  const result = event.data + ' - 由 Worker 处理';
+
+  // 将结果发回给主脚本
+  postMessage(result);
+};
+```
+
+在这个例子中：
+
+* `main.js` 使用 `Worker` 构造函数创建一个 worker，并指定 `worker.js` 作为在 worker 线程中运行的脚本。
+* 它使用 `postMessage()` 向 worker 发送消息。
+* worker 脚本 (`worker.js`) 使用 `onmessage` 监听来自主脚本的消息。
+* 处理完消息后，worker 使用 `postMessage()` 将消息发回给主脚本。
+* 主脚本在 `Worker` 实例上使用 `onmessage` 监听来自 worker 的消息。
+
+### Service workers
+
+* 充当 Web 应用程序、浏览器和网络之间的网络代理。
+* 可以拦截和处理网络请求，缓存资源。
+* 启用离线功能和推送通知。
+* 具有由浏览器管理的生命周期（安装、激活、更新）。
+* 出于安全考虑，无法访问 DOM 和主线程资源。
+
+Service workers 可以用于：
+
+* 缓存
+* 离线支持
+* 请求处理
+* 后台同步
+
+#### 创建 service worker
+
+**`main.js` (主脚本)**
+
+```js
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/service-worker.js')
+    .then(function (registration) {
+      console.log('Service Worker registered:', registration);
+    })
+    .catch(function (err) {
+      console.log('Service Worker registration failed:', err);
+    });
+}
+```
+
+**`service-worker.js` (service worker 脚本)**
+
+```js
+self.addEventListener('fetch', function (event) {
+  event.respondWith(
+    caches.match(event.request).then(function (response) {
+      // return cached response if available
+      if (response) {
+        return response;
+      }
+
+      // Otherwise, fetch from network
+      return fetch(event.request);
+    }),
+  );
+});
+```
+
+在这个例子中：
+
+* 主脚本在 `/service-worker.js` 注册一个 service worker
+* service worker 监听 `fetch()` 事件，该事件在浏览器发出网络请求时触发
+* service worker 首先使用 `caches.match(event.request)` 检查请求的资源是否已缓存
+* 如果已缓存，则返回缓存的响应。 否则，它使用 `fetch(event.request)` 从网络获取资源
+
+### 奖励：共享 worker
+
+* **范围**：可以从不同窗口/标签页/iframe 中的多个脚本访问
+* **数据共享**：允许通过消息传递接口在浏览器上下文之间共享数据
+* **浏览器支持**：支持有限，尤其[在 Android 浏览器上不可用](https://issues.chromium.org/issues/40290702)
+
+#### 共享 worker 的用例：
+
+* 跨多个窗口共享状态。
+
+### 奖励：Worklets
+
+`Worklet` 接口是 Web Workers 的轻量级版本，它使开发人员可以访问渲染管道的低级部分。 使用 Worklets，您可以运行 JavaScript 和 WebAssembly 代码来执行图形渲染或音频处理，其中需要高性能。
+
+您不需要了解 worklets，因此不会详细介绍。 在 [MDN 上阅读有关 worklets 的更多信息](https://developer.mozilla.org/en-US/docs/Web/API/Worklet)。
+
+## 考虑事项和限制
+
+* **同源策略**：Workers 必须遵守同源策略，这意味着创建 worker 的脚本和 worker 脚本本身必须来自同一源
+* **无 DOM 访问**：Workers 无法直接访问 DOM。 它们可以通过消息与主线程通信
+* **性能**：创建和管理 workers 会产生开销。 它们应该谨慎用于真正受益于并行执行的任务
+* **错误处理**：应建立适当的错误处理机制来处理 worker 脚本中的任何问题
+
+## 延伸阅读
+
+* [Worker - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Worker)
+* [Using Web Workers - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
+* [Service Worker API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
+* [Understanding web workers in JavaScript with real world example](https://javascript.plainenglish.io/understanding-web-workers-in-js-with-real-world-example-1629a283aeec?gi=89cf0dd4c3f4)
+* [Web worker, Service worker, and Worklets: A comprehensive guide](https://dev.to/bharat5604/web-worker-service-worker-and-worklets-a-comprehensive-guide-1f64)

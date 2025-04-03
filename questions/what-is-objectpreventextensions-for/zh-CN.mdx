@@ -1,0 +1,74 @@
+---
+title: 什么是 `Object.preventExtensions()`？
+---
+
+## TL;DR
+
+`Object.preventExtensions()` 是 JavaScript 中的一个方法，用于阻止向对象添加新属性。但是，它不会影响现有属性的删除或修改。当您希望确保对象保持特定形状并且不能向其添加其他属性时，此方法非常有用。
+
+```js live
+const obj = { name: 'John' };
+Object.preventExtensions(obj);
+
+obj.age = 30; // 这将不起作用，因为该对象不可扩展
+console.log(obj.age); // undefined
+```
+
+***
+
+## 什么是 `Object.preventExtensions()`？
+
+`Object.preventExtensions()` 是 JavaScript 中用于阻止向对象添加新属性的方法。此方法是 ECMAScript 5 规范的一部分，通过确保其结构不能通过添加新属性来更改，从而有助于维护对象的完整性。
+
+### 语法
+
+```js
+Object.preventExtensions(obj);
+```
+
+* `obj`：应该设置为不可扩展的对象。
+
+### 行为
+
+* 一旦对象设置为不可扩展，您就无法向其添加新属性。
+* 现有属性仍然可以被修改或删除。
+* 该方法返回传递给它的对象。
+
+### 示例
+
+```js live
+const obj = { name: 'John' };
+Object.preventExtensions(obj);
+
+obj.age = 30; // 这将不起作用，因为该对象不可扩展
+console.log(obj.age); // undefined
+
+obj.name = 'Jane'; // 这将起作用，因为现有属性可以被修改
+console.log(obj.name); // 'Jane'
+
+delete obj.name; // 这将起作用，因为现有属性可以被删除
+console.log(obj.name); // undefined
+```
+
+### 检查对象是否可扩展
+
+您可以使用 `Object.isExtensible()` 方法检查对象是否可扩展。
+
+```js live
+const obj = { name: 'John' };
+console.log(Object.isExtensible(obj)); // true
+
+Object.preventExtensions(obj);
+console.log(Object.isExtensible(obj)); // false
+```
+
+### 用例
+
+* **不可变对象结构**：当您希望确保对象的结构保持不变时，可以使用 `Object.preventExtensions()`。
+* **安全性**：在您希望避免意外或恶意向对象添加属性的情况下，阻止扩展可能很有用。
+
+## 延伸阅读
+
+* [MDN Web 文档：Object.preventExtensions()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions)
+* [MDN Web 文档：Object.isExtensible()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible)
+* [ECMAScript 5 规范](https://www.ecma-international.org/ecma-262/5.1/#sec-15.2.3.10)

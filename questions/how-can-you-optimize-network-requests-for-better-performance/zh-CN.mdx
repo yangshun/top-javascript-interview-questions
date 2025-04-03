@@ -1,0 +1,63 @@
+---
+title: 如何优化网络请求以获得更好的性能？
+---
+
+## TL;DR
+
+为了优化网络请求以获得更好的性能，您可以尽量减少请求数量、使用缓存、压缩数据，并利用 HTTP/2 和 Service Worker 等现代 Web 技术。例如，您可以将多个 CSS 文件合并成一个以减少请求数量，使用 `Cache-Control` 标头缓存静态资源，并在您的服务器上启用 Gzip 压缩以减少传输的数据大小。
+
+***
+
+## 如何优化网络请求以获得更好的性能？
+
+### 尽量减少请求数量
+
+减少网络请求的数量可以显著提高性能。以下是一些策略：
+
+* **合并文件**：将多个 CSS 或 JavaScript 文件合并成一个文件。
+* **图像精灵**：将多个图像合并成一个精灵表，并使用 CSS 显示图像的正确部分。
+* **内联小资源**：使用数据 URI 将小图像或字体直接内联到您的 CSS 或 HTML 中。
+
+### 使用缓存
+
+缓存可以减少对尚未更改的资源进行网络请求的需求：
+
+* **HTTP 缓存**：使用 `Cache-Control` 和 `ETag` 标头来控制浏览器缓存资源的方式和时间。
+* **Service Worker**：实现 Service Worker 来缓存资源和 API 响应，允许您的应用程序离线工作，并在后续访问时更快地加载。
+
+### 压缩数据
+
+减少传输的数据大小可以加速网络请求：
+
+* **Gzip/Brotli 压缩**：在您的服务器上启用 Gzip 或 Brotli 压缩以压缩 HTML、CSS 和 JavaScript 文件。
+* **最小化**：最小化 CSS、JavaScript 和 HTML 文件以删除不必要的字符并减小文件大小。
+
+### 利用现代 Web 技术
+
+现代 Web 技术可以帮助优化网络性能：
+
+* **HTTP/2**：使用 HTTP/2 来利用多路复用、标头压缩和服务器推送，这可以减少延迟并提高加载时间。
+* **CDN**：使用内容分发网络 (CDN) 从更靠近用户的位置提供静态资源，从而减少延迟。
+
+### 优化图像
+
+图像通常占用了很大一部分已传输的数据：
+
+* **响应式图像**：使用 `srcset` 属性根据用户的设备提供不同的图像大小。
+* **图像格式**：使用现代图像格式，如 WebP 或 AVIF，它们比 JPEG 或 PNG 等传统格式提供更好的压缩。
+* **懒加载**：实现懒加载以推迟加载图像，直到需要它们。
+
+### 减少有效负载大小
+
+减少每个请求中发送的数据量可以提高性能：
+
+* **API 优化**：优化 API 响应，仅包含必要的数据。
+* **GraphQL**：使用 GraphQL 仅请求客户端所需的数据。
+
+## 延伸阅读
+
+* [MDN Web Docs: HTTP 缓存](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
+* [Google Developers: 优化内容效率](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/)
+* [Web.dev: 使用 HTTP/2](https://web.dev/http2/)
+* [MDN Web Docs: Service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
+* [Google Developers: 图片优化](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization)

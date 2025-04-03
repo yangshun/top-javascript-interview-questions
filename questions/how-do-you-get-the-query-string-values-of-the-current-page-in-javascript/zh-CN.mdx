@@ -1,0 +1,78 @@
+---
+title: 如何用 JavaScript 获取当前页面的查询字符串值？
+---
+
+## 总结
+
+要在 JavaScript 中获取当前页面的查询字符串值，可以使用 `URLSearchParams` 对象。首先，使用 `window.location.search` 创建一个 `URLSearchParams` 实例，然后使用 `get` 方法检索特定的查询参数。例如：
+
+```js
+const params = new URLSearchParams(window.location.search);
+const value = params.get('language');
+console.log(value);
+```
+
+***
+
+## 如何用 JavaScript 获取当前页面的查询字符串值？
+
+### 使用 URLSearchParams
+
+`URLSearchParams` 接口提供了一种简单的方法来处理查询字符串。以下是如何使用它：
+
+1. **创建 `URLSearchParams` 实例**：使用 `window.location.search` 获取 URL 的查询字符串部分。
+2. **检索特定的查询参数**：使用 `get` 方法获取特定查询参数的值。
+
+```js
+const params = new URLSearchParams(window.location.search);
+const value = params.get('key'); // 将 'key' 替换为实际的查询参数名称
+console.log(value);
+```
+
+如果查询参数不存在，`get` 方法将返回 `null`。
+
+### 示例
+
+考虑一个像 `https://example.com?page=2&sort=asc` 这样的 URL。要获取 `page` 和 `sort` 的值：
+
+```js
+const params = new URLSearchParams(window.location.search);
+const page = params.get('page'); // '2'
+const sort = params.get('sort'); // 'asc'
+```
+
+### 处理多个值
+
+如果一个查询参数出现多次，可以使用 `getAll` 方法检索所有值：
+
+```js
+const params = new URLSearchParams(window.location.search);
+const values = params.getAll('key'); // 返回一个值数组
+```
+
+### 检查参数是否存在
+
+您可以使用 `has` 方法检查查询参数是否存在。
+
+```js
+const params = new URLSearchParams(window.location.search);
+console.log(params.has('page'));
+console.log(params.has('language'));
+console.log(params.has('tab'));
+```
+
+### 遍历所有参数
+
+您可以使用 `forEach` 方法遍历所有查询参数：
+
+```js
+const params = new URLSearchParams(window.location.search);
+params.forEach((value, key) => {
+  console.log(`${key}: ${value}`);
+});
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
+* [MDN Web Docs: window.location](https://developer.mozilla.org/en-US/docs/Web/API/Window/location)

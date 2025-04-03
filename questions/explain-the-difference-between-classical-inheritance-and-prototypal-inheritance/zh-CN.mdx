@@ -1,0 +1,81 @@
+---
+title: 解释经典继承和原型继承的区别
+---
+
+## TL;DR
+
+经典继承是一种模型，其中类从其他类继承，通常在 Java 和 C++ 等语言中可见。原型继承（在 JavaScript 中使用）涉及对象直接从其他对象继承。在经典继承中，您定义一个类并从中创建实例。在原型继承中，您创建一个对象并将其用作其他对象的原型。
+
+***
+
+## 经典继承和原型继承的区别
+
+### 经典继承
+
+经典继承是许多面向对象编程语言（如 Java、C++ 和 Python）中使用的一种模式。它涉及创建一个类层次结构，其中类从其他类继承属性和方法。
+
+* **类定义**：您定义一个具有属性和方法的类。
+* **实例化**：您创建类的实例（对象）。
+* **继承**：一个类可以从另一个类继承，形成父子关系。
+
+Java 中的示例：
+
+```java
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("The dog barks.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat(); // Inherited method
+        dog.bark(); // Own method
+    }
+}
+```
+
+### 原型继承
+
+原型继承是 JavaScript 的一个特性，其中对象直接从其他对象继承。没有类；相反，对象充当其他对象的原型。
+
+* **对象创建**：您直接创建一个对象。
+* **原型链**：对象可以通过原型链从其他对象继承属性和方法。
+* **灵活性**：您可以动态地添加或修改属性和方法。
+
+JavaScript 中的示例：
+
+```js live
+const animal = {
+  eat() {
+    console.log('This animal eats food.');
+  },
+};
+
+const dog = Object.create(animal);
+dog.bark = function () {
+  console.log('The dog barks.');
+};
+
+dog.eat(); // Inherited method (Output: The animal eats food.)
+dog.bark(); // Own method (Output: The dog barks.)
+```
+
+### 主要区别
+
+* **基于类的与基于原型的**：经典继承使用类，而原型继承使用对象。
+* **继承模型**：经典继承形成一个类层次结构，而原型继承形成一个原型链。
+* **灵活性**：原型继承更灵活和动态，允许在运行时进行更改。
+
+## 延伸阅读
+
+* [MDN Web Docs: Inheritance and the prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+* [JavaScript.info: Prototypal inheritance](https://javascript.info/prototype-inheritance)
+* [MDN Web Docs: Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)

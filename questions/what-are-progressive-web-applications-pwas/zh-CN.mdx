@@ -1,0 +1,89 @@
+---
+title: 什么是渐进式 Web 应用程序 (PWA)？
+---
+
+## TL;DR
+
+渐进式 Web 应用程序 (PWA) 是使用现代 Web 功能为用户提供类似应用程序体验的 Web 应用程序。它们可靠、快速且引人入胜。PWA 可以离线工作、发送推送通知，并安装在用户的 home 屏幕上。它们利用服务工作者、Web 应用程序清单和 HTTPS 等技术来提供这些功能。
+
+***
+
+## 什么是渐进式 Web 应用程序 (PWA)？
+
+### 定义
+
+渐进式 Web 应用程序 (PWA) 是结合了 Web 和移动应用程序优点的 Web 应用程序。它们使用 HTML、CSS 和 JavaScript 等标准 Web 技术构建，但提供了增强的功能，使其感觉像原生应用程序。
+
+### 关键特征
+
+* **渐进式**：它们适用于每个用户，无论浏览器选择如何，因为它们以渐进式增强为核心原则构建。
+* **响应式**：它们适合任何外形尺寸，无论是桌面、移动设备还是平板电脑。
+* **独立于连接**：它们可以使用服务工作者离线或在低质量网络上工作。
+* **类似应用程序**：它们通过类似应用程序的交互和导航为用户提供类似应用程序的体验。
+* **新鲜**：由于服务工作者更新过程，它们始终保持最新状态。
+* **安全**：它们通过 HTTPS 提供，以防止窥探并确保内容未被篡改。
+* **可发现**：由于 W3C 清单和服务工作者注册，它们被标识为“应用程序”，从而允许搜索引擎找到它们。
+* **可重新参与**：它们可以发送推送通知以重新吸引用户。
+* **可安装**：它们允许用户将他们认为最有用的应用程序添加到他们的 home 屏幕，而无需麻烦的应用程序商店。
+* **可链接**：它们可以通过 URL 轻松共享，并且不需要复杂的安装。
+
+### 核心技术
+
+#### 服务工作者
+
+服务工作者是在后台运行的脚本，与网页分开，支持离线功能、后台同步和推送通知等功能。
+
+```js
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/service-worker.js')
+    .then(function (registration) {
+      console.log('Service Worker registered with scope:', registration.scope);
+    })
+    .catch(function (error) {
+      console.log('Service Worker registration failed:', error);
+    });
+}
+```
+
+#### Web 应用程序清单
+
+Web 应用程序清单是一个 JSON 文件，它提供有关应用程序的元数据（名称、图标、启动 URL 等），并允许将其安装在用户的 home 屏幕上。
+
+```json
+{
+  "name": "My PWA",
+  "short_name": "PWA",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "icon/lowres.webp",
+      "sizes": "48x48",
+      "type": "image/webp"
+    },
+    {
+      "src": "icon/hd_hi.ico",
+      "sizes": "72x72 96x96 128x128 256x256"
+    }
+  ]
+}
+```
+
+#### HTTPS
+
+PWA 必须通过 HTTPS 提供以确保安全性和隐私。这是服务工作者和其他高级 Web 功能的要求。
+
+### 优势
+
+* **改进的性能**：PWA 加载速度更快，并提供更流畅的用户体验。
+* **增加的参与度**：推送通知和 home 屏幕安装等功能有助于保持用户的参与度。
+* **具有成本效益**：开发 PWA 可能比为不同平台构建单独的本地应用程序更具成本效益。
+
+## 延伸阅读
+
+* [Google Developers: Progressive Web Apps](https://developers.google.com/web/progressive-web-apps)
+* [MDN Web Docs: Progressive web apps (PWAs)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
+* [Web.dev: What are Progressive Web Apps?](https://web.dev/what-are-pwas/)

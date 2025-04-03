@@ -1,0 +1,72 @@
+---
+title: 如何检查对象是否具有特定属性？
+---
+
+## TL;DR
+
+要检查对象是否具有特定属性，可以使用 `in` 运算符或 `hasOwnProperty` 方法。`in` 运算符检查自有属性和继承属性，而 `hasOwnProperty` 仅检查自有属性。
+
+```js live
+const obj = { key: 'value' };
+
+// 使用 `in` 运算符
+if ('key' in obj) {
+  console.log('Property exists');
+}
+
+// 使用 `hasOwnProperty`
+if (obj.hasOwnProperty('key')) {
+  console.log('Property exists');
+}
+```
+
+***
+
+## 如何检查对象是否具有特定属性？
+
+### 使用 `in` 运算符
+
+`in` 运算符检查属性是否存在于对象中，包括对象原型链中的属性。
+
+```js live
+const obj = { key: 'value' };
+
+if ('key' in obj) {
+  console.log('Property exists');
+}
+```
+
+### 使用 `hasOwnProperty`
+
+`hasOwnProperty` 方法检查属性是否直接存在于对象上，而不是在其原型链中。
+
+```js live
+const obj = { key: 'value' };
+
+if (obj.hasOwnProperty('key')) {
+  console.log('Property exists');
+}
+```
+
+### `in` 和 `hasOwnProperty` 之间的区别
+
+* `in` 运算符检查自有属性和继承属性。
+* `hasOwnProperty` 方法仅检查自有属性。
+
+### 具有继承属性的示例
+
+```js live
+const parentObj = { inheritedKey: 'inheritedValue' };
+const childObj = Object.create(parentObj);
+childObj.ownKey = 'ownValue';
+
+console.log('inheritedKey' in childObj); // true
+console.log(childObj.hasOwnProperty('inheritedKey')); // false
+console.log('ownKey' in childObj); // true
+console.log(childObj.hasOwnProperty('ownKey')); // true
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: in operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in)
+* [MDN Web Docs: Object.prototype.hasOwnProperty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)

@@ -1,0 +1,241 @@
+---
+title: JavaScript 和浏览器中 `XMLHttpRequest` 和 `fetch()` 之间有什么区别？
+---
+
+## TL;DR
+
+`XMLHttpRequest` (XHR) 和 `fetch()` API 都用于 JavaScript (AJAX) 中的异步 HTTP 请求。与 XHR 相比，`fetch()` 提供了更简洁的语法、基于 Promise 的方法和更现代的功能集。但是，存在一些差异：
+
+* `XMLHttpRequest` 事件回调，而 `fetch()` 使用 promise 链。
+* `fetch()` 在标头和请求体方面提供了更大的灵活性。
+* `fetch()` 通过 `catch()` 支持更简洁的错误处理。
+* 使用 `XMLHttpRequest` 处理缓存很困难，但 `fetch()` 默认在 `options.cache` 对象（第二个参数的 `cache` 值）中支持缓存到 `fetch()` 或 `Request()`。
+* `fetch()` 需要 `AbortController` 来取消，而对于 `XMLHttpRequest`，它提供了 `abort()` 属性。
+* `XMLHttpRequest` 对进度跟踪有很好的支持，而 `fetch()` 缺乏。
+* `XMLHttpRequest` 仅在浏览器中可用，并且在 Node.js 环境中不受原生支持。另一方面，`fetch()` 是 JavaScript 语言的一部分，并且在所有现代 JavaScript 运行时中都受支持。
+
+如今，由于其更简洁的语法和现代功能，更倾向于使用 `fetch()`。
+
+***
+
+## `XMLHttpRequest` vs `fetch()`
+
+`XMLHttpRequest` (XHR) 和 `fetch()` 都是在 JavaScript 中进行异步 HTTP 请求的方式。但是，它们在语法、promise 处理和功能集方面存在显着差异。
+
+## 语法和用法
+
+`XMLHttpRequest` 是事件驱动的，需要附加事件侦听器来处理响应/错误状态。创建 `XMLHttpRequest` 对象和发送请求的基本语法如下：
+
+```js live
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1', true);
+xhr.responseType = 'json';
+xhr.onload = function () {
+  if (xhr.status === 200) {
+    console.log(xhr.response);
+  }
+};
+xhr.send();
+```
+
+`xhr` 是 `XMLHttpRequest` 类的实例。`open` 方法用于指定请求方法、URL 以及请求是否应为异步。`onload` 事件用于处理响应，`send` 方法用于发送请求。
+
+`fetch()` 提供了一种更直接、更直观的方式来发出 HTTP 请求。它是基于 `Promise` 的，并返回一个 promise，该 promise 使用响应进行解析或使用错误进行拒绝。使用 `fetch()` 发出 GET 请求的基本语法如下：
+
+```js live
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then((response) => response.text())
+  .then((data) => console.log(data));
+```
+
+## 请求标头
+
+`XMLHttpRequest` 和 `fetch()` 都支持设置请求标头。但是，`fetch()` 在设置标头方面提供了更大的灵活性，因为它支持自定义标头并允许更复杂的标头配置。
+
+`XMLHttpRequest` 支持使用 `setRequestHeader` 方法设置请求标头：
+
+```js
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.setRequestHeader('Authorization', 'Bearer YOUR_TOKEN');
+```
+
+对于 `fetch()`，标头作为对象传递给 `fetch()` 的第二个参数：
+
+```js
+fetch('https://jsonplaceholder.typicode.com/todos/1', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: 'Bearer YOUR_TOKEN',
+  },
+  body: JSON.stringify({
+    name: 'John Doe',
+    age: 30,
+  }),
+});
+```
+
+## 请求体
+
+`XMLHttpRequest` 和 `fetch()` 都支持发送请求体。但是，`fetch()` 在发送请求体方面提供了更大的灵活性，因为它支持发送 JSON 数据、表单数据等。
+
+`XMLHttpRequest` 支持使用 `send` 方法发送请求体：
+
+```js
+const xhr = new XMLHttpRequest();
+xhr.open('POST', 'https://jsonplaceholder.typicode.com/todos/1', true);
+xhr.send(
+  JSON.stringify({
+    name: 'John Doe',
+    age: 30,
+  }),
+);
+```
+
+`fetch()` 支持使用 `fetch()` 的第二个参数中的 `body` 属性发送请求体：
+
+```js
+fetch('https://jsonplaceholder.typicode.com/todos/1', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    name: 'John Doe',
+    age: 30,
+  }),
+});
+```
+
+## 响应处理
+
+`XMLHttpRequest` 提供了一个 `responseType` 属性来设置我们期望的响应格式。`responseType` 默认为 `'text'`，但它支持 `'text'`、`'arraybuffer'`、`'blob'`、`'document'` 和 `'json'` 等类型。
+
+```js live
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1', true);
+xhr.responseType = 'json'; // or 'text', 'blob', 'arraybuffer'
+xhr.onload = function () {
+  if (xhr.status === 200) {
+    console.log(xhr.response);
+  }
+};
+xhr.send();
+```
+
+另一方面，`fetch()` 提供了一个统一的 `Response` 对象，它具有用于访问数据的 `then` 方法。
+
+```js live
+// JSON data
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+
+// Text data
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then((response) => response.text())
+  .then((data) => console.log(data));
+```
+
+## 错误处理
+
+两者都支持错误处理，但 `fetch()` 在错误处理方面提供了更大的灵活性，因为它支持使用 `.catch()` 方法处理错误。
+
+`XMLHttpRequest` 支持使用 `onerror` 事件进行错误处理：
+
+```js live
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://jsonplaceholder.typicod.com/todos/1', true); // Typo in URL
+xhr.responseType = 'json';
+xhr.onload = function () {
+  if (xhr.status === 200) {
+    console.log(xhr.response);
+  }
+};
+xhr.onerror = function () {
+  console.error('Error occurred');
+};
+xhr.send();
+```
+
+`fetch()` 支持使用返回的 `Promise` 上的 `catch()` 方法进行错误处理：
+
+```js live
+fetch('https://jsonplaceholder.typicod.com/todos/1') // Typo in URL
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.error('Error occurred: ' + error));
+```
+
+## 缓存控制
+
+使用 `XMLHttpRequest` 处理缓存很困难，您可能需要向查询字符串添加一个随机值才能绕过浏览器缓存。 默认情况下，`fetch()` 在 `options` 对象的第二个参数中支持缓存：
+
+```js
+const res = await fetch('https://jsonplaceholder.typicode.com/todos/1', {
+  method: 'GET',
+  cache: 'default',
+});
+```
+
+[`cache` option](https://developer.mozilla.org/en-US/docs/Web/API/Request/cache) 的其他值包括 `default`、`no-store`、`reload`、`no-cache`、`force-cache` 和 `only-if-cached`。
+
+## 取消
+
+正在进行的 `XMLHttpRequest` 可以通过运行 `XMLHttpRequest` 的 `abort()` 方法来取消。如果需要，可以通过将 `.onabort` 属性赋值来附加一个 `abort` 处理程序：
+
+```js live
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1');
+xhr.send();
+// ...
+xhr.onabort = () => console.log('aborted');
+xhr.abort();
+```
+
+中止 `fetch()` 需要创建一个 [`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) 对象，并在调用 `fetch()` 时将其作为 `options` 对象的 `signal` 属性传递。
+
+```js live
+const controller = new AbortController();
+const signal = controller.signal;
+
+fetch('https://jsonplaceholder.typicode.com/todos/1', { signal })
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.error('Error occurred: ' + error));
+
+// Abort request.
+controller.abort();
+```
+
+## 进度支持
+
+`XMLHttpRequest` 通过将处理程序附加到 `XMLHttpRequest` 对象的进度事件来支持跟踪请求的进度。 这在上传大文件（例如视频）以跟踪上传进度时特别有用。
+
+```js
+const xhr = new XMLHttpRequest();
+
+// The callback is passed a `ProgressEvent`.
+xhr.upload.onprogress = (event) => {
+  console.log(Math.round((event.loaded / event.total) * 100) + '%');
+};
+```
+
+分配给 `onprogress` 的回调函数会传递一个 [`ProgressEvent`](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/progress_event):
+
+* `ProgressEvent` 上的 `loaded` 字段是一个 64 位整数，指示底层进程已执行的工作量（已上传/下载的字节数）。
+* `ProgressEvent` 上的 `total` 字段是一个 64 位整数，表示底层进程正在执行的总工作量。 下载资源时，这是 HTTP 请求的 `Content-Length` 值。
+
+另一方面，`fetch()` API 并没有提供任何方便的方法来跟踪上传进度。 它可以实现为监视 `Response` 对象的 `body` 作为 `Content-Length` 标头的分数，但这非常复杂。
+
+## 在 `XMLHttpRequest` 和 `fetch()` 之间进行选择
+
+在现代开发场景中，由于其更简洁的语法、基于 promise 的方法以及改进的错误处理、标头和 CORS 等功能处理，`fetch()` 是首选。
+
+## 延伸阅读
+
+* [Fetch API | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+* [XMLHttpRequest | MDN](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
+* [Request: cache property | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Request/cache)
+* [XMLHttpRequest | Javascript.info](https://javascript.info/xmlhttprequest)
+* [This API is so Fetching! - Mozilla Hacks](https://hacks.mozilla.org/2015/03/this-api-is-so-fetching/)

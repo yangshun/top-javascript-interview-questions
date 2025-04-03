@@ -1,0 +1,81 @@
+---
+title: 有哪些用于识别 JavaScript 代码中安全漏洞的工具和技术？
+---
+
+## TL;DR
+
+要识别 JavaScript 代码中的安全漏洞，您可以使用静态代码分析工具（如带有安全插件的 ESLint）、动态分析工具（如 OWASP ZAP）和依赖项检查器（如 npm audit）。此外，手动代码审查和遵守安全编码实践是必不可少的技术。
+
+***
+
+## 用于识别 JavaScript 代码中安全漏洞的工具和技术
+
+### 静态代码分析工具
+
+静态代码分析工具在不执行代码的情况下检查您的代码。它们可以通过分析代码结构和模式来识别潜在的安全漏洞。
+
+* **ESLint**：一个流行的 JavaScript 检查工具，可以使用安全插件（如 `eslint-plugin-security`）进行扩展，以捕获常见的安全问题。
+
+  ```bash
+  npm install eslint eslint-plugin-security --save-dev
+  ```
+
+  ```js
+  // .eslintrc.json
+  {
+    "plugins": ["security"],
+    "extends": ["plugin:security/recommended"]
+  }
+  ```
+
+* **SonarQube**：一个提供代码质量和安全漏洞持续检查的平台。它支持 JavaScript 并与各种 CI/CD 管道集成。
+
+### 动态分析工具
+
+动态分析工具在应用程序运行时对其进行测试，以识别安全漏洞。
+
+* **OWASP ZAP (Zed Attack Proxy)**：一个用于查找 Web 应用程序中安全漏洞的开源工具。它可用于执行自动化扫描和手动测试。
+
+  ```bash
+  zap.sh -daemon -port 8080 -config api.disablekey=true
+  ```
+
+* **Burp Suite**：一个用于 Web 应用程序安全测试的综合平台。它包括用于扫描、爬取和利用漏洞的工具。
+
+### 依赖项检查器
+
+依赖项检查器分析您的项目所依赖的第三方库和包，以识别已知的漏洞。
+
+* **npm audit**：npm 的一个内置工具，用于检查您的项目依赖项中的漏洞。
+
+  ```bash
+  npm audit
+  ```
+
+* **Snyk**：一个持续监控您的依赖项是否存在漏洞并提供修复的工具。
+  ```bash
+  snyk test
+  ```
+
+### 手动代码审查
+
+手动代码审查涉及开发人员检查彼此的代码以识别潜在的安全问题。这种技术是有效的，因为它利用了人类的直觉和经验。
+
+### 安全编码实践
+
+遵守安全编码实践可以帮助防止首先引入安全漏洞。
+
+* **输入验证**：始终验证和清理用户输入，以防止注入攻击。
+* **输出编码**：在呈现数据之前对其进行编码，以防止跨站点脚本 (XSS) 攻击。
+* **使用 HTTPS**：确保您的应用程序使用 HTTPS 对传输中的数据进行加密。
+* **最小权限原则**：向用户和服务授予最低限度的必要权限。
+
+## 延伸阅读
+
+* [OWASP Top Ten](https://owasp.org/www-project-top-ten/)
+* [ESLint](https://eslint.org/)
+* [SonarQube](https://www.sonarqube.org/)
+* [OWASP ZAP](https://www.zaproxy.org/)
+* [Burp Suite](https://portswigger.net/burp)
+* [npm audit](https://docs.npmjs.com/cli/v7/commands/npm-audit)
+* [Snyk](https://snyk.io/)

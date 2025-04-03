@@ -1,0 +1,96 @@
+---
+title: 解释单例模式的概念
+---
+
+## TL;DR
+
+单例模式确保一个类只有一个实例，并提供对该实例的全局访问点。当只需要一个对象来协调整个系统中的操作时，这非常有用。在 JavaScript 中，这可以使用闭包或 ES6 类来实现。
+
+```js live
+class Singleton {
+  constructor() {
+    if (!Singleton.instance) {
+      Singleton.instance = this;
+    }
+    return Singleton.instance;
+  }
+}
+
+const instance1 = new Singleton();
+const instance2 = new Singleton();
+
+console.log(instance1 === instance2); // true
+```
+
+***
+
+## 单例模式
+
+单例模式是一种设计模式，它将一个类的实例化限制为单个实例。当只需要一个对象来协调整个系统中的操作时，这特别有用。
+
+### 关键特征
+
+* **单个实例**：确保一个类只有一个实例。
+* **全局访问**：提供对该实例的全局访问点。
+* **延迟初始化**：仅在需要时才创建实例。
+
+### 在 JavaScript 中的实现
+
+有几种方法可以在 JavaScript 中实现单例模式。以下是两种常见的方法：
+
+#### 使用闭包
+
+```js live
+const Singleton = (function () {
+  let instance;
+
+  function createInstance() {
+    const object = new Object('I am the instance');
+    return object;
+  }
+
+  return {
+    getInstance: function () {
+      if (!instance) {
+        instance = createInstance();
+      }
+      return instance;
+    },
+  };
+})();
+
+const instance1 = Singleton.getInstance();
+const instance2 = Singleton.getInstance();
+
+console.log(instance1 === instance2); // true
+```
+
+#### 使用 ES6 类
+
+```js live
+class Singleton {
+  constructor() {
+    if (!Singleton.instance) {
+      Singleton.instance = this;
+    }
+    return Singleton.instance;
+  }
+}
+
+const instance1 = new Singleton();
+const instance2 = new Singleton();
+
+console.log(instance1 === instance2); // true
+```
+
+### 用例
+
+* **配置对象**：当您需要一个在整个应用程序中共享的配置对象时。
+* **日志记录**：用于管理日志条目的单个日志记录实例。
+* **数据库连接**：确保只建立一个到数据库的连接。
+
+## 延伸阅读
+
+* [维基百科上的单例模式](https://en.wikipedia.org/wiki/Singleton_pattern)
+* [JavaScript 设计模式：单例](https://www.dofactory.com/javascript/design-patterns/singleton)
+* [MDN Web 文档：类](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)

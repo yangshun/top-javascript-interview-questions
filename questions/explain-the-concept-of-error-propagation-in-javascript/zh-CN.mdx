@@ -1,0 +1,105 @@
+---
+title: 解释 JavaScript 中的错误传播概念
+---
+
+## TL;DR
+
+JavaScript 中的错误传播指的是错误如何通过调用堆栈传递。当函数中发生错误时，可以使用 `try...catch` 块捕获和处理它。如果未捕获，错误会沿着调用堆栈向上冒泡，直到它被捕获或导致程序终止。例如：
+
+```js live
+function a() {
+  throw new Error('An error occurred');
+}
+
+function b() {
+  a();
+}
+
+try {
+  b();
+} catch (e) {
+  console.error(e.message); // Outputs: An error occurred
+}
+```
+
+***
+
+## JavaScript 中的错误传播
+
+JavaScript 中的错误传播是一种机制，它允许错误沿着调用堆栈传递，直到它们被捕获和处理。这对于调试和确保错误不会导致整个应用程序意外崩溃至关重要。
+
+### 错误如何传播
+
+当函数中发生错误时，它可以在该函数内被捕获和处理，或者沿着调用堆栈传递到调用函数。如果调用函数不处理该错误，它会继续在堆栈上传播，直到它到达全局范围，这可能会导致程序终止。
+
+### 使用 `try...catch` 块
+
+为了处理错误并防止它们进一步传播，您可以使用 `try...catch` 块。这是一个例子：
+
+```js live
+function a() {
+  throw new Error('An error occurred');
+}
+
+function b() {
+  a();
+}
+
+try {
+  b();
+} catch (e) {
+  console.error(e.message); // Outputs: An error occurred
+}
+```
+
+在这个例子中，函数 `a` 中抛出的错误传播到函数 `b`，然后传播到 `try...catch` 块，在那里它最终被捕获和处理。
+
+### 异步代码的传播
+
+错误传播在异步代码（如 promises 和 `async/await`）中的工作方式有所不同。对于 promises，您可以使用 `.catch()` 来处理错误：
+
+```js live
+function a() {
+  return Promise.reject(new Error('An error occurred'));
+}
+
+function b() {
+  return a();
+}
+
+b().catch((e) => {
+  console.error(e.message); // Outputs: An error occurred
+});
+```
+
+对于 `async/await`，您可以使用 `try...catch` 块：
+
+```js live
+async function a() {
+  throw new Error('An error occurred');
+}
+
+async function b() {
+  await a();
+}
+
+(async () => {
+  try {
+    await b();
+  } catch (e) {
+    console.error(e.message); // Outputs: An error occurred
+  }
+})();
+```
+
+### 最佳实践
+
+* 始终在适当的级别处理错误，以防止它们不必要地传播。
+* 对同步代码使用 `try...catch` 块，对异步代码使用 `.catch()` 或带有 `async/await` 的 `try...catch`。
+* 记录错误以帮助调试，并向用户提供有意义的错误消息。
+
+## 延伸阅读
+
+* [MDN Web Docs: Error handling](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#exception_handling_statements)
+* [JavaScript.info: Error handling, "try...catch"](https://javascript.info/try-catch)
+* [Node.js Error Handling Best Practices](https://nodejs.dev/learn/error-handling-in-nodejs)

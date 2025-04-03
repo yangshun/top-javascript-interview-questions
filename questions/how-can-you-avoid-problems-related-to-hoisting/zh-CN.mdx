@@ -1,0 +1,106 @@
+---
+title: 如何避免与变量提升相关的问题？
+---
+
+## TL;DR
+
+为了避免与变量提升相关的问题，请始终在作用域顶部使用 `let` 或 `const` 声明变量，而不是 `var`。 这可以确保变量是块作用域的，并且不会被提升到包含函数或全局作用域的顶部。 此外，在调用函数之前声明函数，以避免函数提升问题。
+
+```js live
+// Use let or const
+let x = 10;
+const y = 20;
+console.log(x, y); // Output: 10 20
+
+// Declare functions before calling them
+function myFunction() {
+  console.log('Hello, world!');
+}
+myFunction(); // Output: 'Hello, world!'
+```
+
+***
+
+## 如何避免与变量提升相关的问题？
+
+### 了解变量提升
+
+变量提升是 JavaScript 将声明移至当前作用域（脚本或函数）顶部的默认行为。 如果管理不当，这可能会导致意外结果。
+
+### 使用 `let` 和 `const` 而不是 `var`
+
+`let` 和 `const` 是块作用域的，这意味着它们只能在定义它们的块中访问。 这可以防止它们被提升到函数或全局作用域的顶部，从而降低意外行为的风险。
+
+```js live
+console.log(x); // undefined. (Hoisted but uninitialized, risk of unexpected behavior)
+console.log(y); // ReferenceError: Cannot access 'y' before initialization. (Not hoisted)
+console.log(z); // ReferenceError: Cannot access 'z' before initialization. (Not hoisted)
+
+// Avoid using var
+var x = 10; // Hoisted to the top of the function or global scope
+
+// Use let or const
+let y = 20; // Block-scoped, not hoisted to the top
+const z = 30; // Block-scoped, not hoisted to the top
+```
+
+### 在变量作用域的顶部声明变量
+
+为了避免混淆和潜在的错误，请始终在变量的作用域顶部声明变量。 这样可以清楚地说明变量的来源，并确保它们在使用前已初始化。
+
+```js live
+function example() {
+  let a = 1;
+  const b = 2;
+
+  // Now use a and b
+  console.log(a + b);
+}
+example(); // Output: 3
+```
+
+### 在调用函数之前声明它们
+
+函数声明会被提升，但函数表达式不会。 为了避免出现问题，请始终在调用函数之前声明它们。
+
+```js live
+// Function declaration (hoisted)
+function myFunction() {
+  console.log('Hello, world!');
+}
+myFunction(); // No issues here
+
+// Function expression (not hoisted)
+const anotherFunction = function () {
+  console.log('Hello again!');
+};
+anotherFunction(); // No issues here
+```
+
+### 避免使用未声明的变量
+
+由于变量提升，使用未声明的变量可能会导致意外行为。 始终在使用变量之前声明它们。
+
+```js live
+// Avoid this
+function badExample() {
+  x = 10; // ReferenceError in strict mode
+  console.log(x);
+}
+
+// Do this instead
+function goodExample() {
+  let x = 10; // x is declared
+  console.log(x);
+}
+
+goodExample();
+badExample();
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
+* [MDN Web Docs: var](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var)
+* [MDN Web Docs: let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
+* [MDN Web Docs: const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)

@@ -1,0 +1,116 @@
+---
+title: 如何使用约束验证 API 验证表单元素？
+---
+
+## TL;DR
+
+约束验证 API 提供了一种验证 HTML 表单元素的方法。您可以使用 `validity`、`validationMessage` 等属性以及 `checkValidity()` 和 `setCustomValidity()` 等方法。例如，要检查输入是否有效，您可以使用：
+
+```js
+const input = document.querySelector('input');
+if (input.checkValidity()) {
+  console.log('Input is valid');
+} else {
+  console.log(input.validationMessage);
+}
+```
+
+***
+
+## 如何使用约束验证 API 验证表单元素？
+
+### 简介
+
+约束验证 API 是一组在表单元素上可用的方法和属性，允许您执行验证检查并向用户提供反馈。此 API 内置于 HTML5 中，提供了一种验证表单输入的方法，而无需编写自定义 JavaScript 验证逻辑。
+
+### 关键属性和方法
+
+#### `checkValidity()`
+
+`checkValidity()` 方法检查元素是否满足其所有验证约束。如果元素有效，则返回 `true`，否则返回 `false`。
+
+```js
+const input = document.querySelector('input');
+if (input.checkValidity()) {
+  console.log('Input is valid');
+} else {
+  console.log('Input is invalid');
+}
+```
+
+#### `reportValidity()`
+
+`reportValidity()` 方法的工作方式与 `checkValidity()` 类似，但如果元素无效，它还会显示浏览器的默认验证消息。
+
+```js
+const input = document.querySelector('input');
+if (!input.reportValidity()) {
+  console.log('Input is invalid');
+}
+```
+
+#### `setCustomValidity()`
+
+`setCustomValidity()` 方法允许您设置自定义验证消息。如果设置了自定义消息，则该元素将被视为无效。
+
+```js
+const input = document.querySelector('input');
+input.setCustomValidity('This field is required');
+if (!input.checkValidity()) {
+  console.log(input.validationMessage); // Outputs: This field is required
+}
+```
+
+#### `validity`
+
+`validity` 属性是一个对象，包含几个布尔属性，指示元素的有效性状态，例如 `valid`、`valueMissing`、`typeMismatch` 等。
+
+```js
+const input = document.querySelector('input');
+if (input.validity.valueMissing) {
+  console.log('Value is missing');
+}
+```
+
+#### `validationMessage`
+
+如果元素无效，`validationMessage` 属性将返回将向用户显示的消息。
+
+```js
+const input = document.querySelector('input');
+if (!input.checkValidity()) {
+  console.log(input.validationMessage);
+}
+```
+
+### 示例
+
+这是一个完整的示例，演示了如何使用约束验证 API 来验证表单：
+
+```html
+<form id="myForm">
+  <input type="text" id="username" required />
+  <input type="submit" value="Submit" />
+</form>
+
+<script>
+  const form = document.getElementById('myForm');
+  const username = document.getElementById('username');
+
+  form.addEventListener('submit', function (event) {
+    if (!username.checkValidity()) {
+      username.setCustomValidity('Username is required');
+      username.reportValidity();
+      event.preventDefault();
+    } else {
+      username.setCustomValidity(''); // Clear custom message
+    }
+  });
+</script>
+```
+
+在此示例中，如果 `username` 输入为空，则表单将不会提交，并且将显示自定义验证消息。
+
+## 延伸阅读
+
+* [MDN Web Docs: HTMLFormElement.setCustomValidity()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/setCustomValidity)

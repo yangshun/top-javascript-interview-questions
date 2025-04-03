@@ -1,0 +1,67 @@
+---
+title: 如何阻止事件的默认行为？
+---
+
+## TL;DR
+
+要在 JavaScript 中阻止事件的默认行为，您可以在事件对象上使用 `preventDefault` 方法。例如，如果您想阻止表单提交，您可以执行以下操作：
+
+```js
+document.querySelector('form').addEventListener('submit', function (event) {
+  event.preventDefault();
+});
+```
+
+此方法会阻止与事件关联的默认操作发生。
+
+***
+
+## 如何阻止事件的默认行为？
+
+### 使用 `preventDefault` 方法
+
+`preventDefault` 方法用于阻止事件的默认操作发生。这在您想要覆盖元素的默认行为（例如，阻止链接导航到新页面或阻止表单提交）的情况下非常有用。
+
+### 示例：阻止表单提交
+
+要阻止表单提交，您可以将事件监听器附加到表单的 `submit` 事件，并在事件处理程序中调用 `preventDefault`：
+
+```js
+document.querySelector('form').addEventListener('submit', function (event) {
+  event.preventDefault();
+  // 额外的代码来处理表单提交
+});
+```
+
+### 示例：阻止链接导航
+
+要阻止链接导航到新页面，您可以将事件监听器附加到链接的 `click` 事件并调用 `preventDefault`：
+
+```js
+document.querySelector('a').addEventListener('click', function (event) {
+  event.preventDefault();
+  // 额外的代码来处理点击事件
+});
+```
+
+### 示例：阻止其他事件中的默认行为
+
+`preventDefault` 方法可以与各种其他事件一起使用，例如 `keydown`、`contextmenu` 等。 这是一个阻止右键单击时出现默认上下文菜单的示例：
+
+```js
+document.addEventListener('contextmenu', function (event) {
+  event.preventDefault();
+  // 额外的代码来处理右键单击事件
+});
+```
+
+### 重要注意事项
+
+* `preventDefault` 方法应在事件处理程序函数中调用。
+* 并非所有事件都具有可以阻止的默认行为。 例如，自定义事件没有默认操作。
+
+## 延伸阅读
+
+* [MDN Web Docs: Event.preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
+* [JavaScript.info: Browser default actions](https://javascript.info/default-browser-action)
+* [W3Schools: JavaScript Event preventDefault()](https://www.w3schools.com/jsref/event_preventdefault.asp)

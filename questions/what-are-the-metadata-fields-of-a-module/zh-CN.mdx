@@ -1,0 +1,162 @@
+---
+title: 模块的元数据字段是什么？
+---
+
+## TL;DR
+
+模块的元数据字段通常包括模块的名称、版本、描述、作者、许可证和依赖项等信息。这些字段通常在 JavaScript 项目的 `package.json` 文件中找到。例如：
+
+```json
+{
+  "name": "my-module",
+  "version": "1.0.0",
+  "description": "A sample module",
+  "author": "John Doe",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
+```
+
+***
+
+## 模块的元数据字段
+
+### 名称
+
+``name`` 字段指定模块的名称。它用于在包注册表中标识模块，以及将其作为依赖项安装时。
+
+```json
+{
+  "name": "my-module"
+}
+```
+
+### 版本
+
+``version`` 字段指示模块的当前版本。它遵循语义版本控制 (semver) 指导方针。
+
+```json
+{
+  "version": "1.0.0"
+}
+```
+
+### 描述
+
+``description`` 字段简要概述了模块的功能。这对于浏览包注册表的用户很有用。
+
+```json
+{
+  "description": "A sample module"
+}
+```
+
+### 作者
+
+``author`` 字段指定模块作者的姓名和联系信息。
+
+```json
+{
+  "author": "John Doe"
+}
+```
+
+### 许可证
+
+`license` 字段指示可以使用该模块的许可条款。 常见的许可证包括 MIT、Apache-2.0 和 GPL-3.0。
+
+```json
+{
+  "license": "MIT"
+}
+```
+
+### 依赖项
+
+`dependencies` 字段列出了当前模块正常工作所依赖的其他模块。 每个依赖项都使用其名称和版本范围指定。
+
+```json
+{
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
+```
+
+### DevDependencies
+
+`devDependencies` 字段列出了仅用于开发和测试的模块，而不是用于生产环境。
+
+```json
+{
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
+```
+
+### 脚本
+
+`scripts` 字段允许您定义可以使用 `npm run <script-name>` 运行的脚本命令。
+
+```json
+{
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  }
+}
+```
+
+### 关键词
+
+`keywords` 字段是一个字符串数组，可帮助用户在包注册表中搜索时找到该模块。
+
+```json
+{
+  "keywords": ["sample", "module", "example"]
+}
+```
+
+### 存储库
+
+`repository` 字段提供有关模块源代码存储库的信息。
+
+```json
+{
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/my-module.git"
+  }
+}
+```
+
+### Bugs
+
+`bugs` 字段提供有关在哪里报告模块问题的相关信息。
+
+```json
+{
+  "bugs": {
+    "url": "https://github.com/username/my-module/issues"
+  }
+}
+```
+
+### 主页
+
+``homepage`` 字段指定模块主页的 URL。
+
+```json
+{
+  "homepage": "https://github.com/username/my-module#readme"
+}
+```
+
+## 延伸阅读
+
+* [npm package.json documentation](https://docs.npmjs.com/cli/v7/configuring-npm/package-json)
+* [Semantic Versioning](https://semver.org/)
+* [CommonJS Modules](https://nodejs.org/docs/latest/api/modules.html)

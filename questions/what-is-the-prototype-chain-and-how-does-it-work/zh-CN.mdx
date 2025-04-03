@@ -1,0 +1,103 @@
+---
+title: 什么是原型链以及它如何工作？
+---
+
+## TL;DR
+
+原型链是 JavaScript 中允许对象从其他对象继承属性和方法的一种机制。当您尝试访问对象上的属性时，JavaScript 将首先在对象本身上查找该属性。如果找不到，它将查看对象的原型，然后是原型的原型，依此类推，直到找到该属性或到达链的末尾，即 `null`。
+
+```js live
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.greet = function () {
+  console.log(`Hello, my name is ${this.name}`);
+};
+
+const alice = new Person('Alice');
+alice.greet(); // "Hello, my name is Alice"
+```
+
+在这个例子中，`alice` 从 `Person.prototype` 继承了 `greet` 方法。
+
+***
+
+## 什么是原型链以及它如何工作？
+
+### 理解原型
+
+在 JavaScript 中，每个对象都有一个原型。原型也是一个对象，它可以有自己的原型，从而形成一个链。这个链被称为原型链。
+
+### 原型链的工作原理
+
+当您尝试访问对象上的属性或方法时，JavaScript 将会：
+
+1. 在对象本身上查找属性或方法。
+2. 如果找不到，它将查看对象的原型。
+3. 如果仍然找不到，它将查看原型的原型。
+4. 此过程将一直持续到找到属性或方法，或者到达链的末尾，即 `null`。
+
+### 例子
+
+```js live
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.greet = function () {
+  console.log(`Hello, my name is ${this.name}`);
+};
+
+const alice = new Person('Alice');
+alice.greet(); // "Hello, my name is Alice"
+```
+
+在这个例子中：
+
+1. `alice` 是 `Person` 的一个实例。
+2. `alice` 并没有直接在其上拥有 `greet` 方法。
+3. JavaScript 查看 `alice` 的原型，即 `Person.prototype`。
+4. `Person.prototype` 有一个 `greet` 方法，所以 JavaScript 调用它。
+
+### 内置对象中的原型链
+
+JavaScript 的内置对象也使用原型链。例如，数组继承自 `Array.prototype`，而 `Array.prototype` 又继承自 `Object.prototype`。
+
+```js live
+const arr = [1, 2, 3];
+console.log(arr.toString()); // "1,2,3"
+```
+
+在这个例子中：
+
+1. `arr` 是 `Array` 的一个实例。
+2. `arr` 并没有直接在其上拥有 `toString` 方法。
+3. JavaScript 查看 `arr` 的原型，即 `Array.prototype`。
+4. `Array.prototype` 有一个 `toString` 方法，所以 JavaScript 调用它。
+
+### 修改原型
+
+您可以向对象的原型添加属性和方法，该对象的所有实例都可以访问这些属性和方法。
+
+```js live
+function Person(name) {
+  this.name = name;
+}
+
+const alice = new Person('Alice');
+
+Person.prototype.sayGoodbye = function () {
+  console.log(`Goodbye from ${this.name}`);
+};
+
+alice.sayGoodbye(); // "Goodbye from Alice"
+```
+
+在此示例中，我们向 `Person.prototype` 添加了一个 `sayGoodbye` 方法，现在 `alice` 可以使用它。
+
+## 延伸阅读
+
+* [MDN Web Docs: Inheritance and the prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+* [JavaScript.info: Prototypes](https://javascript.info/prototype-inheritance)
+* [Eloquent JavaScript: Prototypes](https://eloquentjavascript.net/06_object.html#h_jl8p9u9e2d)

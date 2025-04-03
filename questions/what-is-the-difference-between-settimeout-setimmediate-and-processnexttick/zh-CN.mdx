@@ -1,0 +1,76 @@
+---
+title: setTimeout()、setImmediate() 和 process.nextTick() 之间有什么区别？
+---
+
+## TL;DR
+
+`setTimeout()` 安排在最短延迟后运行回调。`setImmediate()` 安排在当前事件循环完成后运行回调。`process.nextTick()` 安排在下一个事件循环迭代开始之前运行回调。
+
+```js
+setTimeout(() => console.log('setTimeout'), 0);
+setImmediate(() => console.log('setImmediate'));
+process.nextTick(() => console.log('nextTick'));
+```
+
+在此示例中，`process.nextTick()` 将首先执行，然后是 `setTimeout()` 或 `setImmediate()`，具体取决于环境。
+
+***
+
+## `setTimeout()`、`setImmediate()` 和 `process.nextTick()` 之间的区别
+
+### `setTimeout()`
+
+`setTimeout()` 是一个函数，它安排在指定的延迟（以毫秒为单位）后执行回调。在现代浏览器和 Node.js 中，最短延迟大约为 4 毫秒。
+
+```js live
+setTimeout(() => {
+  console.log('Executed after at least 1000 milliseconds');
+}, 1000);
+```
+
+### `setImmediate()`
+
+`setImmediate()` 是 Node.js 中可用的一个函数，它安排在当前事件循环阶段完成后立即执行回调。它类似于延迟为 0 的 `setTimeout()`，但对于立即执行，它更有效。
+
+```js
+setImmediate(() => {
+  console.log('Executed after the current event loop phase');
+});
+```
+
+### `process.nextTick()`
+
+`process.nextTick()` 是 Node.js 中可用的一个函数，它安排在下一个事件循环迭代开始之前执行回调。它用于将函数的执行推迟到当前操作完成。
+
+```js
+process.nextTick(() => {
+  console.log('Executed before the next event loop iteration');
+});
+```
+
+### 执行顺序
+
+以下示例演示了这些函数的执行顺序：
+
+```js
+setTimeout(() => console.log('setTimeout'), 0);
+setImmediate(() => console.log('setImmediate'));
+process.nextTick(() => console.log('nextTick'));
+```
+
+在此示例中，输出将是：
+
+```
+nextTick
+setTimeout or setImmediate (order may vary)
+setImmediate or setTimeout (order may vary)
+```
+
+`process.nextTick()` 将始终首先执行，然后是 `setTimeout()` 或 `setImmediate()`，具体取决于环境。
+
+## 延伸阅读
+
+* [Node.js 事件循环](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
+* [MDN Web 文档：setTimeout()](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)
+* [Node.js 文档：setImmediate()](https://nodejs.org/api/timers.html#timers_setimmediate_callback_args)
+* [Node.js 文档：process.nextTick()](https://nodejs.org/api/process.html#process_process_nexttick_callback_args)

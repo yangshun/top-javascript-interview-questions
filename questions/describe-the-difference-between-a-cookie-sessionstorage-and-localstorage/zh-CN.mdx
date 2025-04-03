@@ -1,30 +1,146 @@
 ---
-title: 描述cookie、 `sessionStorage` 和 `localStorage` 之间的差异。
+title: 描述浏览器中 cookie、`sessionStorage` 和 `localStorage` 之间的区别
 ---
 
-LocalStorage 对于存储用户以后需要访问的数据很有用，例如离线数据，因为它把数据存储在浏览器和系统中。 即使用户关闭和重新打开浏览器，这些数据也将持续存在，并可被其他网站访问。
+## 总结
 
-SessionStorage 是提高你的 Web 应用程序性能的一个好方法。 它在浏览器上本地存储数据，但特定于（并且只能由）各自的网站/浏览器标签访问，并且只有当用户在网站/标签上时才能使用。 由于限制性的访问，这是一个更安全的存储方法，并且由于减少了服务器和客户端之间的数据传输，促进了更好的网站性能。
+以下都是在客户端（本例中为用户的浏览器）上存储数据的机制。`localStorage` 和 `sessionStorage` 都实现了 [Web Storage API 接口](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)。
 
-对于存储不应长期保存的数据，如会话 ID，Cookies 是一个不错的选择。 Cookies 允许你设置一个过期时间，届时它将被删除。 与其他两种存储方法相比，Cookies 只能是较小尺寸的数据。
+* **Cookies**：适用于服务器-客户端通信，存储容量小，可以是持久性的或基于会话的，特定于域。在每次请求时发送到服务器。
+* **`localStorage`**：适用于长期存储，即使在浏览器关闭后数据仍然存在，可在同一来源的所有选项卡和窗口中访问，在三者中存储容量最高。
+* **`sessionStorage`**：适用于单个页面会话中的临时数据，当选项卡或窗口关闭时数据将被清除，与 cookies 相比具有更高的存储容量。
 
-## 相似性
-
-Cookies、`localStorage`和`sessionStorage`都是:
-
-- 客户端的存储机制。 这意味着客户端可以阅读和修改这些值。
-- 基于键值的存储。
-- 他们只能存储作为字符串的值。 对象必须序列化为字符串 (`JSON.stringify()`) 才能存储。
-
-## 差异
+以下表格总结了 3 种客户端存储机制。
 
 | 属性 | Cookie | `localStorage` | `sessionStorage` |
 | --- | --- | --- | --- |
-| 发起方 | 客户端或服务器。 服务器可以使用 `Set-Cookie` 头 | 客户端 | 客户端 |
-| 有效期 | 手动设置 | 永久 | 标签关闭时 |
-| 跨浏览器会话的持久性 | 取决于是否设置过期时间 | 是 | 否 |
-| 每次 HTTP 请求都发送到服务器 | Cookie 会自动通过 `Cookie` 头发送 | 否 | 否 |
-| 容量(每个域) | 4kb | 5MB | 5MB |
-| 访问权限 | 任何窗口 | 任何窗口 | 部分标签页 |
+| 发起者 | 客户端或服务器。服务器可以使用 `Set-Cookie` 标头 | 客户端 | 客户端 |
+| 寿命 | 如指定 | 直到删除 | 直到选项卡关闭 |
+| 是否跨浏览器会话持久 | 如果设置了未来的过期日期 | 是 | 否 |
+| 是否随每个 HTTP 请求发送到服务器 | 是，通过 `Cookie` 标头发送 | 否 | 否 |
+| 总容量（每个域） | 4kb | 5MB | 5MB |
+| 访问 | 跨窗口/选项卡 | 跨窗口/选项卡 | 相同选项卡 |
+| 安全性 | JavaScript 无法访问 `HttpOnly` cookies | 无 | 无 |
 
-还有其他客户端存储机制，如 [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/ADI/IndexedDB_API)，比上述技术更强大，但使用起来更复杂。
+***
+
+## Web 上的存储
+
+Cookies、`localStorage` 和 `sessionStorage` 都是客户端（Web 浏览器）上的存储机制。在客户端存储数据对于仅客户端的状态很有用，例如访问令牌、主题、个性化布局，以便用户可以在跨选项卡和使用会话的网站上获得一致的体验。
+
+这些客户端存储机制具有以下常见属性：
+
+* 这意味着客户端可以读取和修改值（`HttpOnly` cookies 除外）。
+* 基于键值对的存储。
+* 它们只能将值存储为字符串。非字符串必须被序列化为字符串（例如 `JSON.stringify()`）才能被存储。
+
+### 每种存储机制的用例
+
+由于 cookies 的最大大小相对较小，因此不建议将所有客户端数据存储在 cookies 中。关于 cookies 的显著特性是 cookies 会在每个 HTTP 请求中发送到服务器，因此较小的最大大小是一个特性，可以防止您的 HTTP 请求由于 cookies 而变得过大。cookies 的自动过期也是一个有用的特性。
+
+考虑到这一点，最适合存储在 cookies 中的数据是需要传输到服务器的小块数据，例如身份验证令牌、会话 ID、分析跟踪 ID、GDPR cookie 同意、对身份验证、授权和在服务器上呈现很重要的语言偏好。这些值有时很敏感，并且可以从 cookies 提供的 `HttpOnly`、`Secure` 和 `Expires`/`Max-Age` 功能中受益。
+
+`localStorage` 和 `sessionStorage` 都实现了 [Web Storage API 接口](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)。Web Storages 具有 5MB 的总容量，因此存储大小通常不是问题。关键的区别在于，存储在 Web Storage 中的值不会自动随 HTTP 请求一起发送。
+
+虽然您可以在发出 AJAX/`fetch()` 请求时手动包含来自 Web Storage 的值，但浏览器不会在页面的初始请求/首次加载中包含它们。因此，如果使用服务器端渲染（通常是与身份验证/授权相关的信息），则不应使用 Web Storage 来存储服务器用于页面初始渲染所依赖的数据。`localStorage` 最适合不失效的用户偏好数据，例如主题和布局（如果服务器渲染最终布局并不重要）。`sessionStorage` 最适合只需要在当前浏览会话中访问的临时数据，例如表单数据（用于在意外重新加载期间保留数据）。
+
+以下部分深入探讨了每种客户端存储机制。
+
+### Cookies
+
+Cookies 用于在客户端存储小块数据，这些数据可以通过每个 HTTP 请求发送回服务器。
+
+* **存储容量**：所有 cookies 限制在 4KB 左右。
+* **寿命**：Cookies 可以使用 `Expires` 或 `Max-Age` 属性设置特定的过期日期。如果未设置过期日期，则在浏览器关闭时删除 cookie（会话 cookie）。
+* **访问**：Cookies 是特定于域的，可以在同一域内的不同页面和子域之间共享。
+* **安全性**：Cookies 可以标记为 `HttpOnly` 以防止从 JavaScript 访问，从而降低 XSS 攻击的风险。它们也可以使用 `Secure` 标志进行保护，以确保仅在使用 HTTPS 时发送它们。
+
+```js
+// Set a cookie for the name/key `auth_token` with an expiry.
+document.cookie =
+  'auth_token=abc123def; expires=Fri, 31 Dec 2024 23:59:59 GMT; path=/';
+
+// Read all cookies. There's no way to read specific cookies using `document.cookie`.
+// You have to parse the string yourself.
+console.log(document.cookie); // auth_token=abc123def
+
+// Delete the cookie with the name/key `auth_token` by setting an
+// expiry date in the past. The value doesn't matter.
+document.cookie = 'auth_token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+```
+
+读取/写入 Cookie 是一件很痛苦的事情。`document.cookie` 返回一个包含所有由 `;` 分隔的键/值对的字符串，您必须自己解析该字符串。[`js-cookie`](https://github.com/js-cookie/js-cookie) npm 库提供了一个简单轻量级的 API，用于在 JavaScript 中读写 Cookie。
+
+访问 Cookie 的现代原生方式是通过 [Cookie Store API](https://developer.mozilla.org/en-US/docs/Web/API/Cookie_Store_API)，该 API 仅在 HTTPS 页面上可用。
+
+```js
+// Set a cookie. More options are available too.
+cookieStore.set('auth_token', 'abc123def');
+
+// Async method to access a single cookie and do something with it.
+cookieStore.get('auth_token').then(...);
+
+// Async method to get all cookies.
+cookieStore.getAll().then(...);
+
+// Async method to delete a single cookie.
+cookieStore.delete('auth_token').then(() =>
+  console.log('Cookie deleted')
+);
+```
+
+CookieStore API 相对较新，可能并非所有浏览器都支持（截至 2024 年 6 月，在最新的 Chrome 和 Edge 中受支持）。请参阅 [caniuse.com](https://caniuse.com/mdn-api_cookiestore) 以获取最新的兼容性信息。
+
+### `localStorage`
+
+`localStorage` 用于存储即使在浏览器关闭并重新打开后仍保留的数据。它专为长期存储数据而设计。
+
+* **存储容量**：通常每个来源约 5MB（因浏览器而异）。
+* **生命周期**：`localStorage` 中的数据会一直存在，直到用户或应用程序显式删除。
+* **访问**：数据可在同一来源的所有选项卡和窗口中访问。
+* **安全性**：页面上的所有 JavaScript 都可以访问 `localStorage` 中的值。
+
+```js
+// Set a value in localStorage.
+localStorage.setItem('key', 'value');
+
+// Get a value from localStorage.
+console.log(localStorage.getItem('key'));
+
+// Remove a value from localStorage.
+localStorage.removeItem('key');
+
+// Clear all data in localStorage.
+localStorage.clear();
+```
+
+### `sessionStorage`
+
+`sessionStorage` 用于存储页面会话期间的数据。它专为临时存储数据而设计。
+
+* **存储容量**：通常每个来源约 5MB（因浏览器而异）。
+* **生命周期**：当页面会话结束时（即，当浏览器或选项卡关闭时），`sessionStorage` 中的数据将被清除。重新加载页面不会销毁 `sessionStorage` 中的数据。
+* **访问**：数据仅在当前选项卡或窗口中可访问。具有相同页面的不同选项卡或窗口将具有不同的 `sessionStorage` 对象。
+* **安全性**：同一页面上的所有 JavaScript 都可以访问该页面 `sessionStorage` 中的值。
+
+```js
+// Set a value in sessionStorage.
+sessionStorage.setItem('key', 'value');
+
+// Get a value from sessionStorage.
+console.log(sessionStorage.getItem('key'));
+
+// Remove a value from sessionStorage.
+sessionStorage.removeItem('key');
+
+// Clear all data in sessionStorage.
+sessionStorage.clear();
+```
+
+## 注意事项
+
+还有其他客户端存储机制，例如 [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)，它比上述技术更强大，但使用起来更复杂。
+
+## 参考
+
+* [localStorage、sessionStorage、session 和 cookie 之间有什么区别？](https://stackoverflow.com/questions/19867599/what-is-the-difference-between-localstorage-sessionstorage-session-and-cookies)

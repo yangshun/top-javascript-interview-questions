@@ -1,0 +1,70 @@
+---
+title: '`Intl` 命名空间对象是做什么的？'
+---
+
+## TL;DR
+
+JavaScript 中的 `Intl` 命名空间对象用于国际化目的。它提供了语言敏感的字符串比较、数字格式化以及日期和时间格式化。例如，您可以使用 `Intl.DateTimeFormat` 根据特定区域设置格式化日期：
+
+```js live
+const date = new Date();
+const formatter = new Intl.DateTimeFormat('en-US');
+console.log(formatter.format(date)); // Outputs date in 'MM/DD/YYYY' format
+```
+
+***
+
+## `Intl` 命名空间对象是做什么的？
+
+JavaScript 中的 `Intl` 命名空间对象是 ECMAScript 国际化 API 的一部分，它提供语言敏感的字符串比较、数字格式化以及日期和时间格式化。这对于需要支持多种语言和地区的应用程序特别有用。
+
+### 语言敏感的字符串比较
+
+`Intl.Collator` 对象用于以区域设置感知的方式比较字符串。这对于以符合特定语言的约定的方式对字符串进行排序非常有用。
+
+```js live
+const collator = new Intl.Collator('de-DE');
+console.log(collator.compare('ä', 'z')); // Outputs a negative number because 'ä' comes before 'z' in German
+```
+
+### 数字格式化
+
+`Intl.NumberFormat` 对象用于根据特定区域设置的约定格式化数字。这包括货币、百分比和纯数字的格式化。
+
+```js live
+const number = 1234567.89;
+const formatter = new Intl.NumberFormat('de-DE', {
+  style: 'currency',
+  currency: 'EUR',
+});
+console.log(formatter.format(number)); // Outputs '1.234.567,89 €'
+```
+
+### 日期和时间格式化
+
+`Intl.DateTimeFormat` 对象用于根据特定区域设置的约定格式化日期和时间。
+
+```js live
+const date = new Date();
+const formatter = new Intl.DateTimeFormat('en-GB', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+console.log(formatter.format(date)); // Outputs date in 'DD Month YYYY' format
+```
+
+### 复数规则
+
+`Intl.PluralRules` 对象用于获取特定区域设置中数字的复数形式。这对于正确地将不同语言中的单词复数化非常有用。
+
+```js live
+const pluralRules = new Intl.PluralRules('en-US');
+console.log(pluralRules.select(1)); // Outputs 'one'
+console.log(pluralRules.select(2)); // Outputs 'other'
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)
+* [ECMAScript Internationalization API Specification](https://tc39.es/ecma402/)

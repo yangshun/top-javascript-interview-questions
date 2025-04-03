@@ -1,0 +1,118 @@
+---
+title: 如何在 JavaScript 应用程序中实现安全的身份验证和授权？
+---
+
+## TL;DR
+
+要在 JavaScript 应用程序中实现安全的身份验证和授权，请使用 HTTPS 加密传输中的数据，并使用 `localStorage` 或 `sessionStorage` 安全地存储令牌等敏感数据。使用 JWT 实现基于令牌的身份验证，并在服务器端验证令牌。使用 OAuth 等库进行第三方身份验证，并确保为授权使用适当的基于角色的访问控制 (RBAC)。
+
+***
+
+## 如何在 JavaScript 应用程序中实现安全的身份验证和授权？
+
+### 使用 HTTPS
+
+确保您的应用程序使用 HTTPS 加密传输中的数据。这可以防止中间人攻击，并确保客户端和服务器之间交换的数据是安全的。
+
+### 基于令牌的身份验证
+
+使用 JSON Web 令牌 (JWT) 进行基于令牌的身份验证。JWT 是紧凑的、URL 安全的令牌，可用于在各方之间安全地传输信息。
+
+#### 生成 JWT 的示例
+
+```js
+const jwt = require('jsonwebtoken');
+
+const token = jwt.sign({ userId: 123 }, 'your-256-bit-secret', {
+  expiresIn: '1h',
+});
+```
+
+#### 验证 JWT 的示例
+
+```js
+const jwt = require('jsonwebtoken');
+
+try {
+  const decoded = jwt.verify(token, 'your-256-bit-secret');
+  console.log(decoded);
+} catch (err) {
+  console.error('Invalid token');
+}
+```
+
+### 安全存储
+
+安全地存储令牌等敏感数据。使用 `localStorage` 或 `sessionStorage` 存储令牌，但要注意它们存在的漏洞。为了提高安全性，请考虑使用 HttpOnly cookie。
+
+#### 将令牌存储在 `localStorage` 中的示例
+
+```js
+localStorage.setItem('token', token);
+```
+
+#### 从 `localStorage` 检索令牌的示例
+
+```js
+const token = localStorage.getItem('token');
+```
+
+### 服务器端验证
+
+始终在服务器端验证令牌，以确保它们未被篡改。这增加了额外的安全层。
+
+### 用于第三方身份验证的 OAuth
+
+使用 OAuth 进行第三方身份验证。像 Passport.js 这样的库可以简化应用程序中 OAuth 的实现。
+
+#### 使用 Passport.js 进行 Google OAuth 的示例
+
+```js
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: 'YOUR_GOOGLE_CLIENT_ID',
+      clientSecret: 'YOUR_GOOGLE_CLIENT_SECRET',
+      callbackURL: 'http://www.example.com/auth/google/callback',
+    },
+    function (accessToken, refreshToken, profile, done) {
+      User.findOrCreate({ googleId: profile.id }, function (err, user) {
+        return done(err, user);
+      });
+    },
+  ),
+);
+```
+
+### 基于角色的访问控制 (RBAC)
+
+实施基于角色的访问控制，以确保用户拥有访问资源的适当权限。
+
+#### Express.js 中 RBAC 中间件的示例
+
+```js
+function checkRole(role) {
+  return function (req, res, next) {
+    if (req.user && req.user.role === role) {
+      next();
+    } else {
+      res.status(403).send('Forbidden');
+    }
+  };
+}
+
+// Usage
+app.get('/admin', checkRole('admin'), (req, res) => {
+  res.send('Welcome, admin!');
+});
+```
+
+## 延伸阅读
+
+* [JWT.io](https://jwt.io/)
+* [Passport.js documentation](http://www.passportjs.org/docs/)
+* [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices/)
+* [MDN Web Docs on HTTPS](https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security)

@@ -1,0 +1,149 @@
+---
+title: 什么是命令模式以及如何使用它？
+---
+
+## TL;DR
+
+命令模式是一种行为型设计模式，它将请求转化为一个独立的包含关于请求所有信息的对象。这种转换允许使用不同的请求对方法进行参数化、请求排队和请求日志记录。它还支持可撤销操作。在 JavaScript 中，可以通过创建具有 `execute` 和 `undo` 方法的命令对象来实现。
+
+```js live
+class Command {
+  execute() {}
+  undo() {}
+}
+
+class LightOnCommand extends Command {
+  constructor(light) {
+    super();
+    this.light = light;
+  }
+  execute() {
+    this.light.on();
+  }
+  undo() {
+    this.light.off();
+  }
+}
+
+class Light {
+  on() {
+    console.log('Light is on');
+  }
+  off() {
+    console.log('Light is off');
+  }
+}
+
+const light = new Light();
+const lightOnCommand = new LightOnCommand(light);
+lightOnCommand.execute(); // Light is on
+lightOnCommand.undo(); // Light is off
+```
+
+***
+
+## 什么是命令模式以及如何使用它？
+
+### 定义
+
+命令模式是一种行为型设计模式，它将请求封装成一个对象，从而允许使用队列、请求和操作对客户端进行参数化。它还支持可撤销操作。
+
+### 组件
+
+1. **Command**：声明用于执行操作的接口。
+2. **ConcreteCommand**：通过在 `Receiver` 上调用相应的操作来实现 `execute` 方法。
+3. **Receiver**：知道如何执行与执行请求相关的操作。
+4. **Invoker**：要求命令执行请求。
+5. **Client**：创建一个 `ConcreteCommand` 对象并设置其接收者。
+
+### 在 JavaScript 中的实现
+
+```js live
+// Step 1: Define the Command interface
+
+class Command {
+  execute() {}
+  undo() {}
+}
+
+// Step 2: Create ConcreteCommand classes
+
+class LightOnCommand extends Command {
+  constructor(light) {
+    super();
+    this.light = light;
+  }
+  execute() {
+    this.light.on();
+  }
+  undo() {
+    this.light.off();
+  }
+}
+
+class LightOffCommand extends Command {
+  constructor(light) {
+    super();
+    this.light = light;
+  }
+  execute() {
+    this.light.off();
+  }
+  undo() {
+    this.light.on();
+  }
+}
+
+// Step 3: Define the Receiver
+
+class Light {
+  on() {
+    console.log('Light is on');
+  }
+  off() {
+    console.log('Light is off');
+  }
+}
+
+// Step 4: Create the Invoker
+
+class RemoteControl {
+  setCommand(command) {
+    this.command = command;
+  }
+  pressButton() {
+    this.command.execute();
+  }
+  pressUndo() {
+    this.command.undo();
+  }
+}
+
+// Step 5: Client code
+
+const light = new Light();
+const lightOnCommand = new LightOnCommand(light);
+const lightOffCommand = new LightOffCommand(light);
+
+const remote = new RemoteControl();
+remote.setCommand(lightOnCommand);
+remote.pressButton(); // Light is on
+remote.pressUndo(); // Light is off
+
+remote.setCommand(lightOffCommand);
+remote.pressButton(); // Light is off
+remote.pressUndo(); // Light is on
+```
+
+### 用例
+
+* **撤销/重做功能**：命令模式是实现撤销和重做操作的理想选择。
+* **宏命令**：它可用于实现一系列命令。
+* **记录更改**：它有助于记录更改并稍后进行审计。
+* **GUI 按钮和菜单项**：它对于实现由 GUI 元素触发的操作很有用。
+
+## 延伸阅读
+
+* [Refactoring Guru: Command Pattern](https://refactoring.guru/design-patterns/command)
+* [JavaScript Design Patterns: Command](https://www.dofactory.com/javascript/design-patterns/command)
+* [MDN Web Docs: Command Pattern](https://developer.mozilla.org/en-US/docs/Glossary/Command_pattern)

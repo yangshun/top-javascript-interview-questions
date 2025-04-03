@@ -1,7 +1,127 @@
 ---
-title: 尽可能详细地解释Ajax
+title: 尽可能详细地解释 AJAX
 ---
 
-Ajax (异步 JavaScript 和 XML) 是一套网络开发技术，在客户端使用许多网络技术创建异步 Web 应用程序。 使用 Ajax， Web 应用程序可以将数据异步地发送到服务器（后端）并从服务器上检索，而不干扰现有页面的显示和行为。 通过将数据交换层与表现层解耦，Ajax 允许网页，以及扩展的 Web 应用程序，动态地改变内容，而不需要重新加载整个页面。 实际上，现代实现通常使用 JSON 而不是 XML，因为 JSON 是 JavaScript 的原生优势。
+## TL;DR
 
-`XMLHttpRequest` API 或如今的 `fetch()` API 经常用于异步通信。
+AJAX（异步 JavaScript 和 XML）促进客户端和服务器之间的异步通信，无需重新加载即可实现对网页的动态更新。它使用 `XMLHttpRequest` 或 `fetch()` API 等技术在后台发送和接收数据。在现代 Web 应用程序中，`fetch()` API 更常用于实现 AJAX。
+
+**使用 `XMLHttpRequest`**
+
+```js live
+let xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === XMLHttpRequest.DONE) {
+    if (xhr.status === 200) {
+      console.log(xhr.responseText);
+    } else {
+      console.error('Request failed: ' + xhr.status);
+    }
+  }
+};
+xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1', true);
+xhr.send();
+```
+
+**使用 `fetch()`**
+
+```js live
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then((data) => console.log(data))
+  .catch((error) => console.error('Fetch error:', error));
+```
+
+***
+
+## AJAX（异步 JavaScript 和 XML）
+
+AJAX（异步 JavaScript 和 XML）是一组 Web 开发技术，在客户端使用许多 Web 技术来创建异步 Web 应用程序。与每次用户交互都会触发完全页面重新加载的传统 Web 应用程序不同，使用 AJAX，Web 应用程序可以异步地（在后台）向服务器发送数据并从服务器检索数据，而不会干扰现有页面的显示和行为。通过将数据交换层与表示层分离，AJAX 允许网页（以及扩展的 Web 应用程序）动态更改内容，而无需重新加载整个页面。实际上，由于 JSON 具有 JavaScript 原生的优势，现代实现通常使用 JSON 而不是 XML。
+
+传统上，AJAX 是使用 `XMLHttpRequest` API 实现的，但 `fetch()` API 更适合现代 Web 应用程序，也更容易使用。
+
+## `XMLHttpRequest` API
+
+以下是其使用方式的一个基本示例：
+
+```js live
+let xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === XMLHttpRequest.DONE) {
+    if (xhr.status === 200) {
+      console.log(xhr.responseText);
+    } else {
+      console.error('Request failed: ' + xhr.status);
+    }
+  }
+};
+xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1', true);
+xhr.send();
+```
+
+## `fetch()` API
+
+或者，`fetch()` API 提供了一种基于 Promise 的现代方法来发出 AJAX 请求。它在现代 Web 应用程序中更常用。
+
+以下是如何使用它：
+
+```js live
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then((data) => console.log(data))
+  .catch((error) => console.error('Fetch error:', error));
+```
+
+## AJAX 如何工作？
+
+在现代浏览器中，AJAX 使用 `fetch()` API 而不是 `XMLHTTPRequest` 完成，因此我们将解释 `fetch()` API 的工作原理：
+
+1. **发出请求**：[`fetch()` 函数](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)启动异步请求，从 URL 获取资源。它接受一个强制性参数——要获取的资源的 URL，并可以选择接受第二个参数——一个 `options` 对象，该对象允许使用 HTTP 方法、标头、正文等选项配置 HTTP 请求。
+
+   ```js
+   fetch('https://api.example.com/data', {
+     method: 'GET', // or 'POST', 'PUT', 'DELETE', etc.
+     headers: {
+       'Content-Type': 'application/json',
+     },
+   });
+   ```
+
+2. **返回一个 promise**：`fetch()` 函数返回一个 `Promise`，该 `Promise` 解析为表示来自服务器的响应的 [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response) 对象。此 `Promise` 需要使用 `.then()` 或 `async/await` 进行处理。
+
+3. **处理响应**：`Response` 对象提供定义如何处理正文内容的方法，例如 `.json()` 用于解析 JSON 数据，`.text()` 用于纯文本，`.blob()` 用于二进制数据等。
+
+   ```js live
+   fetch('https://jsonplaceholder.typicode.com/todos/1')
+     .then((response) => response.json())
+     .then((data) => console.log(data))
+     .catch((error) => console.error('Error:', error));
+   ```
+
+4. **异步性质** `fetch` API 是异步的，允许浏览器在等待服务器响应时继续执行其他任务。这可以防止阻塞主线程并提供更好的用户体验。当作为[事件循环](/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue)的一部分执行时，`then()` 和 `catch()` 回调被放入微任务队列中。
+
+5. **请求选项** `fetch()` 的可选第二个参数允许配置请求的各个方面，例如 HTTP 方法、标头、正文、凭据、缓存行为等。
+
+6. **错误处理** 请求期间的错误（例如网络故障或无效响应）通过使用 `.catch()` 方法或带有 `async/await` 的 try/catch 块在 Promise 链中捕获并传播。
+
+`fetch()` API 提供了一种基于 Promise 的现代方法，用于在 JavaScript 中发出 HTTP 请求，取代了旧的 `XMLHttpRequest` API。它提供了一种更简单、更灵活的方式来与 API 交互并从服务器获取资源，同时集成了 CORS 等高级 HTTP 概念和其他扩展。
+
+## AJAX 的优缺点
+
+虽然 AJAX 很有用，但使用它也有一些需要考虑的地方。阅读更多关于 [AJAX 的优缺点](/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax)。
+
+## 延伸阅读
+
+* [AJAX | MDN](https://developer.mozilla.org/en-US/docs/Glossary/AJAX)
+* [Fetch API | MDN ](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+* [XMLHttpRequest | MDN](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)

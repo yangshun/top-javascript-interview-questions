@@ -1,0 +1,49 @@
+---
+title: 如何在 JavaScript 中将 `Set` 转换为数组？
+---
+
+## TL;DR
+
+要在 JavaScript 中将 `Set` 转换为数组，可以使用 `Array.from()` 方法或扩展运算符。例如：
+
+```js live
+const mySet = new Set([1, 2, 3]);
+const myArray = Array.from(mySet);
+// OR const myArray = [...mySet];
+
+console.log(myArray); // Output: [1, 2, 3]
+```
+
+***
+
+## 如何在 JavaScript 中将 `Set` 转换为数组？
+
+### 使用 `Array.from()`
+
+`Array.from()` 方法从类似数组或可迭代对象（例如 `Set`）创建一个新的、浅拷贝的数组实例。
+
+```js live
+const mySet = new Set([1, 2, 3]);
+const myArray = Array.from(mySet);
+console.log(myArray); // Output: [1, 2, 3]
+```
+
+### 使用扩展运算符
+
+扩展运算符 (`...`) 可用于将 `Set` 的元素展开到数组中。
+
+```js live
+const mySet = new Set([1, 2, 3]);
+const myArray = [...mySet];
+console.log(myArray); // Output: [1, 2, 3]
+```
+
+### 性能考量
+
+这两种方法都高效且常用。但是，扩展运算符通常被认为更简洁易读。对于大多数用例，性能差异通常可以忽略不计，但对于非常大的集合，您可能需要对这两种方法进行基准测试，以查看哪种方法在您的特定场景中表现更好。
+
+## 延伸阅读
+
+* [MDN Web Docs: Array.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
+* [MDN Web Docs: Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+* [MDN Web Docs: Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)

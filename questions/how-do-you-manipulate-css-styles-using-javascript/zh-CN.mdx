@@ -1,0 +1,97 @@
+---
+title: 如何使用 JavaScript 操作 CSS 样式？
+---
+
+## TL;DR
+
+您可以通过访问 HTML 元素的 `style` 属性来使用 JavaScript 操作 CSS 样式。例如，要更改 `id` 为 `myDiv` 的 `div` 元素的背景颜色，您可以使用：
+
+```js
+document.getElementById('myDiv').style.backgroundColor = 'blue';
+```
+
+您还可以使用 `classList` 属性添加、删除或切换 CSS 类：
+
+```js
+document.getElementById('myDiv').classList.add('newClass');
+document.getElementById('myDiv').classList.remove('oldClass');
+document.getElementById('myDiv').classList.toggle('toggleClass');
+```
+
+***
+
+## 使用 JavaScript 操作 CSS 样式
+
+### 访问和修改内联样式
+
+您可以使用 `style` 属性直接操作 HTML 元素的内联样式。此属性允许您设置单个 CSS 属性。
+
+```js
+// Select the element
+const myDiv = document.getElementById('myDiv');
+
+// Change the background color
+myDiv.style.backgroundColor = 'blue';
+
+// Set multiple styles
+myDiv.style.width = '100px';
+myDiv.style.height = '100px';
+myDiv.style.border = '1px solid black';
+```
+
+### 使用 `classList` 属性
+
+`classList` 属性提供了在元素上添加、删除和切换 CSS 类的方法。这对于应用来自 CSS 文件的预定义样式很有用。
+
+```js
+// Select the element
+const myDiv = document.getElementById('myDiv');
+
+// Add a class
+myDiv.classList.add('newClass');
+
+// Remove a class
+myDiv.classList.remove('oldClass');
+
+// Toggle a class
+myDiv.classList.toggle('toggleClass');
+```
+
+### 使用 CSS 变量修改样式
+
+可以使用 JavaScript 操作 CSS 变量（自定义属性）。这对于主题和动态样式特别有用。
+
+```js
+// Set a CSS variable
+document.documentElement.style.setProperty('--main-color', 'blue');
+
+// Get the value of a CSS variable
+const mainColor = getComputedStyle(document.documentElement).getPropertyValue(
+  '--main-color',
+);
+console.log(mainColor);
+```
+
+### 使用外部样式表
+
+您还可以通过动态添加或删除样式表来操作样式。
+
+```js
+// Create a new link element
+const link = document.createElement('link');
+link.rel = 'stylesheet';
+link.href = 'styles.css';
+
+// Append the link element to the head
+document.head.appendChild(link);
+
+// Remove the link element
+document.head.removeChild(link);
+```
+
+## 延伸阅读
+
+* [MDN Web 文档：Element.style](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/style)
+* [MDN Web 文档：Element.classList](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/classList)
+* [MDN Web 文档：使用 CSS 自定义属性（变量）](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties)
+* [MDN Web 文档：Document.createElement()](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createElement)

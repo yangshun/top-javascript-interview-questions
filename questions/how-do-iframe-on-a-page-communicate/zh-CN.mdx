@@ -1,0 +1,84 @@
+---
+title: 页面上的 `<iframe>` 如何通信？
+---
+
+## 总结
+
+页面上的 `<iframe>` 元素可以使用 `postMessage` API 进行通信。这允许父页面和 iframe 之间进行安全的跨源通信。`postMessage` 方法发送消息，而 `message` 事件侦听器接收消息。这是一个简单的例子：
+
+```js
+// 在父页面中
+const iframe = document.querySelector('iframe');
+iframe.contentWindow.postMessage('Hello from parent', '*');
+
+// 在 iframe 中
+window.addEventListener('message', (event) => {
+  console.log(event.data); // 'Hello from parent'
+});
+```
+
+***
+
+## 页面上的 `<iframe>` 如何通信？
+
+### 使用 `postMessage` API
+
+`postMessage` API 是 iframe 相互之间或与其父页面通信的最常见和最安全的方式。此方法允许跨源通信，这对于现代 Web 应用程序至关重要。
+
+#### 发送消息
+
+要将消息从父页面发送到 iframe，您可以使用 `postMessage` 方法。这是一个例子：
+
+```js
+// 在父页面中
+const iframe = document.querySelector('iframe');
+iframe.contentWindow.postMessage('Hello from parent', '*');
+```
+
+在此示例中，父页面选择 iframe 并向其发送消息。第二个参数 `'*'` 是目标 origin。它指定目标窗口的 origin。使用 `'*'` 意味着任何 origin 都可以接收消息，但出于安全原因，最好指定确切的 origin。
+
+#### 接收消息
+
+要在 iframe 中接收消息，您需要为 `message` 事件添加一个事件侦听器：
+
+```js
+// 在 iframe 中
+window.addEventListener('message', (event) => {
+  console.log(event.data); // 'Hello from parent'
+});
+```
+
+`event` 对象包含 `data` 属性，该属性保存父页面发送的消息。
+
+### 安全注意事项
+
+使用 `postMessage` 时，考虑安全性至关重要：
+
+* **指定目标 origin**：不要使用 `'*'`，而是指定确切的 origin，以确保仅接收来自受信任来源的消息。
+* **验证消息**：始终验证消息内容，以防止处理恶意数据。
+
+### 带有目标 origin 的示例
+
+这是一个带有指定目标来源的示例：
+
+```js
+// In the parent page
+const iframe = document.querySelector('iframe');
+const targetOrigin = 'https://example.com';
+iframe.contentWindow.postMessage('Hello from parent', targetOrigin);
+
+// In the iframe
+window.addEventListener('message', (event) => {
+  if (event.origin === 'https://parent.com') {
+    console.log(event.data); // 'Hello from parent'
+  }
+});
+```
+
+在此示例中，父页面仅向 `https://example.com` 发送消息，并且 iframe 仅在消息来自 `https://parent.com` 时才处理该消息。
+
+## 延伸阅读
+
+* [MDN Web Docs: Window.postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)
+* [HTML Living Standard: postMessage](https://html.spec.whatwg.org/multipage/web-messaging.html#dom-window-postmessage)
+* [跨文档消息传递](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage#cross-document_messaging)

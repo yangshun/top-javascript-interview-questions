@@ -1,22 +1,91 @@
 ---
-title: '`==` 和 `===`之间有什么区别？'
+title: JavaScript 中 `==` 和 `===` 的区别是什么？
 ---
 
-`==`是抽象的平等运算符，而`===`是严格的平等运算符。 `==`运算符会在做完任何必要的类型转换后进行平等性比较。 `===`运算符不会输入转换，所以如果两个值不是同一类型， `===`则只会返回 `false`。 当使用 `==`时，有趣的事情可能会发生，例如：
+## TL;DR
 
-```js
-1 == '1'; // true
-1 == [1]; // true
-1 == true; // true
-0 == ''; // true
-0 == '0'; // true
-0 == false; // true
+`==` 是抽象相等运算符，而 `===` 是严格相等运算符。`==` 运算符会在进行任何必要的类型转换后比较是否相等。`===` 运算符不会进行类型转换，因此如果两个值不是同一类型，`===` 将直接返回 `false`。
+
+| 运算符 | `==` | `===` |
+| --- | --- | --- |
+| 名称 | （宽松）相等运算符 | 严格相等运算符 |
+| 类型转换 | 是 | 否 |
+| 比较值和类型 | 否 | 是 |
+
+***
+
+### 相等运算符 (`==`)
+
+`==` 运算符检查两个值是否相等，但如果这些值的类型不同，则会执行类型转换。这意味着 JavaScript 将尝试在进行比较之前将这些值转换为通用类型。
+
+```js live
+console.log(42 == '42'); // true
+console.log(0 == false); // true
+console.log(null == undefined); // true
+console.log([] == false); // true
+console.log('' == false); // true
 ```
 
-作为一般的经验法则，永远不要使用`==`运算符，除了在与`空'或`未定义'比较时方便使用，如果`a`是`null`或`undefined`，`a == null`将返回\`true'。
+在这些示例中，JavaScript 在进行比较之前将操作数转换为相同的类型。例如，`42 == '42'` 为 true，因为字符串 `'42'` 在比较之前被转换为数字 `42`。
 
-```js
+但是，当使用 `==` 时，可能会发生不直观的结果：
+
+```js live
+console.log(1 == [1]); // true
+console.log(0 == ''); // true
+console.log(0 == '0'); // true
+console.log('' == '0'); // false
+```
+
+作为一般经验法则，永远不要使用 `==` 运算符，除非为了方便与 `null` 或 `undefined` 进行比较，其中 `a == null` 将在 `a` 为 `null` 或 `undefined` 时返回 `true`。
+
+```js live
 var a = null;
 console.log(a == null); // true
 console.log(a == undefined); // true
 ```
+
+### 严格相等运算符 (`===`)
+
+`===` 运算符，也称为严格相等运算符，检查两个值是否相等，而不执行类型转换。这意味着，只有当值和类型都相同时，比较才会返回 true。
+
+```js live
+console.log(42 === '42'); // false
+console.log(0 === false); // false
+console.log(null === undefined); // false
+console.log([] === false); // false
+console.log('' === false); // false
+```
+
+对于这些比较，不执行类型转换，因此如果类型不同，该语句将返回 `false`。例如，`42 === '42'` 为 `false`，因为类型（数字和字符串）不同。
+
+```js live
+// 带有类型转换的比较 (==)
+console.log(42 == '42'); // true
+console.log(0 == false); // true
+console.log(null == undefined); // true
+
+// 不带类型转换的严格比较 (===)
+console.log(42 === '42'); // false
+console.log(0 === false); // false
+console.log(null === undefined); // false
+```
+
+### 额外内容：`Object.is()`
+
+JavaScript 中最后一个值比较操作是 [`Object.is()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) 静态方法。`Object.is()` 和 `===` 之间唯一的区别在于它们如何处理带符号的零和 `NaN` 值。`===` 运算符（和 `==` 运算符）将数字值 `-0` 和 `+0` 视为相等，但将 `NaN` 视为彼此不相等。
+
+## 结论
+
+* 当您希望使用类型强制转换比较值时使用 `==`（并了解其含义）。实际上，等号运算符的唯一有效用例是针对 `null` 和 `undefined` 以方便使用。
+* 当您希望确保值和类型都相同时使用 `===`，这在大多数情况下是更安全、更可预测的选择。
+
+### 笔记
+
+* 建议使用 `===`（严格相等）以避免类型强制转换的缺陷，这可能导致代码中出现意外行为和错误。它使您的比较意图更清晰，并确保您同时比较值和类型。
+* ESLint 的 [`eqeqeq`](https://eslint.org/docs/latest/rules/eqeqeq) 规则强制使用严格相等运算符 `===` 和 `!==`，甚至提供了一个选项，始终强制使用严格相等，除非与 `null` 字面量进行比较。
+
+### 延伸阅读
+
+* [Equality (==) | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality)
+* [Strict equality (===) | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality)

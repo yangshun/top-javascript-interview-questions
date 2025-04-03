@@ -1,0 +1,79 @@
+---
+title: 解释单元测试、集成测试和端到端测试的区别
+---
+
+## TL;DR
+
+单元测试侧重于隔离测试单个组件或函数，以确保它们按预期工作。集成测试检查不同模块或服务如何协同工作。端到端测试模拟真实用户场景，以验证从开始到结束的整个应用程序流程。
+
+***
+
+## 单元测试、集成测试和端到端测试的区别
+
+### 单元测试
+
+单元测试涉及隔离测试单个组件或函数。目标是确保代码的每个部分都能正常工作。这些测试通常由开发人员编写，是防止错误的的第一道防线。
+
+* **范围**：单个函数或组件
+* **工具**：Jest、Mocha、Jasmine
+* **示例**：测试一个将两个数字相加的函数
+
+```js
+function add(a, b) {
+  return a + b;
+}
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(add(1, 2)).toBe(3);
+});
+```
+
+### 集成测试
+
+集成测试侧重于验证不同模块或服务之间的交互。目标是确保应用程序的组合部分按预期协同工作。这些测试通常比单元测试更复杂，可能涉及多个组件。
+
+* **范围**：多个组件或服务
+* **工具**：Jest、Mocha、Jasmine、Postman（用于 API 测试）
+* **示例**：测试一个从 API 获取数据并处理数据的函数
+
+```js
+async function fetchData(apiUrl) {
+  const response = await fetch(apiUrl);
+  const data = await response.json();
+  return processData(data);
+}
+
+test('fetches and processes data correctly', async () => {
+  const apiUrl = 'https://api.example.com/data';
+  const data = await fetchData(apiUrl);
+  expect(data).toEqual(expectedProcessedData);
+});
+```
+
+### 端到端测试
+
+端到端 (E2E) 测试模拟真实用户场景，以验证从开始到结束的整个应用程序流程。目标是确保应用程序作为一个整体工作，包括用户界面、后端和任何外部服务。
+
+* **范围**：整个应用程序
+* **工具**：Cypress、Selenium、Puppeteer
+* **示例**：测试用户登录流程
+
+```js
+describe('User Login Flow', () => {
+  it('should allow a user to log in', () => {
+    cy.visit('https://example.com/login');
+    cy.get('input[name="username"]').type('testuser');
+    cy.get('input[name="password"]').type('password123');
+    cy.get('button[type="submit"]').click();
+    cy.url().should('include', '/dashboard');
+  });
+});
+```
+
+## 延伸阅读
+
+* [维基百科上的单元测试](https://en.wikipedia.org/wiki/Unit_testing)
+* [维基百科上的集成测试](https://en.wikipedia.org/wiki/Integration_testing)
+* [维基百科上的端到端测试](https://en.wikipedia.org/wiki/End-to-end_testing)
+* [Jest 文档](https://jestjs.io/docs/getting-started)
+* [Cypress 文档](https://docs.cypress.io/guides/overview/why-cypress)

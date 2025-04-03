@@ -1,0 +1,100 @@
+---
+title: JavaScript 的 Polyfill 是什么？
+---
+
+## TL;DR
+
+JavaScript 中的 Polyfill 是一段代码，它为较旧的浏览器提供现代功能，而这些浏览器本身并不原生支持这些功能。它们弥合了现代浏览器中可用的 JavaScript 语言特性和 API 与旧版本浏览器有限功能之间的差距。
+
+它们可以手动实现或通过库引入，并且通常与功能检测结合使用。
+
+常见用例包括：
+
+* **新的 JavaScript 方法**：例如，`Array.prototype.includes()`、`Object.assign()` 等。
+* **新的 API**：例如 `fetch()`、`Promise`、`IntersectionObserver` 等。现代浏览器现在支持这些，但很长一段时间内它们必须被 polyfilled。
+
+用于 polyfill 的库和服务：
+
+* **`core-js`**：一个用于 JavaScript 的模块化标准库，其中包括各种 ECMAScript 特性的 polyfill。
+
+  ```js
+  import 'core-js/actual/array/flat-map'; // With this, Array.prototype.flatMap is available to be used.
+
+  [1, 2].flatMap((it) => [it, it]); // => [1, 1, 2, 2]
+  ```
+
+* **Polyfill.io**：一项服务，根据请求中指定的功能和用户代理提供 polyfill。
+
+  ```js
+  <script src="https://polyfill.io/v3/polyfill.min.js"></script>
+  ```
+
+***
+
+## JavaScript 中的 Polyfill
+
+JavaScript 中的 Polyfill 是一段代码（通常是 JavaScript），它在较旧的浏览器上提供现代功能，而这些浏览器本身并不原生支持这些功能。它们使开发人员能够使用该语言和 API 的较新功能，同时保持与旧环境的兼容性。
+
+## Polyfill 的工作原理
+
+Polyfill 检测浏览器中是否缺少某个功能或 API，并使用现有的 JavaScript 功能提供该功能的自定义实现。这使开发人员能够使用最新的 JavaScript 功能和 API 编写代码，而无需担心浏览器兼容性问题。
+
+例如，让我们考虑一下 `Array.prototype.includes()` 方法，该方法确定数组是否包含特定元素。较旧的浏览器（如 Internet Explorer 11）不支持此方法。为了解决这个问题，我们可以使用 polyfill：
+
+```js live
+// Polyfill for Array.prototype.includes()
+if (!Array.prototype.includes) {
+  Array.prototype.includes = function (searchElement) {
+    for (var i = 0; i < this.length; i++) {
+      if (this[i] === searchElement) {
+        return true;
+      }
+    }
+
+    return false;
+  };
+}
+
+console.log([1, 2, 3].includes(2)); // true
+console.log([1, 2, 3].includes(4)); // false
+```
+
+通过包含此 polyfill，即使在原生不支持它的浏览器中，我们也可以安全地使用 `Array.prototype.includes()`。
+
+## 实现 polyfill
+
+1. **确定缺失的功能**：确定该功能是否与目标浏览器兼容，或使用 `typeof`、`in` 或 `window` 等功能检测方法检测其是否存在。
+2. **编写后备实现**：开发提供类似功能的后备实现，可以使用预先存在的 polyfill 库或纯 JavaScript 代码。
+3. **测试 polyfill**：彻底测试 polyfill，以确保它在不同的上下文和浏览器中按预期运行。
+4. **实现 polyfill**：将使用缺失功能的代码包含在 if 语句中，该语句检查功能支持。如果不支持，则运行 polyfill 代码。
+
+### 考虑事项
+
+* **选择性加载**：polyfill 应该仅针对需要它们的浏览器加载，以优化性能。
+* **功能检测**：在应用 polyfill 之前执行功能检测，以避免覆盖原生实现或应用不必要的 polyfill。
+* **大小和性能**：polyfill 可能会增加 JavaScript 捆绑包的大小，因此应使用缩小和压缩技术来减轻这种影响。
+* **现有库**：考虑使用现有的库和工具，这些库和工具为多个功能提供全面的 polyfill 解决方案，有效地处理功能检测、条件加载和后备
+
+### 用于 polyfill 的库和服务
+
+* **`core-js`**：一个用于 JavaScript 的模块化标准库，其中包括各种 ECMAScript 特性的 polyfill。
+
+  ```js
+  import 'core-js/actual/array/flat-map'; // With this, Array.prototype.flatMap is available to be used.
+
+  [1, 2].flatMap((it) => [it, it]); // => [1, 1, 2, 2]
+  ```
+
+* **Polyfill.io**：一项服务，根据请求中指定的功能和用户代理提供 polyfill。
+
+  ```js
+  <script src="https://polyfill.io/v3/polyfill.min.js"></script>
+  ```
+
+## 延伸阅读
+
+* [Polyfill - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Polyfill)
+* [Polyfills and transpilers](https://javascript.info/polyfills)
+* [Polyfills: How do they work?](https://medium.com/alienbrains/polyfills-how-do-they-work-ea6a12b792b)
+* [Polyfill in Javascript](https://www.linkedin.com/pulse/polyfill-javascript-divyansh-singh)
+* [Shubham Dutta](https://dev.to/shubhamdutta2000/polyfills-for-javascript-a-full-overview-3f7m)

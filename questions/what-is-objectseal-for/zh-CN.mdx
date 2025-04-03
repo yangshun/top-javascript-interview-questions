@@ -1,0 +1,83 @@
+---
+title: 什么是 `Object.seal()`？
+---
+
+## 总结
+
+`Object.seal()` 用于防止向对象添加新属性，并将所有现有属性标记为不可配置。这意味着您仍然可以修改现有属性的值，但不能删除它们或添加新属性。这样做会在严格模式下抛出错误，但在非严格模式下会静默失败。在以下示例中，您可以取消注释 'use strict' 注释以查看此情况。
+
+```js live
+// 'use strict'
+
+const obj = { name: 'John' };
+Object.seal(obj);
+
+obj.name = 'Jane'; // 允许
+obj.age = 30; // 不允许，在严格模式下抛出错误
+delete obj.name; // 不允许，在严格模式下抛出错误
+
+console.log(obj); // { name: 'Jane } (未更改)
+```
+
+***
+
+## 什么是 `Object.seal()`？
+
+`Object.seal()` 是 JavaScript 中的一个方法，用于密封一个对象，防止向其添加新属性，并将所有现有属性标记为不可配置。这意味着虽然您仍然可以修改现有属性的值，但您不能删除它们或添加新属性。
+
+### 语法
+
+```js
+Object.seal(obj);
+```
+
+* `obj`：要密封的对象。
+
+### 行为
+
+1. **防止新属性**：一旦对象被密封，您就不能向其添加新属性。
+2. **不可配置的属性**：所有现有属性都变为不可配置，这意味着您不能删除它们或更改它们的属性描述符（例如，使它们不可写）。
+3. **可修改的值**：只要现有属性是可写的，您仍然可以更改它们的值。
+
+### 示例
+
+```js live
+// 'use strict'
+
+const person = {
+  name: 'Alice',
+  age: 25,
+};
+
+Object.seal(person);
+
+person.name = 'Bob'; // 允许
+person.age = 30; // 允许
+
+person.gender = 'female'; // 不允许，在严格模式下抛出错误
+delete person.name; // 不允许，在严格模式下抛出错误
+
+console.log(person); // { name: 'Bob', age: 30 } (未更改)
+```
+
+### 用例
+
+* **数据完整性**：确保对象结构保持不变，这在对象表示固定模式的情况下非常有用。
+* **安全性**：防止对对象的意外或恶意修改，尤其是在共享或全局上下文中。
+
+### 检查对象是否被密封
+
+您可以使用 `Object.isSealed()` 方法检查对象是否被密封。
+
+```js live
+const obj = { name: 'John' };
+Object.seal(obj);
+
+console.log(Object.isSealed(obj)); // true
+```
+
+## 延伸阅读
+
+* [MDN Web Docs on Object.seal()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/seal)
+* [MDN Web Docs on Object.isSealed()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed)
+* [JavaScript.info on property flags and descriptors](https://zh.javascript.info/property-descriptors)

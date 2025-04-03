@@ -1,0 +1,84 @@
+---
+title: 解释缓存的概念以及如何使用它来提高性能
+---
+
+## TL;DR
+
+缓存是一种用于存储文件或数据的副本的临时存储技术，以减少访问它们所需的时间。它通过减少重复从原始来源获取数据的需要来提高性能。在前端开发中，可以使用浏览器缓存、service workers 和 HTTP 标头（如 `Cache-Control`）来实现缓存。
+
+***
+
+## 缓存的概念以及如何使用它来提高性能
+
+### 什么是缓存？
+
+缓存是一种用于将文件或数据的副本存储在临时存储位置（称为缓存）中的技术，以减少访问它们所需的时间。缓存的主要目标是通过最大限度地减少重复从原始来源获取数据的需要来提高性能。
+
+### 缓存的类型
+
+#### 浏览器缓存
+
+浏览器缓存将网页、图像和其他资源的副本存储在用户设备的本地。当用户重新访问网站时，浏览器可以从缓存中加载这些资源，而不是从服务器获取它们，从而加快加载时间。
+
+#### Service workers
+
+Service workers 是在后台运行的脚本，可以拦截网络请求。它们可以缓存资源并从缓存中提供它们，即使在用户离线时也是如此。这可以显著提高性能并提供更好的用户体验。
+
+#### HTTP 缓存
+
+HTTP 缓存涉及使用 HTTP 标头来控制如何以及何时缓存资源。常见的标头包括 `Cache-Control`、`Expires` 和 `ETag`。
+
+### 缓存如何提高性能
+
+#### 减少延迟
+
+通过将经常访问的数据存储在更靠近用户的位置，缓存减少了检索该数据所需的时间。这可以加快加载时间并提供更流畅的用户体验。
+
+#### 减少服务器负载
+
+缓存减少了向服务器发出的请求数量，这有助于减少服务器负载并提高整体性能。
+
+#### 离线访问
+
+通过 Service Worker，即使在用户离线时也可以提供缓存的资源，从而提供无缝体验。
+
+### 实现缓存
+
+#### 浏览器缓存示例
+
+```html
+<head>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js"></script>
+</head>
+```
+
+#### Service worker 示例
+
+```js
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open('v1').then((cache) => {
+      return cache.addAll(['/index.html', '/styles.css', '/app.js']);
+    }),
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    }),
+  );
+});
+```
+
+#### HTTP 缓存示例
+
+```http
+Cache-Control: max-age=3600
+```
+
+## 延伸阅读
+
+* [Service Workers: an Introduction](https://developers.google.com/web/fundamentals/primers/service-workers)

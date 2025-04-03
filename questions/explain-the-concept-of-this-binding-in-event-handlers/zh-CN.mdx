@@ -1,0 +1,119 @@
+---
+title: 解释事件处理程序中 `this` 绑定的概念
+---
+
+## TL;DR
+
+在 JavaScript 中，`this` 关键字指的是当前正在执行代码的对象。在事件处理程序中，`this` 通常指的是触发事件的元素。但是，`this` 的值可能会根据事件处理程序的定义和调用方式而改变。为了确保 `this` 指的是期望的对象，你可以使用 `bind()` 方法、箭头函数或显式地分配上下文。
+
+***
+
+## 事件处理程序中 `this` 绑定的概念
+
+### 理解 JavaScript 中的 `this`
+
+在 JavaScript 中，`this` 关键字是对当前正在执行代码的对象的引用。`this` 的值由函数的调用方式决定，而不是定义的位置。这可能导致 `this` 在不同的上下文中具有不同的值。
+
+### 事件处理程序中的 `this`
+
+在事件处理程序的上下文中，`this` 通常指的是触发事件的 DOM 元素。例如：
+
+```js live
+// 创建一个 button 元素并将其附加到 DOM
+const button = document.createElement('button');
+button.id = 'myButton';
+document.body.appendChild(button);
+
+document.getElementById('myButton').addEventListener('click', function () {
+  console.log(this); // `this` 指的是 'myButton' 元素
+});
+
+button.click(); // 记录 button 元素
+```
+
+在这个例子中，事件处理程序中的 `this` 指的是被点击的 button 元素。
+
+### 改变 `this` 的值
+
+有几种方法可以改变事件处理程序中 `this` 的值：
+
+#### 使用 `bind()`
+
+`bind()` 方法创建一个新函数，当调用该函数时，其 `this` 关键字设置为提供的值：
+
+```js live
+// 创建一个 button 元素并将其附加到 DOM
+const button = document.createElement('button');
+button.id = 'myButton';
+document.body.appendChild(button);
+
+function handleClick() {
+  console.log(this); // 记录传递给 bind() 的对象
+}
+
+const obj = { name: 'MyObject' };
+document
+  .getElementById('myButton')
+  .addEventListener('click', handleClick.bind(obj));
+
+button.click(); // 记录 obj，因为 handleClick 使用 bind() 绑定到 obj
+```
+
+在这个例子中，`handleClick` 中的 `this` 指的是 `obj`。
+
+#### 使用箭头函数
+
+箭头函数没有自己的 `this` 上下文；它们从周围的词法上下文中继承 `this`：
+
+```js live
+// 创建一个 button 元素并将其附加到 DOM
+const button = document.createElement('button');
+button.id = 'myButton';
+document.body.appendChild(button);
+
+const obj = {
+  name: 'MyObject',
+  handleClick: function () {
+    document.getElementById('myButton').addEventListener('click', () => {
+      console.log(this); // 记录 obj
+    });
+  },
+};
+
+obj.handleClick();
+button.click(); // 这将记录 obj
+```
+
+在这个例子中，箭头函数中的 `this` 指的是 `obj`。
+
+#### 显式地分配上下文
+
+您还可以使用变量显式地分配上下文：
+
+```js live
+// Create a button element and append it to the DOM
+const button = document.createElement('button');
+button.id = 'myButton';
+document.body.appendChild(button);
+
+const obj = {
+  name: 'MyObject',
+  handleClick: function () {
+    const self = this;
+    document.getElementById('myButton').addEventListener('click', function () {
+      console.log(self); // Logs obj
+    });
+  },
+};
+
+obj.handleClick();
+button.click(); // This will log obj
+```
+
+在这个例子中，`self` 用于捕获外部函数中 `this` 的值。
+
+## 延伸阅读
+
+* [MDN Web Docs: `this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+* [MDN Web Docs: `bind()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind)
+* [MDN Web Docs: Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)

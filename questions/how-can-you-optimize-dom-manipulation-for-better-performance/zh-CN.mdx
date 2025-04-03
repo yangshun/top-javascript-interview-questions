@@ -1,0 +1,109 @@
+---
+title: 如何优化 DOM 操作以获得更好的性能？
+---
+
+## TL;DR
+
+要优化 DOM 操作以获得更好的性能，请尽量减少直接访问和更新 DOM。使用诸如批处理 DOM 更改、使用 `documentFragment` 处理多个元素以及利用 React 等虚拟 DOM 库等技术。此外，还可以考虑使用 `requestAnimationFrame` 进行动画处理，并通过分别读取和写入 DOM 属性来避免布局抖动。
+
+***
+
+## 如何优化 DOM 操作以获得更好的性能？
+
+### 尽量减少直接 DOM 访问
+
+访问 DOM 相对较慢，因此请尽量减少从 DOM 读取或写入 DOM 的次数。相反，将对元素的引用存储在变量中，并使用这些变量。
+
+```js live
+// Creating an element for the example below
+const newElement = document.createElement('div');
+newElement.id = 'myElement';
+document.body.appendChild(newElement);
+
+const element = document.getElementById('myElement'); // Access once
+// Then use the reference to edit style
+element.style.color = 'red';
+element.style.backgroundColor = 'blue';
+
+console.log(document.body); // Notice the edits
+```
+
+### 批处理 DOM 更改
+
+不要一次对 DOM 进行多次更改，而是将它们批处理在一起。这减少了重排和重绘的次数。
+
+```js live
+// Creating an element for the example below
+const newElement = document.createElement('div');
+newElement.id = 'myElement';
+document.body.appendChild(newElement);
+
+const element = document.getElementById('myElement');
+element.style.cssText = 'color: red; background-color: blue;';
+
+console.log(document.body); // Notice the edits
+```
+
+### 使用 `documentFragment`
+
+将多个元素添加到 DOM 时，使用 `documentFragment` 以最大限度地减少重排和重绘。
+
+```js live
+const fragment = document.createDocumentFragment();
+for (let i = 0; i < 100; i++) {
+  const newElement = document.createElement('div');
+  newElement.textContent = `Item ${i}`;
+  fragment.appendChild(newElement);
+}
+document.body.appendChild(fragment);
+
+console.log(document.body); // Notice that the divs have been added
+```
+
+### 利用虚拟 DOM 库
+
+React 等库使用虚拟 DOM 来批处理更新并最大限度地减少直接 DOM 操作，这可以显著提高性能。
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const App = () => (
+  <div>
+    <h1>Hello, world!</h1>
+  </div>
+);
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+### 使用 `requestAnimationFrame` 进行动画处理
+
+为了获得更流畅的动画效果，请使用 `requestAnimationFrame` 确保更新与浏览器的重绘周期同步。
+
+```js
+function animate() {
+  // Update animation state
+  requestAnimationFrame(animate);
+}
+requestAnimationFrame(animate);
+```
+
+### 避免布局抖动
+
+当您以迫使浏览器多次重新计算样式和布局的方式反复读取和写入 DOM 时，就会发生布局抖动。为避免这种情况，请将读取和写入操作分开。
+
+```js live
+// Creating an element for the example below
+const newElement = document.createElement('div');
+newElement.id = 'myElement';
+document.body.appendChild(newElement);
+
+const element = document.getElementById('myElement');
+const height = element.clientHeight; // Read
+element.style.height = `${height + 10}px`; // Write
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Using requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)

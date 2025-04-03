@@ -1,0 +1,99 @@
+---
+title: 解释异步操作中回调函数的概念
+---
+
+## TL;DR
+
+回调函数是作为参数传递给另一个函数的函数，然后在外部函数中调用该函数以完成某种例程或操作。在异步操作中，回调用于处理需要时间才能完成的任务，例如网络请求或文件 I/O，而不会阻塞其余代码的执行。例如：
+
+```js live
+function fetchData(callback) {
+  setTimeout(() => {
+    const data = { name: 'John', age: 30 };
+    callback(data);
+  }, 1000);
+}
+
+fetchData((data) => {
+  console.log(data);
+});
+```
+
+***
+
+## 什么是回调函数？
+
+回调函数是作为参数传递给另一个函数并在完成某些操作后执行的函数。这在异步编程中特别有用，其中需要处理网络请求、文件 I/O 或计时器等操作，而不会阻塞主执行线程。
+
+### 同步与异步回调
+
+* **同步回调** 在传递给它们的函数中立即执行。它们是阻塞的，代码执行会等待它们完成。
+* **异步回调** 在完成某个事件或操作后执行。它们是非阻塞的，允许代码执行在等待操作完成的同时继续进行。
+
+### 同步回调示例
+
+```js live
+function greet(name, callback) {
+  console.log('Hello ' + name);
+  callback();
+}
+
+function sayGoodbye() {
+  console.log('Goodbye!');
+}
+
+greet('Alice', sayGoodbye);
+// Output:
+// Hello Alice
+// Goodbye!
+```
+
+### 异步回调示例
+
+```js live
+function fetchData(callback) {
+  setTimeout(() => {
+    const data = { name: 'John', age: 30 };
+    callback(data);
+  }, 1000);
+}
+
+fetchData((data) => {
+  console.log(data);
+});
+// Output after 1 second:
+// { name: 'John', age: 30 }
+```
+
+### 常见用例
+
+* **网络请求**：从 API 获取数据
+* **文件 I/O**：读取或写入文件
+* **计时器**：使用 `setTimeout` 或 `setInterval` 延迟执行
+* **事件处理**：响应用户操作，如单击或按键
+
+### 在回调中处理错误
+
+处理异步操作时，正确处理错误非常重要。一个常见的模式是使用回调函数的第一个参数来传递一个错误对象（如果有）。
+
+```js live
+function fetchData(callback) {
+  // assume asynchronous operation to fetch data
+  const { data, error } = { data: { name: 'John', age: 30 }, error: null };
+  callback(error, data);
+}
+
+fetchData((error, data) => {
+  if (error) {
+    console.error('An error occurred:', error);
+  } else {
+    console.log(data);
+  }
+});
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
+* [JavaScript.info: Callbacks](https://javascript.info/callbacks)
+* [Node.js: Asynchronous programming and callbacks](https://nodejs.org/en/knowledge/getting-started/control-flow/what-are-callbacks/)

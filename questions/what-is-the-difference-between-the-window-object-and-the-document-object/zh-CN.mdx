@@ -1,0 +1,68 @@
+---
+title: Window 对象和 Document 对象有什么区别？
+---
+
+## 总结
+
+ `Window` 对象表示浏览器窗口，并提供控制它的方法，例如打开新窗口或访问浏览器历史记录。 `Document` 对象表示加载在窗口中的网页内容，并提供操作 DOM 的方法，例如选择元素或修改其内容。
+
+***
+
+## Window 对象和 Document 对象的区别
+
+### Window 对象
+
+ `Window` 对象是 Web 浏览器环境中的全局对象。它表示包含 DOM 文档的浏览器窗口或框架。以下是关于 `Window` 对象的一些要点：
+
+*  它提供了控制浏览器窗口的方法，例如 `window.open()`、`window.close()` 和 `window.alert()`。
+*  它通过 `window.history` 访问浏览器的历史记录。
+*  它允许通过 `window.location` 与浏览器的位置（URL）进行交互。
+*  它可用于使用 `window.setTimeout()` 和 `window.setInterval()` 设置和清除计时器。
+*  它是全局执行上下文，这意味着所有全局变量和函数都是 `Window` 对象的属性。
+
+示例：
+
+```js
+// 打开一个新窗口
+window.open('https://www.example.com');
+
+// 显示一个警告
+window.alert('Hello, world!');
+```
+
+### Document 对象
+
+ `Document` 对象表示加载在浏览器窗口中的 HTML 或 XML 文档。它是 `Window` 对象的属性 (`window.document`)。以下是关于 `Document` 对象的一些要点：
+
+*  它提供了选择元素的方法，例如 `document.getElementById()`、`document.querySelector()` 和 `document.getElementsByClassName()`。
+*  它允许操作 DOM，包括创建、删除和修改元素。
+*  它提供了访问文档元数据的属性，例如 `document.title` 和 `document.URL`。
+*  它可用于侦听和处理文档中的事件。
+
+示例：
+
+```js live
+// 创建一个新元素并将其附加到文档主体
+const newElement = document.createElement('div');
+newElement.id = 'myDiv';
+newElement.textContent = 'Hello world';
+document.body.appendChild(newElement);
+
+// 通过其 ID 选择该元素
+const element = document.getElementById('myDiv');
+
+console.log(element);
+console.log(document.body);
+```
+
+### 主要区别
+
+*  `Window` 对象表示浏览器窗口，而 `Document` 对象表示网页的内容。
+*  `Window` 对象提供了控制浏览器窗口和与浏览器环境交互的方法，而 `Document` 对象提供了操作 DOM 和与网页内容交互的方法。
+*  `Window` 对象是全局执行上下文，这意味着所有全局变量和函数都是 `Window` 对象的属性。 `Document` 对象是 `Window` 对象的属性。
+
+## 延伸阅读
+
+*  [MDN Web 文档：Window](https://developer.mozilla.org/en-US/docs/Web/API/Window)
+*  [MDN Web 文档：Document](https://developer.mozilla.org/en-US/docs/Web/API/Document)
+*  [JavaScript.info：浏览器环境，规范](https://javascript.info/browser-environment)

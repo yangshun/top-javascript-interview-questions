@@ -1,0 +1,96 @@
+---
+title: 如何可靠地确定一个对象是否为空？
+---
+
+## TL;DR
+
+要可靠地确定一个对象是否为空，您可以使用 `Object.keys()` 来检查该对象是否具有任何可枚举的属性。如果 `Object.keys()` 返回的数组的长度为零，则该对象为空。
+
+```js live
+const isEmpty = (obj) => Object.keys(obj).length === 0;
+
+const obj = {};
+console.log(isEmpty(obj)); // true
+```
+
+***
+
+## 如何可靠地确定一个对象是否为空？
+
+### 使用 `Object.keys()`
+
+检查对象是否为空的最常见和可靠的方法是使用 `Object.keys()`。此方法返回一个包含对象自身可枚举属性名称的数组。如果此数组的长度为零，则该对象为空。
+
+```js live
+const isEmpty = (obj) => Object.keys(obj).length === 0;
+
+const obj1 = {};
+const obj2 = { key: 'value' };
+
+console.log(isEmpty(obj1)); // true
+console.log(isEmpty(obj2)); // false
+```
+
+### 使用 `Object.entries()`
+
+另一种方法是使用 `Object.entries()`，它返回一个包含对象自身可枚举属性 `[key, value]` 对的数组。如果此数组的长度为零，则该对象为空。
+
+```js live
+const isEmpty = (obj) => Object.entries(obj).length === 0;
+
+const obj1 = {};
+const obj2 = { key: 'value' };
+
+console.log(isEmpty(obj1)); // true
+console.log(isEmpty(obj2)); // false
+```
+
+### 使用 `Object.values()`
+
+同样，您可以使用 `Object.values()`，它返回一个包含对象自身可枚举属性值的数组。如果此数组的长度为零，则该对象为空。
+
+```js live
+const isEmpty = (obj) => Object.values(obj).length === 0;
+
+const obj1 = {};
+const obj2 = { key: 'value' };
+
+console.log(isEmpty(obj1)); // true
+console.log(isEmpty(obj2)); // false
+```
+
+### 使用 `for...in` 循环
+
+您还可以使用 `for...in` 循环来检查对象是否具有任何属性。如果循环没有遍历任何属性，则该对象为空。
+
+```js live
+const isEmpty = (obj) => {
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      return false;
+    }
+  }
+  return true;
+};
+
+const obj1 = {};
+const obj2 = { key: 'value' };
+const childObj = Object.create(obj2); // Inherit from obj2
+
+console.log(isEmpty(obj1)); // true
+console.log(isEmpty(obj2)); // false
+console.log(isEmpty(childObj)); // true (has no own properties)
+console.log(childObj.key); // Output: 'value' (still has the inherited property)
+```
+
+### 边缘情况
+
+* **原型属性**：上述方法仅检查对象自身的属性，而不是从其原型继承的属性。
+* **不可枚举属性**：这些方法不考虑不可枚举属性。
+
+## 延伸阅读
+
+* [MDN Web 文档：Object.keys()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
+* [MDN Web 文档：Object.entries()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
+* [MDN Web 文档：Object.values()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/values)
+* [MDN Web 文档：for...in](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...in)

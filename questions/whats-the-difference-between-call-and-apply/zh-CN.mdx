@@ -1,10 +1,17 @@
 ---
-title: '`.call`和`.apply`之间有什么区别？'
+title: JavaScript 中`.call` 和 `.apply` 有什么区别？
 ---
 
-`.call`和`.apply`都用于调用函数，而第一个参数将用作函数中`this`的值。 然而，`.call`以逗号分隔的参数作为下一个参数，而`.apply`则以一系列参数作为下一个参数。 记住这一点的一个简单方法是 C for `call` and comma-separated and A for `appy` and an array of arguments。
+## TL;DR
 
-```js
+`.call` 和 `.apply` 都用于使用特定的 `this` 上下文和参数来调用函数。主要区别在于它们接受参数的方式：
+
+* `.call(thisArg, arg1, arg2, ...)`：单独获取参数。
+* `.apply(thisArg, [argsArray])`：将参数作为数组获取。
+
+假设我们有一个函数 `add`，可以使用以下方式使用 `.call` 和 `.apply` 调用该函数：
+
+```js live
 function add(a, b) {
   return a + b;
 }
@@ -12,3 +19,100 @@ function add(a, b) {
 console.log(add.call(null, 1, 2)); // 3
 console.log(add.apply(null, [1, 2])); // 3
 ```
+
+***
+
+## Call vs Apply
+
+`.call` 和 `.apply` 都用于调用函数，第一个参数将用作函数中 `this` 的值。但是，`.call` 将逗号分隔的参数作为下一个参数，而 `.apply` 将参数数组作为下一个参数。
+
+记住这一点的一个简单方法是 C 代表 `call` 和逗号分隔，A 代表 `apply` 和参数数组。
+
+```js live
+function add(a, b) {
+  return a + b;
+}
+
+console.log(add.call(null, 1, 2)); // 3
+console.log(add.apply(null, [1, 2])); // 3
+```
+
+使用 ES6 语法，我们可以使用数组以及用于参数的扩展运算符来调用 `call`。
+
+```js live
+function add(a, b) {
+  return a + b;
+}
+
+console.log(add.call(null, ...[1, 2])); // 3
+```
+
+## 用例
+
+### 上下文管理
+
+`.call` 和 `.apply` 可以在调用不同对象上的方法时显式设置 `this` 上下文。
+
+```js live
+const person = {
+  name: 'John',
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  },
+};
+
+const anotherPerson = { name: 'Alice' };
+
+person.greet.call(anotherPerson); // Hello, my name is Alice
+person.greet.apply(anotherPerson); // Hello, my name is Alice
+```
+
+### 函数借用
+
+`.call` 和 `.apply` 都允许从一个对象借用方法并在另一个对象的上下文中使它们。当将函数作为参数（回调）传递并且原始 `this` 上下文丢失时，这很有用。`.call` 和 `.apply` 允许使用预期的 `this` 值调用该函数。
+
+```js live
+function greet() {
+  console.log(`Hello, my name is ${this.name}`);
+}
+
+const person1 = { name: 'John' };
+const person2 = { name: 'Alice' };
+
+greet.call(person1); // Hello, my name is John
+greet.call(person2); // Hello, my name is Alice
+```
+
+### 调用对象方法的替代语法
+
+`.apply` 可以通过将对象作为第一个参数传递，然后传递通常的参数来与对象方法一起使用。
+
+```js live
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+Array.prototype.push.apply(arr1, arr2); // Same as arr1.push(4, 5, 6)
+
+console.log(arr1); // [1, 2, 3, 4, 5, 6]
+```
+
+分解上述内容：
+
+1. 第一个对象 `arr1` 将用作 `this` 值。
+2. 在 `arr1` 上调用 `.push()`，使用 `arr2` 作为参数数组，因为它使用 `.apply()`。
+3. `Array.prototype.push.apply(arr1, arr2)` 等同于 `arr1.push(...arr2)`。
+
+可能并不明显，但 `Array.prototype.push.apply(arr1, arr2)` 会导致修改 `arr1`。如果可能，使用面向 OOP 的方式调用方法会更清晰。
+
+## 后续问题
+
+* `.call` 和 `.apply` 与 `Function.prototype.bind` 有什么不同？
+
+## 实践
+
+在 GreatFrontEnd 上实践实现你自己的 [`Function.prototype.call` 方法](/questions/javascript/function-call) 和 [`Function.prototype.apply` 方法](/questions/javascript/function-apply)。
+
+## 延伸阅读
+
+* [Function.prototype.call | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+* [Function.prototype.apply | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)

@@ -1,0 +1,86 @@
+---
+title: 解释 Web Socket API 的概念
+---
+
+## TL;DR
+
+WebSocket API 提供了一种在客户端和服务器之间打开持久连接的方式，允许进行实时的双向通信。与基于请求-响应的 HTTP 不同，WebSocket 实现了全双工通信，这意味着客户端和服务器都可以独立地发送和接收消息。这对于聊天应用程序、实时更新和在线游戏等应用程序特别有用。
+
+以下示例使用 Postman 的 WebSocket 回显服务来演示 WebSockets 的工作原理。
+
+```js live
+// Postman's echo server that will echo back messages you send
+const socket = new WebSocket('wss://ws.postman-echo.com/raw');
+
+// Event listener for when the connection is open
+socket.addEventListener('open', function (event) {
+  socket.send('Hello Server!'); // Sends the message to the Postman WebSocket server
+});
+
+// Event listener for when a message is received from the server
+socket.addEventListener('message', function (event) {
+  console.log('Message from server ', event.data);
+});
+```
+
+***
+
+## 什么是 WebSocket API？
+
+WebSocket API 是一种技术，它提供了一种在客户端（通常是 Web 浏览器）和服务器之间建立持久的、低延迟的、全双工通信通道的方式。这与传统的 HTTP 请求-响应模型不同，后者是无状态的，并且需要为每个请求建立新的连接。
+
+### 关键特性
+
+*   **全双工通信**：客户端和服务器都可以独立地发送和接收消息。
+*   **低延迟**：持久连接减少了为每条消息建立新连接的开销。
+*   **实时更新**：非常适合需要实时数据的应用程序，例如聊天应用程序、实时体育更新和在线游戏。
+
+### 它是如何工作的
+
+1.  **连接建立**：客户端通过向服务器发送握手请求来启动 WebSocket 连接。
+2.  **握手响应**：服务器使用握手响应进行响应，如果成功，则建立连接。
+3.  **数据交换**：客户端和服务器现在可以通过已建立的连接独立地发送和接收消息。
+4.  **连接关闭**：当不再需要连接时，客户端或服务器都可以关闭连接。
+
+### 使用示例
+
+这是一个关于如何在 JavaScript 中使用 WebSocket API 的基本示例，使用 Postman 的 WebSocket Echo Service。
+
+```js live
+// Postman's echo server that will echo back messages you send
+const socket = new WebSocket('wss://ws.postman-echo.com/raw');
+
+// Event listener for when the connection is open
+socket.addEventListener('open', function (event) {
+  console.log('Connection opened');
+  socket.send('Hello Server!'); // Sends the message to the Postman WebSocket server
+});
+
+// Event listener for when a message is received from the server
+socket.addEventListener('message', function (event) {
+  console.log('Message from server ', event.data);
+});
+
+// Event listener for when the connection is closed
+socket.addEventListener('close', function (event) {
+  console.log('Connection closed');
+});
+
+// Event listener for when an error occurs
+socket.addEventListener('error', function (event) {
+  console.error('WebSocket error: ', event);
+});
+```
+
+### 用例
+
+*   **聊天应用程序**：用户之间的实时消息传递。
+*   **实时更新**：股票价格、体育比分或新闻更新。
+*   **在线游戏**：玩家之间的实时互动。
+*   **协作工具**：实时文档编辑或白板。
+
+## 延伸阅读
+
+*   [MDN WebSocket API 文档](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
+*   [WebSocket.org](https://www.websocket.org/)
+*   [WebSockets 简介](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)

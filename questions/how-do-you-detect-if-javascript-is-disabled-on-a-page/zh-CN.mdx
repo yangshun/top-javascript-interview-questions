@@ -1,0 +1,78 @@
+---
+title: 如何检测页面是否禁用了 JavaScript？
+---
+
+## TL;DR
+
+要检测页面上是否禁用了 JavaScript，可以使用 `<noscript>` HTML 标签。此标签允许您向浏览器中禁用了 JavaScript 的用户显示内容或消息。例如，您可以在 `<noscript>` 标签中包含一条消息，告知用户需要 JavaScript 才能获得页面的全部功能。
+
+```html
+<noscript>
+  <p>
+    您的浏览器中禁用了 JavaScript。请启用 JavaScript 以获得
+    最佳体验。
+  </p>
+</noscript>
+```
+
+***
+
+## 使用 `<noscript>` 标签
+
+### 什么是 `<noscript>` 标签？
+
+`<noscript>` 标签是一个 HTML 元素，它为在浏览器中禁用了 JavaScript 的用户提供替代内容。此标签对于告知用户，如果没有 JavaScript，网站的某些功能可能无法正常工作很有用。
+
+### 示例用法
+
+以下是如何使用 `<noscript>` 标签向禁用了 JavaScript 的用户显示消息的示例：
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 检测</title>
+  </head>
+  <body>
+    <h1>欢迎来到我们的网站</h1>
+    <noscript>
+      <p>
+        您的浏览器中禁用了 JavaScript。请启用 JavaScript 以获得
+        最佳体验。
+      </p>
+    </noscript>
+    <p>此内容对所有用户可见。</p>
+  </body>
+</html>
+```
+
+在此示例中，只有在禁用 JavaScript 的情况下，才会显示 `<noscript>` 标签内的消息。如果启用了 JavaScript，则会忽略 `<noscript>` 标签内的内容。
+
+### 设置 `<noscript>` 内容的样式
+
+您还可以使用 CSS 设置 `<noscript>` 标签内内容的样式，使其更引人注目。例如：
+
+```html
+<noscript>
+  <style>
+    .noscript-message {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+  <p class="noscript-message">
+    您的浏览器中禁用了 JavaScript。请启用 JavaScript 以获得
+    最佳体验。
+  </p>
+</noscript>
+```
+
+在此示例中，消息将使用红色文本和粗体字体设置样式，使其突出显示。
+
+## 延伸阅读
+
+* [MDN Web Docs: `<noscript>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript)
+* [W3Schools: HTML `<noscript>` 标签](https://www.w3schools.com/tags/tag_noscript.asp)
+* [Can I use: `<noscript>`](https://caniuse.com/?search=noscript)

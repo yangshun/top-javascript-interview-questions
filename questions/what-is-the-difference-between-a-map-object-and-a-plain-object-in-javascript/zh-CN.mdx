@@ -1,0 +1,82 @@
+---
+title: JavaScript 中 `Map` 对象和普通对象有什么区别？
+---
+
+## TL;DR
+
+JavaScript 中的 `Map` 对象和普通对象都可以存储键值对，但它们有几个关键的区别：
+
+| 特性 | `Map` | 普通对象 |
+| --- | --- | --- |
+| 键类型 | 任何数据类型 | 字符串（或 Symbol） |
+| 键顺序 | 保持 | 不保证 |
+| 大小属性 | 是 (`size`) | 无 |
+| 迭代 | `forEach`、`keys()`、`values()`、`entries()` | `for...in`、`Object.keys()` 等 |
+| 继承 | 否 | 是 |
+| 性能 | 通常更适合大型数据集和频繁的添加/删除 | 适用于小型数据集和简单操作 |
+| 可序列化 | 否 | 是 |
+
+***
+
+## `Map` vs 普通 JavaScript 对象
+
+在 JavaScript 中，`Map` 对象和普通对象（也称为“POJO”或“普通旧 JavaScript 对象”）都用于存储键值对，但它们具有不同的特性、用例和行为。
+
+### 普通 JavaScript 对象 (POJO)
+
+普通对象是使用 `{}` 语法创建的基本 JavaScript 对象。它是一个键值对的集合，其中每个键都是一个字符串（或现代 JavaScript 中的符号），每个值可以是任何类型的值，包括字符串、数字、布尔值、数组、对象等。
+
+```js live
+const person = { name: 'John', age: 30, occupation: 'Developer' };
+console.log(person);
+```
+
+### `Map` 对象
+
+在 ECMAScript 2015 (ES6) 中引入的 `Map` 对象是一种更高级的数据结构，它允许您存储具有附加功能的键值对。`Map` 是可迭代的，这意味着您可以在 `for...of` 循环中使用它，并且它提供了用于常见操作（如 `get`、`set`、`has` 和 `delete`）的方法。
+
+```js live
+const person = new Map([
+  ['name', 'John'],
+  ['age', 30],
+  ['occupation', 'Developer'],
+]);
+console.log(person);
+```
+
+## 关键区别
+
+以下是 `Map` 对象和普通对象之间的主要区别：
+
+1. **键类型**：在普通对象中，键始终是字符串（或符号）。在 `Map` 中，键可以是任何类型的值，包括对象、数组，甚至其他 `Map`。
+2. **键顺序**：在普通对象中，键的顺序不保证。在 `Map` 中，键的顺序被保留，您可以按照它们插入的顺序进行迭代。
+3. **迭代**：`Map` 是可迭代的，这意味着您可以使用 `for...of` 循环来迭代其键值对。默认情况下，普通对象不可迭代，但您可以使用 `Object.keys()` 或 `Object.entries()` 来迭代其属性。
+4. **性能**：`Map` 对象通常比普通对象更快、更高效，尤其是在处理大型数据集时。
+5. **方法**：`Map` 对象提供了其他方法，例如 `get`、`set`、`has` 和 `delete`，这使得处理键值对更容易。
+6. **序列化**：将 `Map` 对象序列化为 JSON 时，它将被转换为一个对象，但现有的 `Map` 属性可能会在转换过程中丢失。另一方面，普通对象被序列化为具有相同结构的 JSON 对象。
+
+## 何时使用哪个
+
+当您需要时使用普通对象 (POJO)：
+
+* 您需要一个具有字符串键的简单、轻量级对象。
+* 您正在处理小型数据集。
+* 您需要将对象序列化为 JSON（例如，通过网络发送）。
+
+当您需要时使用 `Map` 对象：
+
+* 您需要使用非字符串键（例如对象、数组）存储键值对。
+* 您需要保留键值对的顺序。
+* 您需要按特定顺序迭代键值对。
+* 您正在处理大型数据集，需要更好的性能。
+
+总而言之，虽然普通对象和 `Map` 对象都可以用来存储键值对，但 `Map` 对象提供了更高级的功能、更好的性能和额外的方法，使其成为更复杂用例的更好选择。
+
+## 注意事项
+
+`Map` 对象无法被序列化以在 HTTP 请求中发送，但像 [superjson](https://github.com/blitz-js/superjson) 这样的库允许它们被序列化和反序列化。
+
+## 延伸阅读
+
+* [Map - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+* [Object - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)

@@ -1,5 +1,132 @@
 ---
-title: 为什么你想要创建静态类成员？
+title: 为什么你可能想要在 JavaScript 中创建静态类成员？
 ---
 
-静态类成员 (属性/方法) 不与某类的具体实例绑定，并且具有相同的值，不管是指哪个实例。 静态属性通常是配置变量，而静态方法通常是纯粹的实用函数，不取决于实例的状态。
+## TL;DR
+
+静态类成员（属性/方法）有一个前置的 `static` 关键字。此类成员不能直接在类的实例上访问。相反，它们在类本身上被访问。
+
+```js live
+class Car {
+  static noOfWheels = 4;
+  static compare() {
+    return 'Static method has been called.';
+  }
+}
+
+console.log(Car.noOfWheels); // 4
+```
+
+静态成员在以下情况下很有用：
+
+* **命名空间组织**：静态属性可用于定义特定于类的常量或配置值。这有助于在类命名空间内组织相关数据，并防止与其他变量发生命名冲突。示例包括 `Math.PI`、`Math.SQRT2`。
+* **辅助函数**：静态方法可用作对类本身或其实例进行操作的辅助函数。这可以通过将实用程序逻辑与类的核心功能分开来提高代码的可读性和可维护性。常用静态方法的示例包括 `Object.assign()`、`Math.max()`。
+* **单例模式**：在极少数情况下，静态属性和方法可用于实现单例模式，其中只存在一个类的实例。但是，这种模式可能难以管理，通常不鼓励使用，而倾向于使用更现代的依赖注入技术。
+
+***
+
+## 静态类成员
+
+静态类成员（属性/方法）不与类的特定实例相关联，并且无论哪个实例引用它，都具有相同的值。静态属性通常是配置变量，静态方法通常是纯实用程序函数，不依赖于实例的状态。此类属性有一个前置的 `static` 关键字。
+
+```js live
+class Car {
+  static noOfWheels = 4;
+  static compare() {
+    return 'static method has been called.';
+  }
+}
+
+console.log(Car.noOfWheels); // Output: 4
+console.log(Car.compare()); // Output: static method has been called.
+```
+
+静态成员不能被类的特定实例访问。
+
+```js live
+class Car {
+  static noOfWheels = 4;
+  static compare() {
+    return 'static method has been called.';
+  }
+}
+
+const car = new Car();
+console.log(car.noOfWheels); // Output: undefined
+console.log(car.compare()); // Error: TypeError: car.compare is not a function
+```
+
+JavaScript 中的 `Math` 类是使用静态成员的常见库的一个很好的例子。JavaScript 中的 `Math` 类是一个内置对象，它提供了一组数学常量和函数。它是一个静态类，这意味着它的所有属性和方法都是静态的。以下是 `Math` 类如何使用静态成员的示例：
+
+```js live
+console.log(Math.PI); // Output: 3.141592653589793
+console.log(Math.abs(-5)); // Output: 5
+console.log(Math.max(1, 2, 3)); // Output: 3
+```
+
+在此示例中，`Math.PI`、`Math.abs()` 和 `Math.max()` 都是 `Math` 类的静态成员。它们可以直接在 `Math` 对象上访问，而无需创建类的实例。
+
+## 使用静态类成员的原因
+
+### 实用函数
+
+静态类成员可用于定义不需要任何特定于实例（不使用 `this`）数据或行为的实用函数。例如，您可能有一个 `Arithmetic` 类，其中包含用于常见数学运算的静态方法。
+
+```js live
+class Arithmetic {
+  static add(a, b) {
+    return a + b;
+  }
+  static subtract(a, b) {
+    return a - b;
+  }
+}
+
+console.log(Arithmetic.add(2, 3)); // Output: 5
+console.log(Arithmetic.subtract(5, 2)); // Output: 3
+```
+
+### 单例
+
+静态类成员可用于实现单例模式，在单例模式中，您希望确保应用程序中只存在一个类的实例。
+
+```js live
+class Singleton {
+  static instance;
+
+  static getInstance() {
+    if (!this.instance) {
+      this.instance = new Singleton();
+    }
+    return this.instance;
+  }
+}
+
+const singleton1 = Singleton.getInstance();
+const singleton2 = Singleton.getInstance();
+
+console.log(singleton1 === singleton2); // Output: true
+```
+
+### 配置
+
+静态类成员可用于存储在类的所有实例之间共享的配置或设置。这对于 API 密钥、功能标志或其他全局设置非常有用。
+
+```js live
+class Config {
+  static API_KEY = 'your-api-key';
+  static FEATURE_FLAG = true;
+}
+
+console.log(Config.API_KEY); // Output: 'your-api-key'
+console.log(Config.FEATURE_FLAG); // Output: true
+```
+
+### 性能
+
+在某些情况下，使用静态类成员可以通过减少应用程序使用的内存量来提高性能。这是因为静态类成员在类的所有实例之间共享，而不是为每个实例复制。
+
+## 延伸阅读
+
+* [静态方法和属性 | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
+* [静态属性和方法 | Javascript.info](https://javascript.info/static-properties-methods)

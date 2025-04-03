@@ -1,30 +1,121 @@
 ---
-title: 描述`<script>`、`<script async>`和`<script defer> `之间的差异
+title: 描述 `<script>`、`<script async>` 和 `<script defer>` 之间的区别
 ---
 
-`<script>` 标签用于在网页上包含 JavaScript 。 `async` 和 `defer` 属性用于更改脚本加载和执行的方式/时机。
+## TL;DR
 
-## 普通`<script>`
+所有这些方式（`<script>`、`<script async>` 和 `<script defer>`）都用于在 HTML 文档中加载和执行 JavaScript 文件，但它们在浏览器处理脚本的加载和执行方式上有所不同：
 
-对于普通的 `<script>` 标签，在遇到它们时没有任何`async` 或 `defer`。 HTML 解析被阻止，脚本会被下载并立即执行。 脚本执行后 HTML 解析恢复。
+* `<script>` 是包含 JavaScript 的默认方式。浏览器在下载和执行脚本时会阻止 HTML 解析。在脚本执行完毕之前，浏览器不会继续渲染页面。
+* `<script async>` 异步下载脚本，与解析 HTML 并行。在脚本可用后立即执行脚本，可能会中断 HTML 解析。`<script async>` 之间不会互相等待，并且以不特定的顺序执行。
+* `<script defer>` 异步下载脚本，与解析 HTML 并行。但是，脚本的执行被推迟到 HTML 解析完成后，按照它们在 HTML 中出现的顺序。
+
+这是一个表格，总结了在 HTML 文档中加载 `<script>` 的 3 种方式。
+
+| 特性 | `<script>` | `<script async>` | `<script defer>` |
+| --- | --- | --- | --- |
+| 解析行为 | 阻止 HTML 解析 | 与解析并行运行 | 与解析并行运行 |
+| 执行顺序 | 按照出现顺序 | 不保证 | 按照出现顺序 |
+| DOM 依赖 | 否 | 否 | 是（等待 DOM） |
+
+***
+
+## `<script>` 标签的用途
+
+`<script>` 标签用于在网页中包含 JavaScript。`async` 和 `defer` 属性用于更改脚本的加载和执行方式/时间。
+
+## `<script>`
+
+对于没有任何 `async` 或 `defer` 的普通 `<script>` 标签，当遇到它们时，HTML 解析会被阻止，脚本会被立即获取和执行。HTML 解析在脚本执行完毕后恢复。如果脚本很大，这可能会阻止页面的渲染。
+
+将 `<script>` 用于页面依赖于正确渲染的关键脚本。
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>Regular Script</title>
+  </head>
+  <body>
+    <!-- Content before the script -->
+    <h1>Regular Script Example</h1>
+    <p>This content will be rendered before the script executes.</p>
+
+    <!-- Regular script -->
+    <script src="regular.js"></script>
+
+    <!-- Content after the script -->
+    <p>This content will be rendered after the script executes.</p>
+  </body>
+</html>
+```
+
+{/* TODO: Add CSB examples for blocking scripts */}
 
 ## `<script async>`
 
-在`<script async>`中，脚本将与 HTML 解析并行获取，并在其可用时立即执行（可能在 HTML 解析完成之前），而且不一定按照 HTML 文档中的顺序执行。 当脚本独立于页面上的任何其他脚本时使用 `async` ，比如分析。
+在 `<script async>` 中，浏览器异步下载脚本文件（与 HTML 解析并行），并在脚本可用后立即执行（可能在 HTML 解析完成之前）。执行不一定按照它在 HTML 文档中出现的顺序执行。这可以提高感知的性能，因为浏览器在继续渲染页面之前不必等待脚本下载。
+
+当脚本独立于页面上的任何其他脚本时，使用 `<script async>`，例如分析和广告脚本。
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>Async Script</title>
+  </head>
+  <body>
+    <!-- Content before the script -->
+    <h1>Async Script Example</h1>
+    <p>This content will be rendered before the async script executes.</p>
+
+    <!-- Async script -->
+    <script async src="async.js"></script>
+
+    <!-- Content after the script -->
+    <p>
+      This content may be rendered before or after the async script executes.
+    </p>
+  </body>
+</html>
+```
 
 ## `<script defer>`
 
-在`<script defer>`, 脚本将在文档已完全解析并执行时并行获取到 HTML 解析和执行， 但在 `DOMContentLoaded` 事件之前。 如果其中有多个，每个 defer 脚本都是按照它们在 HTML 文档中出现的顺序执行的。
+与 `<script async>` 类似，`<script defer>` 也会与 HTML 解析并行下载脚本，但脚本仅在文档被完全解析并且在触发 `DOMContentLoaded` 之前执行。如果有多个，则每个延迟脚本按照它们在 HTML 文档中出现的顺序执行。
 
-如果脚本依赖于完全解析的 DOM，则`defer` 属性将有助于确保在执行前完全解析 HTML。
+如果脚本依赖于完全解析的 DOM，则 `defer` 属性将有助于确保在执行之前完全解析 HTML。
 
-## 备注
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>Deferred Script</title>
+  </head>
+  <body>
+    <!-- Content before the script -->
+    <h1>Deferred Script Example</h1>
+    <p>This content will be rendered before the deferred script executes.</p>
 
-- 一般说来， `async` 属性应该用于对页面初始化不重要且不依赖于对方的脚本。 `defer` 属性应该用于依赖于/被依赖于其他脚本的脚本。
-- 没有`src`属性的脚本， `async` 和 `deleger` 属性会被忽略。
-- 包含`defer'或`async'的`<script>`将被忽略，并显示 "来自异步加载的外部脚本对 document.write()的调用被忽略 "的信息。
+    <!-- Deferred script -->
+    <script defer src="deferred.js"></script>
 
-## 参考资料
+    <!-- Content after the script -->
+    <p>This content will be rendered before the deferred script executes.</p>
+  </body>
+</html>
+```
 
-- [`<script>`: 脚本元素 | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer)
-- [async vs defer 属性](https://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html)
+## 注意事项
+
+* `async` 属性应用于对页面初始渲染不关键且彼此不依赖的脚本，而 `defer` 属性应用于依赖于/被另一个脚本依赖的脚本。
+* 对于没有 `src` 属性的脚本，将忽略 `async` 和 `defer` 属性。
+* 包含 `document.write()` 的带有 `defer` 或 `async` 的 `<script>` 将被忽略，并显示类似“从异步加载的外部脚本对 `document.write()` 的调用被忽略”的消息。
+* 即使 `async` 和 `defer` 有助于使脚本下载异步，但脚本最终仍在主线程上执行。如果这些脚本是计算密集型的，则可能导致 UI 滞后/冻结。[Partytown](https://partytown.builder.io/) 是一个库，它有助于将脚本执行重新定位到 [web worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) 并从 [主线程](https://developer.mozilla.org/en-US/docs/Glossary/Main_thread) 中移出，这对于您无法控制代码的第三方脚本非常有用。
+
+{/* TODO: Add image https://media.licdn.com/dms/image/D5612AQEYCnsZ1f9GFQ/article-cover_image-shrink_600_2000/0/1699370054733?e=2147483647&v=beta&t=MeKuUXk5QMblVoausf5p3swTkBCICOHoRsijQqMfxZE */}
+
+## 延伸阅读
+
+* [`<script>`: The Script element | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer)
+* [async vs defer attributes](https://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html)

@@ -1,14 +1,26 @@
 ---
-title: 解释 `Function.prototype.bind`
+title: 解释 JavaScript 中的 `Function.prototype.bind`
 ---
 
-> `bind()`方法创建了一个新的函数，在被调用时，它有`this`关键字设置为提供的值。 具有在调用新函数时所提供的任何参数之前的特定序列。
+## TL;DR
 
-_资料来源：[Function.prototype.bind() - JavaScript | MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind)_
+`Function.prototype.bind` 是 JavaScript 中的一个方法，它允许你创建一个新函数，该函数具有特定的 `this` 值和可选的初始参数。它的主要目的是：
 
-`bind()` 对于在要传递给其他函数的类的方法中绑定 `this` 的值非常有用。 这通常是在 React 类组件方法中做的，而这些方法没有使用箭头函数来定义。
+* **绑定 `this` 值以保留上下文**：`bind` 的主要目的是将函数的 `this` 值绑定到特定的对象。当你调用 `func.bind(thisArg)` 时，它会创建一个与 `func` 具有相同主体的的新函数，但 `this` 永久绑定到 `thisArg`。
+* **部分应用参数**：`bind` 还允许你为新函数预先指定参数。传递给 `bind` 的任何参数（在 `thisArg` 之后）都将在调用新函数时添加到参数列表的前面。
+* **方法借用**：`bind` 允许你从一个对象借用方法并将其应用于另一个对象，即使它们最初并非设计为与该对象一起使用。
 
-```js
+`bind` 方法在需要确保使用特定的 `this` 上下文调用函数的情况下特别有用，例如在事件处理程序、回调或方法借用中。
+
+***
+
+## `Function.prototype.bind`
+
+`Function.prototype.bind` 允许你创建一个具有特定 `this` 上下文的新函数，以及可选的预设参数。`bind()` 对于在要传递给其他函数的类方法中保留 `this` 的值非常有用。
+
+`bind` 经常用于旧版 React 类组件方法，这些方法不是使用箭头函数定义的。
+
+```js live
 const john = {
   age: 42,
   getAge: function () {
@@ -29,14 +41,88 @@ const boundGetAgeMary = john.getAge.bind(mary);
 console.log(boundGetAgeMary()); // 21
 ```
 
-在上面的例子中，当`getAge`方法被调用时没有一个调用对象（如`unboundGetAge`）， 值为 `undefined` ，因为`getAge()` 里的 `this` 值变成了全局对象。 `boundGetAge()` 将其`this` 绑定到`john`，因此它能够获得`john`的`age`。
+在上面的例子中，当 `getAge` 方法在没有调用对象（作为 `unboundGetAge`）的情况下被调用时，该值为 `undefined`，因为 `getAge()` 中的 `this` 的值变为全局对象。`boundGetAge()` 的 `this` 绑定到 `john`，因此它能够获取 `john` 的 `age`。
 
-我们甚至可以在另一个不是`john`的对象上使用 `getAge`! `boundGetAgeMary` 返回 `mary` 的`age` 。
+我们甚至可以在另一个不是 `john` 的对象上使用 `getAge`！`boundGetAgeMary` 返回 `mary` 的 `age`。
+
+## 用例
+
+以下是经常使用 `bind` 的一些常见场景：
+
+### 在回调中保留上下文并修复 `this` 值
+
+当你将一个函数作为回调传递时，函数内部的 `this` 值可能无法预测，因为它由执行上下文决定。使用 `bind()` 有助于确保维护正确的 `this` 值。
+
+```js live
+class Person {
+  constructor(firstName) {
+    this.firstName = firstName;
+  }
+  greet() {
+    console.log(`Hello, my name is ${this.firstName}`);
+  }
+}
+
+const john = new Person('John');
+
+// Without bind(), `this` inside the callback will be the global object
+setTimeout(john.greet, 1000); // Output: "Hello, my name is undefined"
+
+// Using bind() to fix the `this` value
+setTimeout(john.greet.bind(john), 2000); // Output: "Hello, my name is John"
+```
+
+你也可以使用 [箭头函数](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) 来定义类方法，而不是使用 `bind`。箭头函数将 `this` 值绑定到其词法上下文。
+
+```js live
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  greet = () => {
+    console.log(`Hello, my name is ${this.name}`);
+  };
+}
+
+const john = new Person('John Doe');
+setTimeout(john.greet, 1000); // Output: "Hello, my name is John Doe"
+```
+
+### 函数的部分应用（柯里化）
+
+`bind` 可以用来创建一个新函数，其中预先设置了一些参数。这被称为部分应用或柯里化。
+
+```js live
+function multiply(a, b) {
+  return a * b;
+}
+
+// 使用 bind() 创建一个新函数，其中预先设置了一些参数
+const multiplyBy5 = multiply.bind(null, 5);
+console.log(multiplyBy5(3)); // Output: 15
+```
+
+### 方法借用
+
+`bind` 允许你从一个对象借用方法并将它们应用于另一个对象，即使它们最初不是为该对象设计的。当你需要在不同对象之间重用功能时，这会很有用
+
+```js live
+const person = {
+  name: 'John',
+  greet: function () {
+    console.log(`Hello, ${this.name}!`);
+  },
+};
+
+const greetPerson = person.greet.bind({ name: 'Alice' });
+greetPerson(); // Output: Hello, Alice!
+```
 
 ## 练习
 
-在 GreatFrontEnd 尝试[实现你自己的 `Function.prototype.bind()` 方法](/questions/javascript/function-bind)。
+尝试在 GreatFrontEnd 上[实现你自己的 `Function.prototype.bind()` 方法](/questions/javascript/function-bind)。
 
-## 参考资料
+## 延伸阅读
 
-- [Function.prototype.bind() - JavaScript | MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind)
+* [Function.prototype.bind() - JavaScript | MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind)
+* [Function Binding | javascript.info](https://javascript.info/bind)

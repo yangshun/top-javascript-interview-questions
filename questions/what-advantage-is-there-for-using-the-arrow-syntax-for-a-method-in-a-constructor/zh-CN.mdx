@@ -1,12 +1,16 @@
 ---
-title: 在构造函数中对方法使用箭头语法有什么好处？
+title: 在构造函数中使用 JavaScript 箭头语法作为方法有什么优势？
 ---
 
-使用箭头函数作为构造函数内的一种方法的主要优点是，`this`的值在函数创建时被设置，之后无法更改。 因此，当构造函数用于创建一个新对象时，`this` 总是指该对象。 例如，假设我们有一个`Person`构造函数，以名字作为参数，有两个方法来`console.log`这个名字，一个是普通函数，一个是箭头函数：
+## TL;DR
 
-```js
-const Person = function (firstName) {
-  this.firstName = firstName;
+在构造函数中使用箭头函数作为方法的主要优点是 `this` 的值在函数创建时设置，之后无法更改。当构造函数用于创建新对象时，`this` 将始终引用该对象。
+
+例如，假设我们有一个 `Person` 构造函数，它接受一个名字作为参数，并有两个方法来 `console.log()` 该名称，一个作为常规函数，一个作为箭头函数：
+
+```js live
+const Person = function (name) {
+  this.firstName = name;
   this.sayName1 = function () {
     console.log(this.firstName);
   };
@@ -21,23 +25,155 @@ const dave = new Person('Dave');
 john.sayName1(); // John
 john.sayName2(); // John
 
-// The regular function can have its 'this' value changed, but the arrow function cannot
-john.sayName1.call(dave); // Dave (because "this" is now the dave object)
+// 常规函数可以更改其 `this` 值，但箭头函数不能
+john.sayName1.call(dave); // Dave (因为 `this` 现在是 dave 对象)
 john.sayName2.call(dave); // John
 
-john.sayName1.apply(dave); // Dave (because 'this' is now the dave object)
+john.sayName1.apply(dave); // Dave (因为 `this` 现在是 dave 对象)
 john.sayName2.apply(dave); // John
 
-john.sayName1.bind(dave)(); // Dave (because 'this' is now the dave object)
+john.sayName1.bind(dave)(); // Dave (因为 `this` 现在是 dave 对象)
 john.sayName2.bind(dave)(); // John
 
-var sayNameFromWindow1 = john.sayName1;
-sayNameFromWindow1(); // undefined (because 'this' is now the window object)
+const sayNameFromWindow1 = john.sayName1;
+sayNameFromWindow1(); // undefined (因为 `this` 现在是 window 对象)
 
-var sayNameFromWindow2 = john.sayName2;
+const sayNameFromWindow2 = john.sayName2;
 sayNameFromWindow2(); // John
 ```
 
-这里的主要启示是，对于普通函数\`this'可以改变，但对于箭头函数，上下文始终保持不变。 所以，即使你将箭头函数传递到应用程序的不同部分，你也不必担心上下文会发生变化。
+这里的主要结论是，`this` 可以为普通函数更改，但 `this` 对于箭头函数始终保持不变。因此，即使您将箭头函数传递到应用程序的不同部分，您也不必担心 `this` 的值发生变化。
 
-这对 React 类组件特别有用。 如果你定义了一个类方法，例如使用普通函数的点击处理程序，然后你把这个点击处理程序作为一个道具传递给子组件，你将需要在父组件的构造函数中绑定`this`。 如果你使用一个箭头函数，就不需要同时绑定 "this"，因为方法会自动从其包围的词法上下文中获得 "this "值。 (关于优秀演示和样本代码：https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb)
+***
+
+## 箭头函数
+
+箭头函数是在 ES2015 中引入的，它提供了一种用 Javascript 编写函数的简洁方式。箭头函数的一个关键特性是它在词法上绑定了 `this` 值，这意味着它从封闭范围获取 `this` 值。
+
+### 语法
+
+箭头函数使用 `=>` 语法代替 function 关键字。基本语法是：
+
+```js
+const myFunction = (arg1, arg2, ...argN) => {
+  // function body
+};
+```
+
+如果函数体只有一个表达式，则可以省略大括号和 return 关键字：
+
+```js
+const myFunction = (arg1, arg2, ...argN) => expression;
+```
+
+### 例子
+
+```js live
+// 带有参数的箭头函数
+const multiply = (x, y) => x * y;
+console.log(multiply(2, 3)); // 输出：6
+
+// 没有参数的箭头函数
+const sayHello = () => 'Hello, World!';
+console.log(sayHello()); // 输出：'Hello, World!'
+```
+
+### 优点
+
+* **简洁**: 箭头函数提供更简洁的语法，尤其适用于短函数。
+* **隐式返回**: 它们对单行函数具有隐式返回。
+* **`this` 的值是可预测的**: 箭头函数在词法上绑定 `this` 值，从封闭范围继承它。
+
+### 局限性
+
+箭头函数不能用作构造函数，并且与 `new` 关键字一起使用时会抛出错误。
+
+```js live
+const Foo = () => {};
+const foo = new Foo(); // TypeError: Foo is not a constructor
+```
+
+它们也没有 `arguments` 关键字；参数必须通过在参数中使用 rest 运算符 (`...`) 来获取。
+
+```js live
+const arrowFunction = (...args) => {
+  console.log(arguments); // Throws a ReferenceError
+  console.log(args); // [1, 2, 3]
+};
+
+arrowFunction(1, 2, 3);
+```
+
+由于箭头函数没有自己的 `this`，因此它们不适合在对象中定义方法。 应该使用传统的函数表达式或函数声明。
+
+```js live
+const obj = {
+  value: 42,
+  getValue: () => this.value, // `this` does not refer to `obj`
+};
+
+console.log(obj.getValue()); // undefined
+```
+
+## 为什么箭头函数有用
+
+箭头函数最显著的特征之一是它们与 `this` 的行为。与常规函数不同，箭头函数没有自己的 `this`。相反，它们在定义时从父作用域继承 `this`。这使得箭头函数特别适用于事件处理程序、回调和类中的方法等场景。
+
+### 函数构造函数中的箭头函数
+
+```js live
+const Person = function (name) {
+  this.firstName = name;
+  this.sayName1 = function () {
+    console.log(this.firstName);
+  };
+  this.sayName2 = () => {
+    console.log(this.firstName);
+  };
+};
+
+const john = new Person('John');
+const dave = new Person('Dave');
+
+john.sayName1(); // John
+john.sayName2(); // John
+
+// 常规函数可以更改其 `this` 值，但箭头函数不能
+john.sayName1.call(dave); // Dave (因为 `this` 现在是 dave 对象)
+john.sayName2.call(dave); // John
+
+john.sayName1.apply(dave); // Dave (因为 `this` 现在是 dave 对象)
+john.sayName2.apply(dave); // John
+
+john.sayName1.bind(dave)(); // Dave (因为 `this` 现在是 dave 对象)
+john.sayName2.bind(dave)(); // John
+
+const sayNameFromWindow1 = john.sayName1;
+sayNameFromWindow1(); // undefined (因为 `this` 现在是 window 对象)
+
+const sayNameFromWindow2 = john.sayName2;
+sayNameFromWindow2(); // John
+```
+
+### 箭头函数在事件处理程序中
+
+```js
+const button = document.getElementById('myButton');
+
+button.addEventListener('click', function () {
+  console.log(this); // Output: Button
+  console.log(this === button); // Output: true
+});
+
+button.addEventListener('click', () => {
+  console.log(this); // Output: Window
+  console.log(this === window); // Output: true
+});
+```
+
+这在 React 类组件中特别有用。 如果您使用普通函数定义一个类方法，例如单击处理程序，然后将该单击处理程序作为 prop 传递到子组件中，则还需要在父组件的构造函数中绑定 `this`。 如果您改为使用箭头函数，则无需绑定 `this`，因为该方法将自动从其封闭的词法上下文中获取其 `this` 值。 请参阅此 [文章](https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb) 以获得出色的演示和示例代码。
+
+## 延伸阅读
+
+* [箭头函数表达式 - MDN ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+* [如何使用 JavaScript 箭头函数 – 详细解释](https://www.freecodecamp.org/news/javascript-arrow-functions-in-dep)

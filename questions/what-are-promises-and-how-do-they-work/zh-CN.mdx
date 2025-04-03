@@ -1,0 +1,131 @@
+---
+title: 什么是 Promise 以及它们如何工作？
+---
+
+## TL;DR
+
+JavaScript 中的 Promise 是表示异步操作最终完成（或失败）及其结果值的对象。它们有三种状态：`pending`、`fulfilled` 和 `rejected`。您可以使用 `.then()` 方法处理 Promise 的结果以获取成功的结果，使用 `.catch()` 方法处理错误。
+
+```js live
+let promise = new Promise((resolve, reject) => {
+  // asynchronous operation
+  const success = true;
+  if (success) {
+    resolve('Success!');
+  } else {
+    reject('Error!');
+  }
+});
+
+promise
+  .then((result) => {
+    console.log(result); // 'Success!' (this will print)
+  })
+  .catch((error) => {
+    console.error(error); // 'Error!'
+  });
+```
+
+***
+
+## 什么是 Promise 以及它们如何工作？
+
+### 定义
+
+Promise 是一种在 JavaScript 中处理异步操作的方式。与传统的 callback 函数相比，它们提供了一种更清晰、更易读的方式来处理异步代码。
+
+### Promise 的状态
+
+一个 Promise 可以处于以下三种状态之一：
+
+* `Pending`：初始状态，既未完成也未拒绝。
+* `Fulfilled`：操作成功完成。
+* `Rejected`：操作失败。
+
+### 创建一个 Promise
+
+您可以使用 `Promise` 构造函数创建一个 Promise，该构造函数接受一个带有两个参数的函数：`resolve` 和 `reject`。这些是您用来更改 Promise 状态的回调函数。
+
+```js live
+let promise = new Promise((resolve, reject) => {
+  // asynchronous operation
+  const success = true;
+  if (success) {
+    resolve('Success!');
+  } else {
+    reject('Error!');
+  }
+});
+```
+
+### 处理 Promise
+
+要处理 Promise 的结果，您可以使用 `.then()` 方法来获取成功的结果，使用 `.catch()` 方法来获取错误。
+
+```js live
+let promise = new Promise((resolve, reject) => {
+  // asynchronous operation
+  const success = false;
+  if (success) {
+    resolve('Success!');
+  } else {
+    reject('Error!');
+  }
+});
+
+promise
+  .then((result) => {
+    console.log(result); // 'Success!'
+  })
+  .catch((error) => {
+    console.error(error); // 'Error!' (this will print)
+  });
+```
+
+### 链式 Promise
+
+Promise 可以链接起来以按顺序处理多个异步操作。每个 `.then()` 都会返回一个新的 Promise，从而允许进一步链接。
+
+```js live
+new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Promise 1 resolved after 1 second');
+  }, 1000);
+})
+  .then((result) => {
+    console.log(result);
+    return 'Another promise';
+  })
+  .then((anotherResult) => {
+    console.log(anotherResult);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+### 组合 Promise
+
+您可以使用 `Promise.all()` 并行运行多个 promise，并等待它们全部完成。
+
+```js live
+let promise1 = Promise.resolve('First');
+let promise2 = Promise.resolve('Second');
+let promise3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Third');
+  }, 2000);
+});
+
+Promise.all([promise1, promise2, promise3]).then((results) => {
+  console.log(results); // ['First', 'Second', 'Third']
+});
+```
+
+在上面的例子中，虽然 `promise1` 和 `promise2` 立即完成，但 `Promise.all` 会等待 `promise3`，它需要 2 秒钟，然后才会记录结果。
+
+## 延伸阅读
+
+* [MDN Web Docs: Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+* [JavaScript.info: Promises](https://javascript.info/promise-basics)
+* [You Don't Know JS: Promises](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/get-started/ch11.md#promises)

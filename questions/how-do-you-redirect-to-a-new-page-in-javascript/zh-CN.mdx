@@ -1,0 +1,66 @@
+---
+title: 如何在 JavaScript 中重定向到新页面？
+---
+
+## TL;DR
+
+要在 JavaScript 中重定向到新页面，可以使用 `window.location` 对象。最常用的方法是 `window.location.href` 和 `window.location.replace()`。例如：
+
+```js
+// Using window.location.href
+window.location.href = 'https://www.example.com';
+
+// Using window.location.replace()
+window.location.replace('https://www.example.com');
+```
+
+***
+
+## 如何在 JavaScript 中重定向到新页面？
+
+### 使用 `window.location.href`
+
+`window.location.href` 属性用于获取或设置当前页面的 URL。设置此属性后，浏览器将导航到新的 URL，并将在浏览器的历史记录中创建一个新条目。
+
+```js
+window.location.href = 'https://www.example.com';
+```
+
+### 使用 `window.location.replace()`
+
+`window.location.replace()` 方法类似于 `window.location.href`，但它不会在浏览器的历史记录中创建新条目。这意味着用户无法使用后退按钮返回到原始页面。
+
+```js
+window.location.replace('https://www.example.com');
+```
+
+### 使用 `window.location.assign()`
+
+`window.location.assign()` 方法与 `window.location.href` 类似，并在浏览器的历史记录中创建一个新条目。
+
+```js
+window.location.assign('https://www.example.com');
+```
+
+### 使用 `window.location.reload()`
+
+如果要重新加载当前页面，可以使用 `window.location.reload()` 方法。如果您想刷新页面而不更改 URL，此方法很有用。
+
+```js
+window.location.reload();
+```
+
+### 使用 `window.history.pushState()`
+
+对于更高级的用例，例如单页应用程序 (SPA)，您可以使用 `window.history.pushState()` 方法。此方法允许您更改 URL 而无需重新加载页面。
+
+```js
+window.history.pushState({}, '', '/new-page');
+```
+
+## 延伸阅读
+
+* [MDN Web 文档：Window.location](https://developer.mozilla.org/en-US/docs/Web/API/Window/location)
+* [MDN Web 文档：Window.location.href](https://developer.mozilla.org/en-US/docs/Web/API/Location/href)
+* [MDN Web 文档：Window.location.replace()](https://developer.mozilla.org/en-US/docs/Web/API/Location/replace)
+* [MDN Web 文档：Window.history.pushState()](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState)

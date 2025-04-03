@@ -1,0 +1,94 @@
+---
+title: 解释使用点符号和方括号符号访问对象属性的区别
+---
+
+## TL;DR
+
+点符号和方括号符号是 JavaScript 中访问对象属性的两种方式。点符号更简洁易读，但只能用于有效的 JavaScript 标识符。方括号符号更灵活，可以用于不是有效标识符的属性名称，例如包含空格或特殊字符的属性名称。
+
+```js live
+const obj = { name: 'Alice', 'favorite color': 'blue' };
+
+// Dot notation
+console.log(obj.name); // Alice
+
+// Bracket notation
+console.log(obj['favorite color']); // blue
+```
+
+***
+
+## 点符号 vs. 方括号符号
+
+### 点符号
+
+点符号是访问对象属性最常见和最直接的方式。它简洁易读，但也有一些限制。
+
+#### 语法
+
+```js
+object.property;
+```
+
+#### 示例
+
+```js live
+const person = {
+  name: 'Alice',
+  age: 30,
+};
+
+console.log(person.name); // Alice
+console.log(person.age); // 30
+```
+
+#### 限制
+
+* 属性名称必须是有效的 JavaScript 标识符（例如，没有空格、特殊字符，或不以数字开头）
+* 属性名称不能是动态的（即，它们必须是硬编码的）
+
+### 方括号符号
+
+方括号符号更灵活，可以在点符号无法使用的情况下使用。
+
+#### 语法
+
+```js
+object['property'];
+```
+
+#### 示例
+
+```js live
+const person = {
+  name: 'Alice',
+  'favorite color': 'blue',
+  1: 'one',
+};
+
+console.log(person['name']); // Alice
+console.log(person['favorite color']); // blue
+console.log(person[1]); // one
+```
+
+#### 优点
+
+* 可以访问名称不是有效 JavaScript 标识符的属性
+* 可以使用变量或表达式来动态确定属性名称
+
+#### 动态属性名示例
+
+```js live
+const person = {
+  name: 'Alice',
+  age: 30,
+};
+
+const property = 'name';
+console.log(person[property]); // Alice
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Working with objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
+* [JavaScript.info: Objects](https://javascript.info/object)

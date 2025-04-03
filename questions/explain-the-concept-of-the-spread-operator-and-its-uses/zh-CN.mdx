@@ -1,0 +1,96 @@
+---
+title: 解释展开运算符的概念及其用途
+---
+
+## TL;DR
+
+JavaScript 中的展开运算符 (`...`) 允许你将可迭代对象（如数组或对象）的元素展开为单个元素。它通常用于复制数组或对象、合并数组或对象，以及将数组的元素作为参数传递给函数。
+
+```js live
+// Copying an array
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1];
+console.log(arr2); // Output: [1, 2, 3]
+
+// Merging arrays
+const arr3 = [4, 5, 6];
+const mergedArray = [...arr1, ...arr3];
+console.log(mergedArray); // Output: [1, 2, 3, 4, 5, 6]
+
+// Copying an object
+const obj1 = { a: 1, b: 2 };
+const obj2 = { ...obj1 };
+console.log(obj2); // Output: { a: 1, b: 2 }
+
+// Merging objects
+const obj3 = { c: 3, d: 4 };
+const mergedObject = { ...obj1, ...obj3 };
+console.log(mergedObject); // Output: { a: 1, b: 2, c: 3, d: 4 }
+
+// Passing array elements as function arguments
+const sum = (x, y, z) => x + y + z;
+const numbers = [1, 2, 3];
+console.log(sum(...numbers)); // Output: 6
+```
+
+***
+
+## 展开运算符及其用途
+
+### 复制数组
+
+展开运算符可用于创建数组的浅拷贝。当你想要复制一个数组而不影响原始数组时，这很有用。
+
+```js live
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1];
+console.log(arr2); // Output: [1, 2, 3]
+```
+
+### 合并数组
+
+你可以使用展开运算符将多个数组合并成一个。这是一种简洁易读的组合数组的方式。
+
+```js live
+const arr1 = [1, 2, 3];
+const arr3 = [4, 5, 6];
+const mergedArray = [...arr1, ...arr3];
+console.log(mergedArray); // Output: [1, 2, 3, 4, 5, 6]
+```
+
+### 复制对象
+
+与数组类似，展开运算符可用于创建对象的浅拷贝。这对于复制对象而不影响原始对象很有用。
+
+```js live
+const obj1 = { a: 1, b: 2 };
+const obj2 = { ...obj1 };
+console.log(obj2); // Output: { a: 1, b: 2 }
+```
+
+### 合并对象
+
+展开运算符也可用于将多个对象合并成一个。这对于组合来自不同对象的属性特别有用。
+
+```js live
+const obj1 = { a: 1, b: 2 };
+const obj3 = { c: 3, d: 4 };
+const mergedObject = { ...obj1, ...obj3 };
+console.log(mergedObject); // Output: { a: 1, b: 2, c: 3, d: 4 }
+```
+
+### 将数组元素作为函数参数传递
+
+展开运算符允许你将数组的元素作为单个参数传递给函数。这对于接受多个参数的函数很有用。
+
+```js live
+const sum = (x, y, z) => x + y + z;
+const numbers = [1, 2, 3];
+console.log(sum(...numbers)); // Output: 6
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+* [JavaScript.info: Spread operator](https://javascript.info/rest-parameters-spread-operator#spread-operator)
+* [FreeCodeCamp: JavaScript spread operator explained](https://www.freecodecamp.org/news/javascript-spread-operator-explained/)

@@ -1,0 +1,125 @@
+---
+title: 如何在 JavaScript 中测试异步代码？
+---
+
+## TL;DR
+
+要在 JavaScript 中测试异步代码，你可以使用 Jest 或 Mocha 等测试框架。这些框架提供了对处理异步操作的内置支持。你可以在测试函数中使用 `async`/`await` 或返回 promise。例如，在 Jest 中，你可以编写：
+
+```js
+test('fetches data successfully', async () => {
+  const data = await fetchData();
+  expect(data).toBeDefined();
+});
+```
+
+或者，你可以使用回调函数和 `done` 函数来指示异步测试的结束。
+
+***
+
+## 如何在 JavaScript 中测试异步代码？
+
+在 JavaScript 中测试异步代码可能具有挑战性，但像 Jest 和 Mocha 这样的现代测试框架为处理异步操作提供了强大的支持。以下是测试异步代码的一些常用方法：
+
+### 使用 `async`/`await`
+
+测试异步代码最直接的方法之一是使用 `async`/`await`。这种方法使你的测试代码看起来是同步的，这更容易阅读和编写。
+
+#### Jest 示例
+
+```js
+// fetchData.js
+export const fetchData = async () => {
+  const response = await fetch('https://api.example.com/data');
+  return response.json();
+};
+
+// fetchData.test.js
+import { fetchData } from './fetchData';
+
+test('fetches data successfully', async () => {
+  const data = await fetchData();
+  expect(data).toBeDefined();
+});
+```
+
+### 返回一个 promise
+
+处理异步测试的另一种方法是从你的测试函数中返回一个 promise。Jest 和 Mocha 将等待 promise 在完成测试之前被解析。
+
+#### Jest 示例
+
+```js
+// fetchData.js
+export const fetchData = () => {
+  return fetch('https://api.example.com/data').then((response) =>
+    response.json(),
+  );
+};
+
+// fetchData.test.js
+import { fetchData } from './fetchData';
+
+test('fetches data successfully', () => {
+  return fetchData().then((data) => {
+    expect(data).toBeDefined();
+  });
+});
+```
+
+### 使用回调函数
+
+对于旧的代码库或特定场景，你可能需要使用回调函数。在 Jest 中，你可以使用 `done` 函数来指示异步测试的结束。
+
+#### Jest 示例
+
+```js
+// fetchData.js
+export const fetchData = (callback) => {
+  fetch('https://api.example.com/data')
+    .then((response) => response.json())
+    .then((data) => callback(null, data))
+    .catch((error) => callback(error));
+};
+
+// fetchData.test.js
+import { fetchData } from './fetchData';
+
+test('fetches data successfully', (done) => {
+  fetchData((error, data) => {
+    expect(error).toBeNull();
+    expect(data).toBeDefined();
+    done();
+  });
+});
+```
+
+### 使用 Mocha
+
+Mocha 也支持 `async`/`await`、返回 promise 和使用回调函数。这是一个使用 `async`/`await` 和 Mocha 的示例：
+
+```js
+// fetchData.js
+export const fetchData = async () => {
+  const response = await fetch('https://api.example.com/data');
+  return response.json();
+};
+
+// fetchData.test.js
+import { fetchData } from './fetchData';
+import { expect } from 'chai';
+
+describe('fetchData', () => {
+  it('fetches data successfully', async () => {
+    const data = await fetchData();
+    expect(data).to.be.an('object');
+  });
+});
+```
+
+## 延伸阅读
+
+* [Jest 关于测试异步代码的文档](https://jestjs.io/docs/asynchronous)
+* [Mocha 关于测试异步代码的文档](https://mochajs.org/#asynchronous-code)
+* [MDN Web Docs 关于 async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
+* [Chai 断言库](https://www.chaijs.com/)

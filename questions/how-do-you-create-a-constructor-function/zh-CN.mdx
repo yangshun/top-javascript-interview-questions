@@ -1,0 +1,105 @@
+---
+title: 如何创建构造函数？
+---
+
+## TL;DR
+
+要在 JavaScript 中创建构造函数，请定义一个名称大写的常规函数，以表明它是一个构造函数。使用 `this` 关键字设置属性和方法。创建实例时，使用 `new` 关键字。
+
+```js live
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+const john = new Person('John', 30);
+console.log(john.age); // 30
+```
+
+***
+
+## 如何创建构造函数？
+
+### 定义构造函数
+
+JavaScript 中的构造函数是一个用于创建对象的常规函数。按照惯例，构造函数的名称以大写字母开头，以区别于常规函数。
+
+```js live
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+```
+
+### 使用 `this` 关键字
+
+在构造函数中，`this` 关键字用于引用将要创建的对象。可以将属性和方法分配给 `this`。
+
+```js live
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.greet = function () {
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`,
+    );
+  };
+}
+```
+
+### 创建实例
+
+要创建对象的实例，请使用 `new` 关键字，后跟构造函数。
+
+```js live
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.greet = function () {
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`,
+    );
+  };
+}
+
+const john = new Person('John', 30);
+john.greet(); // Output: Hello, my name is John and I am 30 years old.
+```
+
+### 将方法添加到原型
+
+为了节省内存，最好将方法添加到构造函数的原型中，而不是在构造函数中定义它们。
+
+```js live
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+Person.prototype.greet = function () {
+  console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+};
+
+const jane = new Person('Jane', 25);
+jane.greet(); // Output: Hello, my name is Jane and I am 25 years old.
+```
+
+### 检查实例类型
+
+您可以使用 `instanceof` 运算符检查对象是否是构造函数的实例。
+
+```js live
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+const jane = new Person('Jane', 25);
+
+console.log(jane instanceof Person); // Output: true
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Working with objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
+* [MDN Web Docs: Object prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
+* [JavaScript.info: Constructor, operator "new"](https://javascript.info/constructor-new)

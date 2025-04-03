@@ -2,12 +2,57 @@
 title: 你使用什么工具和技术来调试 JavaScript 代码？
 ---
 
-- JavaScript
-  - [Chrome Devtools](https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d)
-  - `debugger` 语句
-  - 传统的 `console.log()` 调试
-- React 和 Redux
-  - [React Devtools](https://github.com/facebook/react-devtools)
-  - [Redux Devtools](https://github.com/gaearon/redux-devtools)
-- Vue
-  - [Vue Devtools](https://github.com/vuejs/vue-devtools)
+## TL;DR
+
+一些最常用的调试 JavaScript 的工具和技术：
+
+* JavaScript 语言
+  * `console` 方法（例如 `console.log()`、`console.error()`、`console.warn()`、`console.table()`）
+  * `debugger` 语句
+* 断点（浏览器或 IDE）
+* JavaScript 框架
+  * [React Devtools](https://github.com/facebook/react-devtools)
+  * [Redux Devtools](https://github.com/gaearon/redux-devtools)
+  * [Vue Devtools](https://github.com/vuejs/vue-devtools)
+* 浏览器开发者工具
+  * **Chrome DevTools**：用于调试 JavaScript 的最广泛使用的工具。它提供了一套丰富的功能，包括设置断点、检查变量、查看调用堆栈等。
+  * **Firefox Developer Tools**：类似于 Chrome DevTools，具有自己的一套调试功能。
+  * **Safari Web Inspector**：提供用于在 Safari 上调试的工具。
+  * **Edge Developer Tools**：类似于 Chrome DevTools，因为 Edge 现在基于 Chromium。
+* 网络请求
+  * **Postman**：用于调试 API 调用的工具。
+  * **Fiddler**：帮助捕获和检查 HTTP/HTTPS 流量。
+  * **Charles Proxy**：另一个用于拦截和调试网络调用的工具。
+
+***
+
+## 调试 JavaScript
+
+以下是开发人员经常用于调试 JavaScript 代码的常用工具和技术。
+
+### `console` 方法
+
+* `console.log()`：在代码的各个点检查值、变量和数据结构的最基本方法。
+* `console.error()`：将错误输出到控制台，通常带有更详细的堆栈跟踪。
+* `console.warn()`：显示警告。
+* `console.table()`：以可读的表格格式显示数据（尤其是对象数组）。
+* `console.time()` 和 `console.timeEnd()`：测量代码块的执行时间。
+
+### `debugger` 语句
+
+* 在放置 `debugger;` 的行处暂停代码执行。
+* 允许您逐行单步执行代码、检查变量并了解执行流程。
+
+### 断点
+
+* 直接在浏览器开发者工具或 IDE（例如 VS Code）的“Sources”面板中设置断点，以在特定代码行处暂停执行，而无需修改源代码。
+
+### 网络选项卡
+
+* 监视 JavaScript 代码发出的网络请求（例如，AJAX 调用、获取数据）。
+* 检查请求标头、响应、计时并识别潜在问题。
+
+### 性能选项卡
+
+* 分析 JavaScript 代码以识别性能瓶颈。
+* 分析 CPU 使用率、内存分配和渲染时间。

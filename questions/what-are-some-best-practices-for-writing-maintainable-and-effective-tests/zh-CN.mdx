@@ -1,0 +1,113 @@
+---
+title: 在 JavaScript 中编写可维护且有效的测试的最佳实践是什么？
+---
+
+## 总结
+
+要编写可维护且有效的测试，请确保它们清晰、简洁，并侧重于单一行为。对测试用例使用描述性名称，并避免硬编码值。模拟外部依赖项并保持测试隔离。定期审查和重构测试，以使其与代码库保持同步。
+
+***
+
+## 编写可维护且有效的测试的最佳实践
+
+### 编写清晰且具有描述性的测试名称
+
+* 使用清晰描述被测行为的名称
+* 避免使用缩写，并保持名称有意义
+
+### 保持测试专注
+
+* 确保每个测试用例都侧重于单一行为或功能
+* 避免在单个测试中测试多项内容
+
+### 使用 AAA 模式（Arrange, Act, Assert）
+
+* **Arrange**：设置初始状态和依赖项
+* **Act**：执行被测行为
+* **Assert**：验证结果
+
+```js
+test('should add two numbers correctly', () => {
+  // Arrange
+  const a = 1;
+  const b = 2;
+
+  // Act
+  const result = add(a, b);
+
+  // Assert
+  expect(result).toBe(3);
+});
+```
+
+### 避免硬编码值
+
+* 使用变量和常量使测试更具可读性和可维护性
+
+```js
+const input = 5;
+const expectedOutput = 25;
+
+test('should return the square of a number', () => {
+  const result = square(input);
+  expect(result).toBe(expectedOutput);
+});
+```
+
+### 模拟外部依赖项
+
+* 使用模拟库来模拟外部依赖项，如 API、数据库或第三方服务
+* 保持测试与外部因素隔离
+
+```js
+jest.mock('axios');
+
+test('should fetch data from API', async () => {
+  const data = { id: 1, name: 'John Doe' };
+  axios.get.mockResolvedValue({ data });
+
+  const result = await fetchData();
+
+  expect(result).toEqual(data);
+});
+```
+
+### 保持测试隔离
+
+* 确保测试不相互依赖
+* 在每次测试后重置状态并清理
+
+```js
+afterEach(() => {
+  jest.clearAllMocks();
+});
+```
+
+### 定期审查和重构测试
+
+* 使测试与代码库中的更改保持同步
+* 删除冗余或过时的测试
+* 重构测试以提高可读性和可维护性
+
+### 使用测试覆盖率工具
+
+* 衡量测试覆盖率以识别代码库中未测试的部分
+* 争取高覆盖率，但优先考虑有意义的测试而不是 100% 的覆盖率
+
+### 在修复错误之前编写测试
+
+* 用失败的测试重现错误
+* 修复错误并确保测试通过
+
+### 使用一致的风格
+
+* 遵循编写测试的一致风格和约定
+* 使用 linters 和格式化程序来强制一致性
+
+## 延伸阅读
+
+* [Jest documentation](https://jestjs.io/docs/getting-started)
+* [Mocha documentation](https://mochajs.org/)
+* [Testing Library documentation](https://testing-library.com/docs/)
+* [Effective testing with Jest](https://kentcdodds.com/blog/effective-snapshot-testing)
+* [Test-driven development (TDD)](https://martinfowler.com/bliki/TestDrivenDevelopment.html)

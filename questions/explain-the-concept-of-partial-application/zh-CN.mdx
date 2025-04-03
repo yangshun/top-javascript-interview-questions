@@ -1,0 +1,69 @@
+---
+title: 解释部分应用的理念
+---
+
+## 总结
+
+部分应用是函数式编程中的一种技术，它将一个函数应用于其部分参数，从而产生一个接受剩余参数的新函数。这允许你从通用函数中创建更具体的函数。例如，如果你有一个函数 `add(a, b)`，你可以部分应用它来创建一个新的函数 `add5`，它总是将其参数加上 5。
+
+```js live
+function add(a, b) {
+  return a + b;
+}
+
+const add5 = add.bind(null, 5);
+console.log(add5(10)); // Outputs 15
+```
+
+***
+
+## 部分应用
+
+部分应用是一种函数式编程技术，它将一个函数应用于其部分参数，从而产生一个接受剩余参数的新函数。这对于从通用函数创建更具体的函数、提高代码可重用性和可读性很有用。
+
+### 示例
+
+考虑一个接受两个参数的简单 `add` 函数：
+
+```js
+function add(a, b) {
+  return a + b;
+}
+```
+
+使用部分应用，你可以创建一个新的函数 `add5`，它总是将其参数加上 5：
+
+```js
+const add5 = add.bind(null, 5);
+console.log(add5(10)); // Outputs 15
+```
+
+### 工作原理
+
+在上面的例子中，`add.bind(null, 5)` 创建了一个新函数，其中第一个参数 (`a`) 被固定为 5。`null` 值用作 `this` 上下文，在这种情况下与此无关。
+
+### 优点
+
+* **代码可重用性**：你可以从通用函数中创建更具体的函数，使你的代码更模块化和可重用。
+* **可读性**：部分应用的函数可以通过减少你需要传递的参数数量来使你的代码更容易阅读和理解。
+
+### 真实世界的例子
+
+部分应用经常用于 Lodash 等库中。例如，Lodash 的 `_.partial` 函数允许你轻松创建部分应用的函数：
+
+```js
+const _ = require('lodash');
+
+function greet(greeting, name) {
+  return `${greeting}, ${name}!`;
+}
+
+const sayHelloTo = _.partial(greet, 'Hello');
+console.log(sayHelloTo('John')); // Outputs "Hello, John!"
+```
+
+## 延伸阅读
+
+* [MDN Web 文档：Function.prototype.bind()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+* [Lodash 文档：\_.partial](https://lodash.com/docs/4.17.15#partial)
+* [维基百科：部分应用](https://zh.wikipedia.org/wiki/%E9%83%A8%E5%88%86%E5%BA%94%E7%94%A8)

@@ -1,0 +1,63 @@
+---
+title: 参数和参数的区别是什么？
+---
+
+## TL;DR
+
+参数是函数声明中的变量，而参数是调用函数时传递给函数的实际值。例如，在函数 `function add(a, b) { return a + b; }` 中，`a` 和 `b` 是参数。当您调用 `add(2, 3)` 时，`2` 和 `3` 是参数。
+
+***
+
+## 参数和参数的区别
+
+### 参数
+
+参数是作为函数定义的一部分列出的变量。它们充当在调用函数时将传递给函数的值的占位符。
+
+示例：
+
+```js
+function greet(name) {
+  console.log('Hello, ' + name);
+}
+```
+
+在此示例中，`name` 是一个参数。
+
+### 参数
+
+参数是调用函数时传递给函数的实际值。这些值被分配给函数定义中相应的参数。
+
+示例：
+
+```js live
+function greet(name) {
+  console.log('Hello, ' + name);
+}
+greet('Alice'); // Output: "Hello, Alice"
+```
+
+在此示例中，`"Alice"` 是一个参数。
+
+### 主要区别
+
+* 参数是函数签名的一部分，而参数是提供给函数的实际值。
+* 参数用于定义函数，而参数用于调用函数。
+
+### 结合两者的例子
+
+```js live
+function add(a, b) {
+  // a and b are parameters
+  return a + b;
+}
+
+const result = add(2, 3); // 2 and 3 are arguments
+console.log(result); // Output: 5
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+* [JavaScript.info: Function basics](https://javascript.info/function-basics)
+* [W3Schools: JavaScript Function Parameters](https://www.w3schools.com/js/js_function_parameters.asp)

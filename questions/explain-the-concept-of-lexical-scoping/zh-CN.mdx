@@ -1,0 +1,88 @@
+---
+title: 解释词法作用域的概念
+---
+
+## TL;DR
+
+词法作用域意味着变量的作用域由其在源代码中的位置决定，嵌套函数可以访问在其外部作用域中声明的变量。例如：
+
+```js live
+function outerFunction() {
+  let outerVariable = 'I am outside!';
+
+  function innerFunction() {
+    console.log(outerVariable); // 'I am outside!'
+  }
+
+  innerFunction();
+}
+
+outerFunction();
+```
+
+在这个例子中，`innerFunction` 可以访问 `outerVariable`，因为词法作用域。
+
+***
+
+## 词法作用域
+
+词法作用域是 JavaScript 和许多其他编程语言中的一个基本概念。它决定了在嵌套函数中如何解析变量名。变量的作用域由其在源代码中的位置定义，嵌套函数可以访问在其外部作用域中声明的变量。
+
+### 词法作用域的工作原理
+
+当一个函数被定义时，它会捕获创建它的作用域。这意味着该函数可以访问其自身作用域中的变量以及任何包含（外部）作用域中的变量。
+
+### 例子
+
+考虑以下示例：
+
+```js live
+function outerFunction() {
+  let outerVariable = 'I am outside!';
+
+  function innerFunction() {
+    console.log(outerVariable); // 'I am outside!'
+  }
+
+  innerFunction();
+}
+
+outerFunction();
+```
+
+在这个例子中：
+
+* `outerFunction` 声明一个变量 `outerVariable`。
+* `innerFunction` 嵌套在 `outerFunction` 内部，并将 `outerVariable` 记录到控制台。
+* 当调用 `innerFunction` 时，由于词法作用域，它可以访问 `outerVariable`。
+
+### 嵌套函数和闭包
+
+词法作用域与闭包密切相关。当一个函数保留对其词法作用域的访问权限时，即使该函数在作用域之外执行，也会创建一个闭包。
+
+```js live
+function outerFunction() {
+  let outerVariable = 'I am outside!';
+
+  function innerFunction() {
+    console.log(outerVariable);
+  }
+
+  return innerFunction;
+}
+
+const myInnerFunction = outerFunction();
+myInnerFunction(); // 'I am outside!'
+```
+
+在这个例子中：
+
+* `outerFunction` 返回 `innerFunction`。
+* `myInnerFunction` 被赋值为返回的 `innerFunction`。
+* 当调用 `myInnerFunction` 时，它仍然可以访问 `outerVariable`，因为词法作用域创建了闭包。
+
+## 延伸阅读
+
+* [MDN Web Docs: Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+* [JavaScript.info: Lexical environment](https://javascript.info/closure#lexical-environment)
+* [Eloquent JavaScript: Functions and closures](https://eloquentjavascript.net/03_functions.html#h_jxlm8r9e2g)

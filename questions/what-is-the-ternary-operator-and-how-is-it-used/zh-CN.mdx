@@ -1,0 +1,76 @@
+---
+title: 什么是三元运算符？它如何使用？
+---
+
+## 总结
+
+三元运算符是 JavaScript 中 `if-else` 语句的简写形式。它需要三个操作数：一个条件、一个真值结果和一个假值结果。语法是 `condition ? expr1 : expr2`。例如，`let result = (a > b) ? 'a is greater' : 'b is greater';` 如果 `a` 大于 `b`，则将 `'a is greater'` 赋值给 `result`，否则将 `'b is greater'` 赋值给 `result`。
+
+***
+
+## 什么是三元运算符？它如何使用？
+
+### 简介
+
+三元运算符，也称为条件运算符，是在 JavaScript 中执行条件评估的简便方法。它是 JavaScript 中唯一需要三个操作符的运算符。
+
+### 语法
+
+三元运算符的语法是：
+
+```js
+condition ? expr1 : expr2;
+```
+
+* `condition`：一个计算结果为 `true` 或 `false` 的表达式
+* `expr1`：如果条件为 `true`，则执行的表达式
+* `expr2`：如果条件为 `false`，则执行的表达式
+
+### 使用示例
+
+这是一个三元运算符的基本示例：
+
+```js live
+let age = 18;
+let canVote = age >= 18 ? 'Yes' : 'No';
+console.log(canVote); // Output: Yes
+```
+
+在此示例中，将评估条件 `age >= 18`。如果为 `true`，则将字符串 `'Yes'` 赋值给 `canVote`。如果为 `false`，则将字符串 `'No'` 赋值给 `canVote`。
+
+### 嵌套三元运算符
+
+您也可以嵌套三元运算符，尽管这会使代码更难阅读：
+
+```js live
+let score = 85;
+let grade =
+  score >= 90
+    ? 'A'
+    : score >= 80
+      ? 'B'
+      : score >= 70
+        ? 'C'
+        : score >= 60
+          ? 'D'
+          : 'F';
+console.log(grade); // Output: B
+```
+
+在此示例中，三元运算符用于根据 `score` 的值分配等级。
+
+### 用例
+
+* **简单的条件赋值**：当您需要根据条件分配值时。
+* **内联条件渲染**：在 JSX 中用于在 React 中进行条件渲染时很有用。
+
+### 最佳实践
+
+* **可读性**：虽然三元运算符可以使代码更简洁，但过度使用或嵌套过深会使代码难以阅读。请谨慎使用。
+* **复杂条件**：对于复杂条件，请考虑使用 `if-else` 语句以获得更好的可读性。
+
+## 延伸阅读
+
+* [MDN Web Docs: Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+* [JavaScript.info: Conditional operators](https://javascript.info/ifelse#conditional-operator)
+* [W3Schools: JavaScript ternary operator](https://www.w3schools.com/jsref/jsref_operators.asp)

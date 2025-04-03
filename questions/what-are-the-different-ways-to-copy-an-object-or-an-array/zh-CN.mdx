@@ -1,0 +1,115 @@
+---
+title: 复制对象或数组的不同方法是什么？
+---
+
+## TL;DR
+
+在 JavaScript 中复制对象或数组，可以使用多种方法。对于浅拷贝，可以使用扩展运算符（`...`）或 `Object.assign()`。对于深拷贝，可以使用 `JSON.parse(JSON.stringify())` 或像 Lodash 的 `_.cloneDeep()` 这样的库。
+
+```js live
+// Shallow copy of an array
+const originalArray = [1, 2, 3];
+const shallowCopyArray = [...originalArray];
+console.log(shallowCopyArray); // [1, 2, 3]
+
+// Shallow copy of an object
+const originalObject = { a: 1, b: 2 };
+const shallowCopyObject = { ...originalObject };
+console.log(shallowCopyObject); // { a: 1, b: 2 };
+
+// Deep copy using JSON methods
+const deepCopyObject = JSON.parse(JSON.stringify(originalObject));
+console.log(deepCopyObject); // { a: 1, b: 2 };
+```
+
+***
+
+## 复制对象或数组的不同方法
+
+### 浅拷贝
+
+#### 使用扩展运算符
+
+扩展运算符（`...`）是一种创建数组或对象浅拷贝的简洁方法。
+
+```js live
+// Shallow copy of an array
+const originalArray = [1, 2, 3];
+const shallowCopyArray = [...originalArray];
+console.log(shallowCopyArray); // [1, 2, 3]
+
+// Shallow copy of an object
+const originalObject = { a: 1, b: 2 };
+const shallowCopyObject = { ...originalObject };
+console.log(shallowCopyObject); // { a: 1, b: 2 };
+```
+
+#### 使用 `Object.assign()`
+
+`Object.assign()` 也可以用来创建对象的浅拷贝。
+
+```js live
+const originalObject = { a: 1, b: 2 };
+const shallowCopyObject = Object.assign({}, originalObject);
+console.log(shallowCopyObject); // { a: 1, b: 2 };
+```
+
+### 深拷贝
+
+#### 使用 `JSON.parse(JSON.stringify())`
+
+这种方法是一种创建对象或数组深拷贝的简单方法。但是，它也有局限性，例如无法处理函数、`undefined` 或循环引用。
+
+```js live
+const originalObject = { a: 1, b: { c: 2 } };
+const deepCopyObject = JSON.parse(JSON.stringify(originalObject));
+console.log(deepCopyObject); // { a: 1, b: { c: 2 } }
+```
+
+#### 使用 Lodash 的 `_.cloneDeep()`
+
+Lodash 是一个流行的实用程序库，它提供了一个 `_.cloneDeep()` 方法，用于深拷贝对象和数组。
+
+```js
+const _ = require('lodash');
+const originalObject = { a: 1, b: { c: 2 } };
+const deepCopyObject = _.cloneDeep(originalObject); // { a: 1, b: { c: 2 } }
+```
+
+### 其他方法
+
+#### 使用递归
+
+对于自定义深拷贝逻辑，您可以实现一个递归函数。
+
+```js live
+function deepCopy(obj) {
+  if (obj === null || typeof obj !== 'object') {
+    return obj;
+  }
+
+  if (Array.isArray(obj)) {
+    return obj.map((item) => deepCopy(item));
+  }
+
+  const copy = {};
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      copy[key] = deepCopy(obj[key]);
+    }
+  }
+  return copy;
+}
+
+const originalObject = { a: 1, b: { c: 2 } };
+const deepCopyObject = deepCopy(originalObject);
+console.log(deepCopyObject); // { a: 1, b: { c: 2 } }
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+* [MDN Web Docs: Object.assign()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+* [Lodash documentation: \_.cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)
+* [MDN Web Docs: JSON.parse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
+* [MDN Web Docs: JSON.stringify()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)

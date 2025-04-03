@@ -1,0 +1,61 @@
+---
+title: 软件开发中不同类型的测试是什么？
+---
+
+## TL;DR
+
+在软件开发中，有几种类型的测试可以确保应用程序的质量和功能。这些包括单元测试、集成测试、系统测试和验收测试。单元测试侧重于单个组件，集成测试检查组件之间的交互，系统测试评估整个系统，验收测试确保软件满足用户需求。
+
+***
+
+## 软件开发中不同类型的测试
+
+### 单元测试
+
+单元测试涉及测试软件的单个组件或功能，以确保它们按预期工作。这种类型的测试通常是自动化的，由开发人员编写。
+
+```js
+// Example of a unit test using Jest
+function add(a, b) {
+  return a + b;
+}
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(add(1, 2)).toBe(3);
+});
+```
+
+### 集成测试
+
+集成测试侧重于软件的不同组件或模块之间的交互。它确保应用程序的组合部分按预期一起工作。
+
+```js
+// Example of an integration test using Jest and Supertest
+const request = require('supertest');
+const app = require('./app'); // Your Express app
+
+test('GET /users returns a list of users', async () => {
+  const response = await request(app).get('/users');
+  expect(response.status).toBe(200);
+  expect(response.body).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({ id: expect.any(Number) }),
+    ]),
+  );
+});
+```
+
+### 系统测试
+
+系统测试评估完整且集成的软件系统，以验证它是否满足指定的需求。这种类型的测试通常由质量保证团队执行。
+
+### 验收测试
+
+验收测试，也称为用户验收测试 (UAT)，用于确定软件是否已准备好发布。它确保软件满足业务需求并被最终用户接受。
+
+## 延伸阅读
+
+* [单元测试 - 维基百科](https://en.wikipedia.org/wiki/Unit_testing)
+* [集成测试 - 维基百科](https://en.wikipedia.org/wiki/Integration_testing)
+* [系统测试 - 维基百科](https://en.wikipedia.org/wiki/System_testing)
+* [验收测试 - 维基百科](https://en.wikipedia.org/wiki/Acceptance_testing)

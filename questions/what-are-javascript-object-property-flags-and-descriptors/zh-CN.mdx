@@ -1,0 +1,124 @@
+---
+title: JavaScript 对象属性标志和描述符是什么？
+---
+
+## TL;DR
+
+在 JavaScript 中，属性标志和描述符管理对象属性的行为和属性。
+
+**属性标志**
+
+属性标志用于指定对象上属性的行为。以下是可用的标志：
+
+* `writable`：指定是否可以写入属性。默认为 `true`。
+* `enumerable`：指定属性是否可枚举。默认为 `true`。
+* `configurable`：指定是否可以删除属性或更改其属性。默认为 `true`。
+
+**属性描述符**
+
+这些提供了关于对象属性的详细信息，包括其值和标志。它们使用 `Object.getOwnPropertyDescriptor()` 检索，并使用 `Object.defineProperty()` 设置。
+
+属性描述符的用例如下：
+
+* 通过设置 `writable: false` 使属性不可写，以确保数据一致性。
+* 通过设置 `enumerable: false` 隐藏属性，使其不被枚举。
+* 通过设置 `configurable: false` 阻止属性删除和修改。
+* 冻结或密封对象以防止全局修改。
+
+***
+
+## JavaScript 对象属性标志和描述符
+
+在 JavaScript 中，属性标志和描述符用于管理对象属性的行为和属性。这些标志和描述符对于理解如何访问、修改和继承属性至关重要。
+
+## 属性标志
+
+属性标志用于指定属性的行为。它们使用 `Object.defineProperty()` 方法设置，该方法允许您使用特定属性在对象上定义属性。可用的属性标志有：
+
+* `writable`：指定是否可以写入属性。默认为 `true`。
+* `enumerable`：指定属性是否可枚举。默认为 `true`。
+* `configurable`：指定是否可以删除属性或更改其属性。默认为 `true`。
+
+## 属性描述符
+
+属性描述符提供有关对象属性的详细信息，封装其值和标志。它们使用 `Object.getOwnPropertyDescriptor()` 检索，并使用 `Object.defineProperty()` 设置
+
+```js live
+let user = { name: 'John Doe' };
+let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
+
+console.log(descriptor); // {value: "John Doe", writable: true, enumerable: true, configurable: true}
+```
+
+## 操纵属性标志
+
+### `writable` 标志
+
+`writable` 标志指定是否可以写入属性。当 `writable` 为 `false` 时，在非严格模式下尝试为该属性赋值会静默失败，而在严格模式下会抛出 `TypeError`。
+
+```js live
+const obj = {};
+
+Object.defineProperty(obj, 'name', {
+  writable: false,
+  value: 'John Doe',
+});
+
+console.log(obj.name); // Output: John Doe
+obj.name = 'Jane Doe'; // This does not change name. Generates TypeError in strict mode
+console.log(obj.name); // Output: John Doe (unchanged)
+```
+
+### `enumerable` 标志
+
+`enumerable` 标志指定一个属性是否可枚举。`enumerable` 标志设置为 `true`，这意味着该属性在 `for...in` 循环中可见。
+
+```js live
+const obj = {};
+
+Object.defineProperty(obj, 'name', {
+  enumerable: false,
+  value: 'John Doe',
+});
+
+for (const prop in obj) {
+  console.log(prop); // Output: nothing
+}
+
+const obj1 = {};
+
+Object.defineProperty(obj1, 'name', {
+  enumerable: true,
+  value: 'John Doe',
+});
+
+for (const prop in obj1) {
+  console.log(prop); // Output: name
+}
+```
+
+## `configurable` 标志
+
+`configurable` 标志指定一个属性是否可以被删除或其属性是否可以被更改。当 `configurable` 为 `false` 时，在非严格模式下尝试删除或更改该属性会静默失败，而在严格模式下会抛出 `TypeError`。
+
+```js live
+const obj = {};
+
+Object.defineProperty(obj, 'name', {
+  configurable: false,
+  value: 'John Doe',
+});
+
+delete obj.name; // Does not delete property. Generates TypeError in strict mode
+console.log(obj.name); // Output: John Doe (not deleted)
+```
+
+## `Object.seal()`
+
+JavaScript 中的 `Object.seal()` 方法有效地阻止了向对象添加或删除属性，但仍然允许修改现有属性值。它还使所有属性变为不可配置，这意味着它们的描述符（如 `writable`、`enumerable` 和 `configurable`）无法更改。
+
+## 延伸阅读
+
+* [Object.defineProperty() | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+* [Property flags and descriptors | Javascript.info](https://javascript.info/property-descriptors)
+* [Object.seal() | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/seal)

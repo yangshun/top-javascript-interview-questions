@@ -1,0 +1,127 @@
+---
+title: 使用 `this` 关键字的常见陷阱是什么？
+---
+
+## TL;DR
+
+JavaScript 中的 `this` 关键字可能很棘手，因为它的值取决于函数的调用方式。常见的陷阱包括将方法作为回调传递时丢失 `this` 的上下文，在嵌套函数中使用 `this`，以及误解箭头函数中的 `this`。为了避免这些问题，您可以使用 `.bind()`、箭头函数或将上下文存储在变量中。
+
+***
+
+## 使用 `this` 关键字的常见陷阱
+
+### 在回调中丢失上下文
+
+当您将方法作为回调传递时，`this` 的上下文可能会丢失。例如：
+
+```js live
+const obj = {
+  value: 42,
+  getValue: function () {
+    return this.value;
+  },
+};
+
+const getValue = obj.getValue;
+console.log(getValue()); // undefined
+```
+
+在这种情况下，`getValue` 内部的 `this` 没有绑定到 `obj`。
+
+### 在嵌套函数中使用 `this`
+
+在嵌套函数中，`this` 不指向外部函数的上下文：
+
+```js live
+const obj = {
+  value: 42,
+  getValue: function () {
+    function innerFunction() {
+      return this.value;
+    }
+    return innerFunction();
+  },
+};
+
+console.log(obj.getValue()); // undefined
+```
+
+在这里，`innerFunction` 内部的 `this` 指向全局对象，而不是 `obj`。
+
+### 误解箭头函数中的 `this`
+
+箭头函数没有自己的 `this` 上下文；它们从封闭的范围继承它：
+
+```js live
+const obj = {
+  value: 42,
+  getValue: () => {
+    return this.value;
+  },
+};
+
+console.log(obj.getValue()); // undefined
+```
+
+在这个例子中，箭头函数内部的 `this` 指向全局对象，而不是 `obj`。
+
+### 解决方案
+
+#### 使用 `.bind()`
+
+您可以使用 `.bind()` 显式设置 `this` 的上下文：
+
+```js live
+const obj = {
+  value: 42,
+  getValue: function () {
+    return this.value;
+  },
+};
+
+const getValue = obj.getValue.bind(obj);
+console.log(getValue()); // 42
+```
+
+#### 使用箭头函数
+
+箭头函数从封闭的范围继承 `this`，这很有用：
+
+```js live
+const obj = {
+  value: 42,
+  getValue: function () {
+    const innerFunction = () => {
+      return this.value;
+    };
+    return innerFunction();
+  },
+};
+
+console.log(obj.getValue()); // 42
+```
+
+#### 将上下文存储在变量中
+
+您可以将上下文存储在变量中，以在嵌套函数中维护它：
+
+```js live
+const obj = {
+  value: 42,
+  getValue: function () {
+    const self = this;
+    function innerFunction() {
+      return self.value;
+    }
+    return innerFunction();
+  },
+};
+
+console.log(obj.getValue()); // 42
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: `this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+* [JavaScript.info: `this`](https://javascript.info/this)
+* [Eloquent JavaScript: `this`](https://eloquentjavascript.net/03_functions.html#h_jxlm9L8T4l)

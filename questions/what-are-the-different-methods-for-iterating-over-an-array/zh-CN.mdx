@@ -1,0 +1,81 @@
+---
+title: 有哪些不同的遍历数组的方法？
+---
+
+## TL;DR
+
+在 JavaScript 中，有几种遍历数组的方法。最常见的方法包括 `for` 循环、`forEach`、`map`、`filter`、`reduce` 和 `for...of`。每种方法都有其自身的用例。例如，`for` 循环用途广泛，可用于任何类型的迭代，而 `forEach` 专门用于对每个数组元素执行一个函数。`map` 用于转换数组，`filter` 用于过滤元素，`reduce` 用于累加值，而 `for...of` 用于遍历可迭代对象。
+
+***
+
+## 遍历数组的不同方法
+
+### For 循环
+
+`for` 循环是遍历数组的最基本和最通用的方法之一。它允许你完全控制迭代过程。
+
+```js live
+const array = [1, 2, 3, 4, 5];
+for (let i = 0; i < array.length; i++) {
+  console.log(array[i]);
+}
+```
+
+### For...of 循环
+
+`for...of` 循环是一种更现代、更易读的遍历数组和其他可迭代对象的方法。
+
+```js live
+const array = [1, 2, 3, 4, 5];
+for (const element of array) {
+  console.log(element);
+}
+```
+
+### forEach 方法
+
+`forEach` 方法为每个数组元素执行提供的函数一次。
+
+```js live
+const array = [1, 2, 3, 4, 5];
+array.forEach((element) => {
+  console.log(element);
+});
+```
+
+### Map 方法
+
+`map` 方法创建一个新数组，其中填充了在调用数组中的每个元素上调用提供的函数的结果。
+
+```js live
+const array = [1, 2, 3, 4, 5];
+const newArray = array.map((element) => element * 2);
+console.log(newArray); // [2, 4, 6, 8, 10]
+```
+
+### Filter 方法
+
+`filter` 方法创建一个新数组，其中包含通过提供的函数实现的测试的所有元素。
+
+```js live
+const array = [1, 2, 3, 4, 5];
+const filteredArray = array.filter((element) => element > 2);
+console.log(filteredArray); // [3, 4, 5]
+```
+
+### Reduce 方法
+
+`reduce` 方法对数组的每个元素执行一个 reducer 函数，最终得到一个单一的输出值。
+
+```js live
+const array = [1, 2, 3, 4, 5];
+const sum = array.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  0,
+);
+console.log(sum); // 15
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)

@@ -1,0 +1,70 @@
+---
+title: 解释关于函数的提升概念
+---
+
+## TL;DR
+
+JavaScript 中的提升是一种行为，在编译阶段，函数声明会被移动到其包含作用域的顶部。这意味着你可以在代码中定义函数之前调用它。但是，这不适用于函数表达式或箭头函数，它们不会以相同的方式被提升。
+
+```js live
+// Function declaration
+hoistedFunction(); // Works fine
+function hoistedFunction() {
+  console.log('This function is hoisted');
+}
+
+// Function expression
+nonHoistedFunction(); // Throws an error
+var nonHoistedFunction = function () {
+  console.log('This function is not hoisted');
+};
+```
+
+***
+
+## 什么是提升？
+
+提升是一种 JavaScript 机制，在编译阶段，变量和函数声明会被移动到其包含作用域的顶部。这允许在代码中定义函数之前调用它们。
+
+### 函数声明
+
+函数声明会被完全提升。这意味着你可以在代码中声明函数之前调用它。
+
+```js live
+hoistedFunction(); // Works fine
+
+function hoistedFunction() {
+  console.log('This function is hoisted');
+}
+```
+
+### 函数表达式
+
+函数表达式（包括箭头函数）不会以相同的方式被提升。它们被视为变量赋值，并且仅被提升为 undefined。
+
+```js live
+nonHoistedFunction(); // Throws an error: TypeError: nonHoistedFunction is not a function
+
+var nonHoistedFunction = function () {
+  console.log('This function is not hoisted');
+};
+```
+
+### 箭头函数
+
+就提升而言，箭头函数的行为类似于函数表达式。
+
+```js live
+arrowFunction(); // Throws an error: TypeError: arrowFunction is not a function
+
+var arrowFunction = () => {
+  console.log('This arrow function is not hoisted');
+};
+```
+
+## 延伸阅读
+
+* [MDN Web Docs on Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
+* [JavaScript.info on Hoisting](https://javascript.info/hoisting)
+* [MDN Web Docs on Function Declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+* [MDN Web Docs on Function Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function)

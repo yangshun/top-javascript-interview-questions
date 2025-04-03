@@ -1,0 +1,79 @@
+---
+title: 解释浅拷贝和深拷贝的区别
+---
+
+## TL;DR
+
+浅拷贝复制对象的顶层属性，但嵌套对象仍然被引用。深拷贝复制对象的所有层级，创建嵌套对象的全新实例。例如，使用 `Object.assign()` 创建浅拷贝，而使用像 `Lodash` 或现代 JavaScript 中的 `structuredClone()` 这样的库可以创建深拷贝。
+
+```js live
+// Shallow copy example
+let obj1 = { a: 1, b: { c: 2 } };
+let shallowCopy = Object.assign({}, obj1);
+shallowCopy.b.c = 3;
+console.log(shallowCopy.b.c); // Output: 3
+console.log(obj1.b.c); // Output: 3 (original nested object changed too!)
+
+// Deep copy example
+let obj2 = { a: 1, b: { c: 2 } };
+let deepCopy = JSON.parse(JSON.stringify(obj2));
+deepCopy.b.c = 4;
+console.log(deepCopy.b.c); // Output: 4
+console.log(obj2.b.c); // Output: 2 (original nested object remains unchanged)
+```
+
+***
+
+## 浅拷贝和深拷贝的区别
+
+### 浅拷贝
+
+浅拷贝创建一个新对象，并将原始对象的顶层属性的值复制到新对象中。但是，如果这些属性中的任何一个是其他对象的引用，则仅复制引用，而不是实际对象。这意味着对复制对象中嵌套对象的更改将影响原始对象。
+
+#### 示例
+
+```js live
+let obj1 = { a: 1, b: { c: 2 } };
+let shallowCopy = Object.assign({}, obj1);
+shallowCopy.b.c = 3;
+console.log(shallowCopy.b.c); // Output: 3
+console.log(obj1.b.c); // Output: 3 (original nested object changed too!)
+```
+
+在此示例中，`shallowCopy` 是 `obj1` 的浅拷贝。更改 `shallowCopy.b.c` 也会更改 `obj1.b.c`，因为 `b` 是 `obj1` 和 `shallowCopy` 中对同一对象的引用。
+
+### 深拷贝
+
+深拷贝创建一个新对象，并递归地复制原始对象的所有属性和嵌套对象。这意味着新对象完全独立于原始对象，并且对复制对象中嵌套对象的更改不会影响原始对象。
+
+#### 示例
+
+```js live
+let obj1 = { a: 1, b: { c: 2 } };
+let deepCopy = JSON.parse(JSON.stringify(obj1));
+deepCopy.b.c = 4;
+console.log(deepCopy.b.c); // Output: 4
+console.log(obj1.b.c); // Output: 2 (original nested object remains unchanged)
+```
+
+在此示例中，`deepCopy` 是 `obj1` 的深拷贝。更改 `deepCopy.b.c` 不会影响 `obj1.b.c`，因为 `b` 在 `deepCopy` 中是一个全新的对象。
+
+### 创建浅拷贝和深拷贝的方法
+
+#### 浅拷贝方法
+
+* `Object.assign()`
+* 展开运算符 (`...`)
+
+#### 深拷贝方法
+
+* `JSON.parse(JSON.stringify())`
+* `structuredClone()` (现代 JavaScript)
+* 像 `Lodash` 这样的库 (`_.cloneDeep`)
+
+## 延伸阅读
+
+* [MDN Web Docs: Object.assign()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+* [MDN Web Docs: JSON.parse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
+* [MDN Web Docs: structuredClone()](https://developer.mozilla.org/en-US/docs/Web/API/structuredClone)
+* [Lodash Documentation: \_.cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)

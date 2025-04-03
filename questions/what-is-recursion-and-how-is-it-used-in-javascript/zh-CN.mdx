@@ -1,0 +1,103 @@
+---
+title: 什么是递归以及它在 JavaScript 中如何使用？
+---
+
+## TL;DR
+
+递归是一种编程技术，其中一个函数调用自身来解决问题。在 JavaScript 中，递归用于解决可以分解为更小、相似的子问题的问题。基本情况对于停止递归调用和防止无限循环至关重要。例如，可以使用递归计算一个数的阶乘：
+
+```js live
+function factorial(n) {
+  if (n === 0) {
+    return 1;
+  }
+  return n * factorial(n - 1);
+}
+
+console.log(factorial(4)); // Output: 24
+```
+
+***
+
+## 什么是递归以及它在 JavaScript 中如何使用？
+
+### 递归的定义
+
+递归是一种编程技术，其中一个函数调用自身来解决问题。这种方法对于可以分解为更小、相似的子问题的问题特别有用。递归函数的主要组成部分是：
+
+* **基本情况**：函数停止调用自身的条件，防止无限循环。
+* **递归情况**：函数调用自身并使用修改后的参数的部分，向基本情况移动。
+
+### 示例：计算阶乘
+
+一个数 `n` 的阶乘（表示为 `n!`）是所有小于或等于 `n` 的正整数的乘积。它可以递归定义为：
+
+* `0! = 1`（基本情况）
+* `n! = n * (n - 1)!` 对于 `n > 0`（递归情况）
+
+以下是如何在 JavaScript 中实现此功能：
+
+```js live
+function factorial(n) {
+  if (n === 0) {
+    // base case
+    return 1;
+  }
+  return n * factorial(n - 1); // recursive case
+}
+
+console.log(factorial(4)); // Output: 24
+```
+
+### 示例：斐波那契数列
+
+斐波那契数列是递归的另一个经典例子。该数列中的每个数字都是前两个数字的和，通常从 0 和 1 开始。该数列可以递归定义为：
+
+* `fib(0) = 0`（基本情况）
+* `fib(1) = 1`（基本情况）
+* `fib(n) = fib(n - 1) + fib(n - 2)` 对于 `n > 1`（递归情况）
+
+以下是如何在 JavaScript 中实现此功能：
+
+```js live
+function fibonacci(n) {
+  if (n === 0) {
+    // base case
+    return 0;
+  }
+  if (n === 1) {
+    // base case
+    return 1;
+  }
+  return fibonacci(n - 1) + fibonacci(n - 2); // recursive case
+}
+
+console.log(fibonacci(6)); // Output: 8
+```
+
+### 尾递归
+
+尾递归是一种特殊形式的递归，其中递归调用是函数中的最后一个操作。这可以被一些 JavaScript 引擎优化，以提高性能并防止堆栈溢出。这是一个尾递归阶乘函数的示例：
+
+```js live
+function factorial(n, acc = 1) {
+  if (n === 0) {
+    return acc;
+  }
+  return factorial(n - 1, n * acc);
+}
+
+console.log(factorial(4)); // Output: 24
+```
+
+### 递归的用例
+
+* **树遍历**：递归常用于遍历树结构，例如 DOM 或二叉树。
+* **分治算法**：诸如快速排序和归并排序之类的算法使用递归将问题分解为更小的子问题。
+* **动态规划**：诸如背包问题和某些图算法之类的问题可以使用递归来解决。
+
+## 延伸阅读
+
+* [MDN Web Docs: 递归](https://developer.mozilla.org/zh-CN/docs/Glossary/Recursion)
+* [JavaScript.info: 递归和栈](https://zh.javascript.info/recursion)
+* [Eloquent JavaScript: 递归](https://eloquentjavascript.net/03_functions.html#h_recursion)

@@ -1,0 +1,117 @@
+---
+title: 什么是 Web Worker 以及如何使用它们来提高性能？
+---
+
+## TL;DR
+
+Web Worker 是一种在后台运行 JavaScript 的方法，与 Web 应用程序的主执行线程分开。这有助于执行繁重的计算，而不会阻塞用户界面。您可以使用 `Worker` 构造函数创建 Web Worker，并使用 `postMessage` 和 `onmessage` 方法与其通信。
+
+```js
+// main.js
+const worker = new Worker('worker.js');
+worker.postMessage('Hello, worker!');
+
+worker.onmessage = function (event) {
+  console.log('Message from worker:', event.data);
+};
+
+// worker.js
+onmessage = function (event) {
+  console.log('Message from main script:', event.data);
+  postMessage('Hello, main script!');
+};
+```
+
+***
+
+## 什么是 Web Worker 以及如何使用它们来提高性能？
+
+### Web Worker 简介
+
+Web Worker 提供了一种在后台运行 JavaScript 的方法，与主执行线程分开。这允许执行繁重的任务，如繁重的计算或 I/O 操作，而不会阻塞用户界面，从而带来更流畅的用户体验。
+
+### 创建 Web Worker
+
+要创建 Web Worker，您可以使用 `Worker` 构造函数并传递包含 worker 代码的 JavaScript 文件的 URL。
+
+```js
+const worker = new Worker('worker.js');
+```
+
+### 主脚本和 Web Worker 之间的通信
+
+主脚本和 Web Worker 之间的通信使用 `postMessage` 方法和 `onmessage` 事件处理程序完成。
+
+#### 主脚本
+
+```js
+// main.js
+const worker = new Worker('worker.js');
+
+// Send a message to the worker
+worker.postMessage('Hello, worker!');
+
+// Receive messages from the worker
+worker.onmessage = function (event) {
+  console.log('Message from worker:', event.data);
+};
+```
+
+#### Worker 脚本
+
+```js
+// worker.js
+onmessage = function (event) {
+  console.log('Message from main script:', event.data);
+  // Send a message back to the main script
+  postMessage('Hello, main script!');
+};
+```
+
+### Web Worker 的用例
+
+#### 繁重的计算
+
+Web Worker 可用于执行繁重的计算，而不会阻塞主线程。例如，计算大型数据集或执行复杂的数学运算。
+
+```js
+// worker.js
+onmessage = function (event) {
+  const result = heavyComputation(event.data);
+  postMessage(result);
+};
+
+function heavyComputation(data) {
+  // Perform heavy computation here
+  return data * 2; // Example computation
+}
+```
+
+#### 数据处理
+
+Web Workers 可用于处理大量数据，例如解析大型 JSON 文件或处理图像。
+
+```js
+// worker.js
+onmessage = function (event) {
+  const processedData = processData(event.data);
+  postMessage(processedData);
+};
+
+function processData(data) {
+  // Process data here
+  return data.map((item) => item * 2); // Example processing
+}
+```
+
+### Web Workers 的局限性
+
+* Web Workers 无法访问 DOM，因此它们无法直接操作用户界面。
+* 它们与主脚本具有单独的作用域，因此您需要使用 `postMessage` 来回传递数据。
+* 创建和管理 Web Workers 可能会增加代码库的复杂性。
+
+## 延伸阅读
+
+* [MDN Web 文档：使用 Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
+* [HTML5 Rocks：Web Workers](https://www.html5rocks.com/en/tutorials/workers/basics/)
+* [MDN Web 文档：Worker](https://developer.mozilla.org/en-US/docs/Web/API/Worker)

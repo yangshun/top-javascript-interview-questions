@@ -1,0 +1,72 @@
+---
+title: 解释惰性加载的概念以及它如何提高性能
+---
+
+## TL;DR
+
+惰性加载是一种设计模式，它将资源的加载延迟到实际需要时。这可以通过减少初始加载时间和节省带宽来显着提高性能。例如，网页上的图像可以进行惰性加载，以便它们仅在进入视口时加载。这可以使用 HTML 中的 `loading="lazy"` 属性或使用 JavaScript 库来实现。
+
+```html
+<img src="image.jpg" loading="lazy" alt="Lazy loaded image" />
+```
+
+***
+
+## 惰性加载的概念以及它如何提高性能
+
+### 什么是惰性加载？
+
+惰性加载是一种设计模式，用于推迟对象的初始化，直到需要时才进行。这可以应用于各种类型的资源，例如图像、视频、脚本，甚至从 API 获取的数据。
+
+### 惰性加载如何工作？
+
+惰性加载通过延迟加载资源直到实际需要时才进行。例如，网页上的图像可以进行惰性加载，以便它们仅在进入视口时加载。这可以使用 HTML 中的 `loading="lazy"` 属性或使用 JavaScript 库来实现。
+
+### 惰性加载的好处
+
+* **提高性能**：通过仅在初始加载时加载必要的资源，可以缩短页面加载时间，从而带来更快、响应更快的用户体验。
+* **减少带宽使用**：惰性加载有助于通过仅在需要时加载资源来节省带宽。
+* **更好的用户体验**：用户可以更快地开始与内容交互，因为初始加载时间缩短了。
+
+### 实现惰性加载
+
+#### 使用 HTML 中的 `loading` 属性
+
+实现图像惰性加载的最简单方法是使用 HTML 中的 `loading` 属性。
+
+```html
+<img src="image.jpg" loading="lazy" alt="Lazy loaded image" />
+```
+
+#### 使用 JavaScript
+
+对于更复杂的场景，您可以使用 JavaScript 来实现惰性加载。这是一个使用 Intersection Observer API 的示例：
+
+```js
+document.addEventListener('DOMContentLoaded', function () {
+  const lazyImages = document.querySelectorAll('img.lazy');
+
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src;
+        img.classList.remove('lazy');
+        observer.unobserve(img);
+      }
+    });
+  });
+
+  lazyImages.forEach((image) => {
+    imageObserver.observe(image);
+  });
+});
+```
+
+在此示例中，带有 `lazy` 类的图像仅在进入视口时加载。
+
+## 延伸阅读
+
+* [MDN Web Docs: Lazy loading](https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading)
+* [Google Developers: Lazy loading images and video](https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video)
+* [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)

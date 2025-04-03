@@ -1,0 +1,95 @@
+---
+title: 使用扩展运算符处理数组和对象的优势是什么？
+---
+
+## TL;DR
+
+JavaScript 中的扩展运算符 (`...`) 允许您轻松复制数组和对象、合并它们以及添加新元素或属性。它简化了语法并提高了可读性。对于数组，它可用于连接或克隆数组。对于对象，它可用于合并对象或添加新属性。
+
+```js live
+// Arrays
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5];
+console.log(arr2); // [1, 2, 3, 4, 5]
+
+// Objects
+const obj1 = { a: 1, b: 2 };
+const obj2 = { ...obj1, c: 3 };
+console.log(obj2); // { a: 1, b: 2, c: 3 }
+```
+
+***
+
+## 使用扩展运算符处理数组和对象的优势
+
+### 数组
+
+#### 克隆数组
+
+扩展运算符允许您轻松创建数组的浅拷贝。
+
+```js live
+const originalArray = [1, 2, 3];
+const clonedArray = [...originalArray];
+console.log(clonedArray); // [1, 2, 3]
+```
+
+#### 合并数组
+
+您可以将多个数组连接成一个。
+
+```js live
+const array1 = [1, 2];
+const array2 = [3, 4];
+const mergedArray = [...array1, ...array2];
+console.log(mergedArray); // [1, 2, 3, 4]
+```
+
+#### 添加元素
+
+您可以在不改变原始数组的情况下向数组添加新元素。
+
+```js live
+const array = [1, 2, 3];
+const newArray = [...array, 4, 5];
+console.log(newArray); // [1, 2, 3, 4, 5]
+```
+
+### 对象
+
+#### 克隆对象
+
+扩展运算符允许您创建对象的浅拷贝。
+
+```js live
+const originalObject = { a: 1, b: 2 };
+const clonedObject = { ...originalObject };
+console.log(clonedObject); // { a: 1, b: 2 }
+```
+
+#### 合并对象
+
+您可以将多个对象合并成一个。
+
+```js live
+const object1 = { a: 1 };
+const object2 = { b: 2 };
+const mergedObject = { ...object1, ...object2 };
+console.log(mergedObject); // { a: 1, b: 2 }
+```
+
+#### 添加属性
+
+您可以在不改变原始对象的情况下向对象添加新属性。
+
+```js live
+const object = { a: 1, b: 2 };
+const newObject = { ...object, c: 3 };
+console.log(newObject); // { a: 1, b: 2, c: 3 }
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+* [JavaScript.info: Spread operator](https://javascript.info/rest-parameters-spread#spread-operator)
+* [FreeCodeCamp: How to use the spread operator in JavaScript](https://www.freecodecamp.org/news/how-to-use-the-spread-operator-in-javascript/)

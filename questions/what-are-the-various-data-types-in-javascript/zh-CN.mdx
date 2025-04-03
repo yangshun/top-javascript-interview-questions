@@ -1,0 +1,204 @@
+---
+title: JavaScript 中的各种数据类型是什么？
+---
+
+## TL;DR
+
+在 JavaScript 中，数据类型可以分为 `原始` 和 `非原始` 类型：
+
+**原始数据类型**
+
+* **Number**：表示整数和浮点数。
+* **String**：表示字符序列。
+* **Boolean**：表示 `true` 或 `false` 值。
+* **Undefined**：已声明但未赋值的变量。
+* **Null**：表示有意缺失任何对象值。
+* **Symbol**：用作对象属性键的唯一且不可变的值。在我们的 [关于 `Symbol` 的深入探讨](/questions/quiz/what-are-symbols-used-for) 中阅读更多内容
+* **BigInt**：表示任意精度的整数。
+
+**非原始（引用）数据类型**
+
+* **Object**：用于存储数据集合。
+* **Array**：数据的有序集合。
+* **Function**：可调用对象。
+* **Date**：表示日期和时间。
+* **RegExp**：表示正则表达式。
+* **Map**：键控数据项的集合。
+* **Set**：唯一值的集合。
+
+原始类型存储单个值，而非原始类型可以存储数据集合或复杂实体。
+
+***
+
+## JavaScript 中的数据类型
+
+与许多编程语言一样，JavaScript 具有多种数据类型来表示不同种类的数据。 JavaScript 中的主要数据类型可以分为两类：原始类型和非原始（引用）类型。
+
+### 原始数据类型
+
+1. **Number**：表示整数和浮点数。 JavaScript 只有一种数字类型。
+
+```js live
+let age = 25;
+let price = 99.99;
+console.log(price); // 99.99
+```
+
+2. **String**：表示字符序列。 `Strings` 可以用单引号、双引号或反引号（用于模板字面量）括起来。
+
+```js live
+let myName = 'John Doe';
+let greeting = 'Hello, world!';
+let message = `Welcome, ${myName}!`;
+console.log(message); // "Welcome, John Doe!"
+```
+
+3. **Boolean**：表示逻辑实体，可以有两个值：`true` 或 `false`。
+
+```js live
+let isActive = true;
+let isOver18 = false;
+console.log(isOver18); // false
+```
+
+4. **Undefined**：已声明但未赋值的变量的类型为 `undefined`。
+
+```js live
+let user;
+console.log(user); // undefined
+```
+
+5. **Null**: 表示任何对象值有意缺失。它是一个原始值，被视为假值。
+
+```js live
+let user = null;
+console.log(user); // null
+if (!user) {
+  console.log('user is a falsy value');
+}
+```
+
+6. **Symbol**: 一种独特且不可变的`原始`值，通常用作对象属性的键。
+
+```js
+let sym1 = Symbol();
+let sym2 = Symbol('description');
+console.log(sym1); // Symbol()
+console.log(sym2); // Symbol(description)
+```
+
+7. **BigInt**：用于表示任意精度的整数，对于处理非常大的数字很有用。
+
+```js
+let bigNumber = BigInt(9007199254740991);
+let anotherBigNumber = 1234567890123456789012345678901234567890n;
+console.log(bigNumber); // 9007199254740991n
+console.log(anotherBigNumber); // 1234567890123456789012345678901234567890n
+```
+
+### 非原始（引用）数据类型
+
+1. **Object**: 用于存储数据集合和更复杂的实体。`Objects` 使用大括号 `{}` 创建。
+
+```js live
+let person = {
+  name: 'Alice',
+  age: 30,
+};
+console.log(person); // {name: "Alice", age: 30}
+```
+
+2. **Array**: 一种特殊类型的对象，用于存储有序的数据集合。`Arrays` 使用方括号 `[]` 创建。
+
+```js live
+let numbers = [1, 2, 3, 4, 5];
+console.log(numbers);
+```
+
+3. **Function**: JavaScript 中的`函数`是`对象`。它们可以使用函数声明或表达式来定义。
+
+```js live
+function greet() {
+  console.log('Hello!');
+}
+
+let add = function (a, b) {
+  return a + b;
+};
+
+greet(); // "Hello!"
+console.log(add(2, 3)); // 5
+```
+
+4. **Date**: 表示日期和时间。`Date` 对象用于处理日期。
+
+```js live
+let today = new Date().toLocaleTimeString();
+console.log(today);
+```
+
+5. **RegExp**: 表示正则表达式，正则表达式是用于匹配字符串中字符组合的模式。
+
+```js live
+let pattern = /abc/;
+let str = '123abc456';
+
+console.log(pattern.test(str)); // true
+```
+
+6. **Map**: 键控数据项的集合，类似于`对象`，但允许任何类型的键。
+
+```js live
+let map = new Map();
+map.set('key1', 'value1');
+console.log(map);
+```
+
+7. **Set**: 唯一值的集合。
+
+```js
+let set = new Set();
+set.add(1);
+set.add(2);
+console.log(set); // { 1, 2 }
+```
+
+## 确定数据类型
+
+JavaScript 是一种动态类型语言，这意味着变量可以随时间推移保存不同数据类型的值。`typeof` 运算符可用于确定值或变量的数据类型。
+
+```js live
+console.log(typeof 42); // "number"
+console.log(typeof 'hello'); // "string"
+console.log(typeof true); // "boolean"
+console.log(typeof undefined); // "undefined"
+console.log(typeof null); // "object" (this is a historical bug in JavaScript)
+console.log(typeof Symbol()); // "symbol"
+console.log(typeof BigInt(123)); // "bigint"
+console.log(typeof {}); // "object"
+console.log(typeof []); // "object"
+console.log(typeof function () {}); // "function"
+```
+
+## 陷阱
+
+### 类型强制转换
+
+JavaScript 经常执行类型强制转换，将值从一种类型转换为另一种类型，这可能导致意外结果。
+
+```js live
+let result = '5' + 2;
+console.log(result, typeof result); // "52 string" (string concatenation)
+
+let difference = '5' - 2;
+console.log(difference, typeof difference); // 3 "number" (numeric subtraction)
+```
+
+在第一个例子中，由于字符串可以使用 `+` 运算符进行连接，因此该数字被转换为字符串，并且两个字符串连接在一起。在第二个例子中，字符串不能与减号运算符 (`-`) 一起使用，但两个数字可以相减，因此字符串首先被转换为数字，结果是差值。
+
+## 延伸阅读
+
+* [JavaScript data types and data structures - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
+* [JavaScript guide: Data types](https://www.linkedin.com/pulse/javascript-guide-data-types-mila-mirovi%C4%87-jykmf)
+* [Data types - javascript.info](https://javascript.info/types)
+* [JavaScript data types](https://www.programiz.com/javascript/data-types)

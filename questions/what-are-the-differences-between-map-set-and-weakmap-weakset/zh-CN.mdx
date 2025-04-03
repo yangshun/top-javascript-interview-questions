@@ -1,0 +1,146 @@
+---
+title: JavaScript 中 `Map`/`Set` 和 `WeakMap`/`WeakSet` 有什么区别？
+---
+
+## 总结
+
+JavaScript 中 `Map`/`Set` 和 `WeakMap`/`WeakSet` 的主要区别在于它们如何处理键。以下是细分：
+
+**`Map` vs. `WeakMap`**
+
+`Map` 允许任何数据类型（字符串、数字、对象）作为键。只要引用 `Map` 对象本身，键值对就会保留在内存中。因此，它们适用于通用键值存储，您希望维护对键和值的引用。常见用例包括存储用户数据、配置设置或对象之间的关系。
+
+`WeakMap` 仅允许对象作为键。但是，这些对象键被弱保存。这意味着垃圾收集器可以从内存中删除它们，即使 `WeakMap` 本身仍然存在，只要没有对这些对象的其他引用。`WeakMap` 非常适合您希望将数据与对象关联而不会阻止这些对象被垃圾回收的场景。这对于以下情况可能很有用：
+
+* 基于对象缓存数据，而不会阻止对象本身的垃圾回收。
+* 存储与 DOM 节点关联的私有数据，而不会影响其生命周期。
+
+**`Set` vs. `WeakSet`**
+
+与 `Map` 类似，`Set` 允许任何数据类型作为键。`Set` 中的元素必须是唯一的。`Set` 适用于存储唯一值并有效检查成员资格。常见用例包括从数组中删除重复项或跟踪已完成的任务。
+
+另一方面，`WeakSet` 仅允许对象作为元素，并且这些对象元素被弱保存，类似于 `WeakMap` 键。`WeakSet` 很少使用，但当您需要一组唯一对象而不影响其垃圾回收时适用。这可能对于以下情况是必要的：
+
+* 跟踪已交互的 DOM 节点，而不会影响其内存管理。
+* 为特定用例实现自定义对象弱引用。
+
+**以下是一个总结关键差异的表格：**
+
+| 特性 | Map | WeakMap | Set | WeakSet |
+| --- | --- | --- | --- | --- |
+| 键类型 | 任何数据类型 | 对象（弱引用） | 任何数据类型（唯一） | 对象（弱引用，唯一） |
+| 垃圾回收 | 键和值不会被垃圾回收 | 如果没有其他地方引用，键可以被垃圾回收 | 元素不会被垃圾回收 | 如果没有其他地方引用，元素可以被垃圾回收 |
+| 用例 | 通用键值存储 | 缓存、私有 DOM 节点数据 | 删除重复项、成员资格检查 | 对象弱引用、自定义用例 |
+
+**在它们之间进行选择**
+
+* 在大多数需要存储键值对或唯一元素并希望维护对键/元素和值的引用的情况下，使用 `Map` 和 `Set`。
+* 在特定情况下谨慎使用 `WeakMap` 和 `WeakSet`，您希望将数据与对象关联而不会影响其垃圾回收。如果使用不当，请注意弱引用的含义和潜在的内存泄漏。
+
+***
+
+## `Map`/`Set` vs `WeakMap`/`WeakSet`
+
+JavaScript 中 `Map`/`Set` 和 `WeakMap`/`WeakSet` 之间的主要区别在于：
+
+1. **键类型**：`Map` 和 `Set` 可以具有任何类型的键（对象、原始值等），而 `WeakMap` 和 `WeakSet` 只能将对象作为键。原始值（如字符串或数字）不允许作为 `WeakMap` 和 `WeakSet` 中的键。
+2. **内存管理**：主要区别在于它们如何处理内存。`Map` 和 `Set` 具有对其键和值的强引用，这意味着它们将阻止对这些值进行垃圾回收。另一方面，`WeakMap` 和 `WeakSet` 具有对其键（对象）的弱引用，如果对它们没有其他强引用，则允许对这些对象进行垃圾回收。
+3. **键枚举**：`Map` 和 `Set` 中的键是可枚举的（可以迭代），而 `WeakMap` 和 `WeakSet` 中的键不可枚举。这意味着您无法从 `WeakMap` 或 `WeakSet` 获取键或值的列表。
+4. **`size` 属性**：`Map` 和 `Set` 具有一个 `size` 属性，该属性返回元素的数量，而 `WeakMap` 和 `WeakSet` 没有 `size` 属性，因为它们的大小可能会因垃圾回收而改变。
+5. **用例**：`Map` 和 `Set` 适用于通用数据结构和缓存，而 `WeakMap` 和 `WeakSet` 主要用于存储与对象相关的元数据或其他数据，而不会阻止对这些对象进行垃圾回收。
+
+`Map` 和 `Set` 是维护对其键和值的强引用的常规数据结构，而 `WeakMap` 和 `WeakSet` 专为希望将数据与对象关联而设计的场景，而不会阻止在不再需要这些对象时对它们进行垃圾回收。
+
+## `WeakMap` 和 `WeakSet` 的用例
+
+### 跟踪活跃用户
+
+在聊天应用程序中，您可能希望跟踪当前处于活动状态的用户对象，而不会在用户注销或会话过期时阻止垃圾回收。我们使用 `WeakSet` 来跟踪活跃的用户对象。当用户注销或他们的会话过期时，如果没有对该用户的其他引用，则该用户对象可以被垃圾回收。
+
+```js live
+const activeUsers = new WeakSet();
+
+// Function to mark a user as active
+function markUserActive(user) {
+  activeUsers.add(user);
+}
+
+// Function to check if a user is active
+function isUserActive(user) {
+  return activeUsers.has(user);
+}
+
+// Example usage
+let user1 = { id: 1, name: 'Alice' };
+let user2 = { id: 2, name: 'Bob' };
+
+markUserActive(user1);
+markUserActive(user2);
+
+console.log(isUserActive(user1)); // true
+console.log(isUserActive(user2)); // true
+
+// Simulate user logging out
+user1 = null;
+
+// user1 is now eligible for garbage collection
+console.log(isUserActive(user1)); // false
+```
+
+### 检测循环引用
+
+`WeakSet` 提供了一种通过跟踪哪些对象已经被处理来防止循环数据结构的方法。
+
+```js live
+// Create a WeakSet to track visited objects
+const visited = new WeakSet();
+
+// Function to traverse an object recursively
+function traverse(obj) {
+  // Check if the object has already been visited
+  if (visited.has(obj)) {
+    return;
+  }
+
+  // Add the object to the visited set
+  visited.add(obj);
+
+  // Traverse the object's properties
+  for (let prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      let value = obj[prop];
+      if (typeof value === 'object' && value !== null) {
+        traverse(value);
+      }
+    }
+  }
+
+  // Process the object
+  console.log(obj);
+}
+
+// Create an object with a circular reference
+const obj = {
+  name: 'John',
+  age: 30,
+  friends: [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 28 },
+  ],
+};
+
+// Create a circular reference
+obj.self = obj;
+
+// Traverse the object
+traverse(obj);
+```
+
+## 延伸阅读
+
+* [`Map` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+* [`WeakMap` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
+* [`Set` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+* [`WeakSet` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
+* [`Map` and `Set` | Javascript.info](https://javascript.info/map-set)
+* [`WeakMap` and `WeakSet` | Javascript.info](https://javascript.info/weakmap-weakset)

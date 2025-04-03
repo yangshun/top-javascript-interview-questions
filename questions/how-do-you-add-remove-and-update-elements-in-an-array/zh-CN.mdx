@@ -1,0 +1,113 @@
+---
+title: 如何添加、删除和更新数组中的元素？
+---
+
+## TL;DR
+
+要向数组添加元素，可以使用 `push`、`unshift` 或 `splice` 等方法。要删除元素，可以使用 `pop`、`shift` 或 `splice`。要更新元素，可以直接访问数组索引并分配一个新值。
+
+```js live
+let arr = [1, 2, 3];
+
+// Add elements
+arr.push(4); // [1, 2, 3, 4]
+arr.unshift(0); // [0, 1, 2, 3, 4]
+arr.splice(2, 0, 1.5); // [0, 1, 1.5, 2, 3, 4]
+
+// Remove elements
+arr.pop(); // [0, 1, 1.5, 2, 3]
+arr.shift(); // [1, 1.5, 2, 3]
+arr.splice(1, 1); // [1, 2, 3]
+
+// Update elements
+arr[1] = 5; // [1, 5, 3]
+console.log(arr); // Final state: [1, 5, 3]
+```
+
+**注意**：如果在某些环境（如 Chrome DevTools）中尝试在每次操作后使用 `console.log(arr)`，您可能只能看到 `arr` 的最终状态。这是因为控制台有时会保留对数组的实时引用，而不是记录其确切时刻的状态。要正确查看中间状态，请使用 `console.log([...arr])` 存储快照，或在每次操作后立即打印值。
+
+***
+
+## 向数组添加元素
+
+### 使用 `push`
+
+`push` 方法将一个或多个元素添加到数组的末尾，并返回数组的新长度。
+
+```js live
+let arr = [1, 2, 3];
+console.log(arr.push(4)); // Output: 4 (new length of array)
+console.log(arr); // [1, 2, 3, 4]
+```
+
+### 使用 `unshift`
+
+`unshift` 方法将一个或多个元素添加到数组的开头，并返回数组的新长度。
+
+```js live
+let arr = [1, 2, 3];
+console.log(arr.unshift(0)); // Output: 4 (new length of array)
+console.log(arr); // [0, 1, 2, 3]
+```
+
+### 使用 `splice`
+
+`splice` 方法可以在数组中的任何位置添加元素。第一个参数指定开始更改数组的索引，第二个参数指定要删除的元素数量，其余的是要添加的元素。
+
+```js live
+let arr = [1, 2, 3];
+arr.splice(1, 0, 1.5); // Removes no element, but adds 1.5
+console.log(arr); // [1, 1.5, 2, 3]
+```
+
+## 从数组中删除元素
+
+### 使用 `pop`
+
+`pop` 方法从数组中删除最后一个元素并返回该元素。
+
+```js live
+let arr = [1, 2, 3];
+console.log(arr.pop()); // Output: 3
+console.log(arr); // [1, 2]
+```
+
+### 使用 `shift`
+
+`shift` 方法从数组中删除第一个元素，并返回该元素。
+
+```js live
+let arr = [1, 2, 3];
+console.log(arr.shift()); // Output: 1
+console.log(arr); // [2, 3]
+```
+
+### 使用 `splice`
+
+`splice` 方法也可以从数组中的任何位置删除元素。第一个参数指定开始更改数组的索引，第二个参数指定要删除的元素数量。
+
+```js live
+let arr = [1, 2, 3, 4];
+console.log(arr.splice(1, 2)); // Output: [2, 3]
+console.log(arr); // [1, 4]
+```
+
+## 更新数组中的元素
+
+### 直接赋值
+
+您可以通过直接访问索引并分配新值来更新数组中的元素。
+
+```js live
+let arr = [1, 2, 3];
+arr[1] = 5;
+console.log(arr); // [1, 5, 3]
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Array.prototype.push](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+* [MDN Web Docs: Array.prototype.unshift](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift)
+* [MDN Web Docs: Array.prototype.splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
+* [MDN Web Docs: Array.prototype.pop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
+* [MDN Web Docs: Array.prototype.shift](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift)

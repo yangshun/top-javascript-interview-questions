@@ -1,0 +1,101 @@
+---
+title: 解释 JavaScript 中 CommonJS 模块和 ES 模块的区别
+---
+
+## 总结
+
+在 JavaScript 中，模块是可重用的代码片段，封装了功能，使其更易于管理、维护和构建应用程序。模块允许您将代码分解为更小、更易于管理的部分，每个部分都有自己的作用域。
+
+**CommonJS** 是一个较旧的模块系统，最初是为使用 Node.js 进行服务器端 JavaScript 开发而设计的。它使用 `require()` 函数来加载模块，并使用 `module.exports` 或 `exports` 对象来定义模块的导出。
+
+```js
+// my-module.js
+const value = 42;
+module.exports = { value };
+
+// main.js
+const myModule = require('./my-module.js');
+console.log(myModule.value); // 42
+```
+
+**ES 模块**（ECMAScript 模块）是 ES6（ECMAScript 2015）中引入的标准化模块系统。它们使用 `import` 和 `export` 语句来处理模块依赖关系。
+
+```js
+// my-module.js
+export const value = 42;
+
+// main.js
+import { value } from './my-module.js';
+console.log(value); // 42
+```
+
+**CommonJS vs ES 模块**
+
+| 特性 | CommonJS | ES 模块 |
+| --- | --- | --- |
+| 模块语法 | `require()` 用于导入 `module.exports` 用于导出 | `import` 用于导入 `export` 用于导出 |
+| 环境 | 主要用于 Node.js 进行服务器端开发 | 专为浏览器和服务器端 JavaScript (Node.js) 设计 |
+| 加载 | 模块的同步加载 | 模块的异步加载 |
+| 结构 | 动态导入，可以有条件地调用 | 顶层的静态导入/导出 |
+| 文件扩展名 | `.js` (默认) | `.mjs` 或 `.js` (在 `package.json` 中使用 `type: "module"`) |
+| 浏览器支持 | 浏览器中不原生支持 | 现代浏览器中原生支持 |
+| 优化 | 由于其动态特性，优化有限 | 允许进行树摇等优化，因为具有静态结构 |
+| 兼容性 | 广泛用于现有的 Node.js 代码库和库 | 较新的标准，但在现代项目中得到越来越多的采用 |
+
+***
+
+## Javascript 中的模块
+
+JavaScript 中的模块是一种将代码组织和封装成可重用和可维护单元的方式。它们允许开发人员将他们的代码库分解成更小、自包含的部分，从而促进代码重用、关注点分离和更好的组织。JavaScript 中有两个主要的模块系统：CommonJS 和 ES 模块。
+
+### CommonJS
+
+CommonJS 是一个较旧的模块系统，最初是为使用 Node.js 进行服务器端 JavaScript 开发而设计的。它使用 require 函数来加载模块，并使用 `module.exports` 或 `exports` 对象来定义模块的导出。
+
+* **语法**：使用 `require()` 包含模块，使用 `module.exports` 导出模块。
+* **环境**：主要用于 `Node.js`。
+* **执行**：模块是同步加载的。
+* 模块在运行时动态加载。
+
+```js
+// my-module.js
+const value = 42;
+module.exports = { value };
+
+// main.js
+const myModule = require('./my-module.js');
+console.log(myModule.value); // 42
+```
+
+### ES 模块
+
+ES 模块（ECMAScript 模块）是 ES6（ECMAScript 2015）中引入的标准化模块系统。它们使用 `import` 和 `export` 语句来处理模块依赖关系。
+
+* **语法**：使用 `import` 导入模块，使用 `export` 导出模块。
+* **环境**：可以在浏览器环境和 Node.js 中使用（使用某些配置）。
+* **执行**：模块是异步加载的。
+* **支持**：在 ES2015 中引入，现在在现代浏览器和 Node.js 中得到广泛支持。
+* 模块在编译时静态加载。
+* 由于静态分析和树摇，可以实现更好的性能。
+
+```js
+// my-module.js
+export const value = 42;
+
+// main.js
+import { value } from './my-module.js';
+console.log(value); // 42
+```
+
+## 总结
+
+虽然 CommonJS 最初是 Node.js 中的默认模块系统，但 ES 模块现在是新项目的推荐方法，因为它们提供了更好的工具、性能和生态系统兼容性。 然而，CommonJS 模块仍然广泛用于现有的代码库和库中，尤其是在遗留依赖项中。
+
+## 延伸阅读
+
+* [JavaScript 模块 - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+* [CommonJS vs ES Modules: 从 require 到 import 的转变](https://nikolasbarwicki.com/articles/commonjs-vs-es-modules-the-shift-from-require-to-import/)
+* [模块，简介 - javascript.info](https://javascript.info/modules-intro)
+* [模块 - Eloquent Javascript](https://eloquentjavascript.net/10_modules.html)
+* [Node.js 中的 CommonJS vs. ES 模块](https://blog.logrocket.com/commonjs-vs-es-modules-node-js/)
+* [理解 JavaScript 中的 CommonJS vs. ES 模块](https://www.syncfusion.com/blogs/post/js-commonjs-vs-es-modules)

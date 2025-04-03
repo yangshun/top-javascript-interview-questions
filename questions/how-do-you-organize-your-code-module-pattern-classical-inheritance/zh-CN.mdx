@@ -1,10 +1,75 @@
 ---
-title: 您如何组织您的代码？
-subtitle: 你是否使用模块模式，经典的继承，还是其他什么？
+title: 你如何组织你的代码？
+subtitle: 你使用模块模式、经典继承还是其他方式？
 ---
 
-在过去，开发人员使用 Backbone 来做 OOP（面向对象编程），这鼓励了更多的 OOP 方法，创建 Backbone 模型并为其附加方法。
+## TL;DR
 
-模块模式仍然很好，但现在，开发者更喜欢使用 React/Redux，它利用基于 Flux 架构的单方向数据流。 现在通常使用普通对象来表示一个应用的数据模型，并编写纯函数来操作这些对象。 像其他 Redux 应用程序一样，使用 actions 和 reducers 对状态进行操作。
+我通过遵循模块化方法、使用清晰的文件夹结构以及遵守编码标准和最佳实践来组织我的代码。我通过将代码划分为不同的层（如组件、服务和实用程序）来分离关注点。我还使用命名约定和文档来确保代码的可读性和可维护性。
 
-尽可能避免使用传统继承。 如果您确实如此，请坚持[这些规则](https://med.com/@dan_abramov/howto-use-classes-and-sleep-at-9af8de78ccb4)。
+***
+
+## 你如何组织你的代码？
+
+### 模块化方法
+
+我遵循模块化方法，将应用程序分解为更小、可重用的部分。这有助于更有效地管理代码库，并使其更易于维护和扩展。
+
+### 文件夹结构
+
+我使用清晰一致的文件夹结构来组织我的代码。以下是 React 项目的常见结构：
+
+```
+src/
+|-- components/
+|   |-- Header/
+|   |   |-- Header.js
+|   |   |-- Header.css
+|   |-- Footer/
+|   |   |-- Footer.js
+|   |   |-- Footer.css
+|-- services/
+|   |-- apiService.js
+|-- utils/
+|   |-- helpers.js
+|-- App.js
+|-- index.js
+```
+
+### 关注点分离
+
+我通过将代码划分为不同的层来分离关注点：
+
+* **组件**：可重用且自包含的 UI 元素
+* **服务**：处理数据获取和业务逻辑的函数
+* **实用程序**：可在整个应用程序中使用的辅助函数和常量
+
+### 命名约定
+
+我使用一致的命名约定来提高代码可读性：
+
+* **文件和文件夹**：对文件和文件夹名称使用 camelCase 或 kebab-case
+* **组件**：对 React 组件名称使用 PascalCase
+* **变量和函数**：对变量和函数名称使用 camelCase
+
+### 文档
+
+我记录我的代码，以便其他人（和我自己）更容易理解：
+
+* **注释**：添加注释以解释复杂的逻辑或代码的重要部分
+* **README**：包含一个 README 文件，其中包含有关如何设置和运行项目的说明
+
+### 编码标准和最佳实践
+
+我遵守编码标准和最佳实践，以确保代码质量：
+
+* **Linting**: 使用 ESLint 等工具来执行编码标准
+* **Formatting**: 使用 Prettier 等工具来保持一致的代码格式
+* **Testing**: 编写单元测试和集成测试以确保代码可靠性
+
+## 延伸阅读
+
+* [React 文件夹结构](https://reactjs.org/docs/faq-structure.html)
+* [JavaScript 编码标准](https://github.com/airbnb/javascript)
+* [编写干净的代码](https://www.freecodecamp.org/news/writing-clean-code-6a8e2889b9f8/)
+* [有效的 JavaScript 文档](https://jsdoc.app/)

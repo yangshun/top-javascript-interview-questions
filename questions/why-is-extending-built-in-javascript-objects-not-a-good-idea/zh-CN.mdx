@@ -1,7 +1,69 @@
 ---
-title: 为什么扩展内置的 JavaScript 对象不是一个好主意？
+title: 为什么扩展内置 JavaScript 对象不是一个好主意？
 ---
 
-扩展内置/原生 JavaScript 对象意味着将属性/函数添加到其“原型”中。 虽然起初这似乎是一个好主意，但在实践中却是危险的。 想象一下，你的代码使用了几个库，通过添加相同的 `contains` 方法它们都扩展了 `Array.prototype` ， 实现将互相覆盖，如果这两种方法的行为不一致，你的代码将会被破坏。
+## TL;DR
 
-你可能想要扩展一个本地对象的唯一情况是，你想要创建一个 polyfill，本质上是为一个方法提供你自己的实现，这个方法是 JavaScript 规范的一部分，但由于用户的浏览器是一个旧的浏览器，所以可能不存在。
+扩展内置/原生 JavaScript 对象意味着向其 `prototype` 添加属性/函数。虽然这乍一看可能是一个好主意，但实际上很危险。想象一下，您的代码使用了几个库，它们都通过添加相同的 `contains` 方法来扩展 `Array.prototype`，这些实现将相互覆盖，如果这两种方法的工作方式不同，您的代码将具有不可预测的行为。
+
+只有当您想创建一个 polyfill 时，才可能需要扩展原生对象，本质上是为您自己的方法提供实现，该方法是 JavaScript 规范的一部分，但由于它是一个较旧的浏览器，可能不存在于用户的浏览器中。
+
+***
+
+## 扩展 JavaScript
+
+在 JavaScript 中，扩展内置/原生对象非常容易。您只需通过向其 `prototype` 添加属性和函数来扩展内置对象。
+
+```js live
+String.prototype.reverseString = function () {
+  return this.split('').reverse().join('');
+};
+
+console.log('hello world'.reverseString()); // Outputs 'dlrow olleh'
+
+// Instead of extending the built-in object, write a pure utility function to do it.
+
+function reverseString(str) {
+  return str.split('').reverse().join('');
+}
+
+console.log(reverseString('hello world')); // Outputs 'dlrow olleh'
+```
+
+## 缺点
+
+扩展内置 JavaScript 对象本质上是在修改全局范围，这不是一个好主意，因为：
+
+1. **面向未来**：如果浏览器决定实现自己的方法版本，您的自定义扩展可能会被静默覆盖，从而导致意外行为或冲突。
+2. **冲突**：向内置对象添加自定义方法可能会导致与未来的浏览器实现或其他库发生冲突，从而导致意外行为或错误。
+3. **维护和调试**：扩展内置对象时，其他开发人员可能难以理解所做的更改，从而使维护和调试更具挑战性。
+4. **性能**：扩展内置对象可能会影响性能，特别是如果扩展未针对特定用例进行优化。
+5. **安全性**：在某些情况下，如果未正确执行，扩展内置对象可能会引入安全漏洞，例如添加可被恶意代码利用的可枚举属性。
+6. **兼容性**：对内置对象的自定义扩展可能与并非所有浏览器或环境兼容，从而导致跨浏览器兼容性问题。
+7. **命名空间冲突**：如果多个库或脚本以不同的方式扩展同一对象，扩展内置对象可能会导致命名空间冲突，从而导致冲突和意外行为。
+
+我们深入探讨了[为什么修改全局范围不是一个好主意](/questions/quiz/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it)。
+
+由于这些潜在问题，不建议扩展内置对象，而是建议使用组合或创建自定义类和实用程序函数来实现所需的功能。
+
+## 扩展内置对象的替代方案
+
+不要扩展内置对象，而是执行以下操作：
+
+1. **创建自定义实用程序函数**：对于简单的任务，创建特定于您需求的小型实用程序函数可以成为更清晰、更易于维护的解决方案。
+2. **使用库和框架**：许多库和框架都提供自己的辅助方法和扩展，从而无需直接修改内置对象。
+
+## 作为有效原因的 Polyfilling
+
+扩展内置对象的一个有效原因是为最新的 ECMAScript 标准和提案实现 polyfill。[`core-js`](https://github.com/zloirock/core-js) 是一个流行的库，存在于大多数流行的网站上。它不仅会 polyfill 缺失的功能，还会修复各种浏览器和运行时中 JavaScript 功能的不正确或不兼容的实现。
+
+```js
+import 'core-js/actual/array/flat-map'; // With this, Array.prototype.flatMap is available to be used.
+
+[1, 2].flatMap((it) => [it, it]); // => [1, 1, 2, 2]
+```
+
+## 延伸阅读
+
+* [JS: don't extend JS objects](https://lucybain.com/blog/2014/js-extending-built-in-objects/)
+* [Extending built-in classes](https://javascript.info/extend-natives)

@@ -1,0 +1,58 @@
+---
+title: 解释 `document.querySelector()` 和 `document.getElementById()` 之间的区别
+---
+
+## TL;DR
+
+`document.querySelector()` 和 `document.getElementById()` 都是用于从 DOM 中选择元素的方法，但它们有关键的区别。`document.querySelector()` 可以使用 CSS 选择器选择任何元素并返回第一个匹配项，而 `document.getElementById()` 通过其 ID 选择一个元素并返回具有该特定 ID 的元素。
+
+```js
+// 使用 document.querySelector()
+const element = document.querySelector('.my-class');
+
+// 使用 document.getElementById()
+const elementById = document.getElementById('my-id');
+```
+
+***
+
+## `document.querySelector()` 和 `document.getElementById()` 之间的区别
+
+### `document.querySelector()`
+
+* 可以使用任何有效的 CSS 选择器选择元素，包括类、ID、标签、属性和伪类
+* 返回与指定选择器匹配的第一个元素
+* 更通用，但由于 CSS 选择器的灵活性，速度稍慢
+
+```js
+// 选择具有类 'my-class' 的第一个元素
+const element = document.querySelector('.my-class');
+
+// 选择第一个 <div> 元素
+const divElement = document.querySelector('div');
+
+// 选择具有属性 data-role='button' 的第一个元素
+const buttonElement = document.querySelector('[data-role="button"]');
+```
+
+### `document.getElementById()`
+
+* 通过其 ID 属性选择一个元素
+* 返回具有指定 ID 的元素
+* 通过 ID 选择元素更快更有效，但通用性较差
+
+```js
+// 选择具有 ID 'my-id' 的元素
+const elementById = document.getElementById('my-id');
+```
+
+### 关键区别
+
+* **选择器类型**：`document.querySelector()` 使用 CSS 选择器，而 `document.getElementById()` 仅使用 ID 属性。
+* **返回值**：`document.querySelector()` 返回第一个匹配的元素，而 `document.getElementById()` 返回具有指定 ID 的元素。
+* **性能**：`document.getElementById()` 通常更快，因为它直接通过 ID 访问元素，而 `document.querySelector()` 必须解析 CSS 选择器。
+
+## 延伸阅读
+
+* [MDN Web Docs: document.querySelector()](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
+* [MDN Web Docs: document.getElementById()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById)

@@ -1,0 +1,49 @@
+---
+title: event.preventDefault() 和 event.stopPropagation() 有什么区别？
+---
+
+## TL;DR
+
+<code>event.preventDefault()</code> 用于阻止属于该事件的默认操作，例如阻止表单提交。<code>event.stopPropagation()</code> 用于阻止事件冒泡到父元素，从而阻止任何父事件处理程序被执行。
+
+***
+
+## event.preventDefault() 和 event.stopPropagation() 有什么区别？
+
+### event.preventDefault()
+
+<code>event.preventDefault()</code> 是一种方法，如果事件是可取消的，则取消该事件，这意味着属于该事件的默认操作将不会发生。例如，这可以用于阻止表单提交：
+
+```js
+document.querySelector('form').addEventListener('submit', function (event) {
+  event.preventDefault();
+  // Form submission is prevented
+});
+```
+
+### event.stopPropagation()
+
+<code>event.stopPropagation()</code> 是一种方法，可防止事件在 DOM 树中冒泡，从而阻止任何父处理程序收到该事件的通知。当您希望在特定级别处理事件并且不希望它触发父元素上的处理程序时，这很有用：
+
+```js
+document.querySelector('.child').addEventListener('click', function (event) {
+  event.stopPropagation();
+  // Click event will not propagate to parent elements
+});
+```
+
+### 关键区别
+
+* <code>event.preventDefault()</code> 停止与事件关联的默认操作。
+* <code>event.stopPropagation()</code> 阻止事件传播（冒泡）到父元素。
+
+### 用例
+
+* 当您想阻止元素的默认行为时，请使用 <code>event.preventDefault()</code>，例如阻止链接导航或表单提交。
+* 当您想阻止事件到达父元素时，请使用 <code>event.stopPropagation()</code>，这在多个元素具有事件侦听器的复杂 UI 中很有用。
+
+## 延伸阅读
+
+* [MDN Web 文档：event.preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
+* [MDN Web 文档：event.stopPropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation)
+* [JavaScript 事件传播](https://javascript.info/bubbling-and-capturing)

@@ -1,0 +1,85 @@
+---
+title: 有哪些减少重排和重绘的技术？
+---
+
+## TL;DR
+
+要减少重排和重绘，您可以尽量减少 DOM 操作、批量处理 DOM 更改、使用 CSS 类进行样式更改、避免复杂的 CSS 选择器，并使用 `requestAnimationFrame` 进行动画。此外，请考虑对将经常更改的元素使用 `will-change`，并通过分别读取和写入 DOM 来避免布局颠簸。
+
+***
+
+## 减少重排和重绘的技术
+
+### 尽量减少 DOM 操作
+
+频繁更改 DOM 可能会导致多次重排和重绘。要尽量减少这种情况：
+
+* 使用 `documentFragment` 批量更新 DOM
+* 克隆节点，进行更改，然后替换原始节点
+
+### 批量处理 DOM 更改
+
+将多个 DOM 更改组合在一起可以减少重排和重绘的次数：
+
+* 使用 `innerHTML` 一次更新多个元素
+* 使用 `requestAnimationFrame` 批量更新
+
+### 使用 CSS 类进行样式更改
+
+不要通过 JavaScript 直接更改样式，而是使用 CSS 类：
+
+```js live
+const element = document.createElement('h1');
+element.classList.add('text-center');
+
+console.log(element); // Notice that the class has been added.
+```
+
+### 避免复杂的 CSS 选择器
+
+复杂的选择器会减慢渲染过程：
+
+* 使用简单直接的选择器
+* 避免深度嵌套
+
+### 使用 `requestAnimationFrame` 进行动画
+
+使用 `requestAnimationFrame` 可确保动画与浏览器的重绘周期同步：
+
+```js
+function animate() {
+  // Animation logic
+  requestAnimationFrame(animate);
+}
+requestAnimationFrame(animate);
+```
+
+### 对频繁更改的元素使用 `will-change`
+
+ `will-change` 属性可以向浏览器提示哪些元素将要更改，从而允许它优化渲染：
+
+```css
+.element {
+  will-change: transform;
+}
+```
+
+### 避免布局震荡
+
+分别读取和写入 DOM 可以防止布局震荡：
+
+```js live
+// Mock div element
+const element = document.createElement('div');
+
+const height = element.offsetHeight; // Read
+element.style.height = `${height + 10}px`; // Write
+
+console.log(element);
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Reflow](https://developer.mozilla.org/en-US/docs/Glossary/Reflow)
+* [Google Developers: Avoid large, complex layouts and layout thrashing](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing)
+* [CSS-Tricks: Debouncing and Throttling Explained Through Examples](https://css-tricks.com/debouncing-throttling-explained-examples/)

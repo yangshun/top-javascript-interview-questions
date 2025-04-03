@@ -1,0 +1,89 @@
+---
+title: 什么是事件监听器以及如何使用它们？
+---
+
+## TL;DR
+
+事件监听器是等待元素上发生特定事件（例如单击或按键）的函数。它们用于响应这些事件执行代码。您可以使用 `addEventListener` 方法将事件监听器添加到元素。例如：
+
+```js
+document.getElementById('myButton').addEventListener('click', function () {
+  alert('Button was clicked!');
+});
+```
+
+***
+
+## 什么是事件监听器以及如何使用它们？
+
+事件监听器是 Web 开发的基本组成部分，允许开发人员通过响应用户操作来使网页具有交互性。它们是等待元素上发生特定事件（例如单击、按键或鼠标移动）的函数，然后在这些事件发生时执行指定的函数。
+
+### 添加事件监听器
+
+要将事件监听器添加到元素，您可以使用 `addEventListener` 方法。此方法接受两个主要参数：要侦听的事件类型和事件发生时要执行的函数。
+
+```js
+const button = document.getElementById('myButton');
+
+button.addEventListener('click', function () {
+  alert('Button was clicked!');
+});
+```
+
+在此示例中，将事件监听器添加到 ID 为 `myButton` 的按钮元素。单击该按钮时，将弹出一个警报框，其中显示消息“Button was clicked!”。
+
+### 移除事件监听器
+
+您还可以使用 `removeEventListener` 方法移除事件监听器。此方法需要与 `addEventListener` 相同的参数：事件类型和要移除的函数。
+
+```js
+function handleClick() {
+  alert('Button was clicked!');
+}
+
+button.addEventListener('click', handleClick);
+
+// Later, you can remove the event listener
+button.removeEventListener('click', handleClick);
+```
+
+### 事件对象
+
+触发事件监听器时，会将一个事件对象传递给事件处理程序函数。此对象包含有关事件的有用信息，例如目标元素、事件类型等。
+
+```js
+button.addEventListener('click', function (event) {
+  console.log('Event type:', event.type);
+  console.log('Target element:', event.target);
+});
+```
+
+### 常见事件类型
+
+* `click`: 单击元素时触发
+* `mouseover`: 鼠标指针移动到元素上时触发
+* `mouseout`: 鼠标指针移出元素时触发
+* `keydown`: 按下某个键时触发
+* `keyup`: 释放某个键时触发
+
+### 事件委托
+
+事件委托是一种技术，其中将单个事件侦听器添加到父元素以管理多个子元素的事件。这对于提高性能和管理动态内容很有用。
+
+```js
+const list = document.getElementById('myList');
+
+list.addEventListener('click', function (event) {
+  if (event.target && event.target.nodeName === 'LI') {
+    console.log('List item clicked:', event.target.textContent);
+  }
+});
+```
+
+在此示例中，将单个事件侦听器添加到列表元素。当单击任何列表项 (`LI`) 时，事件侦听器将处理该事件。
+
+## 延伸阅读
+
+* [MDN Web Docs: EventTarget.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+* [JavaScript.info: Introduction to browser events](https://javascript.info/introduction-browser-events)
+* [W3Schools: JavaScript Event Listeners](https://www.w3schools.com/js/js_htmldom_eventlistener.asp)

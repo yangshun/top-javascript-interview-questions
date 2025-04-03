@@ -1,0 +1,94 @@
+---
+title: 解释带标签的模板的概念
+---
+
+## TL;DR
+
+JavaScript 中的带标签的模板允许您使用函数解析模板字面量。该函数将字面量字符串和值作为参数接收，从而可以自定义处理模板。例如：
+
+```js live
+function tag(strings, ...values) {
+  return strings[0] + values[0] + strings[1] + values[1] + strings[2];
+}
+
+const result = tag`Hello ${'world'}! How are ${'you'}?`;
+console.log(result); // "Hello world! How are you?"
+```
+
+***
+
+## 带标签的模板
+
+### 什么是带标签的模板？
+
+带标签的模板是 JavaScript 中的一个特性，它允许您使用模板字面量调用一个函数（“标签”）。然后，标签函数可以以自定义方式处理模板字面量的各个部分（字面量字符串和插值）。
+
+### 语法
+
+带标签的模板的语法涉及在模板字面量之前放置一个函数名称：
+
+```js
+function tag(strings, ...values) {
+  // Custom processing
+}
+
+tag`template literal with ${values}`;
+```
+
+### 工作原理
+
+当调用带标签的模板时，标签函数会收到：
+
+1. 字面量字符串的数组（模板中未插值的各个部分）
+2. 作为附加参数的插值
+
+例如：
+
+```js live
+function tag(strings, ...values) {
+  console.log(strings); // ["Hello ", "! How are ", "?"]
+  console.log(values); // ["world", "you"]
+}
+
+tag`Hello ${'world'}! How are ${'you'}?`;
+```
+
+### 用例
+
+带标签的模板可用于各种目的，例如：
+
+* **字符串转义**：通过转义用户输入来防止 XSS 攻击
+* **本地化**：将模板字面量翻译成不同的语言
+* **自定义格式**：将自定义格式应用于插值
+
+### 示例
+
+这是一个转义 HTML 的带标签模板的简单示例：
+
+```js live
+function escapeHTML(strings, ...values) {
+  return strings.reduce((result, string, i) => {
+    const value = values[i - 1];
+    return (
+      result +
+      (value
+        ? String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+        : '') +
+      string
+    );
+  });
+}
+
+const userInput = '<script>alert("XSS")</script>';
+const result = escapeHTML`User input: ${userInput}`;
+console.log(result); // "User input: &lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;"
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates)
+* [JavaScript.info: Tagged templates](https://javascript.info/tagged-templates)
+* [Exploring JS: Template literals](http://exploringjs.com/es6/ch_template-literals.html#tagged-templates)

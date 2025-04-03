@@ -1,0 +1,58 @@
+---
+title: 解释 Promise 的不同状态
+---
+
+## 总结
+
+JavaScript 中的 `Promise` 可以处于三种状态之一：`pending`（待定）、`fulfilled`（已实现）或 `rejected`（已拒绝）。创建 `Promise` 时，它首先处于 `pending` 状态。如果操作成功完成，`Promise` 将转换为 `fulfilled` 状态，如果失败，则转换为 `rejected` 状态。 这是一个快速示例：
+
+```js
+let promise = new Promise((resolve, reject) => {
+  // some asynchronous operation
+  if (success) {
+    resolve('Success!');
+  } else {
+    reject('Error!');
+  }
+});
+```
+
+***
+
+## Promise 的不同状态
+
+### 待定
+
+首次创建 `Promise` 时，它处于 `pending` 状态。 这意味着异步操作尚未完成。
+
+```js
+let promise = new Promise((resolve, reject) => {
+  // asynchronous operation
+});
+```
+
+### 已实现
+
+当异步操作成功完成时，`Promise` 转换为 `fulfilled` 状态。 调用 `resolve` 函数来指示这一点。
+
+```js
+let promise = new Promise((resolve, reject) => {
+  resolve('Success!');
+});
+```
+
+### 已拒绝
+
+当异步操作失败时，`Promise` 转换为 `rejected` 状态。 调用 `reject` 函数来指示这一点。
+
+```js
+let promise = new Promise((resolve, reject) => {
+  reject('Error!');
+});
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+* [JavaScript.info: Promises](https://javascript.info/promise-basics)
+* [Promise/A+ Specification](https://promisesaplus.com/)

@@ -1,0 +1,116 @@
+---
+title: 如何使用 JavaScript 添加、删除和修改 HTML 元素？
+---
+
+## TL;DR
+
+要使用 JavaScript 添加、删除和修改 HTML 元素，可以使用 `createElement`、`appendChild`、`removeChild` 等方法以及 `innerHTML` 和 `textContent` 等属性。例如，要添加一个元素，可以使用 `document.createElement` 创建它，然后使用 `appendChild` 将其附加到父元素。要删除一个元素，可以在其父元素上使用 `removeChild`。要修改一个元素，可以更改其 `innerHTML` 或 `textContent`。
+
+```js
+// Adding an element
+const newElement = document.createElement('div');
+newElement.textContent = 'Hello, World!';
+document.body.appendChild(newElement);
+
+// Removing an element
+const elementToRemove = document.getElementById('elementId');
+elementToRemove.parentNode.removeChild(elementToRemove);
+
+// Modifying an element
+const elementToModify = document.getElementById('elementId');
+elementToModify.innerHTML = 'New Content';
+```
+
+***
+
+## 使用 JavaScript 添加、删除和修改 HTML 元素
+
+### 添加元素
+
+要添加 HTML 元素，可以使用 `document.createElement` 方法创建一个新元素，然后使用 `appendChild` 将其附加到父元素。
+
+```js live
+// Create a new div element
+const newDiv = document.createElement('div');
+
+// Set its content
+newDiv.textContent = 'Hello, World!';
+
+// Append the new element to the body
+document.body.appendChild(newDiv);
+
+// See the changed document by running the code
+console.log(document.body);
+```
+
+您还可以使用 `insertBefore` 在现有子元素之前插入新元素。
+
+```js
+const parentElement = document.getElementById('parent');
+const newElement = document.createElement('p');
+newElement.textContent = 'Inserted Paragraph';
+const referenceElement = document.getElementById('reference');
+parentElement.insertBefore(newElement, referenceElement);
+```
+
+### 删除元素
+
+要删除 HTML 元素，可以在其父元素上使用 `removeChild` 方法。
+
+```js
+// Select the element to be removed
+const elementToRemove = document.getElementById('elementId');
+
+// Remove the element
+elementToRemove.parentNode.removeChild(elementToRemove);
+```
+
+或者，您可以在该元素上直接使用 `remove` 方法。
+
+```js
+const elementToRemove = document.getElementById('elementId');
+elementToRemove.remove();
+```
+
+### 修改元素
+
+要修改 HTML 元素，您可以更改其属性，例如 `innerHTML`、`textContent` 或属性。
+
+```js live
+const elementToModify = document.createElement('div');
+
+// Change its inner HTML
+elementToModify.innerHTML = 'New Content';
+
+// Change its text content
+elementToModify.textContent = 'New Text Content';
+
+// Change an attribute
+elementToModify.setAttribute('class', 'new-class');
+
+console.log(elementToModify);
+```
+
+您还可以使用 `classList.add`、`classList.remove` 和 `classList.toggle` 等方法来修改元素的类。
+
+```js
+const element = document.getElementById('elementId');
+
+// Add a class
+element.classList.add('new-class');
+
+// Remove a class
+element.classList.remove('old-class');
+
+// Toggle a class
+element.classList.toggle('active');
+```
+
+## 延伸阅读
+
+* [MDN Web 文档：Document.createElement](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createElement)
+* [MDN Web 文档：Node.appendChild](https://developer.mozilla.org/zh-CN/docs/Web/API/Node/appendChild)
+* [MDN Web 文档：Node.removeChild](https://developer.mozilla.org/zh-CN/docs/Web/API/Node/removeChild)
+* [MDN Web 文档：Element.innerHTML](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/innerHTML)
+* [MDN Web 文档：Element.textContent](https://developer.mozilla.org/zh-CN/docs/Web/API/Node/textContent)
+* [MDN Web 文档：Element.classList](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/classList)

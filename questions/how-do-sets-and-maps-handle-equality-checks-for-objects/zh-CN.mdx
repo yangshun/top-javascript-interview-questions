@@ -1,0 +1,73 @@
+---
+title: Set 和 Map 如何处理对象的相等性检查？
+---
+
+## TL;DR
+
+JavaScript 中的 `Set` 和 `Map` 根据引用相等性（而不是深度相等性）处理对象的相等性检查。这意味着只有当两个对象引用相同的内存位置时，才认为它们相等。例如，如果将两个具有相同属性的不同对象字面量添加到 `Set` 中，它们将被视为不同的条目。
+
+```js live
+const set = new Set();
+const obj1 = { a: 1 };
+const obj2 = { a: 1 };
+
+set.add(obj1);
+set.add(obj2);
+
+console.log(set.size); // Output: 2
+```
+
+***
+
+## Set 和 Map 如何处理对象的相等性检查？
+
+### 引用相等性
+
+在 JavaScript 中，`Set` 和 `Map` 使用引用相等性来确定两个对象是否相同。这意味着只有当两个对象引用相同的内存位置时，才认为它们相等。
+
+### Set 示例
+
+当您将对象添加到 `Set` 时，`Set` 仅在它们是相同的对象引用时才认为它们相等。
+
+```js live
+const set = new Set();
+const obj1 = { a: 1 };
+const obj2 = { a: 1 };
+
+set.add(obj1);
+set.add(obj2);
+
+console.log(set.size); // Output: 2
+```
+
+在此示例中，`obj1` 和 `obj2` 具有相同的属性，但它们是不同的对象引用。因此，`Set` 将它们视为不同的条目。
+
+### Map 示例
+
+同样，当您将对象用作 `Map` 中的键时，`Map` 仅在它们是相同的对象引用时才认为它们相等。
+
+```js live
+const map = new Map();
+const obj1 = { a: 1 };
+const obj2 = { a: 1 };
+
+map.set(obj1, 'value1');
+map.set(obj2, 'value2');
+
+console.log(map.size); // Output: 2
+console.log(map.get(obj1)); // Output: 'value1'
+console.log(map.get(obj2)); // Output: 'value2'
+```
+
+在此示例中，`obj1` 和 `obj2` 是不同的对象引用，因此 `Map` 将它们视为不同的键。
+
+### 实际应用
+
+* 如果您需要检查深度相等性（即，具有相同属性和值的对象），则需要实现自己的比较逻辑或使用 Lodash 等库。
+* 在使用 `Set` 和 `Map` 时，请注意对象引用，尤其是在处理复杂数据结构时。
+
+## 延伸阅读
+
+* [MDN Web Docs: Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+* [MDN Web Docs: Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+* [Lodash: isEqual](https://lodash.com/docs/4.17.15#isEqual)

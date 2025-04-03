@@ -1,0 +1,85 @@
+---
+title: 什么是 DOM 以及它的结构？
+---
+
+## TL;DR
+
+DOM（文档对象模型）是用于 Web 文档的编程接口。它表示页面，以便程序可以更改文档结构、样式和内容。DOM 结构为对象树，其中每个节点代表文档的一部分，例如元素、属性和文本。
+
+***
+
+## 什么是 DOM 以及它的结构？
+
+### 定义
+
+文档对象模型 (DOM) 是一个跨平台且与语言无关的接口，它将 HTML、XHTML 或 XML 文档视为树结构。此树中的每个节点代表文档的一部分。
+
+### 结构
+
+DOM 结构为节点的分层树。以下是主要类型的节点：
+
+1. **文档节点**：文档树的根。它代表整个文档。
+2. **元素节点**：这些代表 HTML 元素，并构成文档树的大部分。
+3. **属性节点**：这些与元素节点相关联，代表这些元素的属性。
+4. **文本节点**：这些表示元素中的文本内容。
+5. **注释节点**：这些表示 HTML 中的注释。
+
+### 示例
+
+考虑以下 HTML：
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello, World!</h1>
+    <p>This is a paragraph.</p>
+  </body>
+</html>
+```
+
+此文档的 DOM 树将如下所示：
+
+```
+Document
+  └── html
+      ├── head
+      │   └── title
+      │       └── "Document"
+      └── body
+          ├── h1
+          │   └── "Hello, World!"
+          └── p
+              └── "This is a paragraph."
+```
+
+### 访问和操作 DOM
+
+JavaScript 可用于访问和操作 DOM。以下是一些常用方法：
+
+* `document.getElementById(id)`：通过其 ID 选择一个元素。
+* `document.querySelector(selector)`：选择与 CSS 选择器匹配的第一个元素。
+* `element.appendChild(node)`：将新的子节点添加到元素。
+* `element.removeChild(node)`：从元素中删除子节点。
+
+示例：
+
+```js live
+// Create an <h1> element and add it to the DOM
+const newElement = document.createElement('h1');
+document.body.appendChild(newElement);
+
+// Get the h1 element using querySelector
+const heading = document.querySelector('h1');
+heading.textContent = 'Hello, DOM!';
+console.log(heading); // <h1>Hello, DOM!</h1>
+```
+
+## 延伸阅读
+
+* [MDN Web 文档：DOM 简介](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
+* [W3C DOM 规范](https://www.w3.org/TR/DOM-Level-2-Core/introduction.html)
+* [JavaScript.info：DOM](https://javascript.info/dom-nodes)

@@ -1,0 +1,83 @@
+---
+title: 常见的安全标头及其用途是什么？
+---
+
+## TL;DR
+
+安全标头是 HTTP 响应标头，可帮助保护 Web 应用程序免受各种攻击。 一些常见的安全标头包括：
+
+* `Content-Security-Policy (CSP)`：通过指定允许的内容来源来防止跨站点脚本 (XSS) 和其他代码注入攻击。
+* `X-Content-Type-Options`：通过指示浏览器遵循声明的 `Content-Type` 来防止 MIME 类型嗅探。
+* `Strict-Transport-Security (HSTS)`：强制对服务器进行安全 (HTTPS) 连接。
+* `X-Frame-Options`：通过控制页面是否可以在框架中显示来防止点击劫持。
+* `X-XSS-Protection`：启用内置于大多数浏览器中的跨站点脚本 (XSS) 过滤器。
+* `Referrer-Policy`：控制请求中包含多少引用者信息。
+
+***
+
+## 常见的安全标头及其用途
+
+### Content-Security-Policy (CSP)
+
+`Content-Security-Policy` 标头通过指定允许在网页上加载哪些内容来源来帮助防止跨站点脚本 (XSS) 和其他代码注入攻击。 例如：
+
+```http
+Content-Security-Policy: default-src 'self'; img-src 'self' https://example.com; script-src 'self' 'unsafe-inline'
+```
+
+此策略允许仅从同一来源 (`'self'`)、来自同一来源或 `https://example.com` 的图像以及来自同一来源或内联脚本的脚本加载内容。
+
+### X-Content-Type-Options
+
+`X-Content-Type-Options` 标头通过指示浏览器遵循声明的 `Content-Type` 来防止 MIME 类型嗅探。 这有助于减轻基于内容类型误解的攻击。 最常见的值是 `nosniff`：
+
+```http
+X-Content-Type-Options: nosniff
+```
+
+### Strict-Transport-Security (HSTS)
+
+`Strict-Transport-Security` 标头强制对服务器进行安全 (HTTPS) 连接。 它指示浏览器仅使用 HTTPS 与站点交互，即使用户尝试通过 HTTP 访问它。 例如：
+
+```http
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+```
+
+此策略告诉浏览器强制 HTTPS 一年 (`max-age=31536000`)，包括所有子域 (`includeSubDomains`)，并允许将该站点包含在浏览器的 HSTS 预加载列表中 (`preload`)。
+
+### X-Frame-Options
+
+`X-Frame-Options` 标头通过控制页面是否可以在框架中显示来防止点击劫持。 常见值为 `DENY` 和 `SAMEORIGIN`：
+
+```http
+X-Frame-Options: DENY
+```
+
+此策略可防止页面在框架、iframe 或对象中显示。
+
+### X-XSS-Protection
+
+标头 `X-XSS-Protection` 启用内置于大多数浏览器中的跨站点脚本 (XSS) 过滤器。它可以阻止页面或清除看似恶意的脚本。例如：
+
+```http
+X-XSS-Protection: 1; mode=block
+```
+
+此策略启用 XSS 过滤器，并指示浏览器在检测到攻击时阻止该页面。
+
+### Referrer-Policy
+
+标头 `Referrer-Policy` 控制请求中包含多少引用者信息。它有助于保护用户隐私并防止信息泄露。常见值包括 `no-referrer`、`no-referrer-when-downgrade` 和 `strict-origin-when-cross-origin`：
+
+```http
+Referrer-Policy: no-referrer
+```
+
+此策略确保不随请求发送任何引用者信息。
+
+## 延伸阅读
+
+* [MDN Web Docs: HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+* [OWASP Secure Headers Project](https://owasp.org/www-project-secure-headers/)
+* [Content Security Policy (CSP) - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+* [Strict-Transport-Security (HSTS) - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security)

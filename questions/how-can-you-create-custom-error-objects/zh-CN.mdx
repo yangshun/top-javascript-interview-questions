@@ -1,0 +1,116 @@
+---
+title: 如何创建自定义错误对象？
+---
+
+## TL;DR
+
+要在 JavaScript 中创建自定义错误对象，您可以扩展内置的 `Error` 类。 这允许您向错误对象添加自定义属性和方法。 这是一个快速示例：
+
+```js live
+class CustomError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'CustomError';
+  }
+}
+
+try {
+  throw new CustomError('This is a custom error message');
+} catch (error) {
+  console.log(error.name); // CustomError
+  console.log(error.message); // This is a custom error message
+}
+```
+
+***
+
+## 如何创建自定义错误对象？
+
+### 扩展 `Error` 类
+
+要创建自定义错误对象，您可以扩展内置的 `Error` 类。 这允许您继承 `Error` 类的属性和方法，同时添加您自己的自定义属性和方法。
+
+```js
+class CustomError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'CustomError';
+  }
+}
+```
+
+### 添加自定义属性
+
+您可以向自定义错误类添加自定义属性，以提供有关错误的更多上下文。
+
+```js live
+class CustomError extends Error {
+  constructor(message, errorCode) {
+    super(message);
+    this.name = 'CustomError';
+    this.errorCode = errorCode;
+  }
+}
+
+try {
+  throw new CustomError('This is a custom error message', 404);
+} catch (error) {
+  console.log(error.name); // CustomError
+  console.log(error.message); // This is a custom error message
+  console.log(error.errorCode); // 404
+}
+```
+
+### 自定义方法
+
+您还可以向自定义错误类添加自定义方法来处理特定的错误相关逻辑。
+
+```js live
+class CustomError extends Error {
+  constructor(message, errorCode) {
+    super(message);
+    this.name = 'CustomError';
+    this.errorCode = errorCode;
+  }
+
+  logError() {
+    console.error(`${this.name} [${this.errorCode}]: ${this.message}`);
+  }
+}
+
+try {
+  throw new CustomError('This is a custom error message', 404);
+} catch (error) {
+  error.logError(); // CustomError [404]: This is a custom error message
+}
+```
+
+### 使用 `instanceof` 检查自定义错误
+
+您可以使用 `instanceof` 运算符来检查错误是否是您的自定义错误类的实例。
+
+```js live
+class CustomError extends Error {
+  constructor(message, errorCode) {
+    super(message);
+    this.name = 'CustomError';
+    this.errorCode = errorCode;
+  }
+}
+
+try {
+  throw new CustomError('This is a custom error message', 404);
+} catch (error) {
+  if (error instanceof CustomError) {
+    console.log('Caught a CustomError');
+  } else {
+    console.log('Caught a different type of error');
+  }
+}
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
+* [MDN Web Docs: Extending built-in classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#subclassing_built-in_classes)
+* [JavaScript.info: Custom errors](https://javascript.info/custom-errors)

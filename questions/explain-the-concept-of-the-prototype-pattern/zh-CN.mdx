@@ -1,0 +1,88 @@
+---
+title: 解释原型模式的概念
+---
+
+## TL;DR
+
+原型模式是一种创建型设计模式，用于通过复制现有对象（称为原型）来创建新对象。当创建新对象的成本高于克隆现有对象时，此模式非常有用。在 JavaScript 中，这可以使用 `Object.create` 方法或使用构造函数函数的 `prototype` 属性来实现。
+
+```js live
+const prototypeObject = {
+  greet() {
+    console.log('Hello, world!');
+  },
+};
+
+const newObject = Object.create(prototypeObject);
+newObject.greet(); // Outputs: Hello, world!
+```
+
+***
+
+## 原型模式
+
+原型模式是一种创建型设计模式，它允许您通过复制现有对象（称为原型）来创建新对象。当创建新对象的成本高于克隆现有对象时，此模式特别有用。
+
+### 工作原理
+
+在原型模式中，一个对象被用作创建新对象的蓝图。这个蓝图对象被称为原型。通过复制原型来创建新对象，这可以通过多种方式完成，具体取决于编程语言。
+
+### 在 JavaScript 中的实现
+
+在 JavaScript 中，原型模式可以使用 `Object.create` 方法或使用构造函数函数的 `prototype` 属性来实现。
+
+#### 使用 `Object.create`
+
+`Object.create` 方法使用指定原型对象和属性创建一个新对象。
+
+```js live
+const prototypeObject = {
+  greet() {
+    console.log('Hello, world!');
+  },
+};
+
+const newObject = Object.create(prototypeObject);
+newObject.greet(); // Outputs: Hello, world!
+```
+
+在此示例中，`newObject` 以 `prototypeObject` 作为其原型创建。这意味着 `newObject` 从 `prototypeObject` 继承了 `greet` 方法。
+
+#### 使用构造函数和 `prototype` 属性
+
+在 JavaScript 中实现原型模式的另一种方法是使用构造函数和 `prototype` 属性。
+
+```js live
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.greet = function () {
+  console.log(`Hello, my name is ${this.name}`);
+};
+
+const person1 = new Person('Alice');
+const person2 = new Person('Bob');
+
+person1.greet(); // Outputs: Hello, my name is Alice
+person2.greet(); // Outputs: Hello, my name is Bob
+```
+
+在此示例中，`Person` 构造函数用于创建新的 `Person` 对象。`greet` 方法被添加到 `Person.prototype`，因此 `Person` 的所有实例都继承此方法。
+
+### 优点
+
+* 通过克隆现有对象来降低创建新对象的成本
+* 简化复杂对象的创建
+* 促进代码重用并减少冗余
+
+### 缺点
+
+* 在某些情况下，克隆对象可能不如创建新对象有效
+* 如果原型对象包含嵌套对象，则可能导致深度克隆出现问题
+
+## 延伸阅读
+
+* [MDN Web Docs: Object.create](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create)
+* [MDN Web Docs: Prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
+* [Refactoring Guru: Prototype pattern](https://refactoring.guru/design-patterns/prototype)

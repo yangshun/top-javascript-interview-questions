@@ -1,23 +1,81 @@
 ---
-title: '比较差异: `function Person(){}`, `var person = Person()`, 和 `var person = new Person()`?'
+title: >-
+  JavaScript 中：`function Person(){}`、`const person = Person()` 和 `const person =
+  new Person()` 的区别？
 ---
 
-这个问题相当含糊。 我们对其意图的最好猜测是，它在询问 JavaScript 中的构造函数。 从技术上讲，`function Person(){}` 只是一个正常函数声明。 惯例是对打算作为构造函数使用的函数使用 PascalCase。
+## TL;DR
 
-`var persons = Person()` 将`Person` 作为函数，而不是作为构造函数。 如果要将函数用作构造函数，这样的动作是常见的错误。 构造函数通常不会返回任何东西。 因此，调用构造函数像一个正常函数会返回 `undefined` ，它会被分配给指定为实例的变量。
+* `function Person(){}`：JavaScript 中的函数声明。它可以作为常规函数或构造函数使用。
+* `const person = Person()`：将 `Person` 作为常规函数调用，而不是构造函数。如果 `Person` 旨在用作构造函数，这将导致意外行为。
+* `const person = new Person()`：创建 `Person` 的新实例，正确利用构造函数来初始化新对象。
 
-`var persone = new Person()` 创建一个 `Person` 对象的实例，使用`new` 操作符继承了 `Person.prototype`。 另一种办法是使用 `Object.create`，例如：`Object.create(Person.prototype)`。
+| 方面 | `function Person(){}` | `const person = Person()` | `const person = new Person()` |
+| --- | --- | --- | --- |
+| 类型 | 函数声明 | 函数调用 | 构造函数调用 |
+| 用法 | 定义一个函数 | 将 `Person` 作为常规函数调用 | 创建 `Person` 的新实例 |
+| 实例创建 | 未创建实例 | 未创建实例 | 创建新实例 |
+| 常见错误 | N/A | 误用作构造函数，导致 `undefined` | 无（正确使用时） |
+
+***
+
+## 函数声明
+
+`function Person(){}` 是 JavaScript 中的标准函数声明。当用 PascalCase 编写时，它遵循旨在用作构造函数的函数的约定。
 
 ```js
 function Person(name) {
   this.name = name;
 }
+```
 
-var person = Person('John');
+此代码定义了一个名为 `Person` 的函数，该函数接受一个参数 `name` 并将其分配给从此构造函数创建的对象的 `name` 属性。当在构造函数中使用 `this` 关键字时，它指的是新创建的对象。
+
+## 函数调用
+
+`const person = Person()` 只是调用该函数的代码。当您将 `Person` 作为常规函数调用（即，不使用 `new` 关键字）时，该函数的行为不像构造函数。相反，它执行其代码，如果未指定返回值，则返回 `undefined`，并将其分配给作为实例的变量。如果该函数旨在用作构造函数，则这样调用是一个常见的错误。
+
+```js live
+function Person(name) {
+  this.name = name;
+}
+
+const person = Person('John'); // Throws error in strict mode
 console.log(person); // undefined
 console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of undefined
-
-var person = new Person('John');
-console.log(person); // Person { name: "John" }
-console.log(person.name); // "john"
 ```
+
+在这种情况下，`Person('John')` 不会创建新对象。`person` 变量被赋值为 `undefined`，因为 `Person` 函数没有显式返回值。尝试访问 `person.name` 会抛出错误，因为 `person` 是 `undefined`。
+
+## 构造函数调用
+
+`const person = new Person()` 使用 new 运算符创建 `Person` 对象的实例，该实例继承自 `Person.prototype`。另一种方法是使用 `Object.create`，例如：`Object.create(Person.prototype)` 和 `Person.call(person, 'John')` 初始化对象。
+
+```js live
+function Person(name) {
+  this.name = name;
+}
+
+const person = new Person('John');
+console.log(person); // Person { name: 'John' }
+console.log(person.name); // 'John'
+
+// Alternative
+const person1 = Object.create(Person.prototype);
+Person.call(person1, 'John');
+console.log(person1); // Person { name: 'John' }
+console.log(person1.name); // 'John'
+```
+
+在这种情况下，`new Person('John')` 创建一个新对象，`Person` 中的 `this` 指的是这个新对象。`name` 属性在新对象上被正确设置。`person` 变量被分配了 `Person` 的新实例，其 name 属性设置为 `'John'`。对于备用对象创建，`Object.create(Person.prototype)` 创建一个新对象，并将 `Person.prototype` 作为其原型。`Person.call(person, 'John')` 初始化对象，设置 `name` 属性。
+
+## 后续问题
+
+* 函数构造函数和 ES6 类语法之间有什么区别？
+* `Object.create` 的一些常见用例是什么？
+
+## 延伸阅读
+
+* [MDN Web Docs: Object prototypes](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object_prototypes)
+* [Differences between Class and Function Constructors](https://www.greatfrontend.com/questions/quiz/what-are-the-differences-between-es6-class-and-es5-function-constructors?fpr=yangshun)
+* [How `this` keyword works in JavaScript?](https://www.greatfrontend.com/questions/quiz/explain-how-this-works-in-javascript?fpr=yangshun)

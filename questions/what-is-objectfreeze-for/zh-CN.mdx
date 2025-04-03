@@ -1,0 +1,87 @@
+---
+title: 什么是 `Object.freeze()`？
+---
+
+## TL;DR
+
+`Object.freeze()` 用于使对象不可变。一旦对象被冻结，您就不能添加、删除或修改其属性。这对于创建常量或确保对象在整个程序中保持不变非常有用。
+
+```js live
+const obj = { name: 'John' };
+Object.freeze(obj);
+obj.name = 'Doe'; // This will not change the name property
+
+console.log(obj); // { name: 'John' }
+```
+
+***
+
+## 什么是 `Object.freeze()`？
+
+`Object.freeze()` 是 JavaScript 中的一种方法，它阻止修改现有属性值以及向对象添加或删除属性。此方法对于创建不可变对象非常有用，这有助于维护数据的完整性并避免意外的副作用。
+
+### 如何使用 `Object.freeze()`
+
+要使用 `Object.freeze()`，只需将要冻结的对象作为参数传递给该方法。这是一个基本示例：
+
+```js live
+const obj = {
+  name: 'John',
+  age: 30,
+};
+
+Object.freeze(obj);
+
+obj.name = 'Doe'; // This will not change the name property
+obj.gender = 'male'; // This will not add a new property
+delete obj.age; // This will not delete the age property
+
+console.log(obj); // Output: { name: "John", age: 30 }
+```
+
+### 冻结对象的特征
+
+1. **不可变性**：一旦对象被冻结，其属性就不能被更改、添加或删除。
+2. **不可扩展性**：冻结对象也是不可扩展的，这意味着您不能向其添加新属性。
+3. **不可配置性**：冻结对象的属性变为不可配置，这意味着您不能更改属性描述符。
+
+### `Object.freeze()` 的用例
+
+1. **常量**：当您想要创建一个不应被修改的常量对象时。
+2. **数据完整性**：确保对象在应用程序的整个生命周期中保持不变。
+3. **安全性**：防止对关键对象的意外或恶意更改。
+
+### 局限性
+
+* `Object.freeze()` 仅使对象本身不可变。如果对象包含嵌套对象，则这些嵌套对象不会被冻结，并且仍然可以被修改。
+* 要深度冻结一个对象，您需要递归地将 `Object.freeze()` 应用于所有嵌套对象。
+
+```js live
+const deepFreeze = (obj) => {
+  Object.keys(obj).forEach((key) => {
+    if (typeof obj[key] === 'object' && obj[key] !== null) {
+      deepFreeze(obj[key]);
+    }
+  });
+  return Object.freeze(obj);
+};
+
+const nestedObj = {
+  name: 'John',
+  details: {
+    age: 30,
+    address: '123 Street',
+  },
+};
+
+deepFreeze(nestedObj);
+
+nestedObj.details.age = 31; // This will not change the age property
+console.log(nestedObj); // Output: { name: "John", details: { age: 30, address: "123 Street" } }
+```
+
+## 延伸阅读
+
+* [MDN Web Docs on Object.freeze()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze)
+* [JavaScript.info on property flags and descriptors](https://javascript.info/property-descriptors)
+* [Deep freezing objects in JavaScript](https://medium.com/@saranshkataria/deep-freezing-objects-in-javascript-637f3d4d7d7)

@@ -1,20 +1,144 @@
 ---
-title: 使用Promise而不是回调的利弊是什么？
+title: 在 JavaScript 中使用 Promise 而不是回调有什么优缺点？
 ---
+
+## TL;DR
+
+Promise 提供了一种比回调更简洁的替代方案，有助于避免回调地狱，并使异步代码更具可读性。它们有助于轻松编写顺序和并行的异步操作。但是，使用 Promise 可能会引入稍微复杂的代码。
+
+***
 
 ## 优点
 
-- 避免可读性糟糕的回调地狱
-- 使得用`.then()`编写可读的顺序异步代码变得容易。
-- 使用 `Promise.all()` 编写并行异步代码是容易的。
-- 有了 Promise，这些只存在于回调编码中的情况就不会发生：
-  - 调用回调太早了
-  - 调用回调太晚(或从不调用)
-  - 调用回调太少或太多次了
-  - 无法传递任何必要的环境/参数
-  - 吞没可能发生的任何错误/异常
+### 避免难以阅读的回调地狱。
+
+回调地狱，也称为“厄运金字塔”，是指在代码中具有多个嵌套回调时发生的现象。这可能导致代码难以阅读、维护和调试。以下是回调地狱的示例：
+
+```js live
+function getFirstData(callback) {
+  setTimeout(() => {
+    callback({ id: 1, title: 'First Data' });
+  }, 1000);
+}
+
+function getSecondData(data, callback) {
+  setTimeout(() => {
+    callback({ id: data.id, title: data.title + ' Second Data' });
+  }, 1000);
+}
+
+function getThirdData(data, callback) {
+  setTimeout(() => {
+    callback({ id: data.id, title: data.title + ' Third Data' });
+  }, 1000);
+}
+
+// Callback hell
+getFirstData((data) => {
+  getSecondData(data, (data) => {
+    getThirdData(data, (result) => {
+      console.log(result); // Output: {id: 1, title: "First Data Second Data Third Data"}
+    });
+  });
+});
+```
+
+Promise 通过为代码提供更线性和可读的结构来解决回调地狱的问题。
+
+```js live
+// Example of sequential asynchronous code using setTimeout and Promises
+function getFirstData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({ id: 1, title: 'First Data' });
+    }, 1000);
+  });
+}
+
+function getSecondData(data) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({ id: data.id, title: data.title + ' Second Data' });
+    }, 1000);
+  });
+}
+
+function getThirdData(data) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({ id: data.id, title: data.title + ' Third Data' });
+    }, 1000);
+  });
+}
+
+getFirstData()
+  .then(getSecondData)
+  .then(getThirdData)
+  .then((data) => {
+    console.log(data); // Output: {id: 1, title: "First Data Second Data Third Data"}
+  })
+  .catch((error) => console.error('Error:', error));
+```
+
+### 使用 `.then()` 轻松编写可读的顺序异步代码。
+
+在上面的代码示例中，我们使用 `.then()` 方法将这些 Promise 链接在一起，从而允许代码按顺序执行。它提供了一种更简洁、更易于管理的方式来处理 JavaScript 中的异步操作。
+
+### 使用 `Promise.all()` 轻松编写并行异步代码。
+
+`Promise.all()` 和回调都可以用于编写并行异步代码。但是，`Promise.all()` 提供了一种更简洁、更易读的方式来处理多个 Promise，尤其是在处理复杂的异步工作流程时。
+
+```js live
+function getData1() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({ id: 1, title: 'Data 1' });
+    }, 1000);
+  });
+}
+
+function getData2() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({ id: 2, title: 'Data 2' });
+    }, 1000);
+  });
+}
+
+function getData3() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({ id: 3, title: 'Data 3' });
+    }, 1000);
+  });
+}
+
+Promise.all([getData1(), getData2(), getData3()])
+  .then((results) => {
+    console.log(results); // Output: [[{ id: 1, title: 'Data 1' }, { id: 2, title: 'Data 2' }, { id: 3, title: 'Data 3' }]
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+```
+
+### 使用 Promise，以下情况不会发生，这些情况存在于仅使用回调的编码中：
+
+* 过早调用回调
+* 过晚调用回调（或从不调用）
+* 调用回调的次数太少或太多
+* 未能传递任何必要的环境/参数
+* 吞噬可能发生的任何错误/异常
 
 ## 缺点
 
-- 略微更复杂的代码(可辩论)。
-- 在不支持 ES2015 的较旧浏览器中，您需要加载 polyfill 才能使用。
+* 稍微复杂的代码（有争议）。
+
+## 实践
+
+* Try implementing your own [`Promise.resolve()` method](/questions/javascript/promise-resolve), [`Promise.reject()` method](/questions/javascript/promise-reject) and [`Promise.all()` method](/questions/javascript/promise-all) on GreatFrontEnd.
+
+## Further reading
+
+* [Promise | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+* [Callback function | MDN](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)

@@ -1,0 +1,79 @@
+---
+title: 什么是跨站脚本 (XSS) 以及如何防止它？
+---
+
+## TL;DR
+
+跨站脚本 (XSS) 是一种安全漏洞，它允许攻击者将恶意脚本注入到其他用户查看的网页中。这可能导致数据盗窃、会话劫持和其他恶意活动。为了防止 XSS，您应该验证和清理用户输入，使用内容安全策略 (CSP)，并在浏览器中渲染数据之前转义它。
+
+***
+
+## 什么是跨站脚本 (XSS) 以及如何防止它？
+
+### 什么是跨站脚本 (XSS)？
+
+跨站脚本 (XSS) 是一种通常在 Web 应用程序中发现的安全漏洞。它允许攻击者将恶意脚本注入到来自其他可信网站的内容中。然后，这些脚本可以在用户浏览器的上下文中执行，从而导致各种恶意活动，例如：
+
+* 窃取 cookie 和会话令牌
+* 篡改网站
+* 将用户重定向到恶意网站
+* 记录击键
+
+XSS 攻击主要有三种类型：
+
+1. **存储型 XSS**：恶意脚本永久存储在目标服务器上，例如数据库、评论字段或论坛帖子中。
+2. **反射型 XSS**：恶意脚本从 Web 服务器反射出来，例如在错误消息、搜索结果或任何其他包含发送到服务器的部分或全部输入的响应中。
+3. **基于 DOM 的 XSS**：漏洞存在于客户端代码中，而不是服务器端代码中。恶意脚本由于修改受害者浏览器中的 DOM 环境而执行。
+
+### 如何防止 XSS？
+
+#### 验证和清理用户输入
+
+始终验证和清理用户输入，以确保它们不包含恶意代码。使用提供用于输入验证和清理的内置功能的库和框架。
+
+```js
+const sanitizeHtml = require('sanitize-html');
+
+const cleanInput = sanitizeHtml(userInput);
+```
+
+#### 使用内容安全策略 (CSP)
+
+内容安全策略 (CSP) 是一项安全功能，它通过指定允许加载哪些动态资源来帮助防止 XSS 攻击。这可以通过设置 HTTP 标头来完成。
+
+```http
+Content-Security-Policy: default-src 'self'; script-src 'self' https://trusted.cdn.com;
+```
+
+#### 渲染前转义数据
+
+在浏览器中渲染数据之前，请务必转义数据，以防止恶意脚本的执行。使用框架或库提供的函数来转义 HTML、JavaScript 和其他内容。
+
+```js
+const escapeHtml = (str) => {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+};
+
+const safeOutput = escapeHtml(userInput);
+```
+
+#### 使用 HTTP-only Cookie
+
+将 Cookie 设置为 HTTP-only，以防止客户端脚本访问它们。这有助于降低会话劫持的风险。
+
+```http
+Set-Cookie: sessionId=abc123; HttpOnly;
+```
+
+#### 定期更新依赖项
+
+保持您的库和框架为最新状态，以确保您拥有最新的安全补丁和功能。
+
+## 延伸阅读
+
+* [Google Web 基础知识：防止 XSS](https://developers.google.com/web/fundamentals/security/csp)

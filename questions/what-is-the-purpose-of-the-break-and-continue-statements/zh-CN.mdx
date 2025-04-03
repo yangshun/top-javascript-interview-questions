@@ -1,0 +1,82 @@
+---
+title: break 和 continue 语句的用途是什么？
+---
+
+## TL;DR
+
+`break` 语句用于过早地退出循环或 switch 语句，而 `continue` 语句跳过循环的当前迭代并继续到下一个迭代。例如，在 `for` 循环中，`break` 将完全停止循环，而 `continue` 将跳到下一个迭代。
+
+```js live
+for (let i = 0; i < 10; i++) {
+  if (i === 5) break; // 当 i 为 5 时退出循环
+  console.log(i);
+}
+
+for (let i = 0; i < 10; i++) {
+  if (i === 5) continue; // 当 i 为 5 时跳过迭代
+  console.log(i);
+}
+```
+
+***
+
+## `break` 和 `continue` 语句的用途
+
+### `break` 语句
+
+`break` 语句用于在循环或 switch 语句完成所有迭代或 case 之前退出。当您希望根据特定条件停止循环或 switch 的执行时，这很有用。
+
+#### 循环中的示例
+
+```js live
+for (let i = 0; i < 10; i++) {
+  if (i === 5) break; // 当 i 为 5 时退出循环
+  console.log(i);
+}
+// 输出：0 1 2 3 4
+```
+
+#### switch 语句中的示例
+
+```js live
+function printDayOfWeek(day) {
+  switch (day) {
+    case 1:
+      console.log('Monday');
+      break;
+    case 2:
+      console.log('Tuesday');
+      break;
+    // 其他情况
+    default:
+      console.log('Invalid day');
+  }
+}
+printDayOfWeek(2); // 星期二
+printDayOfWeek('myDay'); // 无效的日期
+```
+
+### `continue` 语句
+
+`continue` 语句用于跳过循环的当前迭代并继续到下一个迭代。当您希望根据某个条件跳过某些迭代而不完全退出循环时，这很有用。
+
+#### 循环中的示例
+
+```js live
+for (let i = 0; i < 10; i++) {
+  if (i === 5) continue; // 当 i 为 5 时跳过迭代
+  console.log(i);
+}
+// 输出：0 1 2 3 4 6 7 8 9
+```
+
+### `break` 和 `continue` 的区别
+
+* `break` 语句完全退出循环或 switch 语句。
+* `continue` 语句跳过当前迭代并移至循环的下一个迭代。
+
+## 延伸阅读
+
+* [MDN Web 文档：break](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break)
+* [MDN Web 文档：continue](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue)
+* [JavaScript 循环](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)

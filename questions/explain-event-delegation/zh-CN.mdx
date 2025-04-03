@@ -1,53 +1,133 @@
 ---
-title: 解释事件委托
+title: 解释 JavaScript 中的事件委托
 ---
 
-事件委托是 JavaScript 中的一种设计模式，用于通过将单个事件监听器附加到共同的祖先元素，高效地管理和处理多个子元素上的事件。这个模式在你有大量类似元素（例如列表项）并希望简化事件处理的情况下尤为有价值。
+## TL;DR
+
+事件委托是 JavaScript 中的一种技术，它将单个事件监听器附加到父元素，而不是将事件监听器附加到多个子元素。当子元素上发生事件时，该事件会冒泡到 DOM 树中，父元素的事件监听器会根据目标元素处理该事件。
+
+事件委托具有以下优点：
+
+* **提高性能**：附加单个事件监听器比将多个事件监听器附加到各个元素更有效，尤其是在处理大型或动态列表时。这减少了内存使用并提高了整体性能。
+* **简化事件处理**：使用事件委托，您只需要在父元素的事件监听器中编写一次事件处理逻辑。这使得代码更易于维护和更新。
+* **动态元素支持**：事件委托会自动处理父元素中动态添加或删除元素的事件。当 DOM 结构发生变化时，无需手动附加或删除事件监听器
+
+但是，请注意：
+
+* 确定触发事件的目标元素非常重要。
+* 并非所有事件都可以被委托，因为它们不会冒泡。不冒泡的事件包括：`focus`、`blur`、`scroll`、`mouseenter`、`mouseleave`、`resize` 等。
+
+***
+
+## 事件委托
+
+事件委托是 JavaScript 中用于通过将单个事件监听器附加到公共祖先元素来有效管理和处理多个子元素上的事件的设计模式。此模式在您有大量相似元素（例如列表项）并希望优化事件处理的场景中特别有价值。
 
 ## 事件委托的工作原理
 
-1. **将监听器附加到共同的祖先元素**：与将单独的事件监听器附加到每个子元素不同，你将一个单一的事件监听器附加到 DOM 层次结构中较高的共同祖先元素上。
-1. **事件冒泡**：当事件在子元素上发生时，它通过 DOM 树冒泡到共同祖先元素。在此传播期间，共同祖先上的事件监听器可以拦截并处理事件。
-1. **确定目标**：在事件监听器内部，你可以检查事件对象以识别事件的实际目标（触发事件的子元素）。你可以使用`event.target`或`event.currentTarget`等属性来确定与哪个特定子元素进行了交互。
-1. **根据目标执行操作**：根据目标元素，你可以执行所需的操作或执行特定于该元素的代码。这使你能够使用单个事件监听器处理多个子元素的事件。
+1. **将监听器附加到公共祖先**：您将单个事件监听器附加到 DOM 层次结构中较高的公共祖先元素，而不是将各个事件监听器附加到每个子元素。
+2. **事件冒泡**：当子元素上发生事件时，它会通过 DOM 树冒泡到公共祖先元素。在此传播过程中，公共祖先上的事件监听器可以拦截和处理该事件。
+3. **确定目标**：在事件监听器中，您可以检查事件对象以识别事件的实际目标（触发事件的子元素）。您可以使用 `event.target` 或 `event.currentTarget` 等属性来确定与哪个特定的子元素进行了交互。
+4. **根据目标执行操作**：根据目标元素，您可以执行所需的操作或执行特定于该元素的代码。这允许您使用单个事件监听器处理多个子元素的事件。
 
 ## 事件委托的优点
 
-1. **效率**：事件委托减少了事件监听器的数量，提高了内存使用和性能，特别是在处理大量元素时。
-1. **动态元素**：它与动态添加或删除的子元素无缝配合，因为共同祖先继续监听它们的事件。
+1. **效率**：事件委托减少了事件监听器的数量，从而提高了内存使用率和性能，尤其是在处理大量元素时。
+2. **动态元素**：它可以与动态添加或删除的子元素无缝协作，因为公共祖先会继续侦听它们的事件。
 
-## 示例
+## 例子
 
-以下是使用现代 ES6 语法的简单示例：
+这是一个简单的例子：
 
 ```js
 // HTML:
 // <ul id="item-list">
-//   <li>项目 1</li>
-//   <li>项目 2</li>
-//   <li>项目 3</li>
+//   <li>Item 1</li>
+//   <li>Item 2</li>
+//   <li>Item 3</li>
 // </ul>
 
 const itemList = document.getElementById('item-list');
 
 itemList.addEventListener('click', (event) => {
   if (event.target.tagName === 'LI') {
-    console.log(`单击了 ${event.target.textContent}`);
+    console.log(`Clicked on ${event.target.textContent}`);
   }
 });
 ```
 
-在此示例中，单个点击事件监听器附加到了`<ul>`元素上。当在`<li>`元素上发生点击事件时，事件冒泡到了`<ul>`元素，事件监听器检查目标的标签名称以识别单击的列表项。
+在此示例中，单个 click 事件监听器附加到 `<ul>` 元素。当 `<li>` 元素上发生 click 事件时，该事件会冒泡到 `<ul>` 元素，事件监听器会检查目标元素的标签名称以确定是否单击了列表项。检查 `event.target` 的身份至关重要，因为 DOM 树中可能存在其他类型的元素。
 
 ## 用例
 
-事件委托通常用于以下情况：
+事件委托通常用于以下场景：
 
-- 管理具有许多项目或行的列表、菜单或表格。
-- 处理单页面应用程序中的动态内容。
-- 通过避免为发生更改的元素附加和移除事件监听器来简化代码。
+### 处理单页应用程序中的动态内容
 
-## 资源
+```js
+// HTML:
+// <div id="button-container">
+//   <button>Button 1</button>
+//   <button>Button 2</button>
+// </div>
+// <button id="add-button">Add Button</button>
 
-- [MDN Web 文档关于事件委托](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_delegation)
-- [JavaScript.info - 事件委托](https://javascript.info/event-delegation)
+const buttonContainer = document.getElementById('button-container');
+const addButton = document.getElementById('add-button');
+
+buttonContainer.addEventListener('click', (event) => {
+  if (event.target.tagName === 'BUTTON') {
+    console.log(`Clicked on ${event.target.textContent}`);
+  }
+});
+
+addButton.addEventListener('click', () => {
+  const newButton = document.createElement('button');
+  newButton.textContent = `Button ${buttonContainer.children.length + 1}`;
+  buttonContainer.appendChild(newButton);
+});
+```
+
+在此示例中，`click` 事件侦听器附加到 `<div>` 容器。 当动态添加并单击一个新按钮时，容器上的事件侦听器会处理 click 事件。
+
+### 通过避免为更改的元素附加和删除事件侦听器来简化代码
+
+```js
+// HTML:
+// <form id="user-form">
+//   <input type="text" name="username" placeholder="Username">
+//   <input type="email" name="email" placeholder="Email">
+//   <input type="password" name="password" placeholder="Password">
+// </form>
+
+const userForm = document.getElementById('user-form');
+
+userForm.addEventListener('input', (event) => {
+  const { name, value } = event.target;
+  console.log(`Changed ${name}: ${value}`);
+});
+```
+
+在此示例中，单个 input 事件侦听器附加到表单元素。 它可以响应所有子输入元素的输入更改，从而简化代码，每个 `<input>` 元素使用一个事件侦听器。
+
+## 陷阱
+
+请注意，事件委托会带来某些陷阱：
+
+* **目标处理不正确：** 确保正确识别事件目标，以避免意外操作。
+* **并非所有事件都可以委托/冒泡**：并非所有事件都可以委托，因为它们不会冒泡。 不冒泡的事件包括：`focus`、`blur`、`scroll`、`mouseenter`、`mouseleave`、`resize` 等。
+* **事件开销：** 虽然事件委托通常更有效，但需要在根事件侦听器中编写复杂的逻辑来识别触发元素并做出适当的响应。 如果管理不当，这可能会引入开销，并且可能更复杂。
+
+## JavaScript 框架中的事件委托
+
+在 [React](https://react.dev/) 中，事件处理程序附加到 React 根的 DOM 容器中，React 树被渲染到该容器中。 即使将 `onClick` 添加到子元素，实际的事件侦听器也会附加到根 DOM 节点，利用事件委托来优化事件处理并提高性能。
+
+当事件发生时，React 的事件侦听器会捕获它，并根据其内部簿记确定哪个 React 组件呈现了目标元素。 然后，React 通过使用合成事件对象调用处理程序函数，将事件分派给相应的组件的事件处理程序。 此合成事件对象包装了本机浏览器事件，提供了跨不同浏览器的一致接口，并捕获了有关事件的信息。
+
+通过使用事件委托，React 避免将单个事件处理程序附加到每个组件实例，这将产生巨大的开销，尤其对于大型组件树。 相反，React 利用浏览器的本机事件冒泡机制来捕获根处的事件并将它们分发到相应的组件。
+
+## 延伸阅读
+
+* [MDN Web Docs on Event Delegation](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_delegation)
+* [JavaScript.info - Event Delegation](https://javascript.info/event-delegation)
+* [React v17.0 Release Candidate: No New Features](https://legacy.reactjs.org/blog/2020/08/10/react-v17-rc.html#changes-to-event-delegation)

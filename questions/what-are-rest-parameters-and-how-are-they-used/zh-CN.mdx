@@ -1,0 +1,79 @@
+---
+title: 什么是剩余参数以及如何使用它们？
+---
+
+## TL;DR
+
+JavaScript 中的剩余参数允许函数将不定数量的参数作为数组接受。它们由三个点 (`...`) 后跟数组的名称表示。此功能对于需要处理多个参数而无需预先知道确切数量的函数很有用。
+
+```js live
+function sum(...numbers) {
+  return numbers.reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(sum(1, 2, 3, 4)); // Output: 10
+```
+
+***
+
+## 剩余参数
+
+### 定义
+
+剩余参数允许函数将不定数量的参数作为数组接受。它们由三个点 (`...`) 后跟数组的名称表示。
+
+### 语法
+
+剩余参数的语法很简单。您将三个点放在函数定义中最后一个参数的前面：
+
+```js live
+function myFunction(a, b, ...rest) {
+  // 'rest' is an array containing the remaining arguments
+  console.log(rest); // [3, 4, 5]
+}
+myFunction(1, 2, 3, 4, 5);
+```
+
+### 用法
+
+剩余参数在各种情况下都很有用，例如当您需要处理多个参数而无需预先知道它们的确切数量时。
+
+#### 示例：求和数字
+
+这是一个对不定数量的参数求和的函数的简单示例：
+
+```js live
+function sum(...numbers) {
+  return numbers.reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(sum(1, 2, 3, 4)); // Output: 10
+```
+
+在这个例子中，`sum` 函数使用剩余参数 `numbers` 将传递给它的所有参数收集到一个数组中。然后使用 `reduce` 方法对数组的元素求和。
+
+#### 示例：合并数组
+
+剩余参数也可用于将多个数组合并为一个：
+
+```js live
+function combineArrays(...arrays) {
+  return arrays.flat();
+}
+
+console.log(combineArrays([1, 2], [3, 4], [5, 6])); // Output: [1, 2, 3, 4, 5, 6]
+```
+
+在这个例子中，`combineArrays` 函数使用剩余参数 `arrays` 将传递给它的所有数组收集到一个数组中。然后使用 `flat` 方法将数组的数组展平为单个数组。
+
+### 重要提示
+
+* Rest 参数必须是函数定义中的最后一个参数。
+* 每个函数只允许一个 rest 参数。
+* Rest 参数与 `arguments` 对象不同，`arguments` 对象是一个类似数组的对象，可在所有非箭头函数中使用。
+
+## 延伸阅读
+
+* [MDN Web 文档：Rest 参数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+* [JavaScript.info：Rest 参数和展开语法](https://zh.javascript.info/rest-parameters-spread)
+* [W3Schools：JavaScript 函数参数](https://www.w3schools.com/js/js_function_parameters.asp)

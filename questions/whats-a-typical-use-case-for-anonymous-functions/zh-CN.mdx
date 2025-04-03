@@ -1,29 +1,94 @@
 ---
-title: 匿名函数的典型使用案例是什么？
+title: JavaScript 中匿名函数的典型用例是什么？
 ---
 
-它们可以用来封装局部范围内的某些代码，从而使声明的变量不致泄漏到全局范围。
+## TL;DR
 
-```js
+Javascript 中的匿名函数是指没有关联名称的函数。它们通常用作其他函数的参数或分配给变量。
+
+```js live
+const arr = [-1, 0, 5, 6];
+
+// The filter method is passed an anonymous function.
+arr.filter((x) => x > 1); // [5, 6]
+```
+
+它们通常用作其他函数的参数，这些函数被称为高阶函数，可以接受函数作为输入并返回函数作为输出。匿名函数可以访问来自外部作用域的变量，这个概念被称为闭包，允许它们“封闭”并记住创建它们的环境。
+
+```js live
+// Encapsulating Code
 (function () {
   // Some code here.
 })();
-```
 
-作为一个回调，只使用一次，不需要在其他地方使用。 当处理程序被定义在调用它们的代码中时，代码将显得更加自成一体和可读，而不是要在其他地方寻找函数体。
-
-```js
+// Callbacks
 setTimeout(function () {
   console.log('Hello world!');
 }, 1000);
-```
 
-函数式编程结构或 Lodash 的参数（类似于回调）。
-
-```js
+// Functional programming constructs
 const arr = [1, 2, 3];
 const double = arr.map(function (el) {
   return el * 2;
 });
 console.log(double); // [2, 4, 6]
 ```
+
+***
+
+## 匿名函数
+
+匿名函数提供了一种更简洁的定义函数的方式，尤其适用于简单操作或回调。除此之外，它们还可以用于以下场景
+
+### 立即执行
+
+匿名函数通常用于立即调用函数表达式 (IIFE)，以将代码封装在局部作用域内。这可以防止在函数内声明的变量泄漏到全局作用域并污染全局命名空间。
+
+```js live
+// This is an IIFE
+(function () {
+  var x = 10;
+  console.log(x); // 10
+})();
+
+// x is not accessible here
+console.log(typeof x); // undefined
+```
+
+在上面的例子中，IIFE 为变量 `x` 创建了一个局部作用域。因此，`x` 无法在 IIFE 之外访问，从而防止其泄漏到全局作用域。
+
+### 回调
+
+匿名函数可以用作仅使用一次且不需要在其他任何地方使用的回调。当处理程序在调用它们的代码内部定义时，代码看起来会更自包含且更具可读性，而不是必须在其他地方搜索以找到函数体。
+
+```js live
+setTimeout(() => {
+  console.log('Hello world!');
+}, 1000);
+```
+
+### 高阶函数
+
+它用作函数式编程构造（如高阶函数或 Lodash（类似于回调））的参数。高阶函数将其他函数作为参数或将它们作为结果返回。匿名函数通常与高阶函数（如 `map()`、`filter()` 和 `reduce()`）一起使用。
+
+```js live
+const arr = [1, 2, 3];
+const double = arr.map((el) => {
+  return el * 2;
+});
+console.log(double); // [2, 4, 6]
+```
+
+### 事件处理
+
+在 React 中，匿名函数被广泛用于定义内联回调函数，用于处理事件和将回调作为 props 传递。
+
+```jsx
+function App() {
+  return <button onClick={() => console.log('Clicked!')}>Click Me</button>;
+}
+```
+
+## 后续问题
+
+* 你能解释一下箭头函数和匿名函数的区别吗？

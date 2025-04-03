@@ -1,0 +1,84 @@
+---
+title: new 关键字的用途是什么？
+---
+
+## TL;DR
+
+JavaScript 中的 `new` 关键字用于创建用户定义的对象类型或具有构造函数的内置对象类型的实例。 当你使用 `new` 时，它会做四件事：它创建一个新对象，设置原型，将 `this` 绑定到新对象，并返回新对象。
+
+```js live
+function Person(name) {
+  this.name = name;
+}
+
+const person1 = new Person('Alice');
+console.log(person1.name); // Alice
+```
+
+***
+
+## `new` 关键字的用途
+
+### 创建一个新对象
+
+`new` 关键字用于创建对象的新实例。 当你使用 `new` 调用构造函数时，它会创建一个新对象。
+
+```js live
+function Car(model) {
+  this.model = model;
+}
+
+const myCar = new Car('Toyota');
+console.log(myCar.model); // Toyota
+```
+
+### 设置原型
+
+新对象的内部 `[[Prototype]]` 属性被设置为构造函数的 `prototype` 属性。 这允许新对象从构造函数的原型继承属性和方法。
+
+```js live
+function Animal(type) {
+  this.type = type;
+}
+
+Animal.prototype.speak = function () {
+  console.log(`${this.type} makes a sound`);
+};
+
+const dog = new Animal('Dog');
+dog.speak(); // Dog makes a sound
+```
+
+### 将 `this` 绑定到新对象
+
+在构造函数内部，`this` 指的是正在创建的新对象。 这允许你将属性和方法添加到新对象。
+
+```js live
+function Book(title) {
+  this.title = title;
+}
+
+const myBook = new Book('JavaScript Essentials');
+console.log(myBook.title); // JavaScript Essentials
+```
+
+### 返回新对象
+
+`new` 关键字隐式地返回由构造函数创建的新对象。 如果构造函数显式地返回一个对象，则将返回该对象。
+
+```js live
+function Gadget(name) {
+  this.name = name;
+  return { type: 'Electronic' };
+}
+
+const myGadget = new Gadget('Smartphone');
+console.log(myGadget.type); // Electronic
+console.log(myGadget.name); // undefined
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: new operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new)
+* [JavaScript.info: Constructor, operator "new"](https://javascript.info/constructor-new)
+* [Eloquent JavaScript: Constructors](https://eloquentjavascript.net/06_object.html#h_XTmO7z7MPq)

@@ -1,0 +1,57 @@
+---
+title: 有哪些可以用来衡量和分析 JavaScript 性能的工具？
+---
+
+## TL;DR
+
+要衡量和分析 JavaScript 性能，可以使用 Chrome DevTools、Lighthouse、WebPageTest 和 JSPerf 等工具。Chrome DevTools 提供了一个用于分析的 Performance 面板，Lighthouse 提供性能指标的审核，WebPageTest 允许进行详细的性能测试，而 JSPerf 有助于比较不同 JavaScript 代码段的性能。
+
+***
+
+## 用于衡量和分析 JavaScript 性能的工具
+
+### Chrome DevTools
+
+Chrome DevTools 是一组直接内置于 Google Chrome 浏览器中的 Web 开发者工具。它提供了一个 Performance 面板，允许您录制和分析 Web 应用程序的运行时性能。
+
+* 通过按 `F12` 或 `Ctrl+Shift+I` 打开 Chrome DevTools
+* 导航到 Performance 面板
+* 单击“Record”按钮开始分析
+* 与您的 Web 应用程序交互以捕获性能数据
+* 单击“Stop”按钮结束分析并分析结果
+
+### Lighthouse
+
+Lighthouse 是一个开源的自动化工具，用于提高网页质量。它提供了对性能、可访问性、渐进式 Web 应用程序、SEO 等方面的审核。
+
+* 打开 Chrome DevTools
+* 导航到 Lighthouse 面板
+* 选择您要审核的类别（例如，性能）
+* 单击“Generate report”按钮
+* 查看生成的报告以获取性能见解和建议
+
+### WebPageTest
+
+WebPageTest 是一个免费的在线工具，提供对网页的详细性能测试。它允许您使用真实的浏览器从世界各地运行测试。
+
+* 访问 [WebPageTest](https://www.webpagetest.org/)
+* 输入您要测试的网页的 URL
+* 选择测试位置和浏览器
+* 单击“Start Test”按钮
+* 查看详细的性能报告，包括加载时间、首次字节时间等指标
+
+### JSPerf
+
+JSPerf 是一个用于比较不同 JavaScript 代码段性能的工具。它允许您创建和运行基准测试，以查看哪个代码的性能更好。
+
+* 访问 [JSPerf](https://jsperf.com/)
+* 通过输入不同的 JavaScript 代码段来创建新的测试用例
+* 运行基准测试以比较代码段的性能
+* 查看结果以了解哪个代码段的性能更好
+
+## 延伸阅读
+
+* [Chrome DevTools Performance Panel](https://developer.chrome.com/docs/devtools/evaluate-performance/)
+* [Lighthouse](https://developers.google.com/web/tools/lighthouse)
+* [WebPageTest](https://www.webpagetest.org/)
+* [JSPerf](https://jsperf.com/)

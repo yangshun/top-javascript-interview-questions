@@ -1,0 +1,82 @@
+---
+title: 提供一些关于如何使用柯里化和部分应用的例子
+---
+
+## TL;DR
+
+柯里化将具有多个参数的函数转换为一系列函数，每个函数只接受一个参数。部分应用会固定函数的一些参数，生成另一个参数较少的函数。例如，柯里化函数 `add(a, b)` 看起来像 `add(a)(b)`，而部分应用 `add(2, b)` 会将第一个参数固定为 2，从而产生一个只需要第二个参数的函数。
+
+柯里化示例：
+
+```js live
+const add = (a) => (b) => a + b;
+const addTwo = add(2);
+console.log(addTwo(3)); // 5
+```
+
+部分应用示例：
+
+```js live
+const add = (a, b) => a + b;
+const addTwo = add.bind(null, 2);
+console.log(addTwo(3)); // 5
+```
+
+***
+
+## 柯里化和部分应用
+
+### 柯里化
+
+柯里化是一种将具有多个参数的函数转换为一系列函数的技术，每个函数只接受一个参数。这允许更灵活的函数组合和重用。
+
+#### 示例
+
+```js live
+// 考虑一个简单的加法函数：
+function add(a, b) {
+  return a + b;
+}
+
+// 要柯里化这个函数，我们将其转换为一系列函数，
+// 每个函数接受一个参数：
+const curriedAdd = (a) => (b) => a + b;
+
+// 现在，你可以这样使用柯里化函数：
+const addTwo = curriedAdd(2);
+console.log(addTwo(3)); // 5
+```
+
+### 部分应用
+
+部分应用是一种技术，你可以在其中固定函数的一些参数，从而生成另一个参数较少的函数。这对于从更通用的函数创建专门的函数很有用。
+
+#### 示例
+
+```js live
+// 考虑相同的 add 函数：
+function add(a, b) {
+  return a + b;
+}
+
+// 要部分应用此函数
+// 你可以使用 `bind` 方法来固定第一个参数：
+const addTwo = add.bind(null, 2);
+console.log(addTwo(3)); // 5
+
+// 或者，你可以创建一个自定义的部分应用函数：
+function partial(fn, ...fixedArgs) {
+  return function (...remainingArgs) {
+    return fn(...fixedArgs, ...remainingArgs);
+  };
+}
+
+const addTwoCustom = partial(add, 2);
+console.log(addTwoCustom(3)); // 5
+```
+
+## 延伸阅读
+
+* [MDN 上的柯里化](https://developer.mozilla.org/en-US/docs/Glossary/Currying)
+* [MDN 上的部分应用](https://developer.mozilla.org/en-US/docs/Glossary/Partial_application)
+* [JavaScript 中的函数式编程](https://eloquentjavascript.net/1st_edition/chapter6.html)

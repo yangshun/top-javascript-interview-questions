@@ -1,0 +1,112 @@
+---
+title: switch 语句的用途是什么？
+---
+
+## TL;DR
+
+switch 语句用于根据表达式的值执行多个代码块中的一个。它是使用多个 `if...else if` 语句的替代方案。switch 语句计算一个表达式，将表达式的值与 `case` 标签匹配，并执行相关的代码块。如果没有 `case` 匹配，则执行 `default` 块。
+
+```js
+switch (expression) {
+  case value1:
+    // code to be executed if expression === value1
+    break;
+  case value2:
+    // code to be executed if expression === value2
+    break;
+  default:
+  // code to be executed if no case matches
+}
+```
+
+***
+
+## `switch` 语句的用途
+
+### 简化多个条件检查
+
+与使用多个 `if...else if` 语句相比，`switch` 语句提供了一种更清晰、更易读的方式来处理多个条件检查。当您需要将同一表达式与不同的值进行比较时，它特别有用。
+
+### 语法和结构
+
+以下是 `switch` 语句的基本语法：
+
+```js
+switch (expression) {
+  case value1:
+    // code to be executed if expression === value1
+    break;
+  case value2:
+    // code to be executed if expression === value2
+    break;
+  // more cases...
+  default:
+  // code to be executed if no case matches
+}
+```
+
+### 工作原理
+
+1. **表达式求值**：`switch` 语句计算一次表达式。
+2. **案例匹配**：它将表达式的结果与每个 `case` 标签的值进行比较。
+3. **代码执行**：如果找到匹配项，则执行与该 `case` 关联的代码。
+4. **Break 语句**：`break` 语句用于退出 `switch` 块。如果省略，将执行下一个 `case`（fall-through 行为）。
+5. **Default 案例**：`default` 案例是可选的，如果未找到匹配的 `case`，则执行。
+
+### 示例
+
+这是一个 `switch` 语句的示例：
+
+```js live
+let fruit = 'apple';
+
+switch (fruit) {
+  case 'banana':
+    console.log('香蕉是黄色的。');
+    break;
+  case 'apple':
+    console.log('苹果是红色的。');
+    break;
+  case 'grape':
+    console.log('葡萄是紫色的。');
+    break;
+  default:
+    console.log('未知水果。');
+}
+```
+
+在此示例中，输出将是 `Apple is red.`，因为 `fruit` 的值与 `case 'apple'` 匹配。
+
+### Fall-through 行为
+
+如果省略 `break` 语句，`switch` 语句将继续执行后续的 `case` 块，直到遇到 `break` 或 `switch` 块的末尾。这被称为 fall-through 行为。
+
+```js live
+let day = 2;
+
+switch (day) {
+  case 1:
+    console.log('星期一');
+  case 2:
+    console.log('星期二');
+  case 3:
+    console.log('星期三');
+  default:
+    console.log('未知日期');
+}
+```
+
+在这个例子中，输出将是：
+
+```
+Tuesday
+Wednesday
+Unknown day
+```
+
+发生这种情况是因为在 `case 2` 块之后没有 `break` 语句来停止执行。
+
+## 延伸阅读
+
+* [MDN Web Docs: switch statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
+* [JavaScript.info: switch statement](https://javascript.info/switch)

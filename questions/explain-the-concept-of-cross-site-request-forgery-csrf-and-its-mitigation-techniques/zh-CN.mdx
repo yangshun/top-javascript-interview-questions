@@ -1,0 +1,63 @@
+---
+title: 解释跨站点请求伪造 (CSRF) 的概念及其缓解技术
+---
+
+## TL;DR
+
+跨站点请求伪造 (CSRF) 是一种攻击，恶意网站会诱骗用户的浏览器向用户已通过身份验证的另一个站点发出不需要的请求。这可能导致代表用户执行未经授权的操作。缓解技术包括使用反 CSRF 令牌、SameSite cookie 和确保适当的 CORS 配置。
+
+***
+
+## 跨站点请求伪造 (CSRF) 及其缓解技术
+
+### 什么是 CSRF？
+
+跨站点请求伪造 (CSRF) 是一种攻击类型，当恶意网站导致用户的浏览器在用户已通过身份验证的不同站点上执行不需要的操作时，就会发生这种攻击。这可能导致未经授权的操作，例如更改帐户详细信息、进行购买或其他用户无意执行的操作。
+
+### CSRF 如何工作？
+
+1. **用户身份验证**：用户登录到受信任的网站（例如，银行网站）并收到身份验证 cookie。
+2. **恶意网站**：用户在仍登录到受信任网站的情况下访问恶意网站。
+3. **不需要的请求**：恶意网站包含向受信任网站发出请求的代码，使用用户的身份验证 cookie 代表用户执行操作。
+
+### 缓解技术
+
+#### 反 CSRF 令牌
+
+防止 CSRF 攻击的最有效方法之一是使用反 CSRF 令牌。这些令牌是服务器生成的、包含在表单或请求中的唯一且不可预测的值。然后，服务器验证该令牌以确保请求是合法的。
+
+```html
+<form method="POST" action="/update-profile">
+  <input type="hidden" name="csrf_token" value="unique_token_value" />
+  <!-- other form fields -->
+  <button type="submit">Update Profile</button>
+</form>
+```
+
+在服务器端，验证令牌以确保它与预期值匹配。
+
+#### SameSite cookie
+
+cookie 上的 `SameSite` 属性可以通过限制 cookie 如何与跨站点请求一起发送来帮助缓解 CSRF 攻击。`SameSite` 属性可以设置为 `Strict`、`Lax` 或 `None`。
+
+```http
+Set-Cookie: sessionId=abc123; SameSite=Strict
+```
+
+* `Strict`：Cookie 仅在第一方上下文中发送，而不是与第三方网站发起的请求一起发送。
+* `Lax`：Cookie 不会通过正常的跨站点子请求（例如，加载图像）发送，但会在用户从外部站点导航到 URL 时发送（例如，点击链接）。
+* `None`：Cookie 在所有上下文中发送，包括跨源请求。
+
+#### CORS（跨源资源共享）
+
+正确配置 CORS 可以通过确保只有受信任的来源才能向您的服务器发出请求来帮助防止 CSRF 攻击。这涉及在服务器上设置适当的标头以指定允许访问资源的来源。
+
+```http
+Access-Control-Allow-Origin: https://trustedwebsite.com
+```
+
+### 延伸阅读
+
+* [OWASP CSRF 预防备忘单](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
+* [MDN Web 文档：SameSite cookies](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Set-Cookie/SameSite)
+* [MDN Web 文档：跨域资源共享 (CORS)](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS)

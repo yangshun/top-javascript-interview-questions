@@ -1,0 +1,84 @@
+---
+title: 如何检查变量的数据类型？
+---
+
+## TL;DR
+
+要在 JavaScript 中检查变量的数据类型，可以使用 `typeof` 运算符。例如，`typeof variableName` 将返回一个字符串，指示变量的类型，例如 `"string"`、`"number"`、`"boolean"`、`"object"`、`"function"`、`"undefined"` 或 `"symbol"`。对于数组和 `null`，您可以分别使用 `Array.isArray(variableName)` 和 `variableName === null`。
+
+***
+
+## 如何检查变量的数据类型？
+
+### 使用 `typeof` 运算符
+
+`typeof` 运算符是检查 JavaScript 中变量数据类型最常用的方法。它返回一个字符串，指示操作数的类型。
+
+```js live
+let str = 'Hello, world!';
+console.log(typeof str); // "string"
+
+let num = 42;
+console.log(typeof num); // "number"
+
+let bool = true;
+console.log(typeof bool); // "boolean"
+
+let obj = { name: 'Alice' };
+console.log(typeof obj); // "object"
+
+let func = function () {};
+console.log(typeof func); // "function"
+
+let undef;
+console.log(typeof undef); // "undefined"
+
+let sym = Symbol();
+console.log(typeof sym); // "symbol"
+```
+
+### 检查 `null`
+
+`typeof` 运算符对 `null` 返回 `"object"`，这可能会产生误导。要专门检查 `null`，您应该使用严格的相等比较。
+
+```js live
+let n = null;
+console.log(n === null); // true
+```
+
+### 检查数组
+
+数组是 JavaScript 中一种特殊类型的对象。要检查变量是否为数组，可以使用 `Array.isArray` 方法。
+
+```js live
+let arr = [1, 2, 3];
+console.log(Array.isArray(arr)); // true
+```
+
+### 检查 `NaN`
+
+`NaN` (Not-a-Number) 是 JavaScript 中的一个特殊的数值。要检查一个值是否为 `NaN`，可以使用 `Number.isNaN` 方法。
+
+```js live
+let notANumber = NaN;
+console.log(Number.isNaN(notANumber)); // true
+```
+
+### 检查 `null` 和 `undefined`
+
+要检查变量是 `null` 还是 `undefined`，可以使用 `==` 运算符和 `typeof` 运算符的组合。
+
+```js live
+let value = null;
+console.log(value == null); // true
+
+let value2;
+console.log(typeof value2 === 'undefined'); // true
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: typeof](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
+* [MDN Web Docs: Array.isArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
+* [MDN Web Docs: Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
+* [MDN Web Docs: null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)

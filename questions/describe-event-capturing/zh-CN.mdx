@@ -1,0 +1,96 @@
+---
+title: 描述 JavaScript 和浏览器中的事件捕获
+---
+
+## TL;DR
+
+事件捕获是 DOM 事件传播机制中较少使用的 [事件冒泡](/questions/quiz/describe-event-bubbling) 的对应部分。它遵循相反的顺序，事件首先在祖先元素上触发，然后向下传递到目标元素。
+
+与事件冒泡相比，事件捕获很少使用，但它可用于特定场景，例如需要在事件到达目标元素之前拦截更高级别的事件。默认情况下，它是禁用的，但可以通过 `addEventListener()` 上的一个选项来启用。
+
+***
+
+## 什么是事件捕获？
+
+事件捕获是 DOM（文档对象模型）中的一种传播机制，其中事件（例如单击或键盘事件）首先在文档的根处触发，然后通过 DOM 树向下流向目标元素。
+
+捕获的优先级高于冒泡，这意味着捕获事件处理程序在冒泡事件处理程序之前执行，如事件传播的各个阶段所示：
+
+* **捕获阶段**：事件向下移动到目标元素
+* **目标阶段**：事件到达目标元素
+* **冒泡阶段**：事件从目标元素冒泡
+
+请注意，默认情况下禁用事件捕获。要启用它，您必须将捕获选项传递到 `addEventListener()`。
+
+## 捕获阶段
+
+在捕获阶段，事件从文档根开始并向下传播到目标元素。此路径上任何祖先元素上的任何事件侦听器都将在目标元素的处理程序之前触发。但请注意，除非将 `addEventListener()` 的第三个参数设置为 `true`，否则事件捕获不会发生，如下所示（默认值为 `false`）。
+
+以下是使用现代 ES2015 语法的示例，用于演示事件捕获：
+
+```js
+// HTML:
+// <div id="parent">
+//   <button id="child">Click me!</button>
+// </div>
+
+const parent = document.getElementById('parent');
+const child = document.getElementById('child');
+
+parent.addEventListener(
+  'click',
+  () => {
+    console.log('Parent element clicked (capturing)');
+  },
+  true, // Set third argument to true for capturing
+);
+
+child.addEventListener('click', () => {
+  console.log('Child element clicked');
+});
+```
+
+当您单击“Click me!”按钮时，它将首先触发父元素的捕获处理程序，然后触发子元素的处理程序。
+
+## 停止传播
+
+可以使用 `stopPropagation()` 方法在捕获阶段停止事件传播。这可以防止事件进一步向下传递 DOM 树。
+
+```js
+// HTML:
+// <div id="parent">
+//   <button id="child">Click me!</button>
+// </div>
+
+const parent = document.getElementById('parent');
+const child = document.getElementById('child');
+
+parent.addEventListener(
+  'click',
+  (event) => {
+    console.log('Parent element clicked (capturing)');
+    event.stopPropagation(); // Stop event propagation
+  },
+  true,
+);
+
+child.addEventListener('click', () => {
+  console.log('Child element clicked');
+});
+```
+
+由于停止了事件传播，当您单击“Click Me!”按钮时，现在将仅调用 `parent` 事件侦听器，并且永远不会调用 `child` 事件侦听器，因为事件传播已在 `parent` 元素处停止。
+
+## 事件捕获的用途
+
+与事件冒泡相比，事件捕获很少使用，但它可以在特定情况下使用，例如需要在事件到达目标元素之前在高层拦截事件。
+
+* **阻止事件冒泡：** 想象一下，您有一个嵌套元素（如按钮）位于容器元素内。单击该按钮也可能触发容器上的单击事件。通过在容器的事件侦听器上启用事件捕获，您可以在那里捕获单击事件，并阻止其向下传播到按钮，从而可能导致意外行为。
+* **自定义下拉菜单：** 在构建自定义下拉菜单时，您可能希望捕获菜单元素之外的点击以关闭菜单。在 `document` 对象上使用 `capture: true` 允许您侦听页面上的任何位置的点击，并在点击发生在菜单边界之外时关闭菜单。
+* **在某些情况下提高效率：** 在某些情况下，事件捕获可能比依赖冒泡更有效。这是因为事件不需要在到达处理程序之前通过所有子元素传播。但是，对于大多数 Web 应用程序来说，性能差异通常可以忽略不计。
+
+## 延伸阅读
+
+* [事件捕获 | MDN](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Building_blocks/Events#event_capture)
+* [冒泡和捕获 | JavaScript.info](https://zh.javascript.info/bubbling-and-capturing)
+* [W3C DOM Level 3 事件规范](https://www.w3.org/TR/DOM-Level-3-Events/#event-flow)

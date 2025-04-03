@@ -1,0 +1,94 @@
+---
+title: 有哪些流行的 JavaScript 测试框架？
+---
+
+## 总结
+
+一些流行的 JavaScript 测试框架包括 Jest、Mocha、Jasmine 和 Cypress。Jest 以其简单性和与 React 的集成而闻名。Mocha 非常灵活，通常与其他库（如 Chai）一起用于断言。Jasmine 是一个行为驱动开发框架，不需要额外的库。Cypress 是一个端到端测试框架，提供出色的开发者体验。
+
+***
+
+## 流行的 JavaScript 测试框架
+
+### Jest
+
+Jest 是 Facebook 开发的测试框架，主要用于测试 React 应用程序。它以其简单性和易用性而闻名。
+
+* 它自带内置的测试运行器、断言库和模拟支持
+* 它的设置无需配置，易于上手
+* 它提供了快照测试和开箱即用的代码覆盖率等功能
+
+示例：
+
+```js
+test('adds 1 + 2 to equal 3', () => {
+  expect(1 + 2).toBe(3);
+});
+```
+
+### Mocha
+
+Mocha 是一个灵活的测试框架，可以与各种断言库（如 Chai）一起使用。它以其广泛的配置选项和对异步测试的支持而闻名。
+
+* 它提供了一个简单而灵活的 API 用于编写测试
+* 它支持 BDD（行为驱动开发）和 TDD（测试驱动开发）风格
+* 它可以轻松地与其他库和工具集成
+
+示例：
+
+```js
+const assert = require('assert');
+
+describe('Array', function () {
+  describe('#indexOf()', function () {
+    it('should return -1 when the value is not present', function () {
+      assert.strictEqual([1, 2, 3].indexOf(4), -1);
+    });
+  });
+});
+```
+
+### Jasmine
+
+Jasmine 是一个行为驱动开发框架，不需要额外的库。它以其简单性和易用性而闻名。
+
+* 它为编写测试提供了清晰易读的语法
+* 它包括内置的断言和模拟库
+* 它支持异步测试
+
+示例：
+
+```js
+describe('A suite', function () {
+  it('contains a spec with an expectation', function () {
+    expect(true).toBe(true);
+  });
+});
+```
+
+### Cypress
+
+Cypress 是一个端到端测试框架，提供出色的开发者体验。它以其快速可靠的测试而闻名。
+
+* 它为编写测试提供了一个简单直观的 API
+* 它包括对断言、模拟和存根的内置支持
+* 它提供实时重新加载和调试功能
+
+示例：
+
+```js
+describe('My First Test', function () {
+  it('Visits the Kitchen Sink', function () {
+    cy.visit('https://example.cypress.io');
+    cy.contains('type').click();
+    cy.url().should('include', '/commands/actions');
+  });
+});
+```
+
+## 延伸阅读
+
+* [Jest documentation](https://jestjs.io/docs/getting-started)
+* [Mocha documentation](https://mochajs.org/#getting-started)
+* [Jasmine documentation](https://jasmine.github.io/pages/getting_started.html)
+* [Cypress documentation](https://docs.cypress.io/guides/overview/why-cypress)

@@ -1,0 +1,88 @@
+---
+title: 什么是模块模式？它如何帮助封装？
+---
+
+## TL;DR
+
+JavaScript 中的模块模式是一种设计模式，用于创建自包含的代码模块。它通过允许您在模块内定义私有和公共成员来帮助封装。私有成员无法从模块外部访问，而公共成员通过返回的对象公开。这种模式有助于组织代码、避免全局命名空间污染以及保持关注点的清晰分离。
+
+```js live
+var myModule = (function () {
+  var privateVar = 'I am private';
+
+  function privateMethod() {
+    console.log(privateVar);
+  }
+
+  return {
+    publicMethod: function () {
+      privateMethod();
+    },
+  };
+})();
+
+myModule.publicMethod(); // Logs: I am private
+```
+
+***
+
+## 什么是模块模式？它如何帮助封装？
+
+### 模块模式简介
+
+模块模式是一种在 JavaScript 中用于创建自包含代码模块的设计模式。它利用闭包来创建私有和公共成员，从而更好地组织和封装代码。
+
+### 模块模式的工作原理
+
+模块模式通常涉及一个立即调用的函数表达式 (IIFE)，该表达式返回一个对象。此对象包含作为模块公共 API 公开的方法和属性。在 IIFE 内部，您可以定义无法从模块外部访问的私有变量和函数。
+
+### 模块模式示例
+
+这是一个模块模式的简单示例：
+
+```js live
+var myModule = (function () {
+  // Private members
+  var privateVar = 'I am private';
+
+  function privateMethod() {
+    console.log(privateVar);
+  }
+
+  // Public members
+  return {
+    publicMethod: function () {
+      privateMethod();
+    },
+  };
+})();
+
+myModule.publicMethod(); // Logs: I am private
+```
+
+在此示例中：
+
+* `privateVar` 和 `privateMethod` 是私有成员，不能直接从模块外部访问。
+* `publicMethod` 是一个公共成员，可以从模块外部访问。它可以与私有成员交互。
+
+### 使用模块模式的好处
+
+#### 封装
+
+模块模式通过隐藏内部实现细节并仅公开必要的部分来帮助封装代码。这使得代码更模块化，更易于维护。
+
+#### 避免全局命名空间污染
+
+通过使用模块模式，您可以避免使用变量和函数污染全局命名空间。这降低了命名冲突的风险，并使代码更健壮。
+
+#### 关注点分离
+
+模块模式通过允许您将相关功能组合在一起，从而促进了关注点的清晰分离。这使得代码更有条理，更容易理解。
+
+### 结论
+
+模块模式是 JavaScript 中用于创建自包含代码模块的强大工具。它通过允许您定义私有和公共成员来帮助封装，使代码更具模块化、可维护性和组织性。
+
+## 延伸阅读
+
+* [Addy Osmani 的 JavaScript 设计模式学习](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript)

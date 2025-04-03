@@ -1,0 +1,61 @@
+---
+title: 解释模块打包中的 Tree Shaking 概念
+---
+
+## TL;DR
+
+Tree shaking 是一种用于模块打包的技术，用于消除死代码，即从未被使用或执行的代码。这有助于减小最终的 bundle 大小并提高应用程序的性能。它通过分析代码的依赖关系图并删除任何未使用的导出来实现。Webpack 和 Rollup 等工具在使用 ES6 模块语法（`import` 和 `export`）时支持 Tree shaking。
+
+***
+
+## 模块打包中的 Tree Shaking 概念
+
+Tree shaking 是一个常用术语，通常用于 JavaScript 模块打包器，如 Webpack 和 Rollup。它指的是从最终的 bundle 中消除死代码的过程，这有助于减小 bundle 大小并提高应用程序的性能。
+
+### Tree shaking 的工作原理
+
+Tree shaking 通过分析代码的依赖关系图来工作。它查看 `import` 和 `export` 语句，以确定代码的哪些部分实际被使用，哪些没有被使用。然后，将未使用的代码（也称为死代码）从最终的 bundle 中删除。
+
+### 示例
+
+考虑以下示例：
+
+```js
+// utils.js
+export function add(a, b) {
+  return a + b;
+}
+
+export function subtract(a, b) {
+  return a - b;
+}
+
+// main.js
+import { add } from './utils';
+
+console.log(add(2, 3));
+```
+
+在这个例子中，`subtract` 函数在 `main.js` 中从未使用。支持 Tree Shaking 的打包器会识别这一点，并将 `subtract` 函数从最终的 bundle 中排除。
+
+### Tree shaking 的要求
+
+1. **ES6 模块语法**：Tree shaking 依赖于 ES6 模块语法（`import` 和 `export`）的静态结构。CommonJS 模块（`require` 和 `module.exports`）无法进行静态分析，因此不适合进行 Tree shaking。
+2. **Bundler 支持**：您使用的打包器必须支持 Tree shaking。Webpack 和 Rollup 都内置了对 Tree shaking 的支持。
+
+### 支持 Tree shaking 的工具
+
+* **Webpack**: 使用 ES6 模块时，Webpack 开箱即支持 Tree Shaking。您可以通过在 Webpack 配置中将 `mode` 设置为 `production` 来启用它。
+* **Rollup**: Rollup 在设计时就考虑了 Tree Shaking，并为此提供了出色的支持。
+
+### Tree shaking 的好处
+
+* **减小 bundle 大小**：通过删除未使用的代码，最终的 bundle 大小减小，从而加快加载时间。
+* **提高性能**：更小的 bundle 意味着更少的代码需要解析和执行，这可以提高应用程序的性能。
+
+## 延伸阅读
+
+* [Webpack Tree Shaking](https://webpack.js.org/guides/tree-shaking/)
+* [Rollup Tree Shaking](https://rollupjs.org/guide/en/#tree-shaking)
+* [MDN Web Docs: Import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+* [MDN Web Docs: Export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)

@@ -1,0 +1,92 @@
+---
+title: 什么是展开运算符以及如何使用它？
+---
+
+## TL;DR
+
+展开运算符，用三个点 (`...`) 表示，在 JavaScript 中用于将可迭代对象（如数组或字符串）展开为单个元素。它也可以用于展开对象属性。例如，您可以使用它来组合数组、复制数组或将数组元素作为参数传递给函数。
+
+```js live
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const combined = [...arr1, ...arr2];
+console.log(combined); // [1, 2, 3, 4, 5, 6]
+
+const obj1 = { a: 1, b: 2 };
+const obj2 = { c: 3, d: 4 };
+const combinedObj = { ...obj1, ...obj2 };
+console.log(combinedObj); // { a: 1, b: 2, c: 3, d: 4 }
+```
+
+***
+
+## 什么是展开运算符以及如何使用它？
+
+### 展开数组
+
+展开运算符可用于将数组的元素展开为单个元素。这对于组合数组或复制数组很有用。
+
+```js live
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const combined = [...arr1, ...arr2];
+console.log(combined); // [1, 2, 3, 4, 5, 6]
+```
+
+### 复制数组
+
+您可以使用展开运算符创建数组的浅拷贝。
+
+```js live
+const original = [1, 2, 3];
+const copy = [...original];
+console.log(copy); // [1, 2, 3]
+```
+
+### 将数组元素作为函数参数传递
+
+展开运算符可用于将数组的元素作为参数传递给函数。
+
+```js live
+function sum(a, b, c) {
+  return a + b + c;
+}
+
+const numbers = [1, 2, 3];
+console.log(sum(...numbers)); // 6
+```
+
+### 展开对象
+
+展开运算符也可用于展开对象的属性。这对于组合对象或复制对象很有用。
+
+```js live
+const obj1 = { a: 1, b: 2 };
+const obj2 = { c: 3, d: 4 };
+const combinedObj = { ...obj1, ...obj2 };
+console.log(combinedObj); // { a: 1, b: 2, c: 3, d: 4 }
+```
+
+### 复制对象
+
+您可以使用展开运算符创建对象的浅拷贝。
+
+```js live
+const originalObj = { a: 1, b: 2 };
+const copyObj = { ...originalObj };
+console.log(copyObj); // { a: 1, b: 2 }
+```
+
+### 使用字符串
+
+扩展运算符也可以用来将字符串扩展成单个字符。
+
+```js live
+const str = 'hello';
+const chars = [...str];
+console.log(chars); // ['h', 'e', 'l', 'l', 'o']
+```
+
+## 延伸阅读
+
+* [FreeCodeCamp: The spread operator in JavaScript](https://www.freecodecamp.org/news/the-spread-operator-in-javascript/)

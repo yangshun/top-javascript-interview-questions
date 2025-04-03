@@ -1,43 +1,143 @@
 ---
-title: 解释“（变量）提升”
+title: 解释 JavaScript 中的“hoisting”（变量提升）概念
 ---
 
-提升是用于解释你代码中变量声明行为的一个术语。 使用`var`关键字声明或初始化的变量将会将其声明“移动”到其模块/函数级别范围的顶端。 我们把它成为变量提升。 然而，只有声明被提升，赋值（如果有的话）将留在原地。
+## TL;DR
 
-请注意，声明实际上并没有被移动--JavaScript 引擎在编译过程中解析了声明，并意识到了声明及其作用域。 通过视觉将声明置于其作用域之首，更容易理解这种行为。 让我们用几个例子来解释。
+Hoisting（变量提升）是一种 JavaScript 机制，在编译阶段，变量和函数声明会被“提升”到其包含作用域的顶部。
 
-```js
+* **变量声明 (`var`)**：声明被提升，但未初始化。如果在使用前访问变量，则变量的值为 `undefined`。
+* **变量声明 (`let` 和 `const`)**：声明被提升，但未初始化。访问它们会导致 `ReferenceError`，直到遇到实际的声明。
+* **函数表达式 (`var`)**：声明被提升，但未初始化。如果在使用前访问变量，则变量的值为 `undefined`。
+* **函数声明 (`function`)**：声明和定义都被完全提升。
+* **类声明 (`class`)**：声明被提升，但未初始化。访问它们会导致 `ReferenceError`，直到遇到实际的声明。
+* **导入声明 (`import`)**：声明被提升，并且在执行其余代码之前，会执行导入模块的副作用。
+
+以下行为总结了在声明变量之前访问变量的结果。
+
+| 声明 | 在声明之前访问 |
+| ------------------------------ | ---------------------------- |
+| `var foo` | `undefined` |
+| `let foo` | `ReferenceError` |
+| `const foo` | `ReferenceError` |
+| `class Foo` | `ReferenceError` |
+| `var foo = function() { ... }` | `undefined` |
+| `function foo() { ... }` | 正常 |
+| `import` | 正常 |
+
+***
+
+## Hoisting（变量提升）
+
+Hoisting（变量提升）是一个术语，用于解释 JavaScript 代码中变量声明的行为。
+
+使用 `var` 关键字声明或初始化的变量将在编译期间将其声明“移动”到其包含作用域的顶部，我们将其称为变量提升。
+
+只有声明被提升，初始化/赋值（如果存在）将保留在原来的位置。请注意，声明实际上并没有移动——JavaScript 引擎在编译期间会解析声明，并了解变量及其作用域，但是通过将声明可视化为“提升”到其作用域的顶部，更容易理解这种行为。
+
+让我们用几个代码示例来解释。请注意，这些示例的代码应该在模块作用域内执行，而不是像浏览器控制台那样逐行输入到 REPL 中。
+
+### 使用 `var` 声明的变量的变量提升
+
+在这里可以看到变量提升的实际效果，即使在第一个 `console.log()` 之后才声明和初始化 `foo`，第一个 `console.log()` 也会将 `foo` 的值打印为 `undefined`。
+
+```js live
 console.log(foo); // undefined
 var foo = 1;
 console.log(foo); // 1
 ```
 
-函数声明的主体提升到顶端，而函数表达式(以变量声明的形式写成) 只有变量声明被提升到顶端。
+您可以将代码可视化为：
 
-```js
-// Function Declaration
-console.log(foo); // [Function: foo]
-foo(); // 'FOOOOO'
-function foo() {
-  console.log('FOOOOO');
+```js live
+var foo;
+console.log(foo); // undefined
+foo = 1;
+console.log(foo); // 1
+```
+
+### 使用 `let`、`const` 和 `class` 声明的变量的变量提升
+
+通过 `let`、`const` 和 `class` 声明的变量也会被提升。但是，与 `var` 和 `function` 不同，它们没有被初始化，在声明之前访问它们将导致 `ReferenceError` 异常。该变量处于一个“暂时性死区”，从块的开始到声明被处理。
+
+```js live
+y; // ReferenceError: Cannot access 'y' before initialization
+let y = 'local';
+```
+
+```js live
+z; // ReferenceError: Cannot access 'z' before initialization
+const z = 'local';
+```
+
+```js live
+Foo; // ReferenceError: Cannot access 'Foo' before initialization
+
+class Foo {
+  constructor() {}
 }
-console.log(foo); // [Function: foo]
+```
 
-// Function Expression
+### 函数表达式的提升
+
+函数表达式是以变量声明的形式编写的函数。由于它们也是使用 `var` 声明的，因此只有变量声明被提升。
+
+```js live
 console.log(bar); // undefined
 bar(); // Uncaught TypeError: bar is not a function
+
 var bar = function () {
   console.log('BARRRR');
 };
-console.log(bar); // [Function: bar]
 ```
 
-通过 `let` 和 `const` 声明的变量也被提升。 然而，与`var` 和 `function`不同的是，在声明导致`ReferenceError` 例外之前，它们没有初始化并访问它们。 该变量处于从代码块开始直到声明被处理时的一个“暂时性死区”。
+### 函数声明的提升
+
+函数声明使用 `function` 关键字。与函数表达式不同，函数声明同时提升声明和定义，因此即使在声明之前也可以调用它们。
+
+```js live
+console.log(foo); // [Function: foo]
+foo(); // 'FOOOOO'
+
+function foo() {
+  console.log('FOOOOO');
+}
+```
+
+这同样适用于生成器 (`function*`)、异步函数 (`async function`) 和异步函数生成器 (`async function*`)。
+
+### `import` 语句的提升
+
+Import 声明被提升。import 引入的标识符在整个模块范围内都可用，并且它们产生的副作用在模块的其余代码运行之前产生。
 
 ```js
-x; // undefined
-y; // Reference error: y is not defined
+foo.doSomething(); // Works normally.
 
-var x = 'local';
-let y = 'local';
+import foo from './modules/foo';
 ```
+
+## 幕后
+
+实际上，JavaScript 在尝试执行代码之前，会在当前作用域中创建所有变量。使用 `var` 关键字创建的变量的值将为 `undefined`，而使用 `let` 和 `const` 关键字创建的变量将被标记为 `<value unavailable>`。因此，在初始化之前访问它们将导致 `ReferenceError`，从而阻止您在初始化之前访问它们。
+
+在 ECMAScript 规范中，`let` 和 `const` 声明[解释如下](https://tc39.es/ecma262/#sec-let-and-const-declarations)：
+
+> 当它们包含的 Environment Record 被实例化时，变量被创建，但在变量的 LexicalBinding 被求值之前，可能无法以任何方式访问它们。
+
+但是，对于 `var` 关键字，此语句[略有不同](https://tc39.es/ecma262/#sec-variable-statement)：
+
+> 当它们包含的 Environment Record 被实例化时，Var 变量被创建，并在创建时被初始化为 `undefined`。
+
+## 现代实践
+
+在实践中，现代代码库避免使用 `var`，并且仅使用 `let` 和 `const`。建议在包含范围/模块的顶部声明和初始化变量和 import 语句，以消除跟踪何时可以使用变量的心理负担。
+
+ESLint 是一个静态代码分析器，可以发现违反此类情况，使用以下规则：
+
+* [`no-use-before-define`](https://eslint.org/docs/latest/rules/no-use-before-define): 当遇到对尚未声明的标识符的引用时，此规则将发出警告。
+* [`no-undef`](https://eslint.org/docs/latest/rules/no-undef): 当遇到对尚未声明的标识符的引用时，此规则将发出警告。
+
+## 延伸阅读
+
+* [Hoisting | MDN](https://developer.mozilla.org/zh-CN/docs/Glossary/Hoisting)
+* [JavaScript Visualized: Hoisting](https://dev.to/lydiahallie/javascript-visualized-hoisting-478h)

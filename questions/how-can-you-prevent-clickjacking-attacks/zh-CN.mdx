@@ -1,0 +1,72 @@
+---
+title: 如何防止点击劫持攻击？
+---
+
+## TL;DR
+
+为了防止点击劫持攻击，您可以使用 `X-Frame-Options` HTTP 标头来控制您的网站是否可以嵌入在 iframe 中。将其设置为 `DENY` 以防止所有框架，或设置为 `SAMEORIGIN` 以仅允许来自同一来源的框架。此外，您可以使用带有 `frame-ancestors` 指令的 `Content-Security-Policy` (CSP) 标头来指定允许哪些来源来构建您的内容。
+
+```http
+X-Frame-Options: DENY
+```
+
+```http
+Content-Security-Policy: frame-ancestors 'self'
+```
+
+***
+
+## 什么是点击劫持？
+
+点击劫持是一种攻击，恶意网站会诱骗用户点击与用户感知不同的内容，从而可能导致未经授权的操作或信息泄露。这通常是通过将目标网站嵌入到不可见的 iframe 中并用欺骗性内容覆盖它来实现的。
+
+## 如何防止点击劫持攻击
+
+### 使用 `X-Frame-Options` 标头
+
+`X-Frame-Options` HTTP 标头可用于控制是否应允许浏览器在 `<frame>`、`<iframe>`、`<embed>` 或 `<object>` 中呈现页面。此标头有三个可能的值：
+
+* `DENY`：阻止页面在框架中显示，无论尝试这样做的站点是什么。
+* `SAMEORIGIN`：允许页面在与页面本身相同的来源的框架中显示。
+* `ALLOW-FROM uri`：仅允许页面在指定的来源的框架中显示。
+
+示例：
+
+```http
+X-Frame-Options: DENY
+```
+
+### 使用 `Content-Security-Policy` 标头
+
+`Content-Security-Policy` (CSP) 标头提供了一种更灵活、更现代的方法来防止点击劫持。`frame-ancestors` 指令指定可以使用 `<frame>`、`<iframe>`、`<object>`、`<embed>` 或 `<applet>` 标签嵌入页面的有效父级。
+
+示例：
+
+```http
+Content-Security-Policy: frame-ancestors 'self'
+```
+
+此指令还可以指定多个来源或使用通配符来处理更复杂的场景。
+
+示例：
+
+```http
+Content-Security-Policy: frame-ancestors 'self' https://trusted.com
+```
+
+### 结合使用这两个标头
+
+为了获得最大的兼容性和安全性，建议同时使用 `X-Frame-Options` 和 `Content-Security-Policy` 标头。
+
+示例：
+
+```http
+X-Frame-Options: SAMEORIGIN
+Content-Security-Policy: frame-ancestors 'self'
+```
+
+## 延伸阅读
+
+* [MDN Web 文档：X-Frame-Options](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-Frame-Options)
+* [MDN Web 文档：Content-Security-Policy](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP)
+* [OWASP：Clickjacking 防御备忘单](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html)

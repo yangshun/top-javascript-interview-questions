@@ -1,0 +1,139 @@
+---
+title: 如何为 JavaScript 代码编写单元测试？
+---
+
+## 总结
+
+要为 JavaScript 代码编写单元测试，您通常使用 Jest 或 Mocha 等测试框架。首先，您通过安装必要的库来设置测试环境。然后，您使用 `describe`、`it` 或 `test` 等函数编写测试用例来定义您的测试。每个测试用例都应侧重于一小段孤立的功能。您使用断言来检查代码的输出是否与预期结果匹配。
+
+使用 Jest 的示例：
+
+```js
+// sum.js
+function sum(a, b) {
+  return a + b;
+}
+module.exports = sum;
+
+// sum.test.js
+const sum = require('./sum');
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3);
+});
+```
+
+***
+
+## 设置测试环境
+
+### 安装 Jest
+
+要开始使用 Jest，您需要通过 npm 安装它：
+
+```bash
+npm install --save-dev jest
+```
+
+### 配置 Jest
+
+将脚本添加到您的 `package.json` 以运行 Jest：
+
+```json
+{
+  "scripts": {
+    "test": "jest"
+  }
+}
+```
+
+## 编写测试用例
+
+### 基本结构
+
+测试文件通常包含一个或多个 `describe` 块（用于分组相关测试）和 `it` 或 `test` 块（用于定义单个测试用例）。
+
+示例：
+
+```js
+// sum.js
+function sum(a, b) {
+  return a + b;
+}
+module.exports = sum;
+
+// sum.test.js
+const sum = require('./sum');
+
+describe('sum function', () => {
+  test('adds 1 + 2 to equal 3', () => {
+    expect(sum(1, 2)).toBe(3);
+  });
+
+  test('adds -1 + 1 to equal 0', () => {
+    expect(sum(-1, 1)).toBe(0);
+  });
+});
+```
+
+### 使用断言
+
+断言用于检查代码的输出是否与预期结果匹配。Jest 提供了各种断言方法，如 `toBe`、`toEqual`、`toBeNull` 等。
+
+示例：
+
+```js
+test('object assignment', () => {
+  const data = { one: 1 };
+  data['two'] = 2;
+  expect(data).toEqual({ one: 1, two: 2 });
+});
+```
+
+## 模拟依赖项
+
+有时，您需要模拟依赖项以隔离您正在测试的代码单元。 Jest 提供了 `jest.fn()` 和 `jest.mock()` 等功能来实现此目的。
+
+示例：
+
+```js
+// fetchData.js
+const fetch = require('node-fetch');
+
+async function fetchData(url) {
+  const response = await fetch(url);
+  return response.json();
+}
+module.exports = fetchData;
+
+// fetchData.test.js
+const fetchData = require('./fetchData');
+const fetch = require('node-fetch');
+
+jest.mock('node-fetch');
+
+test('fetches data from API', async () => {
+  const mockResponse = { data: '12345' };
+  fetch.mockResolvedValueOnce({
+    json: async () => mockResponse,
+  });
+
+  const data = await fetchData('https://api.example.com/data');
+  expect(data).toEqual(mockResponse);
+});
+```
+
+## 运行测试
+
+要运行测试，请使用以下命令：
+
+```bash
+npm test
+```
+
+## 延伸阅读
+
+* [Jest 文档](https://jestjs.io/docs/getting-started)
+* [Mocha 文档](https://mochajs.org/)
+* [Chai 文档](https://www.chaijs.com/)
+* [Sinon 文档](https://sinonjs.org/)

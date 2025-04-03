@@ -1,7 +1,166 @@
 ---
-title: 解释同步函数和异步函数之间的差异
+title: 解释 JavaScript 中同步和异步函数的区别
 ---
 
-同步函数是阻塞的，而异步函数则不是。 在同步函数中，语句在运行下一个语句之前完成。 在这种情况下， 该程序正是按照语句的顺序进行执行，如果其中一个语句需要很长时间，则该程序的执行将暂停。
+## 总结
 
-异步函数通常接受回调作为参数，并在调用异步函数后立即在下一行继续执行。 回调只有在异步操作完成且调用栈为空时才会被调用。 重型操作，例如从网络服务器上加载数据或查询数据库应该异步进行，以便主线程能够继续执行其他操作，而不是等到那个漫长的阻塞操作完成(在浏览器的情况下，界面将冻结)。
+同步函数是阻塞的，而异步函数则不是。在同步函数中，语句在运行下一条语句之前完成。因此，仅包含同步代码的程序将完全按照语句的顺序进行评估。如果其中一条语句花费很长时间，程序的执行将暂停。
+
+```js live
+function sum(a, b) {
+  console.log('Inside sum function');
+  return a + b;
+}
+
+const result = sum(2, 3); // The program waits for sum() to complete before assigning the result
+console.log('Result: ', result); // Output: 5
+```
+
+异步函数通常接受回调作为参数，并且在调用异步函数后立即继续执行到下一行。仅当异步操作完成且调用堆栈为空时，才会调用回调。诸如从 Web 服务器加载数据或查询数据库之类的繁重操作应异步完成，以便主线程可以继续执行其他操作，而不是阻塞直到该长时间操作完成（对于浏览器，UI 将冻结）。
+
+```js live
+function fetchData(callback) {
+  setTimeout(() => {
+    const data = { name: 'John', age: 30 };
+    callback(data); // Calling the callback function with data
+  }, 2000); // Simulating a 2-second delay
+}
+
+console.log('Fetching data...');
+
+fetchData((data) => {
+  console.log(data); // Output: { name: 'John', age: 30 } (after 2 seconds)
+});
+
+console.log('Call made to fetch data'); // This will print before the data is fetched
+```
+
+***
+
+## 同步函数与异步函数
+
+在 JavaScript 中，同步和异步函数的概念是理解代码执行方式的基础，尤其是在处理 I/O 任务、API 调用和其他耗时进程的上下文中。
+
+## 同步函数
+
+同步函数按顺序执行，一个接一个。每个操作都必须等待前一个操作完成才能继续进行。
+
+* 同步代码是阻塞的，这意味着程序执行会暂停，直到当前操作完成。
+* 它遵循严格的顺序，逐行执行指令。
+* 同步函数更容易理解和调试，因为流程是可预测的。
+
+### 同步函数示例
+
+1. **同步读取文件**：使用 Node.js 中 fs 模块的同步 readFileSync 方法从文件系统读取文件时，程序执行将被阻塞，直到整个文件被读取。这可能会导致性能问题，尤其是在处理大文件或顺序读取多个文件时
+
+   ```js
+   const fs = require('fs');
+   const data = fs.readFileSync('large-file.txt', 'utf8');
+   console.log(data); // Execution is blocked until the file is read.
+   console.log('End of the program');
+   ```
+
+2. **循环遍历大型数据集**：同步迭代大型数组或数据集可能会冻结用户界面或浏览器选项卡，直到操作完成，导致应用程序无响应。
+
+   ```js live
+   const largeArray = new Array(1_000_000).fill(0);
+   // Blocks the main thread until the million operations are completed.
+   const result = largeArray.map((num) => num * 2);
+   console.log(result);
+   ```
+
+## 异步函数
+
+异步函数不会阻塞程序的执行。它们允许其他操作继续进行，同时等待响应或完成耗时的任务。
+
+* 异步代码是非阻塞的，允许程序继续运行，而无需等待特定操作完成。
+* 它支持并发执行，从而提高性能和响应能力。
+* 异步函数通常用于网络请求、文件 I/O 和计时器等任务。
+
+### 异步函数示例
+
+1. **网络请求**：发出网络请求（例如从 API 获取数据或向服务器发送数据）通常是异步完成的。这使得应用程序在等待响应时保持响应，从而防止用户界面冻结
+
+   ```js live
+   console.log('Start of the program'); // This will be printed first as program starts here
+
+   fetch('https://jsonplaceholder.typicode.com/todos/1')
+     .then((response) => response.json())
+     .then((data) => {
+       console.log(data);
+       /** Process the data without blocking the main thread
+        *  and printed at the end if fetch call succeeds
+        */
+     })
+     .catch((error) => console.error(error));
+
+   console.log('End of program'); // This will be printed before the fetch callback
+   ```
+
+2. **用户输入和事件**：处理用户输入事件（例如单击、按键或鼠标移动）本质上是异步的。应用程序需要响应这些事件，而不会阻塞主线程，从而确保流畅的用户体验。
+
+   ```js
+   const button = document.getElementById('myButton');
+   button.addEventListener('click', () => {
+     // Handle the click event asynchronously
+     console.log('Button clicked');
+   });
+   ```
+
+3. **计时器和动画**：计时器（`setTimeout()`、`setInterval()`）和动画（例如，`requestAnimationFrame()`）是异步操作，允许应用程序调度任务或更新动画，而不会阻塞主线程。
+
+   ```js live
+   setTimeout(() => {
+     console.log('This message is delayed by 2 seconds');
+   }, 2000);
+
+   setInterval(() => {
+     console.log('Current time:', new Date().toLocaleString());
+   }, 2000); // Interval runs every 2 seconds
+   ```
+
+通过使用异步函数和操作，JavaScript 可以处理耗时的任务，而不会冻结用户界面或阻塞主线程。
+
+重要的是要注意，**`async` 函数不会在不同的线程上运行**。它们仍然在主线程上运行。但是，通过使用 [Web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)，可以在 JavaScript 中实现并行性。
+
+## 通过 Web worker 在 JavaScript 中实现并行性
+
+Web worker 允许您生成单独的后台线程，这些线程可以与主线程并行执行 CPU 密集型任务。这些工作线程可以通过消息传递与主线程通信，但它们无法直接访问 DOM 或其他浏览器 API。
+
+```js
+// main.js
+const worker = new Worker('worker.js');
+
+worker.onmessage = function (event) {
+  console.log('Result from worker:', event.data);
+};
+
+worker.postMessage('Start computation');
+```
+
+```js
+// worker.js
+self.onmessage = function (event) {
+  const result = performHeavyComputation();
+  self.postMessage(result);
+};
+
+function performHeavyComputation() {
+  // CPU-intensive computation
+  return 'Computation result';
+}
+```
+
+在此示例中，主线程创建一个新的 web worker，并向其发送一条消息以启动计算。worker 与主线程并行执行繁重的计算，并通过 `postMessage()` 将结果发送回去。
+
+## 事件循环
+
+JavaScript 的异步特性由 JavaScript 引擎的 [事件循环](/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue) 提供支持，即使 JavaScript 是单线程的，它也允许并发操作。 这是一个重要的概念，需要理解，因此我们强烈建议您也浏览该主题。
+
+## 延伸阅读
+
+* [Asynchronous JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous)
+* [The Basics: synchronous and asynchronous JavaScript](https://www.linkedin.com/pulse/basics-synchronous-asynchronous-javascript-abdulkabir-okeowo)
+* [Synchronous and asynchronous programming in JavaScript](https://code.pieces.app/blog/synchronous-and-asynchronous-programming-in-javascript)
+* [Web Workers API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
+* [An overview of web workers - Web.dev](https://web.dev/learn/performance/web-worker-overview)

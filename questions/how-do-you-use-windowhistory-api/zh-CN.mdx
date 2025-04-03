@@ -1,0 +1,117 @@
+---
+title: 如何使用 `window.history` API？
+---
+
+## TL;DR
+
+通过 `window.history` API，您可以操作浏览器的会话历史记录。您可以使用 `history.pushState()` 向历史堆栈添加新条目，使用 `history.replaceState()` 修改当前条目，以及使用 `history.back()`、`history.forward()` 和 `history.go()` 在历史记录中导航。例如，`history.pushState({page: 1}, "title 1", "?page=1")` 向历史记录添加一个新条目。
+
+***
+
+## 使用 `window.history` API
+
+`window.history` API 提供了与浏览器历史堆栈交互的方法。这对于单页应用程序 (SPA) 很有用，您希望管理 URL 和浏览器历史记录，而无需导致完全页面重新加载。
+
+### 方法
+
+#### `history.pushState()`
+
+此方法向历史堆栈添加一个新条目。
+
+```js
+history.pushState({ page: 1 }, 'title 1', '?page=1');
+```
+
+* 第一个参数是与新历史记录条目关联的状态对象。
+* 第二个参数是新历史记录条目的标题（目前大多数浏览器都忽略）。
+* 第三个参数是要显示在地址栏中的 URL。
+
+#### `history.replaceState()`
+
+此方法修改当前历史记录条目。
+
+```js
+history.replaceState({ page: 2 }, 'title 2', '?page=2');
+```
+
+* 参数与 `pushState()` 相同，但此方法替换当前条目，而不是添加新条目。
+
+#### `history.back()`
+
+此方法将用户在历史堆栈中后退一个条目，类似于单击浏览器的后退按钮。
+
+```js
+history.back();
+```
+
+#### `history.forward()`
+
+此方法使用户在历史堆栈中向前移动一个条目，类似于单击浏览器的前进按钮。
+
+```js
+history.forward();
+```
+
+#### `history.go()`
+
+此方法将用户在历史堆栈中移动指定的条目数。
+
+```js
+// Move back one entry
+history.go(-1);
+
+// Move forward one entry
+history.go(1);
+
+// Reload the current page
+history.go(0);
+```
+
+### 示例
+
+这是一个简单的示例，演示了 `pushState` 和 `replaceState` 的用法：
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>History API Example</title>
+  </head>
+  <body>
+    <button id="pushStateBtn">Push State</button>
+    <button id="replaceStateBtn">Replace State</button>
+    <button id="backBtn">Back</button>
+    <button id="forwardBtn">Forward</button>
+
+    <script>
+      document.getElementById('pushStateBtn').addEventListener('click', () => {
+        history.pushState({ page: 1 }, 'title 1', '?page=1');
+      });
+
+      document
+        .getElementById('replaceStateBtn')
+        .addEventListener('click', () => {
+          history.replaceState({ page: 2 }, 'title 2', '?page=2');
+        });
+
+      document.getElementById('backBtn').addEventListener('click', () => {
+        history.back();
+      });
+
+      document.getElementById('forwardBtn').addEventListener('click', () => {
+        history.forward();
+      });
+    </script>
+  </body>
+</html>
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
+* [MDN Web Docs: `history.pushState()`](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState)
+* [MDN Web Docs: `history.replaceState()`](https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState)
+* [MDN Web Docs: `history.back()`](https://developer.mozilla.org/en-US/docs/Web/API/History/back)
+* [MDN Web Docs: `history.forward()`](https://developer.mozilla.org/en-US/docs/Web/API/History/forward)
+* [MDN Web Docs: `history.go()`](https://developer.mozilla.org/en-US/docs/Web/API/History/go)

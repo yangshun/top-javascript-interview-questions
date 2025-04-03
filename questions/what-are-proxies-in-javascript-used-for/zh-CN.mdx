@@ -1,0 +1,230 @@
+---
+title: JavaScript 中的代理有什么用？
+---
+
+## TL;DR
+
+在 JavaScript 中，代理是一个充当对象和代码之间中介的 对象。代理用于拦截和自定义 JavaScript 对象的基本操作，例如属性访问、赋值、函数调用等。
+
+以下是使用 `Proxy` 记录每个属性访问的基本示例：
+
+```js live
+const myObject = {
+  name: 'John',
+  age: 42,
+};
+
+const handler = {
+  get: function (target, prop, receiver) {
+    console.log(`Someone accessed property "${prop}"`);
+    return target[prop];
+  },
+};
+
+const proxiedObject = new Proxy(myObject, handler);
+
+console.log(proxiedObject.name);
+// Someone accessed property "name"
+// 'John'
+
+console.log(proxiedObject.age);
+// Someone accessed property "age"
+// 42
+```
+
+用例包括：
+
+* **属性访问拦截**：拦截和自定义对对象的属性访问。
+  * **属性赋值验证**：在将属性值设置到目标对象之前验证它们。
+  * **日志记录和调试**：创建用于记录和调试与对象交互的包装器
+  * **创建反应式系统**：当对象属性更改时，触发应用程序其他部分的更新（数据绑定）。
+  * **数据转换**：转换从对象设置或检索的数据。
+  * **在测试中模拟和存根**：为测试目的创建模拟或存根对象，允许您隔离依赖项并专注于被测单元
+* **函数调用拦截**：用于缓存和返回经常访问的方法的结果（如果它们涉及网络调用或计算密集型逻辑），从而提高性能
+* **动态属性创建**：用于即时定义具有默认值的属性，并避免在对象中存储冗余数据。
+
+***
+
+## JavaScript 代理
+
+在 JavaScript 中，代理是一个允许您自定义另一个对象（通常称为目标对象）行为的对象。代理可以拦截和重新定义目标对象的各种操作，例如属性访问、赋值、枚举、函数调用等。这使得代理成为各种用例的强大工具，包括但不限于验证、日志记录、性能监控和实现高级数据结构。
+
+以下是代理在 JavaScript 中使用的一些常见用例和示例：
+
+### 属性访问拦截
+
+代理可用于拦截和自定义对对象的属性访问。
+
+```js live
+const target = {
+  message: 'Hello, world!',
+};
+
+const handler = {
+  get: function (target, property) {
+    if (property in target) {
+      return target[property];
+    }
+
+    return `Property ${property} does not exist.`;
+  },
+};
+
+const proxy = new Proxy(target, handler);
+
+console.log(proxy.message); // Hello, world!
+console.log(proxy.nonExistentProperty); // Property nonExistentProperty does not exist.
+```
+
+#### 创建用于日志记录和调试的包装器
+
+这对于创建用于记录和调试与对象交互的包装器很有用。
+
+```js live
+const target = {
+  name: 'Alice',
+  age: 30,
+};
+
+const handler = {
+  get: function (target, property) {
+    console.log(`Getting property ${property}`);
+    return target[property];
+  },
+  set: function (target, property, value) {
+    console.log(`Setting property ${property} to ${value}`);
+    target[property] = value;
+    return true;
+  },
+};
+
+const proxy = new Proxy(target, handler);
+
+console.log(proxy.name); // Output: Getting property name
+//         Alice
+proxy.age = 31; // Output: Setting property age to 31
+console.log(proxy.age); // Output: Getting property age
+//         31
+```
+
+#### 属性赋值验证
+
+代理可用于在将属性值设置到目标对象之前验证它们。
+
+```js live
+const target = {
+  age: 25,
+};
+
+const handler = {
+  set: function (target, property, value) {
+    if (property === 'age' && typeof value !== 'number') {
+      throw new TypeError('Age must be a number');
+    }
+    target[property] = value;
+    return true;
+  },
+};
+
+const proxy = new Proxy(target, handler);
+
+proxy.age = 30; // Works fine
+proxy.age = 'thirty'; // Throws TypeError: Age must be a number
+```
+
+#### 创建响应式系统
+
+代理通常用于在对象属性更改时触发应用程序其他部分的更新（数据绑定）。
+
+一个实际的例子是像 [Vue.js](https://vuejs.org/) 这样的 JavaScript 框架，其中代理用于[创建响应式系统，当数据更改时自动更新 UI](https://vuejs.org/guide/extras/reactivity-in-depth.html)。
+
+```js live
+const target = {
+  firstName: 'John',
+  lastName: 'Doe',
+};
+
+const handler = {
+  set: function (target, property, value) {
+    console.log(`Property ${property} set to ${value}`);
+    target[property] = value;
+    // Automatically update the UI or perform other actions
+    return true;
+  },
+};
+
+const proxy = new Proxy(target, handler);
+
+proxy.firstName = 'Jane'; // Output: Property firstName set to Jane
+```
+
+访问拦截的其他用例包括：
+
+* **模拟和存根**：代理可用于创建用于测试目的的模拟或存根对象，允许您隔离依赖项并专注于被测单元。
+
+### 函数调用拦截
+
+代理可以拦截和自定义函数调用。
+
+```js live
+const target = function (name) {
+  return `Hello, ${name}!`;
+};
+
+const handler = {
+  apply: function (target, thisArg, argumentsList) {
+    console.log(`Called with arguments: ${argumentsList}`);
+    return target.apply(thisArg, argumentsList);
+  },
+};
+
+const proxy = new Proxy(target, handler);
+
+console.log(proxy('Alice')); // Called with arguments: Alice
+// Hello, Alice!
+```
+
+如果频繁访问的方法涉及网络调用或计算密集型逻辑，则此拦截可用于缓存并返回结果，从而通过减少发出的请求/计算次数来提高性能。
+
+### 动态属性创建
+
+代理可用于动态地在对象上创建属性或方法。这对于使用默认值即时定义属性并避免在对象中存储冗余数据非常有用。
+
+```js live
+const target = {};
+
+const handler = {
+  get: function (target, property) {
+    if (!(property in target)) {
+      target[property] = `Dynamic property ${property}`;
+    }
+    return target[property];
+  },
+};
+
+const proxy = new Proxy(target, handler);
+
+console.log(proxy.newProp); // Output: Dynamic property newProp
+console.log(proxy.anotherProp); // Output: Dynamic property anotherProp
+```
+
+### 实现对象关系映射器 (ORM)
+
+代理可用于创建数据库记录的对象，方法是拦截属性访问以从数据库中惰性加载数据。这提供了一个更面向对象的接口来与数据库交互。
+
+## 实际用例
+
+许多流行的库，尤其是状态管理解决方案，都是建立在 JavaScript 代理之上的：
+
+* **[Vue.js](https://vuejs.org/)**：Vue.js 是一个用于构建用户界面的渐进式框架。在 Vue 3 中，代理被广泛用于实现响应式系统。
+* **[MobX](https://mobx.js.org/)**：MobX 使用代理使对象和数组可观察，允许组件自动响应状态更改。
+* **[Immer](https://immerjs.github.io/)**：Immer 是一个允许您以更方便的方式使用不可变状态的库。它使用代理来跟踪更改并生成下一个不可变状态。
+
+## 总结
+
+JavaScript 中的代理提供了一种强大而灵活的方式来拦截和自定义对象上的操作。它们适用于广泛的应用程序，包括验证、日志记录、调试、动态属性创建和实现响应式系统。通过使用代理，开发人员可以创建更强大、更易于维护且功能更丰富的应用程序。
+
+## 延伸阅读
+
+* [Proxy - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+* [Proxy and Reflect | JavaScript.info](https://zh.javascript.info/proxy)

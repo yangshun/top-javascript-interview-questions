@@ -1,24 +1,140 @@
 ---
-title: 什么是`严格模式`？
-subtitle: 使用它有哪些利弊？
+title: JavaScript 中的 `'use strict';` 是什么？
+subtitle: 使用它有什么优点和缺点？
 ---
 
-`'use strict'`是一个用于对整个脚本或个别函数启用严格模式的语句。 严格模式是一种选择进入限制性的 JavaScript 变量的方式。
+## TL;DR
 
-## 优点
+`'use strict'` 是一条语句，用于对整个脚本或单个函数启用严格模式。严格模式是一种选择加入 JavaScript 限制变体的方式。
 
-- 不可能意外地创建全局变量。
-- 使得本来会默默失败的赋值抛出一个异常。
-- 试图删除不可删除的属性会抛出一个异常（在以前，这种尝试根本没有效果）。
-- 需要函数参数名称唯一。
-- `this`在全局上下文内是`undefined`。
-- 它能捕捉到一些常见的编码错误，抛出异常。
-- 它禁用了那些令人困惑或考虑不周的功能。
+**优点**
 
-## 缺点
+* 无法意外创建全局变量。
+* 使原本会静默失败的赋值抛出异常。
+* 使尝试删除不可删除的属性抛出异常（而之前尝试只会无效）。
+* 要求函数参数名称是唯一的。
+* `this` 在全局上下文中为 `undefined`。
+* 它可以捕获一些常见的编码错误，抛出异常。
+* 它禁用了令人困惑或考虑不周的功能。
 
-- 缺失许多一些开发者所习惯的功能。
-- 无法访问`function.caller` 和 `function.arguments`
-- 以不同的严格模式编写的脚本的串联可能会导致问题。
+**缺点**
 
-总的来说，好处大于弊端，实际上没有必要依赖严格模式所禁止的特点。 我们都应该默认使用严格模式。
+* 许多开发人员可能习惯的缺失功能。
+* 无法再访问 `function.caller` 和 `function.arguments`。
+* 用不同严格模式编写的脚本的串联可能会导致问题。
+
+总的来说，优点大于缺点，而且实际上没有必要依赖严格模式禁止的功能。我们都应该默认使用严格模式。
+
+***
+
+## JavaScript 中的 `"use strict"` 是什么？
+
+本质上，`"use strict"` 是 ECMAScript 5 (ES5) 中引入的一个指令，它向 JavaScript 引擎发出信号，表明它所包围的代码应该在“严格模式”下执行。严格模式施加了更严格的解析和错误处理规则，从本质上使您的代码更安全，更不容易出错。
+
+当您使用“use strict”时，它有助于您编写更简洁的代码，例如阻止您使用未声明的变量。它还可以使您的代码更安全，因为它禁止某些潜在的不安全操作。
+
+## 如何使用严格模式
+
+1. **全局范围**：要在全局启用严格模式，请在 JavaScript 文件的开头添加指令：
+
+   ```js live
+   'use strict';
+   // 此文件中的任何代码都将在严格模式下运行
+   function add(a, b) {
+     return a + b;
+   }
+   ```
+
+2. **局部范围**：要在函数内启用严格模式，请在函数的开头添加指令：
+
+   ```js live
+   function myFunction() {
+     'use strict';
+     // 这将告诉 JavaScript 引擎仅对 `myFunction` 使用严格模式
+     // 任何超出此函数范围的内容都将被视为非严格模式，除非指定使用严格模式
+   }
+   ```
+
+## 严格模式的主要特点
+
+1. **错误预防**：严格模式可防止常见错误，例如：
+   * 使用未声明的变量。
+   * 将值分配给不可写属性。
+   * 使用不存在的属性或变量。
+   * 删除不可删除的属性。
+   * 将保留关键字用作标识符。
+   * 在函数中复制参数名称。
+2. **提高安全性**：严格模式通过以下方式帮助编写更安全的代码：
+   * 阻止使用已弃用的功能，如 arguments.caller 和 arguments.callee。
+   * 限制使用 eval() 以防止在调用范围内声明变量。
+3. **兼容性**：严格模式通过阻止将保留关键字用作标识符来确保与未来版本的 JavaScript 的兼容性。
+
+### 示例
+
+1. 防止意外创建全局变量：
+
+   ```js live
+   // 没有严格模式
+
+   function defineNumber() {
+     count = 123;
+   }
+   defineNumber();
+   console.log(count); // 日志：123
+   ```
+
+   ```js live
+   'use strict'; // 使用严格模式
+
+   function strictFunc() {
+     'use strict';
+     strictVar = 123; // ReferenceError: strictVar is not defined
+   }
+   strictFunc();
+   console.log(strictVar); // ReferenceError: strictVar is not defined
+   ```
+
+2. 使原本会静默失败的赋值抛出异常：
+
+   ```js live
+   // 没有严格模式
+   NaN = 'foo'; // 这会静默失败
+   console.log(NaN); // 日志：NaN
+   ```
+
+   ```js live
+   'use strict'; // 使用严格模式
+   NaN = 'foo'; // Uncaught TypeError: Cannot assign to read only property 'NaN' of object '#<Window>'
+   ```
+
+3. 使尝试删除不可删除的属性在严格模式下抛出错误：
+
+   ```js live
+   // 没有严格模式
+   delete Object.prototype; // 这会静默失败
+   ```
+
+   ```js live
+   'use strict'; // 使用严格模式
+   delete Object.prototype; // TypeError: Cannot delete property 'prototype' of function Object() { [native code] }
+   ```
+
+## 真的有必要吗？
+
+在 JavaScript 中添加 `'use strict'` 仍然是有益的，并且是推荐的，但在所有情况下不再严格需要：
+
+1. **模块**：JavaScript 模块的全部内容会自动进入严格模式，无需 `'use strict'` 语句。这适用于 ES6 模块以及 Node.js CommonJS 模块。
+2. **类**：类定义中的代码也会自动进入严格模式，即使没有 `'use strict'`。
+
+虽然由于模块和类中的自动严格模式强制执行，`'use strict'` 不再在所有上下文中是强制性的，但它仍然被广泛推荐作为最佳实践，尤其是在核心 JavaScript 文件、库以及使用较旧的浏览器环境或旧代码时。
+
+### 注意事项
+
+1. **放置**：`'use strict'` 指令必须放置在文件或函数的开头。将其放置在其他任何地方都不会有任何效果。
+2. **兼容性**：除了 Internet Explorer 9 及更低版本外，所有现代浏览器都支持严格模式。
+3. **不可逆**：设置 `'use strict'` 后，无法取消它。
+
+## 延伸阅读
+
+* [严格模式 - MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode)
+* [现代模式，"use strict"](https://javascript.info/strict-mode)

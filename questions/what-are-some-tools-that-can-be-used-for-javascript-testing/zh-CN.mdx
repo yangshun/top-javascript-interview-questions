@@ -1,0 +1,97 @@
+---
+title: 有哪些可用于 JavaScript 测试的工具？
+---
+
+## TL;DR
+
+对于 JavaScript 测试，您可以使用 Jest、Mocha、Jasmine 和 Cypress 等工具。 Jest 因其易用性和内置功能而广受欢迎。 Mocha 具有灵活性，可以与其他库配对。 Jasmine 以其简单性和行为驱动开发 (BDD) 风格而闻名。 Cypress 非常适合端到端测试，侧重于真实的浏览器交互。
+
+***
+
+## JavaScript 测试工具
+
+### Jest
+
+Jest 是 Facebook 开发的一个流行的测试框架。 它被广泛用于测试 JavaScript 应用程序，尤其是那些使用 React 构建的应用程序。
+
+* **易于使用**：Jest 带有许多内置功能，使其易于设置和开始测试。
+* **快照测试**：Jest 允许您捕获组件的快照并在将来的测试运行期间进行比较。
+* **Mocking**：Jest 具有强大的模拟功能，这使得模拟函数、模块和计时器变得容易。
+* **代码覆盖率**：Jest 提供内置的代码覆盖率报告。
+
+使用 Jest 的简单测试示例：
+
+```js
+const sum = (a, b) => a + b;
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3);
+});
+```
+
+### Mocha
+
+Mocha 是一个灵活的测试框架，可以与各种断言库和模拟工具一起使用。
+
+* **灵活性**：Mocha 允许您选择自己的断言库（例如，Chai）和模拟工具（例如，Sinon）。
+* **异步测试**：Mocha 具有出色的异步测试支持。
+* **浏览器支持**：Mocha 可以在 Node.js 和浏览器中运行。
+
+使用 Mocha 和 Chai 的简单测试示例：
+
+```js
+const { expect } = require('chai');
+
+describe('Array', () => {
+  it('should return -1 when the value is not present', () => {
+    expect([1, 2, 3].indexOf(4)).to.equal(-1);
+  });
+});
+```
+
+### Jasmine
+
+Jasmine 是一个用于测试 JavaScript 代码的行为驱动开发 (BDD) 框架。 它以其简单性和易用性而闻名。
+
+* **简单性**：Jasmine 附带了您开始测试所需的一切，包括断言库和模拟工具。
+* **BDD 风格**：Jasmine 鼓励以 BDD 风格编写测试，这可以使您的测试更具可读性。
+
+使用 Jasmine 的简单测试示例：
+
+```js
+describe('A suite', () => {
+  it('contains a spec with an expectation', () => {
+    expect(true).toBe(true);
+  });
+});
+```
+
+### Cypress
+
+Cypress 是一个端到端测试框架，专注于真实的浏览器交互。
+
+* **真实浏览器测试**：Cypress 在浏览器中运行测试，提供更准确的用户交互表示。
+* **时间旅行**：Cypress 允许您回溯时间，查看测试的每个步骤发生了什么。
+* **自动等待**：Cypress 自动等待元素出现和操作完成，减少了手动等待的需要。
+
+使用 Cypress 的简单测试示例：
+
+```js
+describe('My First Test', () => {
+  it('Visits the Kitchen Sink', () => {
+    cy.visit('https://example.cypress.io');
+    cy.contains('type').click();
+    cy.url().should('include', '/commands/actions');
+    cy.get('.action-email')
+      .type('fake@email.com')
+      .should('have.value', 'fake@email.com');
+  });
+});
+```
+
+## 延伸阅读
+
+* [Jest documentation](https://jestjs.io/docs/getting-started)
+* [Mocha documentation](https://mochajs.org/)
+* [Jasmine documentation](https://jasmine.github.io/)
+* [Cypress documentation](https://docs.cypress.io/guides/overview/why-cypress)

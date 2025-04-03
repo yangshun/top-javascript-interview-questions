@@ -1,0 +1,106 @@
+---
+title: 解释 JavaScript 中的作用域概念
+---
+
+## TL;DR
+
+在 JavaScript 中，作用域决定了变量和函数在代码不同部分的可访问性。主要有三种作用域：全局作用域、函数作用域和块级作用域。全局作用域意味着变量可以在代码中的任何地方访问。函数作用域意味着变量只能在其声明的函数内部访问。块级作用域是在 ES6 中引入的，意味着变量只能在其声明的块（例如，在大括号 `{}` 内）中访问。
+
+```js live
+var globalVar = 'I am a global var';
+
+function myFunction() {
+  var functionVar = 'I am a function-scoped var';
+
+  if (true) {
+    let blockVar = 'I am a block-scoped var';
+
+    console.log('Inside block:');
+    console.log(globalVar); // Accessible
+    console.log(functionVar); // Accessible
+    console.log(blockVar); // Accessible
+  }
+
+  console.log('Inside function:');
+  console.log(globalVar); // Accessible
+  console.log(functionVar); // Accessible
+  // console.log(blockVar); // Uncaught ReferenceError
+}
+
+myFunction();
+
+console.log('In global scope:');
+console.log(globalVar); // Accessible
+// console.log(functionVar); // Uncaught ReferenceError
+// console.log(blockVar); // Uncaught ReferenceError
+```
+
+***
+
+## JavaScript 中的作用域
+
+### 全局作用域
+
+在任何函数或块外部声明的变量具有全局作用域。它们可以在代码中的任何地方访问。
+
+```js live
+var globalVar = 'I am global';
+
+function myFunction() {
+  console.log(globalVar); // Accessible here
+}
+
+myFunction();
+console.log(globalVar); // Accessible here
+```
+
+### 函数作用域
+
+在函数内声明的变量属于函数作用域。它们只能在该函数内部访问。
+
+```js live
+function myFunction() {
+  var functionVar = 'I am in a function';
+  console.log(functionVar); // Accessible here
+}
+
+myFunction();
+console.log(functionVar); // Uncaught ReferenceError: functionVar is not defined
+```
+
+### 块级作用域
+
+在块（例如，在大括号 `{}` 内）中使用 `let` 或 `const` 声明的变量具有块级作用域。它们只能在该块内访问。
+
+```js live
+if (true) {
+  let blockVar = 'I am in a block';
+  console.log(blockVar); // Accessible here
+}
+
+console.log(blockVar); // Uncaught ReferenceError: blockVar is not defined
+```
+
+### 词法作用域
+
+JavaScript 使用词法作用域，这意味着变量的作用域由其在源代码中的位置决定。嵌套函数可以访问在其外部作用域中声明的变量。
+
+```js live
+function outerFunction() {
+  var outerVar = 'I am outside';
+
+  function innerFunction() {
+    console.log(outerVar); // Accessible here
+  }
+
+  innerFunction();
+}
+
+outerFunction();
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Scope](https://developer.mozilla.org/en-US/docs/Glossary/Scope)
+* [JavaScript.info: Variable scope](https://javascript.info/var)
+* [Eloquent JavaScript: Functions and Scope](https://eloquentjavascript.net/03_functions.html#h_scope)

@@ -1,0 +1,61 @@
+---
+title: 使用柯里化和部分应用的益处是什么？
+---
+
+## 总结
+
+柯里化将具有多个参数的函数转换为一系列函数，每个函数只接受一个参数。这使得代码更灵活、更可重用。另一方面，部分应用允许你固定函数的几个参数并生成一个新函数。这两种技术都有助于创建更模块化和可维护的代码。
+
+***
+
+## 使用柯里化和部分应用的益处
+
+### 柯里化
+
+柯里化是一种将具有多个参数的函数转换为一系列函数的技术，每个函数只接受一个参数。这可以使代码更灵活、更可重用。
+
+#### 优点
+
+* **函数可重用性**：柯里化允许你通过固定一些参数来从通用函数创建专用函数。
+* **代码可读性**：它可以通过将复杂函数分解为更简单的函数来使代码更具可读性和表现力。
+* **函数式编程**：柯里化是函数式编程的核心概念，这可以使代码更可预测和可测试。
+
+#### 示例
+
+```js live
+function add(a) {
+  return function (b) {
+    return a + b;
+  };
+}
+
+const addFive = add(5);
+console.log(addFive(3)); // Output: 8
+```
+
+### 部分应用
+
+部分应用是一种固定函数的几个参数并生成一个新函数的技术。这对于从通用函数创建更具体的函数很有用。
+
+#### 优点
+
+* **代码重用**：与柯里化一样，部分应用允许你从通用函数创建专用函数。
+* **提高可读性**：通过减少调用函数时所需的参数数量，可以使代码更具可读性。
+* **简化函数调用**：通过预先填充一些参数，你可以简化代码中的函数调用。
+
+#### 示例
+
+```js live
+function multiply(a, b) {
+  return a * b;
+}
+
+const double = multiply.bind(null, 2);
+console.log(double(5)); // Output: 10
+```
+
+## 延伸阅读
+
+* [JavaScript 中的柯里化](https://javascript.info/currying-partials)
+* [JavaScript 中的部分应用](https://medium.com/javascript-scene/curry-and-function-composition-2c208d774983)
+* [函数式编程概念](https://www.freecodecamp.org/news/functional-programming-in-js-with-practical-examples-part-1-87c2b0dbc276/)

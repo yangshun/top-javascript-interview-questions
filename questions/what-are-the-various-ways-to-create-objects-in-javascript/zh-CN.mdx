@@ -1,0 +1,124 @@
+---
+title: JavaScript 中创建对象的各种方法是什么？
+---
+
+## TL;DR
+
+在 JavaScript 中创建对象提供了几种方法：
+
+* **对象字面量 (`{}`)**：最简单、最流行的方法。在花括号内定义键值对。
+* **`Object()` 构造函数**：使用 `new Object()` 和点表示法添加属性。
+* **`Object.create()`**：使用现有对象作为原型创建新对象，继承属性和方法。
+* **构造函数**：使用函数定义对象的蓝图，使用 `new` 创建实例。
+* **ES2015 类**：类似于其他语言的结构化语法，使用 `class` 和 `constructor` 关键字。
+
+***
+
+## JavaScript 中的对象
+
+在 JavaScript 中创建对象涉及几种方法。以下是在 JavaScript 中创建对象的各种方法：
+
+## 对象字面量 (`{}`)
+
+这是在 JavaScript 中创建对象的最简单、最流行的方法。它涉及在花括号 (`{}`) 中定义键值对的集合。当您需要创建一个具有固定属性集的单个对象时，可以使用它。
+
+```js live
+const person = {
+  firstName: 'John',
+  lastName: 'Doe',
+  age: 50,
+  eyeColor: 'blue',
+};
+
+console.log(person); // {firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue"}
+```
+
+## `Object()` 构造函数
+
+此方法涉及将 `new` 关键字与内置的 `Object` 构造函数一起使用以创建对象。然后，您可以使用点表示法将属性添加到对象。当您需要从原始值创建对象或创建空对象时，可以使用它。
+
+```js live
+const person = new Object();
+person.firstName = 'John';
+person.lastName = 'Doe';
+
+console.log(person); // {firstName: "John", lastName: "Doe"}
+```
+
+## `Object.create()` 方法
+
+此方法允许您使用现有对象作为原型来创建新对象。新对象从原型对象继承属性和方法。当您需要创建一个具有特定原型的新对象时，可以使用它。
+
+```js live
+// Object.create() 方法
+const personPrototype = {
+  greet() {
+    console.log(
+      `Hello, my name is ${this.name} and I'm ${this.age} years old.`,
+    );
+  },
+};
+
+const person = Object.create(personPrototype);
+person.name = 'John';
+person.age = 30;
+
+person.greet(); // Output: Hello, my name is John and I'm 30 years old.
+```
+
+可以通过执行 `Object.create(null)` 来创建没有原型的对象。
+
+## ES2015 类
+
+类为创建对象提供了更结构化和熟悉的语法（类似于其他编程语言）。它们定义了一个蓝图，并使用方法与对象的属性进行交互。当您需要创建具有继承和封装的复杂对象时，可以使用它。
+
+```js live
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  greet = function () {
+    console.log(
+      `Hello, my name is ${this.name} and I'm ${this.age} years old.`,
+    );
+  };
+}
+
+const person1 = new Person('John', 30);
+const person2 = new Person('Alice', 25);
+
+person1.greet(); // Output: Hello, my name is John and I'm 30 years old.
+person2.greet(); // Output: Hello, my name is Alice and I'm 25 years old.
+```
+
+## 构造函数
+
+构造函数用于创建可重用的对象蓝图。它们定义了该类型的所有对象共享的属性和行为。您使用 `new` 关键字创建对象的实例。当您需要创建具有相似属性和方法的多个对象时，可以使用它。
+
+然而，现在 ES2015 类在现代浏览器中得到了广泛支持，因此使用构造函数创建对象的原因已经不多了。
+
+```js live
+// Constructor function
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.greet = function () {
+    console.log(
+      `Hello, my name is ${this.name} and I'm ${this.age} years old.`,
+    );
+  };
+}
+
+const person1 = new Person('John', 30);
+const person2 = new Person('Alice', 25);
+
+person1.greet(); // Output: Hello, my name is John and I'm 30 years old.
+person2.greet(); // Output: Hello, my name is Alice and I'm 25 years old.
+```
+
+## 延伸阅读
+
+* [`Object()` constructor | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/Object)
+* [`new` keyword | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new)
+* [`Object.create()` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create)

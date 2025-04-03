@@ -1,9 +1,100 @@
 ---
-title: 您对AMD与 CommonJS的看法如何？
+title: 你如何看待 AMD 与 CommonJS？
 ---
 
-这两种方法都是实现模块系统的方法，而在实现 ES2015 年之前，模块系统没有在 JavaScript 中实现。 CommonJS 是同步的，而 AMD (异步模块定义) 显然是异步的。 CommonJS 设计时考虑到服务器端的开发，而 AMD 支持异步加载模块，更适合于浏览器。
+## TL;DR
 
-AMD 语法可以非常详细，CommonJS 更接近您用其他语言写导入语句的样式。 大多数时间, AMD 是不必要的, 因为如果你将你所有的 JavaScript 打包到同一个文件, 您无法从异步加载属性中获益。 另外，CommonJS 语法更接近于 Node.js 写入/导入模块的风格，在客户端和服务器端 JavaScript 开发之间的切换过程中的间接成本较少。
+AMD（异步模块定义）和 CommonJS 是两种 JavaScript 模块系统。AMD 专为异步加载模块而设计，使其适用于浏览器。CommonJS 专为同步加载而设计，使其更适合服务器端环境，如 Node.js。AMD 使用 `define` 和 `require` 来定义和加载模块，而 CommonJS 使用 `module.exports` 和 `require`。
 
-未来的标准、ES 模块支持同步和异步加载，并得到浏览器和服务器端运行时间的支持。 我们终于可以只坚持一种方法了（除非升级遗留的应用程序）。
+***
+
+## AMD vs CommonJS
+
+### 概述
+
+AMD 和 CommonJS 都是 JavaScript 中用于管理依赖关系和组织代码的模块系统。它们服务于不同的目的，并适用于不同的环境。
+
+### AMD (异步模块定义)
+
+#### 特点
+
+* 专为异步加载模块而设计
+* 主要用于浏览器环境
+* 使用 `define` 和 `require` 来定义和加载模块
+
+#### 示例
+
+```javascript
+// 在 AMD 中定义一个模块
+define(['dependency1', 'dependency2'], function (dep1, dep2) {
+  return {
+    // 模块代码在这里
+  };
+});
+
+// 在 AMD 中加载一个模块
+require(['module1', 'module2'], function (mod1, mod2) {
+  // 使用 mod1 和 mod2 的代码
+});
+```
+
+### CommonJS
+
+#### 特点
+
+* 专为同步加载模块而设计
+* 主要用于服务器端环境，如 Node.js
+* 使用 `module.exports` 和 `require` 来定义和加载模块
+
+#### 示例
+
+```javascript
+// 在 CommonJS 中定义一个模块
+const dep1 = require('dependency1');
+const dep2 = require('dependency2');
+
+module.exports = {
+  // 模块代码在这里
+};
+
+// 在 CommonJS 中加载一个模块
+const mod1 = require('module1');
+const mod2 = require('module2');
+
+// 使用 mod1 和 mod2 的代码
+```
+
+### 主要区别
+
+#### 加载机制
+
+* **AMD**：异步，适用于浏览器，其中非阻塞操作至关重要。
+* **CommonJS**：同步，适用于服务器端环境，其中模块在执行前加载。
+
+#### 环境适用性
+
+* **AMD**: 适用于客户端应用程序。
+* **CommonJS**: 适用于服务器端应用程序。
+
+#### 语法
+
+* **AMD**: 使用 `define` 和 `require`。
+* **CommonJS**: 使用 `module.exports` 和 `require`。
+
+### 用例
+
+#### AMD
+
+* 适用于需要在 Web 应用程序中异步加载模块以避免阻塞 UI 的情况。
+* 经常与 RequireJS 等模块加载器一起使用。
+
+#### CommonJS
+
+* 适用于模块在开始时加载一次的服务器端应用程序。
+* Node.js 的标准模块系统。
+
+## 延伸阅读
+
+* [RequireJS documentation](https://requirejs.org/docs/api.html)
+* [Node.js modules documentation](https://nodejs.org/api/modules.html)
+* [MDN Web Docs on JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)

@@ -1,0 +1,82 @@
+---
+title: Hoisting 如何影响函数声明和表达式？
+---
+
+## TL;DR
+
+JavaScript 中的 Hoisting 意味着函数声明在编译阶段被移动到其包含作用域的顶部，使其在整个作用域中可用。这允许您在代码中定义函数之前调用它。但是，函数表达式不会以相同的方式被 Hoisting。如果您尝试在定义函数表达式之前调用它，您将收到一个错误，因为保存函数的变量被 Hoisting，但其赋值没有被 Hoisting。
+
+```js live
+// Function declaration
+console.log(foo()); // Works fine
+function foo() {
+  return 'Hello';
+}
+
+// Function expression
+console.log(bar()); // Throws TypeError: bar is not a function
+var bar = function () {
+  return 'Hello';
+};
+```
+
+***
+
+## JavaScript 中的 Hoisting
+
+### 函数声明
+
+函数声明被 Hoisting 到其包含作用域的顶部。这意味着您可以在代码中定义函数之前调用该函数。
+
+```js live
+console.log(foo()); // Works fine
+function foo() {
+  return 'Hello';
+}
+```
+
+在上面的例子中，函数 `foo` 被 Hoisting 到其作用域的顶部，因此在定义之前调用 `foo()` 可以正常工作，没有任何问题。
+
+### 函数表达式
+
+另一方面，函数表达式不会以相同的方式被 Hoisting。保存函数的变量被 Hoisting，但其赋值没有被 Hoisting。这意味着如果您尝试在定义函数表达式之前调用它，您将收到一个错误。
+
+```js live
+console.log(bar()); // Throws TypeError: bar is not a function
+var bar = function () {
+  return 'Hello';
+};
+```
+
+在这个例子中，变量 `bar` 被 Hoisting 到其作用域的顶部，但赋值 `function() { return 'Hello'; }` 没有被 Hoisting。因此，在赋值之前调用 `bar()` 会导致 `TypeError`。
+
+### `var`、`let` 和 `const` 之间的区别
+
+在使用函数表达式时，注意 `var`、`let` 和 `const` 之间的 Hoisting 行为差异也很重要。
+
+* `var`：变量被 Hoisting 并使用 `undefined` 初始化。
+* `let` 和 `const`：变量被 Hoisting 但未初始化，如果在初始化之前访问，则会导致 `ReferenceError`。
+
+```js live
+console.log(baz); // undefined
+var baz = function () {
+  return 'Hello';
+};
+
+console.log(qux); // ReferenceError: Cannot access 'qux' before initialization
+let qux = function () {
+  return 'Hello';
+};
+
+console.log(quux); // ReferenceError: Cannot access 'quux' before initialization
+const quux = function () {
+  return 'Hello';
+};
+```
+
+## 延伸阅读
+
+* [MDN Web Docs on Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
+* [JavaScript.info on Hoisting](https://javascript.info/var#var-hoisting)
+* [MDN Web Docs on Function Declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+* [MDN Web Docs on Function Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function)

@@ -1,0 +1,55 @@
+---
+title: JavaScript 中有哪些不同类型的错误？
+---
+
+## TL;DR
+
+在 JavaScript 中，主要有三种类型的错误：语法错误、运行时错误和逻辑错误。当代码违反语言的语法规则时，例如缺少括号，就会发生语法错误。运行时错误发生在代码执行期间，例如尝试访问 `undefined` 的属性。逻辑错误是代码逻辑中的错误，导致结果不正确，但不会抛出错误。
+
+***
+
+## JavaScript 中不同类型的错误
+
+### 语法错误
+
+当代码不遵循 JavaScript 语言的规则时，就会发生语法错误。这些错误由 JavaScript 引擎在代码执行之前的解析阶段检测到。
+
+#### 示例
+
+```js live
+console.log("Hello, world!; // Missing closing quote and parenthesis
+```
+
+### 运行时错误
+
+运行时错误，也称为异常，发生在代码执行期间。当代码在语法上正确但遇到阻止其完成任务的问题时，就会发生这些错误。
+
+#### 示例
+
+```js live
+let obj = null;
+console.log(obj.property); // TypeError: Cannot read properties of null (reading 'property')
+```
+
+### 逻辑错误
+
+逻辑错误是代码逻辑中的错误，导致结果不正确。这些错误不会抛出异常，而且通常是最难调试的，因为代码在没有任何问题的情况下运行，但会产生错误的输出。
+
+#### 示例
+
+```js live
+let isAdmin = false;
+
+if ((isAdmin = true)) {
+  // Wrong: Assignment instead of comparison
+  console.log('Access granted'); // Access granted even though isAdmin was falsy
+} else {
+  console.log('Access denied');
+}
+```
+
+## 延伸阅读
+
+* [MDN Web Docs: Errors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
+* [JavaScript.info: Error handling](https://javascript.info/error-handling)
+* [W3Schools: JavaScript Errors](https://www.w3schools.com/js/js_errors.asp)

@@ -1,0 +1,102 @@
+---
+title: Promise.all() 的用途是什么
+---
+
+## TL;DR
+
+`Promise.all()` 是 JavaScript 中的一种方法，它接受一个 promise 数组并返回一个单独的 promise。当所有输入 promise 都已解决时，此返回的 promise 将被解析，或者如果任何输入 promise 被拒绝，则会被拒绝。它用于并行运行多个异步操作并等待它们全部完成。
+
+```js live
+const promise1 = Promise.resolve(3);
+const promise2 = 42;
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'foo');
+});
+
+Promise.all([promise1, promise2, promise3]).then((values) => {
+  console.log(values); // [3, 42, 'foo']
+});
+```
+
+***
+
+## Promise.all() 的用途是什么
+
+### 概述
+
+`Promise.all()` 是 `Promise` 对象的静态方法，用于同时处理多个 promise。它接受一个可迭代对象（通常是数组）的 promise，并返回一个单独的 promise，当可迭代对象中的所有 promise 都已解决时，该 promise 将被解析，或者如果任何 promise 被拒绝，则该 promise 将被拒绝。
+
+### 语法
+
+```js
+Promise.all(iterable);
+```
+
+* `iterable`：一个可迭代对象，例如包含 promise 的数组。
+
+### 工作原理
+
+当您将一个 promise 数组传递给 `Promise.all()` 时，它将返回一个新的 promise。这个新的 promise：
+
+* 当数组中的所有 promise 都已解决时，将解析。解析后的值是输入 promise 的解析值的数组，顺序与输入 promise 相同。
+* 一旦任何输入 promise 被拒绝，就会被拒绝。拒绝原因是被拒绝的第一个 promise 的原因。
+
+### 示例
+
+这是一个示例，用于说明 `Promise.all()` 的工作原理：
+
+```js live
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'one');
+});
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 200, 'two');
+});
+
+Promise.all([promise1, promise2])
+  .then((values) => {
+    console.log(values); // ['one', 'two']
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+在此示例中，`Promise.all()` 等待 `promise1` 和 `promise2` 都被解析。一旦两个 promise 都被解析，它将记录解析值的数组。
+
+### 错误处理
+
+如果传递给 `Promise.all()` 的任何 promise 被拒绝，则返回的 promise 将立即被拒绝，并带有第一个被拒绝的 promise 的原因。
+
+```js live
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'one');
+});
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(reject, 200, 'two');
+});
+
+Promise.all([promise1, promise2])
+  .then((values) => {
+    console.log(values);
+  })
+  .catch((error) => {
+    console.error(error); // 'two'
+  });
+```
+
+在这个例子中，`promise2` 在 200 毫秒后被拒绝，导致 `Promise.all()` promise 立即以原因 `'two'` 拒绝。
+
+### 用例
+
+* **并行 API 请求**：当您需要发出多个 API 请求并等待所有请求完成才能继续时。
+* **批量处理**：当您有多个可以并行执行的异步任务，并且需要等待所有任务完成时。
+* **数据聚合**：当您需要从多个来源收集数据并合并结果时。
+
+## 延伸阅读
+
+* [MDN Web Docs 上的 `Promise.all()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+* [JavaScript Promises：简介](https://developers.google.com/web/fundamentals/primers/promises)
+* [理解 JavaScript Promises](https://www.digitalocean.com/community/tutorials/understanding-javascript-promises)

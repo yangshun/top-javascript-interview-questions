@@ -1,0 +1,120 @@
+---
+title: 什么是工厂模式以及如何使用它？
+---
+
+## TL;DR
+
+工厂模式是一种设计模式，用于创建对象，而无需指定将要创建的对象的确切类。它提供了一种封装实例化逻辑的方法，当创建过程很复杂或当要创建的对象的类型在运行时确定时，它特别有用。
+
+例如，在 JavaScript 中，您可以使用工厂函数来创建不同类型的对象：
+
+```js live
+function createAnimal(type) {
+  if (type === 'dog') {
+    return { sound: 'woof' };
+  } else if (type === 'cat') {
+    return { sound: 'meow' };
+  }
+}
+
+const dog = createAnimal('dog');
+const cat = createAnimal('cat');
+```
+
+***
+
+## 什么是工厂模式以及如何使用它？
+
+### 定义
+
+工厂模式是一种创建型设计模式，它提供了一个用于在超类中创建对象的接口，但允许子类更改将要创建的对象的类型。它封装了对象创建过程，使代码更模块化，更易于管理。
+
+### 用例
+
+1. **复杂对象创建**：当创建对象的过程很复杂或涉及多个步骤时。
+2. **运行时对象确定**：当要创建的对象的类型在运行时确定时。
+3. **解耦**：将客户端代码与需要实例化的特定类解耦。
+
+### JavaScript 中的实现
+
+在 JavaScript 中，可以使用工厂函数或类来实现工厂模式。以下是这两种方法的示例。
+
+#### 工厂函数
+
+工厂函数是一个返回对象的简单函数。它可以包含决定要创建哪种类型对象的逻辑。
+
+```js live
+function createAnimal(type) {
+  if (type === 'dog') {
+    return { sound: 'woof' };
+  } else if (type === 'cat') {
+    return { sound: 'meow' };
+  } else {
+    return { sound: 'unknown' };
+  }
+}
+
+const dog = createAnimal('dog');
+const cat = createAnimal('cat');
+console.log(dog.sound); // Output: woof
+console.log(cat.sound); // Output: meow
+```
+
+#### 工厂类
+
+工厂类可用于将创建逻辑封装在类结构中。
+
+```js live
+class AnimalFactory {
+  createAnimal(type) {
+    if (type === 'dog') {
+      return new Dog();
+    } else if (type === 'cat') {
+      return new Cat();
+    } else {
+      return new Animal();
+    }
+  }
+}
+
+class Dog {
+  constructor() {
+    this.sound = 'woof';
+  }
+}
+
+class Cat {
+  constructor() {
+    this.sound = 'meow';
+  }
+}
+
+class Animal {
+  constructor() {
+    this.sound = 'unknown';
+  }
+}
+
+const factory = new AnimalFactory();
+const dog = factory.createAnimal('dog');
+const cat = factory.createAnimal('cat');
+console.log(dog.sound); // Output: woof
+console.log(cat.sound); // Output: meow
+```
+
+### 优点
+
+1. **封装**：创建逻辑封装在一个地方。
+2. **灵活性**：无需更改客户端代码即可轻松添加新类型的对象。
+3. **解耦**：减少客户端代码对特定类的依赖。
+
+### 缺点
+
+1. **复杂性**：如果对象创建逻辑很简单，则会增加不必要的复杂性。
+2. **开销**：如果使用不当，可能会引入额外的开销。
+
+## 延伸阅读
+
+* [维基百科上的工厂方法模式](https://en.wikipedia.org/wiki/Factory_method_pattern)
+* [JavaScript 中的工厂模式](https://www.dofactory.com/javascript/design-patterns/factory)
+* [MDN Web 文档：面向对象的 JavaScript 初学者](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS)
