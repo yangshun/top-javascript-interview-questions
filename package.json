@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "gen": "tsx scripts/gen.ts",
-    "rank": "tsx scripts/rank.ts"
+    "rank": "tsx scripts/rank.ts",
+    "translate": "langnostic translate"
   },
   "keywords": [
     "javascript",
@@ -19,8 +20,12 @@
     "github-slugger": "^2.0.0",
     "globby": "^14.0.1",
     "gray-matter": "^4.0.3",
+    "langnostic": "^0.0.3",
     "lodash-es": "^4.17.21",
     "tsx": "^4.15.1"
   },
-  "packageManager": "pnpm@8.15.8"
+  "packageManager": "pnpm@8.15.8",
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
 }
