@@ -1,6 +1,6 @@
 import { ConfigType } from 'langnostic';
 
-const config: ConfigType = {
+export default {
   ai: {
     provider: 'google',
   },
@@ -14,14 +14,10 @@ const config: ConfigType = {
       plugin: 'mdx',
       paths: [
         {
-          source:
-            './questions/can-you-offer-a-use-case-for-the-new-arrow-function-syntax-how-does-this-new-syntax-differ-from-other-functions/en-US.mdx',
-          target:
-            './questions/can-you-offer-a-use-case-for-the-new-arrow-function-syntax-how-does-this-new-syntax-differ-from-other-functions/{locale}.mdx',
+          source: './questions/*/en-US.mdx',
+          target: './questions/*/{locale}.mdx',
         },
       ],
     },
   ],
-};
-
-export default config;
+} satisfies ConfigType;
