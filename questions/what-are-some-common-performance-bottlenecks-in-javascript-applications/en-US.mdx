@@ -38,16 +38,22 @@ Layout thrashing occurs when you read and write to the DOM repeatedly, causing m
 
 ```js
 // Inefficient
-for (let i = 0; i < 1000; i++) {
-  const height = element.clientHeight;
-  element.style.height = `${height + 10}px`;
-}
+boxes.forEach((box) => {
+  const height = box.offsetHeight; // Read
+  box.style.height = `${height + 10}px`; // Write
+});
 
 // Efficient
-const height = element.clientHeight;
-for (let i = 0; i < 1000; i++) {
-  element.style.height = `${height + 10}px`;
-}
+// Batch read
+const heights = [];
+boxes.forEach((box) => {
+  heights.push(box.offsetHeight);
+});
+
+// Batch write
+boxes.forEach((box, i) => {
+  box.style.height = `${heights[i] + 10}px`;
+});
 ```
 
 ## Excessive use of global variables
