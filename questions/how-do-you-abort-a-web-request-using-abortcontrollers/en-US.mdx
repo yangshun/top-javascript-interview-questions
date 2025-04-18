@@ -153,7 +153,7 @@ In situations where the user has navigated away from the page, aborting the requ
 ## Notes
 
 - `AbortController`s is not `fetch()`-specific, it can be used to abort other asynchronous tasks as well.
-- A singular `AbortContoller` instance can be reused or multiple async tasks and cancel all of them at once.
+- A singular `AbortContoller` instance can be reused on multiple async tasks and cancel all of them at once.
 - Calling `abort()` on `AbortController`s does not send any notification or signal to the server. The server is unaware of the cancelation and will continue processing the request until it completes or times out.
 
 ## Further reading
