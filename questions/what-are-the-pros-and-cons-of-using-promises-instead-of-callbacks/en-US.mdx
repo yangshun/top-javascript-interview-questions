@@ -122,6 +122,42 @@ Promise.all([getData1(), getData2(), getData3()])
   });
 ```
 
+### Easier error handling with `.catch()` and guaranteed cleanup with `.finally()`
+
+Promises make error handling more straightforward by allowing you to catch errors at the end of a chain using `.catch()`, instead of manually checking for errors in every callback. This leads to cleaner and more maintainable code.
+
+Additionally, `.finally()` lets you run code after the Promise settles, whether it was successful or failed, which is great for cleanup tasks like hiding spinners or resetting UI states.
+
+```js live
+function getFirstData() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ id: 1, title: 'First Data' });
+    }, 1000);
+  });
+}
+
+function getSecondData(data) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ id: data.id, title: data.title + ' -> Second Data' });
+    }, 1000);
+  });
+}
+
+getFirstData()
+  .then(getSecondData)
+  .then((data) => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  })
+  .finally(() => {
+    console.log('This runs no matter what');
+  });
+```
+
 ### With promises, these scenarios which are present in callbacks-only coding, will not happen:
 
 - Call the callback too early
