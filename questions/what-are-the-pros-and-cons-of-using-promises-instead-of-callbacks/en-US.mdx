@@ -115,7 +115,7 @@ function getData3() {
 
 Promise.all([getData1(), getData2(), getData3()])
   .then((results) => {
-    console.log(results); // Output: [[{ id: 1, title: 'Data 1' }, { id: 2, title: 'Data 2' }, { id: 3, title: 'Data 3' }]
+    console.log(results); // Output: [{ id: 1, title: 'Data 1' }, { id: 2, title: 'Data 2' }, { id: 3, title: 'Data 3' }]
   })
   .catch((error) => {
     console.error('Error:', error);
