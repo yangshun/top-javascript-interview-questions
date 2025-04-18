@@ -34,7 +34,7 @@ console.log(typeof y === 'undefined'); // true
 
 ## `undefined`
 
-A variable that is `undefined` is a variable that has been declared, but not assigned a value. It is of type `undefined`. If a function does not return any value as the result of executing it is assigned to a variable, the variable also has the value of `undefined`. To check for it, compare using the strict equality (`===`) operator or `typeof` which will give the `'undefined'` string. Note that you should not be using the loose equality operator (`==`) to check, as it will also return `true` if the value is `null`.
+A variable that is `undefined` is a variable that has been declared, but not assigned a value. It is of type `undefined`. If a function does not return a value, and its result is assigned to a variable, that variable will also have the value `undefined`. To check for it, compare using the strict equality (`===`) operator or `typeof` which will give the `'undefined'` string. Note that you should not be using the loose equality operator (`==`) to check, as it will also return `true` if the value is `null`.
 
 ```js live
 let foo;

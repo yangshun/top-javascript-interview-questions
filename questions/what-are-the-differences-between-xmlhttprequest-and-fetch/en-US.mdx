@@ -224,7 +224,7 @@ xhr.upload.onprogress = (event) => {
 The callback assigned to `onprogress` is passed a [`ProgressEvent`](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/progress_event):
 
 - The `loaded` field on the `ProgressEvent` is a 64-bit integer indicating the amount of work already performed (bytes uploaded/downloaded) by the underlying process.
-- The `total` field on the `ProgressEvent` is a 64-bit integer representing the total amount of work that the underlying process is in the progress of performing. When downloading resources, this is the `Content-Length` value of the HTTP request.
+- The `total` field on the `ProgressEvent` is a 64-bit integer representing the total amount of work that the underlying process is in the progress of performing. When downloading resources, this is the `Content-Length` value of the HTTP response.
 
 On the other hand, the `fetch()` API does not offer any convenient way to track upload progress. It can be implemented by monitoring the `body` of the `Response` object as a fraction of the `Content-Length` header, but it's quite complicated.
 

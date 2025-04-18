@@ -80,7 +80,7 @@ const person1 = { name: 'John' };
 const person2 = { name: 'Alice' };
 
 greet.call(person1); // Hello, my name is John
-greet.call(person2); // Hello, my name is Alice
+greet.apply(person2); // Hello, my name is Alice
 ```
 
 ### Alternative syntax to call methods on objects
