@@ -121,8 +121,8 @@ function Dog(name, breed) {
   this.breed = breed;
 }
 
-// Set the prototype of Dog to be a new instance of Animal
-Dog.prototype = Object.create(Animal.prototype);
+// Set the prototype of Dog to inherit from Animal's prototype
+Object.setPrototypeOf(Dog.prototype, Animal.prototype);
 
 // Add a method to the Dog prototype
 Dog.prototype.bark = function () {
@@ -140,7 +140,7 @@ fido.sayName(); // "My name is Fido"
 console.log(fido.fly); // undefined
 ```
 
-4. **`Object.create()`**: This method creates a new object with the specified prototype object and properties. It's a straightforward way to set up prototypical inheritance. If you create a object via `Object.create(null)` it will not inherit any properties from `Object.prototype`. This means the object will not have any built-in properties or methods like `toString()`, `hasOwnProperty()`,
+4. **`Object.create()`**: This method creates a new object whose internal `[[Prototype]]` is directly linked to the specified prototype object. It's the most direct way to create an object that inherits from another specific object, without involving constructor functions. If you create a object via `Object.create(null)` it will not inherit any properties from `Object.prototype`. This means the object will not have any built-in properties or methods like `toString()`, `hasOwnProperty()`,
 
 ```js live
 // Define a prototype object
