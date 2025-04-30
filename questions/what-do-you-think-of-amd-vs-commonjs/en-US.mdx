@@ -1,42 +1,16 @@
 ---
-title: What do you think of AMD vs CommonJS?
+title: What do you think of CommonJS vs ESM?
 ---
 
 ## TL;DR
 
-AMD (Asynchronous Module Definition) and CommonJS are two JavaScript module systems. AMD is designed for asynchronous loading of modules, making it suitable for browsers. CommonJS is designed for synchronous loading, making it more suitable for server-side environments like Node.js. AMD uses `define` and `require` for defining and loading modules, while CommonJS uses `module.exports` and `require`.
+JavaScript has evolved its module systems. ESM (ECMAScript Modules) using `import` / `export` is the official standard, natively supported in modern browsers and Node.js, designed for both synchronous and asynchronous use cases. CommonJS (CJS) using `require` / `module.exports` was the original standard for Node.js, primarily synchronous, and remains prevalent in the Node ecosystem. AMD (Asynchronous Module Definition) using `define` / `require` was an early system designed for asynchronous loading in browsers but is now largely obsolete, replaced by ESM.
 
 ---
 
-## AMD vs CommonJS
-
 ### Overview
 
-Both AMD and CommonJS are module systems used in JavaScript to manage dependencies and organize code. They serve different purposes and are suited to different environments.
-
-### AMD (Asynchronous Module Definition)
-
-#### Characteristics
-
-- Designed for asynchronous loading of modules
-- Primarily used in browser environments
-- Uses `define` and `require` for defining and loading modules
-
-#### Example
-
-```javascript
-// Defining a module in AMD
-define(['dependency1', 'dependency2'], function (dep1, dep2) {
-  return {
-    // Module code here
-  };
-});
-
-// Loading a module in AMD
-require(['module1', 'module2'], function (mod1, mod2) {
-  // Code that uses mod1 and mod2
-});
-```
+Module systems help manage this complexity by allowing code to be split into reusable pieces (modules) with clear dependencies. Over time, different module systems emerged before an official standard was adopted.
 
 ### CommonJS
 
@@ -64,37 +38,75 @@ const mod2 = require('module2');
 // Code that uses mod1 and mod2
 ```
 
+### ESM (ECMAScript Modules)
+
+#### Characteristics
+
+- Official JavaScript standard module system
+- Supported natively in modern browsers and Node.js
+- Designed for both asynchronous and synchronous scenarios
+- Uses `export` and `import` for defining and loading modules
+
+#### Example
+
+```javascript
+import dep1 from 'dependency1'; // if dependency1 had a default export
+import { dep2 } from 'dependency2'; // named import to import something specific from dependency2
+
+// Module code using dep1, dep2...
+
+export function someFunction() {
+  // ... function logic ...
+}
+export const someValue = 'hello';
+
+// Or export multiple things at once
+// export { someFunction, someValue };
+
+// Or export a default value
+// export default class MyClass {
+// ...
+// }
+```
+
 ### Key differences
 
 #### Loading mechanism
 
-- **AMD**: Asynchronous, suitable for browsers where non-blocking operations are crucial.
-- **CommonJS**: Synchronous, suitable for server-side environments where modules are loaded before execution.
+- **CommonJS**: Synchronous (blocks until loaded).
+- **ESM**: Asynchronous-friendly (non-blocking in browsers).
 
 #### Environment suitability
 
-- **AMD**: Better for client-side applications.
-- **CommonJS**: Better for server-side applications.
+- **CommonJS**: Node.js legacy standard.
+- **ESM**: Official standard (Browser & Node.js).
 
 #### Syntax
 
-- **AMD**: Uses `define` and `require`.
-- **CommonJS**: Uses `module.exports` and `require`.
+- **CommonJS**: `require()` / `module.exports`.
+- **ESM**: `import` / `export`.
+
+#### Analysis
+
+- **CommonJS**: Dynamic (runtime analysis).
+- **ESM**: Static (compile-time analysis, enables tree-shaking).
 
 ### Use cases
 
-#### AMD
-
-- Suitable for web applications where you need to load modules asynchronously to avoid blocking the UI.
-- Often used with module loaders like RequireJS.
-
 #### CommonJS
 
-- Suitable for server-side applications where modules are loaded once at the start.
-- The standard module system for Node.js.
+- Older Node.js projects or where sync loading is needed.
+- Default in Node.js unless configured for ESM.
+
+#### ESM
+
+- Modern web development (native browser support).
+- New Node.js projects, especially those needing async features or optimizations.
+- Code intended for both browser and server.
 
 ## Further reading
 
-- [RequireJS documentation](https://requirejs.org/docs/api.html)
-- [Node.js modules documentation](https://nodejs.org/api/modules.html)
 - [MDN Web Docs on JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+- [Node.js: CommonJS modules](https://nodejs.org/api/modules.html)
+- [Node.js: ESM](https://nodejs.org/api/esm.html)
+- [RequireJS (AMD Loader - Historical)](https://requirejs.org/docs/api.html)
