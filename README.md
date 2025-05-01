@@ -218,7 +218,7 @@ This list contains a longer list of important JavaScript questions. Not all of t
 | 127 | [What are the benefits of using a module bundler?](#what-are-the-benefits-of-using-a-module-bundler) | Intermediate |
 | 128 | [Explain the concept of tree shaking in module bundling](#explain-the-concept-of-tree-shaking-in-module-bundling) | Intermediate |
 | 129 | [What are the metadata fields of a module?](#what-are-the-metadata-fields-of-a-module) | Intermediate |
-| 130 | [What do you think of AMD vs CommonJS?](#what-do-you-think-of-amd-vs-commonjs) | Basic |
+| 130 | [What do you think of CommonJS vs ESM?](#what-do-you-think-of-commonjs-vs-esm) | Basic |
 | 131 | [What are the different types of errors in JavaScript?](#what-are-the-different-types-of-errors-in-javascript) | Intermediate |
 | 132 | [How do you handle errors using `try...catch` blocks?](#how-do-you-handle-errors-using-trycatch-blocks) | Basic |
 | 133 | [What is the purpose of the `finally` block?](#what-is-the-purpose-of-the-finally-block) | Basic |
@@ -5776,11 +5776,11 @@ Metadata fields of a module typically include information such as the module's n
 
 <br>
 
-### What do you think of AMD vs CommonJS?
+### What do you think of CommonJS vs ESM?
 
 <!-- Update here: /questions/what-do-you-think-of-amd-vs-commonjs/en-US.mdx -->
 
-AMD (Asynchronous Module Definition) and CommonJS are two JavaScript module systems. AMD is designed for asynchronous loading of modules, making it suitable for browsers. CommonJS is designed for synchronous loading, making it more suitable for server-side environments like Node.js. AMD uses `define` and `require` for defining and loading modules, while CommonJS uses `module.exports` and `require`.
+JavaScript has evolved its module systems. ESM (ECMAScript Modules) using `import` / `export` is the official standard, natively supported in modern browsers and Node.js, designed for both synchronous and asynchronous use cases. CommonJS (CJS) using `require` / `module.exports` was the original standard for Node.js, primarily synchronous, and remains prevalent in the Node ecosystem. AMD (Asynchronous Module Definition) using `define` / `require` was an early system designed for asynchronous loading in browsers but is now largely obsolete, replaced by ESM.
 
 <!-- Update here: /questions/what-do-you-think-of-amd-vs-commonjs/en-US.mdx -->
 
@@ -7290,7 +7290,7 @@ JavaScript interview questions categorized by difficulty.
 87. [What are the different methods for iterating over an array?](#what-are-the-different-methods-for-iterating-over-an-array)
 88. [What are the different ways to copy an object or an array?](#what-are-the-different-ways-to-copy-an-object-or-an-array)
 89. [What are the different ways to make an API call in JavaScript?](#what-are-the-different-ways-to-make-an-api-call-in-javascript)
-90. [What do you think of AMD vs CommonJS?](#what-do-you-think-of-amd-vs-commonjs)
+90. [What do you think of CommonJS vs ESM?](#what-do-you-think-of-commonjs-vs-esm)
 91. [What is recursion and how is it used in JavaScript?](#what-is-recursion-and-how-is-it-used-in-javascript)
 92. [What is the difference between a parameter and an argument?](#what-is-the-difference-between-a-parameter-and-an-argument)
 93. [What is the DOM and how is it structured?](#what-is-the-dom-and-how-is-it-structured)
