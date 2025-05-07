@@ -152,8 +152,8 @@ setTimeout(() => {
 
 ## 笔记
 
-* `AbortController` 并非 `fetch()` 专有，它也可以用于中止其他异步任务。
-* 一个单独的 `AbortContoller` 实例可以被重用或用于多个异步任务，并一次性取消所有任务。
+* `AbortController` 不仅限于 `fetch()`，它也可以用于中止其他异步任务。
+* 一个单独的 `AbortContoller` 实例可以在多个异步任务上重复使用，并一次取消所有任务。
 * 在 `AbortController` 上调用 `abort()` 不会向服务器发送任何通知或信号。服务器不知道取消操作，并将继续处理请求，直到它完成或超时。
 
 ## 延伸阅读

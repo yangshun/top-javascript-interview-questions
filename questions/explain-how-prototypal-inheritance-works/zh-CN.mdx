@@ -47,8 +47,8 @@ bolt.bark(); // "Woof!"
 
 需要注意的是：
 
-*  `.makeSound` 未在 `Dog` 上定义，因此 JavaScript 引擎会向上查找原型链，并在继承的 `Animal` 上找到 `.makeSound`。
-*  不再推荐使用 `Object.create()` 来构建继承链。请改用 `Object.setPrototypeOf()`。
+* `.makeSound` 未在 `Dog` 上定义，因此 JavaScript 引擎会向上查找原型链，并在继承的 `Animal` 上找到 `.makeSound`。
+* 不再推荐使用 `Object.create()` 来构建继承链。请改用 `Object.setPrototypeOf()`。
 
 ***
 
@@ -105,42 +105,42 @@ console.log(john.sayHello); // undefined
 3. **构造函数**：JavaScript 提供了构造函数来创建对象。当一个函数与 new 关键字一起用作构造函数时，新对象的原型 (`[[Prototype]]`) 将设置为构造函数 的原型属性。
 
 ```js live
-// Define a constructor function
+// 定义一个构造函数
 function Animal(name) {
   this.name = name;
 }
 
-// Add a method to the prototype
+// 将一个方法添加到原型上
 Animal.prototype.sayName = function () {
-  console.log(`My name is ${this.name}`);
+  console.log(`我的名字是 ${this.name}`);
 };
 
-// Define a new constructor function
+// 定义一个新的构造函数
 function Dog(name, breed) {
   Animal.call(this, name);
   this.breed = breed;
 }
 
-// Set the prototype of Dog to be a new instance of Animal
-Dog.prototype = Object.create(Animal.prototype);
+// 设置 Dog 的原型以继承自 Animal 的原型
+Object.setPrototypeOf(Dog.prototype, Animal.prototype);
 
-// Add a method to the Dog prototype
+// 将一个方法添加到 Dog 的原型上
 Dog.prototype.bark = function () {
-  console.log('Woof!');
+  console.log('汪！');
 };
 
-// Create a new object using the Dog constructor function
+// 使用 Dog 构造函数创建一个新对象
 let fido = new Dog('Fido', 'Labrador');
 
-// The new object has access to the methods defined on its own prototype and the Animal prototype
-fido.bark(); // "Woof!"
-fido.sayName(); // "My name is Fido"
+// 新对象可以访问在其自身原型和 Animal 原型上定义的方法
+fido.bark(); // "汪！"
+fido.sayName(); // "我的名字是 Fido"
 
-// If we try to access a method that doesn't exist on the Dog prototype or the Animal prototype, JavaScript will return undefined
+// 如果我们尝试访问 Dog 原型或 Animal 原型上不存在的方法，JavaScript 将返回 undefined
 console.log(fido.fly); // undefined
 ```
 
-4. **`Object.create()`**：此方法使用指定原型对象和属性创建一个新对象。这是设置原型继承的一种直接方法。如果您通过 `Object.create(null)` 创建一个对象，它将不会从 `Object.prototype` 继承任何属性。这意味着该对象将没有任何内置属性或方法，例如 `toString()`、`hasOwnProperty()`
+4. **`Object.create()`**: 此方法创建一个新对象，其内部 `[[Prototype]]` 直接链接到指定的原型对象。这是创建从另一个特定对象继承的对象的最直接方法，无需涉及构造函数。如果通过 `Object.create(null)` 创建一个对象，它将不会从 `Object.prototype` 继承任何属性。这意味着该对象将没有任何内置属性或方法，如 `toString()`、`hasOwnProperty()`,
 
 ```js live
 // Define a prototype object

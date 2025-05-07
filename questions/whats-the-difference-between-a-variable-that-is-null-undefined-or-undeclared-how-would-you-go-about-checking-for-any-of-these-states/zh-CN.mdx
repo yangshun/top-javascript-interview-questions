@@ -34,7 +34,7 @@ console.log(typeof y === 'undefined'); // true
 
 ## `undefined`
 
-一个 `undefined` 的变量是一个已声明但未赋值的变量。它的类型是 `undefined`。如果一个函数在执行后没有返回任何值，则该值也被分配给一个变量，该变量的值也为 `undefined`。要检查它，请使用严格相等运算符 (`===`) 或 `typeof` 进行比较，这将给出 `'undefined'` 字符串。请注意，您不应该使用松散相等运算符 (`==`) 进行检查，因为它在值为 `null` 时也会返回 `true`。
+一个`undefined`的变量是已声明但未赋值的变量。它的类型是`undefined`。如果一个函数没有返回值，并且它的结果被分配给一个变量，那么该变量也将具有`undefined`值。要检查它，请使用严格相等运算符（`===`）或`typeof`进行比较，这将给出`'undefined'`字符串。请注意，您不应该使用宽松相等运算符（`==`）进行检查，因为它在值为`null`时也会返回`true`。
 
 ```js live
 let foo;

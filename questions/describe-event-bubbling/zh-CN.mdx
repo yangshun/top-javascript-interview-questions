@@ -8,7 +8,7 @@ title: 描述 JavaScript 和浏览器的事件冒泡
 
 事件冒泡对于事件委托至关重要，其中单个事件处理程序管理多个子元素的事件，从而提高性能和代码简洁性。虽然方便，但未能正确管理事件传播可能导致意外行为，例如多个处理程序为单个事件触发。
 
----
+***
 
 ## 什么是事件冒泡？
 
@@ -85,7 +85,7 @@ child.click();
 
 ## 事件委托
 
-事件冒泡是称为 [事件委托](/questions/quiz/describe-event-delegation) 的技术的基础，您将单个事件处理程序附加到多个元素的公共祖先，并使用事件委托来有效地处理这些元素的事件。当您有大量相似的元素（如项目列表）并且希望避免将单独的事件处理程序附加到每个项目时，这特别有用。
+事件冒泡是[事件委托](/questions/quiz/explain-event-delegation)技术的基础，您可以在多个元素的公共祖先上附加单个事件处理程序，并使用事件委托来有效地处理这些元素的事件。当您有大量相似的元素（如项目列表）并且希望避免将单独的事件处理程序附加到每个项目时，这特别有用。
 
 ```js
 parent.addEventListener('click', (event) => {
@@ -97,15 +97,15 @@ parent.addEventListener('click', (event) => {
 
 ## 优点
 
-- **更简洁的代码：** 减少事件监听器的数量，提高代码可读性和可维护性。
-- **高效的事件处理：** 通过附加更少的监听器，最大限度地减少性能开销。
-- **灵活性：** 允许处理子元素上发生的事件，而无需直接将监听器附加到它们。
+* **更简洁的代码：** 减少事件监听器的数量，提高代码可读性和可维护性。
+* **高效的事件处理：** 通过附加更少的监听器，最大限度地减少性能开销。
+* **灵活性：** 允许处理子元素上发生的事件，而无需直接将监听器附加到它们。
 
 ## 陷阱
 
-- **意外的事件处理：** 请注意，父元素可能会无意中捕获子元素发生的事件。使用 `event.target` 来识别触发事件的特定元素。
-- **事件顺序：** 事件以特定顺序冒泡。如果多个父元素有事件监听器，它们的执行顺序取决于 DOM 层次结构。
-- **过度委托：** 虽然将事件委托给公共祖先是有效的，但在 DOM 树中附加一个过高的监听器可能会捕获意外的事件。
+* **意外的事件处理：** 请注意，父元素可能会无意中捕获子元素发生的事件。使用 `event.target` 来识别触发事件的特定元素。
+* **事件顺序：** 事件以特定顺序冒泡。如果多个父元素有事件监听器，它们的执行顺序取决于 DOM 层次结构。
+* **过度委托：** 虽然将事件委托给公共祖先是有效的，但在 DOM 树中附加一个过高的监听器可能会捕获意外的事件。
 
 ## 用例
 
@@ -217,6 +217,6 @@ function handleAccordionClick(event) {
 
 ## 延伸阅读
 
-- [MDN Web Docs on Event Bubbling](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_bubbling)
-- [JavaScript.info - Bubbling and Capturing](https://javascript.info/bubbling-and-capturing)
-- [W3C DOM Level 3 Events Specification](https://www.w3.org/TR/DOM-Level-3-Events/#event-flow)
+* [MDN Web Docs on Event Bubbling](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_bubbling)
+* [JavaScript.info - Bubbling and Capturing](https://javascript.info/bubbling-and-capturing)
+* [W3C DOM Level 3 Events Specification](https://www.w3.org/TR/DOM-Level-3-Events/#event-flow)

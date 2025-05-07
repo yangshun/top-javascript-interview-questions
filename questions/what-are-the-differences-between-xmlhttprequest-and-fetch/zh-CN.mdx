@@ -223,8 +223,8 @@ xhr.upload.onprogress = (event) => {
 
 分配给 `onprogress` 的回调函数会传递一个 [`ProgressEvent`](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/progress_event):
 
-* `ProgressEvent` 上的 `loaded` 字段是一个 64 位整数，指示底层进程已执行的工作量（已上传/下载的字节数）。
-* `ProgressEvent` 上的 `total` 字段是一个 64 位整数，表示底层进程正在执行的总工作量。 下载资源时，这是 HTTP 请求的 `Content-Length` 值。
+* `ProgressEvent`上的`loaded`字段是一个64位整数，表示底层进程已经完成的工作量（已上传/下载的字节数）。
+* `ProgressEvent`上的`total`字段是一个64位整数，表示底层进程正在执行的总工作量。下载资源时，这是HTTP响应的`Content-Length`值。
 
 另一方面，`fetch()` API 并没有提供任何方便的方法来跟踪上传进度。 它可以实现为监视 `Response` 对象的 `body` 作为 `Content-Length` 标头的分数，但这非常复杂。
 

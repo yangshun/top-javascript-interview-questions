@@ -58,28 +58,33 @@ fetchData(); // Error fetching data: ....
 如果您有多个异步操作，则可以嵌套 `try...catch` 块以处理不同级别的错误。
 
 ```js live
-async function fetchData() {
+async function fetchUser() {
+  // Simulate a successful async operation
+  return { id: 1, name: 'Alice' };
+}
+
+async function fetchUserPosts() {
+  // Simulate a failed async operation
+  throw new Error('Failed to fetch posts');
+}
+
+async function loadUserData() {
   try {
-    // Invalid URl
-    const response = await fetch('https://api.example.com/data');
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.error('Error fetching data:', error);
+    const user = await fetchUser();
+    console.log('User:', user);
+
+    try {
+      const posts = await fetchUserPosts();
+      console.log('Posts:', posts);
+    } catch (postsError) {
+      console.error('Error fetching posts:', postsError.message);
+    }
+  } catch (userError) {
+    console.error('Error fetching user:', userError.message);
   }
 }
 
-async function processData() {
-  try {
-    await fetchData();
-    // Additional processing
-    console.log(arr); // Trying to reference an undefined variable will throw an error
-  } catch (error) {
-    console.error('Error processing data:', error);
-  }
-}
-
-processData();
+loadUserData();
 ```
 
 ## 使用 `.catch()` 和 Promises
