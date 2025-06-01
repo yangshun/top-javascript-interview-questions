@@ -151,7 +151,7 @@ productList.addEventListener('click', handleBuyClick);
 function handleBuyClick(event) {
   // Check if the clicked element is a button within the list
   if (event.target.tagName.toLowerCase() === 'button') {
-    console.log('Buy button clicked for item:', event.target.textContent);
+    console.log('Buy button clicked for item:', event.target.id);
   }
 }
 ```
