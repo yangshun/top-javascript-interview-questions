@@ -66,7 +66,7 @@ async function processQuestion(
     titleSlug: slug(title),
     content: tlDrPart
       // Replace relative links with absolute links.
-      .replace('](/', '](https://greatfrontend.com/')
+      .replace('](/', '](https://www.greatfrontend.com/')
       .trim(),
   };
 }
@@ -143,7 +143,7 @@ ${qn.content
     ${
       onGFE
         ? `
-> Read the [detailed answer](${qn.href}) on [GreatFrontEnd](https://greatfrontend.com/) which allows progress tracking, contains more code samples, and useful resources.
+> Read the [detailed answer](${qn.href}) on [GreatFrontEnd](https://www.greatfrontend.com?gnrs=github) which allows progress tracking, contains more code samples, and useful resources.
 `
         : ''
     }
